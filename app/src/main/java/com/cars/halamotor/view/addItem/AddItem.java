@@ -8,31 +8,48 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.Functions;
 
 public class AddItem extends AppCompatActivity {
 
+    RelativeLayout cancelRL;
+    TextView insertAddTV;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
 
         statusBarColor();
-       // getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
-
+        inti();
+        changeFontType();
+        actionListener();
 
     }
 
+    private void actionListener() {
+        cancelRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+    }
+
+    private void changeFontType() {
+        insertAddTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+    }
+
+    private void inti() {
+        cancelRL = (RelativeLayout) findViewById(R.id.add_activity_cancelRL);
+        insertAddTV = (TextView) findViewById(R.id.add_activity_insert_titleTV);
+    }
+
     private void statusBarColor() {
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-//            Window window = this.getWindow();
-//            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-//            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-//            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorWhite));
-//        }
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+       getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
 
     }
 
