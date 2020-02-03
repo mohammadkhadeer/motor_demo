@@ -51,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     private String[] bbtArrStr = {"homeBBT", "messagesBBT", "notificationsBBT", "addItemBBT", "profileBBT"};
     String lastFragmentStr;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
         statusBarColor();
         inti();
+
         changeAppNameFontType();
         changeGeneralFontType();
         BottomBarMenu();
@@ -228,7 +231,6 @@ public class MainActivity extends AppCompatActivity {
     private void keepItPressed(BottomBarTab bbt) {
         //bbt.performClick();
          bbt.callOnClick();
-         bbt.removeBadge();
 
     }
 
@@ -245,5 +247,10 @@ public class MainActivity extends AppCompatActivity {
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
         }
+    }
+
+    @Override
+    public void onBackPressed(){
+        mListener.onActivityBackPressed();
     }
 }
