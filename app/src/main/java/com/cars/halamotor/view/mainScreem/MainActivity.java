@@ -20,6 +20,7 @@ import android.widget.Toast;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.addItem.AddItem;
+import com.cars.halamotor.view.addItem.CustomGalleryActivity;
 import com.cars.halamotor.view.fragmentHomeMainScreen.FragmentHomeScreen;
 import com.cars.halamotor.view.fragmentHomeMainScreen.FragmentMessage;
 import com.cars.halamotor.view.fragmentHomeMainScreen.FragmentNotification;
@@ -249,8 +250,4 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onBackPressed(){
-        mListener.onActivityBackPressed();
-    }
 }

@@ -10,7 +10,7 @@ import android.widget.Toast;
 import com.cars.halamotor.R;
 import com.cars.halamotor.view.mainScreem.MainActivity;
 
-public class FragmentHomeScreen extends Fragment implements MainActivity.OnBackPressedListener{
+public class FragmentHomeScreen extends Fragment {
 
     public FragmentHomeScreen(){}
 
@@ -22,10 +22,5 @@ public class FragmentHomeScreen extends Fragment implements MainActivity.OnBackP
         return view;
     }
 
-    @Override
-    public void onActivityBackPressed() {
-        Toast.makeText(getActivity(), "Back pressed", Toast.LENGTH_SHORT).show();
-
-    }
 
 }

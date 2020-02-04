@@ -121,21 +121,67 @@
             android:layout_marginTop="60dp"
             android:layout_marginBottom="50dp">
 
-            <LinearLayout
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:layout_marginLeft="16dp"
-                android:layout_marginStart="16dp">
+                android:layout_height="match_parent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:background="@drawable/upload_video_bg">
+
+                    </RelativeLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="135dp"
+                    android:layout_marginLeft="16dp"
+                    android:layout_marginStart="16dp">
+
+                    <RelativeLayout
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:id="@+id/add_activity_selectIFG_RL"
+                        android:background="@drawable/upload_photo_bg">
+
+
+                    </RelativeLayout>
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/add_activity_view_selected_image_RV"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginStart="20dp"
+                        />
+
+
+                </LinearLayout>
+
 
                 <RelativeLayout
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
-                    android:background="@drawable/upload_video_bg">
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="270dp">
+
+
 
                 </RelativeLayout>
 
-            </LinearLayout>
+            </RelativeLayout>
 
 
         </ScrollView>
