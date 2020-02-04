@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="@color/bg_light_blue"
     android:orientation="vertical">
 
@@ -39,15 +38,17 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="5dp">
+        >
 
         <Button
             android:id="@+id/btnGalleryOk"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/c"
-            android:text="OK" />
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_alignParentBottom="true"
+            android:textSize="18dp"
+            android:textColor="@color/colorWhite"
+            android:background="@drawable/next_button_bg"
+            android:text="@string/next" />
     </LinearLayout>
 
 </LinearLayout>

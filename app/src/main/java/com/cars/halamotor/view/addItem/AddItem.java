@@ -53,7 +53,8 @@ import static java.security.AccessController.getContext;
 
 public class AddItem extends AppCompatActivity {
 
-    RelativeLayout cancelRL,selectImageFGRL,selectVideoRL;
+    RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
+            ,cancelVideoRL;
     TextView insertAddTV;
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
@@ -66,6 +67,7 @@ public class AddItem extends AppCompatActivity {
     ArrayList<String> imagePathArrL = new ArrayList<String>();
     RecyclerView.LayoutManager layoutManager;
     static int selectVideoOrNotYet = 0;
+    Uri mVideoURI;
 
 
     @Override
@@ -85,6 +87,7 @@ public class AddItem extends AppCompatActivity {
 
     private void hideVideoShowBeforeSelected() {
         viewVideoSelected.setVisibility(View.GONE);
+        coverVideoViewRL.setVisibility(View.GONE);
     }
 
     public void initImageLoader() {
@@ -118,6 +121,15 @@ public class AddItem extends AppCompatActivity {
                 }
             }
         });
+
+        cancelVideoRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                coverVideoViewRL.setVisibility(View.GONE);
+                selectVideoOrNotYet = 0;
+                mVideoURI = null;
+            }
+        });
     }
 
     @Override
@@ -146,7 +158,9 @@ public class AddItem extends AppCompatActivity {
         insertAddTV = (TextView) findViewById(R.id.add_activity_insert_titleTV);
         selectImageFGRL = (RelativeLayout) findViewById(R.id.add_activity_selectIFG_RL);
         selectVideoRL = (RelativeLayout) findViewById(R.id.add_activity_select_videoRL);
+        coverVideoViewRL = (RelativeLayout) findViewById(R.id.add_activity_cover_show_video);
         viewVideoSelected = (VideoView) findViewById(R.id.add_activity_show_video);
+        cancelVideoRL = (RelativeLayout) findViewById(R.id.add_activity_cancel_videoRL);
     }
 
     private void statusBarColor() {
@@ -172,7 +186,8 @@ public class AddItem extends AppCompatActivity {
     private void showSelectedVideo(Intent data) {
         // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getData());
         viewVideoSelected.setVisibility(View.VISIBLE);
-        Uri mVideoURI  = data.getData();
+        coverVideoViewRL.setVisibility(View.VISIBLE);
+        mVideoURI  = data.getData();
         viewVideoSelected.setVideoURI(mVideoURI);
 
         viewVideoSelected.requestFocus();

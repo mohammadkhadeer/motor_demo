@@ -14,20 +14,26 @@
         android:background="@drawable/search_background"
         android:layout_margin="0dp">
 
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="85dp"
-            android:id="@+id/adapter_view_s_delete_imageBtn">
-
-        </Button>
-
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_margin="1dp"
             android:id="@+id/selected_image_IV"/>
 
+        <RelativeLayout
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_marginStart="90dp"
+            android:layout_marginTop="4dp"
+            android:id="@+id/adapter_view_s_delete_imageRL"
+            android:background="@drawable/circl_bg">
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:background="@mipmap/ic_cansel"/>
+        </RelativeLayout>
 
     </RelativeLayout>
 

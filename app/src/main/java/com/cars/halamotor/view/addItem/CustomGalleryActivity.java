@@ -86,7 +86,6 @@ public class CustomGalleryActivity extends BaseActivity {
     }
 
     private void init() {
-
         handler = new Handler();
         imgNoMedia.setVisibility(View.GONE);
         recyclerView.setLayoutManager(new GridLayoutManager(getApplicationContext(), 3));

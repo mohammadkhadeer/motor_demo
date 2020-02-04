@@ -55,7 +55,7 @@ public class SelectedImageAdapter extends RecyclerView.Adapter<SelectedImageAdap
     }
 
     private void deleteImageActionListener(Context context, ViewHolder holder, final int position) {
-        holder.deleteImageBtn.setOnClickListener(new View.OnClickListener() {
+        holder.deletePhotoRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 removeAt(position);
@@ -83,12 +83,12 @@ public class SelectedImageAdapter extends RecyclerView.Adapter<SelectedImageAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        Button deleteImageBtn;
+        RelativeLayout deletePhotoRL;
 
         public ViewHolder(View itemView) {
             super(itemView);
             imageView = (ImageView) itemView.findViewById(R.id.selected_image_IV) ;
-            deleteImageBtn = (Button) itemView.findViewById(R.id.adapter_view_s_delete_imageBtn) ;
+            deletePhotoRL = (RelativeLayout) itemView.findViewById(R.id.adapter_view_s_delete_imageRL) ;
 
         }
     }
