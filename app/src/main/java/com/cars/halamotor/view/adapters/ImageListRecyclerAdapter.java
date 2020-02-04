@@ -2,10 +2,12 @@ package com.cars.halamotor.view.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CustomGallery;
@@ -86,12 +88,20 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
 
     public void changeSelection(VerticalItemHolder v, int position) {
 
-        if (mItems.get(position).isSeleted) {
-            mItems.get(position).isSeleted = false;
-        } else {
-            mItems.get(position).isSeleted = true;
+        if (getSelected().size() > 4)
+        {
+            Log.i("TAG","MAX number of image");
+                mItems.get(position).isSeleted = false;
+
+        }else {
+            Log.i("TAG", String.valueOf(mItems.size()));
+            if (mItems.get(position).isSeleted) {
+                mItems.get(position).isSeleted = false;
+            } else {
+                mItems.get(position).isSeleted = true;
+            }
+            v.imgQueueMultiSelected.setSelected(mItems.get(position).isSeleted);
         }
-        v.imgQueueMultiSelected.setSelected(mItems.get(position).isSeleted);
         //((ImageListRecyclerAdapter.VerticalItemHolder) v.getTag()).imgQueueMultiSelected.setSelected(mItems.get(position).isSeleted);
     }
 

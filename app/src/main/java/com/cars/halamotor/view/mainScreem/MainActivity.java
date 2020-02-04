@@ -188,7 +188,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void checkWhatIsLastFragmentAndKeepItOn() {
-        Log.i("TAG",lastFragmentStr);
         switch (lastFragmentStr) {
             case "fragmentHome":
                 fm.beginTransaction().hide(active).show(fragmentHome).commit();

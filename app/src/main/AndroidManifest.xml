@@ -32,6 +32,7 @@
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
                 <action android:name="luminous.ACTION_MULTIPLE_PICK" />
+                <action android:name="luminous.PICK_VIDEO_GALLERY" />
 
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>

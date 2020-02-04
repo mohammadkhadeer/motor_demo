@@ -13,9 +13,8 @@ import com.cars.halamotor.view.addItem.AddItem;
 public class CheckPermission {
 
     private static final int PICK_FROM_GALLERY = 1;
-    private static int RESULT_LOAD_IMAGE = 1;
 
-    public static boolean checkPermissionMethod(Activity activity) {
+    public static boolean checkPermissionMethodToSelectPhoto(Activity activity) {
 
         try {
             if (ActivityCompat.checkSelfPermission(activity,
@@ -23,14 +22,17 @@ public class CheckPermission {
                 ActivityCompat.requestPermissions(activity
                         , new String[]{Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE}
                         , PICK_FROM_GALLERY);
-            } else {
 
+                return false;
+            } else {
+                return true;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
+
 
 }
 

@@ -135,10 +135,19 @@
                     <RelativeLayout
                         android:layout_width="120dp"
                         android:layout_height="120dp"
+                        android:id="@+id/add_activity_select_videoRL"
                         android:background="@drawable/upload_video_bg">
 
                     </RelativeLayout>
 
+                    <VideoView
+                        android:layout_width="120dp"
+                        android:layout_height="120dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginStart="10dp"
+                        android:id="@+id/add_activity_show_video">
+
+                    </VideoView>
 
 
                 </LinearLayout>
@@ -165,7 +174,7 @@
                         android:layout_height="wrap_content"
                         android:id="@+id/add_activity_view_selected_image_RV"
                         android:layout_marginLeft="20dp"
-                        android:layout_marginStart="20dp"
+                        android:layout_marginStart="0dp"
                         />
 
 
