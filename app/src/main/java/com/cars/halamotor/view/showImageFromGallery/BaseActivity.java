@@ -1,4 +1,4 @@
-package com.cars.halamotor.view.addItem;
+package com.cars.halamotor.view.showImageFromGallery;
 
 import android.support.v7.app.AppCompatActivity;
 

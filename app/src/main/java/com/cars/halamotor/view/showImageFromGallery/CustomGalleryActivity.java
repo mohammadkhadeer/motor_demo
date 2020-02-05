@@ -1,7 +1,7 @@
-package com.cars.halamotor.view.activity;
+package com.cars.halamotor.view.showImageFromGallery;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.utils.Utils;
-import com.cars.halamotor.view.addItem.BaseActivity;
+import com.cars.halamotor.view.showImageFromGallery.BaseActivity;
 
 import android.content.Intent;
 import android.database.Cursor;
