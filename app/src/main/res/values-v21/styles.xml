@@ -24,7 +24,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
-
+    <style name="RadioButtonStyle" parent="AppTheme">
+        <item name="colorControlNormal">#4C7CD1</item>
+        <item name="colorAccent">#233570</item>
+        <item name="android:textColorSecondary">#233570</item>
+    </style>
 
 
 

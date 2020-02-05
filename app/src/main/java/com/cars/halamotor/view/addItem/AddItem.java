@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.BitmapFactory;
@@ -22,6 +23,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -30,15 +32,18 @@ import android.widget.ImageView;
 import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.VideoView;
 import android.widget.ViewSwitcher;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CustomGallery;
 import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.utils.Utils;
+import com.cars.halamotor.view.adapters.AdapterSelectCategory;
 import com.cars.halamotor.view.adapters.ImageListRecyclerAdapter;
 import com.cars.halamotor.view.adapters.SelectedImageAdapter;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -48,41 +53,84 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 import static com.cars.halamotor.utils.Utils.getRealPathFromUri;
 import static java.security.AccessController.getContext;
 
 public class AddItem extends AppCompatActivity {
 
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
-            ,cancelVideoRL;
-    TextView insertAddTV;
+            ,cancelVideoRL,viewSelectedCategoryRL,cancelSelectedCategoryRL;
+    TextView insertAddTV,textTitleTV,categorySelectedNameTV;
+    RecyclerView viewSelectedImageRV,selectCategoryRV;
+    VideoView viewVideoSelected;
+    ImageView imageCategorySelectedIV;
+
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
-    VideoView viewVideoSelected;
 
     ImageLoader imageLoader;
 
-    RecyclerView viewSelectedImageRV;
     SelectedImageAdapter selectedImageAdapter;
-    ArrayList<String> imagePathArrL = new ArrayList<String>();
-    RecyclerView.LayoutManager layoutManager;
-    static int selectVideoOrNotYet = 0;
-    Uri mVideoURI;
+    AdapterSelectCategory adapterSelectCategory;
 
+    ArrayList<String> imagePathArrL = new ArrayList<String>();
+    public ArrayList<CategoryComp> categoryCompsArrayL ;
+
+    RecyclerView.LayoutManager layoutManager,layoutManagerCategory;
+    static int selectVideoOrNotYet = 0;
+
+    Uri mVideoURI;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
-
         ButterKnife.bind(this);
+
         statusBarColor();
         inti();
         hideVideoShowBeforeSelected();
         initImageLoader();
         changeFontType();
         actionListener();
+        careateSelectCategoryRV();
+        showSelectedCategoryAfterUserChoose();
+    }
 
+    private void showSelectedCategoryAfterUserChoose() {
+        selectCategoryRV.addOnItemTouchListener(
+                new AdapterSelectCategory.RecyclerItemClickListener(AddItem.this, selectCategoryRV ,new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
+                    @Override public void onItemClick(View view, int position) {
+                        Log.i("TAG ACTIVITY",categoryCompsArrayL.get(position).getCategoryNameStr());
+                        goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
+                    }
+
+                    @Override public void onLongItemClick(View view, int position) {
+                        // do whatever
+                    }
+                })
+        );
+    }
+
+    private void goneRVAndVisableSelectedCategoryAndFillSelectedInfo(int position) {
+        viewSelectedCategoryRL.setVisibility(View.VISIBLE);
+        selectCategoryRV.setVisibility(View.GONE);
+        imageCategorySelectedIV.setBackgroundResource(categoryCompsArrayL.get(position).getImageIdInt());
+        categorySelectedNameTV.setText(categoryCompsArrayL.get(position).getCategoryNameStr());
+        textTitleTV.setText(getResources().getText(R.string.process_now));
+    }
+
+    private void careateSelectCategoryRV() {
+        categoryCompsArrayL = fillCategoryArrayList(categoryCompsArrayL,getApplicationContext());
+        selectCategoryRV.setNestedScrollingEnabled(false);
+        selectCategoryRV.setHasFixedSize(true);
+        layoutManagerCategory = new LinearLayoutManager(AddItem.this,
+                LinearLayoutManager.HORIZONTAL, false);
+        selectCategoryRV.setLayoutManager(layoutManagerCategory);
+        adapterSelectCategory =new AdapterSelectCategory(AddItem.this
+                ,categoryCompsArrayL);
+        selectCategoryRV.setAdapter(adapterSelectCategory);
     }
 
     private void hideVideoShowBeforeSelected() {
@@ -130,6 +178,15 @@ public class AddItem extends AppCompatActivity {
                 mVideoURI = null;
             }
         });
+
+        cancelSelectedCategoryRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewSelectedCategoryRL.setVisibility(View.GONE);
+                selectCategoryRV.setVisibility(View.VISIBLE);
+                textTitleTV.setText(getResources().getText(R.string.what_do));
+            }
+        });
     }
 
     @Override
@@ -150,17 +207,25 @@ public class AddItem extends AppCompatActivity {
 
     private void changeFontType() {
         insertAddTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+        textTitleTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+        categorySelectedNameTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
     }
 
     private void inti() {
         viewSelectedImageRV = (RecyclerView) findViewById(R.id.add_activity_view_selected_image_RV);
+        selectCategoryRV = (RecyclerView) findViewById(R.id.add_activity_view_select_category_RV);
         cancelRL = (RelativeLayout) findViewById(R.id.add_activity_cancelRL);
+        textTitleTV = (TextView) findViewById(R.id.add_activity_titleTV);
         insertAddTV = (TextView) findViewById(R.id.add_activity_insert_titleTV);
+        categorySelectedNameTV = (TextView) findViewById(R.id.add_activity_view_select_category_from_RV_TV);
         selectImageFGRL = (RelativeLayout) findViewById(R.id.add_activity_selectIFG_RL);
         selectVideoRL = (RelativeLayout) findViewById(R.id.add_activity_select_videoRL);
         coverVideoViewRL = (RelativeLayout) findViewById(R.id.add_activity_cover_show_video);
         viewVideoSelected = (VideoView) findViewById(R.id.add_activity_show_video);
         cancelVideoRL = (RelativeLayout) findViewById(R.id.add_activity_cancel_videoRL);
+        viewSelectedCategoryRL = (RelativeLayout) findViewById(R.id.add_activity_view_select_category_from_RV);
+        cancelSelectedCategoryRL = (RelativeLayout) findViewById(R.id.add_activity_view_select_category_from_RV_delete);
+        imageCategorySelectedIV = (ImageView) findViewById(R.id.add_activity_view_select_category_from_RV_IV);
     }
 
     private void statusBarColor() {

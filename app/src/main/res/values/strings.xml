@@ -8,8 +8,19 @@
     <string name="tab_profile">Profile</string>
     <string name="search">Search on hala motor</string>
     <string name="insert">Insert an Ad</string>
+    <string name="car_for_sale">Car for sale</string>
+    <string name="exchange_car">Exchange car</string>
+    <string name="car_for_rent">Car for rent</string>
+    <string name="motorcycle">Motorcycle</string>
+    <string name="car_plates">Car plates</string>
+    <string name="accessories">Accessories</string>
+    <string name="wheels_rim">Wheels rim</string>
+    <string name="trucks">Trucks</string>
+    <string name="junk_car">Junk car</string>
     <string name="next">Next</string>
+    <string name="what_do">What do you want to do ?</string>
     <string name="upload_ad">Save and insert the add</string>
+    <string name="process_now">Process now is</string>
 
 
 </resources>
