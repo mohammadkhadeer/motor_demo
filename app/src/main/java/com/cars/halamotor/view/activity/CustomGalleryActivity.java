@@ -1,4 +1,4 @@
-package com.cars.halamotor.view.addItem;
+package com.cars.halamotor.view.activity;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.utils.Utils;
 import com.cars.halamotor.view.addItem.BaseActivity;

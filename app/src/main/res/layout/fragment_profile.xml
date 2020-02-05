@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/profile_fragment"
-    tools:context=".view.fragmentHomeMainScreen.FragmentProfile">
+    tools:context=".view.fragments.FragmentProfile">
 
     <RelativeLayout android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -18,9 +18,9 @@
         android:theme="@style/AppTheme">
         <activity android:name=".view.addItem.SelectCategory" />
         <activity
-            android:name=".view.addItem.AddItem"
+            android:name=".view.activity.AddItem"
             android:theme="@style/AppTheme2" />
-        <activity android:name=".view.mainScreem.MainActivity">
+        <activity android:name=".view.activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.addItem.CustomGalleryActivity" >
+        <activity android:name=".view.activity.CustomGalleryActivity" >
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
                 <action android:name="luminous.ACTION_MULTIPLE_PICK" />

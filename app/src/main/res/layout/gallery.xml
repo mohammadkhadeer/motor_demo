@@ -47,7 +47,7 @@
             android:layout_alignParentBottom="true"
             android:textSize="18dp"
             android:textColor="@color/colorWhite"
-            android:background="@drawable/next_button_bg"
+            android:background="@drawable/upload_adv_bg"
             android:text="@string/next" />
     </LinearLayout>
 

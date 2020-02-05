@@ -1,10 +1,8 @@
-package com.cars.halamotor.view.mainScreem;
+package com.cars.halamotor.view.activity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.IdRes;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
@@ -15,16 +13,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
-import com.cars.halamotor.view.addItem.AddItem;
-import com.cars.halamotor.view.addItem.CustomGalleryActivity;
-import com.cars.halamotor.view.fragmentHomeMainScreen.FragmentHomeScreen;
-import com.cars.halamotor.view.fragmentHomeMainScreen.FragmentMessage;
-import com.cars.halamotor.view.fragmentHomeMainScreen.FragmentNotification;
-import com.cars.halamotor.view.fragmentHomeMainScreen.FragmentProfile;
+import com.cars.halamotor.view.fragments.FragmentHomeScreen;
+import com.cars.halamotor.view.fragments.FragmentMessage;
+import com.cars.halamotor.view.fragments.FragmentNotification;
+import com.cars.halamotor.view.fragments.FragmentProfile;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;

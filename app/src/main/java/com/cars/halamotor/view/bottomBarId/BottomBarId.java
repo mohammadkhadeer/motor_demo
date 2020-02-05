@@ -1,8 +1,8 @@
-package com.cars.halamotor.view.mainScreem;
+package com.cars.halamotor.view.bottomBarId;
 
 import com.cars.halamotor.R;
 
-class TabMessage {
+class BottomBarId {
     public static String get(int menuItemId, boolean isReselection) {
         String message = "Content for ";
 

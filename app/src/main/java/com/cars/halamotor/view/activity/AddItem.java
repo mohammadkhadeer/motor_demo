@@ -1,40 +1,24 @@
-package com.cars.halamotor.view.addItem;
+package com.cars.halamotor.view.activity;
 
-import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
-import android.database.Cursor;
-import android.graphics.BitmapFactory;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.net.Uri;
-import android.os.Build;
-import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.MotionEvent;
+import android.transition.Fade;
+import android.transition.Transition;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.VideoView;
-import android.widget.ViewSwitcher;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
@@ -44,27 +28,25 @@ import com.cars.halamotor.model.CustomGallery;
 import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.utils.Utils;
 import com.cars.halamotor.view.adapters.AdapterSelectCategory;
-import com.cars.halamotor.view.adapters.ImageListRecyclerAdapter;
 import com.cars.halamotor.view.adapters.SelectedImageAdapter;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
-import static com.cars.halamotor.utils.Utils.getRealPathFromUri;
-import static java.security.AccessController.getContext;
 
 public class AddItem extends AppCompatActivity {
 
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
-            ,cancelVideoRL,viewSelectedCategoryRL,cancelSelectedCategoryRL;
+            ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV;
     TextView insertAddTV,textTitleTV,categorySelectedNameTV;
     RecyclerView viewSelectedImageRV,selectCategoryRV;
     VideoView viewVideoSelected;
     ImageView imageCategorySelectedIV;
+
+    CardView viewSelectedCategoryCV;
 
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
@@ -96,13 +78,13 @@ public class AddItem extends AppCompatActivity {
         actionListener();
         careateSelectCategoryRV();
         showSelectedCategoryAfterUserChoose();
+
     }
 
     private void showSelectedCategoryAfterUserChoose() {
         selectCategoryRV.addOnItemTouchListener(
                 new AdapterSelectCategory.RecyclerItemClickListener(AddItem.this, selectCategoryRV ,new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
-                        Log.i("TAG ACTIVITY",categoryCompsArrayL.get(position).getCategoryNameStr());
                         goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
                     }
 
@@ -114,7 +96,7 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void goneRVAndVisableSelectedCategoryAndFillSelectedInfo(int position) {
-        viewSelectedCategoryRL.setVisibility(View.VISIBLE);
+        viewSelectedCategoryCV.setVisibility(View.VISIBLE);
         selectCategoryRV.setVisibility(View.GONE);
         imageCategorySelectedIV.setBackgroundResource(categoryCompsArrayL.get(position).getImageIdInt());
         categorySelectedNameTV.setText(categoryCompsArrayL.get(position).getCategoryNameStr());
@@ -182,9 +164,18 @@ public class AddItem extends AppCompatActivity {
         cancelSelectedCategoryRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewSelectedCategoryRL.setVisibility(View.GONE);
+                viewSelectedCategoryCV.setVisibility(View.GONE);
                 selectCategoryRV.setVisibility(View.VISIBLE);
                 textTitleTV.setText(getResources().getText(R.string.what_do));
+            }
+        });
+
+        add_activity_complete_car_dCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Transition fade = new Fade();
+                fade.excludeTarget(android.R.id.statusBarBackground, true);
+                 getWindow().setExitTransition(fade);
             }
         });
     }
@@ -223,7 +214,8 @@ public class AddItem extends AppCompatActivity {
         coverVideoViewRL = (RelativeLayout) findViewById(R.id.add_activity_cover_show_video);
         viewVideoSelected = (VideoView) findViewById(R.id.add_activity_show_video);
         cancelVideoRL = (RelativeLayout) findViewById(R.id.add_activity_cancel_videoRL);
-        viewSelectedCategoryRL = (RelativeLayout) findViewById(R.id.add_activity_view_select_category_from_RV);
+        viewSelectedCategoryCV = (CardView) findViewById(R.id.add_activity_view_select_category_from_RV);
+        add_activity_complete_car_dCV = (RelativeLayout) findViewById(R.id.add_activity_complete_car_dCV);
         cancelSelectedCategoryRL = (RelativeLayout) findViewById(R.id.add_activity_view_select_category_from_RV_delete);
         imageCategorySelectedIV = (ImageView) findViewById(R.id.add_activity_view_select_category_from_RV_IV);
     }

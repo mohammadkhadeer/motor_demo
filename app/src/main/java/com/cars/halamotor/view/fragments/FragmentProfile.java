@@ -1,4 +1,4 @@
-package com.cars.halamotor.view.fragmentHomeMainScreen;
+package com.cars.halamotor.view.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;

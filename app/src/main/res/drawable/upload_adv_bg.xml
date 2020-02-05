@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-
     <item
-        android:state_pressed="true">
+        android:state_pressed="true"
+        >
 
 
         <shape
@@ -11,13 +11,13 @@
 
             <!-- view background color -->
             <solid
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorGreen2" >
             </solid>
 
             <!-- view border color and width -->
             <stroke
                 android:width="0.2dp"
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorGreen2" >
             </stroke>
 
             <!-- text color and type -->
@@ -32,14 +32,15 @@
 
             <!-- Here is the corner radius -->
             <corners
-                android:radius="12dp"
-                android:color="@color/colorBlue2" >
+                android:radius="0dp"
+                android:color="@color/colorGreen2" >
             </corners>
 
         </shape>
 
 
     </item><!-- pressed -->
+
     <item
         android:state_focused="true"
         >
@@ -50,13 +51,13 @@
 
             <!-- view background color -->
             <solid
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorGreen2" >
             </solid>
 
             <!-- view border color and width -->
             <stroke
                 android:width="0.2dp"
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorGreen2" >
             </stroke>
 
             <!-- text color and type -->
@@ -71,8 +72,8 @@
 
             <!-- Here is the corner radius -->
             <corners
-                android:radius="12dp"
-                android:color="@color/colorBlue2" >
+                android:radius="0dp"
+                android:color="@color/colorGreen2" >
             </corners>
 
         </shape>
@@ -81,19 +82,18 @@
     </item><!-- focused -->
 
     <item>
-
         <shape
             android:shape="rectangle">
 
             <!-- view background color -->
             <solid
-                android:color="@color/colorBlue3" >
+                android:color="@color/colorGreen3" >
             </solid>
 
             <!-- view border color and width -->
             <stroke
                 android:width="0.2dp"
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorGreen2" >
             </stroke>
 
             <!-- text color and type -->
@@ -108,8 +108,8 @@
 
             <!-- Here is the corner radius -->
             <corners
-                android:radius="12dp"
-                android:color="@color/colorBlue2" >
+                android:radius="0dp"
+                android:color="@color/colorGreen2" >
             </corners>
 
         </shape>
