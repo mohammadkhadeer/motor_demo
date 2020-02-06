@@ -29,5 +29,9 @@
         <item name="android:textColorSecondary">#233570</item>
     </style>
 
+    <style name="HintText" parent="TextAppearance.Design.Hint">
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColor">@color/colorBlue2</item>
+    </style>
 
 </resources>

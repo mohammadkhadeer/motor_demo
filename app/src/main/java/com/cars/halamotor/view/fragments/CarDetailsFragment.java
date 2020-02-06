@@ -13,15 +13,12 @@ import java.util.ArrayList;
 
 public class CarDetailsFragment extends Fragment {
 
-    public CarDetailsFragment(){}
-
     public ArrayList<CarDetails> carDetailsArrayList ;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_car_details_fragment, container, false);
-
+        View view = inflater.inflate(R.layout.fragment_car_details, container, false);
 
         return view;
     }

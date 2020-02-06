@@ -23,7 +23,7 @@
     <string name="what_do">What do you want to do \?</string>
     <string name="complete_car_details">Complete car details</string>
     <string name="upload_ad">Save and insert the add</string>
-    <string name="process_now">You well sale </string>
+    <string name="process_now">You well do </string>
 
     <string name="category">Category</string>
     <string name="car_make">Car make</string>
@@ -38,5 +38,14 @@
     <string name="insurance">Insurance</string>
     <string name="color">Color</string>
     <string name="payment_method">Payment method</string>
+
+    <string name="price">Price</string>
+    <string name="price_contry">AED</string>
+
+    <string name="city">City</string>
+    <string name="phone_number">Phone number</string>
+
+    <string name="ad_product_title">Ad Title \(eg\: Range Rover\)</string>
+    <string name="ad_product_description">Ad Description \(Add more details\)</string>
 
 </resources>

@@ -125,14 +125,14 @@
                     android:layout_marginStart="16dp">
 
                     <RelativeLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/add_activity_select_videoRL"
                         android:background="@drawable/upload_video_bg">
 
                         <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:background="@drawable/upload_video_image">
@@ -143,27 +143,27 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="75dp"
+                            android:layout_marginTop="60dp"
                             android:text="@string/upload_video"
                             android:textColor="@color/colorWhite"
                             android:id="@+id/add_activity_upload_video_text_TV"
-                            android:textSize="17dp">
+                            android:textSize="16dp">
 
                         </TextView>
 
                     </RelativeLayout>
 
                     <RelativeLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_marginLeft="10dp"
                         android:background="@drawable/cover_video_cont"
                         android:id="@+id/add_activity_cover_show_video"
                         android:layout_marginStart="10dp">
 
                         <VideoView
-                            android:layout_width="120dp"
-                            android:layout_height="120dp"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
                             android:layout_margin="2dp"
                             android:id="@+id/add_activity_show_video">
 
@@ -172,7 +172,7 @@
                         <RelativeLayout
                             android:layout_width="25dp"
                             android:layout_height="25dp"
-                            android:layout_marginStart="90dp"
+                            android:layout_marginStart="70dp"
                             android:layout_marginTop="4dp"
                             android:id="@+id/add_activity_cancel_videoRL"
                             android:background="@drawable/circl_bg">
@@ -192,21 +192,21 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="120dp"
+                    android:layout_height="100dp"
                     android:orientation="horizontal"
-                    android:layout_marginTop="15dp"
+                    android:layout_marginTop="6dp"
                     android:layout_marginLeft="16dp"
                     android:layout_marginStart="16dp">
 
                     <RelativeLayout
-                        android:layout_width="120dp"
-                        android:layout_height="120dp"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:id="@+id/add_activity_selectIFG_RL"
                         android:background="@drawable/upload_photo_bg">
 
                         <ImageView
-                            android:layout_width="50dp"
-                            android:layout_height="50dp"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
                             android:layout_centerHorizontal="true"
                             android:layout_marginTop="20dp"
                             android:background="@drawable/upload_photo_image">
@@ -217,7 +217,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerHorizontal="true"
-                            android:layout_marginTop="75dp"
+                            android:layout_marginTop="60dp"
                             android:text="@string/upload_photo"
                             android:textColor="@color/colorWhite"
                             android:id="@+id/add_activity_upload_photo_text_TV"
@@ -241,7 +241,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:layout_marginTop="15dp">
+                    android:layout_marginTop="8dp">
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -250,14 +250,14 @@
                         android:id="@+id/add_activity_titleTV"
                         android:text="@string/what_do"
                         android:textColor="@color/colorBlack"
-                        android:textSize="22dp"
-                        android:layout_marginStart="8dp">
+                        android:textSize="20dp"
+                        android:layout_marginStart="16dp">
 
                     </TextView>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
-                        android:layout_height="115dp">
+                        android:layout_height="110dp">
 
                         <android.support.v7.widget.RecyclerView
                             android:layout_width="match_parent"
@@ -271,7 +271,7 @@
                         <android.support.v7.widget.CardView
                             android:layout_width="match_parent"
                             android:layout_height="100dp"
-                            android:layout_marginTop="10dp"
+                            android:layout_marginTop="3dp"
                             android:layout_marginLeft="12dp"
                             android:layout_marginRight="12dp"
                             android:visibility="gone"
@@ -349,9 +349,9 @@
                             android:layout_width="match_parent"
                             android:layout_height="50dp"
                             android:layout_marginTop="10dp"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_marginBottom="5dp"
+                            android:layout_marginLeft="12dp"
+                            android:layout_marginRight="12dp"
+                            android:layout_marginBottom="3dp"
                             android:visibility="visible"
                             >
 
@@ -390,7 +390,6 @@
                         <RelativeLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:id="@+id/add_activity_car_detailsRL"
                             android:layout_marginTop="4dp"
                             android:visibility="gone"
                             >
@@ -398,7 +397,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:name="com.cars.halamotor.view.fragments.CarDetailsFragment"
-                                tools:layout="@layout/fragment_car_details_fragment"
+                                tools:layout="@layout/fragment_car_details"
                                 android:id="@+id/car_details_fragment"
                                 />
 
@@ -411,8 +410,25 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="150dp"
-                    android:layout_marginTop="4dp">
+                    android:layout_height="wrap_content"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:id="@+id/add_activity_car_detailsRL"
+                        android:layout_marginTop="4dp"
+                        android:visibility="visible"
+                        >
+                        <fragment
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:name="com.cars.halamotor.view.fragments.TitleDescriptionPriceAndCityFragment"
+                            tools:layout="@layout/fragment_title_description_price_and_city"
+                            android:id="@+id/titleDescriptions"
+                            />
+
+                    </RelativeLayout>
 
 
                 </LinearLayout>

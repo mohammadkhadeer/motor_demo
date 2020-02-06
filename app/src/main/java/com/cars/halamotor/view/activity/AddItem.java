@@ -158,6 +158,7 @@ public class AddItem extends AppCompatActivity {
                 coverVideoViewRL.setVisibility(View.GONE);
                 selectVideoOrNotYet = 0;
                 mVideoURI = null;
+                viewVideoSelected.stopPlayback();
             }
         });
 
