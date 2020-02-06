@@ -25,5 +25,18 @@
     <string name="upload_ad">Save and insert the add</string>
     <string name="process_now">Process now is</string>
 
+    <string name="category">Category</string>
+    <string name="car_make">Car make</string>
+    <string name="model">Model</string>
+    <string name="year">Year</string>
+    <string name="condition">Condition</string>
+    <string name="kilometers">Kilometers</string>
+    <string name="transmission">Transmission</string>
+    <string name="fuel">Fuel</string>
+    <string name="car_options">Car options</string>
+    <string name="car_license">Car License</string>
+    <string name="insurance">Insurance</string>
+    <string name="color">Color</string>
+    <string name="payment_method">Payment method</string>
 
 </resources>
