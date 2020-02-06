@@ -20,10 +20,10 @@
     <string name="next">Next</string>
     <string name="upload_video">Add video</string>
     <string name="upload_photo">Add photo</string>
-    <string name="what_do">What do you want to do ?</string>
+    <string name="what_do">What do you want to do \?</string>
     <string name="complete_car_details">Complete car details</string>
     <string name="upload_ad">Save and insert the add</string>
-    <string name="process_now">Process now is</string>
+    <string name="process_now">You well sale </string>
 
     <string name="category">Category</string>
     <string name="car_make">Car make</string>

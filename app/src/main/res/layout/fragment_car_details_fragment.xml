@@ -1,22 +1,743 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/car_details_fragment"
     android:layout_height="match_parent"
     tools:context=".view.fragments.CarDetailsFragment">
 
-        <android.support.v7.widget.RecyclerView
+
+        <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/car_details_fragment_RV"
-            android:layout_marginLeft="4dp"
-            android:layout_marginRight="4dp"
-            android:visibility="visible"
-            />
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="4dp"
+            >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_category_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/category"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_category_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow1_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_car_makr_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/car_make"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_car_make_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow2_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_model_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/model"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_model_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow3_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_year_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/year"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_year_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow4_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_condition_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/condition"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_condition_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow5_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_kilometers_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/kilometers"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_kilometers_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow6_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_transmission_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/transmission"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_transmission_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow7_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_fuel_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/fuel"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_fuel_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow8_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_car_options_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/car_options"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_car_options_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow9_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_car_license_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/car_license"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_car_license_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow10_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_insurance_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/insurance"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_insurance_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow11_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_icolor_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/color"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_color_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow12_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_payment_method_RL"
+                            >
+                                <RelativeLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="@color/colorSilver3"/>
+
+                                <RelativeLayout
+                                    android:layout_width="320dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginBottom="4dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="12dp"
+                                    >
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textSize="13dp"
+                                            android:textColor="@color/colorSilver"
+                                            android:layout_marginTop="8dp"
+                                            android:text="@string/payment_method"/>
+
+                                        <TextView
+                                            android:layout_width="wrap_content"
+                                            android:layout_height="wrap_content"
+                                            android:layout_marginLeft="10dp"
+                                            android:layout_marginStart="8dp"
+                                            android:textColor="@color/colorBlack"
+                                            android:textSize="18dp"
+                                            android:layout_marginTop="28dp"
+                                            android:layout_marginBottom="4dp"
+                                            android:id="@+id/car_details_fragment_payment_method_TV"
+                                            android:text="@string/complete_car_details"/>
+
+                                </RelativeLayout>
+
+                                <ImageView
+                                    android:layout_width="12dp"
+                                    android:layout_height="12dp"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="360dp"
+                                    android:layout_centerVertical="true"
+                                    android:id="@+id/car_details_fragment_arrow13_IV"
+                                    android:src="@drawable/arrow"
+                                    />
+
+                        </RelativeLayout>
+
+                </LinearLayout>
 
 
-</android.support.v4.widget.NestedScrollView>
+
+        </android.support.v7.widget.CardView>
+
+
+</RelativeLayout>
 

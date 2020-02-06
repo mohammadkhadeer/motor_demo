@@ -47,7 +47,6 @@ public class Functions {
 
     public static ArrayList<CarDetails> fillCarDetailsArrayL(ArrayList<CarDetails> carDetailsArrayL, Context context) {
         carDetailsArrayL = new ArrayList<CarDetails>();
-        CategoryComp junkCarComp = new CategoryComp(R.drawable.junk_car,context.getResources().getString(R.string.junk_car));
         CarDetails carDetails1 = new CarDetails(context.getResources().getString(R.string.category),"test");
         CarDetails carDetails2 = new CarDetails(context.getResources().getString(R.string.car_make),"test");
         CarDetails carDetails3 = new CarDetails(context.getResources().getString(R.string.model),"test");
