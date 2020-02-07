@@ -3,6 +3,8 @@ package com.cars.halamotor.functions;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.transition.Fade;
+import android.transition.Transition;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarDetails;
@@ -18,6 +20,11 @@ public class Functions {
 
     public static Typeface changeFontGeneral(Context context) {
         Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "GE_DINAR_ONE_LIGHT.TTF");
+        return typeFace;
+    }
+
+    public static Typeface changeFontBold(Context context) {
+        Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "NTAILUB.TTF");
         return typeFace;
     }
 

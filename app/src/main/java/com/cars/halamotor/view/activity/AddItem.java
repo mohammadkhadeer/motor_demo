@@ -76,14 +76,16 @@ public class AddItem extends AppCompatActivity {
         initImageLoader();
         changeFontType();
         actionListener();
-        careateSelectCategoryRV();
-        showSelectedCategoryAfterUserChoose();
+        createSelectCategoryRV();
+        actionListenerToRVshowSelectedCategoryAfterUserChoose();
 
     }
 
-    private void showSelectedCategoryAfterUserChoose() {
+    private void actionListenerToRVshowSelectedCategoryAfterUserChoose() {
         selectCategoryRV.addOnItemTouchListener(
-                new AdapterSelectCategory.RecyclerItemClickListener(AddItem.this, selectCategoryRV ,new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
+                new AdapterSelectCategory.RecyclerItemClickListener
+                        (AddItem.this, selectCategoryRV ,
+                                new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
                     }
@@ -103,7 +105,7 @@ public class AddItem extends AppCompatActivity {
         textTitleTV.setText(getResources().getText(R.string.process_now));
     }
 
-    private void careateSelectCategoryRV() {
+    private void createSelectCategoryRV() {
         categoryCompsArrayL = fillCategoryArrayList(categoryCompsArrayL,getApplicationContext());
         selectCategoryRV.setNestedScrollingEnabled(false);
         selectCategoryRV.setHasFixedSize(true);
@@ -177,8 +179,16 @@ public class AddItem extends AppCompatActivity {
                 Transition fade = new Fade();
                 fade.excludeTarget(android.R.id.statusBarBackground, true);
                  getWindow().setExitTransition(fade);
+
+                moveToCarDetailsCar();
             }
         });
+    }
+
+    private void moveToCarDetailsCar() {
+        Intent intent = new Intent(AddItem.this, CarDetails.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     @Override

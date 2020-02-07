@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     final Fragment fragmentProfile = new FragmentProfile();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentHome;
+
     BottomBarTab homeBBT,messagesBBT, notificationsBBT, addItemBBT,profileBBT;
     private BottomBarTab[] bbtArr = {homeBBT, messagesBBT, notificationsBBT, addItemBBT, profileBBT};
     private String[] bbtArrStr = {"homeBBT", "messagesBBT", "notificationsBBT", "addItemBBT", "profileBBT"};

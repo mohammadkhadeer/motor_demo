@@ -216,7 +216,7 @@
                         <RelativeLayout
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight="0.1"
+                            android:layout_weight="0.5"
                             android:background="@color/colorSilver">
 
 
@@ -259,7 +259,7 @@
             android:layout_marginRight="12dp"
             android:layout_marginBottom="3dp"
             android:id="@+id/fragment_title_description_city_CV"
-            android:visibility="visible">
+            android:visibility="gone">
 
             <RelativeLayout
                 android:id="@+id/add_activity_complete_car_dCV"
@@ -299,6 +299,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="4dp"
+            android:visibility="gone"
             android:id="@+id/fragment_title_description_phone_number_CV"
             android:layout_marginRight="12dp"
             android:layout_marginBottom="2dp">

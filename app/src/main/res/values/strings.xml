@@ -7,6 +7,7 @@
     <string name="tab_notifications_">Notices</string>
     <string name="tab_profile">Profile</string>
     <string name="search">Search on hala motor</string>
+    <string name="just_search">Search</string>
     <string name="insert">Insert an Ad</string>
     <string name="car_for_sale">Car for sale</string>
     <string name="exchange_car">Exchange car</string>
@@ -47,5 +48,100 @@
 
     <string name="ad_product_title">Ad Title \(eg\: Range Rover\)</string>
     <string name="ad_product_description">Ad Description \(Add more details\)</string>
+
+
+
+
+
+
+    <string name="hyundai">Hyundai</string>
+    <string name="toyota">Toyota</string>
+    <string name="kia">Kia</string>
+    <string name="bmw">BMW</string>
+    <string name="mercedes_benz">Mercedes Benz</string>
+    <string name="aston_martin">Aston Martin</string>
+    <string name="alfa_romeo">Alfa Romeo</string>
+
+    <string name="audi">Audi</string>
+
+    <string name="isuzu">Isuzu</string>
+    <string name="alfa">Alfa</string>
+    <string name="infiniti">Infiniti</string>
+    <string name="opel">Opel</string>
+    <string name="bentley">Bentley</string>
+    <string name="porsche">Porsche</string>
+    <string name="pontiac">Pontiac</string>
+    <string name="peugeot">Peugeot</string>
+    <string name="jaguar">Jaguar</string>
+    <string name="great_wall">Great Wall</string>
+    <string name="gmc">GMC</string>
+    <string name="jeep">Jeep</string>
+    <string name="daihatsu">Daihatsu</string>
+    <string name="daewoo">Daewoo</string>
+    <string name="dodge">Dodge</string>
+    <string name="rover">Rover</string>
+    <string name="rolls_royce">Rolls Royce</string>
+    <string name="renault">Renault</string>
+    <string name="saab">Saab</string>
+    <string name="saturn">Saturn</string>
+    <string name="ssang_yong">SsangYong</string>
+    <string name="citroen">Citroen</string>
+    <string name="skoda">Skoda</string>
+    <string name="subaru">Subaru</string>
+    <string name="suzuki">Suzuki</string>
+    <string name="seat">Seat</string>
+    <string name="chery">Chery</string>
+    <string name="chevrolat">Chevrolat</string>
+    <string name="ford">Ford</string>
+    <string name="volvo">Volvo</string>
+    <string name="volkswagen">Volkswagen</string>
+    <string name="fiat">Fiat</string>
+    <string name="ferrari">Ferrari</string>
+    <string name="cadillac">Cadillac</string>
+    <string name="chrysler">Chrysler</string>
+    <string name="lada">Lada</string>
+    <string name="lamborghini">Lamborghini</string>
+    <string name="land_rover">Land Rover</string>
+    <string name="lexus">Lexus</string>
+    <string name="lotus">Lotus</string>
+    <string name="lincoln">Lincoln</string>
+    <string name="mazda">Mazda</string>
+    <string name="maserati">Maserati</string>
+    <string name="morgan">Morgan</string>
+    <string name="mitsubishi">Mitsubishi</string>
+    <string name="mercury">Mercury</string>
+    <string name="mini">Mini</string>
+    <string name="nissan">Nissan</string>
+    <string name="hummer">Hummer</string>
+    <string name="honda">Honda</string>
+    <string name="geely">geely</string>
+    <string name="zxauto">Zxauto</string>
+    <string name="mg">MG</string>
+    <string name="proton">Proton</string>
+    <string name="brilliance">Brilliance</string>
+    <string name="byd">BYD</string>
+    <string name="samsung">Samsung</string>
+    <string name="tesla">Tesla</string>
+    <string name="iran_khodro">Iran Khodro</string>
+    <string name="tata">TATA</string>
+    <string name="bugatti">Bugatti</string>
+    <string name="buick">Buick</string>
+    <string name="acura">Acura</string>
+    <string name="scion">Scion</string>
+    <string name="mclaren">Mclaren</string>
+    <string name="pagani">Pagani</string>
+    <string name="lancia">Lancia</string>
+    <string name="jac">JAC</string>
+    <string name="lifan">Lifan</string>
+    <string name="faw">FAW</string>
+    <string name="foton">Foton</string>
+    <string name="maruti_suzuki">Maruti Suzuki</string>
+    <string name="saipa">SAIPA</string>
+    <string name="private_type">Private</string>
+    <string name="baic">BAIC</string>
+
+    <string name="changan">Changan</string>
+    <string name="hunaghai">Hunaghai</string>
+    <string name="dfm">DFM</string>
 
 </resources>
