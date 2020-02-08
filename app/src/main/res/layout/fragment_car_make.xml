@@ -34,8 +34,8 @@
                     android:layout_height="match_parent">
 
                     <ImageView
-                        android:layout_width="20dp"
-                        android:layout_height="20dp"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
                         android:layout_marginLeft="8dp"
                         android:layout_centerVertical="true"
                         android:layout_marginStart="16dp"
@@ -55,9 +55,12 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="40dp"
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="5dp"
                     android:textCursorDrawable="@drawable/c"
                     android:hint="@string/just_search"
+                    android:textSize="17dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="1dp"
                     android:id="@+id/fragment_car_make_searchEdt"
                     android:background="@null"
                     />

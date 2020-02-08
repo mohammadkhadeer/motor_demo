@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarModel;
 import java.util.ArrayList;
 import static com.cars.halamotor.functions.FillCarModel.fillCarMakeArrayL;
@@ -26,11 +27,9 @@ public class FragmentModel extends Fragment implements AdapterCarModel.PassCarMo
     RecyclerView recyclerView;
     AdapterCarModel adapterCarModel;
     String carMakeStr;
-
     EditText searchEdt;
     RelativeLayout cancelRL;
     ImageView cancelIV;
-
     View view;
 
     @Override
@@ -116,7 +115,8 @@ public class FragmentModel extends Fragment implements AdapterCarModel.PassCarMo
     }
 
     @Override
-    public void onModeClicked(String carmodel) {
-
+    public void onModeClicked(String carModel) {
+        CarDetails carDetails = (CarDetails) getActivity();
+        carDetails.getCarModelStrFromFragmentCarModelAndMoveToFragmentYear(carModel);
     }
 }

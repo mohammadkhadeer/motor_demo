@@ -11,6 +11,7 @@ import com.cars.halamotor.model.CarDetails;
 import com.cars.halamotor.model.CategoryComp;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class Functions {
     public static Typeface changeFontAppName(Context context) {
@@ -82,6 +83,19 @@ public class Functions {
 
 
         return carDetailsArrayL;
+    }
+
+    public static ArrayList<String> fillCarYearArrayList(ArrayList<String> carYearArrayL,Context context) {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        carYearArrayL = new ArrayList<String>();
+
+        for (int i=year;i>=1970;i--)
+        {
+            carYearArrayL.add(String.valueOf(i));
+        }
+
+        return carYearArrayL;
     }
 
 }

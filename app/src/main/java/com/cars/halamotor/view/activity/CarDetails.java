@@ -1,14 +1,16 @@
 package com.cars.halamotor.view.activity;
 
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarMake;
@@ -38,66 +40,76 @@ public class CarDetails extends AppCompatActivity {
 
         statusBarColor();
         init();
-        intiCarMake();
+        intiCarMakeFragment();
         actionListener();
         changeFontType();
         moveBetweenFragment();
 
     }
 
+    public void getCarModelStrFromFragmentCarModelAndMoveToFragmentYear(String carModel)
+    {
+        moveFromModelGragmentToEarFragment();
+        changeHeadTitle(getResources().getString(R.string.year));
+    }
+
+    public void getCarMakeObjFromFragmentCarMakeAndMoveToFragmentModel(CarMake carMake)
+    {
+        passCarMakeToModeFragmentAndMove(carMake);
+        changeHeadTitle(getResources().getString(R.string.model));
+    }
+
     private void actionListener() {
         backRl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (carDetailsProNowArrayL != null && !carDetailsProNowArrayL.isEmpty()) {
-                    String lastFragment = carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-1);
-                    if (lastFragment.equals("carMake"))
-                    {
-                        finish();
-                    }
-                    if (lastFragment.equals("carModel"))
-                    {
-                        fm.beginTransaction().hide(active).setCustomAnimations
-                                (R.anim.left_to_right, R.anim.no_animation).show(fragmentCarMake).commit();
-                        active = fragmentCarMake;
-                        carDetailsProNowArrayL.remove(carDetailsProNowArrayL.size()-1);
-                    }
-
-                }
+                checkIfLastFragmentFinshActivityElseMoveToPrivuseFragment();
             }
         });
     }
 
-    private void intiCarMake() {
+    private void intiCarMakeFragment() {
+        fm.beginTransaction().add(R.id.car_details_container,fragmentCarMake, "1").commit();
         changeHeadTitle(getResources().getString(R.string.car_make));
-        carDetailsProNowArrayL.add("carMake");
+        carDetailsProNowArrayL.add(getResources().getString(R.string.car_make));
     }
 
     private void changeHeadTitle(String title) {
         titleTV.setText(title);
     }
 
-    public void getCarMakeObjFromFragmentCarMakeAndMoveToFragmentModel(CarMake carMake)
-    {
-       // add fragment and translate to next fragment
-            carDetailsProNowArrayL.add("carModel");
-            //pass value to model fragment
-            Bundle bundle = new Bundle();
-            bundle.putString("carMake", carMake.getMakeStr());
+    private void passCarMakeToModeFragmentAndMove(CarMake carMake) {
+        // add fragment and translate to next fragment
 
-            fragmentModel.setArguments(bundle);
-            //add fragment to fragment manager
-            fm.beginTransaction().add(R.id.car_details_container, fragmentModel, "2").hide(fragmentModel).commit();
+        //add car model on arrayList to check when user press back finsh or move tp privuse fragment
+        carDetailsProNowArrayL.add(getResources().getString(R.string.model));
+        //pass value to model fragment
+        Bundle bundle = new Bundle();
+        bundle.putString("carMake", carMake.getMakeStr());
+        fragmentModel.setArguments(bundle);
 
-            fm.beginTransaction().hide(active).setCustomAnimations
-                    (R.anim.right_to_left, R.anim.no_animation).show(fragmentModel).commit();
-            active = fragmentModel;
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentModel);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentModel);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
 
+    private void moveFromModelGragmentToEarFragment() {
+        //add car year on arrayList to check when user press back finish or move tp privuse fragment
+        carDetailsProNowArrayL.add(getResources().getString(R.string.year));
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentYear);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentYear);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }
 
     private void moveBetweenFragment() {
         //fm.beginTransaction().add(R.id.car_details_container, fragmentYear, "3").hide(fragmentYear).commit();
-        fm.beginTransaction().add(R.id.car_details_container,fragmentCarMake, "1").commit();
     }
 
     private void changeFontType() {
@@ -114,34 +126,40 @@ public class CarDetails extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    boolean doubleBackToExitPressedOnce = false;
+    private void checkIfLastFragmentFinshActivityElseMoveToPrivuseFragment() {
+        if (carDetailsProNowArrayL != null && !carDetailsProNowArrayL.isEmpty()) {
+            String lastFragment = carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-1);
+            if (lastFragment.equals(getResources().getString(R.string.car_make)))
+            {
+                finish();
+            } else
+            {
+                fm.popBackStack();
+                changeHeadTitle(carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2));
+                carDetailsProNowArrayL.remove(carDetailsProNowArrayL.size()-1);
+            }
 
-//    @Override
-//    public void onBackPressed() {
-//        super.onBackPressed();
-//        if (doubleBackToExitPressedOnce) {
-//            super.onBackPressed();
-//            return;
-//        }
-//        this.doubleBackToExitPressedOnce = true;
-//
-//        Log.i("Last fragment",carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-1));
-//
-//        if (carDetailsProNowArrayL != null && !carDetailsProNowArrayL.isEmpty()) {
-//            String lastFragment = carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-1);
-//            if (lastFragment.equals("carMake"))
-//            {
-//                this.doubleBackToExitPressedOnce = false;
-//                finish();
-//            }
-//            if (lastFragment.equals("carModel"))
-//            {
-//                fm.beginTransaction().hide(active).setCustomAnimations
-//                        (R.anim.left_to_right, R.anim.no_animation).show(fragmentModel).commit();
-//                active = fragmentModel;
-//                carDetailsProNowArrayL.remove(carDetailsProNowArrayL.size()-1);
-//            }
-//
-//        }
-//    }
+        }
+    }
+
+    boolean doubleBackToExitPressedOnce = false;
+    @Override
+    public void onBackPressed() {
+        if (doubleBackToExitPressedOnce) {
+            super.onBackPressed();
+            return;
+        }
+        if(!carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2).equals(getResources().getString(R.string.car_make)))
+        {
+            this.doubleBackToExitPressedOnce = false;
+            finish();
+        }else{
+            fm.popBackStack();
+            this.doubleBackToExitPressedOnce = true;
+            changeHeadTitle(carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2));
+        }
+
+        this.doubleBackToExitPressedOnce = true;
+
+    }
 }

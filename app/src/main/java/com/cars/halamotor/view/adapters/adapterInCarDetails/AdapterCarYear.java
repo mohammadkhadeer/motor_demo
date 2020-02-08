@@ -8,39 +8,40 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 
 import java.util.ArrayList;
 
-public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHolder>{
+public class AdapterCarYear extends RecyclerView.Adapter<AdapterCarYear.ViewHolder>{
 
     private final Context context;
-    public ArrayList<String> carModelArrayL ;
-    PassCarModel passCarModel;
+    public ArrayList<String> carYearArrayL ;
+    PassCarYear passCarYear;
 
-    public AdapterCarModel
-            (Context context, ArrayList<String> carModelArrayL, PassCarModel passCarModel)
+    public AdapterCarYear
+            (Context context, ArrayList<String> carYearArrayL,PassCarYear passCarYear)
     {   this.context = context;
-        this.carModelArrayL = carModelArrayL;
-        this.passCarModel = passCarModel;
+        this.carYearArrayL = carYearArrayL;
+        this.passCarYear = passCarYear;
     }
 
-    public AdapterCarModel.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    public AdapterCarYear.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
         View view = LayoutInflater.from(viewGroup.getContext()).
-                inflate(R.layout.adapter_car_model, viewGroup, false);
+                inflate(R.layout.adapter_car_year, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final AdapterCarModel.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final AdapterCarYear.ViewHolder holder, final int position) {
 
-        holder.modelTV.setText(carModelArrayL.get(position));
+        holder.modelTV.setText(carYearArrayL.get(position));
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passCarModel.onModeClicked(carModelArrayL.get(position));
+                passCarYear.onYearClicked(carYearArrayL.get(position));
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -49,7 +50,7 @@ public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHo
 
     @Override
     public int getItemCount() {
-        return carModelArrayL.size();
+        return carYearArrayL.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -58,18 +59,18 @@ public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHo
         RelativeLayout relativeLayout;
         public ViewHolder(View itemView) {
             super(itemView);
-            modelTV = (TextView) itemView.findViewById(R.id.adapter_car_model_TV);
-            arrowIV = (ImageView) itemView.findViewById(R.id.adapter_car_make_image_IV) ;
-            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.adapter_car_make_container_RL) ;
+            modelTV = (TextView) itemView.findViewById(R.id.adapter_car_year_TV);
+            arrowIV = (ImageView) itemView.findViewById(R.id.adapter_car_year_IV) ;
+            relativeLayout = (RelativeLayout) itemView.findViewById(R.id.adapter_car_year_container_RL) ;
         }
     }
 
-    public interface PassCarModel {
-        void onModeClicked(String carModel);
+    public interface PassCarYear {
+        void onYearClicked(String carYearStr);
     }
 
     public void filterList(ArrayList<String> filterdNames) {
-        this.carModelArrayL = filterdNames;
+        this.carYearArrayL = filterdNames;
         notifyDataSetChanged();
     }
 }

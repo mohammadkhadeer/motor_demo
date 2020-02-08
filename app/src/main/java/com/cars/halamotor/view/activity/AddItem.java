@@ -38,27 +38,20 @@ import butterknife.ButterKnife;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 
 public class AddItem extends AppCompatActivity {
-
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
             ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV;
     TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV;
     RecyclerView viewSelectedImageRV,selectCategoryRV;
     VideoView viewVideoSelected;
     ImageView imageCategorySelectedIV;
-
     CardView viewSelectedCategoryCV,completeCarDetailsCV;
-
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
-
     ImageLoader imageLoader;
-
     SelectedImageAdapter selectedImageAdapter;
     AdapterSelectCategory adapterSelectCategory;
-
     ArrayList<String> imagePathArrL = new ArrayList<String>();
     public ArrayList<CategoryComp> categoryCompsArrayL ;
-
     RecyclerView.LayoutManager layoutManager,layoutManagerCategory;
     static int selectVideoOrNotYet = 0;
 
@@ -69,7 +62,6 @@ public class AddItem extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
         ButterKnife.bind(this);
-
         statusBarColor();
         inti();
         hideVideoShowBeforeSelected();
@@ -97,9 +89,6 @@ public class AddItem extends AppCompatActivity {
                 })
         );
     }
-
-
-
 
     private void checkIfNeedToMakeCompleteCarDetailsToBeVisable(int position) {
         if (!categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))
@@ -204,7 +193,6 @@ public class AddItem extends AppCompatActivity {
                 Transition fade = new Fade();
                 fade.excludeTarget(android.R.id.statusBarBackground, true);
                  getWindow().setExitTransition(fade);
-
                 moveToCarDetailsCar();
             }
         });
