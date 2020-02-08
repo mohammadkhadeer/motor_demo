@@ -1,6 +1,5 @@
 package com.cars.halamotor.view.fragments.carDetailsFragment;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -13,15 +12,12 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarMake;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarMake;
-
 import java.util.ArrayList;
-
 import static com.cars.halamotor.functions.FillCarMakeArrayListsInCarDerails.fillCarMakeArrayL;
 
 public class FragmentCarMake extends Fragment implements AdapterCarMake.PassCarMake {
@@ -33,6 +29,10 @@ public class FragmentCarMake extends Fragment implements AdapterCarMake.PassCarM
     EditText searchEdt;
     RelativeLayout cancelRL;
     ImageView cancelIV;
+
+    private static final String CAR_DETAILS = "CAR_DETAILS";
+    android.content.SharedPreferences.Editor carDetailsEditor;
+    android.content.SharedPreferences carDetailsSP;
 
     public FragmentCarMake(){
     }
@@ -124,8 +124,9 @@ public class FragmentCarMake extends Fragment implements AdapterCarMake.PassCarM
     }
 
     @Override
-    public void onCityClicked(CarMake carMake) {
+    public void onCarMakeClicked(CarMake carMake) {
             CarDetails carDetails = (CarDetails) getActivity();
-            carDetails.getCarMakeObjFromFragmentCarMake(carMake);
+            carDetails.getCarMakeObjFromFragmentCarMakeAndMoveToFragmentModel(carMake);
     }
+
 }

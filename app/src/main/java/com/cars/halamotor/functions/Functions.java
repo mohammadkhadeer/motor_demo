@@ -19,7 +19,7 @@ public class Functions {
     }
 
     public static Typeface changeFontGeneral(Context context) {
-        Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "GE_DINAR_ONE_LIGHT.TTF");
+        Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "NTAILU.TTF");
         return typeFace;
     }
 

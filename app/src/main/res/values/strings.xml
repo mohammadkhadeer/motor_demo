@@ -61,9 +61,7 @@
     <string name="mercedes_benz">Mercedes Benz</string>
     <string name="aston_martin">Aston Martin</string>
     <string name="alfa_romeo">Alfa Romeo</string>
-
     <string name="audi">Audi</string>
-
     <string name="isuzu">Isuzu</string>
     <string name="alfa">Alfa</string>
     <string name="infiniti">Infiniti</string>
@@ -139,9 +137,55 @@
     <string name="saipa">SAIPA</string>
     <string name="private_type">Private</string>
     <string name="baic">BAIC</string>
-
     <string name="changan">Changan</string>
     <string name="hunaghai">Hunaghai</string>
     <string name="dfm">DFM</string>
+
+
+
+    <string name="h_1_starex">H\-1 Starex</string>
+    <string name="i_10">i10</string>
+    <string name="i_20">i20</string>
+    <string name="i_30">i30</string>
+    <string name="i_40">i40</string>
+    <string name="atos">Atos</string>
+    <string name="azera">Azera</string>
+    <string name="accent">Accent</string>
+    <string name="h_100">H100</string>
+    <string name="excel">Excel</string>
+    <string name="elantra">Elantra</string>
+    <string name="avante">Avante</string>
+    <string name="equus">Equus</string>
+    <string name="ioniq">Ioniq</string>
+    <string name="porter">Porter</string>
+    <string name="pony">Pony</string>
+    <string name="trajet">Trajet</string>
+    <string name="tuscani">Tuscani</string>
+    <string name="terracan">Terracan</string>
+    <string name="tiburon">Tiburon</string>
+    <string name="galloper">Galloper</string>
+    <string name="getz">Getz</string>
+    <string name="genesis">Genesis</string>
+    <string name="genesis_coupe">Genesis Coupe</string>
+    <string name="santamo">Santamo</string>
+    <string name="stellar">Stellar</string>
+    <string name="scoupe">Scoupe</string>
+    <string name="santa_fe">Santa Fe</string>
+    <string name="centennial">Centennial</string>
+    <string name="sonata">Sonata</string>
+    <string name="veloster">Veloster</string>
+    <string name="veracruz">Veracruz</string>
+    <string name="verna">Verna</string>
+    <string name="creta">Creta</string>
+    <string name="coupe">Coupe</string>
+    <string name="matrix">Matrix</string>
+    <string name="mighty">Mighty</string>
+    <string name="kona">Kona</string>
+    <string name="eon">EON</string>
+    <string name="palisade">Palisade</string>
+    <string name="click">Click</string>
+    <string name="entourage">Entourage</string>
+    <string name="county">County</string>
+
 
 </resources>

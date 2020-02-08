@@ -2,7 +2,6 @@ package com.cars.halamotor.view.adapters.adapterInCarDetails;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,13 +19,13 @@ public class AdapterCarMake extends RecyclerView.Adapter<AdapterCarMake.ViewHold
 
     private final Context context;
     public ArrayList<CarMake> carMakeArrayList ;
-    PassCarMake test1;
+    PassCarMake passCarMake;
 
     public AdapterCarMake
-            (Context context, ArrayList<CarMake> carMakeArrayList, PassCarMake test1)
+            (Context context, ArrayList<CarMake> carMakeArrayList, PassCarMake passCarMake)
     {   this.context = context;
         this.carMakeArrayList = carMakeArrayList;
-        this.test1 = test1;
+        this.passCarMake = passCarMake;
     }
 
     public AdapterCarMake.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
@@ -44,7 +43,7 @@ public class AdapterCarMake extends RecyclerView.Adapter<AdapterCarMake.ViewHold
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                test1.onCityClicked(carMakeArrayList.get(position));
+                passCarMake.onCarMakeClicked(carMakeArrayList.get(position));
             }
         });
         holder.makeTV.setTypeface(Functions.changeFontGeneral(context));
@@ -70,7 +69,7 @@ public class AdapterCarMake extends RecyclerView.Adapter<AdapterCarMake.ViewHold
     }
 
     public interface PassCarMake {
-        void onCityClicked(CarMake carMake);
+        void onCarMakeClicked(CarMake carMake);
     }
 
     public void filterList(ArrayList<CarMake> filterdNames) {
