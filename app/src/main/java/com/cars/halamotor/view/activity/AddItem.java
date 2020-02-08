@@ -41,12 +41,12 @@ public class AddItem extends AppCompatActivity {
 
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
             ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV;
-    TextView insertAddTV,textTitleTV,categorySelectedNameTV;
+    TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV;
     RecyclerView viewSelectedImageRV,selectCategoryRV;
     VideoView viewVideoSelected;
     ImageView imageCategorySelectedIV;
 
-    CardView viewSelectedCategoryCV;
+    CardView viewSelectedCategoryCV,completeCarDetailsCV;
 
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
@@ -88,6 +88,7 @@ public class AddItem extends AppCompatActivity {
                                 new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
                         goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
+                        checkIfNeedToMakeCompleteCarDetailsToBeVisable(position);
                     }
 
                     @Override public void onLongItemClick(View view, int position) {
@@ -95,6 +96,29 @@ public class AddItem extends AppCompatActivity {
                     }
                 })
         );
+    }
+
+
+
+
+    private void checkIfNeedToMakeCompleteCarDetailsToBeVisable(int position) {
+        if (!categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))
+            && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.accessories))
+            && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim))
+            && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.junk_car)))
+        {
+            makeCompleteCarDetailsVisable();
+        }
+        else{
+            makeCompleteCarDetailsGone();}
+    }
+
+    private void makeCompleteCarDetailsGone() {
+        completeCarDetailsCV.setVisibility(View.GONE);
+    }
+
+    private void makeCompleteCarDetailsVisable() {
+        completeCarDetailsCV.setVisibility(View.VISIBLE);
     }
 
     private void goneRVAndVisableSelectedCategoryAndFillSelectedInfo(int position) {
@@ -169,6 +193,7 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 viewSelectedCategoryCV.setVisibility(View.GONE);
                 selectCategoryRV.setVisibility(View.VISIBLE);
+                makeCompleteCarDetailsGone();
                 textTitleTV.setText(getResources().getText(R.string.what_do));
             }
         });
@@ -211,6 +236,7 @@ public class AddItem extends AppCompatActivity {
         insertAddTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
         textTitleTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
         categorySelectedNameTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+        completeCarDetailsTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
     }
 
     private void inti() {
@@ -218,6 +244,7 @@ public class AddItem extends AppCompatActivity {
         selectCategoryRV = (RecyclerView) findViewById(R.id.add_activity_view_select_category_RV);
         cancelRL = (RelativeLayout) findViewById(R.id.add_activity_cancelRL);
         textTitleTV = (TextView) findViewById(R.id.add_activity_titleTV);
+        completeCarDetailsTV = (TextView) findViewById(R.id.add_activity_complete_car_dTV);
         insertAddTV = (TextView) findViewById(R.id.add_activity_insert_titleTV);
         categorySelectedNameTV = (TextView) findViewById(R.id.add_activity_view_select_category_from_RV_TV);
         selectImageFGRL = (RelativeLayout) findViewById(R.id.add_activity_selectIFG_RL);
@@ -226,9 +253,11 @@ public class AddItem extends AppCompatActivity {
         viewVideoSelected = (VideoView) findViewById(R.id.add_activity_show_video);
         cancelVideoRL = (RelativeLayout) findViewById(R.id.add_activity_cancel_videoRL);
         viewSelectedCategoryCV = (CardView) findViewById(R.id.add_activity_view_select_category_from_RV);
+        completeCarDetailsCV = (CardView) findViewById(R.id.add_activity_copmlete_car_details_CV);
         add_activity_complete_car_dCV = (RelativeLayout) findViewById(R.id.add_activity_complete_car_dCV);
         cancelSelectedCategoryRL = (RelativeLayout) findViewById(R.id.add_activity_view_select_category_from_RV_delete);
         imageCategorySelectedIV = (ImageView) findViewById(R.id.add_activity_view_select_category_from_RV_IV);
+
     }
 
     private void statusBarColor() {
