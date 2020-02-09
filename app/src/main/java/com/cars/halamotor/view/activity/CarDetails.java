@@ -16,7 +16,9 @@ import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarCondition
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarMake;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentFuel;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentKilometers;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentLicensed;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentModel;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentOptions;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentTransmission;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentYear;
 
@@ -36,6 +38,8 @@ public class CarDetails extends AppCompatActivity {
     final Fragment fragmentKilometers = new FragmentKilometers();
     final Fragment fragmentTransmission = new FragmentTransmission();
     final Fragment fragmentFuel = new FragmentFuel();
+    final Fragment fragmentOptions = new FragmentOptions();
+    final Fragment fragmentLicensed = new FragmentLicensed();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentCarMake;
 
@@ -50,6 +54,18 @@ public class CarDetails extends AppCompatActivity {
         actionListener();
         changeFontType();
 
+    }
+
+    public void getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(String carFuelStr)
+    {
+        moveFromOptionsFragmentToLicensedFragment();
+        changeHeadTitle(getResources().getString(R.string.car_license));
+    }
+
+    public void getCarFuelStrFromFragmentFuelAndMoveToFragmentOptions(String carFuelStr)
+    {
+        moveFromFuelFragmentToOptionsFragment();
+        changeHeadTitle(getResources().getString(R.string.car_options));
     }
 
     public void getCarTransmissionStrFromFragmentTransmissionAndMoveToFragmentFuel(String carTransmission)
@@ -127,6 +143,26 @@ public class CarDetails extends AppCompatActivity {
         transaction.replace(R.id.car_details_container, fragmentModel);
         transaction.setCustomAnimations
                 (R.anim.right_to_left, R.anim.no_animation).show(fragmentModel);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromOptionsFragmentToLicensedFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.car_license));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentLicensed);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentLicensed);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromFuelFragmentToOptionsFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.car_options));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentOptions);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentOptions);
         transaction.addToBackStack(null);
         transaction.commit();
     }

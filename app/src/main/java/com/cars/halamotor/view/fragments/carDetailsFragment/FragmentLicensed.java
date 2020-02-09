@@ -12,29 +12,33 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+
 import com.cars.halamotor.R;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarFuel;
+import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarLicensed;
+
 import java.util.ArrayList;
 
 import static com.cars.halamotor.functions.Functions.fillFuelArrayL;
+import static com.cars.halamotor.functions.Functions.fillLicensedArrayL;
 
-public class FragmentFuel extends Fragment implements AdapterCarFuel.PassFuel{
+public class FragmentLicensed extends Fragment implements AdapterCarLicensed.PassLicensed {
 
-    public ArrayList<String> carFuelArrayL  = new ArrayList<String>();
+    public ArrayList<String> carLicensedArrayL  = new ArrayList<String>();
     RecyclerView recyclerView;
-    AdapterCarFuel adapterCarFuel;
+    AdapterCarLicensed adapterCarLicensed;
     EditText searchEdt;
     RelativeLayout cancelRL;
     ImageView cancelIV;
     View view;
 
-    public FragmentFuel(){}
+    public FragmentLicensed(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_car_fuel, container, false);
+        view = inflater.inflate(R.layout.fragment_car_licensed, container, false);
 
         inti();
         createRV();
@@ -69,13 +73,13 @@ public class FragmentFuel extends Fragment implements AdapterCarFuel.PassFuel{
     }
 
     private void filter(String text) {
-        ArrayList<String> carKilometersArrayList2  = new ArrayList<String>();
-        for (String Kilometers : carFuelArrayL) {
-            if (Kilometers.toLowerCase().contains(text.toLowerCase())) {
-                carKilometersArrayList2.add(Kilometers);
+        ArrayList<String> carLicensedArrayL2  = new ArrayList<String>();
+        for (String tex : carLicensedArrayL) {
+            if (tex.toLowerCase().contains(text.toLowerCase())) {
+                carLicensedArrayL2.add(tex);
             }
         }
-        adapterCarFuel.filterList(carKilometersArrayList2);
+        adapterCarLicensed.filterList(carLicensedArrayL2);
     }
 
     private void makeCancelTitleIVGONE() {
@@ -96,24 +100,23 @@ public class FragmentFuel extends Fragment implements AdapterCarFuel.PassFuel{
     }
 
     private void createRV() {
-        carFuelArrayL =fillFuelArrayL(carFuelArrayL,getActivity());
+        carLicensedArrayL =fillLicensedArrayL(carLicensedArrayL,getActivity());
         recyclerView.setHasFixedSize(true);
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(mLayoutManager);
-        adapterCarFuel = new AdapterCarFuel(getActivity(), carFuelArrayL,this);
-        recyclerView.setAdapter(adapterCarFuel);
+        adapterCarLicensed = new AdapterCarLicensed(getActivity(), carLicensedArrayL,this);
+        recyclerView.setAdapter(adapterCarLicensed);
     }
 
     private void inti() {
-        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_car_fuel_RV);
-        searchEdt = (EditText) view.findViewById(R.id.fragment_car_fuel_searchEdt);
-        cancelRL = (RelativeLayout) view.findViewById(R.id.fragment_car_fuel_RL);
-        cancelIV = (ImageView) view.findViewById(R.id.fragment_car_fuel_ImageV);
+        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_car_licensed_RV);
+        searchEdt = (EditText) view.findViewById(R.id.fragment_car_licensed_searchEdt);
+        cancelRL = (RelativeLayout) view.findViewById(R.id.fragment_car_licensed_RL);
+        cancelIV = (ImageView) view.findViewById(R.id.fragment_car_licensed_ImageV);
     }
 
     @Override
-    public void onFuelClicked(String carFuelStr) {
-        CarDetails carDetails = (CarDetails) getActivity();
-        carDetails.getCarTransmissionStrFromFragmentTransmissionAndMoveToFragmentFuel(carFuelStr);
+    public void onLicensedClicked(String carFuelStr) {
+
     }
 }

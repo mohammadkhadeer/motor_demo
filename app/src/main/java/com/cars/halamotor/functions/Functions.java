@@ -8,6 +8,7 @@ import android.transition.Transition;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarDetails;
+import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
 
 import java.util.ArrayList;
@@ -135,7 +136,7 @@ public class Functions {
         return carTransmissionArrayL;
     }
 
-    public static ArrayList<String> fillTFuelArrayL(ArrayList<String> carFuelArrayL, Context context) {
+    public static ArrayList<String> fillFuelArrayL(ArrayList<String> carFuelArrayL, Context context) {
         carFuelArrayL = new ArrayList<String>();
 
         carFuelArrayL.add(context.getResources().getString(R.string.gasoline));
@@ -146,4 +147,58 @@ public class Functions {
         return carFuelArrayL;
     }
 
+    public static ArrayList<CarOption> fillOptionsArrayL(ArrayList<CarOption> carOptionsArrayL, Context context) {
+        carOptionsArrayL = new ArrayList<CarOption>();
+
+        CarOption carOption1 = new CarOption(context.getResources().getString(R.string.option_1),false);
+        CarOption carOption2 = new CarOption(context.getResources().getString(R.string.option_2),false);
+        CarOption carOption3 = new CarOption(context.getResources().getString(R.string.option_3),false);
+        CarOption carOption4 = new CarOption(context.getResources().getString(R.string.option_4),false);
+        CarOption carOption5 = new CarOption(context.getResources().getString(R.string.option_5),false);
+        CarOption carOption6 = new CarOption(context.getResources().getString(R.string.option_6),false);
+        CarOption carOption7 = new CarOption(context.getResources().getString(R.string.option_7),false);
+        CarOption carOption8 = new CarOption(context.getResources().getString(R.string.option_8),false);
+        CarOption carOption9 = new CarOption(context.getResources().getString(R.string.option_9),false);
+        CarOption carOption10 = new CarOption(context.getResources().getString(R.string.option_10),false);
+        CarOption carOption11 = new CarOption(context.getResources().getString(R.string.option_11),false);
+        CarOption carOption12 = new CarOption(context.getResources().getString(R.string.option_12),false);
+        CarOption carOption13 = new CarOption(context.getResources().getString(R.string.option_13),false);
+        CarOption carOption14 = new CarOption(context.getResources().getString(R.string.option_14),false);
+        CarOption carOption15 = new CarOption(context.getResources().getString(R.string.option_15),false);
+        CarOption carOption16 = new CarOption(context.getResources().getString(R.string.option_16),false);
+        CarOption carOption17 = new CarOption(context.getResources().getString(R.string.option_17),false);
+        CarOption carOption18 = new CarOption(context.getResources().getString(R.string.option_18),false);
+
+        carOptionsArrayL.add(carOption1);
+        carOptionsArrayL.add(carOption2);
+        carOptionsArrayL.add(carOption3);
+        carOptionsArrayL.add(carOption4);
+        carOptionsArrayL.add(carOption5);
+        carOptionsArrayL.add(carOption6);
+        carOptionsArrayL.add(carOption7);
+        carOptionsArrayL.add(carOption8);
+        carOptionsArrayL.add(carOption9);
+        carOptionsArrayL.add(carOption10);
+        carOptionsArrayL.add(carOption11);
+        carOptionsArrayL.add(carOption12);
+        carOptionsArrayL.add(carOption13);
+        carOptionsArrayL.add(carOption14);
+        carOptionsArrayL.add(carOption15);
+        carOptionsArrayL.add(carOption16);
+        carOptionsArrayL.add(carOption17);
+        carOptionsArrayL.add(carOption18);
+
+
+        return carOptionsArrayL;
+    }
+
+    public static ArrayList<String> fillLicensedArrayL(ArrayList<String> carLicensedArrayL, Context context) {
+        carLicensedArrayL = new ArrayList<String>();
+
+        carLicensedArrayL.add(context.getResources().getString(R.string.gasoline));
+        carLicensedArrayL.add(context.getResources().getString(R.string.diesel));
+
+
+        return carLicensedArrayL;
+    }
 }

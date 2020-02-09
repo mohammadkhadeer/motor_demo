@@ -19,6 +19,7 @@
     <string name="trucks">Trucks</string>
     <string name="junk_car">Junk car</string>
     <string name="next">Next</string>
+    <string name="reset">Reset</string>
     <string name="upload_video">Add video</string>
     <string name="upload_photo">Add photo</string>
     <string name="what_do">What do you want to do \?</string>
@@ -57,10 +58,33 @@
     <string name="manual">Manual</string>
     <string name="other">Other</string>
 
+    <string name="licensed">Licensed</string>
+    <string name="no_licensed">No licensed</string>
+
+
     <string name="gasoline">Gasoline</string>
     <string name="diesel">Diesel</string>
     <string name="hybrid">Hybrid</string>
     <string name="electric">Electric</string>
+
+    <string name="option_1">Sunroof</string>
+    <string name="option_2">Electric Mirrors</string>
+    <string name="option_3">Touch Screen</string>
+    <string name="option_4">Navigation System</string>
+    <string name="option_5">Cruise Control</string>
+    <string name="option_6">Keyless Entry</string>
+    <string name="option_7">Air Condition</string>
+    <string name="option_8">Rear View Camera</string>
+    <string name="option_9">Parking Sensors</string>
+    <string name="option_10">Leather Seats</string>
+    <string name="option_11">Heated Seats</string>
+    <string name="option_12">Airbags</string>
+    <string name="option_13">Led Lights</string>
+    <string name="option_14">Xenon Lights</string>
+    <string name="option_15">AUX\/USB Plug</string>
+    <string name="option_16">Bluetooth</string>
+    <string name="option_17">ASB</string>
+    <string name="option_18">Power Door Locks</string>
 
     <string name="k_0">0</string>
     <string name="k_1K_10K">1\,000 \- 9\,999</string>
