@@ -1,6 +1,5 @@
 package com.cars.halamotor.view.activity;
 
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -9,13 +8,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarMake;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarCondition;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarMake;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentFuel;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentKilometers;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentModel;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentTransmission;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentYear;
 
 import java.util.ArrayList;
@@ -30,6 +32,10 @@ public class CarDetails extends AppCompatActivity {
     final Fragment fragmentCarMake = new FragmentCarMake();
     final Fragment fragmentModel = new FragmentModel();
     final Fragment fragmentYear = new FragmentYear();
+    final Fragment fragmentCondition = new FragmentCarCondition();
+    final Fragment fragmentKilometers = new FragmentKilometers();
+    final Fragment fragmentTransmission = new FragmentTransmission();
+    final Fragment fragmentFuel = new FragmentFuel();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentCarMake;
 
@@ -43,13 +49,36 @@ public class CarDetails extends AppCompatActivity {
         intiCarMakeFragment();
         actionListener();
         changeFontType();
-        moveBetweenFragment();
 
+    }
+
+    public void getCarTransmissionStrFromFragmentTransmissionAndMoveToFragmentFuel(String carTransmission)
+    {
+        moveFromTransmissionFragmentToFuelFragment();
+        changeHeadTitle(getResources().getString(R.string.fuel));
+    }
+
+    public void getCarKilometersStrFromFragmentKilometersAndMoveToFragmentTransmission(String carKilometers)
+    {
+        moveFromConditionFragmentToTransmissionFragment();
+        changeHeadTitle(getResources().getString(R.string.transmission));
+    }
+
+    public void getCarConditionStrFromFragmentCarConditionAndMoveToFragmentKilometers(String carCondition)
+    {
+        moveFromConditionFragmentToKilometersFragment();
+        changeHeadTitle(getResources().getString(R.string.kilometers));
+    }
+
+    public void getCarYearStrFromFragmentCarYearAndMoveToFragmentCondition(String carYear)
+    {
+        moveFromYearFragmentToCondtionFragment();
+        changeHeadTitle(getResources().getString(R.string.condition));
     }
 
     public void getCarModelStrFromFragmentCarModelAndMoveToFragmentYear(String carModel)
     {
-        moveFromModelGragmentToEarFragment();
+        moveFromModelFragmentToYearFragment();
         changeHeadTitle(getResources().getString(R.string.year));
     }
 
@@ -64,6 +93,12 @@ public class CarDetails extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkIfLastFragmentFinshActivityElseMoveToPrivuseFragment();
+            }
+        });
+        cancelRl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
             }
         });
     }
@@ -96,20 +131,55 @@ public class CarDetails extends AppCompatActivity {
         transaction.commit();
     }
 
-    private void moveFromModelGragmentToEarFragment() {
+    private void moveFromTransmissionFragmentToFuelFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.fuel));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentFuel);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentFuel);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromConditionFragmentToTransmissionFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.transmission));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentTransmission);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentTransmission);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromConditionFragmentToKilometersFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.kilometers));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentKilometers);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentKilometers);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromYearFragmentToCondtionFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.condition));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentCondition);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentCondition);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromModelFragmentToYearFragment() {
         //add car year on arrayList to check when user press back finish or move tp privuse fragment
         carDetailsProNowArrayL.add(getResources().getString(R.string.year));
-
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.car_details_container, fragmentYear);
         transaction.setCustomAnimations
                 (R.anim.right_to_left, R.anim.no_animation).show(fragmentYear);
         transaction.addToBackStack(null);
         transaction.commit();
-    }
-
-    private void moveBetweenFragment() {
-        //fm.beginTransaction().add(R.id.car_details_container, fragmentYear, "3").hide(fragmentYear).commit();
     }
 
     private void changeFontType() {
@@ -149,17 +219,6 @@ public class CarDetails extends AppCompatActivity {
             super.onBackPressed();
             return;
         }
-        if(!carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2).equals(getResources().getString(R.string.car_make)))
-        {
-            this.doubleBackToExitPressedOnce = false;
-            finish();
-        }else{
-            fm.popBackStack();
-            this.doubleBackToExitPressedOnce = true;
-            changeHeadTitle(carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2));
-        }
-
-        this.doubleBackToExitPressedOnce = true;
-
+        checkIfLastFragmentFinshActivityElseMoveToPrivuseFragment();
     }
 }

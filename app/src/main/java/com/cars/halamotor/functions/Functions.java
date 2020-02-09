@@ -98,4 +98,52 @@ public class Functions {
         return carYearArrayL;
     }
 
+    public static ArrayList<String> fillKilometersArrayL(ArrayList<String> carKilometersArrayL, Context context) {
+        carKilometersArrayL = new ArrayList<String>();
+
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_0));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_1K_10K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_20K_30K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_30K_40K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_40K_50K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_50K_60K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_60K_70K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_70K_80K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_80K_90K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_90K_100K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_100K_110K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_120K_130K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_130K_140K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_140K_150K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_150K_160K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_160K_170K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_170K_180K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_180K_190K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_190K_200K));
+        carKilometersArrayL.add(context.getResources().getString(R.string.k_up_200K));
+
+        return carKilometersArrayL;
+    }
+
+    public static ArrayList<String> fillTransmissionArrayL(ArrayList<String> carTransmissionArrayL, Context context) {
+        carTransmissionArrayL = new ArrayList<String>();
+
+        carTransmissionArrayL.add(context.getResources().getString(R.string.automatic));
+        carTransmissionArrayL.add(context.getResources().getString(R.string.manual));
+        carTransmissionArrayL.add(context.getResources().getString(R.string.other));
+
+        return carTransmissionArrayL;
+    }
+
+    public static ArrayList<String> fillTFuelArrayL(ArrayList<String> carFuelArrayL, Context context) {
+        carFuelArrayL = new ArrayList<String>();
+
+        carFuelArrayL.add(context.getResources().getString(R.string.gasoline));
+        carFuelArrayL.add(context.getResources().getString(R.string.diesel));
+        carFuelArrayL.add(context.getResources().getString(R.string.hybrid));
+        carFuelArrayL.add(context.getResources().getString(R.string.electric));
+
+        return carFuelArrayL;
+    }
+
 }

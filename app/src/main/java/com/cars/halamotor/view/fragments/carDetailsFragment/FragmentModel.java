@@ -50,6 +50,7 @@ public class FragmentModel extends Fragment implements AdapterCarModel.PassCarMo
         inti();
         createRV();
         actionListenerToSearchEdt();
+        actionListenerToRemoveTextInSearchEdt();
         return view;
     }
 
@@ -96,6 +97,15 @@ public class FragmentModel extends Fragment implements AdapterCarModel.PassCarMo
 
     private void makeCancelTitleIVVISIBLE() {
         cancelIV.setVisibility(View.VISIBLE);
+    }
+
+    private void actionListenerToRemoveTextInSearchEdt() {
+        cancelRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchEdt.setText("");
+            }
+        });
     }
 
     private void createRV() {

@@ -12,13 +12,10 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import com.cars.halamotor.R;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarYear;
-
 import java.util.ArrayList;
-
 import static com.cars.halamotor.functions.Functions.fillCarYearArrayList;
 
 public class FragmentYear extends Fragment implements AdapterCarYear.PassCarYear{
@@ -41,6 +38,7 @@ public class FragmentYear extends Fragment implements AdapterCarYear.PassCarYear
         inti();
         createRV();
         actionListenerToSearchEdt();
+        actionListenerToRemoveTextInSearchEdt();
         return view;
     }
 
@@ -69,16 +67,13 @@ public class FragmentYear extends Fragment implements AdapterCarYear.PassCarYear
     }
 
     private void filter(String text) {
-        ArrayList<String> carModelArrayList2  = new ArrayList<String>();
-        for (String carModel : carYearArrayL) {
-            //if the existing elements contains the search input
-            if (carModel.toLowerCase().contains(text.toLowerCase())) {
-                //adding the element to filtered list
-                carModelArrayList2.add(carModel);
+        ArrayList<String> carYearArrayList2  = new ArrayList<String>();
+        for (String carYear : carYearArrayL) {
+            if (carYear.toLowerCase().contains(text.toLowerCase())) {
+                carYearArrayList2.add(carYear);
             }
         }
-        //calling a method of the adapter class and passing the filtered list
-        adapterCarYear.filterList(carModelArrayList2);
+        adapterCarYear.filterList(carYearArrayList2);
     }
 
     private void makeCancelTitleIVGONE() {
@@ -87,6 +82,15 @@ public class FragmentYear extends Fragment implements AdapterCarYear.PassCarYear
 
     private void makeCancelTitleIVVISIBLE() {
         cancelIV.setVisibility(View.VISIBLE);
+    }
+
+    private void actionListenerToRemoveTextInSearchEdt() {
+        cancelRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchEdt.setText("");
+            }
+        });
     }
 
     private void createRV() {
@@ -107,6 +111,7 @@ public class FragmentYear extends Fragment implements AdapterCarYear.PassCarYear
 
     @Override
     public void onYearClicked(String carYear) {
-
+        CarDetails carDetails = (CarDetails) getActivity();
+        carDetails.getCarYearStrFromFragmentCarYearAndMoveToFragmentCondition(carYear);
     }
 }
