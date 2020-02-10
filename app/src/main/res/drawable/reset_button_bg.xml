@@ -11,7 +11,7 @@
 
             <!-- view background color -->
             <solid
-                android:color="@color/colorGreen2" >
+                android:color="@color/colorSilver2" >
             </solid>
 
 
@@ -30,7 +30,7 @@
 
             <!-- view background color -->
             <solid
-                android:color="@color/colorGreen2" >
+                android:color="@color/colorSilver2" >
             </solid>
 
 
@@ -45,8 +45,9 @@
 
             <!-- view background color -->
             <solid
-                android:color="@color/colorGreen" >
+                android:color="@color/colorSilver" >
             </solid>
+
 
         </shape>
 

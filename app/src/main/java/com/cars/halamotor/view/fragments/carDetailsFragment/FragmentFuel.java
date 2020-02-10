@@ -114,6 +114,6 @@ public class FragmentFuel extends Fragment implements AdapterCarFuel.PassFuel{
     @Override
     public void onFuelClicked(String carFuelStr) {
         CarDetails carDetails = (CarDetails) getActivity();
-        carDetails.getCarTransmissionStrFromFragmentTransmissionAndMoveToFragmentFuel(carFuelStr);
+        carDetails.getCarFuelStrFromFragmentFuelAndMoveToFragmentOptions(carFuelStr);
     }
 }

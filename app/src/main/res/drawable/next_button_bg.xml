@@ -15,27 +15,7 @@
                 android:color="@color/colorGreen2" >
             </solid>
 
-            <!-- view border color and width -->
-            <stroke
-                android:width="0.2dp"
-                android:color="@color/colorGreen2" >
-            </stroke>
 
-            <!-- text color and type -->
-
-            <!-- If you want to add some padding -->
-            <padding
-                android:left="0dp"
-                android:top="0dp"
-                android:right="0dp"
-                android:bottom="0dp"    >
-            </padding>
-
-            <!-- Here is the corner radius -->
-            <corners
-                android:radius="0dp"
-                android:color="@color/colorGreen2" >
-            </corners>
 
         </shape>
 
@@ -55,27 +35,6 @@
                 android:color="@color/colorGreen2" >
             </solid>
 
-            <!-- view border color and width -->
-            <stroke
-                android:width="0.2dp"
-                android:color="@color/colorGreen2" >
-            </stroke>
-
-            <!-- text color and type -->
-
-            <!-- If you want to add some padding -->
-            <padding
-                android:left="0dp"
-                android:top="0dp"
-                android:right="0dp"
-                android:bottom="0dp"    >
-            </padding>
-
-            <!-- Here is the corner radius -->
-            <corners
-                android:radius="0dp"
-                android:color="@color/colorGreen2" >
-            </corners>
 
         </shape>
 
@@ -92,26 +51,6 @@
             </solid>
 
             <!-- view border color and width -->
-            <stroke
-                android:width="0.2dp"
-                android:color="@color/colorGreen3" >
-            </stroke>
-
-            <!-- text color and type -->
-
-            <!-- If you want to add some padding -->
-            <padding
-                android:left="0dp"
-                android:top="0dp"
-                android:right="0dp"
-                android:bottom="0dp"    >
-            </padding>
-
-            <!-- Here is the corner radius -->
-            <corners
-                android:radius="0dp"
-                android:color="@color/colorGreen3" >
-            </corners>
 
         </shape>
 

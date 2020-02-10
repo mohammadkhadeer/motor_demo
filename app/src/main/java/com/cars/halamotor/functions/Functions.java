@@ -7,6 +7,7 @@ import android.transition.Fade;
 import android.transition.Transition;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CarColor;
 import com.cars.halamotor.model.CarDetails;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
@@ -147,6 +148,73 @@ public class Functions {
         return carFuelArrayL;
     }
 
+    public static ArrayList<String> fillInsuranceArrayL(ArrayList<String> fillInsuranceArrayL, Context context) {
+        fillInsuranceArrayL = new ArrayList<String>();
+
+        fillInsuranceArrayL.add(context.getResources().getString(R.string.insurance_compulsory));
+        fillInsuranceArrayL.add(context.getResources().getString(R.string.insurance_comprehensive));
+        fillInsuranceArrayL.add(context.getResources().getString(R.string.insurance_not));
+
+        return fillInsuranceArrayL;
+    }
+
+    public static ArrayList<CarColor> fillColorArrayL(ArrayList<CarColor> fillColorArrayL, Context context) {
+        fillColorArrayL = new ArrayList<CarColor>();
+
+        CarColor carColor1 = new CarColor(context.getResources().getString(R.string.color_beige)
+                ,context.getResources().getColor(R.color.colorBeige));
+        CarColor carColor2 = new CarColor(context.getResources().getString(R.string.color_black)
+                ,context.getResources().getColor(R.color.colorBlack));
+        CarColor carColor3 = new CarColor(context.getResources().getString(R.string.color_blue)
+                ,context.getResources().getColor(R.color.colorBlue_));
+        CarColor carColor4 = new CarColor(context.getResources().getString(R.string.color_brown)
+                ,context.getResources().getColor(R.color.colorBrown));
+        CarColor carColor5 = new CarColor(context.getResources().getString(R.string.color_green)
+                ,context.getResources().getColor(R.color.colorGreen_));
+        CarColor carColor6 = new CarColor(context.getResources().getString(R.string.color_grey)
+                ,context.getResources().getColor(R.color.colorGrey));
+        CarColor carColor7 = new CarColor(context.getResources().getString(R.string.color_maroon)
+                ,context.getResources().getColor(R.color.colorMaroon));
+        CarColor carColor8 = new CarColor(context.getResources().getString(R.string.color_orange)
+                ,context.getResources().getColor(R.color.colorOrange));
+        CarColor carColor9 = new CarColor(context.getResources().getString(R.string.color_pink)
+                ,context.getResources().getColor(R.color.colorPink));
+        CarColor carColor10 = new CarColor(context.getResources().getString(R.string.color_purple)
+
+                ,context.getResources().getColor(R.color.colorPurple));
+        CarColor carColor11 = new CarColor(context.getResources().getString(R.string.color_red)
+                ,context.getResources().getColor(R.color.colorRed));
+        CarColor carColor12 = new CarColor(context.getResources().getString(R.string.color_silver)
+                ,context.getResources().getColor(R.color.colorSilver_));
+        CarColor carColor13 = new CarColor(context.getResources().getString(R.string.color_turquoise)
+                ,context.getResources().getColor(R.color.colorTurquoise));
+        CarColor carColor14 = new CarColor(context.getResources().getString(R.string.color_white)
+                ,context.getResources().getColor(R.color.colorWhite));
+        CarColor carColor15 = new CarColor(context.getResources().getString(R.string.color_yellow)
+                ,context.getResources().getColor(R.color.colorYellow));
+        CarColor carColor16 = new CarColor(context.getResources().getString(R.string.color_gold)
+                ,context.getResources().getColor(R.color.colorGold));
+
+        fillColorArrayL.add(carColor1);
+        fillColorArrayL.add(carColor2);
+        fillColorArrayL.add(carColor3);
+        fillColorArrayL.add(carColor4);
+        fillColorArrayL.add(carColor5);
+        fillColorArrayL.add(carColor6);
+        fillColorArrayL.add(carColor7);
+        fillColorArrayL.add(carColor8);
+        fillColorArrayL.add(carColor9);
+        fillColorArrayL.add(carColor10);
+        fillColorArrayL.add(carColor11);
+        fillColorArrayL.add(carColor12);
+        fillColorArrayL.add(carColor13);
+        fillColorArrayL.add(carColor14);
+        fillColorArrayL.add(carColor15);
+        fillColorArrayL.add(carColor16);
+
+        return fillColorArrayL;
+    }
+
     public static ArrayList<CarOption> fillOptionsArrayL(ArrayList<CarOption> carOptionsArrayL, Context context) {
         carOptionsArrayL = new ArrayList<CarOption>();
 
@@ -195,10 +263,21 @@ public class Functions {
     public static ArrayList<String> fillLicensedArrayL(ArrayList<String> carLicensedArrayL, Context context) {
         carLicensedArrayL = new ArrayList<String>();
 
-        carLicensedArrayL.add(context.getResources().getString(R.string.gasoline));
-        carLicensedArrayL.add(context.getResources().getString(R.string.diesel));
+        carLicensedArrayL.add(context.getResources().getString(R.string.licensed));
+        carLicensedArrayL.add(context.getResources().getString(R.string.no_licensed));
 
 
         return carLicensedArrayL;
+    }
+
+    public static ArrayList<String> fillPaymentArrayL(ArrayList<String> carPaymentArrayL, Context context) {
+        carPaymentArrayL = new ArrayList<String>();
+
+        carPaymentArrayL.add(context.getResources().getString(R.string.payment_method_1));
+        carPaymentArrayL.add(context.getResources().getString(R.string.payment_method_2));
+        carPaymentArrayL.add(context.getResources().getString(R.string.payment_method_3));
+
+
+        return carPaymentArrayL;
     }
 }

@@ -15,30 +15,28 @@ import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.view.activity.CarDetails;
-import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarFuel;
-import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarLicensed;
+import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarInsurance;
 
 import java.util.ArrayList;
 
-import static com.cars.halamotor.functions.Functions.fillFuelArrayL;
-import static com.cars.halamotor.functions.Functions.fillLicensedArrayL;
+import static com.cars.halamotor.functions.Functions.fillInsuranceArrayL;
 
-public class FragmentLicensed extends Fragment implements AdapterCarLicensed.PassLicensed {
+public class FragmentInsurance extends Fragment implements AdapterCarInsurance.PassIncense{
 
-    public ArrayList<String> carLicensedArrayL  = new ArrayList<String>();
+    public ArrayList<String> carInsuranceArrayL = new ArrayList<String>();
     RecyclerView recyclerView;
-    AdapterCarLicensed adapterCarLicensed;
+    AdapterCarInsurance adapterCarInsurance;
     EditText searchEdt;
     RelativeLayout cancelRL;
     ImageView cancelIV;
     View view;
 
-    public FragmentLicensed(){}
+    public FragmentInsurance(){}
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_car_licensed, container, false);
+        view = inflater.inflate(R.layout.fragment_car_insurance, container, false);
 
         inti();
         createRV();
@@ -73,13 +71,13 @@ public class FragmentLicensed extends Fragment implements AdapterCarLicensed.Pas
     }
 
     private void filter(String text) {
-        ArrayList<String> carLicensedArrayL2  = new ArrayList<String>();
-        for (String tex : carLicensedArrayL) {
-            if (tex.toLowerCase().contains(text.toLowerCase())) {
-                carLicensedArrayL2.add(tex);
+        ArrayList<String> carKilometersArrayList2  = new ArrayList<String>();
+        for (String Kilometers : carInsuranceArrayL) {
+            if (Kilometers.toLowerCase().contains(text.toLowerCase())) {
+                carKilometersArrayList2.add(Kilometers);
             }
         }
-        adapterCarLicensed.filterList(carLicensedArrayL2);
+        adapterCarInsurance.filterList(carKilometersArrayList2);
     }
 
     private void makeCancelTitleIVGONE() {
@@ -100,24 +98,24 @@ public class FragmentLicensed extends Fragment implements AdapterCarLicensed.Pas
     }
 
     private void createRV() {
-        carLicensedArrayL =fillLicensedArrayL(carLicensedArrayL,getActivity());
+        carInsuranceArrayL =fillInsuranceArrayL(carInsuranceArrayL,getActivity());
         recyclerView.setHasFixedSize(true);
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(mLayoutManager);
-        adapterCarLicensed = new AdapterCarLicensed(getActivity(), carLicensedArrayL,this);
-        recyclerView.setAdapter(adapterCarLicensed);
+        adapterCarInsurance = new AdapterCarInsurance(getActivity(), carInsuranceArrayL,this);
+        recyclerView.setAdapter(adapterCarInsurance);
     }
 
     private void inti() {
-        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_car_licensed_RV);
-        searchEdt = (EditText) view.findViewById(R.id.fragment_car_licensed_searchEdt);
-        cancelRL = (RelativeLayout) view.findViewById(R.id.fragment_car_licensed_RL);
-        cancelIV = (ImageView) view.findViewById(R.id.fragment_car_licensed_ImageV);
+        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_car_insurance_RV);
+        searchEdt = (EditText) view.findViewById(R.id.fragment_car_insurance_searchEdt);
+        cancelRL = (RelativeLayout) view.findViewById(R.id.fragment_car_insurance_RL);
+        cancelIV = (ImageView) view.findViewById(R.id.fragment_car_insurance_ImageV);
     }
 
     @Override
-    public void onLicensedClicked(String carLicensedStr) {
+    public void onIncenseClicked(String carIncenseStr) {
         CarDetails carDetails = (CarDetails) getActivity();
-        carDetails.getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(carLicensedStr);
+        carDetails.getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(carIncenseStr);
     }
 }

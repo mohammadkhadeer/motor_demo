@@ -45,6 +45,11 @@
     <string name="color">Color</string>
     <string name="payment_method">Payment method</string>
 
+    <string name="insurance_compulsory">Compulsory Insurance</string>
+    <string name="insurance_comprehensive">Comprehensive Insurance</string>
+    <string name="insurance_not">Not Insurance</string>
+
+
     <string name="price">Price</string>
     <string name="price_contry">AED</string>
 
@@ -61,11 +66,32 @@
     <string name="licensed">Licensed</string>
     <string name="no_licensed">No licensed</string>
 
+    <string name="color_beige">Beige</string>
+    <string name="color_black">Black</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_brown">Brown</string>
+    <string name="color_green">Green</string>
+    <string name="color_grey">Grey</string>
+    <string name="color_maroon">Maroon</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_red">Red</string>
+    <string name="color_silver">Silver</string>
+    <string name="color_turquoise">Turquoise</string>
+    <string name="color_white">White</string>
+    <string name="color_yellow">Yello</string>
+    <string name="color_gold">Gold</string>
 
     <string name="gasoline">Gasoline</string>
     <string name="diesel">Diesel</string>
     <string name="hybrid">Hybrid</string>
     <string name="electric">Electric</string>
+
+    <string name="payment_method_1">Cash Only</string>
+    <string name="payment_method_2">Installments Only</string>
+    <string name="payment_method_3">Cash or Installments</string>
+
 
     <string name="option_1">Sunroof</string>
     <string name="option_2">Electric Mirrors</string>

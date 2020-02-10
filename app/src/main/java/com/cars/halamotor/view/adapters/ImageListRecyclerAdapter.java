@@ -34,8 +34,6 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
 
     public EventListener mEventListener;
 
-//    private AdapterView.OnItemClickListener mOnItemClickListener;
-
     public ImageListRecyclerAdapter(Context mContext) {
         this.mContext = mContext;
 
@@ -54,8 +52,6 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
     public boolean isMultiSelected() {
         return isActionMultiplePick;
     }
-
-
 
     public interface EventListener {
         public void onItemClickListener(int position, VerticalItemHolder v);
@@ -124,9 +120,6 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
     @Override
     public void onBindViewHolder(final VerticalItemHolder holder, final int position) {
         CustomGallery item = mItems.get(position);
-
-//        imageLoader.displayImage(item.sdcardPath, holder.imgQueue);
-
         holder.setImage(item.sdcardPath);
 
         if (isActionMultiplePick) {
@@ -148,8 +141,6 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
                 }
             }
         });
-
-
     }
 
 
@@ -158,11 +149,9 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
         return mItems.size();
     }
 
-
     public CustomGallery getItem(int position) {
         return mItems.get(position);
     }
-
 
     public class VerticalItemHolder extends RecyclerView.ViewHolder {
         @BindView(R.id.imgQueue)
@@ -194,6 +183,5 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
     public void setEventListner(EventListener eventListner) {
         mEventListener = eventListner;
     }
-
 }
 

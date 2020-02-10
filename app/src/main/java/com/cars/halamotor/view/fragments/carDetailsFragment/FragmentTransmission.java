@@ -115,6 +115,6 @@ public class FragmentTransmission extends Fragment implements AdapterCarTransmis
     @Override
     public void onTransmissionClicked(String carTransmissionStr) {
         CarDetails carDetails = (CarDetails) getActivity();
-        carDetails.getCarFuelStrFromFragmentFuelAndMoveToFragmentOptions(carTransmissionStr);
+        carDetails.getCarTransmissionStrFromFragmentTransmissionAndMoveToFragmentFuel(carTransmissionStr);
     }
 }

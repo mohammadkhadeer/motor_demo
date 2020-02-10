@@ -13,16 +13,11 @@ import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.view.activity.CarDetails;
-import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarFuel;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarOptions;
-
 import java.util.ArrayList;
-
-import static com.cars.halamotor.functions.Functions.fillFuelArrayL;
 import static com.cars.halamotor.functions.Functions.fillOptionsArrayL;
 
 public class FragmentOptions extends Fragment implements AdapterCarOptions.PassOptions{
@@ -55,6 +50,7 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
         resetRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                makeSelectedOptionEmpty();
                 ArrayList<CarOption> carOptionsArrayListRest = new ArrayList<CarOption>();
                 carOptionsArrayListRest   =fillOptionsArrayL(carOptionsArrayListRest,getActivity());
                 adapterCarOptions.filterList(carOptionsArrayListRest);
@@ -65,27 +61,34 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
             @Override
             public void onClick(View v) {
                 CarDetails carDetails = (CarDetails) getActivity();
-                if (carSelectedOptionsArrayL.size() == 0)
+                if (carSelectedOptionsArrayL.isEmpty())
                 {
                     carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions("empty");
-                    Log.i("TAG1" , "Empty");
                 }else{
                     if (carSelectedOptionsArrayL.size() == 1)
                     {
-                        carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(carSelectedOptionsArrayL.get(1));
-                        Log.i("TAG1" , carSelectedOptionsArrayL.get(1));
+                        carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(carSelectedOptionsArrayL.get(0));
                     }else {
                         String options = "";
-                        for (int i =0 ;i<carSelectedOptionsArrayL.size();i++)
+                        for (int i =0 ;i>carSelectedOptionsArrayL.size();i++)
                         {
                             options = options + carSelectedOptionsArrayL.get(i) + "|";
                         }
                         carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(options);
-                        Log.i("TAG1" , options);
                     }
                 }
             }
         });
+    }
+
+    private void makeSelectedOptionEmpty() {
+        if (!carSelectedOptionsArrayL.isEmpty())
+        {
+            for (int i =0 ;i<carSelectedOptionsArrayL.size();i++)
+            {
+                carSelectedOptionsArrayL.remove(i);
+            }
+        }
     }
 
     private void actionListenerToSearchEdt() {
@@ -158,14 +161,21 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
 
     @Override
     public void onOptionClicked(String carOptionStr) {
-        for (int i =0 ; i<carSelectedOptionsArrayL.size();i++)
+        Log.i("TAG",carOptionStr);
+        if (carSelectedOptionsArrayL.isEmpty())
         {
-            if (carOptionStr.equals(carSelectedOptionsArrayL.get(i)))
+            carSelectedOptionsArrayL.add(carOptionStr);
+        }else{
+            for (int i =0 ; i<carSelectedOptionsArrayL.size();i++)
             {
-                carSelectedOptionsArrayL.remove(carSelectedOptionsArrayL.get(i));
-            }else{
-                carSelectedOptionsArrayL.add(carOptionStr);
+                if (carOptionStr.equals(carSelectedOptionsArrayL.get(i)))
+                {
+                    carSelectedOptionsArrayL.remove(carSelectedOptionsArrayL.get(i));
+                }else{
+                    carSelectedOptionsArrayL.add(carOptionStr);
+                }
             }
         }
+
     }
 }

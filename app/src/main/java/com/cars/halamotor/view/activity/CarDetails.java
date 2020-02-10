@@ -11,14 +11,18 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarColor;
 import com.cars.halamotor.model.CarMake;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarCondition;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarMake;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentColor;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentFuel;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentInsurance;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentKilometers;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentLicensed;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentModel;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentOptions;
+import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentPaymentMethod;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentTransmission;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentYear;
 
@@ -40,6 +44,9 @@ public class CarDetails extends AppCompatActivity {
     final Fragment fragmentFuel = new FragmentFuel();
     final Fragment fragmentOptions = new FragmentOptions();
     final Fragment fragmentLicensed = new FragmentLicensed();
+    final Fragment fragmentInsurance = new FragmentInsurance();
+    final Fragment fragmentColor = new FragmentColor();
+    final Fragment fragmentPaymentMethod = new FragmentPaymentMethod();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentCarMake;
 
@@ -54,6 +61,24 @@ public class CarDetails extends AppCompatActivity {
         actionListener();
         changeFontType();
 
+    }
+
+    public void getCarColorStrFromFragmentColorAndMoveToFragmentPaymentMethod(CarColor carColor)
+    {
+        moveFromColorFragmentToPaymentFragment();
+        changeHeadTitle(getResources().getString(R.string.payment_method));
+    }
+
+    public void getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(String carInsuranceStr)
+    {
+        moveFromInsuranceFragmentToColorFragment();
+        changeHeadTitle(getResources().getString(R.string.color));
+    }
+
+    public void getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(String carFuelStr)
+    {
+        moveFromLicensedFragmentToInsuranceFragment();
+        changeHeadTitle(getResources().getString(R.string.insurance));
     }
 
     public void getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(String carFuelStr)
@@ -129,6 +154,16 @@ public class CarDetails extends AppCompatActivity {
         titleTV.setText(title);
     }
 
+    private void moveFromColorFragmentToPaymentFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.payment_method));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentPaymentMethod);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentPaymentMethod);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
     private void passCarMakeToModeFragmentAndMove(CarMake carMake) {
         // add fragment and translate to next fragment
 
@@ -143,6 +178,26 @@ public class CarDetails extends AppCompatActivity {
         transaction.replace(R.id.car_details_container, fragmentModel);
         transaction.setCustomAnimations
                 (R.anim.right_to_left, R.anim.no_animation).show(fragmentModel);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromInsuranceFragmentToColorFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.color));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentColor);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentColor);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void moveFromLicensedFragmentToInsuranceFragment() {
+        carDetailsProNowArrayL.add(getResources().getString(R.string.insurance));
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragmentInsurance);
+        transaction.setCustomAnimations
+                (R.anim.right_to_left, R.anim.no_animation).show(fragmentInsurance);
         transaction.addToBackStack(null);
         transaction.commit();
     }
