@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Hala Motor</string>
+    <string name="app_name">Hala motor</string>
 
     <string name="tab_home">Home</string>
     <string name="tab_message">Messages</string>
     <string name="tab_adv">Add Post</string>
     <string name="tab_notifications_">Notices</string>
     <string name="tab_profile">Profile</string>
-    <string name="search">Search on hala motor</string>
+    <string name="search">Search on Hala mot</string>
     <string name="just_search">Search</string>
     <string name="insert">Insert an Ad</string>
     <string name="car_for_sale">Car for sale</string>
@@ -222,7 +222,6 @@
     <string name="changan">Changan</string>
     <string name="hunaghai">Hunaghai</string>
     <string name="dfm">DFM</string>
-
 
 
     <string name="h_1_starex">H\-1 Starex</string>

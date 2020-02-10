@@ -117,6 +117,7 @@ public class FragmentPaymentMethod extends Fragment implements AdapterPaymentMet
 
     @Override
     public void onPaymentClicked(String carPaymentStr) {
-
+        CarDetails carDetails = (CarDetails) getActivity();
+        carDetails.getCarPaymentStrFromFragmentPaymentMethodAndFinish(carPaymentStr);
     }
 }

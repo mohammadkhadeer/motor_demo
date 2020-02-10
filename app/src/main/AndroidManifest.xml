@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
@@ -16,21 +17,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".view.activity.Insurance">
 
-        <activity android:name=".view.activity.CarDetails"
-            android:theme="@style/AppTheme2"/>
+        </activity>
+        <activity
+            android:name=".view.activity.CarDetails"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme2" />
         <activity
             android:name=".view.activity.AddItem"
             android:theme="@style/AppTheme2" />
-        <activity android:name=".view.activity.MainActivity">
+        <activity android:name=".view.activity.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".view.showImageFromGallery.CustomGalleryActivity" >
+        <activity android:name=".view.showImageFromGallery.CustomGalleryActivity">
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
                 <action android:name="luminous.ACTION_MULTIPLE_PICK" />

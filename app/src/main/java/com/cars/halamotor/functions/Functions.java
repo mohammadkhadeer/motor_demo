@@ -3,12 +3,9 @@ package com.cars.halamotor.functions;
 
 import android.content.Context;
 import android.graphics.Typeface;
-import android.transition.Fade;
-import android.transition.Transition;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarColor;
-import com.cars.halamotor.model.CarDetails;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
 
@@ -55,37 +52,37 @@ public class Functions {
         return categoryCompsArrayL;
     }
 
-    public static ArrayList<CarDetails> fillCarDetailsArrayL(ArrayList<CarDetails> carDetailsArrayL, Context context) {
-        carDetailsArrayL = new ArrayList<CarDetails>();
-        CarDetails carDetails1 = new CarDetails(context.getResources().getString(R.string.category),"test");
-        CarDetails carDetails2 = new CarDetails(context.getResources().getString(R.string.car_make),"test");
-        CarDetails carDetails3 = new CarDetails(context.getResources().getString(R.string.model),"test");
-        CarDetails carDetails4 = new CarDetails(context.getResources().getString(R.string.year),"test");
-        CarDetails carDetails5 = new CarDetails(context.getResources().getString(R.string.condition),"test");
-        CarDetails carDetails6 = new CarDetails(context.getResources().getString(R.string.kilometers),"test");
-        CarDetails carDetails7 = new CarDetails(context.getResources().getString(R.string.transmission),"test");
-        CarDetails carDetails8 = new CarDetails(context.getResources().getString(R.string.fuel),"test");
-        CarDetails carDetails9 = new CarDetails(context.getResources().getString(R.string.car_options),"Test 1 | test2 | test4 | test5 | test 6| test 7");
-        CarDetails carDetails10 = new CarDetails(context.getResources().getString(R.string.car_license),"test");
-        CarDetails carDetails11 = new CarDetails(context.getResources().getString(R.string.insurance),"test");
-        CarDetails carDetails12 = new CarDetails(context.getResources().getString(R.string.color),"test");
-
-        carDetailsArrayL.add(carDetails1);
-        carDetailsArrayL.add(carDetails2);
-        carDetailsArrayL.add(carDetails3);
-        carDetailsArrayL.add(carDetails4);
-        carDetailsArrayL.add(carDetails5);
-        carDetailsArrayL.add(carDetails6);
-        carDetailsArrayL.add(carDetails7);
-        carDetailsArrayL.add(carDetails8);
-        carDetailsArrayL.add(carDetails9);
-        carDetailsArrayL.add(carDetails10);
-        carDetailsArrayL.add(carDetails11);
-        carDetailsArrayL.add(carDetails12);
-
-
-        return carDetailsArrayL;
-    }
+//    public static ArrayList<ItemDetails> fillCarDetailsArrayL(ArrayList<ItemDetails> carDetailsArrayL, Context context) {
+//        carDetailsArrayL = new ArrayList<ItemDetails>();
+//        ItemDetails carDetails1 = new ItemDetails(context.getResources().getString(R.string.category),"test");
+//        ItemDetails carDetails2 = new ItemDetails(context.getResources().getString(R.string.car_make),"test");
+//        ItemDetails carDetails3 = new ItemDetails(context.getResources().getString(R.string.model),"test");
+//        ItemDetails carDetails4 = new ItemDetails(context.getResources().getString(R.string.year),"test");
+//        ItemDetails carDetails5 = new ItemDetails(context.getResources().getString(R.string.condition),"test");
+//        ItemDetails carDetails6 = new ItemDetails(context.getResources().getString(R.string.kilometers),"test");
+//        ItemDetails carDetails7 = new ItemDetails(context.getResources().getString(R.string.transmission),"test");
+//        ItemDetails carDetails8 = new ItemDetails(context.getResources().getString(R.string.fuel),"test");
+//        ItemDetails carDetails9 = new ItemDetails(context.getResources().getString(R.string.car_options),"Test 1 | test2 | test4 | test5 | test 6| test 7");
+//        ItemDetails carDetails10 = new ItemDetails(context.getResources().getString(R.string.car_license),"test");
+//        ItemDetails carDetails11 = new ItemDetails(context.getResources().getString(R.string.insurance),"test");
+//        ItemDetails carDetails12 = new ItemDetails(context.getResources().getString(R.string.color),"test");
+//
+//        carDetailsArrayL.add(carDetails1);
+//        carDetailsArrayL.add(carDetails2);
+//        carDetailsArrayL.add(carDetails3);
+//        carDetailsArrayL.add(carDetails4);
+//        carDetailsArrayL.add(carDetails5);
+//        carDetailsArrayL.add(carDetails6);
+//        carDetailsArrayL.add(carDetails7);
+//        carDetailsArrayL.add(carDetails8);
+//        carDetailsArrayL.add(carDetails9);
+//        carDetailsArrayL.add(carDetails10);
+//        carDetailsArrayL.add(carDetails11);
+//        carDetailsArrayL.add(carDetails12);
+//
+//
+//        return carDetailsArrayL;
+//    }
 
     public static ArrayList<String> fillCarYearArrayList(ArrayList<String> carYearArrayL,Context context) {
         Calendar calendar = Calendar.getInstance();

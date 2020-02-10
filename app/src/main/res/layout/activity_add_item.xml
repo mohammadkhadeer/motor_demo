@@ -392,12 +392,14 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginTop="4dp"
+                            android:id="@+id/add_activity_show_car_details"
                             android:visibility="gone"
                             >
+
                             <fragment
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:name="com.cars.halamotor.view.fragments.CarDetailsFragment"
+                                android:name="com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment"
                                 tools:layout="@layout/fragment_car_details"
                                 android:id="@+id/car_details_fragment"
                                 />

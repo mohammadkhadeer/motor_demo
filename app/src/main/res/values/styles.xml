@@ -10,9 +10,9 @@
 
     <style name="AppTheme2" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorRed</item>
+        <item name="colorPrimary">@color/colorGold</item>
         <item name="colorPrimaryDark">@color/colorWhite</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorAccent">@color/colorGold</item>
 
     </style>
 

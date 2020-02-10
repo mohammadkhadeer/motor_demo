@@ -188,24 +188,24 @@ public class MainActivity extends AppCompatActivity {
             case "fragmentHome":
                 fm.beginTransaction().hide(active).show(fragmentHome).commit();
                 active = fragmentHome;
-                keepItPressed(homeBBT);
+                //keepItPressed(homeBBT);
                 break;
             case "fragmentMessage":
                 fm.beginTransaction().hide(active).show(fragmentMessage).commit();
                 active = fragmentMessage;
-                keepItPressed(messagesBBT);
+                //keepItPressed(messagesBBT);
                 break;
 
             case "fragmentNotification":
                 fm.beginTransaction().hide(active).show(fragmentNotification).commit();
                 active = fragmentNotification;
-                keepItPressed(notificationsBBT);
+                //keepItPressed(notificationsBBT);
                 break;
 
             case "fragmentProfile":
                 fm.beginTransaction().hide(active).show(fragmentProfile).commit();
                 active = fragmentProfile;
-                keepItPressed(profileBBT);
+                //keepItPressed(profileBBT);
                 break;
 
         }
@@ -241,7 +241,7 @@ public class MainActivity extends AppCompatActivity {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorGold));
         }
     }
 

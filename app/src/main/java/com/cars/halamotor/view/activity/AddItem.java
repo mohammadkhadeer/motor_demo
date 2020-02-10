@@ -14,6 +14,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
 import android.transition.Transition;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -23,6 +24,7 @@ import android.widget.VideoView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CustomGallery;
 import com.cars.halamotor.permission.CheckPermission;
@@ -40,6 +42,7 @@ import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
             ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV;
+    static RelativeLayout showSelectedCarDetailsRL;
     TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV;
     RecyclerView viewSelectedImageRV,selectCategoryRV;
     VideoView viewVideoSelected;
@@ -57,6 +60,7 @@ public class AddItem extends AppCompatActivity {
 
     Uri mVideoURI;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,6 +75,13 @@ public class AddItem extends AppCompatActivity {
         createSelectCategoryRV();
         actionListenerToRVshowSelectedCategoryAfterUserChoose();
 
+    }
+
+    public static void getCarDetails(CarDetailsModel carDetailsModel)
+    {
+        Log.i("TAG CAR DETAILS",carDetailsModel.getFuelStr());
+        //makeCompleteCarDetailsGone();
+        showSelectedCarDetailsRL.setVisibility(View.VISIBLE);
     }
 
     private void actionListenerToRVshowSelectedCategoryAfterUserChoose() {
@@ -245,6 +256,7 @@ public class AddItem extends AppCompatActivity {
         add_activity_complete_car_dCV = (RelativeLayout) findViewById(R.id.add_activity_complete_car_dCV);
         cancelSelectedCategoryRL = (RelativeLayout) findViewById(R.id.add_activity_view_select_category_from_RV_delete);
         imageCategorySelectedIV = (ImageView) findViewById(R.id.add_activity_view_select_category_from_RV_IV);
+        showSelectedCarDetailsRL = (RelativeLayout) findViewById(R.id.add_activity_show_car_details);
 
     }
 

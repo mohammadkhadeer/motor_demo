@@ -12,7 +12,9 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarColor;
+import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CarMake;
+import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarCondition;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarMake;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentColor;
@@ -50,6 +52,8 @@ public class CarDetails extends AppCompatActivity {
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentCarMake;
 
+    CarDetailsModel carDetailsModel= new CarDetailsModel();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,70 +67,91 @@ public class CarDetails extends AppCompatActivity {
 
     }
 
+
+
+    public void getCarPaymentStrFromFragmentPaymentMethodAndFinish(String paymentStr)
+    {
+        carDetailsModel.setPaymentMethod(paymentStr);
+        AddItem.getCarDetails(carDetailsModel);
+        ShowSelectedCarDetailsFragment.getCarDetails(carDetailsModel);
+        finish();
+    }
+
     public void getCarColorStrFromFragmentColorAndMoveToFragmentPaymentMethod(CarColor carColor)
     {
         moveFromColorFragmentToPaymentFragment();
         changeHeadTitle(getResources().getString(R.string.payment_method));
+        carDetailsModel.setCarColor(carColor);
     }
 
     public void getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(String carInsuranceStr)
     {
         moveFromInsuranceFragmentToColorFragment();
         changeHeadTitle(getResources().getString(R.string.color));
+        carDetailsModel.setInsurance(carInsuranceStr);
     }
 
-    public void getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(String carFuelStr)
+    public void getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(String carLicensedStr)
     {
         moveFromLicensedFragmentToInsuranceFragment();
         changeHeadTitle(getResources().getString(R.string.insurance));
+        carDetailsModel.setLicenseStr(carLicensedStr);
     }
 
-    public void getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(String carFuelStr)
+    public void getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(String carOptionsStr)
     {
         moveFromOptionsFragmentToLicensedFragment();
         changeHeadTitle(getResources().getString(R.string.car_license));
+        carDetailsModel.setCarOptionsStr(carOptionsStr);
     }
 
     public void getCarFuelStrFromFragmentFuelAndMoveToFragmentOptions(String carFuelStr)
     {
         moveFromFuelFragmentToOptionsFragment();
         changeHeadTitle(getResources().getString(R.string.car_options));
+        carDetailsModel.setFuelStr(carFuelStr);
     }
 
     public void getCarTransmissionStrFromFragmentTransmissionAndMoveToFragmentFuel(String carTransmission)
     {
         moveFromTransmissionFragmentToFuelFragment();
         changeHeadTitle(getResources().getString(R.string.fuel));
+        carDetailsModel.setTransmissionStr(carTransmission);
     }
 
     public void getCarKilometersStrFromFragmentKilometersAndMoveToFragmentTransmission(String carKilometers)
     {
         moveFromConditionFragmentToTransmissionFragment();
         changeHeadTitle(getResources().getString(R.string.transmission));
+        carDetailsModel.setKilometersStr(carKilometers);
     }
 
     public void getCarConditionStrFromFragmentCarConditionAndMoveToFragmentKilometers(String carCondition)
     {
         moveFromConditionFragmentToKilometersFragment();
         changeHeadTitle(getResources().getString(R.string.kilometers));
+        carDetailsModel.setConditionStr(carCondition);
     }
 
     public void getCarYearStrFromFragmentCarYearAndMoveToFragmentCondition(String carYear)
     {
         moveFromYearFragmentToCondtionFragment();
         changeHeadTitle(getResources().getString(R.string.condition));
+        carDetailsModel.setYearStr(carYear);
     }
 
     public void getCarModelStrFromFragmentCarModelAndMoveToFragmentYear(String carModel)
     {
         moveFromModelFragmentToYearFragment();
         changeHeadTitle(getResources().getString(R.string.year));
+        carDetailsModel.setModelStr(carModel);
     }
 
     public void getCarMakeObjFromFragmentCarMakeAndMoveToFragmentModel(CarMake carMake)
     {
         passCarMakeToModeFragmentAndMove(carMake);
         changeHeadTitle(getResources().getString(R.string.model));
+        carDetailsModel.setCarMake(carMake);
     }
 
     private void actionListener() {
@@ -143,6 +168,7 @@ public class CarDetails extends AppCompatActivity {
             }
         });
     }
+
 
     private void intiCarMakeFragment() {
         fm.beginTransaction().add(R.id.car_details_container,fragmentCarMake, "1").commit();
