@@ -902,7 +902,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="?android:attr/selectableItemBackground"
-                            android:id="@+id/car_details_fragment_icolor_RL"
+                            android:id="@+id/car_details_fragment_color_RL"
                             >
                                 <RelativeLayout
                                     android:layout_width="match_parent"

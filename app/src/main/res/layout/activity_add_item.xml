@@ -241,6 +241,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
+                    android:id="@+id/add_activity_category_cont"
                     android:layout_marginTop="8dp">
 
                     <TextView
@@ -396,12 +397,10 @@
                             android:visibility="gone"
                             >
 
-                            <fragment
+                            <include
+                                layout="@layout/content_selected_car_details"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
-                                android:name="com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment"
-                                tools:layout="@layout/fragment_car_details"
-                                android:id="@+id/car_details_fragment"
                                 />
 
                         </RelativeLayout>

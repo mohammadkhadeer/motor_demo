@@ -1,10 +1,13 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,6 +31,7 @@ import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentPaymentMetho
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentTransmission;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentYear;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
@@ -51,7 +55,7 @@ public class CarDetails extends AppCompatActivity {
     final Fragment fragmentPaymentMethod = new FragmentPaymentMethod();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentCarMake;
-
+    String whereComeFromStr;
     CarDetailsModel carDetailsModel= new CarDetailsModel();
 
     @Override
@@ -61,19 +65,50 @@ public class CarDetails extends AppCompatActivity {
 
         statusBarColor();
         init();
-        intiCarMakeFragment();
+        getStringFromIntent();
+        checkComeFromWhereAndIntiStratFragment();
         actionListener();
         changeFontType();
+    }
 
+    private void checkComeFromWhereAndIntiStratFragment() {
+        if (whereComeFromStr.equals("fromAddItem"))
+        {
+            intiCarMakeFragmentSpecific(fragmentCarMake,getResources().getString(R.string.car_make));
+        }
+        if (whereComeFromStr.equals("model"))
+        {
+            intiCarMakeFragmentSpecific(fragmentModel,getResources().getString(R.string.car_make));
+        }
+    }
+
+    private void intiCarMakeFragmentSpecific(Fragment fragment,String titleStr) {
+        //pass value to model fragment
+        Bundle bundle = new Bundle();
+        bundle.putString("whereComeFrom", "fromFragment");
+        fragmentModel.setArguments(bundle);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.car_details_container, fragment);
+        transaction.show(fragment);
+        transaction.addToBackStack(null);
+        transaction.commit();
+
+        changeHeadTitle(titleStr);
     }
 
 
+    private void getStringFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        whereComeFromStr =bundle.getString("whereComeFrom");
+    }
 
     public void getCarPaymentStrFromFragmentPaymentMethodAndFinish(String paymentStr)
     {
         carDetailsModel.setPaymentMethod(paymentStr);
-        AddItem.getCarDetails(carDetailsModel);
-        ShowSelectedCarDetailsFragment.getCarDetails(carDetailsModel);
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("carDetailsObject", carDetailsModel);
+        setResult(Activity.RESULT_OK, resultIntent);
         finish();
     }
 
@@ -81,7 +116,7 @@ public class CarDetails extends AppCompatActivity {
     {
         moveFromColorFragmentToPaymentFragment();
         changeHeadTitle(getResources().getString(R.string.payment_method));
-        carDetailsModel.setCarColor(carColor);
+        carDetailsModel.setCarColorStr(carColor.getColorNameStr());
     }
 
     public void getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(String carInsuranceStr)
@@ -151,7 +186,7 @@ public class CarDetails extends AppCompatActivity {
     {
         passCarMakeToModeFragmentAndMove(carMake);
         changeHeadTitle(getResources().getString(R.string.model));
-        carDetailsModel.setCarMake(carMake);
+        carDetailsModel.setCarMakeStr(carMake.getMakeStr());
     }
 
     private void actionListener() {

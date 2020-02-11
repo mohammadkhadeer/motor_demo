@@ -7,6 +7,8 @@ import android.media.MediaPlayer;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -14,9 +16,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
 import android.transition.Transition;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
@@ -31,6 +33,7 @@ import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.utils.Utils;
 import com.cars.halamotor.view.adapters.AdapterSelectCategory;
 import com.cars.halamotor.view.adapters.SelectedImageAdapter;
+import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import java.util.ArrayList;
@@ -42,7 +45,8 @@ import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
             ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV;
-    static RelativeLayout showSelectedCarDetailsRL;
+    RelativeLayout showSelectedCarDetailsRL;
+    LinearLayout categoryContLL;
     TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV;
     RecyclerView viewSelectedImageRV,selectCategoryRV;
     VideoView viewVideoSelected;
@@ -50,13 +54,20 @@ public class AddItem extends AppCompatActivity {
     CardView viewSelectedCategoryCV,completeCarDetailsCV;
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
+    private static final int STATIC_BACK_VALUE = 3;
+
     ImageLoader imageLoader;
     SelectedImageAdapter selectedImageAdapter;
     AdapterSelectCategory adapterSelectCategory;
     ArrayList<String> imagePathArrL = new ArrayList<String>();
     public ArrayList<CategoryComp> categoryCompsArrayL ;
     RecyclerView.LayoutManager layoutManager,layoutManagerCategory;
+
+    final Fragment fragmentShowSelectedDetails = new ShowSelectedCarDetailsFragment();
+
     static int selectVideoOrNotYet = 0;
+
+    int selectedCategoryPositionInt=100;
 
     Uri mVideoURI;
 
@@ -73,23 +84,17 @@ public class AddItem extends AppCompatActivity {
         changeFontType();
         actionListener();
         createSelectCategoryRV();
-        actionListenerToRVshowSelectedCategoryAfterUserChoose();
+        actionListenerToRVShowSelectedCategoryAfterUserChoose();
 
     }
 
-    public static void getCarDetails(CarDetailsModel carDetailsModel)
-    {
-        Log.i("TAG CAR DETAILS",carDetailsModel.getFuelStr());
-        //makeCompleteCarDetailsGone();
-        showSelectedCarDetailsRL.setVisibility(View.VISIBLE);
-    }
-
-    private void actionListenerToRVshowSelectedCategoryAfterUserChoose() {
+    private void actionListenerToRVShowSelectedCategoryAfterUserChoose() {
         selectCategoryRV.addOnItemTouchListener(
                 new AdapterSelectCategory.RecyclerItemClickListener
                         (AddItem.this, selectCategoryRV ,
                                 new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
                     @Override public void onItemClick(View view, int position) {
+                        selectedCategoryPositionInt =position;
                         goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
                         checkIfNeedToMakeCompleteCarDetailsToBeVisable(position);
                     }
@@ -191,6 +196,7 @@ public class AddItem extends AppCompatActivity {
         cancelSelectedCategoryRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                selectedCategoryPositionInt =100;
                 viewSelectedCategoryCV.setVisibility(View.GONE);
                 selectCategoryRV.setVisibility(View.VISIBLE);
                 makeCompleteCarDetailsGone();
@@ -203,15 +209,20 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 Transition fade = new Fade();
                 fade.excludeTarget(android.R.id.statusBarBackground, true);
-                 getWindow().setExitTransition(fade);
+                getWindow().setExitTransition(fade);
+
                 moveToCarDetailsCar();
             }
         });
     }
 
     private void moveToCarDetailsCar() {
+        Bundle bundle= new Bundle();
+        bundle.putString("whereComeFrom", "fromAddItem");
+
         Intent intent = new Intent(AddItem.this, CarDetails.class);
-        startActivity(intent);
+        intent.putExtras(bundle);
+        startActivityForResult(intent , STATIC_BACK_VALUE);
         overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
@@ -257,6 +268,7 @@ public class AddItem extends AppCompatActivity {
         cancelSelectedCategoryRL = (RelativeLayout) findViewById(R.id.add_activity_view_select_category_from_RV_delete);
         imageCategorySelectedIV = (ImageView) findViewById(R.id.add_activity_view_select_category_from_RV_IV);
         showSelectedCarDetailsRL = (RelativeLayout) findViewById(R.id.add_activity_show_car_details);
+        categoryContLL = (LinearLayout) findViewById(R.id.add_activity_category_cont);
 
     }
 
@@ -278,7 +290,29 @@ public class AddItem extends AppCompatActivity {
             selectVideoOrNotYet =1;
             showSelectedVideo(data);
         }
+        if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
+            CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
+            //pass value to model fragment
+            getIntent().putExtra("carDetailsObject", myObject);
+
+            Bundle bundle = new Bundle();
+            bundle.putString("category",  categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr());
+            fragmentShowSelectedDetails.setArguments(bundle);
+
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+            showSelectedCarDetailsRL.setVisibility(View.VISIBLE);
+            categoryContLL.setVisibility(View.GONE);
+            makeCompleteCarDetailsGone();
     }
+    }
+
+
+
 
     private void showSelectedVideo(Intent data) {
         // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getData());

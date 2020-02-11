@@ -1,11 +1,13 @@
 package com.cars.halamotor.view.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarDetailsModel;
 
 
 public class TitleDescriptionPriceAndCityFragment extends Fragment {
@@ -23,6 +26,7 @@ public class TitleDescriptionPriceAndCityFragment extends Fragment {
     ImageView cancelTitleIV,cancelDesIV,cityArrowIV,cancelPhoneIV;
     CardView cityCV,phoneCV;
     TextView cityTV;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -41,7 +45,6 @@ public class TitleDescriptionPriceAndCityFragment extends Fragment {
         priceEdt.setTypeface(Functions.changeFontGeneral(getActivity()));
         phoneNumberEdt.setTypeface(Functions.changeFontGeneral(getActivity()));
         cityTV.setTypeface(Functions.changeFontGeneral(getActivity()));
-
     }
 
     private void actionListener() {

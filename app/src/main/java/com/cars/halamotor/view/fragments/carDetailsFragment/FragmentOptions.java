@@ -74,6 +74,7 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
                         {
                             options = options + carSelectedOptionsArrayL.get(i) + "|";
                         }
+                        Log.i("TAG OPTIONS",options);
                         carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(options);
                     }
                 }
@@ -161,7 +162,7 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
 
     @Override
     public void onOptionClicked(String carOptionStr) {
-        Log.i("TAG",carOptionStr);
+        int flag=0;
         if (carSelectedOptionsArrayL.isEmpty())
         {
             carSelectedOptionsArrayL.add(carOptionStr);
@@ -170,10 +171,14 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
             {
                 if (carOptionStr.equals(carSelectedOptionsArrayL.get(i)))
                 {
+                    flag =1;
                     carSelectedOptionsArrayL.remove(carSelectedOptionsArrayL.get(i));
-                }else{
-                    carSelectedOptionsArrayL.add(carOptionStr);
                 }
+            }
+
+            if (flag == 0)
+            {
+                carSelectedOptionsArrayL.add(carOptionStr);
             }
         }
 
