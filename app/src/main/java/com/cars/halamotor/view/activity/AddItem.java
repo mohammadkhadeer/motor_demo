@@ -16,6 +16,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
 import android.transition.Transition;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -219,6 +220,7 @@ public class AddItem extends AppCompatActivity {
     private void moveToCarDetailsCar() {
         Bundle bundle= new Bundle();
         bundle.putString("whereComeFrom", "fromAddItem");
+        bundle.putString("specificFragmentType", getResources().getString(R.string.car_make));
 
         Intent intent = new Intent(AddItem.this, CarDetails.class);
         intent.putExtras(bundle);
@@ -308,7 +310,11 @@ public class AddItem extends AppCompatActivity {
             showSelectedCarDetailsRL.setVisibility(View.VISIBLE);
             categoryContLL.setVisibility(View.GONE);
             makeCompleteCarDetailsGone();
-    }
+        }
+        if (requestCode == 4 && resultCode == Activity.RESULT_OK) {
+            Log.i("TAG","Update");
+        }
+
     }
 
 

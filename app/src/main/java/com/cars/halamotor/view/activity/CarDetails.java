@@ -55,7 +55,7 @@ public class CarDetails extends AppCompatActivity {
     final Fragment fragmentPaymentMethod = new FragmentPaymentMethod();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentCarMake;
-    String whereComeFromStr;
+    String whereComeFromStr,fragmentTypeStr,carMakeStr;
     CarDetailsModel carDetailsModel= new CarDetailsModel();
 
     @Override
@@ -66,41 +66,109 @@ public class CarDetails extends AppCompatActivity {
         statusBarColor();
         init();
         getStringFromIntent();
-        checkComeFromWhereAndIntiStratFragment();
+        checkComeFromWhereAndIntiStartFragment();
         actionListener();
         changeFontType();
     }
 
-    private void checkComeFromWhereAndIntiStratFragment() {
-        if (whereComeFromStr.equals("fromAddItem"))
+    private void checkComeFromWhereAndIntiStartFragment() {
+        if (whereComeFromStr.equals("fromAddItem") && fragmentTypeStr.equals(getResources().getString(R.string.car_make)))
         {
             intiCarMakeFragmentSpecific(fragmentCarMake,getResources().getString(R.string.car_make));
         }
-        if (whereComeFromStr.equals("model"))
+
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.car_make)))
         {
-            intiCarMakeFragmentSpecific(fragmentModel,getResources().getString(R.string.car_make));
+            intiCarMakeFragmentSpecific(fragmentCarMake,getResources().getString(R.string.car_make));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.model)))
+        {
+            intiCarMakeFragmentSpecific(fragmentModel,getResources().getString(R.string.model));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.year)))
+        {
+            intiCarMakeFragmentSpecific(fragmentYear,getResources().getString(R.string.year));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.condition)))
+        {
+            intiCarMakeFragmentSpecific(fragmentCondition,getResources().getString(R.string.condition));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.kilometers)))
+        {
+            intiCarMakeFragmentSpecific(fragmentKilometers,getResources().getString(R.string.kilometers));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.transmission)))
+        {
+            intiCarMakeFragmentSpecific(fragmentTransmission,getResources().getString(R.string.transmission));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.fuel)))
+        {
+            intiCarMakeFragmentSpecific(fragmentFuel,getResources().getString(R.string.fuel));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.car_options)))
+        {
+            intiCarMakeFragmentSpecific(fragmentOptions,getResources().getString(R.string.car_options));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.car_license)))
+        {
+            intiCarMakeFragmentSpecific(fragmentLicensed,getResources().getString(R.string.car_license));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.insurance)))
+        {
+            intiCarMakeFragmentSpecific(fragmentInsurance,getResources().getString(R.string.insurance));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.color)))
+        {
+            intiCarMakeFragmentSpecific(fragmentColor,getResources().getString(R.string.color));
+        }
+        if (whereComeFromStr.equals("fromAShowSelected") && fragmentTypeStr.equals(getResources().getString(R.string.payment_method)))
+        {
+            intiCarMakeFragmentSpecific(fragmentPaymentMethod,getResources().getString(R.string.payment_method));
         }
     }
 
     private void intiCarMakeFragmentSpecific(Fragment fragment,String titleStr) {
         //pass value to model fragment
-        Bundle bundle = new Bundle();
-        bundle.putString("whereComeFrom", "fromFragment");
-        fragmentModel.setArguments(bundle);
+        if (titleStr.equals(getResources().getString(R.string.model)))
+        {
+            //pass value to model fragment
+            Bundle bundle = new Bundle();
+            bundle.putString("whereComeFrom", "fromFragment");
+            bundle.putString("carMake", carMakeStr);
+            fragmentModel.setArguments(bundle);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.car_details_container, fragment);
-        transaction.show(fragment);
-        transaction.addToBackStack(null);
-        transaction.commit();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.car_details_container, fragmentModel);
+            transaction.setCustomAnimations
+                    (R.anim.right_to_left, R.anim.no_animation).show(fragmentModel);
+            transaction.addToBackStack(null);
+            transaction.commit();
 
-        changeHeadTitle(titleStr);
+            changeHeadTitle(getResources().getString(R.string.model));
+        }else{
+            Bundle bundle = new Bundle();
+            bundle.putString("whereComeFrom", "fromFragment");
+            fragmentModel.setArguments(bundle);
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.car_details_container, fragment);
+            transaction.show(fragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
+            changeHeadTitle(titleStr);
+        }
     }
 
 
     private void getStringFromIntent() {
         Bundle bundle = getIntent().getExtras();
         whereComeFromStr =bundle.getString("whereComeFrom");
+        fragmentTypeStr =bundle.getString("specificFragmentType");
+        if (fragmentTypeStr.equals(getResources().getString(R.string.model)))
+        {
+            carMakeStr =bundle.getString("ifPressModelPassCarMake");
+        }
     }
 
     public void getCarPaymentStrFromFragmentPaymentMethodAndFinish(String paymentStr)
@@ -349,18 +417,22 @@ public class CarDetails extends AppCompatActivity {
     }
 
     private void checkIfLastFragmentFinshActivityElseMoveToPrivuseFragment() {
-        if (carDetailsProNowArrayL != null && !carDetailsProNowArrayL.isEmpty()) {
-            String lastFragment = carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-1);
-            if (lastFragment.equals(getResources().getString(R.string.car_make)))
-            {
-                finish();
-            } else
-            {
-                fm.popBackStack();
-                changeHeadTitle(carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2));
-                carDetailsProNowArrayL.remove(carDetailsProNowArrayL.size()-1);
+        if (whereComeFromStr.equals("fromAShowSelected"))
+        {
+            finish();
+        }else{
+            if (carDetailsProNowArrayL != null && !carDetailsProNowArrayL.isEmpty()) {
+                String lastFragment = carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-1);
+                if (lastFragment.equals(getResources().getString(R.string.car_make)))
+                {
+                    finish();
+                } else
+                {
+                    fm.popBackStack();
+                    changeHeadTitle(carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2));
+                    carDetailsProNowArrayL.remove(carDetailsProNowArrayL.size()-1);
+                }
             }
-
         }
     }
 

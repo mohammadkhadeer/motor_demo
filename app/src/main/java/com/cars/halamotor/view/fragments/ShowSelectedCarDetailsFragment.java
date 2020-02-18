@@ -29,10 +29,8 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
 
     View view;
 
-    private static final int STATIC_BACK_VALUE = 3;
-
     CarDetailsModel carDetailsModel= new CarDetailsModel();
-    String categoryStr;
+    String categoryStr,carMakeStr;
 
     @Override
     public void onAttach(Context context) {
@@ -60,30 +58,109 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         carMakeRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAddItem");
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_make));
             }
         });
         modelRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("model");
+                carMakeStr = carDetailsModel.getCarMakeStr();
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.model));
             }
         });
+        yearRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.year));
+            }
+        });
+        conditionRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.condition));
+            }
+        });
+        kilometersRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.kilometers));
+            }
+        });
+        transmissionRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.transmission));
+            }
+        });
+        fuelRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.fuel));
+            }
+        });
+        carOptionsRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_options));
+            }
+        });
+        carLicenseRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_license));
+            }
+        });
+        insuranceRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.insurance));
+            }
+        });
+        colorRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.color));
+            }
+        });
+        paymentMethodRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.payment_method));
+            }
+        });
+
     }
 
-    private void moveToCarDetalisSpecificFragment(String fromAddItem) {
-        Bundle bundle= new Bundle();
-        bundle.putString("whereComeFrom",fromAddItem);
-        Intent intent = new Intent(getActivity(), CarDetails.class);
-        intent.putExtras(bundle);
-        startActivityForResult(intent , STATIC_BACK_VALUE);
-        getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+    private void moveToCarDetalisSpecificFragment(String fromAddItem,String fragmentType) {
+        // lazam tt3'er fe onActivityResult becous this is differnt respons from and deffernt action
+        // in first case pass object in secand case send value
+
+        if (fragmentType.equals(getActivity().getResources().getString(R.string.model)))
+        {
+            Bundle bundle= new Bundle();
+            bundle.putString("whereComeFrom",fromAddItem);
+            bundle.putString("specificFragmentType",fragmentType);
+            bundle.putString("ifPressModelPassCarMake",carMakeStr);
+            Intent intent = new Intent(getActivity(), CarDetails.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent , 4);
+            getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+        }else{
+            Bundle bundle= new Bundle();
+            bundle.putString("whereComeFrom",fromAddItem);
+            bundle.putString("specificFragmentType",fragmentType);
+            Intent intent = new Intent(getActivity(), CarDetails.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent , 4);
+            getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+        }
     }
 
     private void fillDetails() {
         categoryTV.setText(categoryStr);
         carMakeTV.setText(carDetailsModel.getCarMakeStr());
         modelTV.setText(carDetailsModel.getModelStr());
+        yearTV.setText(carDetailsModel.getYearStr());
         conditionTV.setText(carDetailsModel.getConditionStr());
         kilometersTV.setText(carDetailsModel.getKilometersStr());
         transmissionTV.setText(carDetailsModel.getTransmissionStr());
@@ -92,8 +169,8 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         carLicenseTV.setText(carDetailsModel.getLicenseStr());
         insuranceTV.setText(carDetailsModel.getInsurance());
         colorTV.setText(carDetailsModel.getCarColorStr());
+        paymentMethodTV.setText(carDetailsModel.getPaymentMethod());
     }
-
 
     private void inti() {
         categoryTV = (TextView) view.findViewById(R.id.car_details_fragment_category_TV);

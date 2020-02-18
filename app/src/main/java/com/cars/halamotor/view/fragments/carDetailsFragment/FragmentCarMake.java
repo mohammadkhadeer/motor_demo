@@ -1,5 +1,7 @@
 package com.cars.halamotor.view.fragments.carDetailsFragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
@@ -30,10 +32,6 @@ public class FragmentCarMake extends Fragment implements AdapterCarMake.PassCarM
     RelativeLayout cancelRL;
     ImageView cancelIV;
 
-    private static final String CAR_DETAILS = "CAR_DETAILS";
-    android.content.SharedPreferences.Editor carDetailsEditor;
-    android.content.SharedPreferences carDetailsSP;
-
     public FragmentCarMake(){
     }
 
@@ -53,14 +51,29 @@ public class FragmentCarMake extends Fragment implements AdapterCarMake.PassCarM
         searchEdt.setTypeface(Functions.changeFontGeneral(getActivity()));
     }
 
-    private void actionListenerToRemoveTextInSearchEdt() {
-        cancelRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                searchEdt.setText("");
-            }
-        });
+    private void inti() {
+        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_car_make_RV);
+        searchEdt = (EditText) view.findViewById(R.id.fragment_car_make_searchEdt);
+        cancelRL = (RelativeLayout) view.findViewById(R.id.fragment_car_make_cancel_RL);
+        cancelIV = (ImageView) view.findViewById(R.id.fragment_car_make_ImageV);
     }
+
+    private void CreateRV() {
+        carDetailsArrayList= fillCarMakeArrayL(carDetailsArrayList,getActivity());
+        recyclerView.setHasFixedSize(true);
+        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 1);
+        recyclerView.setLayoutManager(mLayoutManager);
+        adapterCarMake = new AdapterCarMake(getActivity(), carDetailsArrayList,this);
+        recyclerView.setAdapter(adapterCarMake);
+    }
+
+    @Override
+    public void onCarMakeClicked(CarMake carMake) {
+            CarDetails carDetails = (CarDetails) getActivity();
+            carDetails.getCarMakeObjFromFragmentCarMakeAndMoveToFragmentModel(carMake);
+    }
+
+    //car make search comp down 4 methodes to handel search
 
     private void actionListenerToSearchEdt() {
         searchEdt.addTextChangedListener(new TextWatcher() {
@@ -107,26 +120,13 @@ public class FragmentCarMake extends Fragment implements AdapterCarMake.PassCarM
         cancelIV.setVisibility(View.VISIBLE);
     }
 
-    private void inti() {
-        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_car_make_RV);
-        searchEdt = (EditText) view.findViewById(R.id.fragment_car_make_searchEdt);
-        cancelRL = (RelativeLayout) view.findViewById(R.id.fragment_car_make_cancel_RL);
-        cancelIV = (ImageView) view.findViewById(R.id.fragment_car_make_ImageV);
-    }
-
-    private void CreateRV() {
-        carDetailsArrayList= fillCarMakeArrayL(carDetailsArrayList,getActivity());
-        recyclerView.setHasFixedSize(true);
-        GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 1);
-        recyclerView.setLayoutManager(mLayoutManager);
-        adapterCarMake = new AdapterCarMake(getActivity(), carDetailsArrayList,this);
-        recyclerView.setAdapter(adapterCarMake);
-    }
-
-    @Override
-    public void onCarMakeClicked(CarMake carMake) {
-            CarDetails carDetails = (CarDetails) getActivity();
-            carDetails.getCarMakeObjFromFragmentCarMakeAndMoveToFragmentModel(carMake);
+    private void actionListenerToRemoveTextInSearchEdt() {
+        cancelRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchEdt.setText("");
+            }
+        });
     }
 
 }
