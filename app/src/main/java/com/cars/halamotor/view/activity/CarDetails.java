@@ -71,6 +71,34 @@ public class CarDetails extends AppCompatActivity {
         changeFontType();
     }
 
+    private void passObjectFromCarDetailsToAddItem(String dictionaryStr,String valueStr) {
+        Intent resultIntent = new Intent();
+        if (dictionaryStr.equals("model"))
+        {
+            resultIntent.putExtra(dictionaryStr, valueStr);
+            resultIntent.putExtra("make", carMakeStr);
+        }else {
+            resultIntent.putExtra(dictionaryStr, valueStr);
+            resultIntent.putExtra("make", "nothing_to_pass");
+        }
+        setResult(Activity.RESULT_OK, resultIntent);
+        finish();
+    }
+
+    public void getCarPaymentStrFromFragmentPaymentMethodAndFinish(String paymentStr)
+    {
+        if (whereComeFromStr.equals("fromAShowSelected"))
+        {
+            passObjectFromCarDetailsToAddItem("payment",paymentStr);
+        }else {
+            carDetailsModel.setPaymentMethod(paymentStr);
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("carDetailsObject", carDetailsModel);
+            setResult(Activity.RESULT_OK, resultIntent);
+            finish();
+        }
+    }
+
     private void checkComeFromWhereAndIntiStartFragment() {
         if (whereComeFromStr.equals("fromAddItem") && fragmentTypeStr.equals(getResources().getString(R.string.car_make)))
         {
@@ -166,19 +194,6 @@ public class CarDetails extends AppCompatActivity {
         }
     }
 
-    public void getCarPaymentStrFromFragmentPaymentMethodAndFinish(String paymentStr)
-    {
-        if (whereComeFromStr.equals("fromAShowSelected"))
-        {
-            passObjectFromCarDetailsToAddItem("payment",paymentStr);
-        }else {
-        carDetailsModel.setPaymentMethod(paymentStr);
-        Intent resultIntent = new Intent();
-        resultIntent.putExtra("carDetailsObject", carDetailsModel);
-        setResult(Activity.RESULT_OK, resultIntent);
-        finish();
-        }
-    }
 
     public void getCarColorStrFromFragmentColorAndMoveToFragmentPaymentMethod(CarColor carColor)
     {
@@ -190,22 +205,6 @@ public class CarDetails extends AppCompatActivity {
             changeHeadTitle(getResources().getString(R.string.payment_method));
             carDetailsModel.setCarColorStr(carColor.getColorNameStr());
         }
-    }
-
-    private void passObjectFromCarDetailsToAddItem(String dictionaryStr,String valueStr) {
-        Intent resultIntent = new Intent();
-        if (dictionaryStr.equals("model") && whereComeFromStr.equals("fromAShowSelected"))
-        {
-            Log.i("TAG MODEL",valueStr);
-            Log.i("TAG MODEL",carMakeStr);
-            resultIntent.putExtra(dictionaryStr, valueStr);
-            resultIntent.putExtra("make", carMakeStr);
-        }else {
-            resultIntent.putExtra(dictionaryStr, valueStr);
-            resultIntent.putExtra("make", "toyta");
-        }
-        setResult(Activity.RESULT_OK, resultIntent);
-        finish();
     }
 
     public void getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(String carInsuranceStr)

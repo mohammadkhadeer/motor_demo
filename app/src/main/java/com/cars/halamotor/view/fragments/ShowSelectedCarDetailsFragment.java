@@ -49,7 +49,6 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_car_details, container, false);
 
         inti();
-        Log.i("TAG","I'm here");
         fillDetails();
         actionsLister();
 
@@ -60,7 +59,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         carMakeRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_make),"make");
+                //moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_make),"make");
             }
         });
         modelRL.setOnClickListener(new View.OnClickListener() {
@@ -109,7 +108,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         carLicenseRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_license),"license");
+                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_license),"licensed");
             }
         });
         insuranceRL.setOnClickListener(new View.OnClickListener() {
@@ -253,7 +252,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         {
             carOptionsTV.setText(value);
         }
-        if (whatUserWantToChangeStr.equals("license"))
+        if (whatUserWantToChangeStr.equals("licensed"))
         {
             carLicenseTV.setText(value);
         }
