@@ -1,11 +1,14 @@
 package com.cars.halamotor.view.fragments.carDetailsFragment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,6 +30,8 @@ public class FragmentYear extends Fragment implements AdapterCarYear.PassCarYear
     RelativeLayout cancelRL;
     ImageView cancelIV;
     View view;
+    String wherComeFromStr;
+
 
     public FragmentYear() {
     }
@@ -35,6 +40,7 @@ public class FragmentYear extends Fragment implements AdapterCarYear.PassCarYear
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_year, container, false);
+
         inti();
         createRV();
         actionListenerToSearchEdt();

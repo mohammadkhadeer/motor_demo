@@ -181,6 +181,54 @@ public class FillCarModel {
             carModelArrayList.add(context.getString(R.string.toyota_verossa));
         }
 
+        if (carMake.equals(context.getString(R.string.kia)))
+        {
+            carModelArrayList.add(context.getString(R.string.kia_asia));
+            carModelArrayList.add(context.getString(R.string.kia_avila));
+            carModelArrayList.add(context.getString(R.string.kia_optima));
+            carModelArrayList.add(context.getString(R.string.kia_opirus));
+            carModelArrayList.add(context.getString(R.string.kia_elan));
+            carModelArrayList.add(context.getString(R.string.kia_pride));
+            carModelArrayList.add(context.getString(R.string.kia_borrego));
+            carModelArrayList.add(context.getString(R.string.kia_bongo));
+            carModelArrayList.add(context.getString(R.string.kia_besta));
+            carModelArrayList.add(context.getString(R.string.kia_picanto));
+            carModelArrayList.add(context.getString(R.string.kia_granbird));
+            carModelArrayList.add(context.getString(R.string.kia_joice));
+            carModelArrayList.add(context.getString(R.string.kia_retona));
+            carModelArrayList.add(context.getString(R.string.kia_rio));
+            carModelArrayList.add(context.getString(R.string.kia_sportage));
+            carModelArrayList.add(context.getString(R.string.kia_spectra));
+            carModelArrayList.add(context.getString(R.string.kia_sorento));
+            carModelArrayList.add(context.getString(R.string.kia_soul));
+            carModelArrayList.add(context.getString(R.string.kia_cerato));
+            carModelArrayList.add(context.getString(R.string.kia_cerato_koup));
+            carModelArrayList.add(context.getString(R.string.kia_sephia));
+            carModelArrayList.add(context.getString(R.string.kia_sienna));
+            carModelArrayList.add(context.getString(R.string.kia_shuma));
+            carModelArrayList.add(context.getString(R.string.kia_forte));
+            carModelArrayList.add(context.getString(R.string.kia_venga));
+            carModelArrayList.add(context.getString(R.string.kia_captital));
+            carModelArrayList.add(context.getString(R.string.kia_cadenza));
+            carModelArrayList.add(context.getString(R.string.kia_carens));
+            carModelArrayList.add(context.getString(R.string.kia_carnival));
+            carModelArrayList.add(context.getString(R.string.kia_clarus));
+            carModelArrayList.add(context.getString(R.string.kia_quoris));
+            carModelArrayList.add(context.getString(R.string.kia_cosmos));
+            carModelArrayList.add(context.getString(R.string.kia_concorde));
+            carModelArrayList.add(context.getString(R.string.kia_magnetis));
+            carModelArrayList.add(context.getString(R.string.kia_mohave));
+            carModelArrayList.add(context.getString(R.string.kia_niro));
+            carModelArrayList.add(context.getString(R.string.kia_ray));
+            carModelArrayList.add(context.getString(R.string.kia_telluride));
+            carModelArrayList.add(context.getString(R.string.kia_stinger));
+            carModelArrayList.add(context.getString(R.string.kia_creed));
+            carModelArrayList.add(context.getString(R.string.kia_stonic));
+            carModelArrayList.add(context.getString(R.string.kia_sedona));
+            carModelArrayList.add(context.getString(R.string.kia_lotze));
+            carModelArrayList.add(context.getString(R.string.kia_pegas));
+        }
+
             return carModelArrayList;
     }
 

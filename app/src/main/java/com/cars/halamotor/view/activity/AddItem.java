@@ -72,7 +72,6 @@ public class AddItem extends AppCompatActivity {
 
     Uri mVideoURI;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -276,7 +275,6 @@ public class AddItem extends AppCompatActivity {
 
     private void statusBarColor() {
        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-
     }
 
     @Override
@@ -294,15 +292,16 @@ public class AddItem extends AppCompatActivity {
         }
         if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
             CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
-            //pass value to model fragment
+            //pass value to model fragment as object because this we make CarDetailsModel extend from Parcelable to can do this action
             getIntent().putExtra("carDetailsObject", myObject);
 
             Bundle bundle = new Bundle();
             bundle.putString("category",  categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr());
             fragmentShowSelectedDetails.setArguments(bundle);
 
-
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
+
             transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
             transaction.addToBackStack(null);
             transaction.commit();
@@ -311,14 +310,7 @@ public class AddItem extends AppCompatActivity {
             categoryContLL.setVisibility(View.GONE);
             makeCompleteCarDetailsGone();
         }
-        if (requestCode == 4 && resultCode == Activity.RESULT_OK) {
-            Log.i("TAG","Update");
-        }
-
     }
-
-
-
 
     private void showSelectedVideo(Intent data) {
         // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getData());
