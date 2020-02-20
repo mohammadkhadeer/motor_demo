@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.fragments.carDetailsFragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -38,6 +39,16 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
     private static String optionsListStr;
 
     public FragmentOptions(){}
+
+    @Override
+    public void onAttach(Context context) {
+        Log.i("TAG","onAttach");
+        if (getArguments() != null) {
+            optionsListStr = getArguments().getString("options");
+            Log.i("TAG",optionsListStr);
+        }
+        super.onAttach(context);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

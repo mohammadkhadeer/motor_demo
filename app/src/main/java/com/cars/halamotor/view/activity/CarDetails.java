@@ -55,7 +55,7 @@ public class CarDetails extends AppCompatActivity {
     final Fragment fragmentPaymentMethod = new FragmentPaymentMethod();
     final FragmentManager fm = getSupportFragmentManager();
     Fragment active = fragmentCarMake;
-    String whereComeFromStr,fragmentTypeStr,carMakeStr;
+    String whereComeFromStr,fragmentTypeStr,carMakeStr,carOptionStr;
     CarDetailsModel carDetailsModel= new CarDetailsModel();
 
     @Override
@@ -157,22 +157,41 @@ public class CarDetails extends AppCompatActivity {
 
     private void intiCarMakeFragmentSpecific(Fragment fragment,String titleStr) {
         //pass value to model fragment
-        if (titleStr.equals(getResources().getString(R.string.model)))
+        if (titleStr.equals(getResources().getString(R.string.model)) || titleStr.equals(getResources().getString(R.string.car_options)) )
         {
-            //pass value to model fragment
-            Bundle bundle = new Bundle();
-            bundle.putString("whereComeFrom", "fromFragment");
-            bundle.putString("carMake", carMakeStr);
-            fragmentModel.setArguments(bundle);
+            if (titleStr.equals(getResources().getString(R.string.model)))
+            {
+                Bundle bundle = new Bundle();
+                bundle.putString("whereComeFrom", "fromFragment");
+                bundle.putString("carMake", carMakeStr);
+                fragmentModel.setArguments(bundle);
 
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.car_details_container, fragmentModel);
-            transaction.setCustomAnimations
-                    (R.anim.right_to_left, R.anim.no_animation).show(fragmentModel);
-            transaction.addToBackStack(null);
-            transaction.commit();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.car_details_container, fragmentModel);
+                transaction.setCustomAnimations
+                        (R.anim.right_to_left, R.anim.no_animation).show(fragmentModel);
+                transaction.addToBackStack(null);
+                transaction.commit();
 
-            changeHeadTitle(getResources().getString(R.string.model));
+                changeHeadTitle(getResources().getString(R.string.model));
+            }
+            if (titleStr.equals(getResources().getString(R.string.car_options)))
+            {
+                //pass value to model fragment
+                Bundle bundle = new Bundle();
+                bundle.putString("whereComeFrom", "fromFragment");
+                bundle.putString("options", carOptionStr);
+                fragmentOptions.setArguments(bundle);
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.car_details_container, fragmentOptions);
+                transaction.setCustomAnimations
+                        (R.anim.right_to_left, R.anim.no_animation).show(fragmentOptions);
+                transaction.addToBackStack(null);
+                transaction.commit();
+
+                changeHeadTitle(getResources().getString(R.string.car_options));
+            }
         }else{
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.car_details_container, fragment);
@@ -191,6 +210,10 @@ public class CarDetails extends AppCompatActivity {
         if (fragmentTypeStr.equals(getResources().getString(R.string.model)))
         {
             carMakeStr =bundle.getString("ifPressModelPassCarMake");
+        }
+        if (fragmentTypeStr.equals(getResources().getString(R.string.car_options)))
+        {
+            carOptionStr =bundle.getString("options");
         }
     }
 

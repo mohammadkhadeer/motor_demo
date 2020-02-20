@@ -136,16 +136,30 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         // lazam tt3'er fe onActivityResult becous this is differnt respons from and deffernt action
         // in first case pass object in secand case send value
         whatUserWantToChangeStr = dictionaryStr;
-        if (fragmentType.equals(getActivity().getResources().getString(R.string.model)))
+        if (fragmentType.equals(getActivity().getResources().getString(R.string.model)) || fragmentType.equals(getActivity().getResources().getString(R.string.car_options)))
         {
-            Bundle bundle= new Bundle();
-            bundle.putString("whereComeFrom",fromAddItem);
-            bundle.putString("specificFragmentType",fragmentType);
-            bundle.putString("ifPressModelPassCarMake",carMakeStr);
-            Intent intent = new Intent(getActivity(), CarDetails.class);
-            intent.putExtras(bundle);
-            startActivityForResult(intent , 4);
-            getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            if (fragmentType.equals(getActivity().getResources().getString(R.string.model)))
+            {
+                Bundle bundle= new Bundle();
+                bundle.putString("whereComeFrom",fromAddItem);
+                bundle.putString("specificFragmentType",fragmentType);
+                bundle.putString("ifPressModelPassCarMake",carMakeStr);
+                Intent intent = new Intent(getActivity(), CarDetails.class);
+                intent.putExtras(bundle);
+                startActivityForResult(intent , 4);
+                getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+            if (fragmentType.equals(getActivity().getResources().getString(R.string.car_options)))
+            {
+                Bundle bundle= new Bundle();
+                bundle.putString("whereComeFrom",fromAddItem);
+                bundle.putString("specificFragmentType",fragmentType);
+                bundle.putString("options",carDetailsModel.getCarOptionsStr());
+                Intent intent = new Intent(getActivity(), CarDetails.class);
+                intent.putExtras(bundle);
+                startActivityForResult(intent , 4);
+                getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
         }else{
             Bundle bundle= new Bundle();
             bundle.putString("whereComeFrom",fromAddItem);
