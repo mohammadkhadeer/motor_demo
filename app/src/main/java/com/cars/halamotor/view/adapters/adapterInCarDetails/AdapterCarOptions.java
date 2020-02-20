@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -23,7 +24,6 @@ public class AdapterCarOptions extends RecyclerView.Adapter<AdapterCarOptions.Vi
 
     private final Context context;
     public ArrayList<CarOption> carOptionsArrayL;
-    public ArrayList<String> carSelectedOptionsArrayL = new ArrayList<String>();
     ;
     PassOptions passOptions;
 
@@ -45,50 +45,70 @@ public class AdapterCarOptions extends RecyclerView.Adapter<AdapterCarOptions.Vi
     public void onBindViewHolder(final AdapterCarOptions.ViewHolder holder, final int position) {
 
         holder.modelTV.setText(carOptionsArrayL.get(position).getCarOptionStr());
+        checkIfAlredyCheckedOrNot(holder,position);
+        actionListenerOption(holder,position);
+        changeFont(holder);
 
+    }
+
+    private void changeFont(ViewHolder holder) {
+        holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
+    }
+
+    private void actionListenerOption(final ViewHolder holder, final int position) {
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    if (carSelectedOptionsArrayL.isEmpty()) {
-                        carSelectedOptionsArrayL.add(carOptionsArrayL.get(position).getCarOptionStr());
-
-                        holder.imgQueueMultiSelected
-                                .setSelected(true);
-                        passOptions.onOptionClicked(carOptionsArrayL.get(position).getCarOptionStr());
-                        holder.relativeLayoutSplit.setVisibility(View.GONE);
-                        reActiveSplit(context, holder);
-                    } else {
-                        int flag = 0;
-
-                        for (int i = 0; i < carSelectedOptionsArrayL.size(); i++) {
-                            if (carSelectedOptionsArrayL.get(i).equals(carOptionsArrayL.get(position).getCarOptionStr())) {
-                                flag = 1;
-                                carSelectedOptionsArrayL.remove(i);
-
-                                holder.imgQueueMultiSelected
-                                        .setSelected(false);
-                                passOptions.onOptionClicked(carOptionsArrayL.get(position).getCarOptionStr());
-                                holder.relativeLayoutSplit.setVisibility(View.GONE);
-                                reActiveSplit(context, holder);
-                            }
-                        }
-
-                        if (flag == 0) {
-                            carSelectedOptionsArrayL.add(carOptionsArrayL.get(position).getCarOptionStr());
-
-                            holder.imgQueueMultiSelected
-                                    .setSelected(true);
-                            passOptions.onOptionClicked(carOptionsArrayL.get(position).getCarOptionStr());
-                            holder.relativeLayoutSplit.setVisibility(View.GONE);
-                            reActiveSplit(context, holder);
-                        }
-                    }
+                if(carOptionsArrayL.get(position).getIsSelected() == 1)
+                {
+                    carOptionsArrayL.get(position).setIsSelected(0);
+                    holder.checkBox.setChecked(false);
+                    passOptions.onOptionClicked(carOptionsArrayL.get(position),position);
+                    holder.relativeLayoutSplit.setVisibility(View.GONE);
+                    reActiveSplit(context, holder);
+                }else{
+                    carOptionsArrayL.get(position).setIsSelected(1);
+                    holder.checkBox
+                            .setChecked(true);
+                    passOptions.onOptionClicked(carOptionsArrayL.get(position),position);
+                    holder.relativeLayoutSplit.setVisibility(View.GONE);
+                    reActiveSplit(context, holder);
                 }
+            }
 
         });
 
-        holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
+        holder.checkBox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(carOptionsArrayL.get(position).getIsSelected() == 1)
+                {
+                    carOptionsArrayL.get(position).setIsSelected(0);
+                    holder.checkBox.setChecked(false);
+                    passOptions.onOptionClicked(carOptionsArrayL.get(position),position);
+                    holder.relativeLayoutSplit.setVisibility(View.GONE);
+                    reActiveSplit(context, holder);
+                }else{
+                    carOptionsArrayL.get(position).setIsSelected(1);
+                    holder.checkBox
+                            .setChecked(true);
+                    passOptions.onOptionClicked(carOptionsArrayL.get(position),position);
+                    holder.relativeLayoutSplit.setVisibility(View.GONE);
+                    reActiveSplit(context, holder);
+                }
+            }
 
+        });
+    }
+
+    private void checkIfAlredyCheckedOrNot(ViewHolder holder, int position) {
+        if(carOptionsArrayL.get(position).getIsSelected() == 0)
+        {
+            holder.checkBox.setChecked(false);
+
+        }else{
+            holder.checkBox.setChecked(true);
+        }
     }
 
     private void reActiveSplit(Context context, final ViewHolder holder) {
@@ -109,7 +129,7 @@ public class AdapterCarOptions extends RecyclerView.Adapter<AdapterCarOptions.Vi
     public class ViewHolder extends RecyclerView.ViewHolder {
         TextView modelTV;
         RelativeLayout relativeLayout, relativeLayoutSplit, relativeLayoutSelect;
-        ImageView imgQueueMultiSelected;
+        CheckBox checkBox;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -117,12 +137,12 @@ public class AdapterCarOptions extends RecyclerView.Adapter<AdapterCarOptions.Vi
             relativeLayout = (RelativeLayout) itemView.findViewById(R.id.adapter_car_options_container_RL);
             relativeLayoutSplit = (RelativeLayout) itemView.findViewById(R.id.adapter_car_options_split_TV);
             relativeLayoutSelect = (RelativeLayout) itemView.findViewById(R.id.adapter_car_options_select_RL);
-            imgQueueMultiSelected = (ImageView) itemView.findViewById(R.id.imgQueueMultiSelected);
+            checkBox = (CheckBox) itemView.findViewById(R.id.imgQueueMultiSelected);
         }
     }
 
     public interface PassOptions {
-        void onOptionClicked(String carFuelStr);
+        void onOptionClicked(CarOption carOption,int position);
     }
 
     public void filterList(ArrayList<CarOption> filterdNames) {

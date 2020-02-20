@@ -1,6 +1,7 @@
 package com.cars.halamotor.view.fragments.carDetailsFragment;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -18,18 +19,23 @@ import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarOptions;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+import static com.cars.halamotor.functions.Functions.fillOptionArrayL;
 import static com.cars.halamotor.functions.Functions.fillOptionsArrayL;
 
 public class FragmentOptions extends Fragment implements AdapterCarOptions.PassOptions{
 
     public ArrayList<CarOption> carOptionsArrayL  = new ArrayList<CarOption>();
-    public ArrayList<String> carSelectedOptionsArrayL  = new ArrayList<String>();
+    public ArrayList<String> carOptionsSavedArrayL  = new ArrayList<String>();
     RecyclerView recyclerView;
     AdapterCarOptions adapterCarOptions;
     EditText searchEdt;
     RelativeLayout cancelRL,resetRL,nextRL;
     ImageView cancelIV;
     View view;
+    private static String optionsListStr;
 
     public FragmentOptions(){}
 
@@ -42,18 +48,15 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
         createRV();
         actionListenerToSearchEdt();
         actionListenerToRemoveTextInSearchEdt();
-        actionListenerToResetAndNextButton();
+        actionListenerToResetAndNextButton(savedInstanceState);
         return view;
     }
 
-    private void actionListenerToResetAndNextButton() {
+    private void actionListenerToResetAndNextButton(final Bundle savedInstanceState) {
         resetRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 makeSelectedOptionEmpty();
-                ArrayList<CarOption> carOptionsArrayListRest = new ArrayList<CarOption>();
-                carOptionsArrayListRest   =fillOptionsArrayL(carOptionsArrayListRest,getActivity());
-                adapterCarOptions.filterList(carOptionsArrayListRest);
             }
         });
 
@@ -61,34 +64,24 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
             @Override
             public void onClick(View v) {
                 CarDetails carDetails = (CarDetails) getActivity();
-                if (carSelectedOptionsArrayL.isEmpty())
-                {
-                    carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions("empty");
-                }else{
-                    if (carSelectedOptionsArrayL.size() == 1)
+                String options = "";
+                for (int i = 0; i < carOptionsArrayL.size(); i++) {
+                    if (carOptionsArrayL.get(i).getIsSelected() == 1)
                     {
-                        carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(carSelectedOptionsArrayL.get(0));
-                    }else {
-                        String options = "";
-                        for (int i =0 ;i>carSelectedOptionsArrayL.size();i++)
-                        {
-                            options = options + carSelectedOptionsArrayL.get(i) + "|";
-                        }
-                        Log.i("TAG OPTIONS",options);
-                        carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(options);
+                        options = options + carOptionsArrayL.get(i).getCarOptionStr() + " | ";
                     }
                 }
+                optionsListStr = options;
+                carDetails.getCarOptionsStrFromFragmentOptionsAndMoveToFragmentOptions(options);
+
             }
         });
     }
 
     private void makeSelectedOptionEmpty() {
-        if (!carSelectedOptionsArrayL.isEmpty())
-        {
-            for (int i =0 ;i<carSelectedOptionsArrayL.size();i++)
-            {
-                carSelectedOptionsArrayL.remove(i);
-            }
+        for (int i = 0; i < carOptionsArrayL.size(); i++) {
+            carOptionsArrayL.get(i).setIsSelected(0);
+            adapterCarOptions.notifyItemChanged(i);
         }
     }
 
@@ -161,26 +154,39 @@ public class FragmentOptions extends Fragment implements AdapterCarOptions.PassO
     }
 
     @Override
-    public void onOptionClicked(String carOptionStr) {
-        int flag=0;
-        if (carSelectedOptionsArrayL.isEmpty())
-        {
-            carSelectedOptionsArrayL.add(carOptionStr);
-        }else{
-            for (int i =0 ; i<carSelectedOptionsArrayL.size();i++)
-            {
-                if (carOptionStr.equals(carSelectedOptionsArrayL.get(i)))
-                {
-                    flag =1;
-                    carSelectedOptionsArrayL.remove(carSelectedOptionsArrayL.get(i));
-                }
-            }
+    public void onOptionClicked(CarOption carOption,int position) {
+        carOptionsArrayL.get(position).setIsSelected(carOption.getIsSelected());
+    }
 
-            if (flag == 0)
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+        carOptionsSavedArrayL = new ArrayList<String>();
+        reSelectedOptions();
+    }
+
+    private void reSelectedOptions() {
+        if (optionsListStr != null)
+        {
+            carOptionsSavedArrayL=fillOptionArrayL(carOptionsSavedArrayL,optionsListStr);
+            for (int i=0;i<carOptionsSavedArrayL.size();i++)
             {
-                carSelectedOptionsArrayL.add(carOptionStr);
+                for (int j=0;j<carOptionsArrayL.size();j++)
+                {
+                    if (carOptionsSavedArrayL.get(i).replace(" ", "").equals(carOptionsArrayL.get(j).getCarOptionStr().replace(" ", "")))
+                    {
+                        carOptionsArrayL.get(j).setIsSelected(1);
+                        adapterCarOptions.notifyItemChanged(j);
+                    }
+                }
+
             }
         }
+    }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        optionsListStr = null;
     }
 }

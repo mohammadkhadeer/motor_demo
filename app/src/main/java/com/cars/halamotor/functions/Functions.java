@@ -215,24 +215,24 @@ public class Functions {
     public static ArrayList<CarOption> fillOptionsArrayL(ArrayList<CarOption> carOptionsArrayL, Context context) {
         carOptionsArrayL = new ArrayList<CarOption>();
 
-        CarOption carOption1 = new CarOption(context.getResources().getString(R.string.option_1),false);
-        CarOption carOption2 = new CarOption(context.getResources().getString(R.string.option_2),false);
-        CarOption carOption3 = new CarOption(context.getResources().getString(R.string.option_3),false);
-        CarOption carOption4 = new CarOption(context.getResources().getString(R.string.option_4),false);
-        CarOption carOption5 = new CarOption(context.getResources().getString(R.string.option_5),false);
-        CarOption carOption6 = new CarOption(context.getResources().getString(R.string.option_6),false);
-        CarOption carOption7 = new CarOption(context.getResources().getString(R.string.option_7),false);
-        CarOption carOption8 = new CarOption(context.getResources().getString(R.string.option_8),false);
-        CarOption carOption9 = new CarOption(context.getResources().getString(R.string.option_9),false);
-        CarOption carOption10 = new CarOption(context.getResources().getString(R.string.option_10),false);
-        CarOption carOption11 = new CarOption(context.getResources().getString(R.string.option_11),false);
-        CarOption carOption12 = new CarOption(context.getResources().getString(R.string.option_12),false);
-        CarOption carOption13 = new CarOption(context.getResources().getString(R.string.option_13),false);
-        CarOption carOption14 = new CarOption(context.getResources().getString(R.string.option_14),false);
-        CarOption carOption15 = new CarOption(context.getResources().getString(R.string.option_15),false);
-        CarOption carOption16 = new CarOption(context.getResources().getString(R.string.option_16),false);
-        CarOption carOption17 = new CarOption(context.getResources().getString(R.string.option_17),false);
-        CarOption carOption18 = new CarOption(context.getResources().getString(R.string.option_18),false);
+        CarOption carOption1 = new CarOption(context.getResources().getString(R.string.option_1),0);
+        CarOption carOption2 = new CarOption(context.getResources().getString(R.string.option_2),0);
+        CarOption carOption3 = new CarOption(context.getResources().getString(R.string.option_3),0);
+        CarOption carOption4 = new CarOption(context.getResources().getString(R.string.option_4),0);
+        CarOption carOption5 = new CarOption(context.getResources().getString(R.string.option_5),0);
+        CarOption carOption6 = new CarOption(context.getResources().getString(R.string.option_6),0);
+        CarOption carOption7 = new CarOption(context.getResources().getString(R.string.option_7),0);
+        CarOption carOption8 = new CarOption(context.getResources().getString(R.string.option_8),0);
+        CarOption carOption9 = new CarOption(context.getResources().getString(R.string.option_9),0);
+        CarOption carOption10 = new CarOption(context.getResources().getString(R.string.option_10),0);
+        CarOption carOption11 = new CarOption(context.getResources().getString(R.string.option_11),0);
+        CarOption carOption12 = new CarOption(context.getResources().getString(R.string.option_12),0);
+        CarOption carOption13 = new CarOption(context.getResources().getString(R.string.option_13),0);
+        CarOption carOption14 = new CarOption(context.getResources().getString(R.string.option_14),0);
+        CarOption carOption15 = new CarOption(context.getResources().getString(R.string.option_15),0);
+        CarOption carOption16 = new CarOption(context.getResources().getString(R.string.option_16),0);
+        CarOption carOption17 = new CarOption(context.getResources().getString(R.string.option_17),0);
+        CarOption carOption18 = new CarOption(context.getResources().getString(R.string.option_18),0);
 
         carOptionsArrayL.add(carOption1);
         carOptionsArrayL.add(carOption2);
@@ -276,5 +276,16 @@ public class Functions {
 
 
         return carPaymentArrayL;
+    }
+
+    public static ArrayList<String> fillOptionArrayL(ArrayList<String> carOptionsArrayL, String optionsListStr) {
+        carOptionsArrayL = new ArrayList<String>();
+
+        String[] arr = optionsListStr.split("[|]+");
+        for(int i = 0; i < arr.length-1; i += 1)
+        {
+            carOptionsArrayL.add(arr[i]);
+        }
+        return carOptionsArrayL;
     }
 }

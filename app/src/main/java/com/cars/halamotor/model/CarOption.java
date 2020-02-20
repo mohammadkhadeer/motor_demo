@@ -2,12 +2,11 @@ package com.cars.halamotor.model;
 
 public class CarOption {
     String carOptionStr;
-    boolean selectedOrNot;
+    int isSelected;
 
-    public CarOption(String carOptionStr,boolean selectedOrNot)
-    {
-        this.carOptionStr=carOptionStr;
-        this.selectedOrNot=selectedOrNot;
+    public CarOption(String carOptionStr, int isSelected) {
+        this.carOptionStr = carOptionStr;
+        this.isSelected = isSelected;
     }
 
     public String getCarOptionStr() {
@@ -18,11 +17,11 @@ public class CarOption {
         this.carOptionStr = carOptionStr;
     }
 
-    public boolean isSelectedOrNot() {
-        return selectedOrNot;
+    public int getIsSelected() {
+        return isSelected;
     }
 
-    public void setSelectedOrNot(boolean selectedOrNot) {
-        this.selectedOrNot = selectedOrNot;
+    public void setIsSelected(int isSelected) {
+        this.isSelected = isSelected;
     }
 }
