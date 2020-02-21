@@ -225,7 +225,6 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
             {
                 String value = data.getStringExtra(whatUserWantToChangeStr);
                 String makeStr = data.getStringExtra("make");
-                Log.i("TAG",makeStr);
                 checkWhereAChangeHappenedAndChangeIt(value,makeStr);
             }
         }

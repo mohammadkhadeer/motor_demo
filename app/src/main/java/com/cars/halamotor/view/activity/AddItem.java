@@ -16,7 +16,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
 import android.transition.Transition;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -34,6 +33,7 @@ import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.utils.Utils;
 import com.cars.halamotor.view.adapters.AdapterSelectCategory;
 import com.cars.halamotor.view.adapters.SelectedImageAdapter;
+import com.cars.halamotor.view.fragments.FragmentCityPhoneNumber;
 import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -45,7 +45,8 @@ import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
-            ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV;
+            ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV
+            ,cityPhoneNumberRL;
     RelativeLayout showSelectedCarDetailsRL;
     LinearLayout categoryContLL;
     TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV;
@@ -65,6 +66,7 @@ public class AddItem extends AppCompatActivity {
     RecyclerView.LayoutManager layoutManager,layoutManagerCategory;
 
     final Fragment fragmentShowSelectedDetails = new ShowSelectedCarDetailsFragment();
+    final Fragment fragmentCityPhoneNumber = new FragmentCityPhoneNumber();
 
     static int selectVideoOrNotYet = 0;
 
@@ -270,6 +272,7 @@ public class AddItem extends AppCompatActivity {
         imageCategorySelectedIV = (ImageView) findViewById(R.id.add_activity_view_select_category_from_RV_IV);
         showSelectedCarDetailsRL = (RelativeLayout) findViewById(R.id.add_activity_show_car_details);
         categoryContLL = (LinearLayout) findViewById(R.id.add_activity_category_cont);
+        cityPhoneNumberRL = (RelativeLayout) findViewById(R.id.add_activity_city_phone_numberRL);
 
     }
 
@@ -291,26 +294,47 @@ public class AddItem extends AppCompatActivity {
             showSelectedVideo(data);
         }
         if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
-            CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
-            //pass value to model fragment as object because this we make CarDetailsModel extend from Parcelable to can do this action
-            getIntent().putExtra("carDetailsObject", myObject);
-
-            Bundle bundle = new Bundle();
-            bundle.putString("category",  categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr());
-            fragmentShowSelectedDetails.setArguments(bundle);
-
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
-
-            transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
-            transaction.addToBackStack(null);
-            transaction.commit();
-
-            showSelectedCarDetailsRL.setVisibility(View.VISIBLE);
-            categoryContLL.setVisibility(View.GONE);
-            makeCompleteCarDetailsGone();
+            createShowSelectedCarDetails(data,resultCode,requestCode);
+            createCityPhoneNumber(data,resultCode,requestCode);
+            ChangeUI();
         }
     }
+
+    private void createCityPhoneNumber(Intent data, int resultCode, int requestCode) {
+        Bundle bundle = new Bundle();
+        fragmentCityPhoneNumber.setArguments(bundle);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        fragmentCityPhoneNumber.onActivityResult(requestCode, resultCode, data);
+
+        transaction.replace(R.id.selected_city_phone_number_container, fragmentCityPhoneNumber);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
+    private void ChangeUI() {
+        showSelectedCarDetailsRL.setVisibility(View.VISIBLE);
+        categoryContLL.setVisibility(View.GONE);
+        makeCompleteCarDetailsGone();
+        cityPhoneNumberRL.setVisibility(View.VISIBLE);
+    }
+
+    private void createShowSelectedCarDetails(Intent data, int resultCode, int requestCode) {
+        CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
+        //pass value to model fragment as object because this we make CarDetailsModel extend from Parcelable to can do this action
+        getIntent().putExtra("carDetailsObject", myObject);
+        Bundle bundle = new Bundle();
+        bundle.putString("category",  categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr());
+        fragmentShowSelectedDetails.setArguments(bundle);
+
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
+
+        transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
+        transaction.addToBackStack(null);
+        transaction.commit();
+    }
+
 
     private void showSelectedVideo(Intent data) {
         // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getData());

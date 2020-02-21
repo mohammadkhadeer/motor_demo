@@ -425,8 +425,8 @@
                         <fragment
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:name="com.cars.halamotor.view.fragments.TitleDescriptionPriceAndCityFragment"
-                            tools:layout="@layout/fragment_title_description_price_and_city"
+                            android:name="com.cars.halamotor.view.fragments.FragmentTitleDescriptionPrice"
+                            tools:layout="@layout/fragment_title_description_price"
                             android:id="@+id/titleDescriptions"
                             />
 
@@ -434,6 +434,32 @@
 
 
                 </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    >
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="4dp"
+                        android:id="@+id/add_activity_city_phone_numberRL"
+                        android:visibility="gone"
+                        >
+
+                        <include
+                            layout="@layout/content_city_phone_number"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            />
+
+                    </RelativeLayout>
+
+
+                </LinearLayout>
+
 
             </LinearLayout>
 
