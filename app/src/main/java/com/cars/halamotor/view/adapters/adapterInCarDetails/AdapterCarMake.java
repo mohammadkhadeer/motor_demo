@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarMake;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -38,7 +39,8 @@ public class AdapterCarMake extends RecyclerView.Adapter<AdapterCarMake.ViewHold
     @Override
     public void onBindViewHolder(final AdapterCarMake.ViewHolder holder, final int position) {
 
-        holder.carMakeIV.setBackgroundResource(carMakeArrayList.get(position).getImageIdInt());
+        fillImage(context,position,holder);
+
         holder.makeTV.setText(carMakeArrayList.get(position).getMakeStr());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -48,6 +50,13 @@ public class AdapterCarMake extends RecyclerView.Adapter<AdapterCarMake.ViewHold
         });
         holder.makeTV.setTypeface(Functions.changeFontGeneral(context));
 
+    }
+
+    private void fillImage(Context context, int position, ViewHolder holder) {
+        Picasso.with(context).load(carMakeArrayList.get(position).getImageIdInt())
+                .fit()
+                .centerCrop()
+                .into(holder.carMakeIV);
     }
 
     @Override

@@ -12,8 +12,8 @@ public class FillCarMakeArrayListsInCarDerails {
     public static ArrayList<CarMake> fillCarMakeArrayL(ArrayList<CarMake> carMakeArrayList, Context context) {
         carMakeArrayList = new ArrayList<CarMake>();
 
-        CarMake carMake1 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.hyundai));
-        CarMake carMake2 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.toyota));
+        CarMake carMake1 = new CarMake(R.drawable.hyundai,context.getResources().getString(R.string.hyundai));
+        CarMake carMake2 = new CarMake(R.drawable.toyota,context.getResources().getString(R.string.toyota));
         CarMake carMake3 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.kia));
         CarMake carMake4 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.bmw));
         CarMake carMake5 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.mercedes_benz));

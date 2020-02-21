@@ -365,4 +365,9 @@ public class AddItem extends AppCompatActivity {
         viewSelectedImageRV.setAdapter(selectedImageAdapter);
     }
 
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
 }

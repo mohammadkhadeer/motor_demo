@@ -20,6 +20,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.ArrayList;
 
 import static android.content.Context.MODE_PRIVATE;
@@ -70,9 +71,11 @@ public class SelectedImageAdapter extends RecyclerView.Adapter<SelectedImageAdap
     }
 
     private void fillImageInImageView(Context context, ViewHolder holder, int position) {
-        Bitmap bmImg = BitmapFactory.decodeFile(imagePath.get(position));
-        BitmapDrawable ob = new BitmapDrawable(context.getResources(), bmImg);
-        holder.imageView.setBackground(ob);
+        Picasso.with(context)
+                .load("file://"+imagePath.get(position)) // Add this
+                .config(Bitmap.Config.RGB_565)
+                .fit().centerCrop()
+                .into(holder.imageView);
     }
 
 

@@ -193,6 +193,7 @@ public class CarDetails extends AppCompatActivity {
                 changeHeadTitle(getResources().getString(R.string.car_options));
             }
         }else{
+            carDetailsProNowArrayL.add(getResources().getString(R.string.car_make));
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
             transaction.replace(R.id.car_details_container, fragment);
             transaction.show(fragment);
@@ -511,10 +512,12 @@ public class CarDetails extends AppCompatActivity {
                     finish();
                 } else
                 {
-                    fm.popBackStack();
                     changeHeadTitle(carDetailsProNowArrayL.get(carDetailsProNowArrayL.size()-2));
+                    fm.popBackStack();
                     carDetailsProNowArrayL.remove(carDetailsProNowArrayL.size()-1);
                 }
+            }else{
+                finish();
             }
         }
     }
