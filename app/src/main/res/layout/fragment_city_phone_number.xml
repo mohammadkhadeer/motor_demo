@@ -26,7 +26,8 @@
                 android:id="@+id/add_activity_complete_car_dCV"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:background="?android:attr/selectableItemBackground">
+                android:background="?android:attr/selectableItemBackground"
+                >
 
                 <TextView
                     android:id="@+id/fragment_city_phone_number_city_TV"

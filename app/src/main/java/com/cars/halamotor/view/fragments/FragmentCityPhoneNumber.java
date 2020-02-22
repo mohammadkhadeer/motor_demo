@@ -1,10 +1,13 @@
 package com.cars.halamotor.view.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.transition.Fade;
+import android.transition.Transition;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +17,9 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.AddItem;
+import com.cars.halamotor.view.activity.CarDetails;
+import com.cars.halamotor.view.activity.SelectCityAndNeighborhood;
 
 public class FragmentCityPhoneNumber extends Fragment {
     CardView cityCV,phoneCV;
@@ -38,6 +44,26 @@ public class FragmentCityPhoneNumber extends Fragment {
     private void actionListener() {
         makeCancelPhoneNumIVDeleteTextInPhoneNumEdt();
         listenerAdPhone();
+        selectCityActionListener();
+    }
+
+    private void selectCityActionListener() {
+        cityCV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Transition fade = new Fade();
+                fade.excludeTarget(android.R.id.statusBarBackground, true);
+                getActivity().getWindow().setExitTransition(fade);
+
+                moveToSelectCity();
+            }
+        });
+    }
+
+    private void moveToSelectCity() {
+        Intent intent = new Intent(getActivity(), SelectCityAndNeighborhood.class);
+        startActivityForResult(intent , 5);
+        getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     private void listenerAdPhone() {

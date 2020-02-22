@@ -33,6 +33,8 @@
     <string name="year">Year</string>
     <string name="condition">Condition</string>
 
+    <string name="detect_address">Detect address</string>
+
     <string name="used">Used</string>
     <string name="car_new">New</string>
 
