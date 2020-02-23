@@ -165,6 +165,7 @@
 
 
     <string name="can_not_find">Can\'t find neighborhood\?</string>
+    <string name="can_not_find_city">Can\'t find city\?</string>
 
     <string name="abu_dhabi_gate_city">Abu Dhabi Gate City</string>
     <string name="abu_dhabi_airport">Airport Road</string>
