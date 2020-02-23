@@ -17,9 +17,7 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
-import com.cars.halamotor.view.activity.AddItem;
-import com.cars.halamotor.view.activity.CarDetails;
-import com.cars.halamotor.view.activity.SelectCityAndNeighborhood;
+import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
 
 public class FragmentCityPhoneNumber extends Fragment {
     CardView cityCV,phoneCV;
