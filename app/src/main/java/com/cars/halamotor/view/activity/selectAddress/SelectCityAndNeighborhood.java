@@ -34,7 +34,7 @@ import static com.cars.halamotor.functions.FillNeighborhood.fillCityAndNeighborh
 import static com.cars.halamotor.functions.FillNeighborhood.fillNeighborhoodArrayL;
 import static com.cars.halamotor.functions.Functions.changeFontBold;
 
-public class SelectCityAndNeighborhood extends AppCompatActivity implements AdapterCityWithNeighborhood.PassCityWithNeighborhood{
+public class SelectCityAndNeighborhood extends AppCompatActivity {
 
     private RecyclerView recyclerView,recyclerViewAllCity;
     CardView cardViewAllCityCont,cardViewExpandableList;
@@ -67,7 +67,7 @@ public class SelectCityAndNeighborhood extends AppCompatActivity implements Adap
         recyclerViewAllCity.setHasFixedSize(true);
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerViewAllCity.setLayoutManager(mLayoutManager);
-        adapterCityWithNeighborhood = new AdapterCityWithNeighborhood(this,cityWithNeighborhoodsArrayList,this);
+        adapterCityWithNeighborhood = new AdapterCityWithNeighborhood(this,cityWithNeighborhoodsArrayList);
         recyclerViewAllCity.setAdapter(adapterCityWithNeighborhood);
     }
 
@@ -224,9 +224,4 @@ public class SelectCityAndNeighborhood extends AppCompatActivity implements Adap
         return true;
     }
 
-    @Override
-    public void onCityWithNeighborhoodClicked(CityWithNeighborhood cityWithNeighborhood) {
-//        Log.i("TAG CityWithNei",cityWithNeighborhood.getCityStr());
-//        Log.i("TAG Nie",cityWithNeighborhood.getNeighborhoodStr());
-    }
 }

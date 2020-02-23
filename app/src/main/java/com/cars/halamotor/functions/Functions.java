@@ -288,4 +288,41 @@ public class Functions {
         }
         return carOptionsArrayL;
     }
+
+    public static String check(int size, Context context) {
+        String city = "";
+        if (size == 125)
+        {
+            city = context.getResources().getString(R.string.dubai);
+        }
+        if (size == 90)
+        {
+            city = context.getResources().getString(R.string.abu_dhabi);
+        }
+        if (size == 69)
+        {
+            city = context.getResources().getString(R.string.sharjah);
+        }
+        if (size == 23)
+        {
+            city = context.getResources().getString(R.string.al_ain);
+        }
+        if (size == 34)
+        {
+            city = context.getResources().getString(R.string.ajman);
+        }
+        if (size == 25)
+        {
+            city = context.getResources().getString(R.string.ras_al_khaimah);
+        }
+        if (size == 21)
+        {
+            city = context.getResources().getString(R.string.um_al_quwain);
+        }
+        if (size == 12)
+        {
+            city = context.getResources().getString(R.string.fujairah);
+        }
+        return city;
+    }
 }

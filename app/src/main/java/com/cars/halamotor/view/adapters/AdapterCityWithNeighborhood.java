@@ -1,6 +1,8 @@
 package com.cars.halamotor.view.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -18,19 +20,18 @@ import com.cars.halamotor.model.CityWithNeighborhood;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.functions.Functions.check;
+
 public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCityWithNeighborhood.ViewHolder>{
 
     private final Context context;
     public ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayL ;
-    PassCityWithNeighborhood passCityWithNeighborhood;
 
     public AdapterCityWithNeighborhood
-            (Context context,ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayL
-            ,PassCityWithNeighborhood passCityWithNeighborhood)
+            (Context context,ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayL)
                 {
-                     this.context = context;
+                    this.context = context;
                     this.cityWithNeighborhoodsArrayL = cityWithNeighborhoodsArrayL;
-                    this.passCityWithNeighborhood = passCityWithNeighborhood;
                 }
 
     public AdapterCityWithNeighborhood.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
@@ -50,13 +51,13 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
         holder.radioRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passCityWithNeighborhood.onCityWithNeighborhoodClicked(cityWithNeighborhoodsArrayL.get(position));
+                Intent resultIntent = new Intent();
+                resultIntent.putExtra("city", cityWithNeighborhoodsArrayL.get(position).getCityStr());
+                resultIntent.putExtra("nei", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr());
+                ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
+                ((Activity)context).finish();
             }
         });
-    }
-
-    public interface PassCityWithNeighborhood {
-        void onCityWithNeighborhoodClicked(CityWithNeighborhood cityWithNeighborhood);
     }
 
     @Override

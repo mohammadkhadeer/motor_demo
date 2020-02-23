@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.fragments;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,6 +9,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.transition.Fade;
 import android.transition.Transition;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,8 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.AddItem;
+import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
 
 public class FragmentCityPhoneNumber extends Fragment {
@@ -62,6 +66,14 @@ public class FragmentCityPhoneNumber extends Fragment {
         Intent intent = new Intent(getActivity(), SelectCityAndNeighborhood.class);
         startActivityForResult(intent , 5);
         getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 5 && resultCode == Activity.RESULT_OK) {
+            cityTV.setText(data.getExtras().getString("city") + " >> " + data.getExtras().getString("nei"));
+        }
     }
 
     private void listenerAdPhone() {

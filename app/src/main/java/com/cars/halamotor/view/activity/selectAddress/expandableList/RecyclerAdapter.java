@@ -40,7 +40,6 @@ public class RecyclerAdapter extends ExpandableRecyclerViewAdapter<CityViewHolde
     @Override
     public void onBindChildViewHolder(NeighborhoodViewHolder holder, int flatPosition, ExpandableGroup group, int childIndex) {
         final Neighborhood neighborhood = ((SubFavoriteType) group).getItems().get(childIndex);
-        Log.i("TAG , father", String.valueOf(neighborhood.getNeighborhood()));
         holder.onBind(neighborhood,group,activity,flatPosition);
     }
 
