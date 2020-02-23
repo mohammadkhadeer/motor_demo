@@ -5,27 +5,46 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Editable;
+import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CityWithNeighborhood;
 import com.cars.halamotor.view.activity.selectAddress.expandableList.RecyclerAdapter;
 import com.cars.halamotor.model.Neighborhood;
 import com.cars.halamotor.view.activity.selectAddress.expandableList.SubFavoriteType;
+import com.cars.halamotor.view.adapters.AdapterCityWithNeighborhood;
+
 import java.util.ArrayList;
 
+import static com.cars.halamotor.functions.FillNeighborhood.fillCityAndNeighborhoodArrayL;
 import static com.cars.halamotor.functions.FillNeighborhood.fillNeighborhoodArrayL;
 import static com.cars.halamotor.functions.Functions.changeFontBold;
 
-public class SelectCityAndNeighborhood extends AppCompatActivity {
+public class SelectCityAndNeighborhood extends AppCompatActivity implements AdapterCityWithNeighborhood.PassCityWithNeighborhood{
 
-    private RecyclerView recyclerView;
+    private RecyclerView recyclerView,recyclerViewAllCity;
+    CardView cardViewAllCityCont,cardViewExpandableList;
     private ArrayList<SubFavoriteType> fatherSubListArrayList;
+    private ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayList;
     private RecyclerAdapter adapter;
+    EditText searchEdt;
+    RelativeLayout cancelRL;
+    ImageView cancelIV;
+    AdapterCityWithNeighborhood adapterCityWithNeighborhood;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +56,72 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
         inti();
         setData();
         createExpandableList();
+        createAllCityWithNeighborhoodRV();
+        actionListenerToSearchEdt();
+        actionListenerToRemoveTextInSearchEdt();
+        changeFont();
+    }
+
+    private void createAllCityWithNeighborhoodRV() {
+        cityWithNeighborhoodsArrayList = fillCityAndNeighborhoodArrayL(cityWithNeighborhoodsArrayList,this);
+        recyclerViewAllCity.setHasFixedSize(true);
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+        recyclerViewAllCity.setLayoutManager(mLayoutManager);
+        adapterCityWithNeighborhood = new AdapterCityWithNeighborhood(this,cityWithNeighborhoodsArrayList,this);
+        recyclerViewAllCity.setAdapter(adapterCityWithNeighborhood);
+    }
+
+    private void changeFont() {
+        searchEdt.setTypeface(Functions.changeFontGeneral(this));
+    }
+
+    private void actionListenerToSearchEdt() {
+        searchEdt.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                if (cs.length() != 0) {
+                    makeCancelTitleIVVISIBLE();
+                    makeAllCityWithNeighborhoodVISIBLE();
+                    makeExpandableListGONE();
+                }
+                else {
+                    makeCancelTitleIVGONE();
+                    makeAllCityWithNeighborhoodGONE();
+                    makeExpandableListVISIBLE();
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int arg1, int arg2, int arg3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) { filter(editable.toString()); }
+
+        });
+    }
+
+    private void filter(String text) {
+        ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayL2  = new ArrayList<CityWithNeighborhood>();
+        for (CityWithNeighborhood cityWithNeighborhood : cityWithNeighborhoodsArrayList) {
+            if (cityWithNeighborhood.getNeighborhoodStr().toLowerCase().contains(text.toLowerCase())) {
+                //adding the element to filtered list
+                cityWithNeighborhoodsArrayL2.add(cityWithNeighborhood);
+            }
+        }
+        //calling a method of the adapter class and passing the filtered list
+        adapterCityWithNeighborhood.filterList(cityWithNeighborhoodsArrayL2);
+    }
+
+    private void actionListenerToRemoveTextInSearchEdt() {
+        cancelRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                searchEdt.setText("");
+            }
+        });
     }
 
     private void createExpandableList() {
@@ -73,6 +158,12 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
 
     private void inti() {
         recyclerView = (RecyclerView) findViewById(R.id.select_city_rv);
+        recyclerViewAllCity = (RecyclerView) findViewById(R.id.select_city_rv_all_city);
+        cardViewExpandableList = (CardView) findViewById(R.id.select_city_rv_expandable_cont_CV);
+        cardViewAllCityCont = (CardView) findViewById(R.id.select_city_rv_all_city_cont_CV);
+        searchEdt = (EditText) findViewById(R.id.select_city_searchEdt);
+        cancelRL = (RelativeLayout) findViewById(R.id.select_city_cancel_RL);
+        cancelIV = (ImageView) findViewById(R.id.select_city_ImageV);
     }
 
     private void actionBarTitle() {
@@ -103,10 +194,39 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
         }
     }
 
+    private void makeExpandableListVISIBLE() {
+        cardViewExpandableList.setVisibility(View.VISIBLE);
+    }
+
+    private void makeExpandableListGONE() {
+        cardViewExpandableList.setVisibility(View.GONE);
+    }
+
+    private void makeAllCityWithNeighborhoodGONE() {
+        cardViewAllCityCont.setVisibility(View.GONE);
+    }
+
+    private void makeAllCityWithNeighborhoodVISIBLE() {
+        cardViewAllCityCont.setVisibility(View.VISIBLE);
+    }
+
+    private void makeCancelTitleIVGONE() {
+        cancelIV.setVisibility(View.GONE);
+    }
+
+    private void makeCancelTitleIVVISIBLE() {
+        cancelIV.setVisibility(View.VISIBLE);
+    }
+
     @Override
     public boolean onSupportNavigateUp(){
         finish();
         return true;
     }
 
+    @Override
+    public void onCityWithNeighborhoodClicked(CityWithNeighborhood cityWithNeighborhood) {
+//        Log.i("TAG CityWithNei",cityWithNeighborhood.getCityStr());
+//        Log.i("TAG Nie",cityWithNeighborhood.getNeighborhoodStr());
+    }
 }
