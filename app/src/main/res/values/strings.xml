@@ -177,7 +177,6 @@
     <string name="abu_dhabi_al_ghadeer">Al Ghadeer</string>
     <string name="abu_dhabi_al_gurm">Al Gurm</string>
     <string name="abu_dhabi_al_gurm_west">Al Gurm West</string>
-
     <string name="abu_dhabi_al_hudayriat_island">Al Hudayriat Island</string>
     <string name="abu_dhabi_al_lttihad_road">Al Lttihad Road</string>
     <string name="abu_dhabi_al_karama">Al Karama</string>
@@ -188,7 +187,6 @@
     <string name="abu_dhabi_al_manhal">Al Manhal</string>
     <string name="abu_dhabi_al_maqtaa">Al Maqtaa</string>
     <string name="abu_dhabi_al_markaziyah">Al Markaziyah</string>
-
     <string name="abu_dhabi_al_maryah">Al Maryah</string>
     <string name="abu_dhabi_al_mina">Al Mina</string>
     <string name="abu_dhabi_al_mushrif">Al Mushrif</string>
@@ -197,9 +195,9 @@
     <string name="abu_dhabi_al_najda_street">Al Najda Street</string>
     <string name="abu_dhabi_al_raha_beach">Al Raha Beach</string>
     <string name="abu_dhabi_al_raha_gardens">Al Raha Gardens</string>
+    <string name="abu_dhabi_al_raha_golf_gardens">Al Raha Golf Gardens</string>
     <string name="abu_dhabi_al_rahba">Al Rahba</string>
     <string name="abu_dhabi_al_rawdah">Al Rawdah</string>
-
     <string name="abu_dhabi_al_rayhan">Al Rayhan</string>
     <string name="abu_dhabi_al_reef">Al Reef</string>
     <string name="abu_dhabi_al_reem_island">Al Reem Island</string>
@@ -210,17 +208,16 @@
     <string name="abu_dhabi_al_shamkha">Al Shamkha</string>
     <string name="abu_dhabi_al_shawamekh">Al Shawamekh</string>
     <string name="abu_dhabi_al_silaa">sila\'a</string>
-
     <string name="abu_dhabi_al_wahda">Al Wahda</string>
     <string name="abu_dhabi_al_wathba">Al Wathba</string>
     <string name="abu_dhabi_al_zaab">Al Zaab</string>
     <string name="abu_dhabi_al_zahraa">Al Zahraa</string>
+    <string name="abu_dhabi_al_baniyas">Al Baniyas</string>
     <string name="abu_dhabi_baniyas">Baniyas</string>
     <string name="abu_dhabi_between_tow_bridges">Between Tow Bridges</string>
     <string name="abu_dhabi_building_materials_city">Building Materials City</string>
     <string name="abu_dhabi_capital_centre">Capital Centre</string>
     <string name="abu_dhabi_city_downtown">City Downtown</string>
-
     <string name="abu_dhabi_corniche_area">Corniche Area</string>
     <string name="abu_dhabi_corniche_road">Corniche Road</string>
     <string name="abu_dhabi_danet_abu_dhabi">Danet Abu Dhabi</string>
@@ -231,7 +228,6 @@
     <string name="abu_dhabi_ghantoot">Ghantoot</string>
     <string name="abu_dhabi_grand_mosque_district">Grand Mosque District</string>
     <string name="abu_dhabi_hamdan_street">Hamdan Street</string>
-
     <string name="abu_dhabi_hameem">Hameem</string>
     <string name="abu_dhabi_hydra_village">Hydra Village</string>
     <string name="abu_dhabi_jawazat_street">Jawazat Street</string>
@@ -242,7 +238,6 @@
     <string name="abu_dhabi_madinat_zayed">Madinat Zayed</string>
     <string name="abu_dhabi_marina_village">Marina Village</string>
     <string name="abu_dhabi_masdar_city">Masdar City</string>
-
     <string name="abu_dhabi_mina_zayed">Mina Zayed</string>
     <string name="abu_dhabi_mohammad_bin_zayed_city">Mohammad Bin Zayed City</string>
     <string name="abu_dhabi_muroor_area">Muroor Area</string>
@@ -253,12 +248,213 @@
     <string name="abu_dhabi_tourist_club_area">Tourist Club Area</string>
     <string name="abu_dhabi_umm_al_nar">Umm Al Nar</string>
     <string name="abu_dhabi_yas_island">Yas Island</string>
-
     <string name="abu_dhabi_zayed_military_city">Zayed Military City</string>
     <string name="abu_dhabi_zayed_sports_city">Zayed Sports City</string>
     <string name="abu_dhabi_al_ittihad_road">Al Ittihad Road</string>
-    <string name="abu_dhabi_al_forsan">Al Forsan</string>
+    <string name="abu_dhabi_al_forsan">Al\-Forsan</string>
 
+
+    <string name="sharjah_abu_shagra">Abu Shagra</string>
+    <string name="sharjah_al_azra">Al Azra</string>
+    <string name="sharjah_al_badie">Al Badie</string>
+    <string name="sharjah_al_brashi">Al Brashi</string>
+    <string name="sharjah_al_butina">Al Butina</string>
+    <string name="sharjah_al_ettihad_street">Al Ettihad Street</string>
+    <string name="sharjah_al_fayha">Al Fayha</string>
+    <string name="sharjah_al_fisht">Al Fisht</string>
+    <string name="sharjah_al_garayen">Al Garayen</string>
+    <string name="sharjah_al_ghafeyah_area">Al Ghafeyah Area</string>
+    <string name="sharjah_al_gharb">Al Gharb</string>
+    <string name="sharjah_al_ghuair">Al Ghuair</string>
+    <string name="sharjah_al_gulayaa">Al Gulayaa</string>
+    <string name="sharjah_al_hazana">Al Hazana</string>
+    <string name="sharjah_al_heerah">Al Heerah</string>
+    <string name="sharjah_al_jubail">Al Jubail</string>
+    <string name="sharjah_al_jurainah">Al Jurainah</string>
+    <string name="sharjah_al_khaldeia_area">Al Khaldeia Area</string>
+    <string name="sharjah_al_khan">Al Khan</string>
+    <string name="sharjah_al_khezamia">Al Khezamia</string>
+    <string name="sharjah_al_majaz">Al Majaz</string>
+    <string name="sharjah_al_mamzar">Al Mamzar</string>
+    <string name="sharjah_al_mareija">Al Mareija</string>
+    <string name="sharjah_al_mujarrah">Al Mujarrah</string>
+    <string name="sharjah_al_nabba">Al Nabba</string>
+    <string name="sharjah_al_nahda">Al Nahda</string>
+    <string name="sharjah_al_naimiya_area">Al Naimiya Area</string>
+    <string name="sharjah_al_nasreya">Al Nasreya</string>
+    <string name="sharjah_al_nekhailat">Al Nekhailat</string>
+    <string name="sharjah_al_nouf">Al Nouf</string>
+    <string name="sharjah_al_nujoom_islands">Al Nujoom Islands</string>
+    <string name="sharjah_al_qarain">Al Qarain</string>
+    <string name="sharjah_al_qasbaa">Al Qasbaa</string>
+    <string name="sharjah_al_qasemiya">Al Qasemiya</string>
+    <string name="sharjah_al_rahmaniya">Al Rahmaniya</string>
+    <string name="sharjah_al_ramla">Al Ramla</string>
+    <string name="sharjah_al_ramtha">Al Ramtha</string>
+    <string name="sharjah_al_riffa_area">Al Riffa Area</string>
+    <string name="sharjah_al_riqqa">Al Riqqa</string>
+    <string name="sharjah_al_sajaa">Al Sajaa</string>
+    <string name="sharjah_al_shahba">Al Shahba</string>
+    <string name="sharjah_al_sharq">Al Sharq</string>
+    <string name="sharjah_al_suyoh">Al Suyoh</string>
+    <string name="sharjah_al_suyoh_suburb">Al Suyoh Suburb</string>
+    <string name="sharjah_al_taawun">Al Taawun</string>
+    <string name="sharjah_al_tai">Al Tai</string>
+    <string name="sharjah_al_tayy_suburb">Al Tayy Suburb</string>
+    <string name="sharjah_al_wahda">Al Wahda</string>
+    <string name="sharjah_al_yarmouk">Al Yarmouk</string>
+    <string name="sharjah_al_zubair">Al Zubair</string>
+    <string name="sharjah_cornich_buhaira">Cornich Al Buhaira</string>
+    <string name="sharjah_halwan">Aalwan</string>
+    <string name="sharjah_hamriyah_free_zone">Hamriyah Free Zone</string>
+    <string name="sharjah_jwezaa">Jwezaa</string>
+    <string name="sharjah_maysaloon">Maysaloon</string>
+    <string name="sharjah_muelih">Muelih</string>
+    <string name="sharjah_muelih_commercial">Muelih Commercial</string>
+    <string name="sharjah_mughaidir">Mughaidir</string>
+    <string name="sharjah_rolla_area">Rolla Area</string>
+    <string name="sharjah_al_sharjah_airport_freezon">Airport Freezon</string>
+    <string name="sharjah_sharjah_industrial_area">Industrial Area</string>
+    <string name="sharjah_sharqan">Sharqan</string>
+    <string name="sharjah_tilal_city">Tilal City</string>
+    <string name="sharjah_um_altaraffa">Um Altaraffa</string>
+    <string name="sharjah_umm_khanoor">Umm Khanoor</string>
+    <string name="sharjah_wasit">Wasit</string>
+    <string name="sharjah_al_jada">Al Jada</string>
+    <string name="sharjah_waterfront_city_marina">Aaterfront City Marina</string>
+    <string name="sharjah_hoshi">Hoshi</string>
+    <string name="sharjah_university_city">University City</string>
+    <string name="sharjah_bu_tina">Bu Tina</string>
+    <string name="sharjah_al_azar">Al Azar</string>
+    <string name="sharjah_al_ramaqiya">Al Ramaqiya</string>
+    <string name="sharjah_al_falaj">Al Falaj</string>
+    <string name="sharjah_al_yash">Al Yash</string>
+
+    <string name="al_ain_al_ain_industrial_area">Al Ain Industrial Area</string>
+    <string name="al_ain_al_buraymi">Al Buraymi</string>
+    <string name="al_ain_al_faqaa">Al Faqa\'a</string>
+    <string name="al_ain_al_grayyeh">Al Grayyeh</string>
+    <string name="al_ain_al_hili">Al Hili</string>
+    <string name="al_ain_al_jaheli">Al Jaheli</string>
+    <string name="al_ain_al_jimi">Al Jimi</string>
+    <string name="al_ain_al_khabisi">Al Khabisi</string>
+    <string name="al_ain_al_manaseer">Al Manaseer</string>
+    <string name="al_ain_al_maqam">Al Maqam</string>
+    <string name="al_ain_al_markhaniya">Al Markhaniya</string>
+    <string name="al_ain_al_murabaa">Al Murabaa</string>
+    <string name="al_ain_al_mutarad">Al Mutarad</string>
+    <string name="al_ain_al_mutawaa">Al Mutawaa</string>
+    <string name="al_ain_al_muwahie">Al Muwahie</string>
+    <string name="al_ain_al_muwaiji">Al Muwaiji</string>
+    <string name="al_ain_al_neyadat">Al Neyadat</string>
+    <string name="al_ain_al_oyoun_village">Al Oyoun Village</string>
+    <string name="al_ain_al_sinaiya">Al Sinaiya</string>
+    <string name="al_ain_al_tawiya">Al Tawiya</string>
+    <string name="al_ain_tawam">Tawam</string>
+    <string name="al_ain_wahat_al_zaweya">Wahat Al Zaweya</string>
+    <string name="al_ain_zakher">Zakher</string>
+
+    <string name="ajman_ain_ajman">Ain Ajman</string>
+    <string name="ajman_ajman_corniche_road">Ajman Corniche Road</string>
+    <string name="ajman_ajman_downtown">Ajman Downtown</string>
+    <string name="ajman_ajman_industrial_area">Ajman Industrial Area</string>
+    <string name="ajman_ajman_meadows">Ajman Meadows</string>
+    <string name="ajman_ajman_uptown">Ajman Uptown</string>
+    <string name="ajman_ameera_village">Ameera Village</string>
+    <string name="ajman_al_bustan">Al Bustan</string>
+    <string name="ajman_al_hamidiya">Al Hamidiya</string>
+    <string name="ajman_al_humaid_city">Al Humaid City</string>
+    <string name="ajman_al_ittihad_village">Al Ittihad Village</string>
+    <string name="ajman_al_mwaihat">Al Mwaihat</string>
+    <string name="ajman_al_naemiyah">Al Naemiyah</string>
+    <string name="ajman_al_raqaib">Al Raqaib</string>
+    <string name="ajman_al_rumaila">Al Rumaila</string>
+    <string name="ajman_al_sawan">Al Sawan</string>
+    <string name="ajman_al_zorah">Al Zorah</string>
+    <string name="ajman_awali_city">Awali City</string>
+    <string name="ajman_emirates_city">Emirates City</string>
+    <string name="ajman_garden_city">Garden City</string>
+    <string name="ajman_green_city">Green City</string>
+    <string name="ajman_manama">Manama</string>
+    <string name="ajman_marmooka_city">Marmooka City</string>
+    <string name="ajman_masfoot">Masfoot</string>
+    <string name="ajman_musheiref">Musheiref</string>
+    <string name="ajman_new_industrial_area">New Industrial Area</string>
+    <string name="ajman_park_view_city">Park View City</string>
+    <string name="ajman_sheikh_khalifa_bin_zayed_street">Sheikh Khalifa Bin Zayed Street</string>
+    <string name="ajman_al_rashidiya">Al Rashidiya</string>
+    <string name="ajman_al_rawda">Al Rawda</string>
+    <string name="ajman_al_zahraa">Al Zahraa</string>
+    <string name="ajman_al_helio">Al Helio</string>
+    <string name="ajman_al_jurf">Al Jurf</string>
+    <string name="ajman_al_zahya">Al Zahya</string>
+    <string name="ajman_sheikh_maktoum_bin_rashid_rd">Sheikh Maktoum Bin Rashid Rd</string>
+    <string name="ajman_al_amerah">Al Amerah</string>
+    <string name="ajman_al_amerah_village">Al Amerah Village</string>
+
+    <string name="ras_al_khaimah_al_dhait">Al Dhait</string>
+    <string name="ras_al_khaimah_al_ghubb">Al Ghubb</string>
+    <string name="ras_al_khaimah_al_huamra">Al Huamra</string>
+    <string name="ras_al_khaimah_al_huamra_village">Al Huamra Village</string>
+    <string name="ras_al_khaimah_al_juwais">Al Juwais</string>
+    <string name="ras_al_khaimah_al_mamourah">Al Mamourah</string>
+    <string name="ras_al_khaimah_al_marjan_island">Al Marjan Island</string>
+    <string name="ras_al_khaimah_al_nakheel">Al Nakheel</string>
+    <string name="ras_al_khaimah_al_qusaidat">Al Qusaidat</string>
+    <string name="ras_al_khaimah_al_uraibi">Al Uraibi</string>
+    <string name="ras_al_khaimah_city_downtown">City Downtown</string>
+
+    <string name="ras_al_khaimah_cornich_ras_al_khaima">Al Khaima</string>
+    <string name="ras_al_khaimah_dana_island">Dana Island</string>
+    <string name="ras_al_khaimah_julfar">Julfa</string>
+    <string name="ras_al_khaimah_khuzam">Khuzam</string>
+    <string name="ras_al_khaimah_mina_al_arab">Mina Al Arab</string>
+    <string name="ras_al_khaimah_pak_ftz">PAK FTZ</string>
+    <string name="ras_al_khaimah_pak_industrial_and_technology_park">PAK Industrial And Technology Park</string>
+    <string name="ras_al_khaimah_ras_al_khaimah_creek">Creek</string>
+    <string name="ras_al_khaimah_ras_al_khaimah_gateway">Gateway</string>
+    <string name="ras_al_khaimah_ras_al_khaimah_waterfront">Waterfront</string>
+
+    <string name="ras_al_khaimah_saraya_islands">Saraya Islands</string>
+    <string name="ras_al_khaimah_sheikh_mohammad_bin_zayed_road">Sheikh Mohammad Bin Zayed Road</string>
+    <string name="ras_al_khaimah_sidroh">Sidroh</string>
+    <string name="ras_al_khaimah_yasmin_village">Yasmin Village</string>
+
+    <string name="um_al_quwain_al_aahad">Al Aahad</string>
+    <string name="um_al_quwain_al_dar_al_baidaa">Al Dar Al Baidaa</string>
+    <string name="um_al_quwain_al_haditha">Al Haditha</string>
+    <string name="um_al_quwain_al_humra">Al Humra</string>
+    <string name="um_al_quwain_al_kaber">Al Kaber</string>
+    <string name="um_al_quwain_al_khor">Al Khor</string>
+    <string name="um_al_quwain_al_maidan">Al Maidan</string>
+    <string name="um_al_quwain_al_raas">Al Raas</string>
+    <string name="um_al_quwain_al_ramla">Al Ramla</string>
+    <string name="um_al_quwain_al_raudah">Al Raudah</string>
+
+    <string name="um_al_quwain_al_riqqa">Al Riqqa</string>
+    <string name="um_al_quwain_al_salam_city">Al Salam City</string>
+    <string name="um_al_quwain_al_salamah">Al Salamah</string>
+    <string name="um_al_quwain_al_surra">Al Surra</string>
+    <string name="um_al_quwain_emirates_modern_industrial">Emirates Modern Industrial</string>
+    <string name="um_al_quwain_falaj_al_moalla">Moalla</string>
+    <string name="um_al_quwain_khor_al_beidah">Beidah</string>
+    <string name="um_al_quwain_old_induustrial_area">Old Induustrial Area</string>
+    <string name="um_al_quwain_umm_al_quwain_marina">Marina</string>
+    <string name="um_al_quwain_white_bay">White Bay</string>
+
+    <string name="um_al_quwain_ramla">Ramla</string>
+
+    <string name="fujairah_sharm">Sharm</string>
+    <string name="fujairah_gurfah">Gurfah</string>
+    <string name="fujairah_faseel">Faseel</string>
+    <string name="fujairah_fujairah_freezone">Fujairah Freezone</string>
+    <string name="fujairah_sakamkam">Sakamkam</string>
+    <string name="fujairah_saniaya">Saniaya</string>
+    <string name="fujairah_merashid">Merashid</string>
+    <string name="fujairah_corniche_fujairah">Corniche Fujairah</string>
+    <string name="fujairah_deba_fujairah">Deba Fujairah</string>
+    <string name="fujairah_downtown_fujairah">Downtown Fujairah</string>
+    <string name="fujairah_sheikh_hamad_bin_abdullah_st">Sheikh Hamad Bin Abdullah St</string>
 
     <string name="detect_address">Detect address</string>
 

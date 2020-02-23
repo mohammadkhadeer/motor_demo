@@ -54,21 +54,21 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
         ArrayList<Neighborhood> neighborhoodArrayList = new ArrayList<>();
 
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.dubai),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"dubai")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.dubai))));
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.abu_dhabi),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"abu_dhabi")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.abu_dhabi))));
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.sharjah),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"dubai")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.sharjah))));
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.al_ain),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"dubai")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.al_ain))));
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.ajman),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"dubai")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.ajman))));
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.ras_al_khaimah),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"dubai")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.ras_al_khaimah))));
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.um_al_quwain),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"dubai")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.um_al_quwain))));
         fatherSubListArrayList.add(new SubFavoriteType(getResources().getString(R.string.fujairah),
-                fillNeighborhoodArrayL(neighborhoodArrayList,this,"dubai")));
+                fillNeighborhoodArrayL(neighborhoodArrayList,this,getResources().getString(R.string.fujairah))));
     }
 
     private void inti() {

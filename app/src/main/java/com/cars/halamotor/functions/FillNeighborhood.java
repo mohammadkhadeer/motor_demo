@@ -8,11 +8,12 @@ import com.cars.halamotor.model.Neighborhood;
 import java.util.ArrayList;
 
 public class FillNeighborhood {
-    public static ArrayList<Neighborhood> fillNeighborhoodArrayL(ArrayList<Neighborhood> neighborhoodArrayL, Context context, String city) {
+    public static ArrayList<Neighborhood> fillNeighborhoodArrayL
+            (ArrayList<Neighborhood> neighborhoodArrayL, Context context, String city) {
 
         neighborhoodArrayL = new ArrayList<Neighborhood>();
 
-        if (city.equals("dubai"))
+        if (city.equals(context.getResources().getString(R.string.dubai)))
         {
             Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.dubai_acacia));
             Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.dubai_academic));
@@ -294,13 +295,634 @@ public class FillNeighborhood {
 
         }
 
-        if (city.equals("abu_dhabi"))
+        if (city.equals(context.getResources().getString(R.string.abu_dhabi)))
         {
             Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_gate_city));
             Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_airport));
+            Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_badaa));
+            Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_bahia));
+            Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_baraha));
+            Neighborhood subFavorite6 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_bateen));
+            Neighborhood subFavorite7 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_dhafrah));
+            Neighborhood subFavorite8 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_falah_city));
+            Neighborhood subFavorite9 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_forsan));
+
+            Neighborhood subFavorite10 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_ghadeer));
+            Neighborhood subFavorite11 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_gurm));
+            Neighborhood subFavorite12 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_gurm_west));
+            Neighborhood subFavorite13 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_hudayriat_island));
+            Neighborhood subFavorite14 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_ittihad_road));
+            Neighborhood subFavorite15 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_karama));
+            Neighborhood subFavorite16 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_khalidiya));
+            Neighborhood subFavorite17 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_khatim));
+            Neighborhood subFavorite18 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_maffraq));
+            Neighborhood subFavorite19 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_manaseer));
+
+            Neighborhood subFavorite20 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_manhal));
+            Neighborhood subFavorite21 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_maqtaa));
+            Neighborhood subFavorite22 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_markaziyah));
+            Neighborhood subFavorite23 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_maryah));
+            Neighborhood subFavorite24 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_mina));
+            Neighborhood subFavorite25 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_mushrif));
+            Neighborhood subFavorite26 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_nahda));
+            Neighborhood subFavorite27 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_nahyan_camp));
+            Neighborhood subFavorite28 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_najda_street));
+            Neighborhood subFavorite29 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_raha_beach));
+
+            Neighborhood subFavorite30 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_raha_gardens));
+            Neighborhood subFavorite31 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_raha_golf_gardens));
+            Neighborhood subFavorite32 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_rahba));
+            Neighborhood subFavorite33 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_rawdah));
+            Neighborhood subFavorite34 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_rayhan));
+            Neighborhood subFavorite35 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_reef));
+            Neighborhood subFavorite36 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_reem_island));
+            Neighborhood subFavorite37 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_ruwais));
+            Neighborhood subFavorite38 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_salam_street));
+            Neighborhood subFavorite39 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_samha));
+
+            Neighborhood subFavorite40 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_shahama));
+            Neighborhood subFavorite41 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_shamkha));
+            Neighborhood subFavorite42 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_shawamekh));
+            Neighborhood subFavorite43 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_silaa));
+            Neighborhood subFavorite44 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_wahda));
+            Neighborhood subFavorite45 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_wathba));
+            Neighborhood subFavorite46 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_zaab));
+            Neighborhood subFavorite47 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_zahraa));
+            Neighborhood subFavorite48 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_baniyas));
+            Neighborhood subFavorite49 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_between_tow_bridges));
+
+            Neighborhood subFavorite50 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_building_materials_city));
+            Neighborhood subFavorite51 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_capital_centre));
+            Neighborhood subFavorite52 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_city_downtown));
+            Neighborhood subFavorite53 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_corniche_area));
+            Neighborhood subFavorite54 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_corniche_road));
+            Neighborhood subFavorite55 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_danet_abu_dhabi));
+            Neighborhood subFavorite56 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_danet_abu_dhabi));
+            Neighborhood subFavorite57 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_defence_street));
+            Neighborhood subFavorite58 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_desert_village));
+            Neighborhood subFavorite59 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_eastern_road));
+
+            Neighborhood subFavorite60 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_electra_street));
+            Neighborhood subFavorite61 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_ghantoot));
+            Neighborhood subFavorite62 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_grand_mosque_district));
+            Neighborhood subFavorite63 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_hamdan_street));
+            Neighborhood subFavorite64 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_hameem));
+            Neighborhood subFavorite65 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_hydra_village));
+            Neighborhood subFavorite66 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_jawazat_street));
+            Neighborhood subFavorite67 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_khalifa_city));
+            Neighborhood subFavorite68 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_khalifa_street));
+            Neighborhood subFavorite69 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_liwa));
+
+            Neighborhood subFavorite70 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_lulu_island));
+            Neighborhood subFavorite71 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_madinat_zayed));
+            Neighborhood subFavorite72 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_marina_village));
+            Neighborhood subFavorite73 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_masdar_city));
+            Neighborhood subFavorite74 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_mina_zayed));
+            Neighborhood subFavorite75 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_mohammad_bin_zayed_city));
+            Neighborhood subFavorite76 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_muroor_area));
+            Neighborhood subFavorite77 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_mussafah));
+            Neighborhood subFavorite78 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_nurai_island));
+            Neighborhood subFavorite79 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_saadiyat_island));
+
+            Neighborhood subFavorite80 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_sas_al_nakheel));
+            Neighborhood subFavorite81 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_tourist_club_area));
+            Neighborhood subFavorite82 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_umm_al_nar));
+            Neighborhood subFavorite83 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_yas_island));
+            Neighborhood subFavorite84 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_zayed_military_city));
+            Neighborhood subFavorite85 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_zayed_sports_city));
+            Neighborhood subFavorite86 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_badaa));
+            Neighborhood subFavorite87 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_ittihad_road));
+            Neighborhood subFavorite88 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_city_downtown));
+            Neighborhood subFavorite89 = new Neighborhood(context.getResources().getString(R.string.abu_dhabi_al_forsan));
+
+            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find));
 
             neighborhoodArrayL.add(subFavorite1);
             neighborhoodArrayL.add(subFavorite2);
+            neighborhoodArrayL.add(subFavorite3);
+            neighborhoodArrayL.add(subFavorite4);
+            neighborhoodArrayL.add(subFavorite5);
+            neighborhoodArrayL.add(subFavorite6);
+            neighborhoodArrayL.add(subFavorite7);
+            neighborhoodArrayL.add(subFavorite8);
+            neighborhoodArrayL.add(subFavorite9);
+
+            neighborhoodArrayL.add(subFavorite10);
+            neighborhoodArrayL.add(subFavorite11);
+            neighborhoodArrayL.add(subFavorite12);
+            neighborhoodArrayL.add(subFavorite13);
+            neighborhoodArrayL.add(subFavorite14);
+            neighborhoodArrayL.add(subFavorite15);
+            neighborhoodArrayL.add(subFavorite16);
+            neighborhoodArrayL.add(subFavorite17);
+            neighborhoodArrayL.add(subFavorite18);
+            neighborhoodArrayL.add(subFavorite19);
+
+            neighborhoodArrayL.add(subFavorite20);
+            neighborhoodArrayL.add(subFavorite21);
+            neighborhoodArrayL.add(subFavorite22);
+            neighborhoodArrayL.add(subFavorite23);
+            neighborhoodArrayL.add(subFavorite24);
+            neighborhoodArrayL.add(subFavorite25);
+            neighborhoodArrayL.add(subFavorite26);
+            neighborhoodArrayL.add(subFavorite27);
+            neighborhoodArrayL.add(subFavorite28);
+            neighborhoodArrayL.add(subFavorite29);
+
+            neighborhoodArrayL.add(subFavorite30);
+            neighborhoodArrayL.add(subFavorite31);
+            neighborhoodArrayL.add(subFavorite32);
+            neighborhoodArrayL.add(subFavorite33);
+            neighborhoodArrayL.add(subFavorite34);
+            neighborhoodArrayL.add(subFavorite35);
+            neighborhoodArrayL.add(subFavorite36);
+            neighborhoodArrayL.add(subFavorite37);
+            neighborhoodArrayL.add(subFavorite38);
+            neighborhoodArrayL.add(subFavorite39);
+
+            neighborhoodArrayL.add(subFavorite40);
+            neighborhoodArrayL.add(subFavorite41);
+            neighborhoodArrayL.add(subFavorite42);
+            neighborhoodArrayL.add(subFavorite43);
+            neighborhoodArrayL.add(subFavorite44);
+            neighborhoodArrayL.add(subFavorite45);
+            neighborhoodArrayL.add(subFavorite46);
+            neighborhoodArrayL.add(subFavorite47);
+            neighborhoodArrayL.add(subFavorite48);
+            neighborhoodArrayL.add(subFavorite49);
+
+            neighborhoodArrayL.add(subFavorite50);
+            neighborhoodArrayL.add(subFavorite51);
+            neighborhoodArrayL.add(subFavorite52);
+            neighborhoodArrayL.add(subFavorite53);
+            neighborhoodArrayL.add(subFavorite54);
+            neighborhoodArrayL.add(subFavorite55);
+            neighborhoodArrayL.add(subFavorite56);
+            neighborhoodArrayL.add(subFavorite57);
+            neighborhoodArrayL.add(subFavorite58);
+            neighborhoodArrayL.add(subFavorite59);
+
+            neighborhoodArrayL.add(subFavorite60);
+            neighborhoodArrayL.add(subFavorite61);
+            neighborhoodArrayL.add(subFavorite62);
+            neighborhoodArrayL.add(subFavorite63);
+            neighborhoodArrayL.add(subFavorite64);
+            neighborhoodArrayL.add(subFavorite65);
+            neighborhoodArrayL.add(subFavorite66);
+            neighborhoodArrayL.add(subFavorite67);
+            neighborhoodArrayL.add(subFavorite68);
+            neighborhoodArrayL.add(subFavorite69);
+
+            neighborhoodArrayL.add(subFavorite70);
+            neighborhoodArrayL.add(subFavorite71);
+            neighborhoodArrayL.add(subFavorite72);
+            neighborhoodArrayL.add(subFavorite73);
+            neighborhoodArrayL.add(subFavorite74);
+            neighborhoodArrayL.add(subFavorite75);
+            neighborhoodArrayL.add(subFavorite76);
+            neighborhoodArrayL.add(subFavorite77);
+            neighborhoodArrayL.add(subFavorite78);
+            neighborhoodArrayL.add(subFavorite79);
+
+            neighborhoodArrayL.add(subFavorite80);
+            neighborhoodArrayL.add(subFavorite81);
+            neighborhoodArrayL.add(subFavorite82);
+            neighborhoodArrayL.add(subFavorite83);
+            neighborhoodArrayL.add(subFavorite84);
+            neighborhoodArrayL.add(subFavorite85);
+            neighborhoodArrayL.add(subFavorite86);
+            neighborhoodArrayL.add(subFavorite87);
+            neighborhoodArrayL.add(subFavorite88);
+            neighborhoodArrayL.add(subFavorite89);
+
+            neighborhoodArrayL.add(subFavorite130);
+        }
+
+        if (city.equals(context.getResources().getString(R.string.sharjah)))
+        {
+            Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.sharjah_abu_shagra));
+            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_badie));
+            Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_brashi));
+            Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_butina));
+            Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_ettihad_street));
+            Neighborhood subFavorite6 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_fayha));
+            Neighborhood subFavorite7 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_fisht));
+            Neighborhood subFavorite8 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_garayen));
+            Neighborhood subFavorite9 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_ghafeyah_area));
+            Neighborhood subFavorite10 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_gharb));
+            Neighborhood subFavorite11 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_ghuair));
+            Neighborhood subFavorite12 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_jubail));
+            Neighborhood subFavorite13 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_jurainah));
+            Neighborhood subFavorite14 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_khezamia));
+            Neighborhood subFavorite15 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_majaz));
+            Neighborhood subFavorite16 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_mareija));
+            Neighborhood subFavorite17 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_mujarrah));
+            Neighborhood subFavorite18 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_nabba));
+            Neighborhood subFavorite19 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_nahda));
+            Neighborhood subFavorite20 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_naimiya_area));
+            Neighborhood subFavorite21 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_nasreya));
+            Neighborhood subFavorite22 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_nekhailat));
+            Neighborhood subFavorite23 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_nouf));
+            Neighborhood subFavorite24 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_nujoom_islands));
+            Neighborhood subFavorite25 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_qarain));
+            Neighborhood subFavorite26 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_qasbaa));
+            Neighborhood subFavorite27 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_qasemiya));
+            Neighborhood subFavorite28 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_rahmaniya));
+            Neighborhood subFavorite29 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_ramla));
+            Neighborhood subFavorite30 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_ramtha));
+            Neighborhood subFavorite31 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_riffa_area));
+            Neighborhood subFavorite32 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_riqqa));
+            Neighborhood subFavorite33 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_sajaa));
+            Neighborhood subFavorite34 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_shahba));
+            Neighborhood subFavorite35 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_taawun));
+            Neighborhood subFavorite36 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_sharq));
+            Neighborhood subFavorite37 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_suyoh));
+            Neighborhood subFavorite38 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_suyoh_suburb));
+            Neighborhood subFavorite39 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_tai));
+            Neighborhood subFavorite40 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_tayy_suburb));
+            Neighborhood subFavorite41 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_wahda));
+            Neighborhood subFavorite42 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_yarmouk));
+            Neighborhood subFavorite43 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_zubair));
+            Neighborhood subFavorite44 = new Neighborhood(context.getResources().getString(R.string.sharjah_cornich_buhaira));
+            Neighborhood subFavorite45 = new Neighborhood(context.getResources().getString(R.string.sharjah_halwan));
+            Neighborhood subFavorite46 = new Neighborhood(context.getResources().getString(R.string.sharjah_hamriyah_free_zone));
+            Neighborhood subFavorite47 = new Neighborhood(context.getResources().getString(R.string.sharjah_jwezaa));
+            Neighborhood subFavorite48 = new Neighborhood(context.getResources().getString(R.string.sharjah_maysaloon));
+            Neighborhood subFavorite49 = new Neighborhood(context.getResources().getString(R.string.sharjah_muelih));
+            Neighborhood subFavorite50 = new Neighborhood(context.getResources().getString(R.string.sharjah_muelih_commercial));
+            Neighborhood subFavorite51 = new Neighborhood(context.getResources().getString(R.string.sharjah_mughaidir));
+            Neighborhood subFavorite52 = new Neighborhood(context.getResources().getString(R.string.sharjah_rolla_area));
+            Neighborhood subFavorite53 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_sharjah_airport_freezon));
+            Neighborhood subFavorite54 = new Neighborhood(context.getResources().getString(R.string.sharjah_sharjah_industrial_area));
+            Neighborhood subFavorite55 = new Neighborhood(context.getResources().getString(R.string.sharjah_sharqan));
+            Neighborhood subFavorite56 = new Neighborhood(context.getResources().getString(R.string.sharjah_tilal_city));
+            Neighborhood subFavorite57 = new Neighborhood(context.getResources().getString(R.string.sharjah_um_altaraffa));
+            Neighborhood subFavorite58 = new Neighborhood(context.getResources().getString(R.string.sharjah_umm_khanoor));
+            Neighborhood subFavorite59 = new Neighborhood(context.getResources().getString(R.string.sharjah_wasit));
+            Neighborhood subFavorite60 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_jada));
+            Neighborhood subFavorite61 = new Neighborhood(context.getResources().getString(R.string.sharjah_waterfront_city_marina));
+            Neighborhood subFavorite62 = new Neighborhood(context.getResources().getString(R.string.sharjah_hoshi));
+            Neighborhood subFavorite63 = new Neighborhood(context.getResources().getString(R.string.sharjah_university_city));
+            Neighborhood subFavorite64 = new Neighborhood(context.getResources().getString(R.string.sharjah_bu_tina));
+            Neighborhood subFavorite65 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_azra));
+            Neighborhood subFavorite66 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_ramaqiya));
+            Neighborhood subFavorite67 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_falaj));
+            Neighborhood subFavorite68 = new Neighborhood(context.getResources().getString(R.string.sharjah_al_yash));
+
+            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find));
+
+            neighborhoodArrayL.add(subFavorite1);
+            neighborhoodArrayL.add(subFavorite2);
+            neighborhoodArrayL.add(subFavorite3);
+            neighborhoodArrayL.add(subFavorite4);
+            neighborhoodArrayL.add(subFavorite5);
+            neighborhoodArrayL.add(subFavorite6);
+            neighborhoodArrayL.add(subFavorite7);
+            neighborhoodArrayL.add(subFavorite8);
+            neighborhoodArrayL.add(subFavorite9);
+
+            neighborhoodArrayL.add(subFavorite10);
+            neighborhoodArrayL.add(subFavorite11);
+            neighborhoodArrayL.add(subFavorite12);
+            neighborhoodArrayL.add(subFavorite13);
+            neighborhoodArrayL.add(subFavorite14);
+            neighborhoodArrayL.add(subFavorite15);
+            neighborhoodArrayL.add(subFavorite16);
+            neighborhoodArrayL.add(subFavorite17);
+            neighborhoodArrayL.add(subFavorite18);
+            neighborhoodArrayL.add(subFavorite19);
+
+            neighborhoodArrayL.add(subFavorite20);
+            neighborhoodArrayL.add(subFavorite21);
+            neighborhoodArrayL.add(subFavorite22);
+            neighborhoodArrayL.add(subFavorite23);
+            neighborhoodArrayL.add(subFavorite24);
+            neighborhoodArrayL.add(subFavorite25);
+            neighborhoodArrayL.add(subFavorite26);
+            neighborhoodArrayL.add(subFavorite27);
+            neighborhoodArrayL.add(subFavorite28);
+            neighborhoodArrayL.add(subFavorite29);
+
+            neighborhoodArrayL.add(subFavorite30);
+            neighborhoodArrayL.add(subFavorite31);
+            neighborhoodArrayL.add(subFavorite32);
+            neighborhoodArrayL.add(subFavorite33);
+            neighborhoodArrayL.add(subFavorite34);
+            neighborhoodArrayL.add(subFavorite35);
+            neighborhoodArrayL.add(subFavorite36);
+            neighborhoodArrayL.add(subFavorite37);
+            neighborhoodArrayL.add(subFavorite38);
+            neighborhoodArrayL.add(subFavorite39);
+
+            neighborhoodArrayL.add(subFavorite40);
+            neighborhoodArrayL.add(subFavorite41);
+            neighborhoodArrayL.add(subFavorite42);
+            neighborhoodArrayL.add(subFavorite43);
+            neighborhoodArrayL.add(subFavorite44);
+            neighborhoodArrayL.add(subFavorite45);
+            neighborhoodArrayL.add(subFavorite46);
+            neighborhoodArrayL.add(subFavorite47);
+            neighborhoodArrayL.add(subFavorite48);
+            neighborhoodArrayL.add(subFavorite49);
+
+            neighborhoodArrayL.add(subFavorite50);
+            neighborhoodArrayL.add(subFavorite51);
+            neighborhoodArrayL.add(subFavorite52);
+            neighborhoodArrayL.add(subFavorite53);
+            neighborhoodArrayL.add(subFavorite54);
+            neighborhoodArrayL.add(subFavorite55);
+            neighborhoodArrayL.add(subFavorite56);
+            neighborhoodArrayL.add(subFavorite57);
+            neighborhoodArrayL.add(subFavorite58);
+            neighborhoodArrayL.add(subFavorite59);
+
+            neighborhoodArrayL.add(subFavorite60);
+            neighborhoodArrayL.add(subFavorite61);
+            neighborhoodArrayL.add(subFavorite62);
+            neighborhoodArrayL.add(subFavorite63);
+            neighborhoodArrayL.add(subFavorite64);
+            neighborhoodArrayL.add(subFavorite65);
+            neighborhoodArrayL.add(subFavorite66);
+            neighborhoodArrayL.add(subFavorite67);
+            neighborhoodArrayL.add(subFavorite68);
+
+            neighborhoodArrayL.add(subFavorite130);
+        }
+
+        if (city.equals(context.getResources().getString(R.string.al_ain)))
+        {
+            Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_ain_industrial_area));
+            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_buraymi));
+            Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_faqaa));
+            Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_grayyeh));
+            Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_hili));
+            Neighborhood subFavorite6 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_jaheli));
+            Neighborhood subFavorite7 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_jimi));
+            Neighborhood subFavorite8 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_khabisi));
+            Neighborhood subFavorite9 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_manaseer));
+            Neighborhood subFavorite10 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_maqam));
+            Neighborhood subFavorite11 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_markhaniya));
+            Neighborhood subFavorite12 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_murabaa));
+            Neighborhood subFavorite13 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_mutarad));
+            Neighborhood subFavorite14 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_mutawaa));
+            Neighborhood subFavorite15 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_muwahie));
+            Neighborhood subFavorite16 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_muwaiji));
+            Neighborhood subFavorite17 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_neyadat));
+            Neighborhood subFavorite18 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_oyoun_village));
+            Neighborhood subFavorite19 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_sinaiya));
+            Neighborhood subFavorite20 = new Neighborhood(context.getResources().getString(R.string.al_ain_tawam));
+            Neighborhood subFavorite21 = new Neighborhood(context.getResources().getString(R.string.al_ain_wahat_al_zaweya));
+            Neighborhood subFavorite22 = new Neighborhood(context.getResources().getString(R.string.al_ain_zakher));
+
+            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find));
+
+            neighborhoodArrayL.add(subFavorite1);
+            neighborhoodArrayL.add(subFavorite2);
+            neighborhoodArrayL.add(subFavorite3);
+            neighborhoodArrayL.add(subFavorite4);
+            neighborhoodArrayL.add(subFavorite5);
+            neighborhoodArrayL.add(subFavorite6);
+            neighborhoodArrayL.add(subFavorite7);
+            neighborhoodArrayL.add(subFavorite8);
+            neighborhoodArrayL.add(subFavorite9);
+
+            neighborhoodArrayL.add(subFavorite10);
+            neighborhoodArrayL.add(subFavorite11);
+            neighborhoodArrayL.add(subFavorite12);
+            neighborhoodArrayL.add(subFavorite13);
+            neighborhoodArrayL.add(subFavorite14);
+            neighborhoodArrayL.add(subFavorite15);
+            neighborhoodArrayL.add(subFavorite16);
+            neighborhoodArrayL.add(subFavorite17);
+            neighborhoodArrayL.add(subFavorite18);
+            neighborhoodArrayL.add(subFavorite19);
+
+            neighborhoodArrayL.add(subFavorite20);
+            neighborhoodArrayL.add(subFavorite21);
+            neighborhoodArrayL.add(subFavorite22);
+
+            neighborhoodArrayL.add(subFavorite130);
+        }
+
+        if (city.equals(context.getResources().getString(R.string.ajman)))
+        {
+            Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.ajman_ain_ajman));
+            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.ajman_ajman_corniche_road));
+            Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.ajman_ajman_downtown));
+            Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.ajman_ajman_industrial_area));
+            Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.ajman_ajman_meadows));
+            Neighborhood subFavorite6 = new Neighborhood(context.getResources().getString(R.string.ajman_ajman_uptown));
+            Neighborhood subFavorite7 = new Neighborhood(context.getResources().getString(R.string.ajman_al_amerah_village));
+            Neighborhood subFavorite8 = new Neighborhood(context.getResources().getString(R.string.ajman_al_bustan));
+            Neighborhood subFavorite9 = new Neighborhood(context.getResources().getString(R.string.ajman_al_hamidiya));
+            Neighborhood subFavorite10 = new Neighborhood(context.getResources().getString(R.string.ajman_al_humaid_city));
+            Neighborhood subFavorite11 = new Neighborhood(context.getResources().getString(R.string.ajman_al_ittihad_village));
+            Neighborhood subFavorite12 = new Neighborhood(context.getResources().getString(R.string.ajman_al_mwaihat));
+            Neighborhood subFavorite13 = new Neighborhood(context.getResources().getString(R.string.ajman_al_naemiyah));
+            Neighborhood subFavorite14 = new Neighborhood(context.getResources().getString(R.string.ajman_al_raqaib));
+            Neighborhood subFavorite15 = new Neighborhood(context.getResources().getString(R.string.ajman_al_rashidiya));
+            Neighborhood subFavorite16 = new Neighborhood(context.getResources().getString(R.string.ajman_al_rawda));
+            Neighborhood subFavorite17 = new Neighborhood(context.getResources().getString(R.string.ajman_al_rumaila));
+            Neighborhood subFavorite18 = new Neighborhood(context.getResources().getString(R.string.ajman_al_sawan));
+            Neighborhood subFavorite19 = new Neighborhood(context.getResources().getString(R.string.ajman_al_zahraa));
+            Neighborhood subFavorite20 = new Neighborhood(context.getResources().getString(R.string.ajman_al_zorah));
+            Neighborhood subFavorite21 = new Neighborhood(context.getResources().getString(R.string.ajman_awali_city));
+            Neighborhood subFavorite22 = new Neighborhood(context.getResources().getString(R.string.ajman_garden_city));
+            Neighborhood subFavorite23 = new Neighborhood(context.getResources().getString(R.string.ajman_green_city));
+            Neighborhood subFavorite24 = new Neighborhood(context.getResources().getString(R.string.ajman_manama));
+            Neighborhood subFavorite25 = new Neighborhood(context.getResources().getString(R.string.ajman_marmooka_city));
+            Neighborhood subFavorite26 = new Neighborhood(context.getResources().getString(R.string.ajman_masfoot));
+            Neighborhood subFavorite27 = new Neighborhood(context.getResources().getString(R.string.ajman_musheiref));
+            Neighborhood subFavorite28 = new Neighborhood(context.getResources().getString(R.string.ajman_new_industrial_area));
+            Neighborhood subFavorite29 = new Neighborhood(context.getResources().getString(R.string.ajman_park_view_city));
+            Neighborhood subFavorite30 = new Neighborhood(context.getResources().getString(R.string.ajman_sheikh_khalifa_bin_zayed_street));
+            Neighborhood subFavorite31 = new Neighborhood(context.getResources().getString(R.string.ajman_al_helio));
+            Neighborhood subFavorite32 = new Neighborhood(context.getResources().getString(R.string.ajman_al_jurf));
+            Neighborhood subFavorite33 = new Neighborhood(context.getResources().getString(R.string.ajman_sheikh_maktoum_bin_rashid_rd));
+            Neighborhood subFavorite34 = new Neighborhood(context.getResources().getString(R.string.ajman_al_amerah));
+
+            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find));
+
+            neighborhoodArrayL.add(subFavorite1);
+            neighborhoodArrayL.add(subFavorite2);
+            neighborhoodArrayL.add(subFavorite3);
+            neighborhoodArrayL.add(subFavorite4);
+            neighborhoodArrayL.add(subFavorite5);
+            neighborhoodArrayL.add(subFavorite6);
+            neighborhoodArrayL.add(subFavorite7);
+            neighborhoodArrayL.add(subFavorite8);
+            neighborhoodArrayL.add(subFavorite9);
+
+            neighborhoodArrayL.add(subFavorite10);
+            neighborhoodArrayL.add(subFavorite11);
+            neighborhoodArrayL.add(subFavorite12);
+            neighborhoodArrayL.add(subFavorite13);
+            neighborhoodArrayL.add(subFavorite14);
+            neighborhoodArrayL.add(subFavorite15);
+            neighborhoodArrayL.add(subFavorite16);
+            neighborhoodArrayL.add(subFavorite17);
+            neighborhoodArrayL.add(subFavorite18);
+            neighborhoodArrayL.add(subFavorite19);
+
+            neighborhoodArrayL.add(subFavorite20);
+            neighborhoodArrayL.add(subFavorite21);
+            neighborhoodArrayL.add(subFavorite23);
+            neighborhoodArrayL.add(subFavorite24);
+            neighborhoodArrayL.add(subFavorite25);
+            neighborhoodArrayL.add(subFavorite26);
+            neighborhoodArrayL.add(subFavorite27);
+            neighborhoodArrayL.add(subFavorite28);
+            neighborhoodArrayL.add(subFavorite29);
+            neighborhoodArrayL.add(subFavorite30);
+
+            neighborhoodArrayL.add(subFavorite31);
+            neighborhoodArrayL.add(subFavorite32);
+            neighborhoodArrayL.add(subFavorite33);
+            neighborhoodArrayL.add(subFavorite34);
+
+            neighborhoodArrayL.add(subFavorite130);
+        }
+
+        if (city.equals(context.getResources().getString(R.string.ras_al_khaimah)))
+        {
+            Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_dhait));
+            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_ghubb));
+            Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_huamra));
+            Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_huamra_village));
+            Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_juwais));
+            Neighborhood subFavorite6 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_mamourah));
+            Neighborhood subFavorite7 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_marjan_island));
+            Neighborhood subFavorite8 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_nakheel));
+            Neighborhood subFavorite9 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_qusaidat));
+            Neighborhood subFavorite10 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_al_uraibi));
+            Neighborhood subFavorite11 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_cornich_ras_al_khaima));
+            Neighborhood subFavorite12 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_dana_island));
+            Neighborhood subFavorite13 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_julfar));
+            Neighborhood subFavorite14 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_khuzam));
+            Neighborhood subFavorite15 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_mina_al_arab));
+            Neighborhood subFavorite16 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_pak_ftz));
+            Neighborhood subFavorite17 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_pak_industrial_and_technology_park));
+            Neighborhood subFavorite18 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_ras_al_khaimah_creek));
+            Neighborhood subFavorite19 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_ras_al_khaimah_gateway));
+            Neighborhood subFavorite20 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_ras_al_khaimah_waterfront));
+            Neighborhood subFavorite21 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_saraya_islands));
+            Neighborhood subFavorite22 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_sheikh_mohammad_bin_zayed_road));
+            Neighborhood subFavorite23 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_sidroh));
+            Neighborhood subFavorite24 = new Neighborhood(context.getResources().getString(R.string.ras_al_khaimah_yasmin_village));
+
+            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find));
+
+            neighborhoodArrayL.add(subFavorite1);
+            neighborhoodArrayL.add(subFavorite2);
+            neighborhoodArrayL.add(subFavorite3);
+            neighborhoodArrayL.add(subFavorite4);
+            neighborhoodArrayL.add(subFavorite5);
+            neighborhoodArrayL.add(subFavorite6);
+            neighborhoodArrayL.add(subFavorite7);
+            neighborhoodArrayL.add(subFavorite8);
+            neighborhoodArrayL.add(subFavorite9);
+
+            neighborhoodArrayL.add(subFavorite10);
+            neighborhoodArrayL.add(subFavorite11);
+            neighborhoodArrayL.add(subFavorite12);
+            neighborhoodArrayL.add(subFavorite13);
+            neighborhoodArrayL.add(subFavorite14);
+            neighborhoodArrayL.add(subFavorite15);
+            neighborhoodArrayL.add(subFavorite16);
+            neighborhoodArrayL.add(subFavorite17);
+            neighborhoodArrayL.add(subFavorite18);
+            neighborhoodArrayL.add(subFavorite19);
+
+            neighborhoodArrayL.add(subFavorite20);
+            neighborhoodArrayL.add(subFavorite21);
+            neighborhoodArrayL.add(subFavorite22);
+            neighborhoodArrayL.add(subFavorite23);
+            neighborhoodArrayL.add(subFavorite24);
+
+            neighborhoodArrayL.add(subFavorite130);
+        }
+
+        if (city.equals(context.getResources().getString(R.string.um_al_quwain)))
+        {
+            Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_aahad));
+            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_dar_al_baidaa));
+            Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_haditha));
+            Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_humra));
+            Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_kaber));
+            Neighborhood subFavorite6 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_khor));
+            Neighborhood subFavorite7 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_maidan));
+            Neighborhood subFavorite8 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_raas));
+            Neighborhood subFavorite9 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_ramla));
+            Neighborhood subFavorite10 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_raudah));
+            Neighborhood subFavorite11 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_riqqa));
+            Neighborhood subFavorite12 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_salam_city));
+            Neighborhood subFavorite13 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_salamah));
+            Neighborhood subFavorite14 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_al_surra));
+            Neighborhood subFavorite15 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_emirates_modern_industrial));
+            Neighborhood subFavorite16 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_falaj_al_moalla));
+            Neighborhood subFavorite17 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_khor_al_beidah));
+            Neighborhood subFavorite18 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_old_induustrial_area));
+            Neighborhood subFavorite19 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_umm_al_quwain_marina));
+            Neighborhood subFavorite20 = new Neighborhood(context.getResources().getString(R.string.um_al_quwain_white_bay));
+
+            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find));
+
+            neighborhoodArrayL.add(subFavorite1);
+            neighborhoodArrayL.add(subFavorite2);
+            neighborhoodArrayL.add(subFavorite3);
+            neighborhoodArrayL.add(subFavorite4);
+            neighborhoodArrayL.add(subFavorite5);
+            neighborhoodArrayL.add(subFavorite6);
+            neighborhoodArrayL.add(subFavorite7);
+            neighborhoodArrayL.add(subFavorite8);
+            neighborhoodArrayL.add(subFavorite9);
+
+            neighborhoodArrayL.add(subFavorite10);
+            neighborhoodArrayL.add(subFavorite11);
+            neighborhoodArrayL.add(subFavorite12);
+            neighborhoodArrayL.add(subFavorite13);
+            neighborhoodArrayL.add(subFavorite14);
+            neighborhoodArrayL.add(subFavorite15);
+            neighborhoodArrayL.add(subFavorite16);
+            neighborhoodArrayL.add(subFavorite17);
+            neighborhoodArrayL.add(subFavorite18);
+            neighborhoodArrayL.add(subFavorite19);
+
+            neighborhoodArrayL.add(subFavorite20);
+
+            neighborhoodArrayL.add(subFavorite130);
+        }
+
+        if (city.equals(context.getResources().getString(R.string.fujairah)))
+        {
+            Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.fujairah_sharm));
+            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.fujairah_gurfah));
+            Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.fujairah_faseel));
+            Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.fujairah_fujairah_freezone));
+            Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.fujairah_sakamkam));
+            Neighborhood subFavorite6 = new Neighborhood(context.getResources().getString(R.string.fujairah_saniaya));
+            Neighborhood subFavorite7 = new Neighborhood(context.getResources().getString(R.string.fujairah_merashid));
+            Neighborhood subFavorite8 = new Neighborhood(context.getResources().getString(R.string.fujairah_corniche_fujairah));
+            Neighborhood subFavorite9 = new Neighborhood(context.getResources().getString(R.string.fujairah_deba_fujairah));
+            Neighborhood subFavorite10 = new Neighborhood(context.getResources().getString(R.string.fujairah_downtown_fujairah));
+            Neighborhood subFavorite11 = new Neighborhood(context.getResources().getString(R.string.fujairah_sheikh_hamad_bin_abdullah_st));
+
+            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find));
+
+            neighborhoodArrayL.add(subFavorite1);
+            neighborhoodArrayL.add(subFavorite2);
+            neighborhoodArrayL.add(subFavorite3);
+            neighborhoodArrayL.add(subFavorite4);
+            neighborhoodArrayL.add(subFavorite5);
+            neighborhoodArrayL.add(subFavorite6);
+            neighborhoodArrayL.add(subFavorite7);
+            neighborhoodArrayL.add(subFavorite8);
+            neighborhoodArrayL.add(subFavorite9);
+
+            neighborhoodArrayL.add(subFavorite10);
+            neighborhoodArrayL.add(subFavorite11);
+
+            neighborhoodArrayL.add(subFavorite130);
         }
 
         return neighborhoodArrayL;
