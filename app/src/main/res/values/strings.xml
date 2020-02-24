@@ -16,6 +16,7 @@
     <string name="car_plates">Car plates</string>
     <string name="accessories">Accessories</string>
     <string name="wheels_rim">Wheels rim</string>
+    <string name="wheels_rim_size">Wheels rim size</string>
     <string name="trucks">Trucks</string>
     <string name="junk_car">Junk car</string>
     <string name="next">Next</string>
@@ -26,6 +27,11 @@
     <string name="complete_car_details">Complete car details</string>
     <string name="upload_ad">Save and insert the add</string>
     <string name="process_now">You well do </string>
+
+    <string name="burned_price_1">your price burned price\?</string>
+    <string name="message_burned_price">When make this feature on this well help you to bay your product faster then if you use it well product well not be live to few minutes to be sure this price is really burned price if not well can not use this feature again as well as can use it one time free</string>
+    <string name="message_no_internet">Please connect to internet</string>
+
 
     <string name="category">Category</string>
     <string name="car_make">Car make</string>
@@ -458,6 +464,20 @@
     <string name="fujairah_sheikh_hamad_bin_abdullah_st">Sheikh Hamad Bin Abdullah St</string>
 
     <string name="detect_address">Detect address</string>
+    <string name="detect_wheels_siz">Detect Wheels size</string>
+
+    <string name="wheels_siz_13">Inch 13</string>
+    <string name="wheels_siz_14">Inch 14</string>
+    <string name="wheels_siz_15">Inch 15</string>
+    <string name="wheels_siz_16">Inch 16</string>
+    <string name="wheels_siz_17">Inch 17</string>
+    <string name="wheels_siz_18">Inch 18</string>
+    <string name="wheels_siz_19">Inch 19</string>
+    <string name="wheels_siz_20">Inch 20</string>
+    <string name="wheels_siz_21">Inch 21</string>
+    <string name="wheels_siz_other">Other</string>
+
+
 
     <string name="used">Used</string>
     <string name="car_new">New</string>

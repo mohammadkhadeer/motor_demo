@@ -55,6 +55,15 @@
         <item name="colorAccent">@color/colorGreen</item>
     </style>
 
+    <style name="BrandedSwitch.control" parent="Theme.AppCompat.Light">
+        <!-- active thumb & track color (30% transparency) -->
+        <item name="colorControlActivated">@color/colorBlue</item>
+        <item name="colorSwitchThumbNormal">@color/colorRed</item>
+    </style>
 
+    <style name="BrandedSwitch.text" parent="Theme.AppCompat.Light">
+        <item name="android:textColor">@color/colorBlack_</item>
+        <item name="android:textSize">9dp</item>
+    </style>
 
 </resources>

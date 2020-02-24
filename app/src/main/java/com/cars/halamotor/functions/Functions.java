@@ -3,6 +3,11 @@ package com.cars.halamotor.functions;
 
 import android.content.Context;
 import android.graphics.Typeface;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarColor;
@@ -28,6 +33,30 @@ public class Functions {
         return typeFace;
     }
 
+    public static boolean isNetworkAvailable(Context context) {
+        ConnectivityManager connectivityManager
+                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public static ArrayList<String> fillWheelsInchesArrayL(ArrayList<String> wheelsRimArrayL, Context context) {
+        wheelsRimArrayL = new ArrayList<String>();
+
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_13));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_14));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_15));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_16));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_17));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_18));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_19));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_20));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_21));
+        wheelsRimArrayL.add(context.getResources().getString(R.string.wheels_siz_other));
+
+        return wheelsRimArrayL;
+    }
+
     public static ArrayList<CategoryComp> fillCategoryArrayList(ArrayList<CategoryComp> categoryCompsArrayL,Context context) {
         categoryCompsArrayL = new ArrayList<CategoryComp>();
         CategoryComp carForSaleCCAL = new CategoryComp(R.drawable.car_for_sale,context.getResources().getString(R.string.car_for_sale));
@@ -51,38 +80,6 @@ public class Functions {
 
         return categoryCompsArrayL;
     }
-
-//    public static ArrayList<ItemDetails> fillCarDetailsArrayL(ArrayList<ItemDetails> carDetailsArrayL, Context context) {
-//        carDetailsArrayL = new ArrayList<ItemDetails>();
-//        ItemDetails carDetails1 = new ItemDetails(context.getResources().getString(R.string.category),"test");
-//        ItemDetails carDetails2 = new ItemDetails(context.getResources().getString(R.string.car_make),"test");
-//        ItemDetails carDetails3 = new ItemDetails(context.getResources().getString(R.string.model),"test");
-//        ItemDetails carDetails4 = new ItemDetails(context.getResources().getString(R.string.year),"test");
-//        ItemDetails carDetails5 = new ItemDetails(context.getResources().getString(R.string.condition),"test");
-//        ItemDetails carDetails6 = new ItemDetails(context.getResources().getString(R.string.kilometers),"test");
-//        ItemDetails carDetails7 = new ItemDetails(context.getResources().getString(R.string.transmission),"test");
-//        ItemDetails carDetails8 = new ItemDetails(context.getResources().getString(R.string.fuel),"test");
-//        ItemDetails carDetails9 = new ItemDetails(context.getResources().getString(R.string.car_options),"Test 1 | test2 | test4 | test5 | test 6| test 7");
-//        ItemDetails carDetails10 = new ItemDetails(context.getResources().getString(R.string.car_license),"test");
-//        ItemDetails carDetails11 = new ItemDetails(context.getResources().getString(R.string.insurance),"test");
-//        ItemDetails carDetails12 = new ItemDetails(context.getResources().getString(R.string.color),"test");
-//
-//        carDetailsArrayL.add(carDetails1);
-//        carDetailsArrayL.add(carDetails2);
-//        carDetailsArrayL.add(carDetails3);
-//        carDetailsArrayL.add(carDetails4);
-//        carDetailsArrayL.add(carDetails5);
-//        carDetailsArrayL.add(carDetails6);
-//        carDetailsArrayL.add(carDetails7);
-//        carDetailsArrayL.add(carDetails8);
-//        carDetailsArrayL.add(carDetails9);
-//        carDetailsArrayL.add(carDetails10);
-//        carDetailsArrayL.add(carDetails11);
-//        carDetailsArrayL.add(carDetails12);
-//
-//
-//        return carDetailsArrayL;
-//    }
 
     public static ArrayList<String> fillCarYearArrayList(ArrayList<String> carYearArrayL,Context context) {
         Calendar calendar = Calendar.getInstance();

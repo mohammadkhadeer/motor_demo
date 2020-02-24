@@ -4,11 +4,13 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +18,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.ItemDetails;
 import com.cars.halamotor.view.activity.CarDetails;
+import com.cars.halamotor.view.activity.WheelsRim;
 
 import java.util.ArrayList;
 
@@ -23,15 +26,17 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
 
     TextView carMakeTV,modelTV,yearTV,conditionTV,kilometersTV
             ,transmissionTV,fuelTV,carOptionsTV,carLicenseTV,insuranceTV
-            ,colorTV,paymentMethodTV,categoryTV;
+            ,colorTV,paymentMethodTV,categoryTV,wheelsRimTV;
     RelativeLayout carMakeRL,modelRL,yearRL,conditionRL,kilometersRL
             ,transmissionRL,fuelRL,carOptionsRL,carLicenseRL,insuranceRL
-            ,colorRL,paymentMethodRL,categoryRL;
+            ,colorRL,paymentMethodRL,categoryRL,wheelsRimRL;
+
+    LinearLayout containerCarDetailsLL;
 
     View view;
 
     CarDetailsModel carDetailsModel= new CarDetailsModel();
-    String categoryStr,carMakeStr,whatUserWantToChangeStr;
+    String categoryStr,carMakeStr,whatUserWantToChangeStr,inchSizeStr,carPlatesStr;
 
     @Override
     public void onAttach(Context context) {
@@ -39,8 +44,13 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
             categoryStr = getArguments().getString("category");
         }
         super.onAttach(context);
-        Intent i = getActivity().getIntent();
-        carDetailsModel = (CarDetailsModel)i.getParcelableExtra("carDetailsObject");
+        if(categoryStr.equals(getResources().getString(R.string.wheels_rim)))
+        {
+            inchSizeStr = getArguments().getString("inchSize");
+        }else{
+            Intent i = getActivity().getIntent();
+            carDetailsModel = (CarDetailsModel) i.getParcelableExtra("carDetailsObject");
+        }
     }
 
     @Override
@@ -49,10 +59,51 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         view = inflater.inflate(R.layout.fragment_car_details, container, false);
 
         inti();
-        fillDetails();
-        actionsLister();
+        checkCategoryBeforeFill();
 
         return view;
+    }
+
+    private void checkCategoryBeforeFill() {
+        if(categoryStr.equals(getResources().getString(R.string.wheels_rim)))
+        {
+            fillCategory();
+            fillWheelsSize();
+            hideCarDetails();
+            actionListenerToWheels();
+        }else{
+            showCarDetails();
+            fillCategory();
+            fillDetails();
+            actionsLister();
+        }
+    }
+
+    private void actionListenerToWheels() {
+        wheelsRimRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), WheelsRim.class);
+                startActivityForResult(intent , 6);
+                getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+        });
+    }
+
+    private void fillWheelsSize() {
+        wheelsRimTV.setText(inchSizeStr);
+    }
+
+    private void showCarDetails() {
+        containerCarDetailsLL.setVisibility(View.VISIBLE);
+    }
+
+    private void hideCarDetails() {
+        containerCarDetailsLL.setVisibility(View.GONE);
+    }
+
+    private void fillCategory() {
+        categoryTV.setText(categoryStr);
     }
 
     private void actionsLister() {
@@ -133,8 +184,6 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     }
 
     private void moveToCarDetalisSpecificFragment(String fromAddItem,String fragmentType,String dictionaryStr) {
-        // lazam tt3'er fe onActivityResult becous this is differnt respons from and deffernt action
-        // in first case pass object in secand case send value
         whatUserWantToChangeStr = dictionaryStr;
         if (fragmentType.equals(getActivity().getResources().getString(R.string.model)) || fragmentType.equals(getActivity().getResources().getString(R.string.car_options)))
         {
@@ -172,7 +221,6 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     }
 
     private void fillDetails() {
-        categoryTV.setText(categoryStr);
         carMakeTV.setText(carDetailsModel.getCarMakeStr());
         modelTV.setText(carDetailsModel.getModelStr());
         yearTV.setText(carDetailsModel.getYearStr());
@@ -201,6 +249,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         insuranceTV = (TextView) view.findViewById(R.id.car_details_fragment_insurance_TV);
         colorTV = (TextView) view.findViewById(R.id.car_details_fragment_color_TV);
         paymentMethodTV = (TextView) view.findViewById(R.id.car_details_fragment_payment_method_TV);
+        wheelsRimTV = (TextView) view.findViewById(R.id.car_details_fragment_wheels_TV);
 
         categoryRL = (RelativeLayout) view.findViewById(R.id.car_details_fragment_category_RL);
         carMakeRL = (RelativeLayout) view.findViewById(R.id.car_details_fragment_car_make_RL);
@@ -215,6 +264,9 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         insuranceRL = (RelativeLayout) view.findViewById(R.id.car_details_fragment_insurance_RL);
         colorRL = (RelativeLayout) view.findViewById(R.id.car_details_fragment_color_RL);
         paymentMethodRL = (RelativeLayout) view.findViewById(R.id.car_details_fragment_payment_method_RL);
+        wheelsRimRL = (RelativeLayout) view.findViewById(R.id.car_details_fragment_wheels_RL);
+
+        containerCarDetailsLL = (LinearLayout) view.findViewById(R.id.car_details_fragment_container_cd_LL);
     }
 
     @Override
@@ -226,6 +278,19 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
                 String value = data.getStringExtra(whatUserWantToChangeStr);
                 String makeStr = data.getStringExtra("make");
                 checkWhereAChangeHappenedAndChangeIt(value,makeStr);
+            }
+        }
+        if (requestCode == 6) {
+            if (data != null && !data.equals("")) {
+                inchSizeStr = data.getExtras().getString("inchSize");
+                // unknown error handel it via this timer
+                new Handler().postDelayed(new Runnable() {
+
+                    @Override
+                    public void run() {
+                        fillWheelsSize();
+                    }
+                }, 100);
             }
         }
     }

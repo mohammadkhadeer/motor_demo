@@ -3,11 +3,13 @@ package com.cars.halamotor.view.fragments;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
+import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -20,7 +22,8 @@ public class FragmentTitleDescriptionPrice extends Fragment {
     View view;
     EditText adTitleEdt,adDesEdt,priceEdt;
     ImageView cancelTitleIV,cancelDesIV;
-
+    TextView questionTV,messageTV;
+    SwitchCompat switchCompat;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -38,6 +41,8 @@ public class FragmentTitleDescriptionPrice extends Fragment {
         adTitleEdt.setTypeface(Functions.changeFontGeneral(getActivity()));
         adDesEdt.setTypeface(Functions.changeFontGeneral(getActivity()));
         priceEdt.setTypeface(Functions.changeFontGeneral(getActivity()));
+        questionTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        messageTV.setTypeface(Functions.changeFontGeneral(getActivity()));
     }
 
     private void actionListener() {
@@ -45,17 +50,36 @@ public class FragmentTitleDescriptionPrice extends Fragment {
         makeCancelTitleIVDeleteTextInTitaleEdt();
         listenerAddDes();
         makeCancelDesIVDeleteTextInDesEdt();
+        listenerSwitch();
+    }
+
+    private void listenerSwitch() {
+        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+        {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+            {
+
+                if (isChecked) {
+                    //if 'isChecked' is true do whatever you need...
+                    messageTV.setVisibility(View.VISIBLE);
+                }
+                else {
+                    messageTV.setVisibility(View.GONE);
+                }
+        }
+    });
     }
 
     private void inti() {
         adTitleEdt = (EditText) view.findViewById(R.id.fragment_title_description_title_Edt);
         adDesEdt = (EditText) view.findViewById(R.id.fragment_title_description_description_Edt);
         priceEdt = (EditText) view.findViewById(R.id.fragment_title_description_price_Edt);
-
         cancelTitleIV = (ImageView) view.findViewById(R.id.fragment_title_description_title_IV);
         cancelDesIV = (ImageView) view.findViewById(R.id.fragment_title_description_description_IV);
-
-
+        messageTV = (TextView) view.findViewById(R.id.fragment_title_description_message_TV);
+        questionTV = (TextView) view.findViewById(R.id.fragment_title_description_q_TV);
+        switchCompat = (SwitchCompat) view.findViewById(R.id.fragment_title_description_switch_TV);
     }
 
     private void makeCancelDesIVDeleteTextInDesEdt() {

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
@@ -16,13 +17,16 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
 import android.transition.Transition;
+import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
-
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
@@ -36,20 +40,19 @@ import com.cars.halamotor.view.adapters.SelectedImageAdapter;
 import com.cars.halamotor.view.fragments.FragmentCityPhoneNumber;
 import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
-
 import java.util.ArrayList;
-
 import butterknife.ButterKnife;
-
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
+import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
             ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV
             ,cityPhoneNumberRL;
-    RelativeLayout showSelectedCarDetailsRL;
-    LinearLayout categoryContLL;
-    TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV;
+    RelativeLayout showSelectedCarDetailsRL,messageContainerRL,messageContentRL;
+    LinearLayout categoryContLL,headLL;
+    TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV
+            ,generalMessageTV;
     RecyclerView viewSelectedImageRV,selectCategoryRV;
     VideoView viewVideoSelected;
     ImageView imageCategorySelectedIV;
@@ -57,6 +60,7 @@ public class AddItem extends AppCompatActivity {
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
     private static final int STATIC_BACK_VALUE = 3;
+    Button insertItemBtn;
 
     ImageLoader imageLoader;
     SelectedImageAdapter selectedImageAdapter;
@@ -95,18 +99,86 @@ public class AddItem extends AppCompatActivity {
                 new AdapterSelectCategory.RecyclerItemClickListener
                         (AddItem.this, selectCategoryRV ,
                                 new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
-                    @Override public void onItemClick(View view, int position) {
-                        selectedCategoryPositionInt =position;
-                        goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
-                        checkIfNeedToMakeCompleteCarDetailsToBeVisable(position);
-                    }
+                                    @Override public void onItemClick(View view, int position) {
+                                        if (checkIfWheelsOrCarP(position))
+                                        {
+                                            selectedCategoryPositionInt =position;
+                                            goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
+                                            checkIfNeedToMakeCompleteCarDetailsToBeVisable(position);
+                                        }else{
+                                            if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim)))
+                                            {
+                                                translateToWjeelsRimActivity();
+                                            }
+                                        }
+                                    }
 
-                    @Override public void onLongItemClick(View view, int position) {
-                        // do whatever
-                    }
-                })
+                                    @Override public void onLongItemClick(View view, int position) {
+                                        // do whatever
+                                    }
+                                })
         );
     }
+
+    private void translateToWjeelsRimActivity() {
+        Intent intent = new Intent(AddItem.this, WheelsRim.class);
+        startActivityForResult(intent , 6);
+        overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+    }
+
+    private boolean checkIfWheelsOrCarP(int position) {
+        if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))
+                || categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim)))
+        {
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
+    private void insertBtnListener() {
+        insertItemBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNetworkAvailable(getApplicationContext()))
+                {
+                    completeMessage(getResources().getString(R.string.message_no_internet));
+
+                }else {
+
+                }
+            }
+        });
+    }
+
+    private void completeMessage(String string) {
+        generalMessageTV.setText(string);
+        makeMessageCompVisable();
+    }
+
+    private void makeMessageCompVisable() {
+        generalMessageTV.setVisibility(View.VISIBLE);
+        messageContainerRL.setVisibility(View.VISIBLE);
+        messageContentRL.setVisibility(View.VISIBLE);
+        headLL.setVisibility(View.GONE);
+        reSetGoneAfter2Sec();
+    }
+
+    private void reSetGoneAfter2Sec() {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                generalMessageTV.setVisibility(View.GONE);
+                messageContainerRL.setVisibility(View.GONE);
+                messageContentRL.setVisibility(View.GONE);
+                headLL.setVisibility(View.VISIBLE);
+            }
+        }, 2000);
+
+    }
+
 
     private void checkIfNeedToMakeCompleteCarDetailsToBeVisable(int position) {
         if (!categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))
@@ -158,6 +230,7 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void actionListener() {
+        insertBtnListener();
         cancelRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -273,7 +346,11 @@ public class AddItem extends AppCompatActivity {
         showSelectedCarDetailsRL = (RelativeLayout) findViewById(R.id.add_activity_show_car_details);
         categoryContLL = (LinearLayout) findViewById(R.id.add_activity_category_cont);
         cityPhoneNumberRL = (RelativeLayout) findViewById(R.id.add_activity_city_phone_numberRL);
-
+        insertItemBtn = (Button) findViewById(R.id.add_activity_city_insert_Btn);
+        messageContainerRL= (RelativeLayout) findViewById(R.id.add_activity_message_container_RL);
+        messageContentRL= (RelativeLayout) findViewById(R.id.add_activity_message_cover_RL);
+        generalMessageTV= (TextView) findViewById(R.id.add_activity_general_message_content_TV);
+        headLL = (LinearLayout) findViewById(R.id.add_activity_general_head_LL);
     }
 
     private void statusBarColor() {
@@ -298,6 +375,11 @@ public class AddItem extends AppCompatActivity {
             createCityPhoneNumber(data,resultCode,requestCode);
             ChangeUI();
         }
+        if (requestCode == 6 && resultCode == Activity.RESULT_OK) {
+            createShowSelectedCarDetails(data,resultCode,6);
+            createCityPhoneNumber(data,resultCode,6);
+            ChangeUI();
+        }
     }
 
     private void createCityPhoneNumber(Intent data, int resultCode, int requestCode) {
@@ -320,19 +402,38 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void createShowSelectedCarDetails(Intent data, int resultCode, int requestCode) {
-        CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
-        //pass value to model fragment as object because this we make CarDetailsModel extend from Parcelable to can do this action
-        getIntent().putExtra("carDetailsObject", myObject);
-        Bundle bundle = new Bundle();
-        bundle.putString("category",  categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr());
-        fragmentShowSelectedDetails.setArguments(bundle);
+        // 6 to wheelsRim 7 to car Plates
+        if (requestCode == 6 || requestCode == 7)
+        {
+           if (requestCode == 6)
+           {
+               Bundle bundle = new Bundle();
+               bundle.putString("category",  getResources().getString(R.string.wheels_rim));
+               bundle.putString("inchSize",  data.getExtras().getString("inchSize"));
+               fragmentShowSelectedDetails.setArguments(bundle);
 
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
+               FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+               fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
 
-        transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
-        transaction.addToBackStack(null);
-        transaction.commit();
+               transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
+               transaction.addToBackStack(null);
+               transaction.commit();
+           }
+        }else{
+            CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
+            //pass value to model fragment as object because this we make CarDetailsModel extend from Parcelable to can do this action
+            getIntent().putExtra("carDetailsObject", myObject);
+            Bundle bundle = new Bundle();
+            bundle.putString("category",  categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr());
+            fragmentShowSelectedDetails.setArguments(bundle);
+
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
+
+            transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
+            transaction.addToBackStack(null);
+            transaction.commit();
+        }
     }
 
 
