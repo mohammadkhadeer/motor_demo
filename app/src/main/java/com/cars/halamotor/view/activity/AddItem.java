@@ -108,7 +108,11 @@ public class AddItem extends AppCompatActivity {
                                         }else{
                                             if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim)))
                                             {
-                                                translateToWjeelsRimActivity();
+                                                translateToWheelsRimActivity();
+                                            }
+                                            if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates)))
+                                            {
+                                                translateToCarPlatesActivity();
                                             }
                                         }
                                     }
@@ -120,7 +124,17 @@ public class AddItem extends AppCompatActivity {
         );
     }
 
-    private void translateToWjeelsRimActivity() {
+    private void translateToCarPlatesActivity() {
+        Bundle bundle= new Bundle();
+        bundle.putString("specialIntOrNot", "normal");
+
+        Intent intent = new Intent(AddItem.this, CarPlates.class);
+        intent.putExtras(bundle);
+        startActivityForResult(intent , 7);
+        overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+    }
+
+    private void translateToWheelsRimActivity() {
         Intent intent = new Intent(AddItem.this, WheelsRim.class);
         startActivityForResult(intent , 6);
         overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
@@ -380,6 +394,11 @@ public class AddItem extends AppCompatActivity {
             createCityPhoneNumber(data,resultCode,6);
             ChangeUI();
         }
+        if (requestCode == 7 && resultCode == Activity.RESULT_OK) {
+            createShowSelectedCarDetails(data,resultCode,7);
+            createCityPhoneNumber(data,resultCode,7);
+            ChangeUI();
+        }
     }
 
     private void createCityPhoneNumber(Intent data, int resultCode, int requestCode) {
@@ -419,6 +438,22 @@ public class AddItem extends AppCompatActivity {
                transaction.addToBackStack(null);
                transaction.commit();
            }
+            if (requestCode == 7)
+            {
+                Bundle bundle = new Bundle();
+                bundle.putString("category",  getResources().getString(R.string.car_plates));
+                bundle.putString("carPlatesNum",  data.getExtras().getString("carPlatesNum"));
+                bundle.putString("carPlatesCity",  data.getExtras().getString("carPlatesCity"));
+                bundle.putString("specialOrNot",  data.getExtras().getString("specialOrNot"));
+                fragmentShowSelectedDetails.setArguments(bundle);
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
+
+                transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
         }else{
             CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
             //pass value to model fragment as object because this we make CarDetailsModel extend from Parcelable to can do this action

@@ -28,10 +28,14 @@
     <string name="upload_ad">Save and insert the add</string>
     <string name="process_now">You well do </string>
 
-    <string name="burned_price_1">your price burned price\?</string>
+    <string name="burned_price_1">Your price burned price\?</string>
+    <string name="special_car_p_1">Your plates is special\?</string>
     <string name="message_burned_price">When make this feature on this well help you to bay your product faster then if you use it well product well not be live to few minutes to be sure this price is really burned price if not well can not use this feature again as well as can use it one time free</string>
+    <string name="message_burned_car_plates">When make this feature on this well help you to bay your product faster then if you use it well product well not be live to few minutes to be sure this \"Car Plates\" is really \"Special\" if not well can not use this feature again as well as can use it one time free</string>
     <string name="message_no_internet">Please connect to internet</string>
+    <string name="message_fill_car_plates">Please fill car plates number</string>
 
+    <string name="special">\"Special\"</string>
 
     <string name="category">Category</string>
     <string name="car_make">Car make</string>
@@ -478,7 +482,6 @@
     <string name="wheels_siz_other">Other</string>
 
 
-
     <string name="used">Used</string>
     <string name="car_new">New</string>
 
@@ -503,6 +506,7 @@
     <string name="phone_number">Phone number</string>
 
     <string name="ad_product_title">Ad Title \(eg\: Range Rover\)</string>
+    <string name="set_number">Set number \(eg\: Dubai 8080\)</string>
     <string name="ad_product_description">Ad Description \(Add more details\)</string>
 
     <string name="automatic">Automatic</string>

@@ -18,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 public class Functions {
+
     public static Typeface changeFontAppName(Context context) {
         Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "Pacifico.ttf");
         return typeFace;
@@ -38,6 +39,21 @@ public class Functions {
                 = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+    }
+
+    public static String[] fillEmiratesEmirate(String[] emiratesEmirate, Context context) {
+         final String[] EmiratesEmirate = {
+                context.getResources().getString(R.string.abu_dhabi),
+                context.getResources().getString(R.string.dubai),
+                context.getResources().getString(R.string.sharjah),
+                context.getResources().getString(R.string.al_ain),
+                context.getResources().getString(R.string.ajman),
+                context.getResources().getString(R.string.ras_al_khaimah),
+                context.getResources().getString(R.string.um_al_quwain),
+                context.getResources().getString(R.string.fujairah)
+        };
+
+        return EmiratesEmirate;
     }
 
     public static ArrayList<String> fillWheelsInchesArrayL(ArrayList<String> wheelsRimArrayL, Context context) {

@@ -17,13 +17,17 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.WheelsRim"
+        <activity android:name=".view.activity.CarPlates"
             android:screenOrientation="portrait"
-            android:theme="@style/CustomActionBarTheme"></activity>
+            android:theme="@style/CustomActionBarTheme" ></activity>
+        <activity
+            android:name=".view.activity.WheelsRim"
+            android:screenOrientation="portrait"
+            android:theme="@style/CustomActionBarTheme" />
         <activity
             android:name=".view.activity.selectAddress.SelectCityAndNeighborhood"
             android:screenOrientation="portrait"
-            android:theme="@style/CustomActionBarTheme"></activity>
+            android:theme="@style/CustomActionBarTheme" />
         <activity android:name=".view.activity.Insurance" />
         <activity
             android:name=".view.activity.CarDetails"

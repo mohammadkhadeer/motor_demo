@@ -168,6 +168,107 @@
 
                                 </LinearLayout>
 
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="?android:attr/selectableItemBackground"
+                            android:id="@+id/car_details_fragment_car_plates_RL"
+                            >
+
+                                <LinearLayout
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:orientation="horizontal"
+                                    android:weightSum="100">
+
+                                        <RelativeLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="85">
+
+                                                <RelativeLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="wrap_content"
+                                                    android:layout_marginBottom="4dp"
+                                                    android:layout_marginLeft="1dp"
+                                                    android:layout_marginStart="12dp"
+                                                    >
+
+                                                        <TextView
+                                                            android:layout_width="wrap_content"
+                                                            android:layout_height="wrap_content"
+                                                            android:layout_marginLeft="10dp"
+                                                            android:layout_marginStart="8dp"
+                                                            android:textSize="13dp"
+                                                            android:textColor="@color/colorSilver"
+                                                            android:layout_marginTop="8dp"
+                                                            android:text="@string/car_plates"/>
+
+                                                        <LinearLayout
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:orientation="horizontal"
+                                                            android:layout_marginTop="28dp"
+                                                            android:layout_marginBottom="4dp"
+                                                            >
+
+                                                                <TextView
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_marginLeft="10dp"
+                                                                    android:layout_marginStart="8dp"
+                                                                    android:textColor="@color/colorBlack"
+                                                                    android:textSize="18dp"
+                                                                    android:textStyle="bold"
+                                                                    android:id="@+id/car_details_fragment_car_plates_city_TV"
+                                                                    android:text="Dubai"/>
+
+                                                                <TextView
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_marginLeft="10dp"
+                                                                    android:layout_marginStart="8dp"
+                                                                    android:textColor="@color/colorBlack"
+                                                                    android:textSize="18dp"
+                                                                    android:id="@+id/car_details_fragment_car_plates_number_TV"
+                                                                    android:text="Dubai"/>
+
+                                                                <TextView
+                                                                    android:layout_width="wrap_content"
+                                                                    android:layout_height="wrap_content"
+                                                                    android:layout_marginLeft="10dp"
+                                                                    android:layout_marginStart="50dp"
+                                                                    android:textColor="@color/colorBlack"
+                                                                    android:textSize="18dp"
+                                                                    android:id="@+id/car_details_fragment_car_plates_spi_TV"
+                                                                    android:text="Dubai"/>
+
+                                                        </LinearLayout>
+
+                                                </RelativeLayout>
+
+
+                                        </RelativeLayout>
+
+                                        <RelativeLayout
+                                            android:layout_width="0dp"
+                                            android:layout_height="match_parent"
+                                            android:layout_weight="15">
+
+                                                <ImageView
+                                                    android:layout_width="12dp"
+                                                    android:layout_height="12dp"
+                                                    android:layout_centerHorizontal="true"
+                                                    android:layout_centerVertical="true"
+                                                    android:id="@+id/car_details_wheels_arrow1_IV"
+                                                    android:src="@drawable/arrow"
+                                                    />
+
+                                        </RelativeLayout>
+
+                                </LinearLayout>
 
                         </RelativeLayout>
 
