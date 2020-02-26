@@ -1,6 +1,7 @@
 package com.cars.halamotor.view.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
@@ -28,11 +29,15 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import static com.cars.halamotor.functions.Functions.changeFontBold;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveFBInfoInSP;
 
 public class LoginWithSocialMedia extends AppCompatActivity {
 
     LoginButton loginButtonFB;
     CallbackManager callbackManager;
+    SharedPreferences.Editor fbEditor;
+    SharedPreferences fbSharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +88,10 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
             if (currentAccessToken != null)
             {
+                checkFBLoginOrNot(getApplicationContext(),fbSharedPreferences,fbEditor,"1");
                 loadUserProfile(currentAccessToken);
+            }else{
+                checkFBLoginOrNot(getApplicationContext(),fbSharedPreferences,fbEditor,"0");
             }
         }
     };
@@ -95,19 +103,24 @@ public class LoginWithSocialMedia extends AppCompatActivity {
             public void onCompleted(JSONObject object, GraphResponse response) {
                 try {
 
-                    String first_name = object.getString("first_name");
-                    String last_name = object.getString("last_name");
-                    String email = object.getString("email");
-                    String id = object.getString("id");
-                    String user_birthday = object.getString("birthday");
-                    String imageURL = "https://graph.facebook.com/"+id+"/picture?type=normal";
+                    saveFBInfoInSP(getApplicationContext(),fbSharedPreferences,fbEditor,object.getString("first_name")
+                            ,object.getString("last_name"),object.getString("email")
+                            ,object.getString("id"),object.getString("birthday")
+                            ,"https://graph.facebook.com/"+  object.getString("id") +"/picture?type=normal");
 
-                    Log.i("TAG fn",first_name);
-                    Log.i("TAG last name",last_name);
-                    Log.i("TAG email",email);
-                    Log.i("TAG  ID",id);
-                    Log.i("TAG  BD",user_birthday);
-                    Log.i("image",imageURL);
+//                    String first_name = object.getString("first_name");
+//                    String last_name = object.getString("last_name");
+//                    String email = object.getString("email");
+//                    String id = object.getString("id");
+//                    String user_birthday = object.getString("birthday");
+//                    String imageURL = "https://graph.facebook.com/"+id+"/picture?type=normal";
+//
+//                    Log.i("TAG fn",first_name);
+//                    Log.i("TAG last name",last_name);
+//                    Log.i("TAG email",email);
+//                    Log.i("TAG  ID",id);
+//                    Log.i("TAG  BD",user_birthday);
+//                    Log.i("image",imageURL);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
