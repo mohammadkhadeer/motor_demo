@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">Hala motor</string>
 
+    <string name="facebook_app_id">648618505975230</string>
+    <string name="fb_login_protocol_scheme">fb648618505975230</string>
+
+
     <string name="tab_home">Home</string>
     <string name="tab_message">Messages</string>
     <string name="tab_adv">Add Post</string>
@@ -42,6 +46,14 @@
     <string name="model">Model</string>
     <string name="year">Year</string>
     <string name="condition">Condition</string>
+
+    <string name="login_with_social_media">Login with social media</string>
+    <string name="must_login">Must to login before add item</string>
+
+
+
+
+
 
     <string name="dubai">Dubai</string>
     <string name="abu_dhabi">Abu Dhabi</string>

@@ -11,13 +11,11 @@ import android.os.Bundle;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.inputmethod.EditorInfo;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -51,7 +49,7 @@ public class CarPlates extends AppCompatActivity {
         statusBarColor();
         actionBarTitle();
         inti();
-        fillAndCreateSpinner();
+        fillAndCreateAndActionListenerSpinner();
         getStringFromIntent();
         fillSwitch();
         makeKeyBordOn();
@@ -173,7 +171,7 @@ public class CarPlates extends AppCompatActivity {
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_VISIBLE);
     }
 
-    private void fillAndCreateSpinner() {
+    private void fillAndCreateAndActionListenerSpinner() {
         spinner.setItems(fillEmiratesEmirate(emiratesEmirate,this));
         spinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener<String>() {
 

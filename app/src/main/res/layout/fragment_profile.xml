@@ -6,25 +6,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/profile_fragment"
+    android:background="@color/colorSilver3"
     tools:context=".view.fragments.FragmentProfile">
 
-    <RelativeLayout android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/continer">
-
-    <RelativeLayout
+    <include
+        layout="@layout/content_profile"
         android:layout_width="match_parent"
-        android:layout_height="800dp"
-        android:background="@color/common_google_signin_btn_text_light_pressed">
-
-    </RelativeLayout>
-
-
-
-    </RelativeLayout>
-
-
-
+        android:layout_height="match_parent"
+        />
 
 </android.support.v4.widget.NestedScrollView>
 

@@ -3,16 +3,20 @@ package com.cars.halamotor.view.activity;
 import android.content.Intent;
 import android.os.Build;
 import android.support.annotation.IdRes;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
@@ -30,11 +34,14 @@ import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
+
 public class MainActivity extends AppCompatActivity {
     private TextView appNameTV;
     DatabaseReference mDatabase;
     BottomBar bottomBar;
     EditText searchEdt;
+    RelativeLayout headRL;
 
     final Fragment fragmentHome = new FragmentHomeScreen();
     final Fragment fragmentMessage = new FragmentMessage();
@@ -112,6 +119,7 @@ public class MainActivity extends AppCompatActivity {
         bottomBar = (BottomBar) findViewById(R.id.bottomBar);
         appNameTV =(TextView) findViewById(R.id.app_name_tv);
         searchEdt = (EditText) findViewById(R.id.searchEdt);
+        headRL = (RelativeLayout) findViewById(R.id.main_activity_head);
     }
 
     private void BottomBarMenu() {
@@ -127,7 +135,13 @@ public class MainActivity extends AppCompatActivity {
             public void onTabReSelected(@IdRes int tabId) {
                 if (tabId == R.id.tab_adv)
                 {
-                    moveToAddItem();
+                    if (checkIfUserRegisterOrNotFromSP(getApplicationContext()) == false)
+                    {
+                        Toast.makeText(getBaseContext(),getResources().getString(R.string.must_login), Toast.LENGTH_SHORT).show();
+                        handelProfileFragment();
+                    }else{
+                        moveToAddItem();
+                    }
                 }
                 //Toast.makeText(getApplicationContext(), TabMessage.get(tabId, true), Toast.LENGTH_LONG).show();
             }
@@ -152,35 +166,65 @@ public class MainActivity extends AppCompatActivity {
     private boolean switchFragment(int tabId) {
         switch (tabId) {
             case R.id.tab_home:
-                fm.beginTransaction().hide(active).show(fragmentHome).commit();
-                active = fragmentHome;
-                lastFragmentStr= "fragmentHome";
+                handelHomeFragment();
                 return true;
 
             case R.id.tab_messages:
-                fm.beginTransaction().hide(active).show(fragmentMessage).commit();
-                active = fragmentMessage;
-                lastFragmentStr= "fragmentMessage";
+                handelMessageFragment();
                 return true;
 
             case R.id.tab_adv:
-                checkWhatIsLastFragmentAndKeepItOn();
-                moveToAddItem();
+                if (checkIfUserRegisterOrNotFromSP(this) == false)
+                {
+                    Toast.makeText(getBaseContext(),getResources().getString(R.string.must_login), Toast.LENGTH_SHORT).show();
+                    handelProfileFragment();
+                }else{
+                    checkWhatIsLastFragmentAndKeepItOn();
+                    moveToAddItem();
+                }
                 return true;
 
             case R.id.tab_notifications:
-                fm.beginTransaction().hide(active).show(fragmentNotification).commit();
-                active = fragmentNotification;
-                lastFragmentStr= "fragmentNotification";
+                handelNotificationsFragment();
                 return true;
 
             case R.id.tab_profile:
-                fm.beginTransaction().hide(active).show(fragmentProfile).commit();
-                active = fragmentProfile;
-                lastFragmentStr= "fragmentProfile";
+                handelProfileFragment();
                 return true;
         }
         return false;
+    }
+
+    private void visibleHeadRL(){
+        headRL.setVisibility(View.VISIBLE);
+    }
+
+    private void handelProfileFragment() {
+        headRL.setVisibility(View.GONE);
+        fm.beginTransaction().hide(active).show(fragmentProfile).commit();
+        active = fragmentProfile;
+        lastFragmentStr= "fragmentProfile";
+    }
+
+    private void handelNotificationsFragment() {
+        visibleHeadRL();
+        fm.beginTransaction().hide(active).show(fragmentNotification).commit();
+        active = fragmentNotification;
+        lastFragmentStr= "fragmentNotification";
+    }
+
+    private void handelMessageFragment() {
+        visibleHeadRL();
+        fm.beginTransaction().hide(active).show(fragmentMessage).commit();
+        active = fragmentMessage;
+        lastFragmentStr= "fragmentMessage";
+    }
+
+    private void handelHomeFragment() {
+        visibleHeadRL();
+        fm.beginTransaction().hide(active).show(fragmentHome).commit();
+        active = fragmentHome;
+        lastFragmentStr= "fragmentHome";
     }
 
     private void checkWhatIsLastFragmentAndKeepItOn() {
