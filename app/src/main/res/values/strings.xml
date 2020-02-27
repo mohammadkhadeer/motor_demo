@@ -41,6 +41,23 @@
 
     <string name="special">\"Special\"</string>
 
+    <string name="post_free_ads">Post free Ads</string>
+    <string name="recent_viewed_ads">Recent Viewed Ads</string>
+    <string name="recent_searches">Recent Searches</string>
+    <string name="favourite_ads">Favourite Ads</string>
+    <string name="my_ad">My Ad</string>
+    <string name="my_wallet">My Wallet</string>
+    <string name="invite_your_friends">Invite your Friends</string>
+    <string name="share_my_profile">Share my profile</string>
+    <string name="help">help</string>
+    <string name="contact_us">Contact us</string>
+    <string name="abou_the_app">Abou the app</string>
+    <string name="settings">Settings</string>
+    <string name="verified">Verified</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="build_trust">Build Trust</string>
+
+
     <string name="category">Category</string>
     <string name="car_make">Car make</string>
     <string name="model">Model</string>

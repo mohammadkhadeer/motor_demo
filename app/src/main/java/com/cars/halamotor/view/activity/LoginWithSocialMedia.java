@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -92,6 +93,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                 loadUserProfile(currentAccessToken);
             }else{
                 checkFBLoginOrNot(getApplicationContext(),fbSharedPreferences,fbEditor,"0");
+                moveBack();
             }
         }
     };
@@ -107,6 +109,8 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                             ,object.getString("last_name"),object.getString("email")
                             ,object.getString("id"),object.getString("birthday")
                             ,"https://graph.facebook.com/"+  object.getString("id") +"/picture?type=normal");
+
+                    moveBack();
 
 //                    String first_name = object.getString("first_name");
 //                    String last_name = object.getString("last_name");
@@ -133,6 +137,13 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         graphRequest.setParameters(parmeters);
         graphRequest.executeAsync();
     }
+
+    private void moveBack() {
+        Intent resultIntent = new Intent();
+        setResult(Activity.RESULT_OK, resultIntent);
+        finish();
+    }
+
 
     private void actionBarTitle() {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
