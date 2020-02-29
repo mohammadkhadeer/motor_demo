@@ -94,6 +94,21 @@ public class AddItem extends AppCompatActivity {
 
     }
 
+    private void insertBtnListener() {
+        insertItemBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isNetworkAvailable(getApplicationContext()))
+                {
+                    completeMessage(getResources().getString(R.string.message_no_internet));
+
+                }else {
+
+                }
+            }
+        });
+    }
+
     private void actionListenerToRVShowSelectedCategoryAfterUserChoose() {
         selectCategoryRV.addOnItemTouchListener(
                 new AdapterSelectCategory.RecyclerItemClickListener
@@ -149,21 +164,6 @@ public class AddItem extends AppCompatActivity {
         else{
             return true;
         }
-    }
-
-    private void insertBtnListener() {
-        insertItemBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (isNetworkAvailable(getApplicationContext()))
-                {
-                    completeMessage(getResources().getString(R.string.message_no_internet));
-
-                }else {
-
-                }
-            }
-        });
     }
 
     private void completeMessage(String string) {

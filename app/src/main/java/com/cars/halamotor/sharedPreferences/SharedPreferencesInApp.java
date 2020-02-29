@@ -13,11 +13,19 @@ public class SharedPreferencesInApp {
     private static final String REGISTER = "REGISTER";
     private static final String FB_INFO = "FB_INFO";
 
+    public static void checkIfUserRegisterOrNotFromSP(Context context,SharedPreferences rgSharedPreferences,
+                                         SharedPreferences.Editor rgEditor,String status) {
+        rgSharedPreferences = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        rgEditor = rgSharedPreferences.edit();
+        rgEditor.putString("registerOrNotYet",status);
+        rgEditor.commit();
+    }
+
     public static boolean checkIfUserRegisterOrNotFromSP(Context context) {
         String registerOrNotYetStr;
         SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
         registerOrNotYetStr = (shared.getString("registerOrNotYet", ""));
-        if (registerOrNotYetStr.equals("") || registerOrNotYetStr == null) {
+        if (registerOrNotYetStr.equals("") || registerOrNotYetStr == null || registerOrNotYetStr.equals("0")) {
             return  false;
         }
         else {
@@ -43,6 +51,20 @@ public class SharedPreferencesInApp {
         fbEditor = fbSharedPreferences.edit();
         fbEditor.putString("loginOrNot",status);
         fbEditor.commit();
+    }
+
+    public static void saveUserInfoInSP(Context context,SharedPreferences SharedPreferences,
+                                      SharedPreferences.Editor Editor,String firstNameStr,String lastNameStr
+            ,String emailStr,String idStr,String birthdayStr,String imageURLStr) {
+        SharedPreferences = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        Editor = SharedPreferences.edit();
+        Editor.putString("firstName",firstNameStr);
+        Editor.putString("lastName",lastNameStr);
+        Editor.putString("email",emailStr);
+        Editor.putString("id",idStr);
+        Editor.putString("birthday",birthdayStr);
+        Editor.putString("imageURL",imageURLStr);
+        Editor.commit();
     }
 
     public static void saveFBInfoInSP(Context context,SharedPreferences fbSharedPreferences,

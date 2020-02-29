@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
@@ -66,7 +67,12 @@ public class FragmentProfile extends Fragment {
         postAdRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToAddItem();
+                if (checkIfUserRegisterOrNotFromSP(getActivity()) == false)
+                {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.must_login), Toast.LENGTH_SHORT).show();
+                }else{
+                    moveToAddItem();
+                }
             }
         });
     }

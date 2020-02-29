@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +15,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.facebook.AccessToken;
@@ -25,20 +27,27 @@ import com.facebook.GraphRequest;
 import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import static com.cars.halamotor.functions.Functions.changeFontBold;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveFBInfoInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveUserInfoInSP;
 
 public class LoginWithSocialMedia extends AppCompatActivity {
 
     LoginButton loginButtonFB;
     CallbackManager callbackManager;
-    SharedPreferences.Editor fbEditor;
-    SharedPreferences fbSharedPreferences;
+    SharedPreferences.Editor fbEditor, rgEditor;
+    SharedPreferences fbSharedPreferences, rgSharedPreferences;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +62,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
 
     private void handelFBLoginButton() {
         callbackManager = CallbackManager.Factory.create();
-        loginButtonFB.setPermissions("email","public_profile");
+        loginButtonFB.setPermissions("email", "public_profile");
         loginButtonFB.setPermissions("user_birthday");
 
         loginButtonFB.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
@@ -69,63 +78,67 @@ public class LoginWithSocialMedia extends AppCompatActivity {
 
             @Override
             public void onError(FacebookException error) {
-                Log.i("TAG fn",error.toString());
+                Log.i("TAG fn", error.toString());
             }
         });
     }
 
     private void inti() {
+        mAuth = FirebaseAuth.getInstance();
         loginButtonFB = (LoginButton) findViewById(R.id.login_with_s_m_fb);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        callbackManager.onActivityResult(requestCode,resultCode,data);
+        callbackManager.onActivityResult(requestCode, resultCode, data);
         super.onActivityResult(requestCode, resultCode, data);
     }
 
     AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
         @Override
         protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-            if (currentAccessToken != null)
-            {
-                checkFBLoginOrNot(getApplicationContext(),fbSharedPreferences,fbEditor,"1");
+            if (currentAccessToken != null) {
+                checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "1");
+                checkFBLoginOrNot(getApplicationContext(), fbSharedPreferences, fbEditor, "1");
                 loadUserProfile(currentAccessToken);
-            }else{
-                checkFBLoginOrNot(getApplicationContext(),fbSharedPreferences,fbEditor,"0");
+            } else {
+                checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "0");
+                checkFBLoginOrNot(getApplicationContext(), fbSharedPreferences, fbEditor, "0");
                 moveBack();
             }
         }
     };
 
-    private void loadUserProfile(AccessToken accessToken)
-    {
+    private void loadUserProfile(AccessToken accessToken) {
         GraphRequest graphRequest = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
             @Override
-            public void onCompleted(JSONObject object, GraphResponse response) {
+            public void onCompleted(final JSONObject object, GraphResponse response) {
                 try {
+                    mAuth.createUserWithEmailAndPassword(object.getString("email"), "@ajfhafjb#$ASW1235")
+                            .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                                @Override
+                                public void onComplete(@NonNull Task<AuthResult> task) {
+                                    if (task.isSuccessful()) {
+                                        try {
+                                            saveFBInfoInSP(getApplicationContext(), fbSharedPreferences, fbEditor, object.getString("first_name")
+                                                    , object.getString("last_name"), object.getString("email")
+                                                    , object.getString("id"), object.getString("birthday")
+                                                    , "https://graph.facebook.com/" + object.getString("id") + "/picture?type=normal");
 
-                    saveFBInfoInSP(getApplicationContext(),fbSharedPreferences,fbEditor,object.getString("first_name")
-                            ,object.getString("last_name"),object.getString("email")
-                            ,object.getString("id"),object.getString("birthday")
-                            ,"https://graph.facebook.com/"+  object.getString("id") +"/picture?type=normal");
+                                            saveUserInfoIfNotRegister(object.getString("first_name")
+                                                    , object.getString("last_name"), object.getString("email")
+                                                    , object.getString("id"), object.getString("birthday")
+                                                    , "https://graph.facebook.com/" + object.getString("id") + "/picture?type=normal");
 
-                    moveBack();
-
-//                    String first_name = object.getString("first_name");
-//                    String last_name = object.getString("last_name");
-//                    String email = object.getString("email");
-//                    String id = object.getString("id");
-//                    String user_birthday = object.getString("birthday");
-//                    String imageURL = "https://graph.facebook.com/"+id+"/picture?type=normal";
-//
-//                    Log.i("TAG fn",first_name);
-//                    Log.i("TAG last name",last_name);
-//                    Log.i("TAG email",email);
-//                    Log.i("TAG  ID",id);
-//                    Log.i("TAG  BD",user_birthday);
-//                    Log.i("image",imageURL);
-
+                                            moveBack();
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+                                    }else{
+                                        Log.i("TAG ERROR", "Not");
+                                    }
+                                }
+                            });
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -133,9 +146,15 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         });
 
         Bundle parmeters = new Bundle();
-        parmeters.putString("fields","first_name,last_name,email,id,birthday");
+        parmeters.putString("fields", "first_name,last_name,email,id,birthday");
         graphRequest.setParameters(parmeters);
         graphRequest.executeAsync();
+    }
+
+    private void saveUserInfoIfNotRegister(String first_name, String last_name, String email, String id, String birthday, String user_image) {
+        if (checkIfUserRegisterOrNotFromSP(getApplicationContext()) == false) {
+            saveUserInfoInSP(getApplicationContext(), rgSharedPreferences, rgEditor, first_name, last_name, email, id, birthday, user_image);
+        }
     }
 
     private void moveBack() {
@@ -165,7 +184,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
     }
 
     private void statusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Window window = this.getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
@@ -174,7 +193,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
     }
 
     @Override
-    public boolean onSupportNavigateUp(){
+    public boolean onSupportNavigateUp() {
         finish();
         return true;
     }
