@@ -33,6 +33,33 @@ public class SharedPreferencesInApp {
         }
     }
 
+    public static boolean checkIfUserRegisterOnServerSP(Context context) {
+        String userIDOnServer;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        userIDOnServer = (shared.getString("serverID", ""));
+        Log.i("TAG ID",userIDOnServer);
+        if (userIDOnServer.equals("") || userIDOnServer == null) {
+            return  false;
+        }
+        else {
+            return  true;
+        }
+    }
+
+    public static String getUserIdInServerFromSP(Context context) {
+        String userIDOnServer;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        userIDOnServer = (shared.getString("serverID", ""));
+        if (userIDOnServer.equals("") || userIDOnServer == null) {
+            return  "empty";
+        }
+        else {
+            return  userIDOnServer;
+        }
+    }
+
     public static boolean checkFBLoginOrNot(Context context) {
         String loginOrNotStr;
         SharedPreferences shared = context.getSharedPreferences(FB_INFO, MODE_PRIVATE);
@@ -93,5 +120,13 @@ public class SharedPreferencesInApp {
 
         UserFaceBookInfo userFaceBookInfo = new UserFaceBookInfo(firstNameStr,lastNameStr,emailStr,idStr,userBirthdayStr,userImageStr);
         return userFaceBookInfo;
+    }
+
+    public static void saveServerIDInfoInSP(Context context,SharedPreferences SharedPreferences,
+                                      SharedPreferences.Editor editor,String userIDStr) {
+        SharedPreferences = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("serverID",userIDStr);
+        editor.commit();
     }
 }

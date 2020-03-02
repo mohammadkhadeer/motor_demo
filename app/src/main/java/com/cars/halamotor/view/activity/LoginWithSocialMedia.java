@@ -18,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.UserInfo;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -35,9 +36,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addNewUser;
 import static com.cars.halamotor.functions.Functions.changeFontBold;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOnServerSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveFBInfoInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveUserInfoInSP;
 
@@ -120,6 +124,8 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
                                         try {
+                                            registerUserInServer(object);
+
                                             saveFBInfoInSP(getApplicationContext(), fbSharedPreferences, fbEditor, object.getString("first_name")
                                                     , object.getString("last_name"), object.getString("email")
                                                     , object.getString("id"), object.getString("birthday")
@@ -134,8 +140,6 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
-                                    }else{
-                                        Log.i("TAG ERROR", "Not");
                                     }
                                 }
                             });
@@ -149,6 +153,24 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         parmeters.putString("fields", "first_name,last_name,email,id,birthday");
         graphRequest.setParameters(parmeters);
         graphRequest.executeAsync();
+    }
+
+    private void registerUserInServer(JSONObject object) {
+        if(checkIfUserRegisterOnServerSP(getApplicationContext())==false)
+        {
+            try {
+                UserInfo newUser = new UserInfo(object.getString("first_name")
+                        ,"https://graph.facebook.com/" + object.getString("id") + "/picture?type=normal"
+                        ,object.getString("last_name"),object.getString("email")
+                        ,"000","notYet","notYet"
+                        ,"notYet","notYet"
+                        ,"notYet","notYet","0");
+
+                addNewUser(newUser,rgSharedPreferences,rgEditor,getApplicationContext());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void saveUserInfoIfNotRegister(String first_name, String last_name, String email, String id, String birthday, String user_image) {

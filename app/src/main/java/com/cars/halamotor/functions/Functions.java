@@ -1,6 +1,5 @@
 package com.cars.halamotor.functions;
 
-
 import android.content.Context;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
