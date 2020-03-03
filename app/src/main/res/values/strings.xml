@@ -37,7 +37,16 @@
     <string name="message_burned_price">When make this feature on this well help you to bay your product faster then if you use it well product well not be live to few minutes to be sure this price is really burned price if not well can not use this feature again as well as can use it one time free</string>
     <string name="message_burned_car_plates">When make this feature on this well help you to bay your product faster then if you use it well product well not be live to few minutes to be sure this \"Car Plates\" is really \"Special\" if not well can not use this feature again as well as can use it one time free</string>
     <string name="message_no_internet">Please connect to internet</string>
+    <string name="select_category">Select category please</string>
     <string name="message_fill_car_plates">Please fill car plates number</string>
+
+    <string name="message_fill_title_and_price">Please fill title and price</string>
+    <string name="message_fill_des_and_price">Please fill description and price</string>
+    <string name="fill_title_and_description_and_price">Please fill title \, description and price</string>
+    <string name="fill_title_and_description">Please fill title and description</string>
+    <string name="fill_title">Please fill car title</string>
+    <string name="fill_description">Please fill car description</string>
+    <string name="fill_price">Please fill price</string>
 
     <string name="special">\"Special\"</string>
 

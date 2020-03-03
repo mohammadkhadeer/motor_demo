@@ -42,6 +42,8 @@ import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
 import butterknife.ButterKnife;
+
+import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 
@@ -60,6 +62,8 @@ public class AddItem extends AppCompatActivity {
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
     private static final int STATIC_BACK_VALUE = 3;
+    private static final int REQUEST_WHEELS_RIM = 6;
+    private static final int REQUEST_CAR_PLATES = 7;
     Button insertItemBtn;
 
     ImageLoader imageLoader;
@@ -100,10 +104,24 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 if (isNetworkAvailable(getApplicationContext()))
                 {
-                    completeMessage(getResources().getString(R.string.message_no_internet));
+                    String selectCategory = "empty";
+                    if (selectedCategoryPositionInt != 100)
+                    {
+                      selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
+                              .getCategoryNameStr();
+                        if (checkTitleAndDescription(getApplicationContext()) == null)
+                        {
+
+                        }else{
+                            completeMessage(checkTitleAndDescription(getApplicationContext()));
+                        }
+
+                    }else{
+                        completeMessage(getResources().getString(R.string.select_category));
+                    }
 
                 }else {
-
+                    completeMessage(getResources().getString(R.string.message_no_internet));
                 }
             }
         });
@@ -151,7 +169,7 @@ public class AddItem extends AppCompatActivity {
 
     private void translateToWheelsRimActivity() {
         Intent intent = new Intent(AddItem.this, WheelsRim.class);
-        startActivityForResult(intent , 6);
+        startActivityForResult(intent , REQUEST_WHEELS_RIM);
         overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
@@ -389,12 +407,14 @@ public class AddItem extends AppCompatActivity {
             createCityPhoneNumber(data,resultCode,requestCode);
             ChangeUI();
         }
-        if (requestCode == 6 && resultCode == Activity.RESULT_OK) {
-            createShowSelectedCarDetails(data,resultCode,6);
-            createCityPhoneNumber(data,resultCode,6);
+        if (requestCode == REQUEST_WHEELS_RIM && resultCode == Activity.RESULT_OK) {
+            selectedCategoryPositionInt =6;
+            createShowSelectedCarDetails(data,resultCode,REQUEST_WHEELS_RIM);
+            createCityPhoneNumber(data,resultCode,REQUEST_WHEELS_RIM);
             ChangeUI();
         }
-        if (requestCode == 7 && resultCode == Activity.RESULT_OK) {
+        if (requestCode == REQUEST_CAR_PLATES && resultCode == Activity.RESULT_OK) {
+            selectedCategoryPositionInt =4;
             createShowSelectedCarDetails(data,resultCode,7);
             createCityPhoneNumber(data,resultCode,7);
             ChangeUI();
@@ -422,9 +442,9 @@ public class AddItem extends AppCompatActivity {
 
     private void createShowSelectedCarDetails(Intent data, int resultCode, int requestCode) {
         // 6 to wheelsRim 7 to car Plates
-        if (requestCode == 6 || requestCode == 7)
+        if (requestCode == REQUEST_WHEELS_RIM || requestCode == REQUEST_CAR_PLATES)
         {
-           if (requestCode == 6)
+           if (requestCode == REQUEST_WHEELS_RIM)
            {
                Bundle bundle = new Bundle();
                bundle.putString("category",  getResources().getString(R.string.wheels_rim));
@@ -438,7 +458,7 @@ public class AddItem extends AppCompatActivity {
                transaction.addToBackStack(null);
                transaction.commit();
            }
-            if (requestCode == 7)
+            if (requestCode == REQUEST_CAR_PLATES)
             {
                 Bundle bundle = new Bundle();
                 bundle.putString("category",  getResources().getString(R.string.car_plates));

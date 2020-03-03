@@ -11,6 +11,7 @@ import static android.content.Context.MODE_PRIVATE;
 public class SharedPreferencesInApp {
 
     private static final String REGISTER = "REGISTER";
+    private static final String TITLE_AND_DES = "TITLE_AND_DES";
     private static final String FB_INFO = "FB_INFO";
 
     public static void checkIfUserRegisterOrNotFromSP(Context context,SharedPreferences rgSharedPreferences,
@@ -127,6 +128,124 @@ public class SharedPreferencesInApp {
         SharedPreferences = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
         editor = SharedPreferences.edit();
         editor.putString("serverID",userIDStr);
+        editor.commit();
+    }
+
+    public static void saveBurnedPriceInSP(Context context,SharedPreferences SharedPreferences,
+                                     SharedPreferences.Editor editor,String burnedStr) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("burned",burnedStr);
+        editor.commit();
+    }
+
+    public static String getBurnedPriceInSP(Context context) {
+        String burnedStr;
+        SharedPreferences shared = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        //can use any comp from user info to check
+        burnedStr = (shared.getString("burned", ""));
+        if (burnedStr.equals("") || burnedStr == null || burnedStr.equals("0")) {
+            return  null;
+        }
+        else {
+            return  burnedStr;
+        }
+    }
+
+    public static void saveTitleInSP(Context context,SharedPreferences SharedPreferences,
+                                            SharedPreferences.Editor editor,String titleStr) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("title",titleStr);
+        editor.commit();
+    }
+
+    public static String getTitleInSP(Context context) {
+        String titleStr;
+        SharedPreferences shared = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        //can use any comp from user info to check
+        titleStr = (shared.getString("title", ""));
+        if (titleStr.equals("") || titleStr == null) {
+            return  null;
+        }
+        else {
+            return  titleStr;
+        }
+    }
+
+    public static void cleanTitle(Context context,SharedPreferences SharedPreferences,
+                                   SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("title","");
+        editor.commit();
+    }
+
+    public static void saveDesInSP(Context context,SharedPreferences SharedPreferences,
+                                           SharedPreferences.Editor editor,String titleStr) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("des",titleStr);
+        editor.commit();
+    }
+
+    public static String getDesInSP(Context context) {
+        String desStr;
+        SharedPreferences shared = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        //can use any comp from user info to check
+        desStr = (shared.getString("des", ""));
+        if (desStr.equals("") || desStr == null) {
+            return  null;
+        }
+        else {
+            return  desStr;
+        }
+    }
+
+    public static void cleanDes(Context context,SharedPreferences SharedPreferences,
+                                                SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("des","");
+        editor.commit();
+    }
+
+    public static void savePriceInSP(Context context,SharedPreferences SharedPreferences,
+                                   SharedPreferences.Editor editor,String priceStr) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("price",priceStr);
+        editor.commit();
+    }
+
+    public static String getPriceInSP(Context context) {
+        String priceStr;
+        SharedPreferences shared = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        //can use any comp from user info to check
+        priceStr = (shared.getString("price", ""));
+        if (priceStr.equals("") || priceStr == null) {
+            return  null;
+        }
+        else {
+            return  priceStr;
+        }
+    }
+
+    public static void cleanPrice(Context context,SharedPreferences SharedPreferences,
+                                                SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("price","");
+        editor.commit();
+    }
+
+    public static void cleanTitleAndDesAndPrice(Context context,SharedPreferences SharedPreferences,
+                                     SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("title","");
+        editor.putString("des","");
+        editor.putString("price","");
         editor.commit();
     }
 }

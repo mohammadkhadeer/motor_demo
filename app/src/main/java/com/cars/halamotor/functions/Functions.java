@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
@@ -15,6 +16,10 @@ import com.cars.halamotor.model.CategoryComp;
 
 import java.util.ArrayList;
 import java.util.Calendar;
+
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
 
 public class Functions {
 
@@ -33,11 +38,60 @@ public class Functions {
         return typeFace;
     }
 
+    public static String checkTitleAndDescription(Context context) {
+        String caseStr = null;
+        if (getTitleInSP(context) == null || getDesInSP(context)==null || getPriceInSP(context)==null)
+        {
+            if (getTitleInSP(context) == null && getDesInSP(context)==null && getPriceInSP(context)==null)
+            {
+                caseStr = context.getResources().getString(R.string.fill_title_and_description_and_price);
+            }else {
+                if ((getTitleInSP(context) == null && getDesInSP(context) == null)
+                        || (getTitleInSP(context) == null && getPriceInSP(context) == null)
+                        || (getPriceInSP(context) == null && getDesInSP(context) == null)) {
+
+                    if (getTitleInSP(context) == null && getDesInSP(context) == null)
+                    {
+                        caseStr = context.getResources().getString(R.string.fill_title_and_description);
+                    }
+                    if (getTitleInSP(context) == null && getPriceInSP(context) == null)
+                    {
+                        caseStr = context.getResources().getString(R.string.message_fill_title_and_price);
+                    }
+                    if (getPriceInSP(context) == null && getDesInSP(context) == null)
+                    {
+                        caseStr = context.getResources().getString(R.string.message_fill_des_and_price);
+                    }
+                } else {
+                    if (getTitleInSP(context) == null) {
+                        caseStr = context.getResources().getString(R.string.fill_title);
+                    }
+                    if (getDesInSP(context) == null) {
+                        caseStr = context.getResources().getString(R.string.fill_description);
+                    }
+                    if (getPriceInSP(context) == null) {
+                        caseStr = context.getResources().getString(R.string.fill_price);
+                    }
+                }
+            }
+        }
+        return caseStr;
+    }
+
     public static boolean isNetworkAvailable(Context context) {
-        ConnectivityManager connectivityManager
-                = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
-        NetworkInfo activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
-        return activeNetworkInfo != null && activeNetworkInfo.isConnected();
+        boolean haveConnected = false;
+
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo[] netInfo = cm.getAllNetworkInfo();
+        for (NetworkInfo ni : netInfo) {
+            if (ni.getTypeName().equalsIgnoreCase("WIFI"))
+                if (ni.isConnected())
+                    haveConnected = true;
+            if (ni.getTypeName().equalsIgnoreCase("MOBILE"))
+                if (ni.isConnected())
+                    haveConnected = true;
+        }
+        return haveConnected;
     }
 
     public static String[] fillEmiratesEmirate(String[] emiratesEmirate, Context context) {

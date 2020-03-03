@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.fragments;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -17,6 +18,15 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanDes;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanPrice;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanTitle;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanTitleAndDesAndPrice;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveBurnedPriceInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveDesInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.savePriceInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveTitleInSP;
+
 
 public class FragmentTitleDescriptionPrice extends Fragment {
     View view;
@@ -24,6 +34,8 @@ public class FragmentTitleDescriptionPrice extends Fragment {
     ImageView cancelTitleIV,cancelDesIV;
     TextView questionTV,messageTV;
     SwitchCompat switchCompat;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -50,7 +62,34 @@ public class FragmentTitleDescriptionPrice extends Fragment {
         makeCancelTitleIVDeleteTextInTitaleEdt();
         listenerAddDes();
         makeCancelDesIVDeleteTextInDesEdt();
+        listenerToPrice();
         listenerSwitch();
+    }
+
+    private void listenerToPrice() {
+        priceEdt.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                if (cs.length() != 0) {
+                    String price = String.valueOf(cs);
+                    savePriceInSP(getActivity(),sharedPreferences,editor,price);
+                }
+                else {
+                    cleanPrice(getActivity(),sharedPreferences,editor);
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int arg1, int arg2, int arg3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable arg0) {
+            }
+
+        });
     }
 
     private void listenerSwitch() {
@@ -63,9 +102,11 @@ public class FragmentTitleDescriptionPrice extends Fragment {
                 if (isChecked) {
                     //if 'isChecked' is true do whatever you need...
                     messageTV.setVisibility(View.VISIBLE);
+                    saveBurnedPriceInSP(getActivity(),sharedPreferences,editor,"1");
                 }
                 else {
                     messageTV.setVisibility(View.GONE);
+                    saveBurnedPriceInSP(getActivity(),sharedPreferences,editor,"0");
                 }
         }
     });
@@ -87,6 +128,7 @@ public class FragmentTitleDescriptionPrice extends Fragment {
             @Override
             public void onClick(View v) {
                 adDesEdt.setText("");
+                cleanDes(getActivity(),sharedPreferences,editor);
             }
         });
     }
@@ -95,6 +137,7 @@ public class FragmentTitleDescriptionPrice extends Fragment {
         cancelTitleIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                cleanTitle(getActivity(),sharedPreferences,editor);
                 adTitleEdt.setText("");
             }
         });
@@ -121,10 +164,15 @@ public class FragmentTitleDescriptionPrice extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                if (cs.length() != 0)
+                if (cs.length() != 0) {
+                    String titleStr = String.valueOf(cs);
                     makeCancelTitleIVVISIBLE();
-                else
+                    saveTitleInSP(getActivity(),sharedPreferences,editor,titleStr);
+                }
+                else {
                     makeCancelTitleIVGONE();
+                    cleanTitle(getActivity(),sharedPreferences,editor);
+                }
             }
 
             @Override
@@ -144,10 +192,15 @@ public class FragmentTitleDescriptionPrice extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                if (cs.length() != 0)
+                if (cs.length() != 0) {
+                    String desStr = String.valueOf(cs);
                     makeCancelDesIVVISIBLE();
-                else
+                    saveDesInSP(getActivity(),sharedPreferences,editor,desStr);
+                }
+                else {
                     makeCancelDesIVGONE();
+                    cleanDes(getActivity(),sharedPreferences,editor);
+                }
             }
 
             @Override
@@ -162,4 +215,9 @@ public class FragmentTitleDescriptionPrice extends Fragment {
         });
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cleanTitleAndDesAndPrice(getActivity(),sharedPreferences,editor);
+    }
 }
