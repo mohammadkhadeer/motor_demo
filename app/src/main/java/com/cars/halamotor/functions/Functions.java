@@ -38,6 +38,24 @@ public class Functions {
         return typeFace;
     }
 
+    public static String checkTitleAndDescriptionRealOrNot(Context context) {
+        String caseStr = context.getResources().getString(R.string.fill);
+        int price = Integer.parseInt(getPriceInSP(context));
+        if (getTitleInSP(context).length() < 3)
+            caseStr = caseStr + " " + context.getResources().getString(R.string.fill_real_title);
+        if (getDesInSP(context).length() < 7)
+            caseStr = caseStr + " " + context.getResources().getString(R.string.fill_real_des);
+        if (price < 10)
+            caseStr = caseStr + " " + context.getResources().getString(R.string.fill_real_price);
+
+        caseStr = caseStr + " " + context.getResources().getString(R.string.please);
+
+        if (caseStr.equals(context.getResources().getString(R.string.fill) + " " + context.getResources().getString(R.string.please)))
+        return null;
+        else
+        return caseStr;
+    }
+
     public static String checkTitleAndDescription(Context context) {
         String caseStr = null;
         if (getTitleInSP(context) == null || getDesInSP(context)==null || getPriceInSP(context)==null)

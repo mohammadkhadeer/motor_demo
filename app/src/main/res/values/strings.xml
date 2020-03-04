@@ -47,6 +47,11 @@
     <string name="fill_title">Please fill car title</string>
     <string name="fill_description">Please fill car description</string>
     <string name="fill_price">Please fill price</string>
+    <string name="fill_real_title">real title</string>
+    <string name="fill_real_des">real description</string>
+    <string name="fill_real_price">real price</string>
+    <string name="fill">Fill</string>
+    <string name="please">please</string>
 
     <string name="special">\"Special\"</string>
 

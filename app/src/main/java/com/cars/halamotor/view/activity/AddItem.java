@@ -44,6 +44,7 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
+import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRealOrNot;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 
@@ -111,6 +112,12 @@ public class AddItem extends AppCompatActivity {
                               .getCategoryNameStr();
                         if (checkTitleAndDescription(getApplicationContext()) == null)
                         {
+                            if (checkTitleAndDescriptionRealOrNot(getApplicationContext()) == null)
+                            {
+
+                            }else{
+                                completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext()));
+                            }
 
                         }else{
                             completeMessage(checkTitleAndDescription(getApplicationContext()));
@@ -221,7 +228,9 @@ public class AddItem extends AppCompatActivity {
             makeCompleteCarDetailsVisable();
         }
         else{
-            makeCompleteCarDetailsGone();}
+            makeCompleteCarDetailsGone();
+            createCityPhoneNumber();
+        }
     }
 
     private void makeCompleteCarDetailsGone() {
@@ -300,16 +309,16 @@ public class AddItem extends AppCompatActivity {
             }
         });
 
-        cancelSelectedCategoryRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                selectedCategoryPositionInt =100;
-                viewSelectedCategoryCV.setVisibility(View.GONE);
-                selectCategoryRV.setVisibility(View.VISIBLE);
-                makeCompleteCarDetailsGone();
-                textTitleTV.setText(getResources().getText(R.string.what_do));
-            }
-        });
+//        cancelSelectedCategoryRL.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                selectedCategoryPositionInt =100;
+//                viewSelectedCategoryCV.setVisibility(View.GONE);
+//                selectCategoryRV.setVisibility(View.VISIBLE);
+//                makeCompleteCarDetailsGone();
+//                textTitleTV.setText(getResources().getText(R.string.what_do));
+//            }
+//        });
 
         add_activity_complete_car_dCV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -404,30 +413,27 @@ public class AddItem extends AppCompatActivity {
         }
         if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
             createShowSelectedCarDetails(data,resultCode,requestCode);
-            createCityPhoneNumber(data,resultCode,requestCode);
+            createCityPhoneNumber();
             ChangeUI();
         }
         if (requestCode == REQUEST_WHEELS_RIM && resultCode == Activity.RESULT_OK) {
             selectedCategoryPositionInt =6;
             createShowSelectedCarDetails(data,resultCode,REQUEST_WHEELS_RIM);
-            createCityPhoneNumber(data,resultCode,REQUEST_WHEELS_RIM);
+            createCityPhoneNumber();
             ChangeUI();
         }
         if (requestCode == REQUEST_CAR_PLATES && resultCode == Activity.RESULT_OK) {
             selectedCategoryPositionInt =4;
-            createShowSelectedCarDetails(data,resultCode,7);
-            createCityPhoneNumber(data,resultCode,7);
+            createShowSelectedCarDetails(data,resultCode,REQUEST_CAR_PLATES);
+            createCityPhoneNumber();
             ChangeUI();
         }
     }
 
-    private void createCityPhoneNumber(Intent data, int resultCode, int requestCode) {
-        Bundle bundle = new Bundle();
-        fragmentCityPhoneNumber.setArguments(bundle);
+    private void createCityPhoneNumber() {
+        cityPhoneNumberRL.setVisibility(View.VISIBLE);
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        fragmentCityPhoneNumber.onActivityResult(requestCode, resultCode, data);
-
         transaction.replace(R.id.selected_city_phone_number_container, fragmentCityPhoneNumber);
         transaction.addToBackStack(null);
         transaction.commit();
@@ -437,7 +443,6 @@ public class AddItem extends AppCompatActivity {
         showSelectedCarDetailsRL.setVisibility(View.VISIBLE);
         categoryContLL.setVisibility(View.GONE);
         makeCompleteCarDetailsGone();
-        cityPhoneNumberRL.setVisibility(View.VISIBLE);
     }
 
     private void createShowSelectedCarDetails(Intent data, int resultCode, int requestCode) {
@@ -490,7 +495,6 @@ public class AddItem extends AppCompatActivity {
             transaction.commit();
         }
     }
-
 
     private void showSelectedVideo(Intent data) {
         // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getData());

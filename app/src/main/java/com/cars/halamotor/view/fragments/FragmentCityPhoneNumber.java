@@ -28,7 +28,7 @@ public class FragmentCityPhoneNumber extends Fragment {
     TextView cityTV;
     EditText phoneNumberEdt;
     ImageView cityArrowIV,cancelPhoneIV;
-
+    private static final int UPDATE_LOCATION = 5;
     View view;
 
     public FragmentCityPhoneNumber(){}
@@ -64,14 +64,14 @@ public class FragmentCityPhoneNumber extends Fragment {
 
     private void moveToSelectCity() {
         Intent intent = new Intent(getActivity(), SelectCityAndNeighborhood.class);
-        startActivityForResult(intent , 5);
+        startActivityForResult(intent , UPDATE_LOCATION);
         getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 5 && resultCode == Activity.RESULT_OK) {
+        if (requestCode == UPDATE_LOCATION && resultCode == Activity.RESULT_OK) {
             cityTV.setText(data.getExtras().getString("city") + " >> " + data.getExtras().getString("nei"));
         }
     }

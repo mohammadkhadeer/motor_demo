@@ -347,6 +347,7 @@
                                     android:layout_height="35dp"
                                     android:layout_marginStart="340dp"
                                     android:layout_marginTop="8dp"
+                                    android:visibility="gone"
                                     android:id="@+id/add_activity_view_select_category_from_RV_delete"
                                     android:background="@drawable/circl_bg">
                                     <ImageView
