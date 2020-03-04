@@ -2,6 +2,7 @@ package com.cars.halamotor.view.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -23,12 +24,19 @@ import com.cars.halamotor.view.activity.AddItem;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
 
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanAddress;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanPhoneNumber;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveAddressInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.savePhoneNumberInSP;
+
 public class FragmentCityPhoneNumber extends Fragment {
     CardView cityCV,phoneCV;
     TextView cityTV;
     EditText phoneNumberEdt;
     ImageView cityArrowIV,cancelPhoneIV;
     private static final int UPDATE_LOCATION = 5;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
     View view;
 
     public FragmentCityPhoneNumber(){}
@@ -73,6 +81,8 @@ public class FragmentCityPhoneNumber extends Fragment {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == UPDATE_LOCATION && resultCode == Activity.RESULT_OK) {
             cityTV.setText(data.getExtras().getString("city") + " >> " + data.getExtras().getString("nei"));
+            saveAddressInSP(getActivity(),sharedPreferences,editor
+                    ,data.getExtras().getString("city"),data.getExtras().getString("nei"));
         }
     }
 
@@ -81,10 +91,15 @@ public class FragmentCityPhoneNumber extends Fragment {
 
             @Override
             public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
-                if (cs.length() != 0)
+                if (cs.length() != 0) {
+                    String phoneNumberStr = String.valueOf(cs);
+                    savePhoneNumberInSP(getActivity(),sharedPreferences,editor,phoneNumberStr);
                     makeCancelPhoneIVVISIBLE();
-                else
+                }
+                else {
                     makeCancelPhoneIVGONE();
+                    cleanPhoneNumber(getActivity(),sharedPreferences,editor);
+                }
             }
 
             @Override
@@ -130,5 +145,12 @@ public class FragmentCityPhoneNumber extends Fragment {
 
         cityCV = (CardView) view.findViewById(R.id.fragment_city_phone_number_city);
         phoneCV = (CardView) view.findViewById(R.id.fragment_city_phone_number_PN);
+    }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        cleanAddress(getActivity(),sharedPreferences,editor);
+        cleanPhoneNumber(getActivity(),sharedPreferences,editor);
     }
 }

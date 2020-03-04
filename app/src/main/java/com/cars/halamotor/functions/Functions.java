@@ -17,7 +17,9 @@ import com.cars.halamotor.model.CategoryComp;
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
 
@@ -38,14 +40,28 @@ public class Functions {
         return typeFace;
     }
 
+    public static String checkPhoneNumberRealOrNot(Context context) {
+        String caseStr = context.getResources().getString(R.string.fill);
+        String phoneNumberStr = getPhoneNumberInSP(context);
+        if ((phoneNumberStr != null) && (phoneNumberStr.length() != 10))
+            caseStr = caseStr + " " + context.getResources().getString(R.string.fill_real_title);
+
+        caseStr = caseStr + " " + context.getResources().getString(R.string.please);
+
+        if (caseStr.equals(context.getResources().getString(R.string.fill) + " " + context.getResources().getString(R.string.please)))
+            return null;
+        else
+            return caseStr;
+    }
+
     public static String checkTitleAndDescriptionRealOrNot(Context context) {
         String caseStr = context.getResources().getString(R.string.fill);
-        int price = Integer.parseInt(getPriceInSP(context));
+        double price = Double.parseDouble(getPriceInSP(context));
         if (getTitleInSP(context).length() < 3)
             caseStr = caseStr + " " + context.getResources().getString(R.string.fill_real_title);
         if (getDesInSP(context).length() < 7)
             caseStr = caseStr + " " + context.getResources().getString(R.string.fill_real_des);
-        if (price < 10)
+        if (price < 10 || price > 10000000)
             caseStr = caseStr + " " + context.getResources().getString(R.string.fill_real_price);
 
         caseStr = caseStr + " " + context.getResources().getString(R.string.please);

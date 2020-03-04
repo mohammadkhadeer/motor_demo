@@ -43,10 +43,12 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
 import butterknife.ButterKnife;
 
+import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRealOrNot;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
@@ -78,6 +80,7 @@ public class AddItem extends AppCompatActivity {
     final Fragment fragmentCityPhoneNumber = new FragmentCityPhoneNumber();
 
     static int selectVideoOrNotYet = 0;
+    int productDetailsComplete =0;
 
     int selectedCategoryPositionInt=100;
 
@@ -114,6 +117,24 @@ public class AddItem extends AppCompatActivity {
                         {
                             if (checkTitleAndDescriptionRealOrNot(getApplicationContext()) == null)
                             {
+                                if (productDetailsComplete == 1)
+                                {
+                                    if (getAddressInSP(getApplicationContext()) != null)
+                                    {
+                                        if (checkPhoneNumberRealOrNot(getApplicationContext()) == null)
+                                        {
+
+                                        }else{
+                                            completeMessage(checkPhoneNumberRealOrNot(getApplicationContext()));
+                                        }
+
+                                    }else{
+                                        completeMessage(getResources().getString(R.string.select_address));
+                                    }
+
+                                }else{
+                                    completeMessage(getResources().getString(R.string.complete_product_details));
+                                }
 
                             }else{
                                 completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext()));
@@ -228,6 +249,7 @@ public class AddItem extends AppCompatActivity {
             makeCompleteCarDetailsVisable();
         }
         else{
+            productDetailsComplete =1;
             makeCompleteCarDetailsGone();
             createCityPhoneNumber();
         }
@@ -412,17 +434,20 @@ public class AddItem extends AppCompatActivity {
             showSelectedVideo(data);
         }
         if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
+            productDetailsComplete =1;
             createShowSelectedCarDetails(data,resultCode,requestCode);
             createCityPhoneNumber();
             ChangeUI();
         }
         if (requestCode == REQUEST_WHEELS_RIM && resultCode == Activity.RESULT_OK) {
+            productDetailsComplete =1;
             selectedCategoryPositionInt =6;
             createShowSelectedCarDetails(data,resultCode,REQUEST_WHEELS_RIM);
             createCityPhoneNumber();
             ChangeUI();
         }
         if (requestCode == REQUEST_CAR_PLATES && resultCode == Activity.RESULT_OK) {
+            productDetailsComplete =1;
             selectedCategoryPositionInt =4;
             createShowSelectedCarDetails(data,resultCode,REQUEST_CAR_PLATES);
             createCityPhoneNumber();

@@ -12,6 +12,7 @@ public class SharedPreferencesInApp {
 
     private static final String REGISTER = "REGISTER";
     private static final String TITLE_AND_DES = "TITLE_AND_DES";
+    private static final String PHONE_AND_ADDRESS = "PHONE_AND_ADDRESS";
     private static final String FB_INFO = "FB_INFO";
 
     public static void checkIfUserRegisterOrNotFromSP(Context context,SharedPreferences rgSharedPreferences,
@@ -236,6 +237,66 @@ public class SharedPreferencesInApp {
         SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
         editor = SharedPreferences.edit();
         editor.putString("price","");
+        editor.commit();
+    }
+
+    public static void saveAddressInSP(Context context,SharedPreferences SharedPreferences,
+                                     SharedPreferences.Editor editor,String cityStr,String neighborhoodStr) {
+        SharedPreferences = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("city",cityStr);
+        editor.putString("neighborhood",neighborhoodStr);
+        editor.commit();
+    }
+
+    public static String getAddressInSP(Context context) {
+        String addressStr;
+        SharedPreferences shared = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        //can use any comp from user info to check
+        addressStr = (shared.getString("city", ""));
+        if (addressStr.equals("") || addressStr == null) {
+            return  null;
+        }
+        else {
+            return  addressStr;
+        }
+    }
+
+    public static void cleanAddress(Context context,SharedPreferences SharedPreferences,
+                                  SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("city","");
+        editor.putString("neighborhood","");
+        editor.commit();
+    }
+
+    public static void savePhoneNumberInSP(Context context,SharedPreferences SharedPreferences,
+                                       SharedPreferences.Editor editor,String phoneNumberStr) {
+        SharedPreferences = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("phoneNumber",phoneNumberStr);
+        editor.commit();
+    }
+
+    public static String getPhoneNumberInSP(Context context) {
+        String phoneNumberStr;
+        SharedPreferences shared = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        //can use any comp from user info to check
+        phoneNumberStr = (shared.getString("phoneNumber", ""));
+        if (phoneNumberStr.equals("") || phoneNumberStr == null) {
+            return  null;
+        }
+        else {
+            return  phoneNumberStr;
+        }
+    }
+
+    public static void cleanPhoneNumber(Context context,SharedPreferences SharedPreferences,
+                                    SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("phoneNumber","");
         editor.commit();
     }
 
