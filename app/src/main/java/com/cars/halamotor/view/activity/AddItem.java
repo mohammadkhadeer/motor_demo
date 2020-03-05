@@ -2,6 +2,7 @@ package com.cars.halamotor.view.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -43,12 +44,18 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
 import butterknife.ButterKnife;
 
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddAdsOrNot;
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
 import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRealOrNot;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanIfUserCanAddAdsAds;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanNumberOfAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getIfUserCanAddAdsInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNumberOfAdsInSP;
 
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
@@ -86,6 +93,9 @@ public class AddItem extends AppCompatActivity {
 
     Uri mVideoURI;
 
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,7 +109,9 @@ public class AddItem extends AppCompatActivity {
         actionListener();
         createSelectCategoryRV();
         actionListenerToRVShowSelectedCategoryAfterUserChoose();
-
+        //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
+        getNumberOfUserAds(getApplicationContext(),sharedPreferences,editor);
+        getIfUserCanAddAdsOrNot(getApplicationContext(),sharedPreferences,editor);
     }
 
     private void insertBtnListener() {
@@ -123,6 +135,17 @@ public class AddItem extends AppCompatActivity {
                                     {
                                         if (checkPhoneNumberRealOrNot(getApplicationContext()) == null)
                                         {
+                                            if (getNumberOfAdsInSP(getApplicationContext()) < 5)
+                                            {
+                                                if (getIfUserCanAddAdsInSP(getApplicationContext()) == 1)
+                                                {
+
+                                                }else{
+                                                    completeMessage(getResources().getString(R.string.blocked));
+                                                }
+                                            }else{
+                                                completeMessage(getResources().getString(R.string.upgrade_ur_account));
+                                            }
 
                                         }else{
                                             completeMessage(checkPhoneNumberRealOrNot(getApplicationContext()));
@@ -576,6 +599,8 @@ public class AddItem extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        cleanNumberOfAds(getApplicationContext(),sharedPreferences,editor);
+        cleanIfUserCanAddAdsAds(getApplicationContext(),sharedPreferences,editor);
         finish();
     }
 

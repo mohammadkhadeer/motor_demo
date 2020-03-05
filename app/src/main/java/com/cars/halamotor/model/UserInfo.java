@@ -4,8 +4,11 @@ public class UserInfo {
     String nameStr,userImageStr,surNameStr,emailStr,phoneNumberStr,cityStr
             ,neighbourhoodStr,authenticationIDStr,IDImagePathStr,walletCreditStr
             ,numberOfAdvStr,userTokensStr;
+    int numberOfAds,activeToSetAdv,activeToAddAuctions,numberOfAuction;
 
-    public UserInfo(String nameStr, String userImageStr, String surNameStr, String emailStr, String phoneNumberStr, String cityStr, String neighbourhoodStr, String authenticationIDStr, String IDImagePathStr, String walletCreditStr, String numberOfAdvStr, String userTokensStr) {
+    public UserInfo(){}
+
+    public UserInfo(String nameStr, String userImageStr, String surNameStr, String emailStr, String phoneNumberStr, String cityStr, String neighbourhoodStr, String authenticationIDStr, String IDImagePathStr, String walletCreditStr, String numberOfAdvStr, String userTokensStr, int numberOfAds, int activeToSetAdv, int activeToAddAuctions, int numberOfAuction) {
         this.nameStr = nameStr;
         this.userImageStr = userImageStr;
         this.surNameStr = surNameStr;
@@ -18,6 +21,10 @@ public class UserInfo {
         this.walletCreditStr = walletCreditStr;
         this.numberOfAdvStr = numberOfAdvStr;
         this.userTokensStr = userTokensStr;
+        this.numberOfAds = numberOfAds;
+        this.activeToSetAdv = activeToSetAdv;
+        this.activeToAddAuctions = activeToAddAuctions;
+        this.numberOfAuction = numberOfAuction;
     }
 
     public String getNameStr() {
@@ -114,5 +121,37 @@ public class UserInfo {
 
     public void setUserTokensStr(String userTokensStr) {
         this.userTokensStr = userTokensStr;
+    }
+
+    public int getNumberOfAds() {
+        return numberOfAds;
+    }
+
+    public void setNumberOfAds(int numberOfAds) {
+        this.numberOfAds = numberOfAds;
+    }
+
+    public int getActiveToSetAdv() {
+        return activeToSetAdv;
+    }
+
+    public void setActiveToSetAdv(int activeToSetAdv) {
+        this.activeToSetAdv = activeToSetAdv;
+    }
+
+    public int getActiveToAddAuctions() {
+        return activeToAddAuctions;
+    }
+
+    public void setActiveToAddAuctions(int activeToAddAuctions) {
+        this.activeToAddAuctions = activeToAddAuctions;
+    }
+
+    public int getNumberOfAuction() {
+        return numberOfAuction;
+    }
+
+    public void setNumberOfAuction(int numberOfAuction) {
+        this.numberOfAuction = numberOfAuction;
     }
 }

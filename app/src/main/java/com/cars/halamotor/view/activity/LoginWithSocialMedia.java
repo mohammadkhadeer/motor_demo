@@ -43,6 +43,7 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkI
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveFBInfoInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveServerIDInfoInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveUserInfoInSP;
 
 public class LoginWithSocialMedia extends AppCompatActivity {
@@ -164,7 +165,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                         ,object.getString("last_name"),object.getString("email")
                         ,"000","notYet","notYet"
                         ,"notYet","notYet"
-                        ,"notYet","notYet","0");
+                        ,"notYet","notYet","0",0,1,0,0);
 
                 addNewUser(newUser,rgSharedPreferences,rgEditor,getApplicationContext());
             } catch (JSONException e) {

@@ -14,6 +14,7 @@ public class SharedPreferencesInApp {
     private static final String TITLE_AND_DES = "TITLE_AND_DES";
     private static final String PHONE_AND_ADDRESS = "PHONE_AND_ADDRESS";
     private static final String FB_INFO = "FB_INFO";
+    private static final String ADS_INFO_SERVER = "ADS_INFO_SERVER";
 
     public static void checkIfUserRegisterOrNotFromSP(Context context,SharedPreferences rgSharedPreferences,
                                          SharedPreferences.Editor rgEditor,String status) {
@@ -38,10 +39,11 @@ public class SharedPreferencesInApp {
     public static boolean checkIfUserRegisterOnServerSP(Context context) {
         String userIDOnServer;
         SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
-        //can use any comp from user info to check
+        //can use any comp from user info to check but this not clean any where then
+        // no way to update user path in server to can test again go to
+        //LoginWithSocialMedia and make checkIfUserRegisterOnServerSP method true and try
         userIDOnServer = (shared.getString("serverID", ""));
-        Log.i("TAG ID",userIDOnServer);
-        if (userIDOnServer.equals("") || userIDOnServer == null) {
+        if (userIDOnServer.equals("") || userIDOnServer == null ) {
             return  false;
         }
         else {
@@ -309,4 +311,64 @@ public class SharedPreferencesInApp {
         editor.putString("price","");
         editor.commit();
     }
+
+
+    public static void saveNumberOfAdsInSP(Context context,SharedPreferences SharedPreferences,
+                                     SharedPreferences.Editor editor,int numberOfAds) {
+        SharedPreferences = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putInt("numberOfAds",numberOfAds);
+        editor.commit();
+    }
+
+    public static int getNumberOfAdsInSP(Context context) {
+        int numberOfAds;
+        SharedPreferences shared = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        numberOfAds = (shared.getInt("numberOfAds",-1));
+        if (numberOfAds==-1) {
+            return  -1;
+        }
+        else {
+            return  numberOfAds;
+        }
+    }
+
+    public static void cleanNumberOfAds(Context context,SharedPreferences SharedPreferences,
+                                  SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putInt("numberOfAds",-1);
+        editor.commit();
+    }
+
+    public static void saveIfUserCanAddAdsInSP(Context context,SharedPreferences SharedPreferences,
+                                           SharedPreferences.Editor editor,int activeOrNot) {
+        SharedPreferences = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putInt("activeOrNot",activeOrNot);
+        editor.commit();
+    }
+
+    public static int getIfUserCanAddAdsInSP(Context context) {
+        int numberOfAds;
+        SharedPreferences shared = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        numberOfAds = (shared.getInt("activeOrNot",-1));
+        if (numberOfAds==-1) {
+            return  -1;
+        }
+        else {
+            return  numberOfAds;
+        }
+    }
+
+    public static void cleanIfUserCanAddAdsAds(Context context,SharedPreferences SharedPreferences,
+                                        SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putInt("activeOrNot",-1);
+        editor.commit();
+    }
+
 }

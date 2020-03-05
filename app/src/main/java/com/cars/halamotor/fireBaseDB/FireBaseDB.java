@@ -16,4 +16,10 @@ public class FireBaseDB {
         DatabaseReference usersPath = getDataBaseInstance().getReference("users");
         return  usersPath;
     }
+
+    public static DatabaseReference getUserPathInServer(String userIDInServer) {
+        DatabaseReference usersPath = getDataBaseInstance()
+                .getReference("users").child(userIDInServer);
+        return  usersPath;
+    }
 }

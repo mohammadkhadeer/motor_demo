@@ -1,6 +1,7 @@
 package com.cars.halamotor.functions;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -13,10 +14,12 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarColor;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
+import com.cars.halamotor.sharedPreferences.SharedPreferencesInApp;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
@@ -39,6 +42,7 @@ public class Functions {
         Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "NTAILUB.TTF");
         return typeFace;
     }
+
 
     public static String checkPhoneNumberRealOrNot(Context context) {
         String caseStr = context.getResources().getString(R.string.fill);
