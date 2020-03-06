@@ -98,6 +98,30 @@ public class SharedPreferencesInApp {
         Editor.commit();
     }
 
+    public static String getUserName(Context context) {
+        String userName;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        userName = (shared.getString("firstName", ""));
+        if (userName.equals("") || userName == null) {
+            return  null;
+        }
+        else {
+            return  userName;
+        }
+    }
+
+    public static String getUserImage(Context context) {
+        String imageStr;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        imageStr = (shared.getString("imageURL", ""));
+        if (imageStr.equals("") || imageStr == null) {
+            return  null;
+        }
+        else {
+            return  imageStr;
+        }
+    }
+
     public static void saveFBInfoInSP(Context context,SharedPreferences fbSharedPreferences,
                                       SharedPreferences.Editor fbEditor,String firstNameStr,String lastNameStr
                                       ,String emailStr,String idStr,String birthdayStr,String imageURLStr) {
@@ -152,6 +176,19 @@ public class SharedPreferencesInApp {
         }
         else {
             return  burnedStr;
+        }
+    }
+
+    public static int getBurnedPriceIntInSP(Context context) {
+        String burnedStr;
+        SharedPreferences shared = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        //can use any comp from user info to check
+        burnedStr = (shared.getString("burned", ""));
+        if (burnedStr.equals("") || burnedStr == null || burnedStr.equals("0")) {
+            return  0;
+        }
+        else {
+            return  1;
         }
     }
 
@@ -234,6 +271,19 @@ public class SharedPreferencesInApp {
         }
     }
 
+    public static double getPriceAfterConvertedToDoubleInSP(Context context) {
+        String priceStr;
+        SharedPreferences shared = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
+        //can use any comp from user info to check
+        priceStr = (shared.getString("price", ""));
+        if (priceStr.equals("") || priceStr == null) {
+            return  0;
+        }
+        else {
+            return  Double.parseDouble(priceStr);
+        }
+    }
+
     public static void cleanPrice(Context context,SharedPreferences SharedPreferences,
                                                 SharedPreferences.Editor editor) {
         SharedPreferences = context.getSharedPreferences(TITLE_AND_DES, MODE_PRIVATE);
@@ -261,6 +311,32 @@ public class SharedPreferencesInApp {
         }
         else {
             return  addressStr;
+        }
+    }
+
+    public static String getCityFromSP(Context context) {
+        String cityStr;
+        SharedPreferences shared = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        //can use any comp from user info to check
+        cityStr = (shared.getString("city", ""));
+        if (cityStr.equals("") || cityStr == null) {
+            return  null;
+        }
+        else {
+            return  cityStr;
+        }
+    }
+
+    public static String getNeighborhoodFromSP(Context context) {
+        String neighborhoodStr;
+        SharedPreferences shared = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        //can use any comp from user info to check
+        neighborhoodStr = (shared.getString("neighborhood", ""));
+        if (neighborhoodStr.equals("") || neighborhoodStr == null) {
+            return  null;
+        }
+        else {
+            return  neighborhoodStr;
         }
     }
 

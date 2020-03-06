@@ -138,6 +138,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                                     , "https://graph.facebook.com/" + object.getString("id") + "/picture?type=normal");
 
                                             moveBack();
+
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }

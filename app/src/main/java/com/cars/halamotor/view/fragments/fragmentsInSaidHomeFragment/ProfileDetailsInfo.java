@@ -21,7 +21,9 @@ import com.cars.halamotor.view.activity.LoginWithSocialMedia;
 import com.squareup.picasso.Picasso;
 
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserFBInfo;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 
 
 public class ProfileDetailsInfo extends Fragment {
@@ -66,7 +68,7 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void checkIfRegisterOrNot() {
-        if (checkFBLoginOrNot(getActivity()))
+        if (checkIfUserRegisterOrNotFromSP(getActivity()))
         {
             makeUserInfoOn();
             fillUserInfoFromFB();
@@ -80,7 +82,7 @@ public class ProfileDetailsInfo extends Fragment {
     private void fillUserInfoFromFB() {
         UserFaceBookInfo userFaceBookInfo = getUserFBInfo(getActivity());
         userNameTV.setText(userFaceBookInfo.getFirstNameStr());
-        fillImageUser(userFaceBookInfo.getUserImageStr());
+        //fillImageUser(userFaceBookInfo.getUserImageStr());
     }
 
     private void fillImageUser(String userImageStr) {

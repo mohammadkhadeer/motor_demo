@@ -5,19 +5,26 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.util.Log;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CarColor;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
+import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.sharedPreferences.SharedPreferencesInApp;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
@@ -27,6 +34,80 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPri
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
 
 public class Functions {
+
+    public static String[] splitString(String textStr,String signal) {
+        final String[] stringAfterSplit = textStr.split(signal);;
+
+        return stringAfterSplit;
+    }
+
+    public static ArrayList<BoostPost> getDefaultBoostPostArrayL() {
+        ArrayList<BoostPost> boostPostArrayL = new ArrayList<BoostPost>();
+
+        BoostPost boostPost = new BoostPost("boostType","postID");
+        boostPostArrayL.add(boostPost);
+
+        return boostPostArrayL;
+    }
+
+    public static ArrayList<CommentsComp> getDefaultCommentCompArrayL() {
+        ArrayList<CommentsComp>  commentsCompsArrayL = new ArrayList<CommentsComp>();
+
+        CommentsComp commentsComp = new CommentsComp("commentContentStr"
+                    ,"narratorTokenStr","narratorImageStr"
+                ,"commentTimeStampStr");
+
+        commentsCompsArrayL.add(commentsComp);
+
+        return commentsCompsArrayL;
+    }
+
+    public static boolean checkIfUserSetImages(ArrayList<String> imagePathsArrayL) {
+        if (imagePathsArrayL.size() != 0)
+            return true;
+        else
+        return false;
+    }
+
+    public static ArrayList<String> getImagePaths(ArrayList<String> imagePathsArrayL) {
+        ArrayList<String> imagePathsArray;
+
+        if (imagePathsArrayL.size() != 0)
+        {
+            imagePathsArray = new ArrayList<String>();
+            for (int i=0;i<imagePathsArrayL.size();i++)
+            {
+                imagePathsArray.add(imagePathsArrayL.get(i));
+            }
+        }else{
+            imagePathsArray = new ArrayList<String>();
+
+            imagePathsArray.add("https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d");
+        }
+
+        return imagePathsArray;
+    }
+
+    public static String getVideoPath(Uri videoPath) {
+        String imagePath = null;
+        if (videoPath != null)
+            imagePath = "imagePathTest";
+        else
+            imagePath = "noVideo";
+        return imagePath;
+    }
+
+    public static String getTime() {
+        Date currentTime = Calendar.getInstance().getTime();
+        String time = String.valueOf(currentTime);
+        return time;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static String getTimeStamp() {
+        String ts = String.valueOf(Instant.now().getEpochSecond());
+        return ts;
+    }
 
     public static Typeface changeFontAppName(Context context) {
         Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "Pacifico.ttf");
@@ -42,7 +123,6 @@ public class Functions {
         Typeface typeFace = Typeface.createFromAsset(context.getAssets(), "NTAILUB.TTF");
         return typeFace;
     }
-
 
     public static String checkPhoneNumberRealOrNot(Context context) {
         String caseStr = context.getResources().getString(R.string.fill);
@@ -201,7 +281,7 @@ public class Functions {
         return carYearArrayL;
     }
 
-    public static ArrayList<String> fillKilometersArrayL(ArrayList<String> carKilometersArrayL, Context context) {
+    public static ArrayList<String> fillKilometersArrayL(ArrayList<String> carKilometersArrayL, Context context)   {
         carKilometersArrayL = new ArrayList<String>();
 
         carKilometersArrayL.add(context.getResources().getString(R.string.k_0));

@@ -6,9 +6,11 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.media.MediaPlayer;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Handler;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
@@ -31,6 +33,7 @@ import android.widget.VideoView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CustomGallery;
@@ -46,16 +49,37 @@ import butterknife.ButterKnife;
 
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddAdsOrNot;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
+import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewItem;
+import static com.cars.halamotor.functions.Functions.checkIfUserSetImages;
 import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRealOrNot;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
+import static com.cars.halamotor.functions.Functions.getDefaultBoostPostArrayL;
+import static com.cars.halamotor.functions.Functions.getDefaultCommentCompArrayL;
+import static com.cars.halamotor.functions.Functions.getImagePaths;
+import static com.cars.halamotor.functions.Functions.getTime;
+import static com.cars.halamotor.functions.Functions.getTimeStamp;
+import static com.cars.halamotor.functions.Functions.getVideoPath;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
+import static com.cars.halamotor.functions.Functions.splitString;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanIfUserCanAddAdsAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanNumberOfAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceIntInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getCityFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getIfUserCanAddAdsInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNeighborhoodFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNumberOfAdsInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceAfterConvertedToDoubleInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserName;
 
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
@@ -69,19 +93,21 @@ public class AddItem extends AppCompatActivity {
     VideoView viewVideoSelected;
     ImageView imageCategorySelectedIV;
     CardView viewSelectedCategoryCV,completeCarDetailsCV;
+    Button insertItemBtn;
+    RecyclerView.LayoutManager layoutManager,layoutManagerCategory;
+
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
     private static final int STATIC_BACK_VALUE = 3;
     private static final int REQUEST_WHEELS_RIM = 6;
     private static final int REQUEST_CAR_PLATES = 7;
-    Button insertItemBtn;
 
     ImageLoader imageLoader;
     SelectedImageAdapter selectedImageAdapter;
     AdapterSelectCategory adapterSelectCategory;
     ArrayList<String> imagePathArrL = new ArrayList<String>();
+
     public ArrayList<CategoryComp> categoryCompsArrayL ;
-    RecyclerView.LayoutManager layoutManager,layoutManagerCategory;
 
     final Fragment fragmentShowSelectedDetails = new ShowSelectedCarDetailsFragment();
     final Fragment fragmentCityPhoneNumber = new FragmentCityPhoneNumber();
@@ -96,6 +122,9 @@ public class AddItem extends AppCompatActivity {
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
+    CCEMT ccemt;
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -112,6 +141,7 @@ public class AddItem extends AppCompatActivity {
         //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
         getNumberOfUserAds(getApplicationContext(),sharedPreferences,editor);
         getIfUserCanAddAdsOrNot(getApplicationContext(),sharedPreferences,editor);
+
     }
 
     private void insertBtnListener() {
@@ -123,8 +153,6 @@ public class AddItem extends AppCompatActivity {
                     String selectCategory = "empty";
                     if (selectedCategoryPositionInt != 100)
                     {
-                      selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
-                              .getCategoryNameStr();
                         if (checkTitleAndDescription(getApplicationContext()) == null)
                         {
                             if (checkTitleAndDescriptionRealOrNot(getApplicationContext()) == null)
@@ -139,6 +167,9 @@ public class AddItem extends AppCompatActivity {
                                             {
                                                 if (getIfUserCanAddAdsInSP(getApplicationContext()) == 1)
                                                 {
+                                                    selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
+                                                            .getCategoryNameStr();
+                                                    checkCategoryAndUpload(selectCategory);
 
                                                 }else{
                                                     completeMessage(getResources().getString(R.string.blocked));
@@ -176,6 +207,23 @@ public class AddItem extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    private void checkCategoryAndUpload(String selectCategory) {
+        //we have 4 model 1.car plates 2.accessories/junk car 3.wheels-rim
+        // 4.car for sale/car for rent/exchange/motorcycle/trucks ... in model well be name CCEMT
+        if (checkIfUserSetImages(imagePathArrL))
+        {
+            if (selectCategory.equals(getResources().getString(R.string.car_for_sale)))
+            {
+
+                addNewItem(ccemt,"Car_For_Sale"
+                        ,getUserIdInServerFromSP(getApplicationContext()),getNumberOfAdsInSP(getApplicationContext()));
+            }
+        }else{
+            Log.i("TAG NO IMAGE","NO IMAGE SELECTED");
+        }
+
     }
 
     private void actionListenerToRVShowSelectedCategoryAfterUserChoose() {
@@ -261,7 +309,6 @@ public class AddItem extends AppCompatActivity {
         }, 2000);
 
     }
-
 
     private void checkIfNeedToMakeCompleteCarDetailsToBeVisable(int position) {
         if (!categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))
@@ -528,11 +575,13 @@ public class AddItem extends AppCompatActivity {
                 transaction.commit();
             }
         }else{
-            CarDetailsModel myObject = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
-            //pass value to model fragment as object because this we make CarDetailsModel extend from Parcelable to can do this action
-            getIntent().putExtra("carDetailsObject", myObject);
+            //pass value to model fragment as object because this we make
+            // CarDetailsModel extend from Parcelable to can do this action
+            CarDetailsModel carDetailsModel = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
+            getIntent().putExtra("carDetailsObject", carDetailsModel);
             Bundle bundle = new Bundle();
-            bundle.putString("category",  categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr());
+            bundle.putString("category",categoryCompsArrayL.get(selectedCategoryPositionInt)
+                    .getCategoryNameStr());
             fragmentShowSelectedDetails.setArguments(bundle);
 
             FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -541,7 +590,42 @@ public class AddItem extends AppCompatActivity {
             transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
             transaction.addToBackStack(null);
             transaction.commit();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                createCCMTObject(categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr(),carDetailsModel);
+            }
         }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createCCMTObject(String categoryNameStr, CarDetailsModel carDetailsModel) {
+        ArrayList<String> reportDescriptionArrayL = new ArrayList<String>();
+        reportDescriptionArrayL.add("noReprotYet");
+
+        ArrayList<String> watchersArrayL = new ArrayList<String>();
+        watchersArrayL.add("noWatchersYet");
+
+        String[] stringAfterSplitKilometers = splitString(carDetailsModel.getKilometersStr(),"-");
+        String firstNumber = splitString(stringAfterSplitKilometers[0],",")[0]+splitString(stringAfterSplitKilometers[0],",")[1];
+        String secondNumber = splitString(stringAfterSplitKilometers[1],",")[0]+splitString(stringAfterSplitKilometers[1],",")[1];
+        ccemt = new CCEMT("NOTYET",getCityFromSP(getApplicationContext())
+                ,getNeighborhoodFromSP(getApplicationContext())
+                ,"userToken",getTime(),getPhoneNumberInSP(getApplicationContext())
+                ,getTitleInSP(getApplicationContext()),getDesInSP(getApplicationContext())
+                ,getUserImage(getApplicationContext()),getUserName(getApplicationContext())
+                ,"no auction yet","0","123","0",getVideoPath(mVideoURI),categoryNameStr
+                ,categoryNameStr,carDetailsModel.getModelStr(),carDetailsModel.getYearStr()
+                ,carDetailsModel.getCarMakeStr()
+                ,carDetailsModel.getConditionStr(),carDetailsModel.getKilometersStr()
+                ,carDetailsModel.getTransmissionStr(),carDetailsModel.getFuelStr()
+                ,carDetailsModel.getLicenseStr(),carDetailsModel.getInsurance()
+                ,carDetailsModel.getCarColorStr(),carDetailsModel.getPaymentMethod()
+                ,carDetailsModel.getCarOptionsStr(),getTimeStamp(),reportDescriptionArrayL
+                ,getImagePaths(imagePathArrL),getDefaultCommentCompArrayL()
+                ,watchersArrayL,getDefaultBoostPostArrayL(),0
+                ,getBurnedPriceIntInSP(getApplicationContext())
+                ,0,0,1,2020,3,5
+                ,getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                ,Double.parseDouble(firstNumber),Double.parseDouble(secondNumber));
     }
 
     private void showSelectedVideo(Intent data) {
