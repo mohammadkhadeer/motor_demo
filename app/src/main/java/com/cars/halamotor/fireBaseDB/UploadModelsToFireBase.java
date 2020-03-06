@@ -5,10 +5,9 @@ import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.FCWSU;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.core.Context;
 
-import static com.cars.halamotor.fireBaseDB.FireBaseDB.getUserPathInServerFB;
-import static com.cars.halamotor.fireBaseDB.FireBaseDB.insertCarForSale;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServerFB;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertCarForSale;
 
 public class UploadModelsToFireBase {
 

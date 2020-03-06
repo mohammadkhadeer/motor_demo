@@ -2,17 +2,13 @@ package com.cars.halamotor.fireBaseDB;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import com.cars.halamotor.model.UserInfo;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
-import java.util.ArrayList;
-
-import static com.cars.halamotor.fireBaseDB.FireBaseDB.getUserPathInServer;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNumberOfAdsInSP;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveIfUserCanAddAdsInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveNumberOfAdsInSP;

@@ -1,13 +1,10 @@
 package com.cars.halamotor.fireBaseDB;
 
-import android.content.Context;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
-
-public class FireBaseDB {
+public class FireBaseDBPaths {
 
     public static FirebaseDatabase getDataBaseInstance() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();
