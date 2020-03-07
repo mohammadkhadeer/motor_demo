@@ -50,6 +50,7 @@ import butterknife.ButterKnife;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddAdsOrNot;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewItem;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImages;
 import static com.cars.halamotor.functions.Functions.checkIfUserSetImages;
 import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
@@ -216,9 +217,9 @@ public class AddItem extends AppCompatActivity {
         {
             if (selectCategory.equals(getResources().getString(R.string.car_for_sale)))
             {
-
-                addNewItem(ccemt,"Car_For_Sale"
+                uploadImages(imagePathArrL,ccemt,"Car_For_Sale"
                         ,getUserIdInServerFromSP(getApplicationContext()),getNumberOfAdsInSP(getApplicationContext()));
+                finish();
             }
         }else{
             Log.i("TAG NO IMAGE","NO IMAGE SELECTED");
@@ -683,8 +684,8 @@ public class AddItem extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        cleanNumberOfAds(getApplicationContext(),sharedPreferences,editor);
-        cleanIfUserCanAddAdsAds(getApplicationContext(),sharedPreferences,editor);
+//        cleanNumberOfAds(getApplicationContext(),sharedPreferences,editor);
+//        cleanIfUserCanAddAdsAds(getApplicationContext(),sharedPreferences,editor);
         finish();
     }
 
