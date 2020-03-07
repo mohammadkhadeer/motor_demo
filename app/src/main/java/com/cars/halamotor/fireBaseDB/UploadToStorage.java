@@ -19,40 +19,44 @@ public class UploadToStorage {
                                     , final String userIDOnServer, final int numberOfAds) {
         //WE ADD timer becouse no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
-        for (int i=0;i<imagePaths.size();i++)
+        if (imagePaths.size() != 0)
         {
-            String imagePath = imagePaths.get(i);
-            Uri imageUri = Uri.fromFile(new File(imagePath));
+            for (int i=0;i<imagePaths.size();i++)
+            {
+                String imagePath = imagePaths.get(i);
+                Uri imageUri = Uri.fromFile(new File(imagePath));
 
-            final StorageReference storageReference = carForSalePath().child("image"+getTime()+String.valueOf(i));
+                final StorageReference storageReference = carForSalePath().child("image"+getTime()+String.valueOf(i));
 
-            storageReference.putFile(imageUri).addOnSuccessListener
-                    (new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                                @Override
-                                public void onSuccess(Uri uri) {
-                                    Log.i("TAG",String.valueOf(uri));
-                                    imagePathsInServer.add(String.valueOf(uri));
-                                }
-                            });
-                        }
+                storageReference.putFile(imageUri).addOnSuccessListener
+                        (new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                storageReference.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        Log.i("TAG",String.valueOf(uri));
+                                        imagePathsInServer.add(String.valueOf(uri));
+                                    }
+                                });
+                            }
 
-                    });
-
-        }
-
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Log.i("TAG","here on timer");
-                ccemt.setImagePathArrayL(imagePathsInServer);
-                addNewItem(ccemt,"Car_For_Sale"
-                        ,userIDOnServer,numberOfAds);
+                        });
 
             }
-        }, 15000);
 
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    ccemt.setImagePathArrayL(imagePathsInServer);
+                    addNewItem(ccemt,"Car_For_Sale"
+                            ,userIDOnServer,numberOfAds);
+
+                }
+            }, 15000);
+        }else{
+            addNewItem(ccemt,"Car_For_Sale"
+                    ,userIDOnServer,numberOfAds);
+        }
     }
 }

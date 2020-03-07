@@ -30,6 +30,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
+
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
@@ -44,7 +45,9 @@ import com.cars.halamotor.view.adapters.SelectedImageAdapter;
 import com.cars.halamotor.view.fragments.FragmentCityPhoneNumber;
 import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
+
 import java.util.ArrayList;
+
 import butterknife.ButterKnife;
 
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddAdsOrNot;
@@ -58,7 +61,7 @@ import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRea
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 import static com.cars.halamotor.functions.Functions.getDefaultBoostPostArrayL;
 import static com.cars.halamotor.functions.Functions.getDefaultCommentCompArrayL;
-import static com.cars.halamotor.functions.Functions.getImagePaths;
+import static com.cars.halamotor.functions.Functions.getImagePathsNoImage;
 import static com.cars.halamotor.functions.Functions.getTime;
 import static com.cars.halamotor.functions.Functions.getTimeStamp;
 import static com.cars.halamotor.functions.Functions.getVideoPath;
@@ -83,19 +86,16 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUse
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserName;
 
 public class AddItem extends AppCompatActivity {
-    RelativeLayout cancelRL,selectImageFGRL,selectVideoRL,coverVideoViewRL
-            ,cancelVideoRL,cancelSelectedCategoryRL,add_activity_complete_car_dCV
-            ,cityPhoneNumberRL;
-    RelativeLayout showSelectedCarDetailsRL,messageContainerRL,messageContentRL;
-    LinearLayout categoryContLL,headLL;
-    TextView insertAddTV,textTitleTV,categorySelectedNameTV,completeCarDetailsTV
-            ,generalMessageTV;
-    RecyclerView viewSelectedImageRV,selectCategoryRV;
+    RelativeLayout cancelRL, selectImageFGRL, selectVideoRL, coverVideoViewRL, cancelVideoRL, cancelSelectedCategoryRL, add_activity_complete_car_dCV, cityPhoneNumberRL;
+    RelativeLayout showSelectedCarDetailsRL, messageContainerRL, messageContentRL;
+    LinearLayout categoryContLL, headLL;
+    TextView insertAddTV, textTitleTV, categorySelectedNameTV, completeCarDetailsTV, generalMessageTV;
+    RecyclerView viewSelectedImageRV, selectCategoryRV;
     VideoView viewVideoSelected;
     ImageView imageCategorySelectedIV;
-    CardView viewSelectedCategoryCV,completeCarDetailsCV;
+    CardView viewSelectedCategoryCV, completeCarDetailsCV;
     Button insertItemBtn;
-    RecyclerView.LayoutManager layoutManager,layoutManagerCategory;
+    RecyclerView.LayoutManager layoutManager, layoutManagerCategory;
 
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
@@ -108,15 +108,15 @@ public class AddItem extends AppCompatActivity {
     AdapterSelectCategory adapterSelectCategory;
     ArrayList<String> imagePathArrL = new ArrayList<String>();
 
-    public ArrayList<CategoryComp> categoryCompsArrayL ;
+    public ArrayList<CategoryComp> categoryCompsArrayL;
 
     final Fragment fragmentShowSelectedDetails = new ShowSelectedCarDetailsFragment();
     final Fragment fragmentCityPhoneNumber = new FragmentCityPhoneNumber();
 
     static int selectVideoOrNotYet = 0;
-    int productDetailsComplete =0;
+    int productDetailsComplete = 0;
 
-    int selectedCategoryPositionInt=100;
+    int selectedCategoryPositionInt = 100;
 
     Uri mVideoURI;
 
@@ -140,8 +140,8 @@ public class AddItem extends AppCompatActivity {
         createSelectCategoryRV();
         actionListenerToRVShowSelectedCategoryAfterUserChoose();
         //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
-        getNumberOfUserAds(getApplicationContext(),sharedPreferences,editor);
-        getIfUserCanAddAdsOrNot(getApplicationContext(),sharedPreferences,editor);
+        getNumberOfUserAds(getApplicationContext(), sharedPreferences, editor);
+        getIfUserCanAddAdsOrNot(getApplicationContext(), sharedPreferences, editor);
 
     }
 
@@ -149,63 +149,38 @@ public class AddItem extends AppCompatActivity {
         insertItemBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (isNetworkAvailable(getApplicationContext()))
-                {
+                if (isNetworkAvailable(getApplicationContext())) {
                     String selectCategory = "empty";
-                    if (selectedCategoryPositionInt != 100)
-                    {
-                        if (checkTitleAndDescription(getApplicationContext()) == null)
-                        {
-                            if (checkTitleAndDescriptionRealOrNot(getApplicationContext()) == null)
-                            {
-                                if (productDetailsComplete == 1)
-                                {
-                                    if (getAddressInSP(getApplicationContext()) != null)
-                                    {
-                                        if (checkPhoneNumberRealOrNot(getApplicationContext()) == null)
-                                        {
-                                            if (getNumberOfAdsInSP(getApplicationContext()) < 5)
-                                            {
-                                                if (getIfUserCanAddAdsInSP(getApplicationContext()) == 1)
-                                                {
+                    if (selectedCategoryPositionInt != 100) {
+                        if (checkTitleAndDescription(getApplicationContext()) == null) {
+                            if (checkTitleAndDescriptionRealOrNot(getApplicationContext()) == null) {
+                                if (productDetailsComplete == 1) {
+                                    if (getAddressInSP(getApplicationContext()) != null) {
+                                        if (checkPhoneNumberRealOrNot(getApplicationContext()) == null) {
+                                            if (getNumberOfAdsInSP(getApplicationContext()) < 5) {
+                                                if (getIfUserCanAddAdsInSP(getApplicationContext()) == 1) {
                                                     selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
                                                             .getCategoryNameStr();
                                                     checkCategoryAndUpload(selectCategory);
 
-                                                }else{
-                                                    completeMessage(getResources().getString(R.string.blocked));
-                                                }
-                                            }else{
-                                                completeMessage(getResources().getString(R.string.upgrade_ur_account));
-                                            }
-
-                                        }else{
-                                            completeMessage(checkPhoneNumberRealOrNot(getApplicationContext()));
-                                        }
-
-                                    }else{
-                                        completeMessage(getResources().getString(R.string.select_address));
-                                    }
-
-                                }else{
-                                    completeMessage(getResources().getString(R.string.complete_product_details));
-                                }
-
-                            }else{
-                                completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext()));
-                            }
-
-                        }else{
-                            completeMessage(checkTitleAndDescription(getApplicationContext()));
-                        }
-
-                    }else{
-                        completeMessage(getResources().getString(R.string.select_category));
-                    }
-
-                }else {
-                    completeMessage(getResources().getString(R.string.message_no_internet));
-                }
+                                                } else {
+                                                    completeMessage(getResources().getString(R.string.blocked)); }
+                                            } else {
+                                                completeMessage(getResources().getString(R.string.upgrade_ur_account)); }
+                                        } else {
+                                            completeMessage(checkPhoneNumberRealOrNot(getApplicationContext())); }
+                                    } else {
+                                        completeMessage(getResources().getString(R.string.select_address)); }
+                                } else {
+                                    completeMessage(getResources().getString(R.string.complete_product_details)); }
+                            } else {
+                                completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext())); }
+                        } else {
+                            completeMessage(checkTitleAndDescription(getApplicationContext())); }
+                    } else {
+                        completeMessage(getResources().getString(R.string.select_category)); }
+                } else {
+                    completeMessage(getResources().getString(R.string.message_no_internet)); }
             }
         });
     }
@@ -213,44 +188,36 @@ public class AddItem extends AppCompatActivity {
     private void checkCategoryAndUpload(String selectCategory) {
         //we have 4 model 1.car plates 2.accessories/junk car 3.wheels-rim
         // 4.car for sale/car for rent/exchange/motorcycle/trucks ... in model well be name CCEMT
-        if (checkIfUserSetImages(imagePathArrL))
-        {
-            if (selectCategory.equals(getResources().getString(R.string.car_for_sale)))
-            {
-                uploadImages(imagePathArrL,ccemt,"Car_For_Sale"
-                        ,getUserIdInServerFromSP(getApplicationContext()),getNumberOfAdsInSP(getApplicationContext()));
-                finish();
-            }
-        }else{
-            Log.i("TAG NO IMAGE","NO IMAGE SELECTED");
+        if (selectCategory.equals(getResources().getString(R.string.car_for_sale))) {
+            uploadImages(imagePathArrL, ccemt, "Car_For_Sale"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+            finish();
         }
-
     }
 
     private void actionListenerToRVShowSelectedCategoryAfterUserChoose() {
         selectCategoryRV.addOnItemTouchListener(
                 new AdapterSelectCategory.RecyclerItemClickListener
-                        (AddItem.this, selectCategoryRV ,
+                        (AddItem.this, selectCategoryRV,
                                 new AdapterSelectCategory.RecyclerItemClickListener.OnItemClickListener() {
-                                    @Override public void onItemClick(View view, int position) {
-                                        if (checkIfWheelsOrCarP(position))
-                                        {
-                                            selectedCategoryPositionInt =position;
+                                    @Override
+                                    public void onItemClick(View view, int position) {
+                                        if (checkIfWheelsOrCarP(position)) {
+                                            selectedCategoryPositionInt = position;
                                             goneRVAndVisableSelectedCategoryAndFillSelectedInfo(position);
                                             checkIfNeedToMakeCompleteCarDetailsToBeVisable(position);
-                                        }else{
-                                            if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim)))
-                                            {
+                                        } else {
+                                            if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim))) {
                                                 translateToWheelsRimActivity();
                                             }
-                                            if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates)))
-                                            {
+                                            if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))) {
                                                 translateToCarPlatesActivity();
                                             }
                                         }
                                     }
 
-                                    @Override public void onLongItemClick(View view, int position) {
+                                    @Override
+                                    public void onLongItemClick(View view, int position) {
                                         // do whatever
                                     }
                                 })
@@ -258,28 +225,26 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void translateToCarPlatesActivity() {
-        Bundle bundle= new Bundle();
+        Bundle bundle = new Bundle();
         bundle.putString("specialIntOrNot", "normal");
 
         Intent intent = new Intent(AddItem.this, CarPlates.class);
         intent.putExtras(bundle);
-        startActivityForResult(intent , 7);
+        startActivityForResult(intent, 7);
         overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     private void translateToWheelsRimActivity() {
         Intent intent = new Intent(AddItem.this, WheelsRim.class);
-        startActivityForResult(intent , REQUEST_WHEELS_RIM);
+        startActivityForResult(intent, REQUEST_WHEELS_RIM);
         overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     private boolean checkIfWheelsOrCarP(int position) {
         if (categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))
-                || categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim)))
-        {
+                || categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim))) {
             return false;
-        }
-        else{
+        } else {
             return true;
         }
     }
@@ -313,14 +278,12 @@ public class AddItem extends AppCompatActivity {
 
     private void checkIfNeedToMakeCompleteCarDetailsToBeVisable(int position) {
         if (!categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.car_plates))
-            && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.accessories))
-            && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim))
-            && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.junk_car)))
-        {
+                && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.accessories))
+                && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.wheels_rim))
+                && !categoryCompsArrayL.get(position).getCategoryNameStr().equals(getResources().getString(R.string.junk_car))) {
             makeCompleteCarDetailsVisable();
-        }
-        else{
-            productDetailsComplete =1;
+        } else {
+            productDetailsComplete = 1;
             makeCompleteCarDetailsGone();
             createCityPhoneNumber();
         }
@@ -343,14 +306,14 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void createSelectCategoryRV() {
-        categoryCompsArrayL = fillCategoryArrayList(categoryCompsArrayL,getApplicationContext());
+        categoryCompsArrayL = fillCategoryArrayList(categoryCompsArrayL, getApplicationContext());
         selectCategoryRV.setNestedScrollingEnabled(false);
         selectCategoryRV.setHasFixedSize(true);
         layoutManagerCategory = new LinearLayoutManager(AddItem.this,
                 LinearLayoutManager.HORIZONTAL, false);
         selectCategoryRV.setLayoutManager(layoutManagerCategory);
-        adapterSelectCategory =new AdapterSelectCategory(AddItem.this
-                ,categoryCompsArrayL);
+        adapterSelectCategory = new AdapterSelectCategory(AddItem.this
+                , categoryCompsArrayL);
         selectCategoryRV.setAdapter(adapterSelectCategory);
     }
 
@@ -387,7 +350,7 @@ public class AddItem extends AppCompatActivity {
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToSelectPhoto(AddItem.this) == true) {
                     Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Video.Media.EXTERNAL_CONTENT_URI);
-                    startActivityForResult(intent , REQUEST_TAKE_GALLERY_VIDEO);
+                    startActivityForResult(intent, REQUEST_TAKE_GALLERY_VIDEO);
                 }
             }
         });
@@ -426,19 +389,18 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void moveToCarDetailsCar() {
-        Bundle bundle= new Bundle();
+        Bundle bundle = new Bundle();
         bundle.putString("whereComeFrom", "fromAddItem");
         bundle.putString("specificFragmentType", getResources().getString(R.string.car_make));
 
         Intent intent = new Intent(AddItem.this, CarDetails.class);
         intent.putExtras(bundle);
-        startActivityForResult(intent , STATIC_BACK_VALUE);
+        startActivityForResult(intent, STATIC_BACK_VALUE);
         overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults)
-    {
+    public void onRequestPermissionsResult(int requestCode, @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case PICK_FROM_GALLERY:
                 // If request is cancelled, the result arrays are empty.
@@ -481,14 +443,14 @@ public class AddItem extends AppCompatActivity {
         categoryContLL = (LinearLayout) findViewById(R.id.add_activity_category_cont);
         cityPhoneNumberRL = (RelativeLayout) findViewById(R.id.add_activity_city_phone_numberRL);
         insertItemBtn = (Button) findViewById(R.id.add_activity_city_insert_Btn);
-        messageContainerRL= (RelativeLayout) findViewById(R.id.add_activity_message_container_RL);
-        messageContentRL= (RelativeLayout) findViewById(R.id.add_activity_message_cover_RL);
-        generalMessageTV= (TextView) findViewById(R.id.add_activity_general_message_content_TV);
+        messageContainerRL = (RelativeLayout) findViewById(R.id.add_activity_message_container_RL);
+        messageContentRL = (RelativeLayout) findViewById(R.id.add_activity_message_cover_RL);
+        generalMessageTV = (TextView) findViewById(R.id.add_activity_general_message_content_TV);
         headLL = (LinearLayout) findViewById(R.id.add_activity_general_head_LL);
     }
 
     private void statusBarColor() {
-       getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     @Override
@@ -498,29 +460,29 @@ public class AddItem extends AppCompatActivity {
             getSelectedImagePathes(data);
             showSelectedImage();
             if (selectVideoOrNotYet == 1)
-            replayVideo();
+                replayVideo();
         }
         if (requestCode == REQUEST_TAKE_GALLERY_VIDEO && resultCode == Activity.RESULT_OK) {
-            selectVideoOrNotYet =1;
+            selectVideoOrNotYet = 1;
             showSelectedVideo(data);
         }
         if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
-            productDetailsComplete =1;
-            createShowSelectedCarDetails(data,resultCode,requestCode);
+            productDetailsComplete = 1;
+            createShowSelectedCarDetails(data, resultCode, requestCode);
             createCityPhoneNumber();
             ChangeUI();
         }
         if (requestCode == REQUEST_WHEELS_RIM && resultCode == Activity.RESULT_OK) {
-            productDetailsComplete =1;
-            selectedCategoryPositionInt =6;
-            createShowSelectedCarDetails(data,resultCode,REQUEST_WHEELS_RIM);
+            productDetailsComplete = 1;
+            selectedCategoryPositionInt = 6;
+            createShowSelectedCarDetails(data, resultCode, REQUEST_WHEELS_RIM);
             createCityPhoneNumber();
             ChangeUI();
         }
         if (requestCode == REQUEST_CAR_PLATES && resultCode == Activity.RESULT_OK) {
-            productDetailsComplete =1;
-            selectedCategoryPositionInt =4;
-            createShowSelectedCarDetails(data,resultCode,REQUEST_CAR_PLATES);
+            productDetailsComplete = 1;
+            selectedCategoryPositionInt = 4;
+            createShowSelectedCarDetails(data, resultCode, REQUEST_CAR_PLATES);
             createCityPhoneNumber();
             ChangeUI();
         }
@@ -543,29 +505,11 @@ public class AddItem extends AppCompatActivity {
 
     private void createShowSelectedCarDetails(Intent data, int resultCode, int requestCode) {
         // 6 to wheelsRim 7 to car Plates
-        if (requestCode == REQUEST_WHEELS_RIM || requestCode == REQUEST_CAR_PLATES)
-        {
-           if (requestCode == REQUEST_WHEELS_RIM)
-           {
-               Bundle bundle = new Bundle();
-               bundle.putString("category",  getResources().getString(R.string.wheels_rim));
-               bundle.putString("inchSize",  data.getExtras().getString("inchSize"));
-               fragmentShowSelectedDetails.setArguments(bundle);
-
-               FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-               fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
-
-               transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
-               transaction.addToBackStack(null);
-               transaction.commit();
-           }
-            if (requestCode == REQUEST_CAR_PLATES)
-            {
+        if (requestCode == REQUEST_WHEELS_RIM || requestCode == REQUEST_CAR_PLATES) {
+            if (requestCode == REQUEST_WHEELS_RIM) {
                 Bundle bundle = new Bundle();
-                bundle.putString("category",  getResources().getString(R.string.car_plates));
-                bundle.putString("carPlatesNum",  data.getExtras().getString("carPlatesNum"));
-                bundle.putString("carPlatesCity",  data.getExtras().getString("carPlatesCity"));
-                bundle.putString("specialOrNot",  data.getExtras().getString("specialOrNot"));
+                bundle.putString("category", getResources().getString(R.string.wheels_rim));
+                bundle.putString("inchSize", data.getExtras().getString("inchSize"));
                 fragmentShowSelectedDetails.setArguments(bundle);
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -575,13 +519,28 @@ public class AddItem extends AppCompatActivity {
                 transaction.addToBackStack(null);
                 transaction.commit();
             }
-        }else{
+            if (requestCode == REQUEST_CAR_PLATES) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category", getResources().getString(R.string.car_plates));
+                bundle.putString("carPlatesNum", data.getExtras().getString("carPlatesNum"));
+                bundle.putString("carPlatesCity", data.getExtras().getString("carPlatesCity"));
+                bundle.putString("specialOrNot", data.getExtras().getString("specialOrNot"));
+                fragmentShowSelectedDetails.setArguments(bundle);
+
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                fragmentShowSelectedDetails.onActivityResult(requestCode, resultCode, data);
+
+                transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
+                transaction.addToBackStack(null);
+                transaction.commit();
+            }
+        } else {
             //pass value to model fragment as object because this we make
             // CarDetailsModel extend from Parcelable to can do this action
-            CarDetailsModel carDetailsModel = (CarDetailsModel)data.getParcelableExtra("carDetailsObject");
+            CarDetailsModel carDetailsModel = (CarDetailsModel) data.getParcelableExtra("carDetailsObject");
             getIntent().putExtra("carDetailsObject", carDetailsModel);
             Bundle bundle = new Bundle();
-            bundle.putString("category",categoryCompsArrayL.get(selectedCategoryPositionInt)
+            bundle.putString("category", categoryCompsArrayL.get(selectedCategoryPositionInt)
                     .getCategoryNameStr());
             fragmentShowSelectedDetails.setArguments(bundle);
 
@@ -592,7 +551,7 @@ public class AddItem extends AppCompatActivity {
             transaction.addToBackStack(null);
             transaction.commit();
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                createCCMTObject(categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr(),carDetailsModel);
+                createCCMTObject(categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr(), carDetailsModel);
             }
         }
     }
@@ -605,35 +564,35 @@ public class AddItem extends AppCompatActivity {
         ArrayList<String> watchersArrayL = new ArrayList<String>();
         watchersArrayL.add("noWatchersYet");
 
-        String[] stringAfterSplitKilometers = splitString(carDetailsModel.getKilometersStr(),"-");
-        String firstNumber = splitString(stringAfterSplitKilometers[0],",")[0]+splitString(stringAfterSplitKilometers[0],",")[1];
-        String secondNumber = splitString(stringAfterSplitKilometers[1],",")[0]+splitString(stringAfterSplitKilometers[1],",")[1];
-        ccemt = new CCEMT("NOTYET",getCityFromSP(getApplicationContext())
-                ,getNeighborhoodFromSP(getApplicationContext())
-                ,"userToken",getTime(),getPhoneNumberInSP(getApplicationContext())
-                ,getTitleInSP(getApplicationContext()),getDesInSP(getApplicationContext())
-                ,getUserImage(getApplicationContext()),getUserName(getApplicationContext())
-                ,"no auction yet","0","123","0",getVideoPath(mVideoURI),categoryNameStr
-                ,categoryNameStr,carDetailsModel.getModelStr(),carDetailsModel.getYearStr()
-                ,carDetailsModel.getCarMakeStr()
-                ,carDetailsModel.getConditionStr(),carDetailsModel.getKilometersStr()
-                ,carDetailsModel.getTransmissionStr(),carDetailsModel.getFuelStr()
-                ,carDetailsModel.getLicenseStr(),carDetailsModel.getInsurance()
-                ,carDetailsModel.getCarColorStr(),carDetailsModel.getPaymentMethod()
-                ,carDetailsModel.getCarOptionsStr(),getTimeStamp(),reportDescriptionArrayL
-                ,getImagePaths(imagePathArrL),getDefaultCommentCompArrayL()
-                ,watchersArrayL,getDefaultBoostPostArrayL(),0
-                ,getBurnedPriceIntInSP(getApplicationContext())
-                ,0,0,1,2020,3,5
-                ,getPriceAfterConvertedToDoubleInSP(getApplicationContext())
-                ,Double.parseDouble(firstNumber),Double.parseDouble(secondNumber));
+        String[] stringAfterSplitKilometers = splitString(carDetailsModel.getKilometersStr(), "-");
+        String firstNumber = splitString(stringAfterSplitKilometers[0], ",")[0] + splitString(stringAfterSplitKilometers[0], ",")[1];
+        String secondNumber = splitString(stringAfterSplitKilometers[1], ",")[0] + splitString(stringAfterSplitKilometers[1], ",")[1];
+        ccemt = new CCEMT("NOTYET", getCityFromSP(getApplicationContext())
+                , getNeighborhoodFromSP(getApplicationContext())
+                , "userToken", getTime(), getPhoneNumberInSP(getApplicationContext())
+                , getTitleInSP(getApplicationContext()), getDesInSP(getApplicationContext())
+                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+                , "no auction yet", "0", "123", "0", getVideoPath(mVideoURI), categoryNameStr
+                , categoryNameStr, carDetailsModel.getModelStr(), carDetailsModel.getYearStr()
+                , carDetailsModel.getCarMakeStr()
+                , carDetailsModel.getConditionStr(), carDetailsModel.getKilometersStr()
+                , carDetailsModel.getTransmissionStr(), carDetailsModel.getFuelStr()
+                , carDetailsModel.getLicenseStr(), carDetailsModel.getInsurance()
+                , carDetailsModel.getCarColorStr(), carDetailsModel.getPaymentMethod()
+                , carDetailsModel.getCarOptionsStr(), getTimeStamp(), reportDescriptionArrayL
+                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+                , getBurnedPriceIntInSP(getApplicationContext())
+                , 0, 0, 1, 2020, 3, 5
+                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                , Double.parseDouble(firstNumber), Double.parseDouble(secondNumber));
     }
 
     private void showSelectedVideo(Intent data) {
         // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getData());
         viewVideoSelected.setVisibility(View.VISIBLE);
         coverVideoViewRL.setVisibility(View.VISIBLE);
-        mVideoURI  = data.getData();
+        mVideoURI = data.getData();
         viewVideoSelected.setVideoURI(mVideoURI);
 
         viewVideoSelected.requestFocus();
@@ -647,7 +606,7 @@ public class AddItem extends AppCompatActivity {
     }
 
     private void replayVideo() {
-        viewVideoSelected.setOnCompletionListener ( new MediaPlayer.OnCompletionListener() {
+        viewVideoSelected.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
 
             @Override
             public void onCompletion(MediaPlayer mediaPlayer) {
@@ -677,8 +636,8 @@ public class AddItem extends AppCompatActivity {
                 LinearLayoutManager.HORIZONTAL, false);
         viewSelectedImageRV.setLayoutManager(layoutManager);
 
-        selectedImageAdapter =new SelectedImageAdapter(AddItem.this
-                ,imagePathArrL);
+        selectedImageAdapter = new SelectedImageAdapter(AddItem.this
+                , imagePathArrL);
         viewSelectedImageRV.setAdapter(selectedImageAdapter);
     }
 

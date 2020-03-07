@@ -69,21 +69,12 @@ public class Functions {
         return false;
     }
 
-    public static ArrayList<String> getImagePaths(ArrayList<String> imagePathsArrayL) {
+    public static ArrayList<String> getImagePathsNoImage() {
         ArrayList<String> imagePathsArray;
 
-        if (imagePathsArrayL.size() != 0)
-        {
-            imagePathsArray = new ArrayList<String>();
-            for (int i=0;i<imagePathsArrayL.size();i++)
-            {
-                imagePathsArray.add(imagePathsArrayL.get(i));
-            }
-        }else{
             imagePathsArray = new ArrayList<String>();
 
             imagePathsArray.add("https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d");
-        }
 
         return imagePathsArray;
     }
