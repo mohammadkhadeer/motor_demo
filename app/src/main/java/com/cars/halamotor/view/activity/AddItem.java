@@ -84,6 +84,7 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTit
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserName;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserTokenInFromSP;
 
 public class AddItem extends AppCompatActivity {
     RelativeLayout cancelRL, selectImageFGRL, selectVideoRL, coverVideoViewRL, cancelVideoRL, cancelSelectedCategoryRL, add_activity_complete_car_dCV, cityPhoneNumberRL;
@@ -142,6 +143,7 @@ public class AddItem extends AppCompatActivity {
         //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
         getNumberOfUserAds(getApplicationContext(), sharedPreferences, editor);
         getIfUserCanAddAdsOrNot(getApplicationContext(), sharedPreferences, editor);
+        Log.d("TAG", "Refreshed token: " + getUserTokenInFromSP(getApplicationContext()));
 
     }
 

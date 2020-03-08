@@ -82,7 +82,7 @@ public class ProfileDetailsInfo extends Fragment {
     private void fillUserInfoFromFB() {
         UserFaceBookInfo userFaceBookInfo = getUserFBInfo(getActivity());
         userNameTV.setText(userFaceBookInfo.getFirstNameStr());
-        //fillImageUser(userFaceBookInfo.getUserImageStr());
+        fillImageUser(userFaceBookInfo.getUserImageStr());
     }
 
     private void fillImageUser(String userImageStr) {

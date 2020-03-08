@@ -16,6 +16,27 @@ public class SharedPreferencesInApp {
     private static final String FB_INFO = "FB_INFO";
     private static final String ADS_INFO_SERVER = "ADS_INFO_SERVER";
 
+    public static void saveUserTokenInFromSP(Context context,SharedPreferences SharedPreferences,
+                                            SharedPreferences.Editor editor,String userToken) {
+        SharedPreferences = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putString("userToken",userToken);
+        editor.commit();
+    }
+
+    public static String getUserTokenInFromSP(Context context) {
+        String userToken;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        userToken = (shared.getString("userToken", ""));
+        if (userToken.equals("") || userToken == null) {
+            return  "empty";
+        }
+        else {
+            return  userToken;
+        }
+    }
+
     public static void checkIfUserRegisterOrNotFromSP(Context context,SharedPreferences rgSharedPreferences,
                                          SharedPreferences.Editor rgEditor,String status) {
         rgSharedPreferences = context.getSharedPreferences(REGISTER, MODE_PRIVATE);

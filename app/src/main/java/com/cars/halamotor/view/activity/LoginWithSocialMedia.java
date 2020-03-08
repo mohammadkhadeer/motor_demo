@@ -29,9 +29,12 @@ import com.facebook.GraphResponse;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -42,6 +45,7 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkF
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOnServerSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserTokenInFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveFBInfoInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveServerIDInfoInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveUserInfoInSP;
@@ -142,6 +146,8 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
+                                    }else{
+                                        moveBack();
                                     }
                                 }
                             });
@@ -151,14 +157,15 @@ public class LoginWithSocialMedia extends AppCompatActivity {
             }
         });
 
+
         Bundle parmeters = new Bundle();
-        parmeters.putString("fields", "first_name,last_name,email,id,birthday");
+        parmeters.putString("fields", "first_name,last_name,email,id,birthday,gender,location");
         graphRequest.setParameters(parmeters);
         graphRequest.executeAsync();
     }
 
-    private void registerUserInServer(JSONObject object) {
-        if(checkIfUserRegisterOnServerSP(getApplicationContext())==false)
+    private void registerUserInServer(final JSONObject object) {
+        if(checkIfUserRegisterOnServerSP(getApplicationContext()) == false)
         {
             try {
                 UserInfo newUser = new UserInfo(object.getString("first_name")
@@ -166,8 +173,8 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                         ,object.getString("last_name"),object.getString("email")
                         ,"000","notYet","notYet"
                         ,"notYet","notYet"
-                        ,"notYet","notYet","0",0,1,0,0);
-
+                        ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
+                        ,0,1,0,0);
                 addNewUser(newUser,rgSharedPreferences,rgEditor,getApplicationContext());
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -176,7 +183,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
     }
 
     private void saveUserInfoIfNotRegister(String first_name, String last_name, String email, String id, String birthday, String user_image) {
-        if (checkIfUserRegisterOrNotFromSP(getApplicationContext()) == false) {
+        if (checkIfUserRegisterOrNotFromSP(getApplicationContext())) {
             saveUserInfoInSP(getApplicationContext(), rgSharedPreferences, rgEditor, first_name, last_name, email, id, birthday, user_image);
         }
     }
