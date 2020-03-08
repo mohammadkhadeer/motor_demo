@@ -59,12 +59,15 @@ import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRealOrNot;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
+import static com.cars.halamotor.functions.Functions.getDAY;
 import static com.cars.halamotor.functions.Functions.getDefaultBoostPostArrayL;
 import static com.cars.halamotor.functions.Functions.getDefaultCommentCompArrayL;
 import static com.cars.halamotor.functions.Functions.getImagePathsNoImage;
+import static com.cars.halamotor.functions.Functions.getMONTH;
 import static com.cars.halamotor.functions.Functions.getTime;
 import static com.cars.halamotor.functions.Functions.getTimeStamp;
 import static com.cars.halamotor.functions.Functions.getVideoPath;
+import static com.cars.halamotor.functions.Functions.getYEAR;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 import static com.cars.halamotor.functions.Functions.splitString;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanIfUserCanAddAdsAds;
@@ -143,7 +146,7 @@ public class AddItem extends AppCompatActivity {
         //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
         getNumberOfUserAds(getApplicationContext(), sharedPreferences, editor);
         getIfUserCanAddAdsOrNot(getApplicationContext(), sharedPreferences, editor);
-        Log.d("TAG", "Refreshed token: " + getUserTokenInFromSP(getApplicationContext()));
+        Log.i("TAG userID",getUserIdInServerFromSP(getApplicationContext()));
 
     }
 
@@ -566,9 +569,13 @@ public class AddItem extends AppCompatActivity {
         ArrayList<String> watchersArrayL = new ArrayList<String>();
         watchersArrayL.add("noWatchersYet");
 
-        String[] stringAfterSplitKilometers = splitString(carDetailsModel.getKilometersStr(), "-");
-        String firstNumber = splitString(stringAfterSplitKilometers[0], ",")[0] + splitString(stringAfterSplitKilometers[0], ",")[1];
-        String secondNumber = splitString(stringAfterSplitKilometers[1], ",")[0] + splitString(stringAfterSplitKilometers[1], ",")[1];
+        String firstNumber = "0",secondNumber="0";
+        if (!carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_0)))
+        {
+            String[] stringAfterSplitKilometers = splitString(carDetailsModel.getKilometersStr(), "-");
+            firstNumber = splitString(stringAfterSplitKilometers[0], ",")[0] + splitString(stringAfterSplitKilometers[0], ",")[1];
+            secondNumber = splitString(stringAfterSplitKilometers[1], ",")[0] + splitString(stringAfterSplitKilometers[1], ",")[1];
+        }
         ccemt = new CCEMT("NOTYET", getCityFromSP(getApplicationContext())
                 , getNeighborhoodFromSP(getApplicationContext())
                 , "userToken", getTime(), getPhoneNumberInSP(getApplicationContext())
@@ -585,7 +592,8 @@ public class AddItem extends AppCompatActivity {
                 , getImagePathsNoImage(), getDefaultCommentCompArrayL()
                 , watchersArrayL, getDefaultBoostPostArrayL(), 0
                 , getBurnedPriceIntInSP(getApplicationContext())
-                , 0, 0, 1, 2020, 3, 5
+                , 0, 0, 1
+                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
                 , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
                 , Double.parseDouble(firstNumber), Double.parseDouble(secondNumber));
     }

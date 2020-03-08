@@ -21,6 +21,7 @@ import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.sharedPreferences.SharedPreferencesInApp;
 
+import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -34,6 +35,39 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPri
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
 
 public class Functions {
+
+    public static String getDAY() {
+        Date today = new Date();
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        String date = DATE_FORMAT.format(today);
+
+        DATE_FORMAT = new SimpleDateFormat("dd");
+        date = DATE_FORMAT.format(today);
+
+        return date;
+    }
+
+    public static String getMONTH() {
+        Date today = new Date();
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        String date = DATE_FORMAT.format(today);
+
+        DATE_FORMAT = new SimpleDateFormat("MM");
+        date = DATE_FORMAT.format(today);
+
+        return date;
+    }
+
+    public static String getYEAR() {
+        Date today = new Date();
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        String date = DATE_FORMAT.format(today);
+
+        DATE_FORMAT = new SimpleDateFormat("yyyy");
+        date = DATE_FORMAT.format(today);
+
+        return date;
+    }
 
     public static String[] splitString(String textStr,String signal) {
         final String[] stringAfterSplit = textStr.split(signal);;

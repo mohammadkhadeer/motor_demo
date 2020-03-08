@@ -68,8 +68,6 @@ public class MainActivity extends AppCompatActivity {
         changeAppNameFontType();
         changeGeneralFontType();
         BottomBarMenu();
-        writeOnDataBase();
-        readFromDataBase();
         moveBetweenFragment();
 
     }
@@ -87,32 +85,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void changeAppNameFontType() {
         appNameTV.setTypeface(Functions.changeFontAppName(getApplicationContext()));
-    }
-
-    private void readFromDataBase() {
-        DatabaseReference mRef = FirebaseDatabase.getInstance().getReference();
-
-        mDatabase = FirebaseDatabase.getInstance().getReference();
-
-        mRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                //ItemDetails user = dataSnapshot.getValue(ItemDetails.class);
-                Log.i("TAG",dataSnapshot.toString());
-                ///Applications/App School for Xcode and  iOS 10 Development Free.app/Contents/MacOS
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-
-        });
-    }
-
-    private void writeOnDataBase() {
-        FirebaseDatabase database = FirebaseDatabase.getInstance();
-        DatabaseReference myRef = database.getReference("message");
-
-        myRef.setValue("Hello, World!");
     }
 
     private void inti() {

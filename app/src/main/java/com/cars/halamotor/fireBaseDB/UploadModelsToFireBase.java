@@ -24,7 +24,7 @@ public class UploadModelsToFireBase {
                 getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
                 //update number of ads to this user
                 getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
-                Log.i("TAG product key",uniqueKey);
+                //Log.i("TAG product key",uniqueKey);
             }
         });
         //String key = insertCarForSale().push().getKey();
