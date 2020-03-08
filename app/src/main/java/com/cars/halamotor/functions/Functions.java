@@ -29,12 +29,20 @@ import java.util.Date;
 
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
 
 public class Functions {
+
+    public static int checkBurnedPrice(Context context) {
+        if (getBurnedPriceInSP(context) != null)
+            return 1;
+        else
+            return 0;
+    }
 
     public static String getDAY() {
         Date today = new Date();

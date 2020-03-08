@@ -174,7 +174,8 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                         ,"000","notYet","notYet"
                         ,"notYet","notYet"
                         ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
-                        ,0,1,0,0);
+                        ,0,1,0,0
+                        ,1,0,3);
                 addNewUser(newUser,rgSharedPreferences,rgEditor,getApplicationContext());
             } catch (JSONException e) {
                 e.printStackTrace();

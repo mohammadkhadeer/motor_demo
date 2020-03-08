@@ -439,6 +439,27 @@ public class SharedPreferencesInApp {
         editor.commit();
     }
 
+    public static void saveIfUserCanAddBurnedPriceInSP(Context context,SharedPreferences SharedPreferences,
+                                               SharedPreferences.Editor editor,int activeOrNot) {
+        SharedPreferences = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putInt("activeToAddBP",activeOrNot);
+        editor.commit();
+    }
+
+    public static int getIfUserCanAddBurnedPriceInSP(Context context) {
+        int burnedPrice;
+        SharedPreferences shared = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        burnedPrice = (shared.getInt("activeToAddBP",-1));
+        if (burnedPrice==-1) {
+            return  -1;
+        }
+        else {
+            return  burnedPrice;
+        }
+    }
+
     public static void saveIfUserCanAddAdsInSP(Context context,SharedPreferences SharedPreferences,
                                            SharedPreferences.Editor editor,int activeOrNot) {
         SharedPreferences = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);

@@ -51,9 +51,11 @@ import java.util.ArrayList;
 import butterknife.ButterKnife;
 
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddAdsOrNot;
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddBurnedPrice;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewItem;
 import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImages;
+import static com.cars.halamotor.functions.Functions.checkBurnedPrice;
 import static com.cars.halamotor.functions.Functions.checkIfUserSetImages;
 import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
@@ -78,6 +80,7 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBur
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getCityFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getIfUserCanAddAdsInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getIfUserCanAddBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNeighborhoodFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNumberOfAdsInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
@@ -146,7 +149,9 @@ public class AddItem extends AppCompatActivity {
         //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
         getNumberOfUserAds(getApplicationContext(), sharedPreferences, editor);
         getIfUserCanAddAdsOrNot(getApplicationContext(), sharedPreferences, editor);
-        Log.i("TAG userID",getUserIdInServerFromSP(getApplicationContext()));
+        getIfUserCanAddBurnedPrice(getApplicationContext(), sharedPreferences, editor);
+        Log.i("TAG Add Ads", String.valueOf(getIfUserCanAddAdsInSP(getApplicationContext())));
+        Log.i("TAG BurnedPrice", String.valueOf(getIfUserCanAddBurnedPriceInSP(getApplicationContext())));
 
     }
 
@@ -166,8 +171,16 @@ public class AddItem extends AppCompatActivity {
                                                 if (getIfUserCanAddAdsInSP(getApplicationContext()) == 1) {
                                                     selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
                                                             .getCategoryNameStr();
-                                                    checkCategoryAndUpload(selectCategory);
-
+                                                    if (getBurnedPriceInSP(getApplicationContext()) != null)
+                                                    {
+                                                        if (getIfUserCanAddBurnedPriceInSP(getApplicationContext()) ==1)
+                                                        {
+                                                            checkCategoryAndUpload(selectCategory);
+                                                        }else{
+                                                            completeMessage(getResources().getString(R.string.blocked_bp)); }
+                                                    }
+                                                    else{
+                                                        checkCategoryAndUpload(selectCategory); }
                                                 } else {
                                                     completeMessage(getResources().getString(R.string.blocked)); }
                                             } else {
@@ -588,10 +601,12 @@ public class AddItem extends AppCompatActivity {
                 , carDetailsModel.getTransmissionStr(), carDetailsModel.getFuelStr()
                 , carDetailsModel.getLicenseStr(), carDetailsModel.getInsurance()
                 , carDetailsModel.getCarColorStr(), carDetailsModel.getPaymentMethod()
-                , carDetailsModel.getCarOptionsStr(), getTimeStamp(), reportDescriptionArrayL
+                , carDetailsModel.getCarOptionsStr(), getTimeStamp()
+                , getUserIdInServerFromSP(getApplicationContext())
+                , reportDescriptionArrayL
                 , getImagePathsNoImage(), getDefaultCommentCompArrayL()
                 , watchersArrayL, getDefaultBoostPostArrayL(), 0
-                , getBurnedPriceIntInSP(getApplicationContext())
+                , checkBurnedPrice(getApplicationContext())
                 , 0, 0, 1
                 , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
                 , getPriceAfterConvertedToDoubleInSP(getApplicationContext())

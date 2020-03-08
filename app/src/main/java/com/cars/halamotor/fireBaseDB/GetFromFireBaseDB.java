@@ -11,6 +11,7 @@ import com.google.firebase.database.ValueEventListener;
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveIfUserCanAddAdsInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveIfUserCanAddBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveNumberOfAdsInSP;
 
 public class GetFromFireBaseDB {
@@ -46,6 +47,25 @@ public class GetFromFireBaseDB {
                             UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
                             saveIfUserCanAddAdsInSP(context,sharedPreferences,editor,
                                     userInfo.getActiveToSetAdv());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {}
+
+                });
+    }
+
+    public static void getIfUserCanAddBurnedPrice(final Context context, final SharedPreferences sharedPreferences, final SharedPreferences.Editor editor) {
+        //use this because may insert sex adv or any reason from 5 reason
+        getUserPathInServer(getUserIdInServerFromSP(context))
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
+                            saveIfUserCanAddBurnedPriceInSP(context,sharedPreferences,editor,
+                                    userInfo.getActiveToAddBurnedPrice());
                         }
                     }
 
