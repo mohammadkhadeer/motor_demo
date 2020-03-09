@@ -520,15 +520,16 @@
     <string name="detect_address">Detect address</string>
     <string name="detect_wheels_siz">Detect Wheels size</string>
 
-    <string name="wheels_siz_13">Inch 13</string>
-    <string name="wheels_siz_14">Inch 14</string>
-    <string name="wheels_siz_15">Inch 15</string>
-    <string name="wheels_siz_16">Inch 16</string>
-    <string name="wheels_siz_17">Inch 17</string>
-    <string name="wheels_siz_18">Inch 18</string>
-    <string name="wheels_siz_19">Inch 19</string>
-    <string name="wheels_siz_20">Inch 20</string>
-    <string name="wheels_siz_21">Inch 21</string>
+    <string name="wheels_inch">Inch</string>
+    <string name="wheels_siz_13">13</string>
+    <string name="wheels_siz_14">14</string>
+    <string name="wheels_siz_15">15</string>
+    <string name="wheels_siz_16">16</string>
+    <string name="wheels_siz_17">17</string>
+    <string name="wheels_siz_18">18</string>
+    <string name="wheels_siz_19">19</string>
+    <string name="wheels_siz_20">20</string>
+    <string name="wheels_siz_21">21</string>
     <string name="wheels_siz_other">Other</string>
 
 

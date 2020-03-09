@@ -15,7 +15,9 @@ import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.BoostPost;
+import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarColor;
+import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CommentsComp;
@@ -36,6 +38,58 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPri
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
 
 public class Functions {
+
+    public static CarDetailsModel updateCarDetailsModel(CarDetailsModel carDetailsModel
+            , String whatUserWantToChange
+            , String valueInWhatUserWantToChange) {
+
+        if (whatUserWantToChange.equals("model"))
+        {
+            carDetailsModel.setModelStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("year"))
+        {
+            carDetailsModel.setYearStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("condition"))
+        {
+            carDetailsModel.setConditionStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("kilometers"))
+        {
+            carDetailsModel.setKilometersStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("transmission"))
+        {
+            carDetailsModel.setTransmissionStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("fuel"))
+        {
+            carDetailsModel.setFuelStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("options"))
+        {
+            carDetailsModel.setCarOptionsStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("licensed"))
+        {
+            carDetailsModel.setLicenseStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("insurance"))
+        {
+            carDetailsModel.setInsurance(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("color"))
+        {
+            carDetailsModel.setCarColorStr(valueInWhatUserWantToChange);
+        }
+        if (whatUserWantToChange.equals("payment"))
+        {
+            carDetailsModel.setPaymentMethod(valueInWhatUserWantToChange);
+        }
+
+        return carDetailsModel;
+    }
 
     public static int checkBurnedPrice(Context context) {
         if (getBurnedPriceInSP(context) != null)

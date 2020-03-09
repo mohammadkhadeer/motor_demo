@@ -16,6 +16,8 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarDetailsModel;
+import com.cars.halamotor.model.CarPlatesDetails;
+import com.cars.halamotor.model.EditValueInCDM;
 import com.cars.halamotor.model.ItemDetails;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.activity.CarPlates;
@@ -37,9 +39,15 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
 
     View view;
 
+    private static final int REQUEST_WHEELS_RIM = 6;
+    private static final int EDIT_CAR_DETAILS = 4;
+    private static final int REQUEST_CAR_PLATES = 7;
+
     CarDetailsModel carDetailsModel= new CarDetailsModel();
     String categoryStr,carMakeStr,whatUserWantToChangeStr,inchSizeStr
             ,carPlatesNumStr,carPlatesCityStr,specialOrNotStr;
+
+    OnDataPass dataPasser;
 
     @Override
     public void onAttach(Context context) {
@@ -47,6 +55,8 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
             categoryStr = getArguments().getString("category");
         }
         super.onAttach(context);
+        dataPasser = (OnDataPass) context;
+
         if(categoryStr.equals(getResources().getString(R.string.wheels_rim)))
         {
             inchSizeStr = getArguments().getString("inchSize");
@@ -112,7 +122,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
 
                 Intent intent = new Intent(getActivity(), CarPlates.class);
                 intent.putExtras(bundle);
-                startActivityForResult(intent , 7);
+                startActivityForResult(intent , REQUEST_CAR_PLATES);
                 getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
             }
         });
@@ -150,7 +160,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), WheelsRim.class);
-                startActivityForResult(intent , 6);
+                startActivityForResult(intent , REQUEST_WHEELS_RIM);
                 getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
             }
         });
@@ -183,73 +193,73 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 carMakeStr = carDetailsModel.getCarMakeStr();
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.model),"model");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.model),"model");
             }
         });
         yearRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.year),"year");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.year),"year");
             }
         });
         conditionRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.condition),"condition");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.condition),"condition");
             }
         });
         kilometersRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.kilometers),"kilometers");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.kilometers),"kilometers");
             }
         });
         transmissionRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.transmission),"transmission");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.transmission),"transmission");
             }
         });
         fuelRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.fuel),"fuel");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.fuel),"fuel");
             }
         });
         carOptionsRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_options),"options");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_options),"options");
             }
         });
         carLicenseRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_license),"licensed");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.car_license),"licensed");
             }
         });
         insuranceRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.insurance),"insurance");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.insurance),"insurance");
             }
         });
         colorRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.color),"color");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.color),"color");
             }
         });
         paymentMethodRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToCarDetalisSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.payment_method),"payment");
+                moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.payment_method),"payment");
             }
         });
 
     }
 
-    private void moveToCarDetalisSpecificFragment(String fromAddItem,String fragmentType,String dictionaryStr) {
+    private void moveToCarDetailsSpecificFragment(String fromAddItem,String fragmentType,String dictionaryStr) {
         whatUserWantToChangeStr = dictionaryStr;
         if (fragmentType.equals(getActivity().getResources().getString(R.string.model)) || fragmentType.equals(getActivity().getResources().getString(R.string.car_options)))
         {
@@ -261,7 +271,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
                 bundle.putString("ifPressModelPassCarMake",carMakeStr);
                 Intent intent = new Intent(getActivity(), CarDetails.class);
                 intent.putExtras(bundle);
-                startActivityForResult(intent , 4);
+                startActivityForResult(intent , EDIT_CAR_DETAILS);
                 getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
             }
             if (fragmentType.equals(getActivity().getResources().getString(R.string.car_options)))
@@ -272,7 +282,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
                 bundle.putString("options",carDetailsModel.getCarOptionsStr());
                 Intent intent = new Intent(getActivity(), CarDetails.class);
                 intent.putExtras(bundle);
-                startActivityForResult(intent , 4);
+                startActivityForResult(intent , EDIT_CAR_DETAILS);
                 getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
             }
         }else{
@@ -281,7 +291,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
             bundle.putString("specificFragmentType",fragmentType);
             Intent intent = new Intent(getActivity(), CarDetails.class);
             intent.putExtras(bundle);
-            this.startActivityForResult(intent , 4);
+            this.startActivityForResult(intent , EDIT_CAR_DETAILS);
             getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
         }
     }
@@ -342,15 +352,17 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 4) {
+        if (requestCode == EDIT_CAR_DETAILS) {
             if (null!=data)
             {
                 String value = data.getStringExtra(whatUserWantToChangeStr);
                 String makeStr = data.getStringExtra("make");
+                EditValueInCDM dataEdit = new EditValueInCDM(whatUserWantToChangeStr,value);
+                dataPasser.onDataPass(dataEdit);
                 checkWhereAChangeHappenedAndChangeIt(value,makeStr);
             }
         }
-        if (requestCode == 6) {
+        if (requestCode == REQUEST_WHEELS_RIM) {
             if (data != null && !data.equals("")) {
                 inchSizeStr = data.getExtras().getString("inchSize");
                 // unknown error handel it via this timer
@@ -363,19 +375,32 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
                 }, 100);
             }
         }
-        if (requestCode == 7) {
+        if (requestCode == REQUEST_CAR_PLATES) {
             if (data != null && !data.equals("")) {
                 carPlatesCityStr = data.getExtras().getString("carPlatesCity");
                 carPlatesNumStr = data.getExtras().getString("carPlatesNum");
                 specialOrNotStr = data.getExtras().getString("specialOrNot");
+
                 // unknown error handel it via this timer
                 new Handler().postDelayed(new Runnable() {
 
                     @Override
                     public void run() {
+                        //pass carPlates details after edit to additem activity
+                        int specialOrNotInt = 0;
+                        if (specialOrNotStr.equals("special"))
+                            specialOrNotInt = 1;
+
+                        CarPlatesDetails carPlatesDetails =new CarPlatesDetails(
+                                carPlatesCityStr
+                                ,carPlatesNumStr
+                                ,specialOrNotInt
+                        );
+                        dataPasser.onDataPassCarPlates(carPlatesDetails);
                         fillCarPlates();
                     }
                 }, 100);
+
             }
         }
     }
@@ -431,6 +456,11 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         {
             paymentMethodTV.setText(value);
         }
+    }
+
+    public interface OnDataPass {
+        public void onDataPass(EditValueInCDM data);
+        public void onDataPassCarPlates(CarPlatesDetails carPlatesDetails);
     }
 
 }

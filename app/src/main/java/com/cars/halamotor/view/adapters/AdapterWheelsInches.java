@@ -37,7 +37,8 @@ public class AdapterWheelsInches extends RecyclerView.Adapter<AdapterWheelsInche
     @Override
     public void onBindViewHolder(final AdapterWheelsInches.ViewHolder holder, final int position) {
 
-        holder.inchSizeTV.setText(wheelsInchesArrayL.get(position));
+        holder.inchSizeTV.setText(context.getResources().getString(R.string.wheels_inch) + " "+
+                wheelsInchesArrayL.get(position));
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

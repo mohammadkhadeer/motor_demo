@@ -2,35 +2,25 @@ package com.cars.halamotor.model;
 
 import java.util.ArrayList;
 
-public class CCEMT {
-
+public class CarPlatesModel {
     String itemID,city,neighborhood,userToken,timePost,phoneNumber,itemName,itemDescription
-            ,userImage,userName,auctionPath,postEdit,newPrice,numberOfEdit,videoPath
+            ,userImage,userName,postEdit,newPrice,numberOfEdit,videoPath
             ,categoryName,subCategory
-            ,carMake
-            ,carModel
-            ,year
-            ,condition
-            ,kilometers
-            ,transmission
-            ,fuel
-            ,carLicense
-            ,insurance
-            ,color
-            ,paymentMethod
-            ,carOptions
+            ,carPlatesCity
+            ,carPlatesNumber
             ,timeStamp,userIDPathInServer;
     ArrayList<String> reportDescriptionArrayL = new ArrayList<String>();
     ArrayList<String> imagePathArrayL = new ArrayList<String>();
     ArrayList<CommentsComp> commentsArrayL = new ArrayList<CommentsComp>();
     ArrayList<String> watchersArrayL = new ArrayList<String>();
     ArrayList<BoostPost> boostPostsArrayL = new ArrayList<BoostPost>();
-    int auctionOrNot,burnedPrice,reportsOrNot,numberOfReports,activeOrNot,yearDate,monthDate,dayDate;
-    Double price,fromKilometers,toKilometers;
+    int auctionOrNot,burnedPrice,reportsOrNot,numberOfReports
+            ,activeOrNot,yearDate,monthDate,dayDate,specialOrNot;
+    Double price,carPlatesNum;
 
-    public CCEMT(){}
+    public CarPlatesModel(){}
 
-    public CCEMT(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String auctionPath, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carMake, String carModel, String year, String condition, String kilometers, String transmission, String fuel, String carLicense, String insurance, String color, String paymentMethod, String carOptions, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, Double price, Double fromKilometers, Double toKilometers) {
+    public CarPlatesModel(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carPlatesCity, String carPlatesNumber, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, int specialOrNot, Double price, Double carPlatesNum) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -41,25 +31,14 @@ public class CCEMT {
         this.itemDescription = itemDescription;
         this.userImage = userImage;
         this.userName = userName;
-        this.auctionPath = auctionPath;
         this.postEdit = postEdit;
         this.newPrice = newPrice;
         this.numberOfEdit = numberOfEdit;
         this.videoPath = videoPath;
         this.categoryName = categoryName;
         this.subCategory = subCategory;
-        this.carMake = carMake;
-        this.carModel = carModel;
-        this.year = year;
-        this.condition = condition;
-        this.kilometers = kilometers;
-        this.transmission = transmission;
-        this.fuel = fuel;
-        this.carLicense = carLicense;
-        this.insurance = insurance;
-        this.color = color;
-        this.paymentMethod = paymentMethod;
-        this.carOptions = carOptions;
+        this.carPlatesCity = carPlatesCity;
+        this.carPlatesNumber = carPlatesNumber;
         this.timeStamp = timeStamp;
         this.userIDPathInServer = userIDPathInServer;
         this.reportDescriptionArrayL = reportDescriptionArrayL;
@@ -75,9 +54,9 @@ public class CCEMT {
         this.yearDate = yearDate;
         this.monthDate = monthDate;
         this.dayDate = dayDate;
+        this.specialOrNot = specialOrNot;
         this.price = price;
-        this.fromKilometers = fromKilometers;
-        this.toKilometers = toKilometers;
+        this.carPlatesNum = carPlatesNum;
     }
 
     public String getItemID() {
@@ -160,14 +139,6 @@ public class CCEMT {
         this.userName = userName;
     }
 
-    public String getAuctionPath() {
-        return auctionPath;
-    }
-
-    public void setAuctionPath(String auctionPath) {
-        this.auctionPath = auctionPath;
-    }
-
     public String getPostEdit() {
         return postEdit;
     }
@@ -216,100 +187,20 @@ public class CCEMT {
         this.subCategory = subCategory;
     }
 
-    public String getCarMake() {
-        return carMake;
+    public String getCarPlatesCity() {
+        return carPlatesCity;
     }
 
-    public void setCarMake(String carMake) {
-        this.carMake = carMake;
+    public void setCarPlatesCity(String carPlatesCity) {
+        this.carPlatesCity = carPlatesCity;
     }
 
-    public String getCarModel() {
-        return carModel;
+    public String getCarPlatesNumber() {
+        return carPlatesNumber;
     }
 
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
-    }
-
-    public String getYear() {
-        return year;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
-    }
-
-    public String getCondition() {
-        return condition;
-    }
-
-    public void setCondition(String condition) {
-        this.condition = condition;
-    }
-
-    public String getKilometers() {
-        return kilometers;
-    }
-
-    public void setKilometers(String kilometers) {
-        this.kilometers = kilometers;
-    }
-
-    public String getTransmission() {
-        return transmission;
-    }
-
-    public void setTransmission(String transmission) {
-        this.transmission = transmission;
-    }
-
-    public String getFuel() {
-        return fuel;
-    }
-
-    public void setFuel(String fuel) {
-        this.fuel = fuel;
-    }
-
-    public String getCarLicense() {
-        return carLicense;
-    }
-
-    public void setCarLicense(String carLicense) {
-        this.carLicense = carLicense;
-    }
-
-    public String getInsurance() {
-        return insurance;
-    }
-
-    public void setInsurance(String insurance) {
-        this.insurance = insurance;
-    }
-
-    public String getColor() {
-        return color;
-    }
-
-    public void setColor(String color) {
-        this.color = color;
-    }
-
-    public String getPaymentMethod() {
-        return paymentMethod;
-    }
-
-    public void setPaymentMethod(String paymentMethod) {
-        this.paymentMethod = paymentMethod;
-    }
-
-    public String getCarOptions() {
-        return carOptions;
-    }
-
-    public void setCarOptions(String carOptions) {
-        this.carOptions = carOptions;
+    public void setCarPlatesNumber(String carPlatesNumber) {
+        this.carPlatesNumber = carPlatesNumber;
     }
 
     public String getTimeStamp() {
@@ -432,6 +323,14 @@ public class CCEMT {
         this.dayDate = dayDate;
     }
 
+    public int getSpecialOrNot() {
+        return specialOrNot;
+    }
+
+    public void setSpecialOrNot(int specialOrNot) {
+        this.specialOrNot = specialOrNot;
+    }
+
     public Double getPrice() {
         return price;
     }
@@ -440,19 +339,11 @@ public class CCEMT {
         this.price = price;
     }
 
-    public Double getFromKilometers() {
-        return fromKilometers;
+    public Double getCarPlatesNum() {
+        return carPlatesNum;
     }
 
-    public void setFromKilometers(Double fromKilometers) {
-        this.fromKilometers = fromKilometers;
-    }
-
-    public Double getToKilometers() {
-        return toKilometers;
-    }
-
-    public void setToKilometers(Double toKilometers) {
-        this.toKilometers = toKilometers;
+    public void setCarPlatesNum(Double carPlatesNum) {
+        this.carPlatesNum = carPlatesNum;
     }
 }

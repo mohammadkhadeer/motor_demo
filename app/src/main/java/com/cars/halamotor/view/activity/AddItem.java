@@ -20,24 +20,26 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
 import android.transition.Transition;
-import android.util.Log;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.VideoView;
-
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarDetailsModel;
+import com.cars.halamotor.model.CarPlatesDetails;
+import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CustomGallery;
+import com.cars.halamotor.model.EditValueInCDM;
+import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.utils.Utils;
 import com.cars.halamotor.view.adapters.AdapterSelectCategory;
@@ -45,18 +47,21 @@ import com.cars.halamotor.view.adapters.SelectedImageAdapter;
 import com.cars.halamotor.view.fragments.FragmentCityPhoneNumber;
 import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
-
 import java.util.ArrayList;
-
 import butterknife.ButterKnife;
-
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddAdsOrNot;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddBurnedPrice;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
-import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewItem;
-import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImages;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadAccessoriesModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarForExchangeModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarForMotorcycleModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarForRentModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarForSaleModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarForTrucksModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarPlatesModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadJunkCarModel;
+import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadWheelsRimModel;
 import static com.cars.halamotor.functions.Functions.checkBurnedPrice;
-import static com.cars.halamotor.functions.Functions.checkIfUserSetImages;
 import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRealOrNot;
@@ -72,11 +77,12 @@ import static com.cars.halamotor.functions.Functions.getVideoPath;
 import static com.cars.halamotor.functions.Functions.getYEAR;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 import static com.cars.halamotor.functions.Functions.splitString;
+import static com.cars.halamotor.functions.Functions.updateCarDetailsModel;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanIfBurnedPrice;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanIfUserCanAddAdsAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanNumberOfAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceInSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceIntInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getCityFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getIfUserCanAddAdsInSP;
@@ -85,14 +91,14 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNei
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNumberOfAdsInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceAfterConvertedToDoubleInSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserName;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserTokenInFromSP;
 
-public class AddItem extends AppCompatActivity {
+public class AddItem extends AppCompatActivity implements ShowSelectedCarDetailsFragment.OnDataPass {
+
     RelativeLayout cancelRL, selectImageFGRL, selectVideoRL, coverVideoViewRL, cancelVideoRL, cancelSelectedCategoryRL, add_activity_complete_car_dCV, cityPhoneNumberRL;
     RelativeLayout showSelectedCarDetailsRL, messageContainerRL, messageContentRL;
     LinearLayout categoryContLL, headLL;
@@ -103,11 +109,13 @@ public class AddItem extends AppCompatActivity {
     CardView viewSelectedCategoryCV, completeCarDetailsCV;
     Button insertItemBtn;
     RecyclerView.LayoutManager layoutManager, layoutManagerCategory;
+    ProgressBar progressBar;
 
     private static final int PICK_FROM_GALLERY = 1;
     private static final int REQUEST_TAKE_GALLERY_VIDEO = 2;
     private static final int STATIC_BACK_VALUE = 3;
     private static final int REQUEST_WHEELS_RIM = 6;
+    private static final int EDIT_CAR_DETAILS = 4;
     private static final int REQUEST_CAR_PLATES = 7;
 
     ImageLoader imageLoader;
@@ -123,7 +131,7 @@ public class AddItem extends AppCompatActivity {
     static int selectVideoOrNotYet = 0;
     int productDetailsComplete = 0;
 
-    int selectedCategoryPositionInt = 100;
+    int selectedCategoryPositionInt = 100,itemLiveOrMustToWaitIfBurnedPriceOn;
 
     Uri mVideoURI;
 
@@ -131,6 +139,14 @@ public class AddItem extends AppCompatActivity {
     SharedPreferences sharedPreferences;
 
     CCEMT ccemt;
+    CarDetailsModel carDetailsModel;
+    ArrayList<String> reportDescriptionArrayL;
+    ArrayList<String> watchersArrayL;
+    String categoryNameStr,wheelsSize;
+    CarPlatesDetails carPlatesDetails;
+    CarPlatesModel carPlatesModel;
+    WheelsRimModel wheelsRim;
+    AccAndJunk accAndJunk;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -147,16 +163,19 @@ public class AddItem extends AppCompatActivity {
         createSelectCategoryRV();
         actionListenerToRVShowSelectedCategoryAfterUserChoose();
         //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
+        cleanNumberOfAds(getApplicationContext(),sharedPreferences,editor);
+        cleanIfUserCanAddAdsAds(getApplicationContext(),sharedPreferences,editor);
+        cleanIfBurnedPrice(getApplicationContext(),sharedPreferences,editor);
+
         getNumberOfUserAds(getApplicationContext(), sharedPreferences, editor);
         getIfUserCanAddAdsOrNot(getApplicationContext(), sharedPreferences, editor);
         getIfUserCanAddBurnedPrice(getApplicationContext(), sharedPreferences, editor);
-        Log.i("TAG Add Ads", String.valueOf(getIfUserCanAddAdsInSP(getApplicationContext())));
-        Log.i("TAG BurnedPrice", String.valueOf(getIfUserCanAddBurnedPriceInSP(getApplicationContext())));
 
     }
 
     private void insertBtnListener() {
         insertItemBtn.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
                 if (isNetworkAvailable(getApplicationContext())) {
@@ -171,46 +190,252 @@ public class AddItem extends AppCompatActivity {
                                                 if (getIfUserCanAddAdsInSP(getApplicationContext()) == 1) {
                                                     selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
                                                             .getCategoryNameStr();
-                                                    if (getBurnedPriceInSP(getApplicationContext()) != null)
-                                                    {
-                                                        if (getIfUserCanAddBurnedPriceInSP(getApplicationContext()) ==1)
-                                                        {
+                                                    if (getBurnedPriceInSP(getApplicationContext()) != null) {
+                                                        if (getIfUserCanAddBurnedPriceInSP(getApplicationContext()) == 1) {
+                                                            itemLiveOrMustToWaitIfBurnedPriceOn =0;
                                                             checkCategoryAndUpload(selectCategory);
-                                                        }else{
-                                                            completeMessage(getResources().getString(R.string.blocked_bp)); }
+                                                        } else {
+                                                            completeMessage(getResources().getString(R.string.blocked_bp));
+                                                        }
+                                                    } else {
+                                                        itemLiveOrMustToWaitIfBurnedPriceOn =1;
+                                                        checkCategoryAndUpload(selectCategory);
                                                     }
-                                                    else{
-                                                        checkCategoryAndUpload(selectCategory); }
                                                 } else {
-                                                    completeMessage(getResources().getString(R.string.blocked)); }
+                                                    completeMessage(getResources().getString(R.string.blocked));
+                                                }
                                             } else {
-                                                completeMessage(getResources().getString(R.string.upgrade_ur_account)); }
+                                                completeMessage(getResources().getString(R.string.upgrade_ur_account));
+                                            }
                                         } else {
-                                            completeMessage(checkPhoneNumberRealOrNot(getApplicationContext())); }
+                                            completeMessage(checkPhoneNumberRealOrNot(getApplicationContext()));
+                                        }
                                     } else {
-                                        completeMessage(getResources().getString(R.string.select_address)); }
+                                        completeMessage(getResources().getString(R.string.select_address));
+                                    }
                                 } else {
-                                    completeMessage(getResources().getString(R.string.complete_product_details)); }
+                                    completeMessage(getResources().getString(R.string.complete_product_details));
+                                }
                             } else {
-                                completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext())); }
+                                completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext()));
+                            }
                         } else {
-                            completeMessage(checkTitleAndDescription(getApplicationContext())); }
+                            completeMessage(checkTitleAndDescription(getApplicationContext()));
+                        }
                     } else {
-                        completeMessage(getResources().getString(R.string.select_category)); }
+                        completeMessage(getResources().getString(R.string.select_category));
+                    }
                 } else {
-                    completeMessage(getResources().getString(R.string.message_no_internet)); }
+                    completeMessage(getResources().getString(R.string.message_no_internet));
+                }
             }
         });
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createCCMETObject(String selectedCategory) {
+        reportDescriptionArrayL = new ArrayList<String>();
+        reportDescriptionArrayL.add("noReprotYet");
+
+        watchersArrayL = new ArrayList<String>();
+        watchersArrayL.add("noWatchersYet");
+
+        String firstNumber = "0", secondNumber = "0";
+        if (!carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_0))
+                && !carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_up_200K)))
+        {
+            String[] stringAfterSplitKilometers = splitString(carDetailsModel.getKilometersStr(), "-");
+            firstNumber = splitString(stringAfterSplitKilometers[0], ",")[0] + splitString(stringAfterSplitKilometers[0], ",")[1];
+            secondNumber = splitString(stringAfterSplitKilometers[1], ",")[0] + splitString(stringAfterSplitKilometers[1], ",")[1];
+        }else{
+            if (carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_0)))
+            {
+                firstNumber = "0" ;
+                secondNumber = "0" ;
+            }
+            if (carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_up_200K)))
+            {
+                firstNumber = "200000" ;
+                secondNumber = "200000" ;
+            }
+        }
+        ccemt = new CCEMT("NOTYET", getCityFromSP(getApplicationContext())
+                , getNeighborhoodFromSP(getApplicationContext())
+                , getUserTokenInFromSP(getApplicationContext())
+                , getTime(), getPhoneNumberInSP(getApplicationContext())
+                , getTitleInSP(getApplicationContext())
+                , getDesInSP(getApplicationContext())
+                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+                , "no auction yet", "0", "123", "0"
+                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+                , carDetailsModel.getCarMakeStr()
+                , carDetailsModel.getModelStr()
+                , carDetailsModel.getYearStr()
+                , carDetailsModel.getConditionStr()
+                , carDetailsModel.getKilometersStr()
+                , carDetailsModel.getTransmissionStr()
+                , carDetailsModel.getFuelStr()
+                , carDetailsModel.getLicenseStr()
+                , carDetailsModel.getInsurance()
+                , carDetailsModel.getCarColorStr()
+                , carDetailsModel.getPaymentMethod()
+                , carDetailsModel.getCarOptionsStr(), getTimeStamp()
+                , getUserIdInServerFromSP(getApplicationContext())
+                , reportDescriptionArrayL
+                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+                , checkBurnedPrice(getApplicationContext())
+                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                , Double.parseDouble(firstNumber), Double.parseDouble(secondNumber));
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
     private void checkCategoryAndUpload(String selectCategory) {
         //we have 4 model 1.car plates 2.accessories/junk car 3.wheels-rim
         // 4.car for sale/car for rent/exchange/motorcycle/trucks ... in model well be name CCEMT
+        progressBar.setVisibility(View.VISIBLE);
         if (selectCategory.equals(getResources().getString(R.string.car_for_sale))) {
-            uploadImages(imagePathArrL, ccemt, "Car_For_Sale"
+            createCCMETObject(selectCategory);
+            uploadImagesBeforeUploadCarForSaleModel(imagePathArrL, ccemt, "Car_For_Sale"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
-            finish();
         }
+        if (selectCategory.equals(getResources().getString(R.string.car_for_rent))) {
+            createCCMETObject(selectCategory);
+            uploadImagesBeforeUploadCarForRentModel(imagePathArrL, ccemt, "Car_For_Rent"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        if (selectCategory.equals(getResources().getString(R.string.exchange_car))) {
+            createCCMETObject(selectCategory);
+            uploadImagesBeforeUploadCarForExchangeModel(imagePathArrL, ccemt, "Car_For_Exchange"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        if (selectCategory.equals(getResources().getString(R.string.motorcycle))) {
+            createCCMETObject(selectCategory);
+            uploadImagesBeforeUploadCarForMotorcycleModel(imagePathArrL, ccemt, "Car_For_Motorcycle"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        if (selectCategory.equals(getResources().getString(R.string.trucks))) {
+            createCCMETObject(selectCategory);
+            uploadImagesBeforeUploadCarForTrucksModel(imagePathArrL, ccemt, "Trucks"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        if (selectCategory.equals(getResources().getString(R.string.car_plates))) {
+            createCarPlatesObject(selectCategory);
+            uploadImagesBeforeUploadCarPlatesModel(imagePathArrL, carPlatesModel, "Plates"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        if (selectCategory.equals(getResources().getString(R.string.wheels_rim))) {
+            createWheelsRimObject(selectCategory);
+            uploadImagesBeforeUploadWheelsRimModel(imagePathArrL, wheelsRim, "Wheels_Rim"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        if (selectCategory.equals(getResources().getString(R.string.accessories))) {
+            createAccAndHunkObject(selectCategory);
+            uploadImagesBeforeUploadAccessoriesModel(imagePathArrL, accAndJunk, "Accessories"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        if (selectCategory.equals(getResources().getString(R.string.junk_car))) {
+            createAccAndHunkObject(selectCategory);
+            uploadImagesBeforeUploadJunkCarModel(imagePathArrL, accAndJunk, "JunkCar"
+                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()));
+        }
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                finish();
+            }
+        }, 5000);
+
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createAccAndHunkObject(String selectedCategory) {
+        accAndJunk = new AccAndJunk(
+                "NOTYET", getCityFromSP(getApplicationContext())
+                , getNeighborhoodFromSP(getApplicationContext())
+                , getUserTokenInFromSP(getApplicationContext())
+                , getTime(), getPhoneNumberInSP(getApplicationContext())
+                , getTitleInSP(getApplicationContext())
+                , getDesInSP(getApplicationContext())
+                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+                , "0", "123", "0"
+                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+                , getTimeStamp()
+                , getUserIdInServerFromSP(getApplicationContext())
+                , reportDescriptionArrayL
+                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+                , checkBurnedPrice(getApplicationContext())
+                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+        );
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createWheelsRimObject(String selectedCategory) {
+        int convertWheelsSize;
+        if (!wheelsSize.equals("other"))
+            convertWheelsSize = Integer.parseInt(wheelsSize);
+        else
+            convertWheelsSize = 100;
+        wheelsRim = new WheelsRimModel(
+                "NOTYET", getCityFromSP(getApplicationContext())
+                , getNeighborhoodFromSP(getApplicationContext())
+                , getUserTokenInFromSP(getApplicationContext())
+                , getTime(), getPhoneNumberInSP(getApplicationContext())
+                , getTitleInSP(getApplicationContext())
+                , getDesInSP(getApplicationContext())
+                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+                , "0", "123", "0"
+                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+                , wheelsSize
+                , getTimeStamp()
+                , getUserIdInServerFromSP(getApplicationContext())
+                , reportDescriptionArrayL
+                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+                , checkBurnedPrice(getApplicationContext())
+                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+                , convertWheelsSize
+                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+        );
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void createCarPlatesObject(String selectedCategory) {
+        reportDescriptionArrayL = new ArrayList<String>();
+        reportDescriptionArrayL.add("noReprotYet");
+
+        watchersArrayL = new ArrayList<String>();
+        watchersArrayL.add("noWatchersYet");
+
+        carPlatesModel = new CarPlatesModel(
+                "NOTYET", getCityFromSP(getApplicationContext())
+                , getNeighborhoodFromSP(getApplicationContext())
+                , getUserTokenInFromSP(getApplicationContext())
+                , getTime(), getPhoneNumberInSP(getApplicationContext())
+                , getTitleInSP(getApplicationContext())
+                , getDesInSP(getApplicationContext())
+                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+                , "0", "123", "0"
+                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+                , carPlatesDetails.getCarPlatesCity()
+                , carPlatesDetails.getCarPlatesNumber()
+                , getTimeStamp()
+                , getUserIdInServerFromSP(getApplicationContext())
+                , reportDescriptionArrayL
+                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+                , checkBurnedPrice(getApplicationContext())
+                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+                , carPlatesDetails.getSpecialOrNot()
+                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                , Double.parseDouble(carPlatesDetails.getCarPlatesNumber()));
     }
 
     private void actionListenerToRVShowSelectedCategoryAfterUserChoose() {
@@ -465,6 +690,7 @@ public class AddItem extends AppCompatActivity {
         messageContentRL = (RelativeLayout) findViewById(R.id.add_activity_message_cover_RL);
         generalMessageTV = (TextView) findViewById(R.id.add_activity_general_message_content_TV);
         headLL = (LinearLayout) findViewById(R.id.add_activity_general_head_LL);
+        progressBar = (ProgressBar) findViewById(R.id.add_item_activity_progress_bar);
     }
 
     private void statusBarColor() {
@@ -504,6 +730,7 @@ public class AddItem extends AppCompatActivity {
             createCityPhoneNumber();
             ChangeUI();
         }
+
     }
 
     private void createCityPhoneNumber() {
@@ -536,8 +763,17 @@ public class AddItem extends AppCompatActivity {
                 transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
                 transaction.addToBackStack(null);
                 transaction.commit();
+                wheelsSize = data.getExtras().getString("inchSize");
             }
             if (requestCode == REQUEST_CAR_PLATES) {
+                int specialOrNotInt = 0;
+                if (data.getExtras().getString("specialOrNot").equals("special"))
+                    specialOrNotInt = 1;
+                 carPlatesDetails = new CarPlatesDetails(
+                        data.getExtras().getString("carPlatesCity")
+                        ,data.getExtras().getString("carPlatesNum")
+                        ,specialOrNotInt
+                );
                 Bundle bundle = new Bundle();
                 bundle.putString("category", getResources().getString(R.string.car_plates));
                 bundle.putString("carPlatesNum", data.getExtras().getString("carPlatesNum"));
@@ -555,7 +791,7 @@ public class AddItem extends AppCompatActivity {
         } else {
             //pass value to model fragment as object because this we make
             // CarDetailsModel extend from Parcelable to can do this action
-            CarDetailsModel carDetailsModel = (CarDetailsModel) data.getParcelableExtra("carDetailsObject");
+            carDetailsModel = (CarDetailsModel) data.getParcelableExtra("carDetailsObject");
             getIntent().putExtra("carDetailsObject", carDetailsModel);
             Bundle bundle = new Bundle();
             bundle.putString("category", categoryCompsArrayL.get(selectedCategoryPositionInt)
@@ -568,49 +804,7 @@ public class AddItem extends AppCompatActivity {
             transaction.replace(R.id.selected_car_details_container, fragmentShowSelectedDetails);
             transaction.addToBackStack(null);
             transaction.commit();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                createCCMTObject(categoryCompsArrayL.get(selectedCategoryPositionInt).getCategoryNameStr(), carDetailsModel);
-            }
         }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void createCCMTObject(String categoryNameStr, CarDetailsModel carDetailsModel) {
-        ArrayList<String> reportDescriptionArrayL = new ArrayList<String>();
-        reportDescriptionArrayL.add("noReprotYet");
-
-        ArrayList<String> watchersArrayL = new ArrayList<String>();
-        watchersArrayL.add("noWatchersYet");
-
-        String firstNumber = "0",secondNumber="0";
-        if (!carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_0)))
-        {
-            String[] stringAfterSplitKilometers = splitString(carDetailsModel.getKilometersStr(), "-");
-            firstNumber = splitString(stringAfterSplitKilometers[0], ",")[0] + splitString(stringAfterSplitKilometers[0], ",")[1];
-            secondNumber = splitString(stringAfterSplitKilometers[1], ",")[0] + splitString(stringAfterSplitKilometers[1], ",")[1];
-        }
-        ccemt = new CCEMT("NOTYET", getCityFromSP(getApplicationContext())
-                , getNeighborhoodFromSP(getApplicationContext())
-                , "userToken", getTime(), getPhoneNumberInSP(getApplicationContext())
-                , getTitleInSP(getApplicationContext()), getDesInSP(getApplicationContext())
-                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
-                , "no auction yet", "0", "123", "0", getVideoPath(mVideoURI), categoryNameStr
-                , categoryNameStr, carDetailsModel.getModelStr(), carDetailsModel.getYearStr()
-                , carDetailsModel.getCarMakeStr()
-                , carDetailsModel.getConditionStr(), carDetailsModel.getKilometersStr()
-                , carDetailsModel.getTransmissionStr(), carDetailsModel.getFuelStr()
-                , carDetailsModel.getLicenseStr(), carDetailsModel.getInsurance()
-                , carDetailsModel.getCarColorStr(), carDetailsModel.getPaymentMethod()
-                , carDetailsModel.getCarOptionsStr(), getTimeStamp()
-                , getUserIdInServerFromSP(getApplicationContext())
-                , reportDescriptionArrayL
-                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-                , watchersArrayL, getDefaultBoostPostArrayL(), 0
-                , checkBurnedPrice(getApplicationContext())
-                , 0, 0, 1
-                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
-                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
-                , Double.parseDouble(firstNumber), Double.parseDouble(secondNumber));
     }
 
     private void showSelectedVideo(Intent data) {
@@ -668,9 +862,16 @@ public class AddItem extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-//        cleanNumberOfAds(getApplicationContext(),sharedPreferences,editor);
-//        cleanIfUserCanAddAdsAds(getApplicationContext(),sharedPreferences,editor);
         finish();
     }
 
+    @Override
+    public void onDataPass(EditValueInCDM data) {
+        carDetailsModel =updateCarDetailsModel(carDetailsModel,data.getWhatUserWantToChangeStr(),data.getValueInWhatUserWantToChangeStr());
+    }
+
+    @Override
+    public void onDataPassCarPlates(CarPlatesDetails carPlatesDetailsAfterEdit) {
+        carPlatesDetails = carPlatesDetailsAfterEdit;
+    }
 }

@@ -406,6 +406,7 @@ public class SharedPreferencesInApp {
         editor.putString("title","");
         editor.putString("des","");
         editor.putString("price","");
+        editor.putString("burned","");
         editor.commit();
     }
 
@@ -458,6 +459,14 @@ public class SharedPreferencesInApp {
         else {
             return  burnedPrice;
         }
+    }
+
+    public static void cleanIfBurnedPrice(Context context,SharedPreferences SharedPreferences,
+                                               SharedPreferences.Editor editor) {
+        SharedPreferences = context.getSharedPreferences(ADS_INFO_SERVER, MODE_PRIVATE);
+        editor = SharedPreferences.edit();
+        editor.putInt("activeToAddBP",-1);
+        editor.commit();
     }
 
     public static void saveIfUserCanAddAdsInSP(Context context,SharedPreferences SharedPreferences,
