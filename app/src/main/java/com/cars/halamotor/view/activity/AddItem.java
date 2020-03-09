@@ -279,7 +279,8 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
                 , carDetailsModel.getInsurance()
                 , carDetailsModel.getCarColorStr()
                 , carDetailsModel.getPaymentMethod()
-                , carDetailsModel.getCarOptionsStr(), getTimeStamp()
+                , carDetailsModel.getCarOptionsStr()
+                ,"person", getTimeStamp()
                 , getUserIdInServerFromSP(getApplicationContext())
                 , reportDescriptionArrayL
                 , getImagePathsNoImage(), getDefaultCommentCompArrayL()
@@ -362,6 +363,7 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
                 , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
                 , "0", "123", "0"
                 , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+                ,"person"
                 , getTimeStamp()
                 , getUserIdInServerFromSP(getApplicationContext())
                 , reportDescriptionArrayL
@@ -392,6 +394,7 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
                 , "0", "123", "0"
                 , getVideoPath(mVideoURI), selectedCategory, selectedCategory
                 , wheelsSize
+                ,"person"
                 , getTimeStamp()
                 , getUserIdInServerFromSP(getApplicationContext())
                 , reportDescriptionArrayL
@@ -425,6 +428,7 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
                 , getVideoPath(mVideoURI), selectedCategory, selectedCategory
                 , carPlatesDetails.getCarPlatesCity()
                 , carPlatesDetails.getCarPlatesNumber()
+                ,"person"
                 , getTimeStamp()
                 , getUserIdInServerFromSP(getApplicationContext())
                 , reportDescriptionArrayL

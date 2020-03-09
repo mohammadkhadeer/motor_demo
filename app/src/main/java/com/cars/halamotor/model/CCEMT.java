@@ -19,6 +19,7 @@ public class CCEMT {
             ,color
             ,paymentMethod
             ,carOptions
+            ,personOrGallery
             ,timeStamp,userIDPathInServer;
     ArrayList<String> reportDescriptionArrayL = new ArrayList<String>();
     ArrayList<String> imagePathArrayL = new ArrayList<String>();
@@ -30,7 +31,7 @@ public class CCEMT {
 
     public CCEMT(){}
 
-    public CCEMT(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String auctionPath, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carMake, String carModel, String year, String condition, String kilometers, String transmission, String fuel, String carLicense, String insurance, String color, String paymentMethod, String carOptions, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, Double price, Double fromKilometers, Double toKilometers) {
+    public CCEMT(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String auctionPath, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carMake, String carModel, String year, String condition, String kilometers, String transmission, String fuel, String carLicense, String insurance, String color, String paymentMethod, String carOptions, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, Double price, Double fromKilometers, Double toKilometers) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -60,6 +61,7 @@ public class CCEMT {
         this.color = color;
         this.paymentMethod = paymentMethod;
         this.carOptions = carOptions;
+        this.personOrGallery = personOrGallery;
         this.timeStamp = timeStamp;
         this.userIDPathInServer = userIDPathInServer;
         this.reportDescriptionArrayL = reportDescriptionArrayL;
@@ -310,6 +312,14 @@ public class CCEMT {
 
     public void setCarOptions(String carOptions) {
         this.carOptions = carOptions;
+    }
+
+    public String getPersonOrGallery() {
+        return personOrGallery;
+    }
+
+    public void setPersonOrGallery(String personOrGallery) {
+        this.personOrGallery = personOrGallery;
     }
 
     public String getTimeStamp() {

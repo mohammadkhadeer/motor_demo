@@ -8,6 +8,7 @@ public class CarPlatesModel {
             ,categoryName,subCategory
             ,carPlatesCity
             ,carPlatesNumber
+            ,personOrGallery
             ,timeStamp,userIDPathInServer;
     ArrayList<String> reportDescriptionArrayL = new ArrayList<String>();
     ArrayList<String> imagePathArrayL = new ArrayList<String>();
@@ -20,7 +21,7 @@ public class CarPlatesModel {
 
     public CarPlatesModel(){}
 
-    public CarPlatesModel(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carPlatesCity, String carPlatesNumber, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, int specialOrNot, Double price, Double carPlatesNum) {
+    public CarPlatesModel(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carPlatesCity, String carPlatesNumber, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, int specialOrNot, Double price, Double carPlatesNum) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -39,6 +40,7 @@ public class CarPlatesModel {
         this.subCategory = subCategory;
         this.carPlatesCity = carPlatesCity;
         this.carPlatesNumber = carPlatesNumber;
+        this.personOrGallery = personOrGallery;
         this.timeStamp = timeStamp;
         this.userIDPathInServer = userIDPathInServer;
         this.reportDescriptionArrayL = reportDescriptionArrayL;
@@ -201,6 +203,14 @@ public class CarPlatesModel {
 
     public void setCarPlatesNumber(String carPlatesNumber) {
         this.carPlatesNumber = carPlatesNumber;
+    }
+
+    public String getPersonOrGallery() {
+        return personOrGallery;
+    }
+
+    public void setPersonOrGallery(String personOrGallery) {
+        this.personOrGallery = personOrGallery;
     }
 
     public String getTimeStamp() {

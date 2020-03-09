@@ -7,6 +7,7 @@ public class WheelsRimModel {
             ,userImage,userName,postEdit,newPrice,numberOfEdit,videoPath
             ,categoryName,subCategory
             ,wheelSize
+            ,personOrGallery
             ,timeStamp,userIDPathInServer;
     ArrayList<String> reportDescriptionArrayL = new ArrayList<String>();
     ArrayList<String> imagePathArrayL = new ArrayList<String>();
@@ -19,7 +20,7 @@ public class WheelsRimModel {
 
     public WheelsRimModel(){}
 
-    public WheelsRimModel(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String wheelSize, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, int wheelSizeInt, Double price) {
+    public WheelsRimModel(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String wheelSize, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> reportDescriptionArrayL, ArrayList<String> imagePathArrayL, ArrayList<CommentsComp> commentsArrayL, ArrayList<String> watchersArrayL, ArrayList<BoostPost> boostPostsArrayL, int auctionOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, int wheelSizeInt, Double price) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -37,6 +38,7 @@ public class WheelsRimModel {
         this.categoryName = categoryName;
         this.subCategory = subCategory;
         this.wheelSize = wheelSize;
+        this.personOrGallery = personOrGallery;
         this.timeStamp = timeStamp;
         this.userIDPathInServer = userIDPathInServer;
         this.reportDescriptionArrayL = reportDescriptionArrayL;
@@ -190,6 +192,14 @@ public class WheelsRimModel {
 
     public void setWheelSize(String wheelSize) {
         this.wheelSize = wheelSize;
+    }
+
+    public String getPersonOrGallery() {
+        return personOrGallery;
+    }
+
+    public void setPersonOrGallery(String personOrGallery) {
+        this.personOrGallery = personOrGallery;
     }
 
     public String getTimeStamp() {
