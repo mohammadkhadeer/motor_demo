@@ -15,7 +15,7 @@ public class ReadFromFireBase {
 
     public static List<CCEMT> getCarForSaleItems(final List<CCEMT> carForSaleL) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Car_For_Sale");
+                .child("category").child("Car_For_Sale").limitToLast(2);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -34,15 +34,15 @@ public class ReadFromFireBase {
         return carForSaleL;
     }
 
-    public static List<CCEMT> getCarForRentItems(final List<CCEMT> carForSaleL) {
+    public static List<CCEMT> getCarForRentItems(final List<CCEMT> carForRentL) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Car_For_Rent");
+                .child("category").child("Car_For_Rent").limitToLast(2);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot carForSaleList: dataSnapshot.getChildren()) {
                     CCEMT ccemt = carForSaleList.getValue(CCEMT.class);
-                    carForSaleL.add(ccemt);
+                    carForRentL.add(ccemt);
                 }
             }
             @Override
@@ -52,6 +52,27 @@ public class ReadFromFireBase {
             }
 
         });
-        return carForSaleL;
+        return carForRentL;
+    }
+
+    public static List<CCEMT> getCarForExchangeItems(final List<CCEMT> carForExchangeL) {
+        Query mRef = FirebaseDatabase.getInstance().getReference()
+                .child("category").child("Car_For_Exchange").limitToLast(2);
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot carForSaleList: dataSnapshot.getChildren()) {
+                    CCEMT ccemt = carForSaleList.getValue(CCEMT.class);
+                    carForExchangeL.add(ccemt);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.i("TAG ERROR", databaseError.toString());
+
+            }
+
+        });
+        return carForExchangeL;
     }
 }

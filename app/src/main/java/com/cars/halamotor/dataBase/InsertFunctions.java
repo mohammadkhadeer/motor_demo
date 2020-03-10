@@ -1,5 +1,6 @@
 package com.cars.halamotor.dataBase;
 
+import android.util.Log;
 import android.widget.Toast;
 
 import com.cars.halamotor.model.BoostPost;
@@ -10,24 +11,45 @@ import java.util.ArrayList;
 
 public class InsertFunctions {
 
-    public static boolean insertCarForSaleToItemTable(CCEMT ccemt,DBHelper database) {
+    public static boolean insertCCEMTItemTable(CCEMT ccemt,DBHelper database) {
 
         boolean isInserted = database.insertDataItem(
                 boostOrNot(ccemt.getBoostPostsArrayL())
                 ,itemBoostType(ccemt.getBoostPostsArrayL())
-                ,ccemt.getCategoryName(),ccemt.getPersonOrGallery()
-                ,ccemt.getItemID(),ccemt.getCarMake(),ccemt.getCarModel(),ccemt.getYear()
-                ,ccemt.getCondition(),ccemt.getKilometers(),ccemt.getTransmission()
-                ,ccemt.getFuel(),ccemt.getCarLicense(),ccemt.getInsurance()
-                ,ccemt.getColor(),ccemt.getPaymentMethod(),ccemt.getCarOptions()
+                ,ccemt.getCategoryName()
+                ,ccemt.getPersonOrGallery()
+                ,ccemt.getItemID()
+                ,ccemt.getCarMake()
+                ,ccemt.getCarModel()
+                ,ccemt.getYear()
+                ,ccemt.getCondition()
+                ,ccemt.getKilometers()
+                ,ccemt.getTransmission()
+                ,ccemt.getFuel()
+                ,ccemt.getCarLicense()
+                ,ccemt.getInsurance()
+                ,ccemt.getColor()
+                ,ccemt.getPaymentMethod()
+                ,ccemt.getCarOptions()
                 ,numberOfComment(ccemt.getCommentsArrayL())
-                ,imagePath(ccemt.getImagePathArrayL()),ccemt.getCity()
-                ,ccemt.getNeighborhood(),ccemt.getTimePost(),ccemt.getPhoneNumber()
-                ,ccemt.getItemName(),numberOfImage(ccemt.getImagePathArrayL())
-                ,ccemt.getItemDescription(),ccemt.getUserImage(),ccemt.getUserName()
-                ,ccemt.getPostEdit(),ccemt.getNewPrice(),"0","0"
-                ,"0","0"
+                ,numberOfImage(ccemt.getImagePathArrayL())
+                ,ccemt.getCity()
+                ,ccemt.getNeighborhood()
+                ,ccemt.getTimePost()
+                ,ccemt.getPhoneNumber()
+                ,ccemt.getItemName()
+                ,imagePath(ccemt.getImagePathArrayL())
+                ,ccemt.getItemDescription()
+                ,ccemt.getUserImage(),ccemt.getUserName()
+                ,ccemt.getPostEdit()
+                ,ccemt.getNewPrice()
+                ,"0"
+                ,"0"
+                ,"0"
+                ,"0"
                 , String.valueOf(ccemt.getBurnedPrice())
+                , String.valueOf(ccemt.getPrice())
+                , String.valueOf(ccemt.getActiveOrNot())
         );
         return isInserted;
     }

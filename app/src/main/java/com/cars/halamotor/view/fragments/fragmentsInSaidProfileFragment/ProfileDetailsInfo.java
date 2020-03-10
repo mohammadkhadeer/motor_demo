@@ -1,14 +1,12 @@
-package com.cars.halamotor.view.fragments.fragmentsInSaidHomeFragment;
+package com.cars.halamotor.view.fragments.fragmentsInSaidProfileFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -16,14 +14,13 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.UserFaceBookInfo;
-import com.cars.halamotor.view.activity.CarPlates;
 import com.cars.halamotor.view.activity.LoginWithSocialMedia;
 import com.squareup.picasso.Picasso;
 
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserFBInfo;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
 
 
 public class ProfileDetailsInfo extends Fragment {
@@ -86,10 +83,13 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void fillImageUser(String userImageStr) {
-        Picasso.with(getActivity()).load(userImageStr)
-                .fit()
-                .centerCrop()
-                .into(userImageIV);
+        if (getUserImage(getActivity()) != null)
+        {
+            Picasso.with(getActivity()).load(userImageStr)
+                    .fit()
+                    .centerCrop()
+                    .into(userImageIV);
+                }
     }
 
     private void makeUserInfoOn() {

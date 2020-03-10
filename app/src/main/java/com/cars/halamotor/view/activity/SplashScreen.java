@@ -14,7 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertCarForSaleToItemTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemTable;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForRentItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForSaleItems;
 
@@ -22,6 +23,7 @@ public class SplashScreen extends AppCompatActivity {
 
     List<CCEMT> carForRentList = new ArrayList<>();
     List<CCEMT> carForSaleList = new ArrayList<>();
+    List<CCEMT> carForExchangeList = new ArrayList<>();
     DBHelper myDB;
 
     @Override
@@ -32,6 +34,12 @@ public class SplashScreen extends AppCompatActivity {
         myDB = getDataBaseInstance(getApplicationContext());
         getCarForRent();
         getCarForSale();
+        getCarExchange();
+        transportToMainActivity();
+
+    }
+
+    private void transportToMainActivity() {
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -42,7 +50,18 @@ public class SplashScreen extends AppCompatActivity {
                 finish();
             }
         }, 4000);
+    }
 
+    private void getCarExchange() {
+        carForExchangeList = getCarForExchangeItems(carForExchangeList);
+        //set Handler to get items
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                insertCarForExchangeToDataBase();
+            }
+        }, 2700);
     }
 
     private void getCarForSale() {
@@ -60,8 +79,7 @@ public class SplashScreen extends AppCompatActivity {
     private void insertCarForSaleToDataBase() {
         for (int i=0;i<carForRentList.size();i++)
         {
-            insertCarForSaleToItemTable(carForSaleList.get(i),myDB);
-            Log.d("TAG Insert CarForSale",String.valueOf(insertCarForSaleToItemTable(carForSaleList.get(i),myDB)));
+            insertCCEMTItemTable(carForSaleList.get(i),myDB);
         }
     }
 
@@ -80,8 +98,14 @@ public class SplashScreen extends AppCompatActivity {
     private void insertCarForRentToDataBase() {
         for (int i=0;i<carForRentList.size();i++)
         {
-            insertCarForSaleToItemTable(carForRentList.get(i),myDB);
-            Log.d("TAG Insert CarForRent",String.valueOf(insertCarForSaleToItemTable(carForRentList.get(i),myDB)));
+            insertCCEMTItemTable(carForRentList.get(i),myDB);
+        }
+    }
+
+    private void insertCarForExchangeToDataBase() {
+        for (int i=0;i<carForExchangeList.size();i++)
+        {
+            insertCCEMTItemTable(carForExchangeList.get(i),myDB);
         }
     }
 

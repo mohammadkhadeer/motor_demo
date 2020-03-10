@@ -14,7 +14,7 @@ import android.widget.Toast;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.activity.AddItem;
-import com.cars.halamotor.view.fragments.fragmentsInSaidHomeFragment.ProfileDetailsInfo;
+import com.cars.halamotor.view.fragments.fragmentsInSaidProfileFragment.ProfileDetailsInfo;
 
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.facebook.FacebookSdk.getApplicationContext;
@@ -113,7 +113,7 @@ public class FragmentProfile extends Fragment {
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.profile_container, fragmentLoginWithSocialMedia);
         transaction.show(fragmentLoginWithSocialMedia);
-        transaction.addToBackStack(null);
+        //transaction.addToBackStack(null);
         transaction.commit();
     }
 }
