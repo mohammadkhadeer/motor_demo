@@ -3,6 +3,7 @@ package com.cars.halamotor.fireBaseDB;
 
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 
 public class FireBaseDBPaths {
 
@@ -32,5 +33,10 @@ public class FireBaseDBPaths {
         DatabaseReference usersPath = getDataBaseInstance().getReference("users")
                 .child(userID);
         return  usersPath;
+    }
+
+    public static Query getDataBase() {
+        Query mRef = FirebaseDatabase.getInstance().getReference();
+        return mRef;
     }
 }
