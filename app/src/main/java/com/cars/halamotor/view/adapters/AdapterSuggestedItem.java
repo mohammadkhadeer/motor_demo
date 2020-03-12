@@ -46,14 +46,43 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
                     ||suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.exchange_car))
                     ||suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.motorcycle))
                     ||suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.trucks))
-            )
-            fillImage(holder,position,context);
-            fillPriceAndTitle(holder,position,context);
-            changeFont(context,holder);
-            fillNumberOfImageAndNumberOfComment(holder,position);
-            fillCarDetails(position,holder);
-
+            ) {
+                fillImage(holder, position, context);
+                fillPriceAndTitle(holder, position, context);
+                fillNumberOfImageAndNumberOfComment(holder, position);
+                fillCarDetails(position, holder);
+            }
+            if (suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.car_plates)))
+            {
+                fillImage(holder, position, context);
+                fillPriceAndTitle(holder, position, context);
+                fillNumberOfImageAndNumberOfComment(holder, position);
+                fillCarDetails(position, holder);
+            }
+            if (suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.wheels_rim)))
+            {
+                fillImage(holder, position, context);
+                fillPriceAndTitle(holder, position, context);
+                fillNumberOfImageAndNumberOfComment(holder, position);
+                fillCarDetails(position, holder);
+            }
+            if (suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.accessories)))
+            {
+                fillImage(holder, position, context);
+                fillPriceAndTitle(holder, position, context);
+                fillNumberOfImageAndNumberOfComment(holder, position);
+                fillCarDetails(position, holder);
+            }
+            if (suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.junk_car)))
+            {
+                fillImage(holder, position, context);
+                fillPriceAndTitle(holder, position, context);
+                fillNumberOfImageAndNumberOfComment(holder, position);
+                fillCarDetails(position, holder);
+            }
         }
+        changeFont(context, holder);
+
 
     }
 
@@ -65,30 +94,21 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
 
     private void fillCarDetails(int position, ViewHolder holder) {
         holder.carMakeTV.setText(suggestedItemsArrayL.get(position).getItemCarMake());
-        holder.carModelTV.setText(suggestedItemsArrayL.get(position).getItemCarModel());
         holder.carYearTV.setText(suggestedItemsArrayL.get(position).getItemCarYear());
         holder.carConditionTV.setText(suggestedItemsArrayL.get(position).getItemCarCondition());
         holder.carKilometersTV.setText(suggestedItemsArrayL.get(position).getItemCarKilometers());
-        holder.carLicenseTV.setText(suggestedItemsArrayL.get(position).getItemCarLicense());
-        holder.carInsuranceTV.setText(suggestedItemsArrayL.get(position).getItemCarInsurance());
-        holder.carTransmissionTV.setText(suggestedItemsArrayL.get(position).getItemCarTransmission());
-        holder.carPaymentMethodTV.setText(suggestedItemsArrayL.get(position).getItemCarPaymentMethod());
-        holder.carFuelTV.setText(suggestedItemsArrayL.get(position).getItemCarFuel());
+
+
     }
 
     private void changeFont(Context context, ViewHolder holder) {
         holder.numberOfImageTV.setTypeface(Functions.changeFontGeneral(context));
         holder.numberOfCommentTV.setTypeface(Functions.changeFontGeneral(context));
         holder.carMakeTV.setTypeface(Functions.changeFontGeneral(context));
-        holder.carModelTV.setTypeface(Functions.changeFontGeneral(context));
         holder.carYearTV.setTypeface(Functions.changeFontGeneral(context));
         holder.carConditionTV.setTypeface(Functions.changeFontGeneral(context));
         holder.carKilometersTV.setTypeface(Functions.changeFontGeneral(context));
-        holder.carLicenseTV.setTypeface(Functions.changeFontGeneral(context));
-        holder.carInsuranceTV.setTypeface(Functions.changeFontGeneral(context));
-        holder.carTransmissionTV.setTypeface(Functions.changeFontGeneral(context));
-        holder.carPaymentMethodTV.setTypeface(Functions.changeFontGeneral(context));
-        holder.carFuelTV.setTypeface(Functions.changeFontGeneral(context));
+
         holder.itemPriceTV.setTypeface(Functions.changeFontBold(context));
         holder.itemTitleTV.setTypeface(Functions.changeFontBold(context));
     }
@@ -131,15 +151,10 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             numberOfCommentTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_number_of_item_comment);
             itemImage = (ImageView) itemView.findViewById(R.id.adapter_suggested_item_image_view) ;
             carMakeTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_make);
-            carModelTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_model);
             carYearTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_year);
             carConditionTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_condition);
             carKilometersTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_kilometers);
-            carLicenseTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_license);
-            carInsuranceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_insurance);
-            carTransmissionTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_transmission);
-            carPaymentMethodTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_paymentMethod);
-            carFuelTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_fuel);
+
             itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_title);
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_price);
         }
