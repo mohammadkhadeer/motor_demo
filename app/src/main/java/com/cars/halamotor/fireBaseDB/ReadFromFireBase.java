@@ -17,9 +17,9 @@ import java.util.List;
 
 public class ReadFromFireBase {
 
-    public static List<CCEMT> getCarForSaleItems(final List<CCEMT> carForSaleL) {
+    public static List<CCEMT> getCarForSaleItems(final List<CCEMT> carForSaleL,int numberOfCarFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Car_For_Sale").limitToLast(2);
+                .child("category").child("Car_For_Sale").limitToLast(numberOfCarFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -38,9 +38,9 @@ public class ReadFromFireBase {
         return carForSaleL;
     }
 
-    public static List<CCEMT> getCarForRentItems(final List<CCEMT> carForRentL) {
+    public static List<CCEMT> getCarForRentItems(final List<CCEMT> carForRentL,int numberOfCarFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Car_For_Rent").limitToLast(2);
+                .child("category").child("Car_For_Rent").limitToLast(numberOfCarFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -59,9 +59,9 @@ public class ReadFromFireBase {
         return carForRentL;
     }
 
-    public static List<CCEMT> getCarForExchangeItems(final List<CCEMT> carForExchangeL) {
+    public static List<CCEMT> getCarForExchangeItems(final List<CCEMT> carForExchangeL,int numberOfCarFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Car_For_Exchange").limitToLast(2);
+                .child("category").child("Car_For_Exchange").limitToLast(numberOfCarFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -80,9 +80,9 @@ public class ReadFromFireBase {
         return carForExchangeL;
     }
 
-    public static List<CCEMT> getMotorcycleItems(final List<CCEMT> motorcycleArrayL) {
+    public static List<CCEMT> getMotorcycleItems(final List<CCEMT> motorcycleArrayL,int numberOfMotorFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Motorcycle").limitToLast(1);
+                .child("category").child("Motorcycle").limitToLast(numberOfMotorFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -101,9 +101,9 @@ public class ReadFromFireBase {
         return motorcycleArrayL;
     }
 
-    public static List<CCEMT> getTruckItems(final List<CCEMT> trucksArrayL) {
+    public static List<CCEMT> getTruckItems(final List<CCEMT> trucksArrayL,int numberOfTruckFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Trucks").limitToLast(1);
+                .child("category").child("Trucks").limitToLast(numberOfTruckFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -122,9 +122,9 @@ public class ReadFromFireBase {
         return trucksArrayL;
     }
 
-    public static List<CarPlatesModel> getPlatesItems(final List<CarPlatesModel> platesArrayL) {
+    public static List<CarPlatesModel> getPlatesItems(final List<CarPlatesModel> platesArrayL,int numberOfCarPlatesFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Plates").limitToLast(1);
+                .child("category").child("Plates").limitToLast(numberOfCarPlatesFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -143,9 +143,9 @@ public class ReadFromFireBase {
         return platesArrayL;
     }
 
-    public static List<WheelsRimModel> getWheelsRimItems(final List<WheelsRimModel> wheelsRimArrayL) {
+    public static List<WheelsRimModel> getWheelsRimItems(final List<WheelsRimModel> wheelsRimArrayL,int numberOfWheelsFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Wheels_Rim").limitToLast(1);
+                .child("category").child("Wheels_Rim").limitToLast(numberOfWheelsFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -163,9 +163,10 @@ public class ReadFromFireBase {
         });
         return wheelsRimArrayL;
     }
-    public static List<AccAndJunk> getAccessoriesItems(final List<AccAndJunk> accessoriesArrayL) {
+
+    public static List<AccAndJunk> getAccessoriesItems(final List<AccAndJunk> accessoriesArrayL,int numberOfAccessoriesFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Accessories").limitToLast(1);
+                .child("category").child("Accessories").limitToLast(numberOfAccessoriesFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -184,9 +185,9 @@ public class ReadFromFireBase {
         return accessoriesArrayL;
     }
 
-    public static List<AccAndJunk> getJunkCarItems(final List<AccAndJunk> junkArrayL) {
+    public static List<AccAndJunk> getJunkCarItems(final List<AccAndJunk> junkArrayL,int numberOfJunkCarFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("JunkCar").limitToLast(1);
+                .child("category").child("JunkCar").limitToLast(numberOfJunkCarFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

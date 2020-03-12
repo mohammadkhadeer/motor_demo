@@ -64,7 +64,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getJunkCar() {
-        junkArrayL = getJunkCarItems(junkArrayL);
+        junkArrayL = getJunkCarItems(junkArrayL,1);
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -75,23 +75,17 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getAccessories() {
-        accessoriesArrayL = getAccessoriesItems(accessoriesArrayL);
-        //set Handler to get items
+        accessoriesArrayL = getAccessoriesItems(accessoriesArrayL,1);
         new Handler().postDelayed(new Runnable() {
-
             @Override
-            public void run() {
-                insertAccessoriesRimToDataBase();
+            public void run() { insertAccessoriesRimToDataBase();
             }
         }, 2700);
     }
 
     private void getWheelsRim() {
-
-        wheelsRimList = getWheelsRimItems(wheelsRimList);
-        //set Handler to get items
+        wheelsRimList = getWheelsRimItems(wheelsRimList,1);
         new Handler().postDelayed(new Runnable() {
-
             @Override
             public void run() {
                 insertWheelsRimToDataBase();
@@ -100,10 +94,8 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getCarPlates() {
-        carPlatesList = getPlatesItems(carPlatesList);
-        //set Handler to get items
+        carPlatesList = getPlatesItems(carPlatesList,1);
         new Handler().postDelayed(new Runnable() {
-
             @Override
             public void run() {
                 insertCarPlatesToDataBase();
@@ -112,8 +104,7 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getTrucks() {
-        truckList = getTruckItems(truckList);
-        //set Handler to get items
+        truckList = getTruckItems(truckList,1);
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -124,10 +115,8 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getMotorcycle() {
-        motorcycleList = getMotorcycleItems(motorcycleList);
-        //set Handler to get items
+        motorcycleList = getMotorcycleItems(motorcycleList,1);
         new Handler().postDelayed(new Runnable() {
-
             @Override
             public void run() {
                 insertMotorcycleToDataBase();
@@ -135,35 +124,29 @@ public class SplashScreen extends AppCompatActivity {
         }, 2700);
     }
 
-
-    private void transportToMainActivity() {
+    private void getCarExchange() {
+        carForExchangeList = getCarForExchangeItems(carForExchangeList,2);
         new Handler().postDelayed(new Runnable() {
 
             @Override
-            public void run() {
-                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
-                finish();
+            public void run() { insertCarForExchangeToDataBase();
             }
-        }, 4000);
+        }, 2700);
     }
 
-    private void getCarExchange() {
-        carForExchangeList = getCarForExchangeItems(carForExchangeList);
-        //set Handler to get items
+    private void getCarForRent() {
+        carForRentList = getCarForRentItems(carForRentList,2);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                insertCarForExchangeToDataBase();
+                insertCarForRentToDataBase();
             }
         }, 2700);
     }
 
     private void getCarForSale() {
-        carForSaleList = getCarForSaleItems(carForSaleList);
-        //set Handler to get items
+        carForSaleList = getCarForSaleItems(carForSaleList,2);
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -178,18 +161,6 @@ public class SplashScreen extends AppCompatActivity {
         {
             insertCCEMTItemTable(carForSaleList.get(i),myDB);
         }
-    }
-
-    private void getCarForRent() {
-        carForRentList = getCarForRentItems(carForRentList);
-        //set Handler to get items
-        new Handler().postDelayed(new Runnable() {
-
-            @Override
-            public void run() {
-                insertCarForRentToDataBase();
-            }
-        }, 2700);
     }
 
     private void insertCarForRentToDataBase() {
@@ -246,6 +217,19 @@ public class SplashScreen extends AppCompatActivity {
         {
             insertAccAndJunkTable(junkArrayL.get(i),myDB);
         }
+    }
+
+    private void transportToMainActivity() {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+                finish();
+            }
+        }, 4000);
     }
 
 }
