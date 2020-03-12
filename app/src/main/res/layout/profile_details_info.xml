@@ -39,6 +39,7 @@
                         android:layout_height="64dp"
                         android:layout_marginLeft="1dp"
                         android:layout_marginStart="12dp"
+                        android:background="@drawable/social_media"
                         android:layout_centerVertical="true"/>
 
                     <RelativeLayout
@@ -58,6 +59,24 @@
 
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginStart="16dp">
+
+                        <ImageView
+                            android:layout_width="10dp"
+                            android:layout_height="10dp"
+                            android:layout_centerHorizontal="true"
+                            android:id="@+id/adapter_car_fuel_IV"
+                            android:layout_centerVertical="true"
+                            android:background="@drawable/arrow"/>
+
+                    </RelativeLayout>
+
+
+
                 </LinearLayout>
 
             </RelativeLayout>
@@ -71,6 +90,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="10dp"
+        android:visibility="visible"
         android:id="@+id/profile_details_info_details_CV"
         >
 
