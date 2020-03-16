@@ -9,7 +9,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="250dp"
-        android:layout_height="410dp"
+        android:layout_height="390dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="2dp"
@@ -221,11 +221,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="3dp"
-                            android:textSize="12dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:textSize="13dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
-                            android:id="@+id/adapter_suggested_item_car_make"
+                            android:id="@+id/adapter_suggested_item_text1"
                             />
                     </RelativeLayout>
 
@@ -241,11 +244,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="3dp"
-                            android:textSize="12dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:textSize="13dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
-                            android:id="@+id/adapter_suggested_item_car_year"
+                            android:id="@+id/adapter_suggested_item_text2"
                             />
                     </RelativeLayout>
 
@@ -260,11 +266,14 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="3dp"
-                            android:textSize="12dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:textSize="13dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
-                            android:id="@+id/adapter_suggested_item_car_condition"
+                            android:id="@+id/adapter_suggested_item_text3"
                             />
                     </RelativeLayout>
 
@@ -283,24 +292,43 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/car_details_bg"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:textSize="13dp"
+                            android:textColor="@color/colorBlack3"
+                            android:text="test text"
+                            android:id="@+id/adapter_suggested_item_text4"
+                            />
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/car_details_bg"
                         android:layout_marginLeft="1dp"
                         android:layout_marginStart="3dp"
                         >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_margin="3dp"
-                            android:textSize="12dp"
+                            android:layout_marginLeft="4dp"
+                            android:layout_marginRight="4dp"
+                            android:layout_marginTop="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:textSize="13dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
-                            android:id="@+id/adapter_suggested_item_car_kilometers"
+                            android:id="@+id/adapter_suggested_item_city"
                             />
                     </RelativeLayout>
 
-
                 </LinearLayout>
-
-
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -332,7 +360,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="38dp"
+                    android:layout_marginTop="18dp"
                     android:orientation="horizontal">
 
                     <RelativeLayout
@@ -444,20 +472,56 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:layout_width="70dp"
-                android:layout_height="70dp"
-                app:civ_border_color="@color/colorBlack"
-                app:civ_border_width="1dp"
-                app:civ_shadow="true"
-                app:civ_shadow_radius="0"
-                android:layout_centerVertical="true"
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="2px"
+                android:layout_marginTop="200dp"
+                android:background="@color/colorSilver"/>
+
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
-                android:layout_marginStart="170dp"
-                android:background="@drawable/profile"
-                app:civ_shadow_color="#8BC34A"
-                android:id="@+id/adapter_suggested_item_user_image"
-                />
+                android:layout_marginStart="180dp"
+                android:layout_marginTop="175dp"
+                >
+                <LinearLayout
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.mikhaellopez.circularimageview.CircularImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:civ_border_color="@color/colorSilver"
+                        app:civ_border_width="1dp"
+                        android:layout_marginLeft="1dp"
+                        android:layout_marginStart="10dp"
+                        app:civ_shadow="true"
+                        app:civ_shadow_radius="0"
+                        android:background="@drawable/profile"
+                        app:civ_shadow_color="#8BC34A"
+                        android:id="@+id/adapter_suggested_item_user_image"
+                        />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="mohammad k"
+                            android:textSize="11dp"
+                            android:id="@+id/adapter_suggested_item_user_name"
+                            android:textColor="@color/colorBlack"
+                            android:layout_centerHorizontal="true"
+                            />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </RelativeLayout>
 
         </RelativeLayout>
 

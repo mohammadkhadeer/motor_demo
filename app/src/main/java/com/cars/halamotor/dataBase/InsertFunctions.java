@@ -8,12 +8,30 @@ import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CommentsComp;
+import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.view.activity.WheelsRim;
 
 import java.util.ArrayList;
 
 public class InsertFunctions {
+
+    public static boolean insertNotificationTable(NotificationComp notificationComp,DBHelper database) {
+        boolean isInserted = database.insertNotification(
+                notificationComp.getProcess()
+                ,notificationComp.getOpenOrNotYet()
+                ,notificationComp.getNotificationTitle()
+                ,notificationComp.getFromPersonOrGallery()
+                ,notificationComp.getImagePath()
+                ,notificationComp.getProcessImage()
+                ,notificationComp.getTimeStamp()
+                ,notificationComp.getItemServerID()
+                ,notificationComp.getInOrOut()
+                ,notificationComp.getAuctionORItem()
+                ,notificationComp.getDate()
+        );
+        return isInserted;
+    }
 
     public static boolean insertCCEMTItemTable(CCEMT ccemt,DBHelper database) {
 
@@ -214,7 +232,7 @@ public class InsertFunctions {
     public static String numberOfImage(ArrayList<String> imageArrayL) {
         String itemImageStr = null;
         if (imageArrayL.size() == 1)
-            return itemImageStr = "0";
+            return itemImageStr = "1";
         else
             return String.valueOf(imageArrayL.size());
     }

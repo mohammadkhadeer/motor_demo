@@ -105,12 +105,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_PROCESS= "PROCESS";
     public static final String OPEN_OR_NOT_YET= "OPEN_OR_NOT_YET";
     public static final String NOTIFICATION_TITLE= "NOTIFICATION_TITLE";
-    public static final String NOTIFICATION_DES= "NOTIFICATION_DES";
     public static final String PERSON_OR_GALLERY= "PERSON_OR_GALLERY";
     public static final String IMAGE_PATH= "IMAGE_PATH";
     public static final String PROCESS_IMAGE = "PROCESS_IMAGE";
     public static final String TIME_STAMP = "TIME_STAMP";
-    public static final String TIME = "TIME";
+    public static final String ITEM_SERVER_ID = "ITEM_SERVER_ID";
+    public static final String OUT_OR_COME = "OUT_OR_COME";
+    public static final String AUCTION_OR_ITEM = "AUCTION_OR_ITEM";
     public static final String DATE = "DATE";
 
     public DBHelper(Context context) {
@@ -126,7 +127,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
 
         db.execSQL("create table "+TABLE_NOTIFICATION +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "PROCESS TEXT" + ",OPEN_OR_NOT_YET TEXT" + ",NOTIFICATION_TITLE TEXT" + ",NOTIFICATION_DES TEXT" + ",PERSON_OR_GALLERY TEXT" + ",IMAGE_PATH TEXT" + ",PROCESS_IMAGE TEXT" + ",TIME_STAMP TEXT" + ",TIME TEXT" + ",DATE TEXT)");
+                "PROCESS TEXT" + ",OPEN_OR_NOT_YET TEXT" + ",NOTIFICATION_TITLE TEXT"  + ",PERSON_OR_GALLERY TEXT" + ",IMAGE_PATH TEXT" + ",PROCESS_IMAGE TEXT" + ",TIME_STAMP TEXT"+ ",ITEM_SERVER_ID TEXT" + ",OUT_OR_COME TEXT" + ",AUCTION_OR_ITEM TEXT" + ",DATE TEXT)");
     }
 
     @Override
@@ -241,19 +242,20 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertNotification(String process,String openOrNotYet
-            ,String notificationTitle,String notificationDes,String personOrGallery,String imagePath,String processImage,String timeStamp,String time,String date)
+            ,String notificationTitle,String personOrGallery,String imagePath,String processImage,String timeStamp,String itemIdInServer,String com_or_out,String auctionOrItem,String date)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_PROCESS,process);
         contentValues.put(OPEN_OR_NOT_YET,openOrNotYet);
         contentValues.put(NOTIFICATION_TITLE,notificationTitle);
-        contentValues.put(NOTIFICATION_DES,notificationDes);
         contentValues.put(PERSON_OR_GALLERY,personOrGallery);
         contentValues.put(IMAGE_PATH,imagePath);
         contentValues.put(PROCESS_IMAGE,processImage);
         contentValues.put(TIME_STAMP,timeStamp);
-        contentValues.put(TIME,time);
+        contentValues.put(ITEM_SERVER_ID,com_or_out);
+        contentValues.put(OUT_OR_COME,itemIdInServer);
+        contentValues.put(AUCTION_OR_ITEM,auctionOrItem);
         contentValues.put(DATE,date);
 
         long result= db.insert(TABLE_NOTIFICATION,null,contentValues);

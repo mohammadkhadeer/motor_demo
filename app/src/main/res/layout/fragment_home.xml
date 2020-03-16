@@ -51,8 +51,8 @@
                                 android:layout_height="match_parent"
                                 >
                                 <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:background="@drawable/filter"
                                     android:layout_centerVertical="true"
                                     android:layout_centerHorizontal="true"
@@ -130,8 +130,8 @@
                                 android:layout_height="match_parent"
                                 >
                                 <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:background="@drawable/arrangement"
                                     android:layout_centerVertical="true"
                                     android:layout_centerHorizontal="true"
@@ -208,8 +208,8 @@
                                 android:layout_height="match_parent"
                                 >
                                 <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:background="@drawable/all_detalis_filter"
                                     android:layout_centerVertical="true"
                                     android:layout_centerHorizontal="true"
@@ -225,8 +225,8 @@
                                 >
 
                                 <ImageView
-                                    android:layout_width="30dp"
-                                    android:layout_height="30dp"
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
                                     android:background="@drawable/medium_filter"
                                     android:layout_centerVertical="true"
                                     android:layout_centerHorizontal="true"
@@ -248,7 +248,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/fragment_home_fragment_filters_container"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="2dp"
             >
             <fragment
                 android:layout_width="match_parent"

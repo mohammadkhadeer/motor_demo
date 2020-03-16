@@ -21,6 +21,7 @@ import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CommentsComp;
+import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.sharedPreferences.SharedPreferencesInApp;
 
 import java.text.SimpleDateFormat;
@@ -36,8 +37,61 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDes
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
 
 public class Functions {
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public static NotificationComp getNotification(String process, String notificationTitle
+                        , Context context,String itemIdInServer,String outOrCome,String AuctionOrItem) {
+        NotificationComp notificationComp = new NotificationComp(
+                process,"0",notificationTitle
+                ,"person",getUserImage(context)
+                ,process,getTimeStamp(),itemIdInServer,outOrCome,AuctionOrItem,getDATE()
+        );
+        return notificationComp;
+    }
+
+    public static int processImage(String process){
+        int processImage = -1;
+        if (process.equals("Car_For_Sale"))
+        {
+            processImage = R.drawable.car_for_sale;
+        }
+        if (process.equals("Car_For_Rent"))
+        {
+            processImage = R.drawable.car_rent;
+        }
+        if (process.equals("Car_For_Exchange"))
+        {
+            processImage = R.drawable.exchange_car;
+        }
+        if (process.equals("Motorcycle"))
+        {
+            processImage = R.drawable.motorcycle;
+        }
+        if (process.equals("Trucks"))
+        {
+            processImage = R.drawable.vip;
+        }
+        if (process.equals("Plates"))
+        {
+            processImage = R.drawable.accessories;
+        }
+        if (process.equals("Wheels_Rim"))
+        {
+            processImage = R.drawable.wheels_rim;
+        }
+        if (process.equals("Accessories"))
+        {
+            processImage = R.drawable.trucks;
+        }
+        if (process.equals("JunkCar"))
+        {
+            processImage = R.drawable.junk_car;
+        }
+            return processImage;
+    }
 
     public static CarDetailsModel updateCarDetailsModel(CarDetailsModel carDetailsModel
             , String whatUserWantToChange
@@ -104,6 +158,17 @@ public class Functions {
         String date = DATE_FORMAT.format(today);
 
         DATE_FORMAT = new SimpleDateFormat("dd");
+        date = DATE_FORMAT.format(today);
+
+        return date;
+    }
+
+    public static String getDATE() {
+        Date today = new Date();
+        SimpleDateFormat DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
+        String date = DATE_FORMAT.format(today);
+
+        DATE_FORMAT = new SimpleDateFormat("dd-MM-yyyy");
         date = DATE_FORMAT.format(today);
 
         return date;

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.util.Log;
 
+import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.SuggestedItem;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 
 public class ReadFunction {
+
     public static ArrayList<SuggestedItem> getSuggestedItemFromDatabase(Context context) {
         ArrayList<SuggestedItem> suggestedItemsArrayL = new ArrayList<SuggestedItem>();
         Cursor res = getDataBaseInstance(context).descendingItem();
@@ -58,6 +60,29 @@ public class ReadFunction {
             suggestedItemsArrayL.add(suggestedItem);
         }
         return suggestedItemsArrayL;
+    }
+
+    public static ArrayList<NotificationComp> getNotificationFromDatabase(Context context) {
+        ArrayList<NotificationComp> notificationCompsArrayL = new ArrayList<NotificationComp>();
+        Cursor res = getDataBaseInstance(context).descendingNotification();
+        while (res.moveToNext()) {
+            //we can calling via number of col cos Suggested model build it like database exactly
+            NotificationComp notificationComp = new NotificationComp(
+                    res.getString(1).replace("\n", "")
+                    ,res.getString(2).replace("\n", "")
+                    ,res.getString(3).replace("\n", "")
+                    ,res.getString(4).replace("\n", "")
+                    ,res.getString(5).replace("\n", "")
+                    ,res.getString(6).replace("\n", "")
+                    ,res.getString(7).replace("\n", "")
+                    ,res.getString(8).replace("\n", "")
+                    ,res.getString(9).replace("\n", "")
+                    ,res.getString(10).replace("\n", "")
+                    ,res.getString(11).replace("\n", "")
+            );
+            notificationCompsArrayL.add(notificationComp);
+        }
+        return notificationCompsArrayL;
     }
 
 }
