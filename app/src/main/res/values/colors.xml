@@ -42,5 +42,8 @@
     <color name="colorYellow">#E2D91E</color>
     <color name="colorGold">#DEBD25</color>
 
+    <color name="notificationNotOpenYet">#C2CAE6</color>
+
+
 
 </resources>

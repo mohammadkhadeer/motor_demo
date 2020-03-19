@@ -2,6 +2,7 @@ package com.cars.halamotor.view.adapters;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -155,13 +156,13 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     private void fillImage(final ViewHolder holder, int position, Context context) {
 
         Picasso.with(context).load(suggestedItemsArrayL.get(position).getItemImage())
-                .fit()
-                .centerCrop()
+                .config(Bitmap.Config.RGB_565)
+                .fit().centerCrop()
                 .into(holder.itemImage);
 
         Picasso.with(context).load(suggestedItemsArrayL.get(position).getUserImage())
-                .fit()
-                .centerCrop()
+                .config(Bitmap.Config.RGB_565)
+                .fit().centerCrop()
                 .into(holder.userImage);
     }
 

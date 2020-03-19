@@ -43,55 +43,17 @@ public class Functions {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static NotificationComp getNotification(String process, String notificationTitle
-                        , Context context,String itemIdInServer,String outOrCome,String AuctionOrItem) {
+                        , Context context,String itemIdInServer,String outOrCome,String AuctionOrItem
+                        ,String itemImage)
+    {
         NotificationComp notificationComp = new NotificationComp(
                 process,"0",notificationTitle
-                ,"person",getUserImage(context)
-                ,process,getTimeStamp(),itemIdInServer,outOrCome,AuctionOrItem,getDATE()
+                ,"person","if we want can set user image"
+                ,itemImage,getTimeStamp(),outOrCome,itemIdInServer,AuctionOrItem,getDATE()
         );
         return notificationComp;
     }
 
-    public static int processImage(String process){
-        int processImage = -1;
-        if (process.equals("Car_For_Sale"))
-        {
-            processImage = R.drawable.car_for_sale;
-        }
-        if (process.equals("Car_For_Rent"))
-        {
-            processImage = R.drawable.car_rent;
-        }
-        if (process.equals("Car_For_Exchange"))
-        {
-            processImage = R.drawable.exchange_car;
-        }
-        if (process.equals("Motorcycle"))
-        {
-            processImage = R.drawable.motorcycle;
-        }
-        if (process.equals("Trucks"))
-        {
-            processImage = R.drawable.vip;
-        }
-        if (process.equals("Plates"))
-        {
-            processImage = R.drawable.accessories;
-        }
-        if (process.equals("Wheels_Rim"))
-        {
-            processImage = R.drawable.wheels_rim;
-        }
-        if (process.equals("Accessories"))
-        {
-            processImage = R.drawable.trucks;
-        }
-        if (process.equals("JunkCar"))
-        {
-            processImage = R.drawable.junk_car;
-        }
-            return processImage;
-    }
 
     public static CarDetailsModel updateCarDetailsModel(CarDetailsModel carDetailsModel
             , String whatUserWantToChange

@@ -1,7 +1,10 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Build;
+import android.os.Handler;
 import android.support.annotation.IdRes;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
@@ -20,6 +23,7 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.presnter.OnNewNotification;
 import com.cars.halamotor.view.fragments.FragmentHomeScreen;
 import com.cars.halamotor.view.fragments.FragmentMessage;
 import com.cars.halamotor.view.fragments.FragmentNotification;
@@ -35,6 +39,9 @@ import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
+import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateAllUnreadNotificationsToChecked;
+import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 
 public class MainActivity extends AppCompatActivity {
@@ -55,8 +62,10 @@ public class MainActivity extends AppCompatActivity {
     private BottomBarTab[] bbtArr = {homeBBT, messagesBBT, notificationsBBT, addItemBBT, profileBBT};
     private String[] bbtArrStr = {"homeBBT", "messagesBBT", "notificationsBBT", "addItemBBT", "profileBBT"};
     String lastFragmentStr;
-
-
+    private static final int ADD_NEW_ITEM = 101;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
+    OnNewNotification onNewNotification;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +79,23 @@ public class MainActivity extends AppCompatActivity {
         changeGeneralFontType();
         BottomBarMenu();
         moveBetweenFragment();
+        updateNumberUnCheckedNotifications();
 
+    }
+
+    @Override
+    public void onAttachFragment(Fragment fragment) {
+        super.onAttachFragment(fragment);
+
+        if (fragment instanceof OnNewNotification) {
+            onNewNotification = (OnNewNotification) fragment;
+        }
+    }
+
+    public void onNewNotifications() {
+        if (onNewNotification != null) {
+            onNewNotification.onNewNotification(1);
+        }
     }
 
     private void moveBetweenFragment() {
@@ -123,9 +148,6 @@ public class MainActivity extends AppCompatActivity {
         intiBBT();
 
         messagesBBT.setBadgeCount(12);
-        int num =2;
-        if(num >5)
-        notificationsBBT.setBadgeCount(num);
     }
 
     private void intiBBT() {
@@ -158,6 +180,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
 
             case R.id.tab_notifications:
+                updateAllUnreadNotificationsToChecked(MainActivity.this,sharedPreferences,editor,"0");
+                updateNumberUnCheckedNotifications();
+                onNewNotifications();
                 handelNotificationsFragment();
                 return true;
 
@@ -249,7 +274,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void moveToAddItem() {
         Intent intent = new Intent(MainActivity.this, AddItem.class);
-        startActivity(intent);
+        startActivityForResult(intent, ADD_NEW_ITEM);
         overridePendingTransition(R.anim.slide_up, R.anim.no_animation);
     }
 
@@ -259,6 +284,46 @@ public class MainActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ADD_NEW_ITEM && resultCode == Activity.RESULT_OK) {
+            if (getUnreadNotificationsInSP(MainActivity.this) != null)
+            {
+                int unreadNotification = Integer.parseInt(getUnreadNotificationsInSP(MainActivity.this));
+                unreadNotification = unreadNotification + 1;
+                updateNumberUnreadNotifications(MainActivity.this,sharedPreferences,editor,String.valueOf(unreadNotification));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateNumberUnCheckedNotifications();
+
+                    }
+                }, 6000);
+            }else{
+                updateNumberUnreadNotifications(MainActivity.this,sharedPreferences,editor,String.valueOf(1));
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        updateNumberUnCheckedNotifications();
+                    }
+                }, 6000);
+            }
+        }
+    }
+
+    private void updateNumberUnCheckedNotifications() {
+        if (getUnreadNotificationsInSP(MainActivity.this) != null)
+        {
+            int num = Integer.parseInt(getUnreadNotificationsInSP(MainActivity.this));
+            if(num >0)
+                notificationsBBT.setBadgeCount(num);
+            else
+                notificationsBBT.setBadgeCount(0);
+
         }
     }
 

@@ -148,6 +148,7 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
     WheelsRimModel wheelsRim;
     AccAndJunk accAndJunk;
 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -170,7 +171,6 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         getNumberOfUserAds(getApplicationContext(), sharedPreferences, editor);
         getIfUserCanAddAdsOrNot(getApplicationContext(), sharedPreferences, editor);
         getIfUserCanAddBurnedPrice(getApplicationContext(), sharedPreferences, editor);
-
     }
 
     private void insertBtnListener() {
@@ -345,6 +345,8 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                Intent resultIntent = new Intent();
+                setResult(Activity.RESULT_OK, resultIntent);
                 finish();
             }
         }, 5000);
@@ -742,7 +744,7 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
 
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.selected_city_phone_number_container, fragmentCityPhoneNumber);
-        transaction.addToBackStack(null);
+        //transaction.addToBackStack(null);
         transaction.commit();
     }
 

@@ -62,25 +62,29 @@ public class ReadFunction {
         return suggestedItemsArrayL;
     }
 
-    public static ArrayList<NotificationComp> getNotificationFromDatabase(Context context) {
+    public static ArrayList<NotificationComp> getNotificationFromDatabase(Context context
+            ,int numberOfNotifications) {
         ArrayList<NotificationComp> notificationCompsArrayL = new ArrayList<NotificationComp>();
-        Cursor res = getDataBaseInstance(context).descendingNotification();
+        Cursor res = getDataBaseInstance(context).descendingNotification(numberOfNotifications);
         while (res.moveToNext()) {
-            //we can calling via number of col cos Suggested model build it like database exactly
-            NotificationComp notificationComp = new NotificationComp(
-                    res.getString(1).replace("\n", "")
-                    ,res.getString(2).replace("\n", "")
-                    ,res.getString(3).replace("\n", "")
-                    ,res.getString(4).replace("\n", "")
-                    ,res.getString(5).replace("\n", "")
-                    ,res.getString(6).replace("\n", "")
-                    ,res.getString(7).replace("\n", "")
-                    ,res.getString(8).replace("\n", "")
-                    ,res.getString(9).replace("\n", "")
-                    ,res.getString(10).replace("\n", "")
-                    ,res.getString(11).replace("\n", "")
-            );
-            notificationCompsArrayL.add(notificationComp);
+            int curSize=res.getCount();
+            if (curSize > numberOfNotifications) {
+                //we can calling via number of col cos Suggested model build it like database exactly
+                NotificationComp notificationComp = new NotificationComp(
+                        res.getString(1).replace("\n", "")
+                        , res.getString(2).replace("\n", "")
+                        , res.getString(3).replace("\n", "")
+                        , res.getString(4).replace("\n", "")
+                        , res.getString(5).replace("\n", "")
+                        , res.getString(6).replace("\n", "")
+                        , res.getString(7).replace("\n", "")
+                        , res.getString(8).replace("\n", "")
+                        , res.getString(9).replace("\n", "")
+                        , res.getString(10).replace("\n", "")
+                        , res.getString(11).replace("\n", "")
+                );
+                notificationCompsArrayL.add(notificationComp);
+            }
         }
         return notificationCompsArrayL;
     }

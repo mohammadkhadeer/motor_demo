@@ -63,24 +63,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Car_For_Sale"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                            ("Car_For_Sale",ccemt.getCarMake() + " " +ccemt.getCarModel(),context,
-                                    ccemt.getItemID(),"out","item")
-                            ,getDataBaseInstance(context));
-
+                    addNewItem(ccemt,"Car_For_Sale",userIDOnServer,numberOfAds,context);
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Car_For_Sale"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                    ("Car_For_Sale",ccemt.getCarMake()
-                            + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
-        }
+            addNewItem(ccemt,"Car_For_Sale",userIDOnServer,numberOfAds,context);
+            }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -118,22 +106,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Car_For_Rent"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                            ("Car_For_Rent",ccemt.getCarMake()
-                                    + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
+                    addNewItem(ccemt,"Car_For_Rent",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Car_For_Rent"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                    ("Car_For_Rent",ccemt.getCarMake()
-                            + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
+            addNewItem(ccemt,"Car_For_Rent",userIDOnServer,numberOfAds,context);
         }
     }
 
@@ -172,22 +150,11 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Car_For_Exchange"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                            ("Car_For_Exchange",ccemt.getCarMake()
-                                    + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
-
+                    addNewItem(ccemt,"Car_For_Exchange",userIDOnServer,numberOfAds,context);
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Car_For_Exchange"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                    ("Car_For_Exchange",ccemt.getCarMake()
-                            + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
+            addNewItem(ccemt,"Car_For_Exchange",userIDOnServer,numberOfAds,context);
         }
     }
 
@@ -226,22 +193,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Motorcycle"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                            ("Motorcycle",ccemt.getCarMake()
-                                    + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
+                    addNewItem(ccemt,"Motorcycle",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Motorcycle"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                    ("Motorcycle",ccemt.getCarMake()
-                            + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
+            addNewItem(ccemt,"Motorcycle",userIDOnServer,numberOfAds,context);
         }
     }
 
@@ -280,22 +237,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Trucks"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                            ("Trucks",ccemt.getCarMake()
-                                    + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
+                    addNewItem(ccemt,"Trucks",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Trucks"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                    ("Trucks",ccemt.getCarMake()
-                            + " " +ccemt.getCarModel(),context,ccemt.getItemID(),"out","item"),getDataBaseInstance(context));
+            addNewItem(ccemt,"Trucks",userIDOnServer,numberOfAds,context);
         }
     }
 
@@ -334,24 +281,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     carPlatesModel.setImagePathArrayL(imagePathsInServer);
-                    addNewCarPlates(carPlatesModel,"Plates"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                            ("Plates",carPlatesModel.getCarPlatesCity()
-                                    + " " +carPlatesModel.getCarPlatesNum(),context,carPlatesModel.getItemID(),"out","item")
-                            ,getDataBaseInstance(context));
+                    addNewCarPlates(carPlatesModel,"Plates",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewCarPlates(carPlatesModel,"Plates"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                            ("Plates",carPlatesModel.getCarPlatesCity()
-                                    + " " +carPlatesModel.getCarPlatesNum(),context,carPlatesModel.getItemID(),"out","item")
-                    ,getDataBaseInstance(context));
+            addNewCarPlates(carPlatesModel,"Plates",userIDOnServer,numberOfAds,context);
         }
     }
 
@@ -390,24 +325,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     wheelsRimModel.setImagePathArrayL(imagePathsInServer);
-                    addNewWheelsRim(wheelsRimModel,"Wheels_Rim"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                                    ("Wheels_Rim","Wheels_Rim"
-                                            + " " +wheelsRimModel.getWheelSize(),context,wheelsRimModel.getItemID(),"out","item")
-                            ,getDataBaseInstance(context));
+                    addNewWheelsRim(wheelsRimModel,"Wheels_Rim",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewWheelsRim(wheelsRimModel,"Wheels_Rim"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                            ("Wheels_Rim","Wheels_Rim"
-                                    + " " +wheelsRimModel.getWheelSize(),context,wheelsRimModel.getItemID(),"out","item")
-                    ,getDataBaseInstance(context));
+            addNewWheelsRim(wheelsRimModel,"Wheels_Rim",userIDOnServer,numberOfAds,context);
         }
     }
 
@@ -446,25 +369,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     accAndJunk.setImagePathArrayL(imagePathsInServer);
-                    addNewAccessories(accAndJunk,"Accessories"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                                    ("Accessories","Accessories"
-                                            + " " +accAndJunk.getItemName(),context,accAndJunk.getItemID(),"out","item")
-                            ,getDataBaseInstance(context));
+                    addNewAccessories(accAndJunk,"Accessories",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewAccessories(accAndJunk,"Accessories"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                            ("Accessories","Accessories"
-                                    + " " +accAndJunk.getItemName(),context,accAndJunk.getItemID(),"out","item")
-                    ,getDataBaseInstance(context));
-
+            addNewAccessories(accAndJunk,"Accessories",userIDOnServer,numberOfAds,context);
         }
     }
 
@@ -503,24 +413,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     accAndJunk.setImagePathArrayL(imagePathsInServer);
-                    addNewAccessories(accAndJunk,"JunkCar"
-                            ,userIDOnServer,numberOfAds);
-
-                    insertNotificationTable(getNotification
-                                    ("JunkCar","JunkCar"
-                                            + " " +accAndJunk.getItemName(),context,accAndJunk.getItemID(),"out","item")
-                            ,getDataBaseInstance(context));
+                    addNewAccessories(accAndJunk,"JunkCar",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewAccessories(accAndJunk,"JunkCar"
-                    ,userIDOnServer,numberOfAds);
-
-            insertNotificationTable(getNotification
-                            ("JunkCar","JunkCar"
-                                    + " " +accAndJunk.getItemName(),context,accAndJunk.getItemID(),"out","item")
-                    ,getDataBaseInstance(context));
+            addNewAccessories(accAndJunk,"JunkCar",userIDOnServer,numberOfAds,context);
         }
     }
 

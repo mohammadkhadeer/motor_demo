@@ -281,11 +281,22 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor descendingNotification(){
+    public Cursor descendingNotification(int numberOfNotification){
         SQLiteDatabase db =this.getWritableDatabase();
         Cursor cursor = db.query(TABLE_NOTIFICATION, null, null,
                 null, null, null, COL_NOTIFICATION_id + " DESC", null);
         return cursor;
+    }
+
+    //////////////////////////////////////update/////////////////////
+
+    public void updateNotification(String itemServerID,String openOrNotYet)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(OPEN_OR_NOT_YET,openOrNotYet);
+
+        db.update(TABLE_NOTIFICATION,contentValues," ITEM_SERVER_ID = ?",new String[] {itemServerID});
     }
 
     //////////////////////////////////////delete data////////////////
