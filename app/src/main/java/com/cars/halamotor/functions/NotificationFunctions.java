@@ -85,6 +85,10 @@ public class NotificationFunctions {
         {
             processName = context.getResources().getString(R.string.junk_car);
         }
+        if (process.equals("welcome"))
+        {
+            processName = context.getResources().getString(R.string.app_name);
+        }
         return processName;
     }
 

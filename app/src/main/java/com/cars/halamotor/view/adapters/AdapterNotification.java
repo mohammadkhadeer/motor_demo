@@ -54,11 +54,20 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
     }
 
     private void fillProcessImageAndUserUserImage(Context context, ViewHolder holder, int position) {
-        Picasso.with(context)
-                .load(notificationCompsArrayL.get(position).getProcessImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
-                .into(holder.processIV);
+        if (notificationCompsArrayL.get(position).getInOrOut().equals("welcome"))
+        {
+            Picasso.with(context)
+                    .load(R.drawable.logo)
+                    .config(Bitmap.Config.RGB_565)
+                    .fit().centerCrop()
+                    .into(holder.processIV);
+        }else {
+            Picasso.with(context)
+                    .load(notificationCompsArrayL.get(position).getProcessImage())
+                    .config(Bitmap.Config.RGB_565)
+                    .fit().centerCrop()
+                    .into(holder.processIV);
+        }
 
     }
 
@@ -76,8 +85,13 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         holder.notificationTitleTV.setText(notificationCompsArrayL.get(position).getNotificationTitle());
         String notificationDes = null;
 
-        if (notificationCompsArrayL.get(position).getInOrOut().equals("out"))
-            notificationDes = context.getResources().getString(R.string.ur_product) +" "+ notificationCompsArrayL.get(position).getNotificationTitle() +" " +context.getResources().getString(R.string.live);
+        if (notificationCompsArrayL.get(position).getInOrOut().equals("welcome")) {
+            notificationDes = context.getResources().getString(R.string.welcome_notifications);
+        }
+
+        if (notificationCompsArrayL.get(position).getInOrOut().equals("out")) {
+            notificationDes = context.getResources().getString(R.string.ur_product) + " " + notificationCompsArrayL.get(position).getNotificationTitle() + " " + context.getResources().getString(R.string.live);
+        }
         holder.notificationDesTV.setText(notificationDes);
     }
 

@@ -1,7 +1,10 @@
 package com.cars.halamotor.view.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,6 +14,7 @@ import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.WheelsRimModel;
 
 import java.util.ArrayList;
@@ -20,6 +24,7 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesItemTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertNotificationTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimItemTable;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getAccessoriesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItems;
@@ -30,6 +35,9 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getMotorcycleItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getPlatesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getTruckItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
+import static com.cars.halamotor.functions.Functions.getNotification;
+import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getWelcomeNotificationsInSP;
+import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.welcomeNotifications;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -43,13 +51,17 @@ public class SplashScreen extends AppCompatActivity {
     List<AccAndJunk> accessoriesArrayL = new ArrayList<>();
     List<AccAndJunk> junkArrayL = new ArrayList<>();
     DBHelper myDB;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
         myDB = getDataBaseInstance(getApplicationContext());
+        addWelcomeNotifications();
         getJunkCar();
         getAccessories();
         getWheelsRim();
@@ -61,6 +73,20 @@ public class SplashScreen extends AppCompatActivity {
         getCarExchange();
         transportToMainActivity();
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void addWelcomeNotifications() {
+        Log.i("TAG",getWelcomeNotificationsInSP(this));
+        if (!getWelcomeNotificationsInSP(this).equals("created"))
+        {
+            NotificationComp welcomeNotification = getNotification(
+                    "welcome", "Hala Motor" ,this,"welcome","welcome","welcome"
+                    ,"R.drawable.logo"
+            );
+            insertNotificationTable(welcomeNotification,getDataBaseInstance(this));
+        }
+        welcomeNotifications(this,sharedPreferences,editor,"created");
     }
 
     private void getJunkCar() {
