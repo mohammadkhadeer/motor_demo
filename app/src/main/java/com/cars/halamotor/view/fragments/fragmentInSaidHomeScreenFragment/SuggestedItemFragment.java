@@ -3,21 +3,18 @@ package com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
-import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.view.adapters.AdapterInsurance;
-import com.cars.halamotor.view.adapters.AdapterSuggestedItem;
+import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterSuggestedItem;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCarForSale;
 
 import java.util.ArrayList;

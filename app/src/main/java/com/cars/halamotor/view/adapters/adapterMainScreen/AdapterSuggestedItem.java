@@ -1,4 +1,4 @@
-package com.cars.halamotor.view.adapters;
+package com.cars.halamotor.view.adapters.adapterMainScreen;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
