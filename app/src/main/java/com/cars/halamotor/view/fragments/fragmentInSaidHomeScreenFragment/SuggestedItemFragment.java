@@ -13,12 +13,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CCEMT;
+import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.view.adapters.AdapterInsurance;
 import com.cars.halamotor.view.adapters.AdapterSuggestedItem;
+import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCarForSale;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.dataBase.ReadFunction.getCarForSaleDatabase;
 import static com.cars.halamotor.dataBase.ReadFunction.getSuggestedItemFromDatabase;
 
 public class SuggestedItemFragment extends Fragment {
@@ -27,17 +31,21 @@ public class SuggestedItemFragment extends Fragment {
     View view;
     ArrayList<SuggestedItem> suggestedItemsArrayL = new ArrayList<SuggestedItem>();
     ArrayList<String> insuranceArrayL = new ArrayList<String>();
-    RecyclerView suggestedItemRecyclerView,insuranceRecyclerView;
+    RecyclerView suggestedItemRecyclerView,insuranceRecyclerView,carForSaleRecyclerView;
     AdapterSuggestedItem adapterSuggestedItem;
-    RecyclerView.LayoutManager layoutManagerSuggested,layoutManagerInsurance;
+    RecyclerView.LayoutManager layoutManagerSuggested,layoutManagerInsurance,layoutManagerCarForSale;
     TextView suggestedTV,SeeAllTV;
     AdapterInsurance adapterInsurance;
+
+    ArrayList<CCEMTFirestCase> carForSaleArrayL = new ArrayList<CCEMTFirestCase>();
+    AdapterCarForSale adapterCarForSale;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         suggestedItemsArrayL = new ArrayList<SuggestedItem>();
         suggestedItemsArrayL = getSuggestedItemFromDatabase(context);
+        carForSaleArrayL = getCarForSaleDatabase(context);
     }
 
     @Override
@@ -47,7 +55,19 @@ public class SuggestedItemFragment extends Fragment {
         inti();
         createSuggestedItemRV();
         createInsuranceRV();
+        createCarForSaleRV();
         return view;
+    }
+
+    private void createCarForSaleRV() {
+        carForSaleRecyclerView.setHasFixedSize(true);
+        layoutManagerCarForSale = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
+
+        carForSaleRecyclerView.setLayoutManager(layoutManagerCarForSale);
+        adapterCarForSale =new AdapterCarForSale(getActivity()
+                ,carForSaleArrayL,"suggested_fragment");
+        carForSaleRecyclerView.setAdapter(adapterCarForSale);
     }
 
     private void createInsuranceRV() {
@@ -84,6 +104,8 @@ public class SuggestedItemFragment extends Fragment {
     private void inti() {
         suggestedItemRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_item_RV);
         insuranceRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_insurance_RV);
+        carForSaleRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_car_for_sale_RV);
+
         suggestedTV = (TextView) view.findViewById(R.id.fragment_suggested_item_suggested_tv);
         SeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_tv);
     }

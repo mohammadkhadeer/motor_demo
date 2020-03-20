@@ -267,7 +267,10 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
                 , getDesInSP(getApplicationContext())
                 , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
                 , "no auction yet", "0", "123", "0"
-                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+                , getVideoPath(mVideoURI)
+
+                , selectedCategory, selectedCategory
+
                 , carDetailsModel.getCarMakeStr()
                 , carDetailsModel.getModelStr()
                 , carDetailsModel.getYearStr()
@@ -298,47 +301,47 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         // 4.car for sale/car for rent/exchange/motorcycle/trucks ... in model well be name CCEMT
         progressBar.setVisibility(View.VISIBLE);
         if (selectCategory.equals(getResources().getString(R.string.car_for_sale))) {
-            createCCMETObject(selectCategory);
+            createCCMETObject("Car for sale");
             uploadImagesBeforeUploadCarForSaleModel(imagePathArrL, ccemt, "Car_For_Sale"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.car_for_rent))) {
-            createCCMETObject(selectCategory);
+            createCCMETObject("Car for rent");
             uploadImagesBeforeUploadCarForRentModel(imagePathArrL, ccemt, "Car_For_Rent"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.exchange_car))) {
-            createCCMETObject(selectCategory);
+            createCCMETObject("Exchange car");
             uploadImagesBeforeUploadCarForExchangeModel(imagePathArrL, ccemt, "Car_For_Exchange"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.motorcycle))) {
-            createCCMETObject(selectCategory);
+            createCCMETObject("Motorcycle");
             uploadImagesBeforeUploadCarForMotorcycleModel(imagePathArrL, ccemt, "Car_For_Motorcycle"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.trucks))) {
-            createCCMETObject(selectCategory);
+            createCCMETObject("Trucks");
             uploadImagesBeforeUploadCarForTrucksModel(imagePathArrL, ccemt, "Trucks"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.car_plates))) {
-            createCarPlatesObject(selectCategory);
+            createCarPlatesObject("Car plates");
             uploadImagesBeforeUploadCarPlatesModel(imagePathArrL, carPlatesModel, "Plates"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.wheels_rim))) {
-            createWheelsRimObject(selectCategory);
+            createWheelsRimObject("Wheels rim");
             uploadImagesBeforeUploadWheelsRimModel(imagePathArrL, wheelsRim, "Wheels_Rim"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.accessories))) {
-            createAccAndHunkObject(selectCategory);
+            createAccAndHunkObject("Accessories");
             uploadImagesBeforeUploadAccessoriesModel(imagePathArrL, accAndJunk, "Accessories"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.junk_car))) {
-            createAccAndHunkObject(selectCategory);
+            createAccAndHunkObject("Junk car");
             uploadImagesBeforeUploadJunkCarModel(imagePathArrL, accAndJunk, "JunkCar"
                     , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
         }

@@ -331,5 +331,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         getDataBaseInstance(getApplicationContext()).deleteAllItem();
+        getDataBaseInstance(getApplicationContext()).deleteCCEMTItem();
+        getDataBaseInstance(getApplicationContext()).deleteWheels_RimItem();
+        getDataBaseInstance(getApplicationContext()).deleteCarPlatesItem();
+        getDataBaseInstance(getApplicationContext()).deleteAccAndJunkItem();
     }
 }

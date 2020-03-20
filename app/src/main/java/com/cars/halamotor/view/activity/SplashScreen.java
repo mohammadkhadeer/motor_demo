@@ -21,10 +21,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkItemInAccAndJunkTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemInCCEMTTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesItemInCarPlatesTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesItemTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertNotificationTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInWheelsRimTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimItemTable;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getAccessoriesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItems;
@@ -50,6 +54,17 @@ public class SplashScreen extends AppCompatActivity {
     List<WheelsRimModel> wheelsRimList = new ArrayList<>();
     List<AccAndJunk> accessoriesArrayL = new ArrayList<>();
     List<AccAndJunk> junkArrayL = new ArrayList<>();
+
+    List<CCEMT> carForRentListIndependent = new ArrayList<>();
+    List<CCEMT> carForSaleListIndependent = new ArrayList<>();
+    List<CCEMT> carForExchangeListIndependent = new ArrayList<>();
+    List<CCEMT> motorcycleListIndependent = new ArrayList<>();
+    List<CCEMT> truckListIndependent = new ArrayList<>();
+    List<CarPlatesModel> carPlatesListIndependent = new ArrayList<>();
+    List<WheelsRimModel> wheelsRimListIndependent = new ArrayList<>();
+    List<AccAndJunk> accessoriesArrayLIndependent = new ArrayList<>();
+    List<AccAndJunk> junkArrayLIndependent = new ArrayList<>();
+
     DBHelper myDB;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
@@ -71,14 +86,145 @@ public class SplashScreen extends AppCompatActivity {
         getCarForRent();
         getCarForSale();
         getCarExchange();
+        //////////////Independent list in main screen 9 item in every list
+        getCarExchangeIndependent();
+        getCarForSaleIndependent();
+        getCarForRentIndependent();
+        getMotorcycleIndependent();
+        getTrucksIndependent();
+        getWheelsRimIndependent();
+        getCarPlatesIndependent();
+        getAccessoriesIndependent();
+        getJunkCarIndependent();
+
         transportToMainActivity();
 
     }
 
+    private void getJunkCarIndependent() {
+        junkArrayLIndependent = getJunkCarItems(junkArrayLIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                insertAccAndJunkItemInAccAndJunk(junkArrayLIndependent);
+            }
+        }, 3700);
+    }
+
+    private void getAccessoriesIndependent() {
+        accessoriesArrayLIndependent = getAccessoriesItems(accessoriesArrayLIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() { insertAccAndJunkItemInAccAndJunk(accessoriesArrayLIndependent);
+            }
+        }, 3700);
+    }
+
+    private void insertAccAndJunkItemInAccAndJunk(List<AccAndJunk> accAndJunksArrayLIndependent) {
+        for (int i=0;i<accAndJunksArrayLIndependent.size();i++)
+        {
+            insertAccAndJunkItemInAccAndJunkTable(accAndJunksArrayLIndependent.get(i),myDB);
+        }
+    }
+
+    private void getCarPlatesIndependent() {
+        carPlatesListIndependent = getPlatesItems(carPlatesListIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                insertCarPlatesToCarPlatesTable(carPlatesListIndependent);
+            }
+        }, 3700);
+    }
+
+    private void insertCarPlatesToCarPlatesTable(List<CarPlatesModel> carPlatesListIndependent) {
+        for (int i=0;i<carPlatesListIndependent.size();i++)
+        {
+            insertCarPlatesItemInCarPlatesTable(carPlatesListIndependent.get(i),myDB);
+        }
+    }
+
+    private void getWheelsRimIndependent() {
+        wheelsRimListIndependent = getWheelsRimItems(wheelsRimListIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                insertWheelsRimToWheelsRimTable(wheelsRimListIndependent);
+            }
+        }, 3700);
+    }
+
+    private void insertWheelsRimToWheelsRimTable(List<WheelsRimModel> wheelsRimListIndependent) {
+        for (int i=0;i<wheelsRimListIndependent.size();i++)
+        {
+            insertWheelsRimInWheelsRimTable(wheelsRimListIndependent.get(i),myDB);
+        }
+    }
+
+    private void getTrucksIndependent() {
+        truckListIndependent = getTruckItems(truckListIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                insertCarForSaleToCCMETTable(truckListIndependent);
+            }
+        }, 3700);
+    }
+
+    private void getMotorcycleIndependent() {
+        motorcycleListIndependent = getMotorcycleItems(motorcycleListIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                insertCarForSaleToCCMETTable(motorcycleListIndependent);
+            }
+        }, 3700);
+    }
+
+    private void getCarForRentIndependent() {
+        carForRentListIndependent = getCarForRentItems(carForRentListIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                insertCarForSaleToCCMETTable(carForRentListIndependent);
+            }
+        }, 3700);
+    }
+
+    private void getCarExchangeIndependent() {
+        carForExchangeListIndependent = getCarForExchangeItems(carForExchangeListIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() { insertCarForSaleToCCMETTable(carForExchangeListIndependent);
+            }
+        }, 3700);
+    }
+
+    private void getCarForSaleIndependent() {
+        carForSaleListIndependent = getCarForSaleItems(carForSaleListIndependent,9);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                insertCarForSaleToCCMETTable(carForSaleListIndependent);
+            }
+        }, 3700);
+    }
+
+    private void insertCarForSaleToCCMETTable(List<CCEMT> ccemtList) {
+        for (int i = 0; i< ccemtList.size(); i++)
+        {
+            insertCCEMTItemInCCEMTTable(ccemtList.get(i),myDB);
+        }
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void addWelcomeNotifications() {
-        Log.i("TAG",getWelcomeNotificationsInSP(this));
-        if (!getWelcomeNotificationsInSP(this).equals("created"))
+        if (getWelcomeNotificationsInSP(this) ==null || !getWelcomeNotificationsInSP(this).equals("created"))
         {
             NotificationComp welcomeNotification = getNotification(
                     "welcome", "Hala Motor" ,this,"welcome","welcome","welcome"
