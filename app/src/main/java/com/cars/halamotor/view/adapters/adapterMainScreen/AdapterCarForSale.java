@@ -3,7 +3,10 @@ package com.cars.halamotor.view.adapters.adapterMainScreen;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,12 +45,45 @@ public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.Vi
 
     @Override
     public void onBindViewHolder(final AdapterCarForSale.ViewHolder holder, final int position) {
-        makeAllTextViewVISIBLE(holder);
-        fillImage(holder, position, context);
-        fillPriceAndTitleAndUserName(holder, position, context);
-        changeFont(context, holder);
-        fillNumberOfImageAndNumberOfComment(holder, position);
-        checkTypeAndFillTypeDetails(context,holder,position);
+        if (carForSaleArrayL.get(position).getItemActiveOrNot().equals("1")) {
+            makeAllTextViewVISIBLE(holder);
+            fillImage(holder, position, context);
+            fillTitleAndUserName(holder, position, context);
+            fillPrice(holder, position, context);
+            changeFont(context, holder);
+            fillNumberOfImageAndNumberOfComment(holder, position);
+            checkTypeAndFillTypeDetails(context, holder, position);
+        }
+    }
+
+    private void fillPrice(ViewHolder holder, int position, Context context) {
+        if (carForSaleArrayL.get(position).getItemPostEdit().equals("0"))
+        {
+            holder.itemPriceTV.setText(carForSaleArrayL.get(position).getItemPrice()
+                    +" "+context.getResources().getString(R.string.price_contry));
+            holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+            //set new price empty to stay design
+            holder.itemNewPriceTV.setText("");
+            holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+        }else{
+            holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+            //change text color
+            holder.itemPriceTV.setTextColor(context.getResources().getColor(R.color.colorSilver));
+            //set line above old price
+            holder.itemPriceTV.setPaintFlags(holder.itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+            //change size new price
+            holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+
+            holder.itemNewPriceTV.setText(carForSaleArrayL.get(position).getItemNewPrice()
+                    +" "+context.getResources().getString(R.string.price_contry));
+            //fill old price
+            holder.itemPriceTV.setText(carForSaleArrayL.get(position).getItemPrice()
+                    +" "+context.getResources().getString(R.string.price_contry));
+            //VISIBLE fire image view
+            holder.fireIV.setVisibility(View.VISIBLE);
+
+        }
     }
 
     private void makeAllTextViewVISIBLE(ViewHolder holder) {
@@ -63,9 +99,7 @@ public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.Vi
         fillCarDetails(position, holder);
     }
 
-    private void fillPriceAndTitleAndUserName(ViewHolder holder, int position, Context context) {
-        holder.itemPriceTV.setText(carForSaleArrayL.get(position).getItemPrice()
-        +" "+context.getResources().getString(R.string.price_contry));
+    private void fillTitleAndUserName(ViewHolder holder, int position, Context context) {
         holder.itemTitleTV.setText(carForSaleArrayL.get(position).getItemName());
         holder.userNameTV.setText(carForSaleArrayL.get(position).getItemUserName());
     }
@@ -118,10 +152,10 @@ public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.Vi
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView itemImage,userImage;
+        ImageView itemImage,userImage,fireIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1, text2, text3
-                , text4,itemTitleTV,itemPriceTV,itemCityTV
+                , text4,itemTitleTV,itemPriceTV,itemNewPriceTV,itemCityTV
                 ,userNameTV;
 
         @SuppressLint("WrongViewCast")
@@ -131,7 +165,8 @@ public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.Vi
             userImage = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_item_user_image);
             numberOfCommentTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_number_of_item_comment);
             itemImage = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_image_view);
-            
+            fireIV = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_fire_iv);
+
             text1 = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_text1);
             text2 = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_text2);
             text3 = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_text3);
@@ -140,7 +175,9 @@ public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.Vi
 
             itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_car_title);
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_car_price);
+            itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_car_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_user_name);
+
         }
     }
 

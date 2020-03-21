@@ -68,7 +68,9 @@ public class ReadFunction {
         Cursor res = getDataBaseInstance(context).descendingCCEMT();
         while (res.moveToNext()) {
 
-            if (res.getString(3).replace("\n", "").equals("Car for sale")) {
+            if (res.getString(3).replace("\n", "").equals("Car for sale")
+                && res.getString(31).replace("\n", "").equals("0")
+                ) {
                 CCEMTFirestCase carForSaleCCEMT = new CCEMTFirestCase(
                         res.getString(1).replace("\n", "")
                         , res.getString(2).replace("\n", "")
