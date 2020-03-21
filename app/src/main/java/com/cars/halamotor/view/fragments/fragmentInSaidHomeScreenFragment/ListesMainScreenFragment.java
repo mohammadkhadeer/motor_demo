@@ -11,16 +11,25 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.SuggestedItem;
+import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.view.adapters.AdapterInsurance;
+import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterAccAndJunkFirstCase;
+import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCarPlatesFirstCase;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterSuggestedItem;
+import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterWheelsRim;
 import com.cars.halamotor.view.adapters.adapterMainScreen.CCEMTAllCases;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.dataBase.ReadFunction.getAccAndJunkDatabase;
 import static com.cars.halamotor.dataBase.ReadFunction.getCarForSaleDatabase;
+import static com.cars.halamotor.dataBase.ReadFunction.getCarPlatesDatabase;
 import static com.cars.halamotor.dataBase.ReadFunction.getSuggestedItemFromDatabase;
+import static com.cars.halamotor.dataBase.ReadFunction.getWheelsRimDatabase;
 
 public class ListesMainScreenFragment extends Fragment {
 
@@ -38,17 +47,27 @@ public class ListesMainScreenFragment extends Fragment {
     ArrayList<CCEMTFirestCase> carExchangeArrayL = new ArrayList<CCEMTFirestCase>();
     ArrayList<CCEMTFirestCase> motorcycleArrayL = new ArrayList<CCEMTFirestCase>();
     ArrayList<CCEMTFirestCase> trucksArrayL = new ArrayList<CCEMTFirestCase>();
+    ArrayList<WheelsRimFirstCase> wheelsRimArrayL = new ArrayList<WheelsRimFirstCase>();
+    ArrayList<CarPlatesFirstCase> carPlatesArrayL = new ArrayList<CarPlatesFirstCase>();
+    ArrayList<AccAndJunkFirstCase> accessoriesArrayL = new ArrayList<AccAndJunkFirstCase>();
+    ArrayList<AccAndJunkFirstCase> junkArrayL = new ArrayList<AccAndJunkFirstCase>();
 
     CCEMTAllCases adapterCarForSale,getAdapterCarRentSale,adapterCarExchange,adapterCarMotorcycle
             , adapterTrucks;
 
+    AdapterWheelsRim adapterWheelsRim;
+    AdapterCarPlatesFirstCase adapterCarPlatesFirstCase;
+    AdapterAccAndJunkFirstCase adapterAccessoriesFirstCase,adapterJunkFirstCase;
+
     RecyclerView suggestedItemRecyclerView,insuranceRecyclerView,carForSaleRecyclerView
             ,carForRentRecyclerView,carExchangeRecyclerView,motorcycleRecyclerView
-            ,junkCarRecyclerView;
+            ,junkCarRecyclerView,wheelsRimRecyclerView,carPlatesRecyclerView
+            ,accessoriesRecyclerView,junkRecyclerView;
 
     RecyclerView.LayoutManager layoutManagerSuggested,layoutManagerInsurance,layoutManagerCarForSale
             ,layoutManagerCarRentSale,layoutManagerCarExchange,layoutManagerCarMotorcycle
-            , layoutManagerTrucks;
+            , layoutManagerTrucks,layoutManagerWheelsRim,carPlatesWheelsRim
+            , layoutManagerAccessories,layoutManagerJunk;
 
     @Override
     public void onAttach(Context context) {
@@ -60,12 +79,16 @@ public class ListesMainScreenFragment extends Fragment {
         carExchangeArrayL = getCarForSaleDatabase(context,"Exchange car");
         motorcycleArrayL = getCarForSaleDatabase(context,"Motorcycle");
         trucksArrayL = getCarForSaleDatabase(context,"Trucks");
+        wheelsRimArrayL = getWheelsRimDatabase(context);
+        carPlatesArrayL = getCarPlatesDatabase(context);
+        accessoriesArrayL = getAccAndJunkDatabase(context,"Accessories");
+        junkArrayL = getAccAndJunkDatabase(context,"Junk car");
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_suggested_item, container, false);
+        view = inflater.inflate(R.layout.fragment_list_main_item, container, false);
         inti();
         createSuggestedItemRV();
         createInsuranceRV();
@@ -74,7 +97,55 @@ public class ListesMainScreenFragment extends Fragment {
         createCarExchangeRV();
         createMotorcycleRV();
         createJunkCarRV();
+        createWheelsRimRV();
+        createCarPlatesRV();
+        createAccessoriesRV();
+        createJunkRV();
         return view;
+    }
+
+    private void createJunkRV() {
+        junkRecyclerView.setHasFixedSize(true);
+        layoutManagerJunk = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
+
+        junkRecyclerView.setLayoutManager(layoutManagerJunk);
+        adapterJunkFirstCase =new AdapterAccAndJunkFirstCase(getActivity()
+                , junkArrayL,"suggested_fragment");
+        junkRecyclerView.setAdapter(adapterJunkFirstCase);
+    }
+
+    private void createAccessoriesRV() {
+        accessoriesRecyclerView.setHasFixedSize(true);
+        layoutManagerAccessories = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
+
+        accessoriesRecyclerView.setLayoutManager(layoutManagerAccessories);
+        adapterAccessoriesFirstCase =new AdapterAccAndJunkFirstCase(getActivity()
+                , accessoriesArrayL,"suggested_fragment");
+        accessoriesRecyclerView.setAdapter(adapterAccessoriesFirstCase);
+    }
+
+    private void createCarPlatesRV() {
+        carPlatesRecyclerView.setHasFixedSize(true);
+        carPlatesWheelsRim = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
+
+        carPlatesRecyclerView.setLayoutManager(carPlatesWheelsRim);
+        adapterCarPlatesFirstCase =new AdapterCarPlatesFirstCase(getActivity()
+                , carPlatesArrayL,"suggested_fragment");
+        carPlatesRecyclerView.setAdapter(adapterCarPlatesFirstCase);
+    }
+
+    private void createWheelsRimRV() {
+        wheelsRimRecyclerView.setHasFixedSize(true);
+        layoutManagerWheelsRim = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
+
+        wheelsRimRecyclerView.setLayoutManager(layoutManagerWheelsRim);
+        adapterWheelsRim =new AdapterWheelsRim(getActivity()
+                , wheelsRimArrayL,"suggested_fragment");
+        wheelsRimRecyclerView.setAdapter(adapterWheelsRim);
     }
 
     private void createJunkCarRV() {
@@ -171,6 +242,10 @@ public class ListesMainScreenFragment extends Fragment {
         carExchangeRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_car_exchange_RV);
         motorcycleRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_motorcycle_RV);
         junkCarRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_trucks_RV);
+        wheelsRimRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_list_main_wheels_rim_RV);
+        carPlatesRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_list_main_car_plates_RV);
+        accessoriesRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_list_main_accessories_RV);
+        junkRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_list_main_junk_RV);
 
         suggestedTV = (TextView) view.findViewById(R.id.fragment_suggested_item_suggested_tv);
         SeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_tv);

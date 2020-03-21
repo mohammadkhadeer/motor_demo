@@ -15,35 +15,35 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder>{
+public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.ViewHolder>{
 
     private final Context context;
-    public ArrayList<CCEMTFirestCase> carForSaleArrayL ;
+    public ArrayList<WheelsRimFirstCase> wheelsRimArrayL ;
     String fromWhereCome;
 
-    public CCEMTAllCases
-            (Context context, ArrayList<CCEMTFirestCase> carForSaleArrayL
+    public AdapterWheelsRim
+            (Context context, ArrayList<WheelsRimFirstCase> wheelsRimArrayL
             ,String fromWhereCome)
     {   this.context = context;
-        this.carForSaleArrayL = carForSaleArrayL;
+        this.wheelsRimArrayL = wheelsRimArrayL;
         this.fromWhereCome = fromWhereCome;
     }
 
-    public CCEMTAllCases.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    public AdapterWheelsRim.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
         View view = LayoutInflater.from(viewGroup.getContext()).
-                inflate(R.layout.adapter_ccemt_first_case, viewGroup, false);
+                inflate(R.layout.adapter_wheels_rim, viewGroup, false);
         return new ViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(final CCEMTAllCases.ViewHolder holder, final int position) {
-        if (carForSaleArrayL.get(position).getItemActiveOrNot().equals("1")) {
-            makeAllTextViewVISIBLE(holder);
+    public void onBindViewHolder(final AdapterWheelsRim.ViewHolder holder, final int position) {
+        if (wheelsRimArrayL.get(position).getItemActiveOrNot().equals("1")) {
             fillImage(holder, position, context);
             fillTitleAndUserName(holder, position, context);
             fillPrice(holder, position, context);
@@ -54,9 +54,9 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
     }
 
     private void fillPrice(ViewHolder holder, int position, Context context) {
-        if (carForSaleArrayL.get(position).getItemPostEdit().equals("0"))
+        if (wheelsRimArrayL.get(position).getItemPostEdit().equals("0"))
         {
-            holder.itemPriceTV.setText(carForSaleArrayL.get(position).getItemPrice()
+            holder.itemPriceTV.setText(wheelsRimArrayL.get(position).getItemPrice()
                     +" "+context.getResources().getString(R.string.price_contry));
             holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
             //set new price empty to stay design
@@ -72,10 +72,10 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
             //change size new price
             holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
 
-            holder.itemNewPriceTV.setText(carForSaleArrayL.get(position).getItemNewPrice()
+            holder.itemNewPriceTV.setText(wheelsRimArrayL.get(position).getItemNewPrice()
                     +" "+context.getResources().getString(R.string.price_contry));
             //fill old price
-            holder.itemPriceTV.setText(carForSaleArrayL.get(position).getItemPrice()
+            holder.itemPriceTV.setText(wheelsRimArrayL.get(position).getItemPrice()
                     +" "+context.getResources().getString(R.string.price_contry));
             //VISIBLE fire image view
             holder.fireIV.setVisibility(View.VISIBLE);
@@ -83,30 +83,18 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
         }
     }
 
-    private void makeAllTextViewVISIBLE(ViewHolder holder) {
-        //we use this method because some time need to gone some textView
-        holder.text1.setVisibility(View.VISIBLE);
-        holder.text2.setVisibility(View.VISIBLE);
-        holder.text3.setVisibility(View.VISIBLE);
-        holder.text4.setVisibility(View.VISIBLE);
-        holder.itemCityTV.setVisibility(View.VISIBLE);
-    }
-
     private void checkTypeAndFillTypeDetails(Context context, ViewHolder holder, int position) {
         fillCarDetails(position, holder);
     }
 
     private void fillTitleAndUserName(ViewHolder holder, int position, Context context) {
-        holder.itemTitleTV.setText(carForSaleArrayL.get(position).getItemName());
-        holder.userNameTV.setText(carForSaleArrayL.get(position).getItemUserName());
+        holder.itemTitleTV.setText(wheelsRimArrayL.get(position).getItemName());
+        holder.userNameTV.setText(wheelsRimArrayL.get(position).getItemUserName());
     }
 
     private void fillCarDetails(int position, ViewHolder holder) {
-        holder.text1.setText(carForSaleArrayL.get(position).getItemCarMake());
-        holder.text2.setText(carForSaleArrayL.get(position).getItemCarYeay());
-        holder.text3.setText(carForSaleArrayL.get(position).getItemCarCondition());
-        holder.text4.setText(carForSaleArrayL.get(position).getItemCarKilometers());
-        holder.itemCityTV.setText(carForSaleArrayL.get(position).getItemCity());
+        holder.text1.setText(wheelsRimArrayL.get(position).getItemCity());
+        holder.text4.setText(wheelsRimArrayL.get(position).getWheelsSize());
 
     }
 
@@ -114,10 +102,7 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
         holder.numberOfImageTV.setTypeface(Functions.changeFontGeneral(context));
         holder.numberOfCommentTV.setTypeface(Functions.changeFontGeneral(context));
         holder.text1.setTypeface(Functions.changeFontGeneral(context));
-        holder.text2.setTypeface(Functions.changeFontGeneral(context));
-        holder.text3.setTypeface(Functions.changeFontGeneral(context));
         holder.text4.setTypeface(Functions.changeFontGeneral(context));
-        holder.itemCityTV.setTypeface(Functions.changeFontGeneral(context));
         holder.userNameTV.setTypeface(Functions.changeFontGeneral(context));
 
         holder.itemPriceTV.setTypeface(Functions.changeFontBold(context));
@@ -125,18 +110,18 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
     }
 
     private void fillNumberOfImageAndNumberOfComment(ViewHolder holder, int position) {
-        holder.numberOfCommentTV.setText(carForSaleArrayL.get(position).getItemNumberOfComments());
-        holder.numberOfImageTV.setText(carForSaleArrayL.get(position).getItemNumberOfImage());
+        holder.numberOfCommentTV.setText(wheelsRimArrayL.get(position).getItemNumberOfComments());
+        holder.numberOfImageTV.setText(wheelsRimArrayL.get(position).getItemNumberOfImage());
     }
 
     private void fillImage(final ViewHolder holder, int position, Context context) {
 
-        Picasso.with(context).load(carForSaleArrayL.get(position).getItemImage())
+        Picasso.with(context).load(wheelsRimArrayL.get(position).getItemImage())
                 .config(Bitmap.Config.RGB_565)
                 .fit().centerCrop()
                 .into(holder.itemImage);
 
-        Picasso.with(context).load(carForSaleArrayL.get(position).getItemUserImage())
+        Picasso.with(context).load(wheelsRimArrayL.get(position).getItemUserImage())
                 .config(Bitmap.Config.RGB_565)
                 .fit().centerCrop()
                 .into(holder.userImage);
@@ -145,35 +130,33 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
 
     @Override
     public int getItemCount() {
-        return carForSaleArrayL.size();
+        return wheelsRimArrayL.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         ImageView itemImage,userImage,fireIV;
         TextView numberOfImageTV,numberOfCommentTV
-                , text1, text2, text3
-                , text4,itemTitleTV,itemPriceTV,itemNewPriceTV,itemCityTV
+                , text1
+                , text4,itemTitleTV,itemPriceTV,itemNewPriceTV
                 ,userNameTV;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
             super(itemView);
-            numberOfImageTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_number_of_item_image);
-            userImage = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_item_user_image);
-            numberOfCommentTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_number_of_item_comment);
-            itemImage = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_image_view);
-            fireIV = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_fire_iv);
+            numberOfImageTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_number_of_item_image);
+            userImage = (ImageView) itemView.findViewById(R.id.adapter_wheels_rim_user_image);
+            numberOfCommentTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_number_of_item_comment);
+            itemImage = (ImageView) itemView.findViewById(R.id.adapter_wheels_rim_image_view);
+            fireIV = (ImageView) itemView.findViewById(R.id.adapter_wheels_rim_fire_iv);
 
-            text1 = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_text1);
-            text2 = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_text2);
-            text3 = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_text3);
-            text4 = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_text4);
-            itemCityTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_city);
+            text1 = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_text1);
 
-            itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_car_title);
-            itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_car_price);
-            itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_car_new_price);
-            userNameTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_user_name);
+            text4 = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_text4);
+
+            itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_title);
+            itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_price);
+            itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_new_price);
+            userNameTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_user_name);
 
         }
     }

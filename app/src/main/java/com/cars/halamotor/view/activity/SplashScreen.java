@@ -40,6 +40,7 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getPlatesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getTruckItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
 import static com.cars.halamotor.functions.Functions.getNotification;
+import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getWelcomeNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.welcomeNotifications;
 
@@ -99,6 +100,19 @@ public class SplashScreen extends AppCompatActivity {
 
         transportToMainActivity();
 
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    private void addWelcomeNotifications() {
+        if (getWelcomeNotificationsInSP(this) ==null)
+        {
+            NotificationComp welcomeNotification = getNotification(
+                    "welcome", "Hala Motor" ,this,"welcome","welcome","welcome"
+                    ,"R.drawable.logo"
+            );
+            insertNotificationTable(welcomeNotification,getDataBaseInstance(this));
+            welcomeNotifications(this,sharedPreferences,editor,"created");
+        }
     }
 
     private void getJunkCarIndependent() {
@@ -220,19 +234,6 @@ public class SplashScreen extends AppCompatActivity {
         {
             insertCCEMTItemInCCEMTTable(ccemtList.get(i),myDB);
         }
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void addWelcomeNotifications() {
-        if (getWelcomeNotificationsInSP(this) ==null || !getWelcomeNotificationsInSP(this).equals("created"))
-        {
-            NotificationComp welcomeNotification = getNotification(
-                    "welcome", "Hala Motor" ,this,"welcome","welcome","welcome"
-                    ,"R.drawable.logo"
-            );
-            insertNotificationTable(welcomeNotification,getDataBaseInstance(this));
-        }
-        welcomeNotifications(this,sharedPreferences,editor,"created");
     }
 
     private void getJunkCar() {

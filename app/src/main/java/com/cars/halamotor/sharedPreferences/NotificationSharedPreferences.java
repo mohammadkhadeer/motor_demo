@@ -32,9 +32,8 @@ public class NotificationSharedPreferences {
         SharedPreferences shared = context.getSharedPreferences(NOTIFICATION, MODE_PRIVATE);
         //can use any comp from user info to check
         unreadNumber = (shared.getString("welcome_notification", ""));
-        if (unreadNumber.equals("") || unreadNumber == null) {
+        if (unreadNumber.equals("") || unreadNumber == null || !unreadNumber.equals("created"))
             return  null;
-        }
         else
             return unreadNumber;
 

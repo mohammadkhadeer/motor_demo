@@ -1,5 +1,7 @@
 package com.cars.halamotor.dataBase;
 
+import android.util.Log;
+
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;

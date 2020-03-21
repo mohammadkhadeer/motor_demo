@@ -24,6 +24,9 @@ import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.sharedPreferences.SharedPreferencesInApp;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+
 import java.text.SimpleDateFormat;
 import java.time.Instant;
 import java.util.ArrayList;
@@ -40,6 +43,18 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTit
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
 
 public class Functions {
+
+
+    public static String getCarPlatesNumber(String carNumber) {
+        String newNumber ="";
+        char[] chars = carNumber.toCharArray();
+        int j = carNumber.length() -2;
+        for (int i = 0; i < j; i++) {
+            newNumber = newNumber + chars[i];
+        }
+
+        return newNumber;
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public static NotificationComp getNotification(String process, String notificationTitle
