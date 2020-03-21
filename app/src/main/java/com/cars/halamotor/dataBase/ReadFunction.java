@@ -226,13 +226,12 @@ public class ReadFunction {
         return carForSaleArrayL;
     }
 
-    public static ArrayList<NotificationComp> getNotificationFromDatabase(Context context
-            ,int numberOfNotifications) {
+    public static ArrayList<NotificationComp> getNotificationFromDatabase(Context context,int numberOfNotification) {
         ArrayList<NotificationComp> notificationCompsArrayL = new ArrayList<NotificationComp>();
-        Cursor res = getDataBaseInstance(context).descendingNotification(numberOfNotifications);
+        Cursor res = getDataBaseInstance(context).descendingNotification();
         while (res.moveToNext()) {
             int curSize=res.getCount();
-            if (curSize > numberOfNotifications) {
+            if (curSize < numberOfNotification) {
                 //we can calling via number of col cos Suggested model build it like database exactly
                 NotificationComp notificationComp = new NotificationComp(
                         res.getString(1).replace("\n", "")

@@ -42,6 +42,7 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
 import static com.cars.halamotor.functions.Functions.getNotification;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getWelcomeNotificationsInSP;
+import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.welcomeNotifications;
 
 public class SplashScreen extends AppCompatActivity {
@@ -110,8 +111,11 @@ public class SplashScreen extends AppCompatActivity {
                     "welcome", "Hala Motor" ,this,"welcome","welcome","welcome"
                     ,"R.drawable.logo"
             );
-            insertNotificationTable(welcomeNotification,getDataBaseInstance(this));
-            welcomeNotifications(this,sharedPreferences,editor,"created");
+            if (insertNotificationTable(welcomeNotification,getDataBaseInstance(this)) == true)
+            {
+                welcomeNotifications(this,sharedPreferences,editor,"created");
+                updateNumberUnreadNotifications(this,sharedPreferences,editor,String.valueOf(1));
+            }
         }
     }
 

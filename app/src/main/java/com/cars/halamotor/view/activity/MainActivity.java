@@ -316,14 +316,13 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void updateNumberUnCheckedNotifications() {
-        if (getUnreadNotificationsInSP(MainActivity.this) != null)
+        if (getUnreadNotificationsInSP(this) != null)
         {
             int num = Integer.parseInt(getUnreadNotificationsInSP(MainActivity.this));
             if(num >0)
                 notificationsBBT.setBadgeCount(num);
             else
                 notificationsBBT.setBadgeCount(0);
-
         }
     }
 
