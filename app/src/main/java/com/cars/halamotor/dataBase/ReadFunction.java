@@ -63,12 +63,12 @@ public class ReadFunction {
         return suggestedItemsArrayL;
     }
 
-    public static ArrayList<CCEMTFirestCase> getCarForSaleDatabase(Context context) {
+    public static ArrayList<CCEMTFirestCase> getCarForSaleDatabase(Context context,String category) {
         ArrayList<CCEMTFirestCase> carForSaleArrayL = new ArrayList<CCEMTFirestCase>();
         Cursor res = getDataBaseInstance(context).descendingCCEMT();
         while (res.moveToNext()) {
 
-            if (res.getString(3).replace("\n", "").equals("Car for sale")
+            if (res.getString(3).replace("\n", "").equals(category)
                 && res.getString(31).replace("\n", "").equals("0")
                 ) {
                 CCEMTFirestCase carForSaleCCEMT = new CCEMTFirestCase(

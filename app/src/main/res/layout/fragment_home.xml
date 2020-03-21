@@ -269,7 +269,7 @@
             <fragment
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.SuggestedItemFragment"
+                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.ListesMainScreenFragment"
                 tools:layout="@layout/adapter_suggested_item"
                 />
 

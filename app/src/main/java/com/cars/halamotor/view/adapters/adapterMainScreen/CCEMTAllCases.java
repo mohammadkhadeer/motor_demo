@@ -3,7 +3,6 @@ package com.cars.halamotor.view.adapters.adapterMainScreen;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -15,20 +14,18 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
-import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
-import com.cars.halamotor.model.SuggestedItem;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.ViewHolder>{
+public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder>{
 
     private final Context context;
     public ArrayList<CCEMTFirestCase> carForSaleArrayL ;
     String fromWhereCome;
 
-    public AdapterCarForSale
+    public CCEMTAllCases
             (Context context, ArrayList<CCEMTFirestCase> carForSaleArrayL
             ,String fromWhereCome)
     {   this.context = context;
@@ -36,7 +33,7 @@ public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.Vi
         this.fromWhereCome = fromWhereCome;
     }
 
-    public AdapterCarForSale.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    public CCEMTAllCases.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.adapter_car_for_sale, viewGroup, false);
@@ -44,7 +41,7 @@ public class AdapterCarForSale extends RecyclerView.Adapter<AdapterCarForSale.Vi
     }
 
     @Override
-    public void onBindViewHolder(final AdapterCarForSale.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final CCEMTAllCases.ViewHolder holder, final int position) {
         if (carForSaleArrayL.get(position).getItemActiveOrNot().equals("1")) {
             makeAllTextViewVISIBLE(holder);
             fillImage(holder, position, context);
