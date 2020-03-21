@@ -19,13 +19,13 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder>{
+public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCases.ViewHolder>{
 
     private final Context context;
     public ArrayList<CCEMTFirestCase> carForSaleArrayL ;
     String fromWhereCome;
 
-    public CCEMTAllCases
+    public AdapterCCEMTAllCases
             (Context context, ArrayList<CCEMTFirestCase> carForSaleArrayL
             ,String fromWhereCome)
     {   this.context = context;
@@ -33,7 +33,7 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
         this.fromWhereCome = fromWhereCome;
     }
 
-    public CCEMTAllCases.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
+    public AdapterCCEMTAllCases.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
         View view = LayoutInflater.from(viewGroup.getContext()).
                 inflate(R.layout.adapter_ccemt_first_case, viewGroup, false);
@@ -41,7 +41,7 @@ public class CCEMTAllCases extends RecyclerView.Adapter<CCEMTAllCases.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(final CCEMTAllCases.ViewHolder holder, final int position) {
+    public void onBindViewHolder(final AdapterCCEMTAllCases.ViewHolder holder, final int position) {
         if (carForSaleArrayL.get(position).getItemActiveOrNot().equals("1")) {
             makeAllTextViewVISIBLE(holder);
             fillImage(holder, position, context);

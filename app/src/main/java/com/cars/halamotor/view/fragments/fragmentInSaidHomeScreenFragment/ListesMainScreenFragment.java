@@ -21,7 +21,7 @@ import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterAccAndJunkFirst
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCarPlatesFirstCase;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterSuggestedItem;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterWheelsRim;
-import com.cars.halamotor.view.adapters.adapterMainScreen.CCEMTAllCases;
+import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCCEMTAllCases;
 
 import java.util.ArrayList;
 
@@ -52,7 +52,7 @@ public class ListesMainScreenFragment extends Fragment {
     ArrayList<AccAndJunkFirstCase> accessoriesArrayL = new ArrayList<AccAndJunkFirstCase>();
     ArrayList<AccAndJunkFirstCase> junkArrayL = new ArrayList<AccAndJunkFirstCase>();
 
-    CCEMTAllCases adapterCarForSale,getAdapterCarRentSale,adapterCarExchange,adapterCarMotorcycle
+    AdapterCCEMTAllCases adapterCarForSale,getAdapterCarRentSale,adapterCarExchange,adapterCarMotorcycle
             , adapterTrucks;
 
     AdapterWheelsRim adapterWheelsRim;
@@ -154,7 +154,7 @@ public class ListesMainScreenFragment extends Fragment {
                 LinearLayoutManager.HORIZONTAL, false);
 
         junkCarRecyclerView.setLayoutManager(layoutManagerTrucks);
-        adapterTrucks =new CCEMTAllCases(getActivity()
+        adapterTrucks =new AdapterCCEMTAllCases(getActivity()
                 , trucksArrayL,"suggested_fragment");
         junkCarRecyclerView.setAdapter(adapterTrucks);
     }
@@ -165,7 +165,7 @@ public class ListesMainScreenFragment extends Fragment {
                 LinearLayoutManager.HORIZONTAL, false);
 
         motorcycleRecyclerView.setLayoutManager(layoutManagerCarMotorcycle);
-        adapterCarMotorcycle =new CCEMTAllCases(getActivity()
+        adapterCarMotorcycle =new AdapterCCEMTAllCases(getActivity()
                 ,motorcycleArrayL,"suggested_fragment");
         motorcycleRecyclerView.setAdapter(adapterCarMotorcycle);
     }
@@ -176,7 +176,7 @@ public class ListesMainScreenFragment extends Fragment {
                 LinearLayoutManager.HORIZONTAL, false);
 
         carExchangeRecyclerView.setLayoutManager(layoutManagerCarExchange);
-        adapterCarExchange =new CCEMTAllCases(getActivity()
+        adapterCarExchange =new AdapterCCEMTAllCases(getActivity()
                 ,carExchangeArrayL,"suggested_fragment");
         carExchangeRecyclerView.setAdapter(adapterCarExchange);
     }
@@ -187,7 +187,7 @@ public class ListesMainScreenFragment extends Fragment {
                 LinearLayoutManager.HORIZONTAL, false);
 
         carForRentRecyclerView.setLayoutManager(layoutManagerCarRentSale);
-        getAdapterCarRentSale =new CCEMTAllCases(getActivity()
+        getAdapterCarRentSale =new AdapterCCEMTAllCases(getActivity()
                 ,carForRentArrayL,"suggested_fragment");
         carForRentRecyclerView.setAdapter(getAdapterCarRentSale);
     }
@@ -198,7 +198,7 @@ public class ListesMainScreenFragment extends Fragment {
                 LinearLayoutManager.HORIZONTAL, false);
 
         carForSaleRecyclerView.setLayoutManager(layoutManagerCarForSale);
-        adapterCarForSale =new CCEMTAllCases(getActivity()
+        adapterCarForSale =new AdapterCCEMTAllCases(getActivity()
                 ,carForSaleArrayL,"suggested_fragment");
         carForSaleRecyclerView.setAdapter(adapterCarForSale);
     }
