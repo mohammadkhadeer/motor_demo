@@ -23,6 +23,7 @@
     <string name="wheels_rim_size">Wheels rim size</string>
     <string name="trucks">Trucks</string>
     <string name="junk_car">Junk car</string>
+    <string name="suggested_to_you">Suggested to you</string>
     <string name="next">Next</string>
     <string name="reset">Reset</string>
     <string name="upload_video">Add video</string>
@@ -32,6 +33,7 @@
     <string name="upload_ad">Save and insert the add</string>
     <string name="process_now">You well do </string>
     <string name="see_all">See all</string>
+    <string name="finish_ur_insurance_in_mint">Finish your insurance mintes</string>
 
     <string name="burned_price_1">Your price burned price\?</string>
     <string name="special_car_p_1">Your plates is special\?</string>

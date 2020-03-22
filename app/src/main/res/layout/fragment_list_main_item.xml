@@ -12,6 +12,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -25,14 +26,14 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Sugessted to you"
+                    android:text="@string/suggested_to_you"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_suggested_item_suggested_tv"
                     />
 
@@ -42,7 +43,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -50,7 +51,9 @@
                     android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
-                    android:id="@+id/fragment_suggested_item_see_all_tv"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_stu_tv"
                     />
 
             </RelativeLayout>
@@ -61,7 +64,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/fragment_suggested_item_RV"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:layout_marginLeft="20dp"
             android:layout_marginStart="0dp"
             />
@@ -69,7 +72,7 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="24dp"
             >
             <TextView
                 android:layout_width="wrap_content"
@@ -78,53 +81,9 @@
                 android:textSize="18dp"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
-                android:text="Do you want to insurance your car ?"
+                android:text="@string/finish_ur_insurance_in_mint"
                 />
         </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginLeft="12dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginTop="8dp"
-            android:weightSum="100">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="75">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Insurance"
-                    android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
-                    android:id="@+id/fragment_suggested_item_insurance_tv"
-                    />
-
-            </RelativeLayout>
-
-
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="25">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="See all"
-                    android:textColor="@color/colorPurple"
-                    android:textSize="18dp"
-                    />
-
-            </RelativeLayout>
-
-        </LinearLayout>
 
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
@@ -135,45 +94,46 @@
             android:layout_marginStart="0dp"
             />
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/car_for_sale"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_suggested_item_car_for_sale_tv"
                     />
 
+
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_cfs_tv"
                     />
 
             </RelativeLayout>
@@ -193,40 +153,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/car_for_rent"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_suggested_item_car_for_rent_tv"
                     />
 
+
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_cfr_tv"
                     />
 
             </RelativeLayout>
@@ -246,40 +208,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/exchange_car"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_suggested_item_car_exchange_tv"
                     />
 
+
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_ec_tv"
                     />
 
             </RelativeLayout>
@@ -295,47 +259,46 @@
             android:layout_marginStart="0dp"
             />
 
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/motorcycle"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_suggested_item_car_motorcycle_tv"
                     />
 
+
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_m_tv"
                     />
 
             </RelativeLayout>
@@ -355,40 +318,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/trucks"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_suggested_item_car_trucks_tv"
                     />
 
+
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_t_tv"
                     />
 
             </RelativeLayout>
@@ -408,40 +373,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/wheels_rim"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_list_main_tv"
                     />
 
+
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_wr_tv"
                     />
 
             </RelativeLayout>
@@ -461,40 +428,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/car_plates"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_list_main_car_plates_tv"
                     />
 
+
             </RelativeLayout>
-
-
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_cp_tv"
                     />
 
             </RelativeLayout>
@@ -514,38 +483,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/accessories"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_list_main_accessories_tv"
                     />
+
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_acc_tv"
                     />
 
             </RelativeLayout>
@@ -565,38 +538,42 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:layout_marginTop="24dp"
             android:layout_marginLeft="12dp"
             android:layout_marginRight="12dp"
-            android:layout_marginTop="12dp"
             android:weightSum="100">
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="75">
+                android:layout_weight="80">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/junk_car"
                     android:textColor="@color/colorBlack"
-                    android:textSize="18dp"
+                    android:textSize="19dp"
                     android:id="@+id/fragment_list_main_junk_tv"
                     />
+
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="25">
+                android:layout_weight="20">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/see_all"
+                    android:text="See all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
+                    android:layout_marginLeft="1dp"
+                    android:layout_marginStart="8dp"
+                    android:id="@+id/fragment_suggested_item_see_all_j_tv"
                     />
 
             </RelativeLayout>

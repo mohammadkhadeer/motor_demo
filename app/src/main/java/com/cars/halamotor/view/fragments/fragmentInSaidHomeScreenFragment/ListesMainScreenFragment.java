@@ -248,7 +248,7 @@ public class ListesMainScreenFragment extends Fragment {
         junkRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_list_main_junk_RV);
 
         suggestedTV = (TextView) view.findViewById(R.id.fragment_suggested_item_suggested_tv);
-        SeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_tv);
+//        SeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_tv);
     }
 
 }
