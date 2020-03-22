@@ -8,7 +8,7 @@
     >
 
     <android.support.v7.widget.CardView
-        android:layout_width="250dp"
+        android:layout_width="280dp"
         android:layout_height="390dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
@@ -17,7 +17,7 @@
 
 
         <RelativeLayout
-            android:layout_width="250dp"
+            android:layout_width="280dp"
             android:layout_height="200dp"
             >
 
@@ -221,11 +221,11 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginBottom="3dp"
-                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="11dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
                             android:id="@+id/adapter_suggested_item_text1"
@@ -238,17 +238,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/car_details_bg"
+                        android:id="@+id/adapter_suggested_item_container_text2"
                         android:layout_marginLeft="1dp"
                         android:layout_marginStart="3dp"
                         >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginBottom="3dp"
-                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="11dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
                             android:id="@+id/adapter_suggested_item_text2"
@@ -260,17 +261,18 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="1dp"
                         android:layout_marginStart="3dp"
+                        android:id="@+id/adapter_suggested_item_container_text3"
                         android:background="@drawable/car_details_bg"
 
                         >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginBottom="3dp"
-                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="11dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
                             android:id="@+id/adapter_suggested_item_text3"
@@ -291,16 +293,17 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/adapter_suggested_item_container_text4"
                         android:background="@drawable/car_details_bg"
                         >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginBottom="3dp"
-                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="11dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
                             android:id="@+id/adapter_suggested_item_text4"
@@ -311,17 +314,18 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:background="@drawable/car_details_bg"
+                        android:id="@+id/adapter_suggested_item_container_city"
                         android:layout_marginLeft="1dp"
                         android:layout_marginStart="3dp"
                         >
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
-                            android:layout_marginRight="4dp"
-                            android:layout_marginTop="3dp"
-                            android:layout_marginBottom="3dp"
-                            android:textSize="13dp"
+                            android:layout_marginLeft="6dp"
+                            android:layout_marginRight="6dp"
+                            android:layout_marginTop="4dp"
+                            android:layout_marginBottom="4dp"
+                            android:textSize="11dp"
                             android:textColor="@color/colorBlack3"
                             android:text="test text"
                             android:id="@+id/adapter_suggested_item_city"
@@ -330,13 +334,17 @@
 
                 </LinearLayout>
 
+
+
+
+
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="8dp"
-                    android:orientation="horizontal">
+                    android:layout_marginTop="4dp"
+                    android:orientation="vertical">
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -345,22 +353,44 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:background="@drawable/strike"
                             android:layout_margin="3dp"
-                            android:textSize="16dp"
+                            android:textSize="15dp"
                             android:textColor="@color/colorGreen"
                             android:text="test text"
                             android:id="@+id/adapter_suggested_item_car_price"
                             />
                     </RelativeLayout>
 
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="0dp"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:layout_marginLeft="1px"
+                            android:layout_marginStart="3dp"
+                            android:textColor="@color/colorGreen"
+                            android:text="test text"
+                            android:id="@+id/adapter_suggested_item_car_new_price"
+                            />
+                    </RelativeLayout>
+
+
                 </LinearLayout>
+
+
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:layout_marginTop="18dp"
+                    android:layout_marginTop="6dp"
                     android:orientation="horizontal">
 
                     <RelativeLayout
@@ -482,7 +512,7 @@
                 android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="1dp"
-                android:layout_marginStart="180dp"
+                android:layout_marginStart="190dp"
                 android:layout_marginTop="175dp"
                 >
                 <LinearLayout
@@ -490,19 +520,26 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        app:civ_border_color="@color/colorSilver"
-                        app:civ_border_width="1dp"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginStart="10dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_radius="0"
-                        android:background="@drawable/profile"
-                        app:civ_shadow_color="#8BC34A"
-                        android:id="@+id/adapter_suggested_item_user_image"
-                        />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        >
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:id="@+id/adapter_suggested_item_user_image"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginStart="10dp"
+                            android:layout_marginLeft="1dp"
+                            android:background="@drawable/profile"
+                            app:civ_border_color="@color/colorSilver"
+                            app:civ_border_width="1dp"
+                            app:civ_shadow="true"
+                            app:civ_shadow_color="#8BC34A"
+                            app:civ_shadow_radius="0" />
+
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"
@@ -512,19 +549,37 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="mohammad k"
-                            android:textSize="11dp"
+                            android:textSize="12dp"
                             android:id="@+id/adapter_suggested_item_user_name"
                             android:textColor="@color/colorBlack"
                             android:layout_centerHorizontal="true"
                             />
                     </RelativeLayout>
 
+
                 </LinearLayout>
 
             </RelativeLayout>
 
-        </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="80dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="190dp"
+                android:layout_marginTop="290dp"
+                >
 
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:visibility="gone"
+                    android:id="@+id/adapter_suggested_fire_iv"
+                    android:background="@drawable/fire"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>
 

@@ -3,11 +3,14 @@ package com.cars.halamotor.view.adapters.adapterMainScreen;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
@@ -44,22 +47,57 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         {
             makeAllTextViewVISIBLE(holder);
             fillImage(holder, position, context);
-            fillPriceAndTitleAndUserName(holder, position, context);
+            fillTitleAndUserName(holder, position, context);
+            fillPrice(holder,position,context);
             changeFont(context, holder);
             fillNumberOfImageAndNumberOfComment(holder, position);
             checkTypeAndFillTypeDetails(context,holder,position);
         }
-
-
     }
+
+    private void fillPrice(ViewHolder holder, int position, Context context) {
+        if (suggestedItemsArrayL.get(position).getItemPostEdit().equals("0"))
+        {
+            holder.itemPriceTV.setText(suggestedItemsArrayL.get(position).getItemPrice()
+                    +" "+context.getResources().getString(R.string.price_contry));
+            holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+            //set new price empty to stay design
+            holder.itemNewPriceTV.setText("");
+            holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+        }else{
+            holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+            //change text color
+            holder.itemPriceTV.setTextColor(context.getResources().getColor(R.color.colorSilver));
+            //set line above old price
+            holder.itemPriceTV.setPaintFlags(holder.itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+            //change size new price
+            holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
+
+            holder.itemNewPriceTV.setText(suggestedItemsArrayL.get(position).getItemNewPrice()
+                    +" "+context.getResources().getString(R.string.price_contry));
+            //fill old price
+            holder.itemPriceTV.setText(suggestedItemsArrayL.get(position).getItemPrice()
+                    +" "+context.getResources().getString(R.string.price_contry));
+            //VISIBLE fire image view
+            holder.fireIV.setVisibility(View.VISIBLE);
+
+        }
+    }
+
 
     private void makeAllTextViewVISIBLE(ViewHolder holder) {
         //we use this method because some time need to gone some textView
-        holder.text1.setVisibility(View.VISIBLE);
-        holder.text2.setVisibility(View.VISIBLE);
-        holder.text3.setVisibility(View.VISIBLE);
-        holder.text4.setVisibility(View.VISIBLE);
-        holder.itemCityTV.setVisibility(View.VISIBLE);
+        holder.text1.setAlpha(1);
+        holder.text2.setAlpha(1);
+        holder.text3.setAlpha(1);
+        holder.text4.setAlpha(1);
+        holder.itemCityTV.setAlpha(1);
+
+        holder.text2RL.setAlpha(1);
+        holder.text3RL.setAlpha(1);
+        holder.text4RL.setAlpha(1);
+        holder.itemCityRL.setAlpha(1);
     }
 
     private void checkTypeAndFillTypeDetails(Context context, ViewHolder holder, int position) {
@@ -91,18 +129,27 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
 
     private void fillAccAndJuck(Context context, ViewHolder holder, int position) {
         holder.text1.setText(suggestedItemsArrayL.get(position).getItemCity());
-        holder.text2.setVisibility(View.GONE);
-        holder.text3.setVisibility(View.GONE);
-        holder.text4.setVisibility(View.GONE);
-        holder.itemCityTV.setVisibility(View.GONE);
+        holder.text2.setAlpha(0);
+        holder.text3.setAlpha(0);
+        holder.text4.setAlpha(0);
+        holder.itemCityTV.setAlpha(0);
+
+        holder.text2RL.setAlpha(0);
+        holder.text3RL.setAlpha(0);
+        holder.text4RL.setAlpha(0);
+        holder.itemCityRL.setAlpha(0);
     }
 
     private void fillWheelsRim(Context context, int position, ViewHolder holder) {
         holder.text1.setText(suggestedItemsArrayL.get(position).getItemCity());
         holder.text2.setText(suggestedItemsArrayL.get(position).getItemWheelsSize());
-        holder.text3.setVisibility(View.GONE);
-        holder.text4.setVisibility(View.GONE);
-        holder.itemCityTV.setVisibility(View.GONE);
+        holder.text3.setAlpha(0);
+        holder.text4.setAlpha(0);
+        holder.itemCityTV.setAlpha(0);
+
+        holder.text3RL.setAlpha(0);
+        holder.text4RL.setAlpha(0);
+        holder.itemCityRL.setAlpha(0);
     }
 
     private void fillCarPlates(Context context, int position, ViewHolder holder) {
@@ -112,15 +159,17 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         {
             holder.text3.setText(context.getResources().getString(R.string.special));
         }else{
-            holder.text3.setVisibility(View.GONE);
+            holder.text3.setAlpha(0);
+            holder.text3RL.setAlpha(0);
         }
-        holder.text4.setVisibility(View.GONE);
+        holder.text4RL.setAlpha(0);
+        holder.text4.setAlpha(0);
+        holder.itemCityTV.setAlpha(0);
+        holder.itemCityRL.setAlpha(0);
         holder.itemCityTV.setText(suggestedItemsArrayL.get(position).getItemCity());
     }
 
-    private void fillPriceAndTitleAndUserName(ViewHolder holder, int position, Context context) {
-        holder.itemPriceTV.setText(suggestedItemsArrayL.get(position).getItemPrice()
-        +" "+context.getResources().getString(R.string.price_contry));
+    private void fillTitleAndUserName(ViewHolder holder, int position, Context context) {
         holder.itemTitleTV.setText(suggestedItemsArrayL.get(position).getItemName());
         holder.userNameTV.setText(suggestedItemsArrayL.get(position).getUserName());
     }
@@ -173,28 +222,36 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView itemImage,userImage;
+        ImageView itemImage,userImage,fireIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemCityTV
-                ,userNameTV;
+                ,userNameTV,itemNewPriceTV;
+        RelativeLayout text2RL,text3RL,text4RL,itemCityRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
             super(itemView);
             numberOfImageTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_number_of_item_image);
             userImage = (ImageView) itemView.findViewById(R.id.adapter_suggested_item_user_image);
+            fireIV = (ImageView) itemView.findViewById(R.id.adapter_suggested_fire_iv);
             numberOfCommentTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_number_of_item_comment);
             itemImage = (ImageView) itemView.findViewById(R.id.adapter_suggested_item_image_view);
-            
+
             text1 = (TextView) itemView.findViewById(R.id.adapter_suggested_item_text1);
             text2 = (TextView) itemView.findViewById(R.id.adapter_suggested_item_text2);
             text3 = (TextView) itemView.findViewById(R.id.adapter_suggested_item_text3);
             text4 = (TextView) itemView.findViewById(R.id.adapter_suggested_item_text4);
             itemCityTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_city);
 
+            text2RL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_text2);
+            text3RL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_text3);
+            text4RL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_text4);
+            itemCityRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_city);
+
             itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_title);
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_price);
+            itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_user_name);
         }
     }
