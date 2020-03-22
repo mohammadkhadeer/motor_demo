@@ -22,17 +22,18 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="15">
+                android:layout_weight="5">
 
                 <RelativeLayout
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true">
 
                     <ImageView
-                        android:layout_width="35dp"
-                        android:layout_height="24dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:alpha="0"
                         android:id="@+id/adapter_car_make_image_IV"
                         android:layout_centerHorizontal="true"
                         android:layout_centerVertical="true"
@@ -46,7 +47,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="70">
+                android:layout_weight="80">
 
                 <RelativeLayout
                     android:layout_width="wrap_content"

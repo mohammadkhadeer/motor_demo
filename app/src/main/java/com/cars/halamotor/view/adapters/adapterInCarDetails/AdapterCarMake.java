@@ -1,6 +1,7 @@
 package com.cars.halamotor.view.adapters.adapterInCarDetails;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -53,10 +54,9 @@ public class AdapterCarMake extends RecyclerView.Adapter<AdapterCarMake.ViewHold
     }
 
     private void fillImage(Context context, int position, ViewHolder holder) {
-        Picasso.with(context).load(carMakeArrayList.get(position).getImageIdInt())
-                .fit()
-                .centerCrop()
-                .into(holder.carMakeIV);
+
+        holder.carMakeIV.setBackgroundResource(carMakeArrayList.get(position).getImageIdInt());
+
     }
 
     @Override

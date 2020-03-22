@@ -80,6 +80,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/colorBlack"
                 android:textSize="18dp"
+                android:id="@+id/fragment_list_main_insurance_tv"
                 android:layout_marginLeft="12dp"
                 android:layout_marginRight="12dp"
                 android:text="@string/finish_ur_insurance_in_mint"
@@ -600,8 +601,6 @@
 
 
     </LinearLayout>
-
-
 
 </RelativeLayout>
 

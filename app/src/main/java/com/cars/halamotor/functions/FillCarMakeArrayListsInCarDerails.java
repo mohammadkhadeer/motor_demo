@@ -14,11 +14,11 @@ public class FillCarMakeArrayListsInCarDerails {
 
         CarMake carMake1 = new CarMake(R.drawable.hyundai,context.getResources().getString(R.string.hyundai));
         CarMake carMake2 = new CarMake(R.drawable.toyota,context.getResources().getString(R.string.toyota));
-        CarMake carMake3 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.kia));
-        CarMake carMake4 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.bmw));
-        CarMake carMake5 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.mercedes_benz));
-        CarMake carMake6 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.aston_martin));
-        CarMake carMake7 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.alfa_romeo));
+        CarMake carMake3 = new CarMake(R.drawable.kia,context.getResources().getString(R.string.kia));
+        CarMake carMake4 = new CarMake(R.drawable.bmw,context.getResources().getString(R.string.bmw));
+        CarMake carMake5 = new CarMake(R.drawable.mercedes_benz,context.getResources().getString(R.string.mercedes_benz));
+        CarMake carMake6 = new CarMake(R.drawable.aston_martin,context.getResources().getString(R.string.aston_martin));
+        CarMake carMake7 = new CarMake(R.drawable.alfa_romeo,context.getResources().getString(R.string.alfa_romeo));
         CarMake carMake8 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.audi));
         CarMake carMake9 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.isuzu));
 

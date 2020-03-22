@@ -27,6 +27,10 @@ import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCCEMTAllCases;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstAccAndJunk;
+import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstCarPlates;
+import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstItemCCEMTFirstCase;
+import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstItemWheelsRim;
 import static com.cars.halamotor.dataBase.ReadFunction.getAccAndJunkDatabase;
 import static com.cars.halamotor.dataBase.ReadFunction.getCarForSaleDatabase;
 import static com.cars.halamotor.dataBase.ReadFunction.getCarPlatesDatabase;
@@ -41,7 +45,7 @@ public class ListesMainScreenFragment extends Fragment {
     ArrayList<String> insuranceArrayL = new ArrayList<String>();
     AdapterSuggestedItem adapterSuggestedItem;
 
-    TextView suggestedTV,suggestedSeeAllTV,carForSaleTV,carForSaleSeeAllTV
+    TextView suggestedTV,suggestedSeeAllTV,insuranceTV,carForSaleTV,carForSaleSeeAllTV
                 ,carForRentTV,carForRentSeeAllTV,exchangeCarTV,exchangeCarSeeAllTV
                 ,motorcycleTV,motorcycleSeeAllTV,trucksTV,trucksSeeAllTV
                 ,wheelsRimTV,wheelsRimSeeAllTV,carPlatesTV,carPlatesSeeAllTV
@@ -93,6 +97,19 @@ public class ListesMainScreenFragment extends Fragment {
         carPlatesArrayL = getCarPlatesDatabase(context);
         accessoriesArrayL = getAccAndJunkDatabase(context,"Accessories");
         junkArrayL = getAccAndJunkDatabase(context,"Junk car");
+        apllayAlgorithmToAllLists();
+    }
+
+    private void apllayAlgorithmToAllLists() {
+        carForSaleArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
+        carForRentArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
+        carExchangeArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
+        motorcycleArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
+        trucksArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
+        wheelsRimArrayL = setEditTextFirstItemWheelsRim(wheelsRimArrayL);
+        carPlatesArrayL = setEditTextFirstCarPlates(carPlatesArrayL);
+        accessoriesArrayL = setEditTextFirstAccAndJunk(accessoriesArrayL);
+        junkArrayL = setEditTextFirstAccAndJunk(junkArrayL);
     }
 
     @Override
@@ -116,34 +133,36 @@ public class ListesMainScreenFragment extends Fragment {
     }
 
     private void changeFont() {
-        suggestedTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        suggestedTV.setTypeface(Functions.changeFontBold(getActivity()));
         suggestedSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        carForSaleTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        insuranceTV.setTypeface(Functions.changeFontBold(getActivity()));
+
+        carForSaleTV.setTypeface(Functions.changeFontBold(getActivity()));
         carForSaleSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        carForRentTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        carForRentTV.setTypeface(Functions.changeFontBold(getActivity()));
         carForRentSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        exchangeCarTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        exchangeCarTV.setTypeface(Functions.changeFontBold(getActivity()));
         exchangeCarSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        motorcycleTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        motorcycleTV.setTypeface(Functions.changeFontBold(getActivity()));
         motorcycleSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        trucksTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        trucksTV.setTypeface(Functions.changeFontBold(getActivity()));
         trucksSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        wheelsRimTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        wheelsRimTV.setTypeface(Functions.changeFontBold(getActivity()));
         wheelsRimSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        carPlatesTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        carPlatesTV.setTypeface(Functions.changeFontBold(getActivity()));
         carPlatesSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        accessoriesTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        accessoriesTV.setTypeface(Functions.changeFontBold(getActivity()));
         accessoriesSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        junkCarTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        junkCarTV.setTypeface(Functions.changeFontBold(getActivity()));
         junkCarSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
     }
 
@@ -293,6 +312,8 @@ public class ListesMainScreenFragment extends Fragment {
         suggestedTV = (TextView) view.findViewById(R.id.fragment_list_main_suggested_tv);
         suggestedSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_stu_tv);
         suggestedSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_stu_rl);
+
+        insuranceTV = (TextView) view.findViewById(R.id.fragment_list_main_insurance_tv);
 
         carForSaleTV = (TextView) view.findViewById(R.id.fragment_list_main_car_for_sale_tv);
         carForSaleSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_cfs_tv);
