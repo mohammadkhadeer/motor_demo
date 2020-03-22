@@ -34,7 +34,7 @@
                     android:text="@string/suggested_to_you"
                     android:textColor="@color/colorBlack"
                     android:textSize="19dp"
-                    android:id="@+id/fragment_suggested_item_suggested_tv"
+                    android:id="@+id/fragment_list_main_suggested_tv"
                     />
 
 
@@ -43,6 +43,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_list_main_see_all_stu_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -53,7 +54,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:id="@+id/fragment_suggested_item_see_all_stu_tv"
+                    android:id="@+id/fragment_list_main_see_all_stu_tv"
                     />
 
             </RelativeLayout>
@@ -114,7 +115,7 @@
                     android:text="@string/car_for_sale"
                     android:textColor="@color/colorBlack"
                     android:textSize="19dp"
-                    android:id="@+id/fragment_suggested_item_car_for_sale_tv"
+                    android:id="@+id/fragment_list_main_car_for_sale_tv"
                     />
 
 
@@ -123,6 +124,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_list_main_see_all_cfs_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -133,7 +135,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:id="@+id/fragment_suggested_item_see_all_cfs_tv"
+                    android:id="@+id/fragment_list_main_see_all_cfs_tv"
                     />
 
             </RelativeLayout>
@@ -169,7 +171,7 @@
                     android:text="@string/car_for_rent"
                     android:textColor="@color/colorBlack"
                     android:textSize="19dp"
-                    android:id="@+id/fragment_suggested_item_car_for_rent_tv"
+                    android:id="@+id/fragment_list_main_car_for_rent_tv"
                     />
 
 
@@ -178,6 +180,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_list_main_see_all_cfr_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -188,7 +191,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:id="@+id/fragment_suggested_item_see_all_cfr_tv"
+                    android:id="@+id/fragment_list_main_see_all_cfr_tv"
                     />
 
             </RelativeLayout>
@@ -224,7 +227,7 @@
                     android:text="@string/exchange_car"
                     android:textColor="@color/colorBlack"
                     android:textSize="19dp"
-                    android:id="@+id/fragment_suggested_item_car_exchange_tv"
+                    android:id="@+id/fragment_list_main_car_exchange_tv"
                     />
 
 
@@ -233,6 +236,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_list_main_see_all_ec_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -243,7 +247,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:id="@+id/fragment_suggested_item_see_all_ec_tv"
+                    android:id="@+id/fragment_list_main_see_all_ec_tv"
                     />
 
             </RelativeLayout>
@@ -279,7 +283,7 @@
                     android:text="@string/motorcycle"
                     android:textColor="@color/colorBlack"
                     android:textSize="19dp"
-                    android:id="@+id/fragment_suggested_item_car_motorcycle_tv"
+                    android:id="@+id/fragment_list_main_car_motorcycle_tv"
                     />
 
 
@@ -288,6 +292,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_list_main_see_all_m_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -298,7 +303,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:id="@+id/fragment_suggested_item_see_all_m_tv"
+                    android:id="@+id/fragment_list_main_see_all_m_tv"
                     />
 
             </RelativeLayout>
@@ -334,15 +339,15 @@
                     android:text="@string/trucks"
                     android:textColor="@color/colorBlack"
                     android:textSize="19dp"
-                    android:id="@+id/fragment_suggested_item_car_trucks_tv"
+                    android:id="@+id/fragment_ist_main_car_trucks_tv"
                     />
-
 
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_ist_main_see_all_t_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -353,7 +358,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:id="@+id/fragment_suggested_item_see_all_t_tv"
+                    android:id="@+id/fragment_ist_main_see_all_t_tv"
                     />
 
             </RelativeLayout>
@@ -389,7 +394,7 @@
                     android:text="@string/wheels_rim"
                     android:textColor="@color/colorBlack"
                     android:textSize="19dp"
-                    android:id="@+id/fragment_list_main_tv"
+                    android:id="@+id/fragment_list_main_wheels_rim_tv"
                     />
 
 
@@ -398,6 +403,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_list_main_see_all_wr_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -408,7 +414,7 @@
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
-                    android:id="@+id/fragment_suggested_item_see_all_wr_tv"
+                    android:id="@+id/fragment_list_main_see_all_wr_tv"
                     />
 
             </RelativeLayout>
@@ -453,6 +459,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_suggested_item_see_all_cp_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -508,6 +515,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_suggested_item_see_all_acc_rl"
                 android:layout_weight="20">
 
                 <TextView
@@ -563,6 +571,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:id="@+id/fragment_suggested_item_see_all_j_rl"
                 android:layout_weight="20">
 
                 <TextView

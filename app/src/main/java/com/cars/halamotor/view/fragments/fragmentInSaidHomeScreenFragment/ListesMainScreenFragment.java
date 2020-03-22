@@ -8,9 +8,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
@@ -39,7 +41,15 @@ public class ListesMainScreenFragment extends Fragment {
     ArrayList<String> insuranceArrayL = new ArrayList<String>();
     AdapterSuggestedItem adapterSuggestedItem;
 
-    TextView suggestedTV,SeeAllTV;
+    TextView suggestedTV,suggestedSeeAllTV,carForSaleTV,carForSaleSeeAllTV
+                ,carForRentTV,carForRentSeeAllTV,exchangeCarTV,exchangeCarSeeAllTV
+                ,motorcycleTV,motorcycleSeeAllTV,trucksTV,trucksSeeAllTV
+                ,wheelsRimTV,wheelsRimSeeAllTV,carPlatesTV,carPlatesSeeAllTV
+                ,accessoriesTV,accessoriesSeeAllTV,junkCarTV,junkCarSeeAllTV;
+    RelativeLayout suggestedSeeAllRL,carForSaleSeeAllRL,carForRentSeeAllRL
+                ,exchangeCarSeeAllRL,motorcycleSeeAllRL,trucksSeeAllRL
+                ,wheelsRimSeeAllRL,carPlatesSeeAllRL,accessoriesSeeAllRL
+                ,junkCarSeeAllRL;
     AdapterInsurance adapterInsurance;
 
     ArrayList<CCEMTFirestCase> carForSaleArrayL = new ArrayList<CCEMTFirestCase>();
@@ -90,6 +100,7 @@ public class ListesMainScreenFragment extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_list_main_item, container, false);
         inti();
+        changeFont();
         createSuggestedItemRV();
         createInsuranceRV();
         createCarForSaleRV();
@@ -102,6 +113,38 @@ public class ListesMainScreenFragment extends Fragment {
         createAccessoriesRV();
         createJunkRV();
         return view;
+    }
+
+    private void changeFont() {
+        suggestedTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        suggestedSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        carForSaleTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        carForSaleSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        carForRentTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        carForRentSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        exchangeCarTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        exchangeCarSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        motorcycleTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        motorcycleSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        trucksTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        trucksSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        wheelsRimTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        wheelsRimSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        carPlatesTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        carPlatesSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        accessoriesTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        accessoriesSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+
+        junkCarTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        junkCarSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
     }
 
     private void createJunkRV() {
@@ -247,8 +290,45 @@ public class ListesMainScreenFragment extends Fragment {
         accessoriesRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_list_main_accessories_RV);
         junkRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_list_main_junk_RV);
 
-        suggestedTV = (TextView) view.findViewById(R.id.fragment_suggested_item_suggested_tv);
-//        SeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_tv);
+        suggestedTV = (TextView) view.findViewById(R.id.fragment_list_main_suggested_tv);
+        suggestedSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_stu_tv);
+        suggestedSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_stu_rl);
+
+        carForSaleTV = (TextView) view.findViewById(R.id.fragment_list_main_car_for_sale_tv);
+        carForSaleSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_cfs_tv);
+        carForSaleSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_cfs_rl);
+
+        carForRentTV = (TextView) view.findViewById(R.id.fragment_list_main_car_for_rent_tv);
+        carForRentSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_cfr_tv);
+        carForRentSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_cfr_rl);
+
+        exchangeCarTV = (TextView) view.findViewById(R.id.fragment_list_main_car_exchange_tv);
+        exchangeCarSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_ec_tv);
+        exchangeCarSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_ec_rl);
+
+        motorcycleTV = (TextView) view.findViewById(R.id.fragment_list_main_car_motorcycle_tv);
+        motorcycleSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_m_tv);
+        motorcycleSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_m_rl);
+
+        trucksTV = (TextView) view.findViewById(R.id.fragment_ist_main_car_trucks_tv);
+        trucksSeeAllTV = (TextView) view.findViewById(R.id.fragment_ist_main_see_all_t_tv);
+        trucksSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_ist_main_see_all_t_rl);
+
+        wheelsRimTV = (TextView) view.findViewById(R.id.fragment_list_main_wheels_rim_tv);
+        wheelsRimSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_wr_tv);
+        wheelsRimSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_wr_rl);
+
+        carPlatesTV = (TextView) view.findViewById(R.id.fragment_list_main_car_plates_tv);
+        carPlatesSeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_cp_tv);
+        carPlatesSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_suggested_item_see_all_cp_rl);
+
+        accessoriesTV = (TextView) view.findViewById(R.id.fragment_list_main_accessories_tv);
+        accessoriesSeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_acc_tv);
+        accessoriesSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_suggested_item_see_all_acc_rl);
+
+        junkCarTV = (TextView) view.findViewById(R.id.fragment_list_main_junk_tv);
+        junkCarSeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_j_tv);
+        junkCarSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_suggested_item_see_all_j_rl);
     }
 
 }
