@@ -11,18 +11,18 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
-import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.squareup.picasso.Picasso;
-
-import org.json.JSONException;
-
 import java.util.ArrayList;
 
+import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesInFCSTable;
 import static com.cars.halamotor.functions.Functions.getCarPlatesNumber;
 
 public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPlatesFirstCase.ViewHolder>{
@@ -61,10 +61,31 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
         }
     }
 
-    private void actionListenerToFavorite(Context context, ViewHolder holder, int position) {
+    private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
+        holder.favoriteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkFavouriteOrNot1(context,carPlatesArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+                    insertCarPlatesInFCSTable(carPlatesArrayL.get(position),getDataBaseInstance(context),"favorite");
+                }else
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+                    getDataBaseInstance(context).deleteFCS(carPlatesArrayL.get(position).getItemIdInServer());
+                }
+            }
+        });
     }
 
     private void checkIfFavouriteOrNot(Context context, ViewHolder holder, int position) {
+        if (checkFavouriteOrNot1(context,carPlatesArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+        }else
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+        }
     }
 
     private void checkIfCarPlatesSpecialNumber(ViewHolder holder, int position) {
@@ -153,11 +174,12 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView itemImage,userImage,fireIV;
+        ImageView itemImage,userImage,fireIV,favoriteIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1
                 , text4,itemTitleTV,itemPriceTV,itemNewPriceTV,itemCityTV
                 ,userNameTV;
+        RelativeLayout favoriteRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -177,6 +199,8 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
             itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_car_plates_first_case_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_car_plates_first_case_user_name);
 
+            favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_car_plates_first_f_image);
+            favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_first_f_rl);
         }
     }
 

@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
@@ -18,6 +19,10 @@ import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkInFCSTable;
 
 public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccAndJunkFirstCase.ViewHolder>{
 
@@ -49,6 +54,35 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
             changeFont(context, holder);
             fillNumberOfImageAndNumberOfComment(holder, position);
             fillCarDetails(position, holder);
+            checkIfFavouriteOrNot(context,holder,position);
+            actionListenerToFavorite(context,holder,position);
+        }
+    }
+
+    private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
+        holder.favoriteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkFavouriteOrNot1(context,accAndJunkArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+                    insertAccAndJunkInFCSTable(accAndJunkArrayL.get(position),getDataBaseInstance(context),"favorite");
+                }else
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+                    getDataBaseInstance(context).deleteFCS(accAndJunkArrayL.get(position).getItemIdInServer());
+                }
+            }
+        });
+    }
+
+    private void checkIfFavouriteOrNot(Context context, ViewHolder holder, int position) {
+        if (checkFavouriteOrNot1(context,accAndJunkArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+        }else
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
         }
     }
 
@@ -119,18 +153,18 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
                 .into(holder.userImage);
     }
 
-
     @Override
     public int getItemCount() {
         return accAndJunkArrayL.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView itemImage,userImage,fireIV;
+        ImageView itemImage,userImage,fireIV,favoriteIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1
                 , itemTitleTV,itemPriceTV,itemNewPriceTV
                 , userNameTV;
+        RelativeLayout favoriteRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -148,6 +182,8 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
             itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_acc_and_junk_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_acc_and_junk_user_name);
 
+            favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_acc_and_junk_f_iv);
+            favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_acc_and_junk_f_rl);
         }
     }
 

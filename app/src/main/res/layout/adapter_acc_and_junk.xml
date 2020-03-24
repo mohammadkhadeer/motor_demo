@@ -377,11 +377,13 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:id="@+id/adapter_acc_and_junk_f_rl"
                         android:layout_weight="33">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
+                            android:id="@+id/adapter_acc_and_junk_f_iv"
                             android:background="@drawable/item_favu"
                             android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"

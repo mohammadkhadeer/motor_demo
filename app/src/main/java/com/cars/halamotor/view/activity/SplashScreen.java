@@ -407,7 +407,7 @@ public class SplashScreen extends AppCompatActivity {
                 overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
                 finish();
             }
-        }, 4000);
+        }, 8000);
     }
 
 }

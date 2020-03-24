@@ -3,9 +3,11 @@ package com.cars.halamotor.dataBase;
 import android.util.Log;
 
 import com.cars.halamotor.model.AccAndJunk;
+import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.model.NotificationComp;
@@ -151,13 +153,13 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertCarPlatesInFCSTable(CarPlatesModel carPlatesModel, DBHelper database,String fcsType) {
+    public static boolean insertCarPlatesInFCSTable(CarPlatesFirstCase carPlatesFirstCase, DBHelper database, String fcsType) {
         boolean isInserted = database.insertDataFCSItem(
-                boostOrNot(carPlatesModel.getBoostPostsArrayL())
-                ,itemBoostType(carPlatesModel.getBoostPostsArrayL())
-                ,carPlatesModel.getCategoryName()
-                ,carPlatesModel.getPersonOrGallery()
-                ,carPlatesModel.getItemID()
+                carPlatesFirstCase.getBoostOrNot()
+                ,carPlatesFirstCase.getBoostType()
+                ,"Car plates"
+                ,carPlatesFirstCase.getPersonOrGallery()
+                ,carPlatesFirstCase.getItemIdInServer()
                 ,"empty"
                 ,"empty"
                 ,"empty"
@@ -170,38 +172,38 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(carPlatesModel.getCommentsArrayL())
-                ,numberOfImage(carPlatesModel.getImagePathArrayL())
-                ,carPlatesModel.getCity()
-                ,carPlatesModel.getNeighborhood()
-                ,carPlatesModel.getTimePost()
-                ,carPlatesModel.getPhoneNumber()
-                ,carPlatesModel.getItemName()
-                ,imagePath(carPlatesModel.getImagePathArrayL())
-                ,carPlatesModel.getItemDescription()
-                ,carPlatesModel.getUserImage()
-                ,carPlatesModel.getUserName()
-                ,carPlatesModel.getPostEdit()
-                ,carPlatesModel.getNewPrice()
+                ,carPlatesFirstCase.getItemNumberOfComments()
+                ,carPlatesFirstCase.getItemNumberOfImage()
+                ,carPlatesFirstCase.getItemCity()
+                ,carPlatesFirstCase.getItemNeighborhood()
+                ,carPlatesFirstCase.getItemTimePost()
+                ,carPlatesFirstCase.getItemUserPhoneNumber()
+                ,carPlatesFirstCase.getItemName()
+                ,carPlatesFirstCase.getItemImage()
+                ,carPlatesFirstCase.getItemDescription()
+                ,carPlatesFirstCase.getItemUserImage()
+                ,carPlatesFirstCase.getItemUserName()
+                ,carPlatesFirstCase.getItemPostEdit()
+                ,carPlatesFirstCase.getItemNewPrice()
                 ,"0"
-                ,carPlatesModel.getCarPlatesCity()
-                ,String.valueOf(carPlatesModel.getCarPlatesNum())
-                , String.valueOf(carPlatesModel.getSpecialOrNot())
-                , String.valueOf(carPlatesModel.getBurnedPrice())
-                , String.valueOf(carPlatesModel.getPrice())
-                , String.valueOf(carPlatesModel.getActiveOrNot())
+                ,carPlatesFirstCase.getCarPlatesCity()
+                ,carPlatesFirstCase.getCarPlatesNumber()
+                ,carPlatesFirstCase.getSpecialOrNot()
+                ,carPlatesFirstCase.getItemBurnedPrice()
+                ,carPlatesFirstCase.getItemPrice()
+                ,carPlatesFirstCase.getItemActiveOrNot()
                 ,fcsType
         );
         return isInserted;
     }
 
-    public static boolean insertAccAndJunkInFCSTable(AccAndJunk accAndJunk, DBHelper database,String fcsType) {
+    public static boolean insertAccAndJunkInFCSTable(AccAndJunkFirstCase accAndJunkFirstCase, DBHelper database, String fcsType) {
         boolean isInserted = database.insertDataFCSItem(
-                boostOrNot(accAndJunk.getBoostPostsArrayL())
-                ,itemBoostType(accAndJunk.getBoostPostsArrayL())
-                ,accAndJunk.getCategoryName()
-                ,accAndJunk.getPersonOrGallery()
-                ,accAndJunk.getItemID()
+                accAndJunkFirstCase.getBoostOrNot()
+                ,accAndJunkFirstCase.getBoostType()
+                ,accAndJunkFirstCase.getItemType()
+                ,accAndJunkFirstCase.getPersonOrGallery()
+                ,accAndJunkFirstCase.getItemIdInServer()
                 ,"empty"
                 ,"empty"
                 ,"empty"
@@ -214,26 +216,26 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(accAndJunk.getCommentsArrayL())
-                ,numberOfImage(accAndJunk.getImagePathArrayL())
-                ,accAndJunk.getCity()
-                ,accAndJunk.getNeighborhood()
-                ,accAndJunk.getTimePost()
-                ,accAndJunk.getPhoneNumber()
-                ,accAndJunk.getItemName()
-                ,imagePath(accAndJunk.getImagePathArrayL())
-                ,accAndJunk.getItemDescription()
-                ,accAndJunk.getUserImage()
-                ,accAndJunk.getUserName()
-                ,accAndJunk.getPostEdit()
-                ,accAndJunk.getNewPrice()
+                ,accAndJunkFirstCase.getItemNumberOfComments()
+                ,accAndJunkFirstCase.getItemNumberOfImage()
+                ,accAndJunkFirstCase.getItemCity()
+                ,accAndJunkFirstCase.getItemNeighborhood()
+                ,accAndJunkFirstCase.getItemTimePost()
+                ,accAndJunkFirstCase.getItemUserPhoneNumber()
+                ,accAndJunkFirstCase.getItemName()
+                ,accAndJunkFirstCase.getItemImage()
+                ,accAndJunkFirstCase.getItemDescription()
+                ,accAndJunkFirstCase.getItemUserImage()
+                ,accAndJunkFirstCase.getItemUserName()
+                ,accAndJunkFirstCase.getItemPostEdit()
+                ,accAndJunkFirstCase.getItemNewPrice()
                 ,"empty"
                 ,"empty"
                 ,"empty"
                 , "empty"
-                , String.valueOf(accAndJunk.getBurnedPrice())
-                , String.valueOf(accAndJunk.getPrice())
-                , String.valueOf(accAndJunk.getActiveOrNot())
+                ,accAndJunkFirstCase.getItemBurnedPrice()
+                ,accAndJunkFirstCase.getItemPrice()
+                ,accAndJunkFirstCase.getItemActiveOrNot()
                 ,fcsType
         );
         return isInserted;
