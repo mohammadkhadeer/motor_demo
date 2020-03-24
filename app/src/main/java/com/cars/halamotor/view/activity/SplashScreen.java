@@ -79,6 +79,7 @@ public class SplashScreen extends AppCompatActivity {
 
         myDB = getDataBaseInstance(getApplicationContext());
         addWelcomeNotifications();
+        //first fill suggested to you list
         getJunkCar();
         getAccessories();
         getWheelsRim();

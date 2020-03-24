@@ -10,6 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
@@ -18,6 +19,11 @@ import com.cars.halamotor.model.CCEMTFirestCase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertSuggestedItemInFCSTable;
 
 public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCases.ViewHolder>{
 
@@ -50,6 +56,35 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
             changeFont(context, holder);
             fillNumberOfImageAndNumberOfComment(holder, position);
             checkTypeAndFillTypeDetails(context, holder, position);
+            checkIfFavouriteOrNot(context,holder,position);
+            actionListenerToFavorite(context,holder,position);
+        }
+    }
+
+    private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
+        holder.favoriteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkFavouriteOrNot1(context,carForSaleArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+                    insertCCEMTItemInFCSTable(carForSaleArrayL.get(position),getDataBaseInstance(context),"favorite");
+                }else
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+                    getDataBaseInstance(context).deleteFCS(carForSaleArrayL.get(position).getItemIdInServer());
+                }
+            }
+        });
+    }
+
+    private void checkIfFavouriteOrNot(Context context, ViewHolder holder, int position) {
+        if (checkFavouriteOrNot1(context,carForSaleArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+        }else
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
         }
     }
 
@@ -149,11 +184,12 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView itemImage,userImage,fireIV;
+        ImageView itemImage,userImage,fireIV,favoriteIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemNewPriceTV,itemCityTV
                 ,userNameTV;
+        RelativeLayout favoriteRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -174,6 +210,9 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_car_price);
             itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_car_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_car_for_sale_item_user_name);
+
+            favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_case_iv);
+            favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_for_sale_case_rl);
 
         }
     }

@@ -5,59 +5,153 @@ import android.util.Log;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
+import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.model.NotificationComp;
+import com.cars.halamotor.model.SuggestedItem;
+import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import java.util.ArrayList;
 
 public class InsertFunctions {
 
     //this table contain favorite , search ,seen , call item
-    public static boolean insertCCEMTItemInFCSTable(CCEMT ccemt,DBHelper database) {
+    public static boolean insertSuggestedItemInFCSTable(SuggestedItem suggestedItem, DBHelper database,String fcsType) {
 
         boolean isInserted = database.insertDataFCSItem(
-                boostOrNot(ccemt.getBoostPostsArrayL())
-                ,itemBoostType(ccemt.getBoostPostsArrayL())
-                ,ccemt.getCategoryName()
-                ,ccemt.getPersonOrGallery()
-                ,ccemt.getItemID()
-                ,ccemt.getCarMake()
-                ,ccemt.getCarModel()
-                ,ccemt.getYear()
-                ,ccemt.getCondition()
-                ,ccemt.getKilometers()
-                ,ccemt.getTransmission()
-                ,ccemt.getFuel()
-                ,ccemt.getCarLicense()
-                ,ccemt.getInsurance()
-                ,ccemt.getColor()
-                ,ccemt.getPaymentMethod()
-                ,ccemt.getCarOptions()
-                ,numberOfComment(ccemt.getCommentsArrayL())
-                ,numberOfImage(ccemt.getImagePathArrayL())
-                ,ccemt.getCity()
-                ,ccemt.getNeighborhood()
-                ,ccemt.getTimePost()
-                ,ccemt.getPhoneNumber()
-                ,ccemt.getItemName()
-                ,imagePath(ccemt.getImagePathArrayL())
-                ,ccemt.getItemDescription()
-                ,ccemt.getUserImage(),ccemt.getUserName()
-                ,ccemt.getPostEdit()
-                ,ccemt.getNewPrice()
-                ,"0"
-                ,"0"
-                ,"0"
-                ,"0"
-                , String.valueOf(ccemt.getBurnedPrice())
-                , String.valueOf(ccemt.getPrice())
-                , String.valueOf(ccemt.getActiveOrNot())
+                suggestedItem.getItemBoostType()
+                ,suggestedItem.getItemBoostType()
+                ,suggestedItem.getItemType()
+                ,suggestedItem.getItemPersonGallery()
+                ,suggestedItem.getItemIdInServer()
+                ,suggestedItem.getItemCarMake()
+                ,suggestedItem.getItemCarModel()
+                ,suggestedItem.getItemCarYear()
+                ,suggestedItem.getItemCarCondition()
+                ,suggestedItem.getItemCarKilometers()
+                ,suggestedItem.getItemCarTransmission()
+                ,suggestedItem.getItemCarFuel()
+                ,suggestedItem.getItemCarLicense()
+                ,suggestedItem.getItemCarInsurance()
+                ,suggestedItem.getItemCarColor()
+                ,suggestedItem.getItemCarPaymentMethod()
+                ,suggestedItem.getItemCarOptions()
+                ,suggestedItem.getItemNumberOfComment()
+                ,suggestedItem.getItemNumberOfImage()
+                ,suggestedItem.getItemCity()
+                ,suggestedItem.getItemNeighborhood()
+                ,suggestedItem.getItemTimePost()
+                ,suggestedItem.getItemUserPhoneNumber()
+                ,suggestedItem.getItemName()
+                ,suggestedItem.getItemImage()
+                ,suggestedItem.getItemDescription()
+                ,suggestedItem.getUserImage()
+                ,suggestedItem.getUserName()
+                ,suggestedItem.getItemPostEdit()
+                ,suggestedItem.getItemNewPrice()
+                ,suggestedItem.getItemWheelsSize()
+                ,suggestedItem.getItemCarPlatesCity()
+                ,suggestedItem.getItemCarPlatesNumber()
+                ,suggestedItem.getItemCarPlatesSpecial()
+                ,suggestedItem.getItemBurnedPrice()
+                ,suggestedItem.getItemPrice()
+                ,suggestedItem.getItemActiveOrNot()
+                ,fcsType
         );
         return isInserted;
     }
 
-    public static boolean insertCarPlatesInFCSTable(CarPlatesModel carPlatesModel, DBHelper database) {
+    public static boolean insertCCEMTItemInFCSTable(CCEMTFirestCase ccemtFirestCase, DBHelper database, String fcsType) {
+
+        boolean isInserted = database.insertDataFCSItem(
+                ccemtFirestCase.getBoostType()
+                ,ccemtFirestCase.getBoostType()
+                ,ccemtFirestCase.getType()
+                ,ccemtFirestCase.getPersonOrGallery()
+                ,ccemtFirestCase.getItemIdInServer()
+                ,ccemtFirestCase.getItemCarMake()
+                ,ccemtFirestCase.getItemCarModel()
+                ,ccemtFirestCase.getItemCarYeay()
+                ,ccemtFirestCase.getItemCarCondition()
+                ,ccemtFirestCase.getItemCarKilometers()
+                ,ccemtFirestCase.getItemCarTransmission()
+                ,ccemtFirestCase.getItemCarFuel()
+                ,ccemtFirestCase.getItemCarLicense()
+                ,ccemtFirestCase.getItemCarInsurance()
+                ,ccemtFirestCase.getItemCarColor()
+                ,ccemtFirestCase.getItemCarPaymentMethod()
+                ,ccemtFirestCase.getItemCarOptions()
+                ,ccemtFirestCase.getItemNumberOfComments()
+                ,ccemtFirestCase.getItemImage()
+                ,ccemtFirestCase.getItemCity()
+                ,ccemtFirestCase.getItemNeighborhood()
+                ,ccemtFirestCase.getItemTimePost()
+                ,ccemtFirestCase.getItemUserPhoneNumber()
+                ,ccemtFirestCase.getItemName()
+                ,ccemtFirestCase.getItemImage()
+                ,ccemtFirestCase.getItemDescription()
+                ,ccemtFirestCase.getItemUserImage()
+                ,ccemtFirestCase.getItemUserName()
+                ,ccemtFirestCase.getItemPostEdit()
+                ,ccemtFirestCase.getItemNewPrice()
+                ,"0"
+                ,"0"
+                ,"0"
+                ,"0"
+                , ccemtFirestCase.getItemBurnedPrice()
+                , ccemtFirestCase.getItemPrice()
+                , ccemtFirestCase.getItemActiveOrNot()
+                ,fcsType
+        );
+        return isInserted;
+    }
+
+    public static boolean insertWheelsRimInFCSTable(WheelsRimFirstCase wheelsRimFirstCase, DBHelper database, String fcsType) {
+        boolean isInserted = database.insertDataFCSItem(
+                wheelsRimFirstCase.getBoostOrNot()
+                ,wheelsRimFirstCase.getBoostType()
+                ,"Wheels rim"
+                ,wheelsRimFirstCase.getPersonOrGallery()
+                ,wheelsRimFirstCase.getItemIdInServer()
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,"empty"
+                ,wheelsRimFirstCase.getItemNumberOfComments()
+                ,wheelsRimFirstCase.getItemNumberOfImage()
+                ,wheelsRimFirstCase.getItemCity()
+                ,wheelsRimFirstCase.getItemNeighborhood()
+                ,wheelsRimFirstCase.getItemTimePost()
+                ,wheelsRimFirstCase.getItemUserPhoneNumber()
+                ,wheelsRimFirstCase.getItemName()
+                ,wheelsRimFirstCase.getItemImage()
+                ,wheelsRimFirstCase.getItemDescription()
+                ,wheelsRimFirstCase.getItemUserImage()
+                ,wheelsRimFirstCase.getItemUserName()
+                ,wheelsRimFirstCase.getItemPostEdit()
+                ,wheelsRimFirstCase.getItemNewPrice()
+                ,wheelsRimFirstCase.getWheelsSize()
+                ,"empty"
+                ,"empty"
+                , "empty"
+                , wheelsRimFirstCase.getItemBurnedPrice()
+                , wheelsRimFirstCase.getItemPrice()
+                , wheelsRimFirstCase.getItemActiveOrNot()
+                ,fcsType
+        );
+        return isInserted;
+    }
+
+    public static boolean insertCarPlatesInFCSTable(CarPlatesModel carPlatesModel, DBHelper database,String fcsType) {
         boolean isInserted = database.insertDataFCSItem(
                 boostOrNot(carPlatesModel.getBoostPostsArrayL())
                 ,itemBoostType(carPlatesModel.getBoostPostsArrayL())
@@ -96,54 +190,12 @@ public class InsertFunctions {
                 , String.valueOf(carPlatesModel.getBurnedPrice())
                 , String.valueOf(carPlatesModel.getPrice())
                 , String.valueOf(carPlatesModel.getActiveOrNot())
+                ,fcsType
         );
         return isInserted;
     }
 
-    public static boolean insertWheelsRimInFCSTable(WheelsRimModel wheelsRim, DBHelper database) {
-        boolean isInserted = database.insertDataFCSItem(
-                boostOrNot(wheelsRim.getBoostPostsArrayL())
-                ,itemBoostType(wheelsRim.getBoostPostsArrayL())
-                ,wheelsRim.getCategoryName()
-                ,wheelsRim.getPersonOrGallery()
-                ,wheelsRim.getItemID()
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,numberOfComment(wheelsRim.getCommentsArrayL())
-                ,numberOfImage(wheelsRim.getImagePathArrayL())
-                ,wheelsRim.getCity()
-                ,wheelsRim.getNeighborhood()
-                ,wheelsRim.getTimePost()
-                ,wheelsRim.getPhoneNumber()
-                ,wheelsRim.getItemName()
-                ,imagePath(wheelsRim.getImagePathArrayL())
-                ,wheelsRim.getItemDescription()
-                ,wheelsRim.getUserImage()
-                ,wheelsRim.getUserName()
-                ,wheelsRim.getPostEdit()
-                ,wheelsRim.getNewPrice()
-                ,wheelsRim.getWheelSize()
-                ,"empty"
-                ,"empty"
-                , "empty"
-                , String.valueOf(wheelsRim.getBurnedPrice())
-                , String.valueOf(wheelsRim.getPrice())
-                , String.valueOf(wheelsRim.getActiveOrNot())
-        );
-        return isInserted;
-    }
-
-    public static boolean insertAccAndJunkInFCSTable(AccAndJunk accAndJunk, DBHelper database) {
+    public static boolean insertAccAndJunkInFCSTable(AccAndJunk accAndJunk, DBHelper database,String fcsType) {
         boolean isInserted = database.insertDataFCSItem(
                 boostOrNot(accAndJunk.getBoostPostsArrayL())
                 ,itemBoostType(accAndJunk.getBoostPostsArrayL())
@@ -182,6 +234,7 @@ public class InsertFunctions {
                 , String.valueOf(accAndJunk.getBurnedPrice())
                 , String.valueOf(accAndJunk.getPrice())
                 , String.valueOf(accAndJunk.getActiveOrNot())
+                ,fcsType
         );
         return isInserted;
     }

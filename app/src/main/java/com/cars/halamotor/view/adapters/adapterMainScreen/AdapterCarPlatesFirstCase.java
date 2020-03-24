@@ -56,7 +56,15 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
             changeFont(context, holder);
             fillNumberOfImageAndNumberOfComment(holder, position);
             fillCarDetails(position, holder);
+            checkIfFavouriteOrNot(context,holder,position);
+            actionListenerToFavorite(context,holder,position);
         }
+    }
+
+    private void actionListenerToFavorite(Context context, ViewHolder holder, int position) {
+    }
+
+    private void checkIfFavouriteOrNot(Context context, ViewHolder holder, int position) {
     }
 
     private void checkIfCarPlatesSpecialNumber(ViewHolder holder, int position) {

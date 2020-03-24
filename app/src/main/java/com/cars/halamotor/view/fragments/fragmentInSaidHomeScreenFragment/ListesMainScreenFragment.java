@@ -102,10 +102,10 @@ public class ListesMainScreenFragment extends Fragment {
 
     private void apllayAlgorithmToAllLists() {
         carForSaleArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
-        carForRentArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
-        carExchangeArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
-        motorcycleArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
-        trucksArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
+        carForRentArrayL = setEditTextFirstItemCCEMTFirstCase(carForRentArrayL);
+        carExchangeArrayL = setEditTextFirstItemCCEMTFirstCase(carExchangeArrayL);
+        motorcycleArrayL = setEditTextFirstItemCCEMTFirstCase(motorcycleArrayL);
+        trucksArrayL = setEditTextFirstItemCCEMTFirstCase(trucksArrayL);
         wheelsRimArrayL = setEditTextFirstItemWheelsRim(wheelsRimArrayL);
         carPlatesArrayL = setEditTextFirstCarPlates(carPlatesArrayL);
         accessoriesArrayL = setEditTextFirstAccAndJunk(accessoriesArrayL);

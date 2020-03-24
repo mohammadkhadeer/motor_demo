@@ -479,12 +479,13 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:id="@+id/adapter_suggested_favorite_rl"
                         android:layout_weight="33">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:background="@drawable/item_favu"
+                            android:id="@+id/adapter_suggested_favorite_iv"
                             android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"
                             />

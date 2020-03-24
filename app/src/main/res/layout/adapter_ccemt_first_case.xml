@@ -470,11 +470,13 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:id="@+id/adapter_car_for_sale_case_rl"
                         android:layout_weight="33">
 
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
+                            android:id="@+id/adapter_car_for_sale_case_iv"
                             android:background="@drawable/item_favu"
                             android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"
@@ -510,19 +512,25 @@
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <com.mikhaellopez.circularimageview.CircularImageView
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
-                        app:civ_border_color="@color/colorSilver"
-                        app:civ_border_width="1dp"
-                        android:layout_marginLeft="1dp"
-                        android:layout_marginStart="10dp"
-                        app:civ_shadow="true"
-                        app:civ_shadow_radius="0"
-                        android:background="@drawable/profile"
-                        app:civ_shadow_color="#8BC34A"
-                        android:id="@+id/adapter_car_for_sale_item_user_image"
-                        />
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.mikhaellopez.circularimageview.CircularImageView
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            app:civ_border_color="@color/colorSilver"
+                            app:civ_border_width="1dp"
+                            android:layout_centerHorizontal="true"
+                            android:layout_marginLeft="1dp"
+                            android:layout_marginStart="10dp"
+                            app:civ_shadow="true"
+                            app:civ_shadow_radius="0"
+                            android:background="@drawable/profile"
+                            app:civ_shadow_color="#8BC34A"
+                            android:id="@+id/adapter_car_for_sale_item_user_image"
+                            />
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="match_parent"

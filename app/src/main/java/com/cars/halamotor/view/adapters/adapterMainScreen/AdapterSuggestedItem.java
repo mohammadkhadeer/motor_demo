@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -19,6 +20,10 @@ import com.cars.halamotor.model.SuggestedItem;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertSuggestedItemInFCSTable;
 
 public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedItem.ViewHolder>{
 
@@ -52,6 +57,35 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             changeFont(context, holder);
             fillNumberOfImageAndNumberOfComment(holder, position);
             checkTypeAndFillTypeDetails(context,holder,position);
+            checkIfFavouriteOrNot(context,holder,position);
+            actionListenerToFavorite(context,holder,position);
+        }
+    }
+
+    private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
+        holder.favoriteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkFavouriteOrNot1(context,suggestedItemsArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+                    insertSuggestedItemInFCSTable(suggestedItemsArrayL.get(position),getDataBaseInstance(context),"favorite");
+                }else
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+                    getDataBaseInstance(context).deleteFCS(suggestedItemsArrayL.get(position).getItemIdInServer());
+                }
+            }
+        });
+    }
+
+    private void checkIfFavouriteOrNot(Context context, ViewHolder holder, int position) {
+        if (checkFavouriteOrNot1(context,suggestedItemsArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+        }else
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
         }
     }
 
@@ -84,7 +118,6 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
 
         }
     }
-
 
     private void makeAllTextViewVISIBLE(ViewHolder holder) {
         //we use this method because some time need to gone some textView
@@ -222,12 +255,12 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView itemImage,userImage,fireIV;
+        ImageView itemImage,userImage,fireIV,favoriteIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemCityTV
                 ,userNameTV,itemNewPriceTV;
-        RelativeLayout text2RL,text3RL,text4RL,itemCityRL;
+        RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -235,6 +268,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             numberOfImageTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_number_of_item_image);
             userImage = (ImageView) itemView.findViewById(R.id.adapter_suggested_item_user_image);
             fireIV = (ImageView) itemView.findViewById(R.id.adapter_suggested_fire_iv);
+            favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_suggested_favorite_iv);
             numberOfCommentTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_number_of_item_comment);
             itemImage = (ImageView) itemView.findViewById(R.id.adapter_suggested_item_image_view);
 
@@ -253,6 +287,8 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_price);
             itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_user_name);
+
+            favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_favorite_rl);
         }
     }
 

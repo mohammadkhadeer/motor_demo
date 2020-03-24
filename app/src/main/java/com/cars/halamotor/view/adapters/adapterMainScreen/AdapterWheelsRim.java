@@ -10,15 +10,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
-import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+
+import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertSuggestedItemInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInFCSTable;
 
 public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.ViewHolder>{
 
@@ -50,7 +55,36 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
             changeFont(context, holder);
             fillNumberOfImageAndNumberOfComment(holder, position);
             checkTypeAndFillTypeDetails(context, holder, position);
+            checkIfFavouriteOrNot(context,holder,position);
+            actionListenerToFavorite(context,holder,position);
         }
+    }
+
+    private void checkIfFavouriteOrNot(Context context, ViewHolder holder, int position) {
+        if (checkFavouriteOrNot1(context,wheelsRimArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+        }else
+        {
+            holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+        }
+    }
+
+    private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
+        holder.favoriteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (checkFavouriteOrNot1(context,wheelsRimArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+                    insertWheelsRimInFCSTable(wheelsRimArrayL.get(position),getDataBaseInstance(context),"favorite");
+                }else
+                {
+                    holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
+                    getDataBaseInstance(context).deleteFCS(wheelsRimArrayL.get(position).getItemIdInServer());
+                }
+            }
+        });
     }
 
     private void fillPrice(ViewHolder holder, int position, Context context) {
@@ -134,11 +168,12 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        ImageView itemImage,userImage,fireIV;
+        ImageView itemImage,userImage,fireIV,favoriteIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1
                 , text4,itemTitleTV,itemPriceTV,itemNewPriceTV
                 ,userNameTV;
+        RelativeLayout favoriteRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -158,6 +193,8 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
             itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_user_name);
 
+            favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_wheels_rim_number_of_f_rl);
+            favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_wheels_rim_number_of_f_iv);
         }
     }
 
