@@ -83,9 +83,6 @@ public class ArrangingLists {
             for (int i = 0; i < favouriteCallSearchesArrayL.size(); i++) {
                 if (favouriteCallSearchesArrayL.get(i).getFcsType().equals("favorite")) {
                     if (favouriteCallSearchesArrayL.get(i).getItemIdInServer().equals(itemID)) {
-                        Log.i("TAG itemInfo", favouriteCallSearchesArrayL.get(i).getItemIdInServer());
-                        Log.i("TAG itemInfo", favouriteCallSearchesArrayL.get(i).getItemName());
-                        Log.i("TAG itemInfo", favouriteCallSearchesArrayL.get(i).getUserName());
                         flag = 1;
                         favouriteOrNot = "favorite";
                     }

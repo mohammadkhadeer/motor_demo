@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -31,7 +32,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     public ArrayList<SuggestedItem> suggestedItemsArrayL ;
     String fromWhereCome;
 
-    public AdapterSuggestedItem
+    public   AdapterSuggestedItem
             (Context context, ArrayList<SuggestedItem> suggestedItemsArrayL
             ,String fromWhereCome)
     {   this.context = context;
@@ -90,8 +91,17 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     }
 
     private void fillPrice(ViewHolder holder, int position, Context context) {
+        Log.i("TAG","New Price");
+        Log.i("TAG",suggestedItemsArrayL.get(position).getItemNewPrice());
+        Log.i("TAG",suggestedItemsArrayL.get(position).getItemName());
+        Log.i("TAG",suggestedItemsArrayL.get(position).getItemPostEdit());
+        Log.i("TAG",suggestedItemsArrayL.get(position).getItemType());
+        Log.i("TAG","********");
         if (suggestedItemsArrayL.get(position).getItemPostEdit().equals("0"))
         {
+            holder.itemPriceTV.setVisibility(View.VISIBLE);
+            holder.oldPriceTV.setVisibility(View.GONE);
+            holder.fireIV.setVisibility(View.GONE);
             holder.itemPriceTV.setText(suggestedItemsArrayL.get(position).getItemPrice()
                     +" "+context.getResources().getString(R.string.price_contry));
             holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
@@ -99,11 +109,14 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             holder.itemNewPriceTV.setText("");
             holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
         }else{
-            holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
-            //change text color
-            holder.itemPriceTV.setTextColor(context.getResources().getColor(R.color.colorSilver));
+            holder.itemPriceTV.setVisibility(View.GONE);
+            holder.oldPriceTV.setVisibility(View.VISIBLE);
+
+            holder.oldPriceTV.setText(suggestedItemsArrayL.get(position).getItemPrice());
+                    //change text color
+            holder.oldPriceTV.setTextColor(context.getResources().getColor(R.color.colorSilver));
             //set line above old price
-            holder.itemPriceTV.setPaintFlags(holder.itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.oldPriceTV.setPaintFlags(holder.itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
             //change size new price
             holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
@@ -210,9 +223,10 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     private void fillCarDetails(int position, ViewHolder holder) {
         holder.text1.setText(suggestedItemsArrayL.get(position).getItemCarMake());
         holder.text2.setText(suggestedItemsArrayL.get(position).getItemCarYear());
-        holder.text3.setText(suggestedItemsArrayL.get(position).getItemCity());
+        holder.text3.setText(suggestedItemsArrayL.get(position).getItemType());
         holder.text4.setText(suggestedItemsArrayL.get(position).getItemCarKilometers());
-        holder.itemCityTV.setText(suggestedItemsArrayL.get(position).getItemCity());
+        //well set item category as alternative to city just to temporary time
+       // holder.itemCityTV.setText(suggestedItemsArrayL.get(position).getItemType());
 
     }
 
@@ -259,7 +273,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         TextView numberOfImageTV,numberOfCommentTV
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemCityTV
-                ,userNameTV,itemNewPriceTV;
+                ,userNameTV,itemNewPriceTV,oldPriceTV;
         RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL;
 
         @SuppressLint("WrongViewCast")
@@ -286,6 +300,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_title);
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_price);
             itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_new_price);
+            oldPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_old_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_user_name);
 
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_favorite_rl);

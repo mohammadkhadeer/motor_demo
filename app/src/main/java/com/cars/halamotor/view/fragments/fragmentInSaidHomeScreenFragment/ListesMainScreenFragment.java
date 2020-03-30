@@ -108,8 +108,8 @@ public class ListesMainScreenFragment extends Fragment {
         trucksArrayL = setEditTextFirstItemCCEMTFirstCase(trucksArrayL);
         wheelsRimArrayL = setEditTextFirstItemWheelsRim(wheelsRimArrayL);
         carPlatesArrayL = setEditTextFirstCarPlates(carPlatesArrayL);
-        accessoriesArrayL = setEditTextFirstAccAndJunk(accessoriesArrayL);
-        junkArrayL = setEditTextFirstAccAndJunk(junkArrayL);
+        //accessoriesArrayL = setEditTextFirstAccAndJunk(accessoriesArrayL);
+        //junkArrayL = setEditTextFirstAccAndJunk(junkArrayL);
     }
 
     @Override
