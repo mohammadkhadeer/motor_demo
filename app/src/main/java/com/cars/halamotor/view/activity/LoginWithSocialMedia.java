@@ -24,6 +24,7 @@ import android.widget.Toast;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.UserInfo;
+import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
 import com.facebook.AccessToken;
 import com.facebook.AccessTokenTracker;
 import com.facebook.CallbackManager;
@@ -109,6 +110,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         handelGoogleButton();
     }
 
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
@@ -123,6 +125,25 @@ public class LoginWithSocialMedia extends AppCompatActivity {
 
     }
 
+    private void moveBack() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+//                Intent resultIntent = new Intent();
+//                setResult(Activity.RESULT_OK, resultIntent);
+//                finish();
+
+                Bundle bundle = new Bundle();
+                bundle.putString("whereComeFrom", "activity");
+
+                Intent intent = new Intent(LoginWithSocialMedia.this, SelectCityAndNeighborhood.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+                finish();
+            }
+        }, 500);
+    }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
 
@@ -338,21 +359,6 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         if (checkIfUserRegisterOrNotFromSP(getApplicationContext())) {
             saveUserInfoInSP(getApplicationContext(), rgSharedPreferences, rgEditor, first_name, last_name, email, id, birthday, user_image);
         }
-    }
-
-    private void moveBack() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-//                Intent resultIntent = new Intent();
-//                setResult(Activity.RESULT_OK, resultIntent);
-//                finish();
-                Intent intent = new Intent(LoginWithSocialMedia.this, SplashScreen.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
-                finish();
-            }
-        }, 500);
     }
 
     private void actionBarTitle() {

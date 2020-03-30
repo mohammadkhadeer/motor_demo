@@ -3,6 +3,7 @@ package com.cars.halamotor.view.adapters;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -17,21 +18,31 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CityWithNeighborhood;
+import com.cars.halamotor.view.activity.SplashScreen;
+import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.updateCityNeighborhood;
 import static com.cars.halamotor.functions.Functions.check;
+import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.saveUserInfoInSP;
 
 public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCityWithNeighborhood.ViewHolder>{
 
     private final Context context;
     public ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayL ;
+    String whereComeFrom;
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
 
     public AdapterCityWithNeighborhood
-            (Context context,ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayL)
+            (Context context
+                    ,ArrayList<CityWithNeighborhood> cityWithNeighborhoodsArrayL
+                    ,String whereComeFrom)
                 {
                     this.context = context;
                     this.cityWithNeighborhoodsArrayL = cityWithNeighborhoodsArrayL;
+                    this.whereComeFrom = whereComeFrom;
                 }
 
     public AdapterCityWithNeighborhood.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
@@ -51,13 +62,36 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
         holder.radioRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("city", cityWithNeighborhoodsArrayL.get(position).getCityStr());
-                resultIntent.putExtra("nei", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr());
-                ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
-                ((Activity)context).finish();
+                if (whereComeFrom.equals("fragment"))
+                {
+                 backToSelectCityFragment(holder,position);   
+                }
+                if (whereComeFrom.equals("activity"))
+                {
+                    saveCityAndNeighborhoodInSPAndUpdateInServer(position);
+                    Intent intent = new Intent(context, SplashScreen.class);
+                    ((Activity)context).startActivity(intent);
+                    ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+                    ((Activity)context).finish();
+                }
             }
         });
+    }
+
+    private void saveCityAndNeighborhoodInSPAndUpdateInServer(int position) {
+        String city = cityWithNeighborhoodsArrayL.get(position).getCityStr();
+        String neighborhood = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr();
+        saveUserInfoInSP(context,sharedPreferences,editor,city
+        ,neighborhood);
+        updateCityNeighborhood(context,city,neighborhood);
+    }
+
+    private void backToSelectCityFragment(ViewHolder holder, int position) {
+        Intent resultIntent = new Intent();
+        resultIntent.putExtra("city", cityWithNeighborhoodsArrayL.get(position).getCityStr());
+        resultIntent.putExtra("nei", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr());
+        ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
+        ((Activity)context).finish();
     }
 
     @Override

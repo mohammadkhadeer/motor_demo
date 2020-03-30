@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.activity.selectAddress;
 
+import android.content.Intent;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
@@ -23,6 +24,8 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CityWithNeighborhood;
+import com.cars.halamotor.view.activity.LoginWithSocialMedia;
+import com.cars.halamotor.view.activity.SplashScreen;
 import com.cars.halamotor.view.activity.selectAddress.expandableList.RecyclerAdapter;
 import com.cars.halamotor.model.Neighborhood;
 import com.cars.halamotor.view.activity.selectAddress.expandableList.SubFavoriteType;
@@ -45,15 +48,22 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
     RelativeLayout cancelRL;
     ImageView cancelIV;
     AdapterCityWithNeighborhood adapterCityWithNeighborhood;
-
+    String whereComeFrom;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_city_and_neighborhood);
 
+        getStringFromIntent();
         statusBarColor();
         actionBarTitle();
         inti();
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         setData();
         createExpandableList();
         createAllCityWithNeighborhoodRV();
@@ -62,12 +72,17 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
         changeFont();
     }
 
+    private void getStringFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        whereComeFrom =bundle.getString("whereComeFrom");
+    }
+
     private void createAllCityWithNeighborhoodRV() {
         cityWithNeighborhoodsArrayList = fillCityAndNeighborhoodArrayL(cityWithNeighborhoodsArrayList,this);
         recyclerViewAllCity.setHasFixedSize(true);
         GridLayoutManager mLayoutManager = new GridLayoutManager(this, 1);
         recyclerViewAllCity.setLayoutManager(mLayoutManager);
-        adapterCityWithNeighborhood = new AdapterCityWithNeighborhood(this,cityWithNeighborhoodsArrayList);
+        adapterCityWithNeighborhood = new AdapterCityWithNeighborhood(this,cityWithNeighborhoodsArrayList,whereComeFrom);
         recyclerViewAllCity.setAdapter(adapterCityWithNeighborhood);
     }
 

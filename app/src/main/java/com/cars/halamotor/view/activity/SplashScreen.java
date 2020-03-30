@@ -16,6 +16,7 @@ import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.WheelsRimModel;
+import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,7 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getPlatesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getTruckItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
 import static com.cars.halamotor.functions.Functions.getNotification;
+import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.getUserAddressFromSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getWelcomeNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
@@ -86,30 +88,46 @@ public class SplashScreen extends AppCompatActivity {
             transportToLoginScreen();
         }
         else{
-            //first fill suggested to you list
-            getJunkCar();
-            getAccessories();
-            getWheelsRim();
-            getCarPlates();
-            getTrucks();
-            getMotorcycle();
-            getCarForRent();
-            getCarForSale();
-            getCarExchange();
-            //////////////Independent list in main screen 9 item in every list
-            getCarExchangeIndependent();
-            getCarForSaleIndependent();
-            getCarForRentIndependent();
-            getMotorcycleIndependent();
-            getTrucksIndependent();
-            getWheelsRimIndependent();
-            getCarPlatesIndependent();
-            getAccessoriesIndependent();
-            getJunkCarIndependent();
+            if (getUserAddressFromSP(this) == null)
+            {
+                selectAddress();
+            }else {
+                //first fill suggested to you list
+                getJunkCar();
+                getAccessories();
+                getWheelsRim();
+                getCarPlates();
+                getTrucks();
+                getMotorcycle();
+                getCarForRent();
+                getCarForSale();
+                getCarExchange();
+                //////////////Independent list in main screen 9 item in every list
+                getCarExchangeIndependent();
+                getCarForSaleIndependent();
+                getCarForRentIndependent();
+                getMotorcycleIndependent();
+                getTrucksIndependent();
+                getWheelsRimIndependent();
+                getCarPlatesIndependent();
+                getAccessoriesIndependent();
+                getJunkCarIndependent();
 
-            transportToMainActivity();
+                transportToMainActivity();
+            }
         }
 
+    }
+
+    private void selectAddress() {
+        Bundle bundle = new Bundle();
+        bundle.putString("whereComeFrom", "activity");
+
+        Intent intent = new Intent(SplashScreen.this, SelectCityAndNeighborhood.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+        finish();
     }
 
     private void transportToLoginScreen() {

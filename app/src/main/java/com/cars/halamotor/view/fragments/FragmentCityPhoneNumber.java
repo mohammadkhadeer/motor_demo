@@ -71,7 +71,11 @@ public class FragmentCityPhoneNumber extends Fragment {
     }
 
     private void moveToSelectCity() {
+        Bundle bundle = new Bundle();
+        bundle.putString("whereComeFrom", "fragment");
+
         Intent intent = new Intent(getActivity(), SelectCityAndNeighborhood.class);
+        intent.putExtras(bundle);
         startActivityForResult(intent , UPDATE_LOCATION);
         getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
