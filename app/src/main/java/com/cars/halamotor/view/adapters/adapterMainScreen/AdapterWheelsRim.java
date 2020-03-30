@@ -90,6 +90,9 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
     private void fillPrice(ViewHolder holder, int position, Context context) {
         if (wheelsRimArrayL.get(position).getItemPostEdit().equals("0"))
         {
+            holder.itemPriceTV.setVisibility(View.VISIBLE);
+            holder.oldPrice.setVisibility(View.GONE);
+            holder.fireIV.setVisibility(View.GONE);
             holder.itemPriceTV.setText(wheelsRimArrayL.get(position).getItemPrice()
                     +" "+context.getResources().getString(R.string.price_contry));
             holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
@@ -97,11 +100,14 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
             holder.itemNewPriceTV.setText("");
             holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
         }else{
-            holder.itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+            holder.itemPriceTV.setVisibility(View.GONE);
+            holder.oldPrice.setVisibility(View.VISIBLE);
+
+            holder.oldPrice.setText(wheelsRimArrayL.get(position).getItemPrice());
             //change text color
-            holder.itemPriceTV.setTextColor(context.getResources().getColor(R.color.colorSilver));
+            holder.oldPrice.setTextColor(context.getResources().getColor(R.color.colorSilver));
             //set line above old price
-            holder.itemPriceTV.setPaintFlags(holder.itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.oldPrice.setPaintFlags(holder.itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
 
             //change size new price
             holder.itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 16);
@@ -171,8 +177,8 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
         ImageView itemImage,userImage,fireIV,favoriteIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1
-                , text4,itemTitleTV,itemPriceTV,itemNewPriceTV
-                ,userNameTV;
+                , text4,itemTitleTV,itemPriceTV
+                ,itemNewPriceTV,oldPrice,userNameTV;
         RelativeLayout favoriteRL;
 
         @SuppressLint("WrongViewCast")
@@ -190,6 +196,7 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
 
             itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_title);
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_price);
+            oldPrice = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_old_price);
             itemNewPriceTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_new_price);
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_wheels_rim_user_name);
 

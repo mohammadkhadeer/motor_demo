@@ -9,7 +9,7 @@
 
     <android.support.v7.widget.CardView
         android:layout_width="280dp"
-        android:layout_height="370dp"
+        android:layout_height="355dp"
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="2dp"
@@ -244,7 +244,27 @@
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="4dp"
-                    android:orientation="vertical">
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        >
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/strike"
+                            android:layout_marginLeft="3dp"
+                            android:layout_marginRight="3dp"
+                            android:layout_marginBottom="3dp"
+                            android:layout_marginTop="5dp"
+                            android:textSize="13dp"
+                            android:visibility="gone"
+                            android:textColor="@color/colorGreen"
+                            android:text="test text"
+                            android:id="@+id/adapter_acc_and_junk_old_price"
+                            />
+                    </RelativeLayout>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -267,20 +287,39 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="0dp"
                         >
-                        <TextView
+
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="15dp"
-                            android:layout_marginLeft="1px"
-                            android:layout_marginStart="3dp"
-                            android:textColor="@color/colorGreen"
-                            android:text="test text"
-                            android:id="@+id/adapter_acc_and_junk_new_price"
-                            />
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="16dp"
+                                android:layout_margin="3dp"
+                                android:textColor="@color/colorGreen"
+                                android:text="test text"
+                                android:id="@+id/adapter_acc_and_junk_new_price"
+                                />
+
+                            <ImageView
+                                android:layout_width="20dp"
+                                android:layout_height="20dp"
+                                android:layout_centerHorizontal="true"
+                                android:visibility="gone"
+                                android:layout_marginTop="4dp"
+                                android:layout_marginLeft="1dp"
+                                android:layout_marginStart="4dp"
+                                android:id="@+id/adapter_acc_and_junk_fire_iv"
+                                android:background="@drawable/fire"/>
+                        </LinearLayout>
+
                     </RelativeLayout>
 
 
                 </LinearLayout>
+
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -458,22 +497,6 @@
                 </LinearLayout>
 
             </RelativeLayout>
-
-        <RelativeLayout
-            android:layout_width="80dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="1dp"
-            android:layout_marginStart="190dp"
-            android:layout_marginTop="290dp"
-            >
-            <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerHorizontal="true"
-                android:visibility="gone"
-                android:id="@+id/adapter_acc_and_junk_fire_iv"
-                android:background="@drawable/fire"/>
-        </RelativeLayout>
 
         </RelativeLayout>
 
