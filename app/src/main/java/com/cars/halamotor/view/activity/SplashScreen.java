@@ -44,6 +44,7 @@ import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getWelcomeNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.welcomeNotifications;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 
 public class SplashScreen extends AppCompatActivity {
 
@@ -79,29 +80,53 @@ public class SplashScreen extends AppCompatActivity {
 
         myDB = getDataBaseInstance(getApplicationContext());
         addWelcomeNotifications();
-        //first fill suggested to you list
-        getJunkCar();
-        getAccessories();
-        getWheelsRim();
-        getCarPlates();
-        getTrucks();
-        getMotorcycle();
-        getCarForRent();
-        getCarForSale();
-        getCarExchange();
-        //////////////Independent list in main screen 9 item in every list
-        getCarExchangeIndependent();
-        getCarForSaleIndependent();
-        getCarForRentIndependent();
-        getMotorcycleIndependent();
-        getTrucksIndependent();
-        getWheelsRimIndependent();
-        getCarPlatesIndependent();
-        getAccessoriesIndependent();
-        getJunkCarIndependent();
 
-        transportToMainActivity();
+        if (checkIfUserRegisterOrNotFromSP(this) == false)
+        {
+            transportToLoginScreen();
+        }
+        else{
+            //first fill suggested to you list
+            getJunkCar();
+            getAccessories();
+            getWheelsRim();
+            getCarPlates();
+            getTrucks();
+            getMotorcycle();
+            getCarForRent();
+            getCarForSale();
+            getCarExchange();
+            //////////////Independent list in main screen 9 item in every list
+            getCarExchangeIndependent();
+            getCarForSaleIndependent();
+            getCarForRentIndependent();
+            getMotorcycleIndependent();
+            getTrucksIndependent();
+            getWheelsRimIndependent();
+            getCarPlatesIndependent();
+            getAccessoriesIndependent();
+            getJunkCarIndependent();
 
+            transportToMainActivity();
+        }
+
+    }
+
+    private void transportToLoginScreen() {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                Bundle bundle = new Bundle();
+                bundle.putString("address", "splash");
+
+                Intent intent = new Intent(SplashScreen.this, LoginWithSocialMedia.class);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+                finish();
+            }
+        }, 1000);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
@@ -407,7 +432,7 @@ public class SplashScreen extends AppCompatActivity {
                 overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
                 finish();
             }
-        }, 8000);
+        }, 4000);
     }
 
 }

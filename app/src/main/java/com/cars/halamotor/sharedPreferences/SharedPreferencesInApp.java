@@ -49,7 +49,7 @@ public class SharedPreferencesInApp {
         String registerOrNotYetStr;
         SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
         registerOrNotYetStr = (shared.getString("registerOrNotYet", ""));
-        if (registerOrNotYetStr.equals("") || registerOrNotYetStr == null || registerOrNotYetStr.equals("0")) {
+        if (registerOrNotYetStr.equals("") || registerOrNotYetStr == null) {
             return  false;
         }
         else {
@@ -104,6 +104,21 @@ public class SharedPreferencesInApp {
         fbEditor.putString("loginOrNot",status);
         fbEditor.commit();
     }
+
+    public static UserFaceBookInfo getUserInfo(Context context) {
+        String firstNameStr,lastNameStr,emailStr,idStr,userBirthdayStr,userImageStr;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        firstNameStr = (shared.getString("firstName", ""));
+        lastNameStr = (shared.getString("lastName", ""));
+        emailStr = (shared.getString("email", ""));
+        idStr = (shared.getString("id", ""));
+        userBirthdayStr = (shared.getString("birthday", ""));
+        userImageStr = (shared.getString("imageURL", ""));
+
+        UserFaceBookInfo userFaceBookInfo = new UserFaceBookInfo(firstNameStr,lastNameStr,emailStr,idStr,userBirthdayStr,userImageStr);
+        return userFaceBookInfo;
+    }
+
 
     public static void saveUserInfoInSP(Context context,SharedPreferences SharedPreferences,
                                       SharedPreferences.Editor Editor,String firstNameStr,String lastNameStr

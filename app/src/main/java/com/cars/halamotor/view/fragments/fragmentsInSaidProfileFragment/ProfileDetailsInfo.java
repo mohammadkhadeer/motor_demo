@@ -21,6 +21,7 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkF
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserFBInfo;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserInfo;
 
 
 public class ProfileDetailsInfo extends Fragment {
@@ -77,7 +78,7 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void fillUserInfoFromFB() {
-        UserFaceBookInfo userFaceBookInfo = getUserFBInfo(getActivity());
+        UserFaceBookInfo userFaceBookInfo = getUserInfo(getActivity());
         userNameTV.setText(userFaceBookInfo.getFirstNameStr());
         fillImageUser(userFaceBookInfo.getUserImageStr());
     }
@@ -118,7 +119,11 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void moveToLoginWithSocialMedia() {
+        Bundle bundle = new Bundle();
+        bundle.putString("address", "build");
+
         Intent intent = new Intent(getActivity(), LoginWithSocialMedia.class);
+        intent.putExtras(bundle);
         startActivityForResult(intent , 10);
         getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }

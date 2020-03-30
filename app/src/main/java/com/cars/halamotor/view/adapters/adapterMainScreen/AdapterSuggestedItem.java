@@ -210,7 +210,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     private void fillCarDetails(int position, ViewHolder holder) {
         holder.text1.setText(suggestedItemsArrayL.get(position).getItemCarMake());
         holder.text2.setText(suggestedItemsArrayL.get(position).getItemCarYear());
-        holder.text3.setText(suggestedItemsArrayL.get(position).getItemCarCondition());
+        holder.text3.setText(suggestedItemsArrayL.get(position).getItemCity());
         holder.text4.setText(suggestedItemsArrayL.get(position).getItemCarKilometers());
         holder.itemCityTV.setText(suggestedItemsArrayL.get(position).getItemCity());
 
@@ -226,7 +226,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         holder.itemCityTV.setTypeface(Functions.changeFontGeneral(context));
         holder.userNameTV.setTypeface(Functions.changeFontGeneral(context));
 
-        holder.itemPriceTV.setTypeface(Functions.changeFontBold(context));
+        holder.itemPriceTV.setTypeface(Functions.changeFontGeneral(context));
         holder.itemTitleTV.setTypeface(Functions.changeFontBold(context));
     }
 

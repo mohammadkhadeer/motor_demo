@@ -26,6 +26,7 @@
     <string name="suggested_to_you">Suggested to you</string>
     <string name="next">Next</string>
     <string name="reset">Reset</string>
+    <string name="call">Call</string>
     <string name="upload_video">Add video</string>
     <string name="upload_photo">Add photo</string>
     <string name="what_do">What do you want to do \?</string>
@@ -34,6 +35,7 @@
     <string name="process_now">You well do </string>
     <string name="see_all">See all</string>
     <string name="finish_ur_insurance_in_mint">Finish your insurance mintes</string>
+    <string name="welcome_in_hala_motor">Welcom in Hala Motor</string>
 
     <string name="burned_price_1">Your price burned price\?</string>
     <string name="special_car_p_1">Your plates is special\?</string>
@@ -94,7 +96,7 @@
     <string name="year">Year</string>
     <string name="condition">Condition</string>
 
-    <string name="login_with_social_media">Login with social media</string>
+    <string name="login_with_social_media">Login</string>
     <string name="must_login">Must to login before add item</string>
 
 
