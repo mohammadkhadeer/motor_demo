@@ -1,9 +1,12 @@
 package com.cars.halamotor.view.adapters.adapterMainScreen;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -18,6 +21,8 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SuggestedItem;
+import com.cars.halamotor.view.activity.ShowItemDetails;
+import com.cars.halamotor.view.activity.SplashScreen;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -60,7 +65,19 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             checkTypeAndFillTypeDetails(context,holder,position);
             checkIfFavouriteOrNot(context,holder,position);
             actionListenerToFavorite(context,holder,position);
+            actionListenerToGoShowItemDetails(context,holder,position);
         }
+    }
+
+    private void actionListenerToGoShowItemDetails(final Context context, ViewHolder holder, int position) {
+        holder.cardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, ShowItemDetails.class);
+                ((Activity)context).startActivity(intent);
+                ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+        });
     }
 
     private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
@@ -263,6 +280,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        CardView cardView;
         ImageView itemImage,userImage,fireIV,favoriteIV;
         TextView numberOfImageTV,numberOfCommentTV
                 , text1, text2, text3
@@ -273,6 +291,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
             super(itemView);
+            cardView = (CardView) itemView.findViewById(R.id.adapter_suggested_item_CV);
             numberOfImageTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_number_of_item_image);
             userImage = (ImageView) itemView.findViewById(R.id.adapter_suggested_item_user_image);
             fireIV = (ImageView) itemView.findViewById(R.id.adapter_suggested_fire_iv);

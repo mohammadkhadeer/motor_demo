@@ -13,6 +13,7 @@
         android:layout_marginLeft="8dp"
         android:layout_marginRight="8dp"
         android:layout_marginBottom="2dp"
+        android:id="@+id/adapter_suggested_item_CV"
         app:cardCornerRadius="12dp">
 
         <RelativeLayout

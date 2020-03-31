@@ -17,20 +17,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".view.activity.SplashScreen"
-            android:screenOrientation="portrait">
+        <activity
+            android:name=".view.activity.ShowItemDetails"
+            android:label="@string/title_activity_show_item_details"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".view.activity.SplashScreen"
+            android:screenOrientation="portrait">
 
+        </activity>
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"
-            android:theme="@style/CustomActionBarTheme"></activity>
+            android:theme="@style/CustomActionBarTheme" />
         <activity
             android:name=".view.activity.CarPlates"
             android:screenOrientation="portrait"
@@ -43,7 +48,7 @@
             android:name=".view.activity.selectAddress.SelectCityAndNeighborhood"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
-        <activity android:name=".view.activity.Insurance"></activity>
+        <activity android:name=".view.activity.Insurance" />
         <activity
             android:name=".view.activity.CarDetails"
             android:screenOrientation="portrait"
@@ -51,16 +56,10 @@
         <activity
             android:name=".view.activity.AddItem"
             android:theme="@style/AppTheme2" />
-
-
         <activity
             android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme2">
-
-        </activity>
-
-
+            android:theme="@style/AppTheme2" />
         <activity android:name=".view.showImageFromGallery.CustomGalleryActivity">
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
