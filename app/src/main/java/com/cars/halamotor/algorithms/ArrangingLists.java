@@ -100,19 +100,31 @@ public class ArrangingLists {
     public static ArrayList<CCEMTFirestCase> setEditTextFirstItemCCEMTFirstCase
             (ArrayList<CCEMTFirestCase> ccemtFirstCaseArrayList) {
 
-        ArrayList<CCEMTFirestCase> ccemtFCContainerArrayList = new ArrayList<>();
+        ArrayList<CCEMTFirestCase> ccemtFCContainer1ArrayList = new ArrayList<>();
+        ArrayList<CCEMTFirestCase> ccemtFCContainer2ArrayList = new ArrayList<>();
         for (int i =0 ; i <ccemtFirstCaseArrayList.size();i++)
         {
             if (ccemtFirstCaseArrayList.get(i).getItemPostEdit().equals("1"))
             {
-                ccemtFCContainerArrayList.add(ccemtFirstCaseArrayList.get(i));
-                ccemtFirstCaseArrayList.remove(i);
+                ccemtFCContainer1ArrayList.add(ccemtFirstCaseArrayList.get(i));
+            }else{
+                ccemtFCContainer2ArrayList.add(ccemtFirstCaseArrayList.get(i));
             }
         }
-
-        for (int j = 0;j<ccemtFCContainerArrayList.size();j++)
+        ccemtFirstCaseArrayList = new ArrayList<>();
+        int lastPostion = 0;
+        for (int j = 0;j<ccemtFCContainer1ArrayList.size();j++)
         {
-            ccemtFirstCaseArrayList.add(j,ccemtFCContainerArrayList.get(j));
+            ccemtFirstCaseArrayList.add(j,ccemtFCContainer1ArrayList.get(j));
+            lastPostion =j;
+        }
+        for (int k = 0;k<ccemtFCContainer2ArrayList.size();k++)
+        {
+            if (lastPostion == 0)
+                lastPostion = 0;
+            else
+                lastPostion = lastPostion + 1;
+            ccemtFirstCaseArrayList.add(lastPostion,ccemtFCContainer2ArrayList.get(k));
         }
 
         return ccemtFirstCaseArrayList;
@@ -121,19 +133,32 @@ public class ArrangingLists {
     public static ArrayList<WheelsRimFirstCase> setEditTextFirstItemWheelsRim
             (ArrayList<WheelsRimFirstCase> wheelsRimFirstCaseArrayList) {
 
-        ArrayList<WheelsRimFirstCase> wheelsRimContainerArrayList = new ArrayList<>();
+        ArrayList<WheelsRimFirstCase> ccemtFCContainer1ArrayList = new ArrayList<>();
+        ArrayList<WheelsRimFirstCase> ccemtFCContainer2ArrayList = new ArrayList<>();
         for (int i =0 ; i <wheelsRimFirstCaseArrayList.size();i++)
         {
             if (wheelsRimFirstCaseArrayList.get(i).getItemPostEdit().equals("1"))
             {
-                wheelsRimContainerArrayList.add(wheelsRimFirstCaseArrayList.get(i));
-                wheelsRimFirstCaseArrayList.remove(i);
+                ccemtFCContainer1ArrayList.add(wheelsRimFirstCaseArrayList.get(i));
+            }else{
+                ccemtFCContainer2ArrayList.add(wheelsRimFirstCaseArrayList.get(i));
             }
         }
 
-        for (int j = 0;j<wheelsRimContainerArrayList.size();j++)
+        wheelsRimFirstCaseArrayList = new ArrayList<>();
+        int lastPostion = 0;
+        for (int j = 0;j<ccemtFCContainer1ArrayList.size();j++)
         {
-            wheelsRimFirstCaseArrayList.add(j,wheelsRimContainerArrayList.get(j));
+            wheelsRimFirstCaseArrayList.add(j,ccemtFCContainer1ArrayList.get(j));
+            lastPostion =j;
+        }
+        for (int k = 0;k<ccemtFCContainer2ArrayList.size();k++)
+        {
+            if (lastPostion == 0)
+                lastPostion = 0;
+            else
+                lastPostion = lastPostion + 1;
+            wheelsRimFirstCaseArrayList.add(lastPostion,ccemtFCContainer2ArrayList.get(k));
         }
 
         return wheelsRimFirstCaseArrayList;
@@ -142,19 +167,32 @@ public class ArrangingLists {
     public static ArrayList<CarPlatesFirstCase> setEditTextFirstCarPlates
             (ArrayList<CarPlatesFirstCase> carPlatesFirstCaseArrayList) {
 
-        ArrayList<CarPlatesFirstCase> carPlatesContainerArrayList = new ArrayList<>();
+        ArrayList<CarPlatesFirstCase> ccemtFCContainer1ArrayList = new ArrayList<>();
+        ArrayList<CarPlatesFirstCase> ccemtFCContainer2ArrayList = new ArrayList<>();
         for (int i =0 ; i <carPlatesFirstCaseArrayList.size();i++)
         {
             if (carPlatesFirstCaseArrayList.get(i).getItemPostEdit().equals("1"))
             {
-                carPlatesContainerArrayList.add(carPlatesFirstCaseArrayList.get(i));
-                carPlatesFirstCaseArrayList.remove(i);
+                ccemtFCContainer1ArrayList.add(carPlatesFirstCaseArrayList.get(i));
+            }else{
+                ccemtFCContainer2ArrayList.add(carPlatesFirstCaseArrayList.get(i));
             }
         }
 
-        for (int j = 0;j<carPlatesContainerArrayList.size();j++)
+        carPlatesFirstCaseArrayList = new ArrayList<>();
+        int lastPostion = 0;
+        for (int j = 0;j<ccemtFCContainer1ArrayList.size();j++)
         {
-            carPlatesFirstCaseArrayList.add(j,carPlatesContainerArrayList.get(j));
+            carPlatesFirstCaseArrayList.add(j,ccemtFCContainer1ArrayList.get(j));
+            lastPostion =j;
+        }
+        for (int k = 0;k<ccemtFCContainer2ArrayList.size();k++)
+        {
+            if (lastPostion == 0)
+                lastPostion = 0;
+            else
+                lastPostion = lastPostion + 1;
+            carPlatesFirstCaseArrayList.add(lastPostion,ccemtFCContainer2ArrayList.get(k));
         }
 
         return carPlatesFirstCaseArrayList;
@@ -163,22 +201,32 @@ public class ArrangingLists {
     public static ArrayList<AccAndJunkFirstCase> setEditTextFirstAccAndJunk
             (ArrayList<AccAndJunkFirstCase> accAndJunkFirstCaseArrayList) {
 
-        int ii =0;
-        ArrayList<AccAndJunkFirstCase> accAndJunkContainerArrayList = new ArrayList<>();
+        ArrayList<AccAndJunkFirstCase> ccemtFCContainer1ArrayList = new ArrayList<>();
+        ArrayList<AccAndJunkFirstCase> ccemtFCContainer2ArrayList = new ArrayList<>();
         for (int i =0 ; i <accAndJunkFirstCaseArrayList.size();i++)
         {
             if (accAndJunkFirstCaseArrayList.get(i).getItemPostEdit().equals("1"))
             {
-                ii =1;
-                accAndJunkContainerArrayList.add(accAndJunkFirstCaseArrayList.get(i));
-                accAndJunkFirstCaseArrayList.remove(i);
+                ccemtFCContainer1ArrayList.add(accAndJunkFirstCaseArrayList.get(i));
+            }else{
+                ccemtFCContainer2ArrayList.add(accAndJunkFirstCaseArrayList.get(i));
             }
         }
+        accAndJunkFirstCaseArrayList = new ArrayList<>();
+        int lastPostion = 0;
+        for (int j = 0;j<ccemtFCContainer1ArrayList.size() && ccemtFCContainer1ArrayList.size() !=0;j++)
+        {
+            accAndJunkFirstCaseArrayList.add(j,ccemtFCContainer1ArrayList.get(j));
+            lastPostion =j;
+        }
 
-        if (ii == 1) {
-            for (int j = 0; j < accAndJunkFirstCaseArrayList.size(); j++) {
-                accAndJunkFirstCaseArrayList.add(j, accAndJunkFirstCaseArrayList.get(j));
-            }
+        for (int k = 0;k<ccemtFCContainer2ArrayList.size() && ccemtFCContainer2ArrayList.size() !=0;k++)
+        {
+            if (lastPostion == 0)
+                lastPostion = 0;
+            else
+            lastPostion = lastPostion + 1;
+            accAndJunkFirstCaseArrayList.add(lastPostion,ccemtFCContainer2ArrayList.get(k));
         }
 
         return accAndJunkFirstCaseArrayList;

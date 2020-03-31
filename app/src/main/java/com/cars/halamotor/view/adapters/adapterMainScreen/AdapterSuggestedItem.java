@@ -91,12 +91,6 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     }
 
     private void fillPrice(ViewHolder holder, int position, Context context) {
-        Log.i("TAG","New Price");
-        Log.i("TAG",suggestedItemsArrayL.get(position).getItemNewPrice());
-        Log.i("TAG",suggestedItemsArrayL.get(position).getItemName());
-        Log.i("TAG",suggestedItemsArrayL.get(position).getItemPostEdit());
-        Log.i("TAG",suggestedItemsArrayL.get(position).getItemType());
-        Log.i("TAG","********");
         if (suggestedItemsArrayL.get(position).getItemPostEdit().equals("0"))
         {
             holder.itemPriceTV.setVisibility(View.VISIBLE);
