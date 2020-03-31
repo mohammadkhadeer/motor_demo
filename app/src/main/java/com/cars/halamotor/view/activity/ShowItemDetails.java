@@ -44,6 +44,7 @@ public class ShowItemDetails extends AppCompatActivity {
         intiShareFragment();
         intiSuggestedFragment();
         intiCommentsFragment();
+
     }
 
     private void intiCommentsFragment() {
