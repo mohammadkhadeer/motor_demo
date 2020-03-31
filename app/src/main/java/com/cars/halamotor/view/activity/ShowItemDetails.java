@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentComments;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentIDescriptionAndGeneralTips;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentItemSelectedDetails;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentShare;
@@ -27,6 +28,7 @@ public class ShowItemDetails extends AppCompatActivity {
     FragmentIDescriptionAndGeneralTips fragmentIDescriptionAndGeneralTips = new FragmentIDescriptionAndGeneralTips();
     FragmentShare fragmentShare = new FragmentShare();
     FragmentSuggestedAntherItems fragmentSuggestedAntherItems = new FragmentSuggestedAntherItems();
+    FragmentComments fragmentComments = new FragmentComments();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,17 @@ public class ShowItemDetails extends AppCompatActivity {
         intiItemDescriptionAndGeneralTips();
         intiShareFragment();
         intiSuggestedFragment();
+        intiCommentsFragment();
+    }
+
+    private void intiCommentsFragment() {
+
+        Bundle bundle = new Bundle();
+        bundle.putString("category", getResources().getString(R.string.sharjah));
+        fragmentComments.setArguments(bundle);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.selected_item_details_comments_container, fragmentComments);
+        transaction.commit();
     }
 
     private void intiSuggestedFragment() {
