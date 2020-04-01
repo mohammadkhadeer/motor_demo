@@ -696,7 +696,7 @@
                             android:id="@+id/text_title8"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/car_options"/>
 
                     </RelativeLayout>
 
@@ -727,9 +727,17 @@
                     android:layout_weight="5"/>
 
             </LinearLayout>
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/car_options_RV"
+                android:layout_marginLeft="1dp"
+                android:layout_marginStart="32dp"
+                />
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="0.5dp"
+                android:id="@+id/split_RL"
                 android:background="@color/colorSilver2"/>
 
             <LinearLayout

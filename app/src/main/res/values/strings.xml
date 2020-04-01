@@ -56,6 +56,7 @@
     <string name="fill_title">Please fill car title</string>
     <string name="fill_description">Please fill car description</string>
     <string name="description">Description</string>
+    <string name="no_options">No options</string>
     <string name="general_tips">General tips</string>
     <string name="general_tips1">\. Only meet in public places</string>
     <string name="general_tips2">\. Never pay or transfer money in advance</string>

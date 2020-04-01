@@ -1,19 +1,27 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
 import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.adapters.AdapterCarOption;
+
+import java.util.ArrayList;
 
 public class FragmentItemSelectedDetails extends Fragment {
 
@@ -29,7 +37,9 @@ public class FragmentItemSelectedDetails extends Fragment {
              ,cityTV,neighborhoodTV,categoryTV,cityTitleTV,neighborhoodTitleTV
              ,categoryTitleTV;
      LinearLayout itemDetailsLL;
-
+     RecyclerView carOptionRV;
+    ArrayList<String> carOptionsArrayList = new ArrayList<String>();
+    AdapterCarOption adapterCarOption;
     View view;
 
     @Override
@@ -68,11 +78,11 @@ public class FragmentItemSelectedDetails extends Fragment {
         text_title_content6 = (TextView) view.findViewById(R.id.text_title_content6);
         text_title_content7 = (TextView) view.findViewById(R.id.text_title_content7);
         text_title_content8 = (TextView) view.findViewById(R.id.text_title_content8);
+        carOptionRV = (RecyclerView) view.findViewById(R.id.car_options_RV);
         text_title_content9 = (TextView) view.findViewById(R.id.text_title_content9);
         text_title_content10 = (TextView) view.findViewById(R.id.text_title_content10);
         text_title_content11 = (TextView) view.findViewById(R.id.text_title_content11);
         text_title_content12 = (TextView) view.findViewById(R.id.text_title_content12);
-
     }
 
     @Override
@@ -84,11 +94,49 @@ public class FragmentItemSelectedDetails extends Fragment {
         inti();
         return view;
     }
-
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         changeFont();
+        fillCarOptions();
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.M)
+    private void fillCarOptions() {
+        fillArrayList();
+        if (carOptionsArrayList.size() == 0)
+        {
+            carOptionRV.setVisibility(View.GONE);
+            text_title_content8.setVisibility(View.VISIBLE);
+            text_title8.setTextColor(getActivity().getResources()
+                    .getColor(R.color.colorBlack5, null));
+            text_title_content8.setText(getActivity().getResources().getString(R.string.no_options));
+        }else{
+            text_title8.setTextColor(getActivity().getResources()
+                    .getColor(R.color.colorBlack, null));
+            text_title_content8.setVisibility(View.GONE);
+            carOptionRV.setVisibility(View.VISIBLE);
+            carOptionRV.setHasFixedSize(true);
+            GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
+            carOptionRV.setLayoutManager(mLayoutManager);
+            adapterCarOption = new AdapterCarOption(getActivity(), carOptionsArrayList);
+            carOptionRV.setAdapter(adapterCarOption);
+        }
+    }
+
+    private void fillArrayList() {
+        carOptionsArrayList = new ArrayList<>();
+        carOptionsArrayList.add("Option 1");
+        carOptionsArrayList.add("Option 2");
+        carOptionsArrayList.add("Option 3");
+        carOptionsArrayList.add("Option 4");
+        carOptionsArrayList.add("Option 5");
+        carOptionsArrayList.add("Option 6");
+        carOptionsArrayList.add("Option 7");
+        carOptionsArrayList.add("Option 8");
+        carOptionsArrayList.add("Option 9");
+        carOptionsArrayList.add("Option 10");
     }
 
     private void changeFont() {
