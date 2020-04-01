@@ -16,14 +16,14 @@ import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentI
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentItemSelectedDetails;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentShare;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentSuggestedAntherItems;
-import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentUserInfoAndMainButton;
+import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentUserInfo;
 
 public class ShowItemDetails extends AppCompatActivity {
 
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbarLayout;
     AppBarLayout appbar;
-    FragmentUserInfoAndMainButton fragmentUserInfoAndMainButton = new FragmentUserInfoAndMainButton();
+    FragmentUserInfo fragmentUserInfoAndMainButton = new FragmentUserInfo();
     FragmentItemSelectedDetails fragmentItemSelectedDetails = new FragmentItemSelectedDetails();
     FragmentIDescriptionAndGeneralTips fragmentIDescriptionAndGeneralTips = new FragmentIDescriptionAndGeneralTips();
     FragmentShare fragmentShare = new FragmentShare();

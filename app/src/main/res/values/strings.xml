@@ -37,6 +37,9 @@
     <string name="finish_ur_insurance_in_mint">Finish your insurance mintes</string>
     <string name="welcome_in_hala_motor">Welcome in Hala Motor</string>
     <string name="search_on_neighborhood">Search your neighborhood</string>
+    <string name="neighborhood">Neighborhood</string>
+    <string name="see_more">See more</string>
+    <string name="see_less">See less</string>
 
     <string name="burned_price_1">Your price burned price\?</string>
     <string name="special_car_p_1">Your plates is special\?</string>
@@ -52,6 +55,11 @@
     <string name="fill_title_and_description">Please fill title and description</string>
     <string name="fill_title">Please fill car title</string>
     <string name="fill_description">Please fill car description</string>
+    <string name="description">Description</string>
+    <string name="general_tips">General tips</string>
+    <string name="general_tips1">\. Only meet in public places</string>
+    <string name="general_tips2">\. Never pay or transfer money in advance</string>
+    <string name="general_tips3">\. Inspect the product before you buy it</string>
     <string name="fill_price">Please fill price</string>
     <string name="fill_real_title">real title</string>
     <string name="fill_real_phone_number">active number</string>
@@ -1029,10 +1037,10 @@
     <string name="bmw_1502">1502</string>
     <string name="bmw_alpina">alpina</string>
     <string name="title_activity_show_item_details">ShowItemDetails</string>
-    <string name="large_text">
-        "Material is the metaphor.\n\n"
 
-        "A material metaphor is the unifying theory of a rationalized space and a system of motion."
+    <string name="large_text">
+        "Material is the metaphor
+        A material metaphor is the unifying theory of a rationalized space and a system of motion."
         "The material is grounded in tactile reality, inspired by the study of paper and ink, yet "
         "technologically advanced and open to imagination and magic.\n"
         "Surfaces and edges of the material provide visual cues that are grounded in reality. The "

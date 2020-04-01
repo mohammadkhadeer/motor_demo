@@ -16,11 +16,9 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 
-import static com.facebook.FacebookSdk.getApplicationContext;
+public class FragmentUserInfo extends Fragment {
 
-public class FragmentUserInfoAndMainButton extends Fragment {
-
-    public FragmentUserInfoAndMainButton(){}
+    public FragmentUserInfo(){}
 
     String test;
     View view;
@@ -54,7 +52,7 @@ public class FragmentUserInfoAndMainButton extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_user_info_and_main_button, container, false);
+        view = inflater.inflate(R.layout.fragment_user_info, container, false);
         Log.i("TAG","User info");
         Log.i("TAG",test);
         inti();

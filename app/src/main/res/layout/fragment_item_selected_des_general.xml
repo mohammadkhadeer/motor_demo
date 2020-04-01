@@ -6,18 +6,99 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/message_fragment"
+    android:background="@color/colorSilver2"
     tools:context=".view.fragments.fragmentInSaidShowItemDetails.FragmentShare">
 
-
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="200dp"
-        android:background="@color/colorMaroon">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
-    </RelativeLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_marginTop="3dp"
+            android:orientation="vertical">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:textSize="19dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/descriptionTV"
+                />
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/description"
+                android:textSize="16dp"
+                android:textColor="@color/colorBlack"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/descriptionContentTV"
+                />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorWhite"
+            android:layout_marginTop="2dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/general_tips"
+                android:textSize="19dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:id="@+id/generalTips"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/general_tips1"
+                android:textSize="17dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/colorBlack"
+                android:id="@+id/generalTips1"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/general_tips2"
+                android:textSize="17dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/colorBlack"
+                android:id="@+id/generalTips2"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/general_tips3"
+                android:textSize="17dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginBottom="4dp"
+                android:layout_marginStart="8dp"
+                android:textColor="@color/colorBlack"
+                android:id="@+id/generalTips3"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
 
 </RelativeLayout>
 
