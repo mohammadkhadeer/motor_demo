@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:id="@+id/message_fragment"
     android:background="@color/colorSilverSelectedItem"
-    tools:context=".view.fragments.fragmentInSaidShowItemDetails.FragmentSuggestedAntherItems">
+    tools:context=".view.fragments.fragmentInSaidShowItemDetails.FragmentSimilarItems">
 
     <LinearLayout
         android:layout_width="match_parent"

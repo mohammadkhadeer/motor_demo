@@ -16,7 +16,7 @@ import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentF
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentIDescriptionAndGeneralTips;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentItemSelectedDetails;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentShare;
-import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentSuggestedAntherItems;
+import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentSimilarItems;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentUserInfo;
 
 public class ShowItemDetails extends AppCompatActivity {
@@ -28,7 +28,7 @@ public class ShowItemDetails extends AppCompatActivity {
     FragmentItemSelectedDetails fragmentItemSelectedDetails = new FragmentItemSelectedDetails();
     FragmentIDescriptionAndGeneralTips fragmentIDescriptionAndGeneralTips = new FragmentIDescriptionAndGeneralTips();
     FragmentShare fragmentShare = new FragmentShare();
-    FragmentSuggestedAntherItems fragmentSuggestedAntherItems = new FragmentSuggestedAntherItems();
+    FragmentSimilarItems fragmentSuggestedAntherItems = new FragmentSimilarItems();
     FragmentComments fragmentComments = new FragmentComments();
     FragmentFollowUser fragmentFollowUser = new FragmentFollowUser();
 
