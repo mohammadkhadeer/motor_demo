@@ -73,6 +73,12 @@
     <string name="complete_product_details">Complete product details</string>
     <string name="blocked">Ur blocked to add new Ads please contact us</string>
     <string name="blocked_bp">Ur blocked to add item Burned Price contact us</string>
+    <string name="posts">Posts</string>
+    <string name="followers">Follower</string>
+    <string name="similar">Similar Ads</string>
+    <string name="follow">Follow</string>
+    <string name="unfollow">Unfollow</string>
+    <string name="following">Following</string>
 
     <string name="special">\"Special\"</string>
     <string name="ur_product">Your product </string>

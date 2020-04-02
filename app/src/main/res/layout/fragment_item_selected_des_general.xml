@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/message_fragment"
-    android:background="@color/colorSilver2"
+    android:background="@color/colorSilverSelectedItem"
     tools:context=".view.fragments.fragmentInSaidShowItemDetails.FragmentShare">
 
     <LinearLayout
@@ -27,7 +27,7 @@
                 android:text="@string/description"
                 android:textSize="19dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:id="@+id/descriptionTV"
                 />
 
@@ -39,7 +39,7 @@
                 android:textColor="@color/colorBlack"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="6dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:id="@+id/descriptionContentTV"
                 />
 
@@ -58,7 +58,7 @@
                 android:text="@string/general_tips"
                 android:textSize="19dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="16dp"
                 android:id="@+id/generalTips"
                 />
 
@@ -68,7 +68,7 @@
                 android:text="@string/general_tips1"
                 android:textSize="17dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="18dp"
                 android:textColor="@color/colorBlack"
                 android:id="@+id/generalTips1"
                 />
@@ -79,7 +79,7 @@
                 android:text="@string/general_tips2"
                 android:textSize="17dp"
                 android:layout_marginTop="4dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="18dp"
                 android:textColor="@color/colorBlack"
                 android:id="@+id/generalTips2"
                 />
@@ -91,7 +91,7 @@
                 android:textSize="17dp"
                 android:layout_marginTop="4dp"
                 android:layout_marginBottom="4dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="18dp"
                 android:textColor="@color/colorBlack"
                 android:id="@+id/generalTips3"
                 />

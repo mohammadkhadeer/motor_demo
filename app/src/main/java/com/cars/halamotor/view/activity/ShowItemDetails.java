@@ -12,6 +12,7 @@ import android.view.WindowManager;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentComments;
+import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentFollowUser;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentIDescriptionAndGeneralTips;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentItemSelectedDetails;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentShare;
@@ -29,6 +30,7 @@ public class ShowItemDetails extends AppCompatActivity {
     FragmentShare fragmentShare = new FragmentShare();
     FragmentSuggestedAntherItems fragmentSuggestedAntherItems = new FragmentSuggestedAntherItems();
     FragmentComments fragmentComments = new FragmentComments();
+    FragmentFollowUser fragmentFollowUser = new FragmentFollowUser();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,9 +44,19 @@ public class ShowItemDetails extends AppCompatActivity {
         intiItemDetails();
         intiItemDescriptionAndGeneralTips();
         intiShareFragment();
+        intiFollowUser();
         intiSuggestedFragment();
         intiCommentsFragment();
 
+    }
+
+    private void intiFollowUser() {
+        Bundle bundle = new Bundle();
+        bundle.putString("category", getResources().getString(R.string.dubai));
+        fragmentFollowUser.setArguments(bundle);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.selected_item_details_follow_user_container, fragmentFollowUser);
+        transaction.commit();
     }
 
     private void intiCommentsFragment() {

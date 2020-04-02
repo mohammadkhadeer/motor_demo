@@ -42,6 +42,12 @@
                 />
 
             <include
+                layout="@layout/content_show_item_selected_follow_user"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <include
                 layout="@layout/content_show_item_selected_suggested"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"

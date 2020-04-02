@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/message_fragment"
-    android:background="@color/colorSilver2"
+    android:background="@color/colorSilverSelectedItem"
     tools:context=".view.fragments.fragmentInSaidShowItemDetails.FragmentItemSelectedDetails">
 
     <LinearLayout
@@ -53,7 +53,6 @@
 
                     </RelativeLayout>
 
-
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -82,8 +81,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -145,8 +144,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -209,8 +208,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
         </LinearLayout>
 
@@ -282,8 +281,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -345,8 +344,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -409,8 +408,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -473,8 +472,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -537,8 +536,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -601,8 +600,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -665,8 +664,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -736,9 +735,8 @@
                 />
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:id="@+id/split_RL"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -801,8 +799,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -865,8 +863,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -929,8 +927,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -993,8 +991,8 @@
             </LinearLayout>
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="0.5dp"
-                android:background="@color/colorSilver2"/>
+                android:layout_height="0.3dp"
+                android:background="@color/colorSilver3"/>
 
         </LinearLayout>
 
