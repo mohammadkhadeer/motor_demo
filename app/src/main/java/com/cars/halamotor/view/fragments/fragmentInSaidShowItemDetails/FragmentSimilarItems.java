@@ -12,26 +12,20 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.SimilarItem;
-import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.view.adapters.AdapterSimilarAds;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkSimilarTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTSimilarTable;
 import static com.cars.halamotor.dataBase.ReadFunction.getSimilarFromDatabase;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getJunkCarItems;
 
 public class FragmentSimilarItems extends Fragment {
 
@@ -294,4 +288,5 @@ public class FragmentSimilarItems extends Fragment {
         getDataBaseInstance(getActivity()).deleteSimilarAds();
 
     }
+
 }

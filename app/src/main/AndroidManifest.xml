@@ -20,7 +20,8 @@
         <activity
             android:name=".view.activity.ShowItemDetails"
             android:label="@string/title_activity_show_item_details"
-            android:theme="@style/AppTheme.NoActionBar">
+            android:theme="@style/AppTheme.NoActionBar"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -29,9 +30,7 @@
         </activity>
         <activity
             android:name=".view.activity.SplashScreen"
-            android:screenOrientation="portrait">
-
-        </activity>
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"

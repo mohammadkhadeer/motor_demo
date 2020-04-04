@@ -10,6 +10,13 @@
 
     </style>
 
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+
+    </style>
+
     <style name="RadioButtonStyle" parent="AppTheme">
         <item name="colorControlNormal">#4C7CD1</item>
         <item name="colorAccent">#233570</item>

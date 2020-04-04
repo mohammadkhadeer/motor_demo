@@ -19,11 +19,12 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
 import com.cars.halamotor.view.adapters.AdapterCarOption;
 
 import java.util.ArrayList;
 
-public class FragmentItemSelectedDetails extends Fragment {
+public class FragmentItemSelectedDetails extends Fragment implements LinearLayoutThatDetectsSoftKeyboard.Listener{
 
     public FragmentItemSelectedDetails(){}
 
@@ -170,5 +171,10 @@ public class FragmentItemSelectedDetails extends Fragment {
         text_title_content10.setTypeface(Functions.changeFontGeneral(getActivity()));
         text_title_content11.setTypeface(Functions.changeFontGeneral(getActivity()));
         text_title_content12.setTypeface(Functions.changeFontGeneral(getActivity()));
+    }
+
+    @Override
+    public void onSoftKeyboardShown(boolean isShowing) {
+
     }
 }

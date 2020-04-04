@@ -67,7 +67,7 @@ public class FragmentIDescriptionAndGeneralTips extends Fragment {
     }
 
     private void fillDes() {
-        String des = getActivity().getResources().getString(R.string.description);
+        String des = getActivity().getResources().getString(R.string.large_text);
         Log.i("TAG SIZE", String.valueOf(des.length()));
         descriptionContentTV.setText(des);
         if (des.length() > 205)

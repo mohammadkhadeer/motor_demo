@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentComments;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentFollowUser;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentIDescriptionAndGeneralTips;
@@ -19,7 +20,7 @@ import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentS
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentSimilarItems;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentUserInfo;
 
-public class ShowItemDetails extends AppCompatActivity {
+public class ShowItemDetails extends AppCompatActivity implements LinearLayoutThatDetectsSoftKeyboard.Listener{
 
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbarLayout;
@@ -37,7 +38,7 @@ public class ShowItemDetails extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_item_details);
 
-        statusBarTransparent();
+        //statusBarTransparent();
         inti();
         titleActionBar();
         intiUserInfoFragment();
@@ -161,4 +162,8 @@ public class ShowItemDetails extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onSoftKeyboardShown(boolean isShowing) {
+
+    }
 }
