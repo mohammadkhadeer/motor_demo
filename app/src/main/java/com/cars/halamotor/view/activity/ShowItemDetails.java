@@ -7,6 +7,7 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
@@ -15,6 +16,7 @@ import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentComments;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentFollowUser;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentIDescriptionAndGeneralTips;
+import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentImageSlider;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentItemSelectedDetails;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentShare;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentSimilarItems;
@@ -32,6 +34,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
     FragmentSimilarItems fragmentSuggestedAntherItems = new FragmentSimilarItems();
     FragmentComments fragmentComments = new FragmentComments();
     FragmentFollowUser fragmentFollowUser = new FragmentFollowUser();
+    FragmentImageSlider fragmentImageSlider = new FragmentImageSlider();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +44,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         //statusBarTransparent();
         inti();
         titleActionBar();
+        intiImageSlider();
         intiUserInfoFragment();
         intiItemDetails();
         intiItemDescriptionAndGeneralTips();
@@ -49,6 +53,15 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         intiSuggestedFragment();
         intiCommentsFragment();
 
+    }
+
+    private void intiImageSlider() {
+        Bundle bundle = new Bundle();
+        bundle.putString("category", getResources().getString(R.string.sharjah));
+        fragmentImageSlider.setArguments(bundle);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.replace(R.id.selected_item_details_image_slider_container, fragmentImageSlider);
+        transaction.commit();
     }
 
     private void intiFollowUser() {

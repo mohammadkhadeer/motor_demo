@@ -17,6 +17,13 @@
         app:cardCornerRadius="12dp">
 
         <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            android:id="@+id/adapter_suggested_item_card_button">
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="280dp"
             android:layout_height="200dp"
             >

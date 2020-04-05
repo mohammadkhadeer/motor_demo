@@ -1,4 +1,4 @@
-package com.cars.halamotor.view.adapters;
+package com.cars.halamotor.view.adapters.adapterShowItemDetails;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,7 +22,6 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SimilarItem;
-import com.cars.halamotor.model.SuggestedItem;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;

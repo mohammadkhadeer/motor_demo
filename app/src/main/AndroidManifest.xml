@@ -22,15 +22,17 @@
             android:label="@string/title_activity_show_item_details"
             android:theme="@style/AppTheme.NoActionBar"
             >
+
+        </activity>
+        <activity
+            android:name=".view.activity.SplashScreen"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".view.activity.SplashScreen"
-            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"

@@ -19,7 +19,7 @@ import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.SimilarItem;
 import com.cars.halamotor.model.WheelsRimModel;
-import com.cars.halamotor.view.adapters.AdapterSimilarAds;
+import com.cars.halamotor.view.adapters.adapterShowItemDetails.AdapterSimilarAds;
 import java.util.ArrayList;
 import java.util.List;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;

@@ -24,10 +24,10 @@
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
             app:toolbarId="@+id/toolbar">
 
-            <ImageView
+            <include
+                layout="@layout/content_show_item_selected_image_slider"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:background="@drawable/t1"
                 />
 
             <android.support.v7.widget.Toolbar
@@ -48,7 +48,6 @@
         layout="@layout/fragment_contact"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/test"
         />
 
 </android.support.design.widget.CoordinatorLayout>

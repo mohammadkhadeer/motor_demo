@@ -4,8 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.activity.ShowItemDetails"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/content_show_item_selected_details"
     android:id="@+id/selected_item_details_share_container">
 

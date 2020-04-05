@@ -70,7 +70,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     }
 
     private void actionListenerToGoShowItemDetails(final Context context, ViewHolder holder, int position) {
-        holder.cardView.setOnClickListener(new View.OnClickListener() {
+        holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ShowItemDetails.class);
@@ -286,7 +286,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemCityTV
                 ,userNameTV,itemNewPriceTV,oldPriceTV;
-        RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL;
+        RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL,cardButton;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -309,6 +309,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             text3RL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_text3);
             text4RL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_text4);
             itemCityRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_city);
+            cardButton = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_card_button);
 
             itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_title);
             itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_price);
