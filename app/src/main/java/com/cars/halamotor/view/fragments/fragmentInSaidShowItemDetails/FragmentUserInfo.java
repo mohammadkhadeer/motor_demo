@@ -15,12 +15,15 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.squareup.picasso.Picasso;
+
+import static com.cars.halamotor.functions.Functions.getPostTime;
 
 public class FragmentUserInfo extends Fragment {
 
     public FragmentUserInfo(){}
 
-    String test;
+    String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr,dateStr,timStampStr,categoryStr;
     View view;
     TextView userNameTV,userStatusTV,itemNameTV,dateTV;
     RelativeLayout userStatusRL,favouriteRL,reportRL;
@@ -28,7 +31,15 @@ public class FragmentUserInfo extends Fragment {
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
-            test = getArguments().getString("category");
+            categoryStr = getArguments().getString("category");
+            itemIDStr = getArguments().getString("itemID");
+            userNameStr = getArguments().getString("userName");
+            userImageStr = getArguments().getString("userImage");
+            itemNameStr = getArguments().getString("itemName");
+            timePostStr = getArguments().getString("timePost");
+            postTypeStr = getArguments().getString("postType");
+            dateStr = getArguments().getString("date");
+            timStampStr = getArguments().getString("timStamp");
         }
         super.onAttach(context);
     }
@@ -53,8 +64,6 @@ public class FragmentUserInfo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user_info, container, false);
-        Log.i("TAG","User info");
-        Log.i("TAG",test);
         inti();
         return view;
     }
@@ -63,6 +72,23 @@ public class FragmentUserInfo extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         changeFont();
+        fillUserImage();
+        fillText();
+    }
+
+    private void fillText() {
+        userNameTV.setText(userNameStr);
+        itemNameTV.setText(itemNameStr);
+        userStatusTV.setText(getActivity().getResources().getString(R.string.online));
+        dateTV.setText(getPostTime(timStampStr));
+    }
+
+    private void fillUserImage() {
+        Picasso.with(getActivity())
+                .load(userImageStr)
+                .fit()
+                .centerCrop()
+                .into(userImageIV);
     }
 
     private void changeFont() {

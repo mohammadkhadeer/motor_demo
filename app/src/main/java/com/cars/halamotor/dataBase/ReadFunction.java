@@ -202,6 +202,8 @@ public class ReadFunction {
                         , res.getString(21).replace("\n", "")
                         , res.getString(22).replace("\n", "")
                         , res.getString(23).replace("\n", "")
+                        , res.getString(24).replace("\n", "")
+                        , res.getString(25).replace("\n", "")
                 );
                 carPlatesArrayL.add(carPlatesFirstCase);
             }
@@ -238,6 +240,8 @@ public class ReadFunction {
                         , res.getString(19).replace("\n", "")
                         , res.getString(20).replace("\n", "")
                         , res.getString(21).replace("\n", "")
+                        , res.getString(22).replace("\n", "")
+                        , res.getString(23).replace("\n", "")
                 );
                 accAndJunkRimArrayL.add(accAndJunkFirstCase);
             }
@@ -274,6 +278,8 @@ public class ReadFunction {
                         , res.getString(19).replace("\n", "")
                         , res.getString(20).replace("\n", "")
                         , res.getString(21).replace("\n", "")
+                        , res.getString(22).replace("\n", "")
+                        , res.getString(23).replace("\n", "")
                 );
                 wheelsRimArrayL.add(wheelsRimFirstCase);
             }
@@ -323,7 +329,8 @@ public class ReadFunction {
                         , res.getString(31).replace("\n", "")
                         , res.getString(32).replace("\n", "")
                         , res.getString(33).replace("\n", "")
-
+                        , res.getString(34).replace("\n", "")
+                        , res.getString(35).replace("\n", "")
                 );
                 carForSaleArrayL.add(carForSaleCCEMT);
             }

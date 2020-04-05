@@ -37,9 +37,9 @@ import static com.cars.halamotor.dataBase.ReadFunction.getCarPlatesDatabase;
 import static com.cars.halamotor.dataBase.ReadFunction.getSuggestedItemFromDatabase;
 import static com.cars.halamotor.dataBase.ReadFunction.getWheelsRimDatabase;
 
-public class ListesMainScreenFragment extends Fragment {
+public class ListsMainScreenFragment extends Fragment {
 
-    public ListesMainScreenFragment(){}
+    public ListsMainScreenFragment(){}
     View view;
     ArrayList<SuggestedItem> suggestedItemsArrayL = new ArrayList<SuggestedItem>();
     ArrayList<String> insuranceArrayL = new ArrayList<String>();
@@ -97,10 +97,10 @@ public class ListesMainScreenFragment extends Fragment {
         carPlatesArrayL = getCarPlatesDatabase(context);
         accessoriesArrayL = getAccAndJunkDatabase(context,"Accessories");
         junkArrayL = getAccAndJunkDatabase(context,"Junk car");
-        apllayAlgorithmToAllLists();
+        applyAlgorithmToAllLists();
     }
 
-    private void apllayAlgorithmToAllLists() {
+    private void applyAlgorithmToAllLists() {
         carForSaleArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
         carForRentArrayL = setEditTextFirstItemCCEMTFirstCase(carForRentArrayL);
         carExchangeArrayL = setEditTextFirstItemCCEMTFirstCase(carExchangeArrayL);

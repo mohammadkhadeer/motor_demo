@@ -6,6 +6,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -69,11 +70,17 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         }
     }
 
-    private void actionListenerToGoShowItemDetails(final Context context, ViewHolder holder, int position) {
+    private void actionListenerToGoShowItemDetails(final Context context, ViewHolder holder, final int position) {
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category",suggestedItemsArrayL.get(position).getItemType());
+                bundle.putString("from","stu");
+                bundle.putString("itemID",suggestedItemsArrayL.get(position).getItemIdInServer());
+
                 Intent intent = new Intent(context, ShowItemDetails.class);
+                intent.putExtras(bundle);
                 ((Activity)context).startActivity(intent);
                 ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
             }
@@ -176,15 +183,15 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         }
         if (suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.accessories)))
         {
-            fillAccAndJuck(context,holder,position);
+            fillAccAndJunk(context,holder,position);
         }
         if (suggestedItemsArrayL.get(position).getItemType().equals(context.getResources().getString(R.string.junk_car)))
         {
-            fillAccAndJuck(context,holder,position);
+            fillAccAndJunk(context,holder,position);
         }
     }
 
-    private void fillAccAndJuck(Context context, ViewHolder holder, int position) {
+    private void fillAccAndJunk(Context context, ViewHolder holder, int position) {
         holder.text1.setText(suggestedItemsArrayL.get(position).getItemCity());
         holder.text2.setAlpha(0);
         holder.text3.setAlpha(0);

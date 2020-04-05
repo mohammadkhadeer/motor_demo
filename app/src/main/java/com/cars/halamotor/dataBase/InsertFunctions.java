@@ -280,6 +280,9 @@ public class InsertFunctions {
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
                 , String.valueOf(ccemt.getActiveOrNot())
+
+                ,ccemt.getYearDate() + "/" + ccemt.getMonthDate() + "/" + ccemt.getDayDate()
+                ,ccemt.getTimeStamp()
         );
         return isInserted;
     }
@@ -310,6 +313,9 @@ public class InsertFunctions {
                 , String.valueOf(wheelsRim.getBurnedPrice())
                 , String.valueOf(wheelsRim.getPrice())
                 , String.valueOf(wheelsRim.getActiveOrNot())
+
+                , wheelsRim.getYearDate() + "/" +wheelsRim.getMonthDate() + "/" + wheelsRim.getDayDate()
+                , wheelsRim.getTimeStamp()
         );
         return isInserted;
     }
@@ -341,6 +347,9 @@ public class InsertFunctions {
                 , String.valueOf(carPlatesModel.getBurnedPrice())
                 , String.valueOf(carPlatesModel.getPrice())
                 , String.valueOf(carPlatesModel.getActiveOrNot())
+
+                , carPlatesModel.getYearDate() + "/" + carPlatesModel.getMonthDate() + "/" + carPlatesModel.getDayDate()
+                , carPlatesModel.getTimeStamp()
         );
         return isInserted;
     }
@@ -372,6 +381,9 @@ public class InsertFunctions {
             , String.valueOf(accAndJunk.getBurnedPrice())
             , String.valueOf(accAndJunk.getPrice())
             , String.valueOf(accAndJunk.getActiveOrNot())
+
+            , accAndJunk.getYearDate()+ "/" + accAndJunk.getMonthDate() + "/" + accAndJunk.getDayDate()
+            , accAndJunk.getTimeStamp()
     );
     return isInserted;
 }

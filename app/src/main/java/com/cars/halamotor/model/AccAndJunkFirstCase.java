@@ -7,9 +7,10 @@ public class AccAndJunkFirstCase {
             ,itemNumberOfComments,itemNumberOfImage
             ,itemCity,itemNeighborhood,itemTimePost,itemUserPhoneNumber
             ,itemName,itemImage,itemDescription,itemUserImage,itemUserName
-            ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot;
+            ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot
+            ,data,timeStamp;
 
-    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemIdInServer, String itemType, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot) {
+    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemIdInServer, String itemType, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot,String data,String timeStamp) {
         this.boostOrNot = boostOrNot;
         this.boostType = boostType;
         this.personOrGallery = personOrGallery;
@@ -31,6 +32,22 @@ public class AccAndJunkFirstCase {
         this.itemBurnedPrice = itemBurnedPrice;
         this.itemPrice = itemPrice;
         this.itemActiveOrNot = itemActiveOrNot;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public String getBoostOrNot() {

@@ -53,9 +53,12 @@ public class FragmentSimilarItems extends Fragment {
     ArrayList<SimilarItem> similar3ArrayL = new ArrayList<SimilarItem>();
 
     RecyclerView.LayoutManager layoutManagerSimilar1,layoutManagerSimilar2,layoutManagerSimilar3;
+    int dataComeFromServer=0;
 
     @Override
     public void onAttach(Context context) {
+        if (dataComeFromServer ==1)
+        dataComeFromServer=0;
         if (getArguments() != null) {
             category = getArguments().getString("category");
             category = "Car_For_Exchange";
@@ -115,73 +118,73 @@ public class FragmentSimilarItems extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         fillSimilarLists();
-        createSimilarRV();
-        createSimilarRV2();
-        createSimilarRV3();
+        createSimilarAdsRV();
+
+    }
+
+    private void createSimilarAdsRV() {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                if (dataComeFromServer ==0)
+                {
+                    createSimilarRV();
+                    createSimilarRV2();
+                    createSimilarRV3();
+                }
+            }
+        }, 2900);
     }
 
     private void createSimilarRV3() {
-        new Handler().postDelayed(new Runnable() {
+        similar3ArrayL = fillSimilar3ArrayL();
+        similarAds3.setHasFixedSize(true);
+        layoutManagerSimilar3 = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
 
-            @Override
-            public void run() {
-                similar3ArrayL = fillSimilar3ArrayL();
-                similarAds3.setHasFixedSize(true);
-                layoutManagerSimilar3 = new LinearLayoutManager(getActivity(),
-                        LinearLayoutManager.HORIZONTAL, false);
-
-                similarAds3.setLayoutManager(layoutManagerSimilar3);
-                adapterSimilarAds3 =new AdapterSimilarAds(getActivity(),similar3ArrayL
-                        ,"loaded");
-                similarAds3.setAdapter(adapterSimilarAds3);
-            }
-        }, 2900);
+        similarAds3.setLayoutManager(layoutManagerSimilar3);
+        adapterSimilarAds3 =new AdapterSimilarAds(getActivity(),similar3ArrayL
+                ,"loaded");
+        similarAds3.setAdapter(adapterSimilarAds3);
     }
 
     private void createSimilarRV2() {
-        new Handler().postDelayed(new Runnable() {
+        similar2ArrayL = fillSimilar2ArrayL();
+        similarAds2.setHasFixedSize(true);
+        layoutManagerSimilar2 = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
 
-            @Override
-            public void run() {
-                similar2ArrayL = fillSimilar2ArrayL();
-                similarAds2.setHasFixedSize(true);
-                layoutManagerSimilar2 = new LinearLayoutManager(getActivity(),
-                        LinearLayoutManager.HORIZONTAL, false);
-
-                similarAds2.setLayoutManager(layoutManagerSimilar2);
-                adapterSimilarAds2 =new AdapterSimilarAds(getActivity(),similar2ArrayL
-                        ,"loaded");
-                similarAds2.setAdapter(adapterSimilarAds2);
-            }
-        }, 2900);
+        similarAds2.setLayoutManager(layoutManagerSimilar2);
+        adapterSimilarAds2 =new AdapterSimilarAds(getActivity(),similar2ArrayL
+                ,"loaded");
+        similarAds2.setAdapter(adapterSimilarAds2);
     }
+
 
     private void fillSimilarLists() {
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                similarContainerArrayL = getSimilarFromDatabase(getActivity());
+                if (dataComeFromServer == 0)
+                {
+                    similarContainerArrayL = getSimilarFromDatabase(getActivity());
+                }
             }
         }, 2800);
     }
 
     private void createSimilarRV() {
-        new Handler().postDelayed(new Runnable() {
+        similar1ArrayL = fillSimilar1ArrayL();
+        similarAds1.setHasFixedSize(true);
+        layoutManagerSimilar1 = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
 
-            @Override
-            public void run() {
-                similar1ArrayL = fillSimilar1ArrayL();
-                similarAds1.setHasFixedSize(true);
-                layoutManagerSimilar1 = new LinearLayoutManager(getActivity(),
-                        LinearLayoutManager.HORIZONTAL, false);
-
-                similarAds1.setLayoutManager(layoutManagerSimilar1);
-                adapterSimilarAds =new AdapterSimilarAds(getActivity(),similar1ArrayL
-                        ,"loaded");
-                similarAds1.setAdapter(adapterSimilarAds);
-            }
-        }, 2900);
+        similarAds1.setLayoutManager(layoutManagerSimilar1);
+        adapterSimilarAds =new AdapterSimilarAds(getActivity(),similar1ArrayL
+                ,"loaded");
+        similarAds1.setAdapter(adapterSimilarAds);
     }
 
     private void inti() {
@@ -195,7 +198,8 @@ public class FragmentSimilarItems extends Fragment {
         new Handler().postDelayed(new Runnable() {
 
             @Override
-            public void run() { insertCarForExchangeToDataBase();
+            public void run() {
+                    insertCarForExchangeToDataBase();
             }
         }, 2700);
     }
@@ -286,7 +290,7 @@ public class FragmentSimilarItems extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         getDataBaseInstance(getActivity()).deleteSimilarAds();
-
+        dataComeFromServer=1;
     }
 
 }

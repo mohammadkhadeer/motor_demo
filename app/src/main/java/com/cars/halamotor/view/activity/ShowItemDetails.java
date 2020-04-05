@@ -7,11 +7,15 @@ import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.AccAndJunkFirstCase;
+import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentComments;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentFollowUser;
@@ -21,6 +25,11 @@ import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentI
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentShare;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentSimilarItems;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentUserInfo;
+
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCarPlatesFirstCaseFromDB;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getWheelsRimFirstCaseFromDB;
 
 public class ShowItemDetails extends AppCompatActivity implements LinearLayoutThatDetectsSoftKeyboard.Listener{
 
@@ -36,6 +45,15 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
     FragmentFollowUser fragmentFollowUser = new FragmentFollowUser();
     FragmentImageSlider fragmentImageSlider = new FragmentImageSlider();
 
+    String category;
+
+    CCEMTFirestCase ccemtFirestCase;
+    CarPlatesFirstCase carPlatesFirstCase;
+    WheelsRimFirstCase wheelsRimFirstCase;
+    AccAndJunkFirstCase accAndJunkFirstCase;
+
+    String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr,dateStr,timStampStr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +61,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
 
         //statusBarTransparent();
         inti();
+        intiObject();
         titleActionBar();
         intiImageSlider();
         intiUserInfoFragment();
@@ -53,6 +72,65 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         intiSuggestedFragment();
         intiCommentsFragment();
 
+    }
+
+    private void intiObject() {
+        category =getCategoryFromIntent();
+
+        if (category.equals("Car for sale")
+                ||category.equals("Car for rent")
+                ||category.equals("Exchange car")
+                ||category.equals("Motorcycle")
+                ||category.equals("Trucks")
+        ) {
+            ccemtFirestCase =getCCEMTFirstCaseFromDB(getItemIDFromIntent(),this);
+            intiUserInfoComp(ccemtFirestCase.getItemIdInServer(),ccemtFirestCase.getItemUserName()
+            ,ccemtFirestCase.getItemUserImage(),ccemtFirestCase.getItemName()
+            ,ccemtFirestCase.getItemTimePost(),ccemtFirestCase.getBoostType()
+            ,ccemtFirestCase.getDate(),ccemtFirestCase.getTimeStamp());
+        }
+        if (category.equals("Car plates"))
+        {
+            carPlatesFirstCase =getCarPlatesFirstCaseFromDB(getItemIDFromIntent(),this);
+        }
+        if (category.equals("Wheels rim"))
+        {
+            wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(getItemIDFromIntent(),this);
+        }
+        if (category.equals("Accessories") || category.equals("Junk car"))
+        {
+            accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(getItemIDFromIntent(),this);
+        }
+    }
+
+    private void intiUserInfoComp(String itemIdInServer, String itemUserName, String itemUserImage
+            , String itemName, String itemTimePost, String boostType,String date,String timeStamp) {
+        itemIDStr = itemIdInServer;
+        userNameStr = itemUserName;
+        userImageStr = itemUserImage;
+        itemNameStr = itemName;
+        timePostStr = itemTimePost;
+        postTypeStr = boostType;
+        dateStr = date;
+        timStampStr = timeStamp;
+    }
+
+    private String getCategoryFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        String category =bundle.getString("category");
+        return category;
+    }
+
+    private String getFromWhereFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        String fromWhere =bundle.getString("from");
+        return fromWhere;
+    }
+
+    private String getItemIDFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        String fromWhere =bundle.getString("itemID");
+        return fromWhere;
     }
 
     private void intiImageSlider() {
@@ -121,7 +199,16 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
 
     private void intiUserInfoFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("category", getResources().getString(R.string.car_plates));
+        bundle.putString("category", getCategoryFromIntent());
+        bundle.putString("itemID", itemIDStr);
+        bundle.putString("userName", userNameStr);
+        bundle.putString("userImage", userImageStr);
+        bundle.putString("itemName", itemNameStr);
+        bundle.putString("timePost", timePostStr);
+        bundle.putString("postType", postTypeStr);
+        bundle.putString("date", dateStr);
+        bundle.putString("timStamp", timStampStr);
+
         fragmentUserInfoAndMainButton.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.selected_item_details_user_info_container, fragmentUserInfoAndMainButton);

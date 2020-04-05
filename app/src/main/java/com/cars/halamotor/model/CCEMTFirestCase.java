@@ -9,9 +9,10 @@ public class CCEMTFirestCase {
             ,itemCarOptions,itemNumberOfComments,itemNumberOfImage
             ,itemCity,itemNeighborhood,itemTimePost,itemUserPhoneNumber
             ,itemName,itemImage,itemDescription,itemUserImage,itemUserName
-            ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot;
+            ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot
+            ,date,timeStamp;
 //34
-    public CCEMTFirestCase(String boostOrNot, String boostType, String type, String personOrGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYeay, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot) {
+    public CCEMTFirestCase(String boostOrNot, String boostType, String type, String personOrGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYeay, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot,String date,String timeStamp) {
         this.boostOrNot = boostOrNot;
         this.boostType = boostType;
         this.type = type;
@@ -45,6 +46,24 @@ public class CCEMTFirestCase {
         this.itemBurnedPrice = itemBurnedPrice;
         this.itemPrice = itemPrice;
         this.itemActiveOrNot = itemActiveOrNot;
+        this.date = date;
+        this.timeStamp = timeStamp;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 
     public String getBoostOrNot() {
