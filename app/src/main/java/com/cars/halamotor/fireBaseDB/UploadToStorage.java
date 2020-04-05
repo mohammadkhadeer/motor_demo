@@ -29,7 +29,6 @@ import static com.cars.halamotor.functions.Functions.getTime;
 
 public class UploadToStorage {
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadCarForSaleModel(ArrayList<String> imagePaths, final CCEMT ccemt, String category
                                     , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
@@ -71,7 +70,6 @@ public class UploadToStorage {
             }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadCarForRentModel(ArrayList<String> imagePaths
             , final CCEMT ccemt, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
@@ -115,7 +113,6 @@ public class UploadToStorage {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadCarForExchangeModel(ArrayList<String> imagePaths
             , final CCEMT ccemt, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
@@ -158,7 +155,6 @@ public class UploadToStorage {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadCarForMotorcycleModel(ArrayList<String> imagePaths
             , final CCEMT ccemt, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
@@ -202,7 +198,6 @@ public class UploadToStorage {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadCarForTrucksModel(ArrayList<String> imagePaths
             , final CCEMT ccemt, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
@@ -246,7 +241,6 @@ public class UploadToStorage {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadCarPlatesModel(ArrayList<String> imagePaths
             , final CarPlatesModel carPlatesModel, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
@@ -290,7 +284,6 @@ public class UploadToStorage {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadWheelsRimModel(ArrayList<String> imagePaths
             , final WheelsRimModel wheelsRimModel, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
@@ -334,7 +327,6 @@ public class UploadToStorage {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadAccessoriesModel(ArrayList<String> imagePaths
             , final AccAndJunk accAndJunk, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
@@ -378,7 +370,6 @@ public class UploadToStorage {
         }
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static void uploadImagesBeforeUploadJunkCarModel(ArrayList<String> imagePaths
             , final AccAndJunk accAndJunk, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {

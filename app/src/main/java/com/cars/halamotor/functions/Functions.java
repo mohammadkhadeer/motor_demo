@@ -335,9 +335,8 @@ public class Functions {
         return time;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static String getTimeStamp() {
-        String ts = String.valueOf(Instant.now().getEpochSecond());
+        String ts = String.valueOf(System.currentTimeMillis());
         return ts;
     }
 

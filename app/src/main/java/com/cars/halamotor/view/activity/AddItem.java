@@ -149,7 +149,6 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
     AccAndJunk accAndJunk;
 
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -232,7 +231,6 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         });
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void createCCMETObject(String selectedCategory) {
         reportDescriptionArrayL = new ArrayList<String>();
         reportDescriptionArrayL.add("noReprotYet");
@@ -295,7 +293,6 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
                 , Double.parseDouble(firstNumber), Double.parseDouble(secondNumber));
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void checkCategoryAndUpload(String selectCategory) {
         //we have 4 model 1.car plates 2.accessories/junk car 3.wheels-rim
         // 4.car for sale/car for rent/exchange/motorcycle/trucks ... in model well be name CCEMT
@@ -356,7 +353,6 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void createAccAndHunkObject(String selectedCategory) {
         accAndJunk = new AccAndJunk(
                 "NOTYET", getCityFromSP(getApplicationContext())
@@ -381,7 +377,6 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         );
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void createWheelsRimObject(String selectedCategory) {
         int convertWheelsSize;
         if (!wheelsSize.equals("other"))
@@ -413,7 +408,6 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         );
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     private void createCarPlatesObject(String selectedCategory) {
         reportDescriptionArrayL = new ArrayList<String>();
         reportDescriptionArrayL.add("noReprotYet");
