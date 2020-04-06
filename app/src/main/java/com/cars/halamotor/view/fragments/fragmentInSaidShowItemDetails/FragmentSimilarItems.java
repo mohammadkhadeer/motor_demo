@@ -72,8 +72,7 @@ public class FragmentSimilarItems extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_item_selected_suggested, container, false);
-        Log.i("TAG","Similar fragment");
-        Log.i("TAG",category);
+//        Log.i("TAG",category);
         inti();
         creteLoadSimilarList1();
         creteLoadSimilarList2();

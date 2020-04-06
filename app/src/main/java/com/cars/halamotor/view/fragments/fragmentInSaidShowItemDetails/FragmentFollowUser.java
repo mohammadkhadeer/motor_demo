@@ -56,8 +56,7 @@ public class FragmentFollowUser extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_follow_user, container, false);
-        Log.i("TAG","User info");
-        Log.i("TAG",test);
+//        Log.i("TAG",test);
         inti();
         return view;
     }

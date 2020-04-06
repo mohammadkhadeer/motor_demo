@@ -90,8 +90,7 @@ public class FragmentItemSelectedDetails extends Fragment implements LinearLayou
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_item_selected_details, container, false);
-        Log.i("TAG","12********");
-        Log.i("TAG",test);
+//        Log.i("TAG",test);
         inti();
         return view;
     }

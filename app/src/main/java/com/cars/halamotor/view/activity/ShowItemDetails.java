@@ -92,14 +92,26 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         if (category.equals("Car plates"))
         {
             carPlatesFirstCase =getCarPlatesFirstCaseFromDB(getItemIDFromIntent(),this);
+            intiUserInfoComp(carPlatesFirstCase.getItemIdInServer(),carPlatesFirstCase.getItemUserName()
+                    ,carPlatesFirstCase.getItemUserImage(),carPlatesFirstCase.getItemName()
+                    ,carPlatesFirstCase.getItemTimePost(),carPlatesFirstCase.getBoostType()
+                    ,carPlatesFirstCase.getDate(),carPlatesFirstCase.getTimeStamp());
         }
         if (category.equals("Wheels rim"))
         {
             wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(getItemIDFromIntent(),this);
+            intiUserInfoComp(wheelsRimFirstCase.getItemIdInServer(),wheelsRimFirstCase.getItemUserName()
+                    ,wheelsRimFirstCase.getItemUserImage(),wheelsRimFirstCase.getItemName()
+                    ,wheelsRimFirstCase.getItemTimePost(),wheelsRimFirstCase.getBoostType()
+                    ,wheelsRimFirstCase.getData(),wheelsRimFirstCase.getTimeStamp());
         }
         if (category.equals("Accessories") || category.equals("Junk car"))
         {
             accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(getItemIDFromIntent(),this);
+            intiUserInfoComp(accAndJunkFirstCase.getItemIdInServer(),accAndJunkFirstCase.getItemUserName()
+                    ,accAndJunkFirstCase.getItemUserImage(),accAndJunkFirstCase.getItemName()
+                    ,accAndJunkFirstCase.getItemTimePost(),accAndJunkFirstCase.getBoostType()
+                    ,accAndJunkFirstCase.getData(),accAndJunkFirstCase.getTimeStamp());
         }
     }
 

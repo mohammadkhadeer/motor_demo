@@ -198,18 +198,48 @@ public class Functions {
             return 0;
     }
 
-    public static String getPostTime(String timeStamp) {
+    public static String getPostTime(String date,String timeStamp,Context context) {
+        String timePost ="0";
         long serverTimeStamp = Long.parseLong(timeStamp);
-        long deff ;
-        deff = Math.abs(serverTimeStamp -System.currentTimeMillis());
-        String postTime = getDurationBreakdown(deff);
-        return postTime;
+        long def ;
+        def = Math.abs(serverTimeStamp-System.currentTimeMillis());
+        timePost = getDurationBreakdown(def,context,date);
+
+        return timePost;
     }
 
-    public static String getDurationBreakdown(long millis) {
+//    public static String getDurationBreakdown(long millis) {
+//        if(millis < 0) {
+//            throw new IllegalArgumentException("Duration must be greater than zero!");
+//        }
+//
+//        long days = TimeUnit.MILLISECONDS.toDays(millis);
+//        millis -= TimeUnit.DAYS.toMillis(days);
+//        long hours = TimeUnit.MILLISECONDS.toHours(millis);
+//        millis -= TimeUnit.HOURS.toMillis(hours);
+//        long minutes = TimeUnit.MILLISECONDS.toMinutes(millis);
+//        millis -= TimeUnit.MINUTES.toMillis(minutes);
+//        long seconds = TimeUnit.MILLISECONDS.toSeconds(millis);
+//
+//        StringBuilder sb = new StringBuilder(64);
+//        sb.append(days);
+//        sb.append(" Days ");
+//        sb.append(hours);
+//        sb.append(" Hours ");
+//        sb.append(minutes);
+//        sb.append(" Minutes ");
+//        sb.append(seconds);
+//        sb.append(" Seconds");
+//
+//        return(sb.toString());
+//    }
+
+        public static String getDurationBreakdown(long millis,Context context,String date) {
         if(millis < 0) {
             throw new IllegalArgumentException("Duration must be greater than zero!");
         }
+
+        String timePost ="0";
 
         long days = TimeUnit.MILLISECONDS.toDays(millis);
         millis -= TimeUnit.DAYS.toMillis(days);
@@ -229,8 +259,58 @@ public class Functions {
         sb.append(seconds);
         sb.append(" Seconds");
 
-        return(sb.toString());
+        Log.i("TAG","Days"+days+"#"+"hours"+hours+"#"+"minutes"+minutes);
+
+        if (days > 31)
+        {
+            timePost =date;
+        }else{
+            if (days < 14 && 7 < days)
+            {
+                timePost = "1" + context.getResources().getString(R.string.week);
+            }else{
+                if (days == 6)
+                {
+                    timePost = days + context.getResources().getString(R.string.days);
+                }
+                if (days == 5)
+                {
+                    timePost = days + context.getResources().getString(R.string.days);
+                }
+                if (days == 4)
+                {
+                    timePost = days + context.getResources().getString(R.string.days);
+                }
+                if (days == 3)
+                {
+                    timePost = days + context.getResources().getString(R.string.days);
+                }
+                if (days == 2)
+                {
+                    timePost = days + context.getResources().getString(R.string.days);
+                }
+                if (days == 0)
+                {
+                    if (hours < 23 && hours !=0)
+                    {
+                        timePost = hours + " " +
+                                context.getResources().getString(R.string.hour);
+                    }
+                    if (hours ==0)
+                    {
+                        if (minutes <59 && minutes !=0)
+                        {
+                            timePost = minutes + " " +
+                                    context.getResources().getString(R.string.min);
+                        }
+                    }
+                }
+            }
+        }
+
+        return timePost;
     }
+
 
     public static String getDAY() {
         Date today = new Date();

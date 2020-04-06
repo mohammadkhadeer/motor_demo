@@ -63,7 +63,6 @@ public class FragmentImageSlider extends Fragment {
 
         NUM_PAGES =imageModelArrayList.size();
 
-        Log.i("TAG",imageUrls[0]);
     }
 
     private void inti() {

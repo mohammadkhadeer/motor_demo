@@ -43,8 +43,7 @@ public class FragmentIDescriptionAndGeneralTips extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_item_selected_des_general, container, false);
-        Log.i("TAG","********");
-        Log.i("TAG",test);
+        //Log.i("TAG",test);
         inti();
         return view;
     }

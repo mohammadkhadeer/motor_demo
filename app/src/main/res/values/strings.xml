@@ -39,6 +39,17 @@
     <string name="search_on_neighborhood">Search your neighborhood</string>
     <string name="neighborhood">Neighborhood</string>
     <string name="see_more">See more</string>
+    <string name="week">Week</string>
+
+    <string name="days">Days</string>
+    <string name="day">Day</string>
+
+
+    <string name="hour">Hours</string>
+    <string name="min">Minutes</string>
+
+    <string name="just_now">Just now</string>
+
     <string name="online">Online</string>
     <string name="see_less">See less</string>
 

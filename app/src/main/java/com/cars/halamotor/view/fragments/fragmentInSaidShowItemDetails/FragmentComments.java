@@ -11,7 +11,7 @@ import android.view.ViewGroup;
 import com.cars.halamotor.R;
 import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
 
-public class FragmentComments extends Fragment implements LinearLayoutThatDetectsSoftKeyboard.Listener{
+public class FragmentComments extends Fragment {
 
     public FragmentComments(){}
 
@@ -29,13 +29,9 @@ public class FragmentComments extends Fragment implements LinearLayoutThatDetect
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_item_selected_comment, container, false);
-        Log.i("TAG",test);
+        //Log.i("TAG",test);
 
         return view;
     }
 
-    @Override
-    public void onSoftKeyboardShown(boolean isShowing) {
-        Log.i("TAG","********");
-    }
 }

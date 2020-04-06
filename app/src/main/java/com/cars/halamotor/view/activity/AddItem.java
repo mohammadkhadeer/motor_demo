@@ -811,7 +811,7 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
     }
 
     private void showSelectedVideo(Intent data) {
-        // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getData());
+        // String pickedVideoUrl = getRealPathFromUri(getApplicationContext(), data.getDate());
         viewVideoSelected.setVisibility(View.VISIBLE);
         coverVideoViewRL.setVisibility(View.VISIBLE);
         mVideoURI = data.getData();
