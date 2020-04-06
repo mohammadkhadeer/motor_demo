@@ -37,6 +37,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
     private final Context context;
     public ArrayList<SuggestedItem> suggestedItemsArrayL ;
     String fromWhereCome;
+    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
     public   AdapterSuggestedItem
             (Context context, ArrayList<SuggestedItem> suggestedItemsArrayL
@@ -81,7 +82,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
 
                 Intent intent = new Intent(context, ShowItemDetails.class);
                 intent.putExtras(bundle);
-                ((Activity)context).startActivity(intent);
+                ((Activity)context).startActivityForResult(intent , REQUEST_SHOW_ITEM_SELECTED_DETAILS);
                 ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
             }
         });

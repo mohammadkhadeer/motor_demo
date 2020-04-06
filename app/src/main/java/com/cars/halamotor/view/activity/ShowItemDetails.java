@@ -1,9 +1,12 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -16,7 +19,7 @@ import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.WheelsRimFirstCase;
-import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
+import com.cars.halamotor.presnter.FavouriteChange;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentComments;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentFollowUser;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentIDescriptionAndGeneralTips;
@@ -31,7 +34,9 @@ import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFi
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCarPlatesFirstCaseFromDB;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getWheelsRimFirstCaseFromDB;
 
-public class ShowItemDetails extends AppCompatActivity implements LinearLayoutThatDetectsSoftKeyboard.Listener{
+public class ShowItemDetails extends AppCompatActivity
+         implements FavouriteChange {
+
 
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbarLayout;
@@ -53,11 +58,13 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
     AccAndJunkFirstCase accAndJunkFirstCase;
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr,dateStr,timStampStr;
+    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_item_details);
+
 
         //statusBarTransparent();
         inti();
@@ -150,7 +157,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         bundle.putString("category", getResources().getString(R.string.sharjah));
         fragmentImageSlider.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_image_slider_container, fragmentImageSlider);
+        transaction.add(R.id.selected_item_details_image_slider_container, fragmentImageSlider);
         transaction.commit();
     }
 
@@ -159,7 +166,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         bundle.putString("category", getResources().getString(R.string.dubai));
         fragmentFollowUser.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_follow_user_container, fragmentFollowUser);
+        transaction.add(R.id.selected_item_details_follow_user_container, fragmentFollowUser);
         transaction.commit();
     }
 
@@ -169,7 +176,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         bundle.putString("category", getResources().getString(R.string.sharjah));
         fragmentComments.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_comments_container, fragmentComments);
+        transaction.add(R.id.selected_item_details_comments_container, fragmentComments);
         transaction.commit();
     }
 
@@ -178,7 +185,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         bundle.putString("category", getResources().getString(R.string.sharjah));
         fragmentSuggestedAntherItems.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_suggested_container, fragmentSuggestedAntherItems);
+        transaction.add(R.id.selected_item_details_suggested_container, fragmentSuggestedAntherItems);
         transaction.commit();
     }
 
@@ -187,7 +194,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         bundle.putString("category", getResources().getString(R.string.sharjah));
         fragmentShare.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_share_container, fragmentShare);
+        transaction.add(R.id.selected_item_details_share_container, fragmentShare);
         transaction.commit();
     }
 
@@ -196,7 +203,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         bundle.putString("category", getResources().getString(R.string.terracan));
         fragmentIDescriptionAndGeneralTips.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_des_general_container, fragmentIDescriptionAndGeneralTips);
+        transaction.add(R.id.selected_item_details_des_general_container, fragmentIDescriptionAndGeneralTips);
         transaction.commit();
     }
 
@@ -205,7 +212,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
         bundle.putString("category", getResources().getString(R.string.complete_car_details));
         fragmentItemSelectedDetails.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_container, fragmentItemSelectedDetails);
+        transaction.add(R.id.selected_item_details_container, fragmentItemSelectedDetails);
         transaction.commit();
     }
 
@@ -223,7 +230,7 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
 
         fragmentUserInfoAndMainButton.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.selected_item_details_user_info_container, fragmentUserInfoAndMainButton);
+        transaction.add(R.id.selected_item_details_user_info_container, fragmentUserInfoAndMainButton);
         transaction.commit();
     }
 
@@ -275,7 +282,15 @@ public class ShowItemDetails extends AppCompatActivity implements LinearLayoutTh
     }
 
     @Override
-    public void onSoftKeyboardShown(boolean isShowing) {
+    public void onFavouriteChange(boolean change) {
+        //Log.i("TAG","interface, showItemDetails");
+    }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent resultIntent = new Intent();
+        setResult(Activity.RESULT_OK, resultIntent);
+        finish();
     }
 }

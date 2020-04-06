@@ -1,6 +1,9 @@
 package com.cars.halamotor.model;
 
-public class CCEMTFirestCase {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class CCEMTFirestCase implements Parcelable {
 
     String boostOrNot,boostType,type,personOrGallery,itemIdInServer
             ,itemCarMake,itemCarModel,itemCarYeay,itemCarCondition
@@ -329,4 +332,48 @@ public class CCEMTFirestCase {
     public void setItemActiveOrNot(String itemActiveOrNot) {
         this.itemActiveOrNot = itemActiveOrNot;
     }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(boostOrNot);
+        dest.writeString(boostType);
+        dest.writeString(type);
+        dest.writeString(personOrGallery);
+        dest.writeString(itemIdInServer);
+        dest.writeString(itemCarMake);
+        dest.writeString(itemCarModel);
+        dest.writeString(itemCarYeay);
+        dest.writeString(itemCarCondition);
+        dest.writeString(itemCarKilometers);
+        dest.writeString(itemCarTransmission);
+        dest.writeString(ItemCarLicense);
+        dest.writeString(itemCarInsurance);
+        dest.writeString(itemCarColor);
+        dest.writeString(itemCarPaymentMethod);
+        dest.writeString(itemCarOptions);
+        dest.writeString(itemNumberOfComments);
+        dest.writeString(itemNumberOfImage);
+        dest.writeString(itemCity);
+        dest.writeString(itemNeighborhood);
+        dest.writeString(itemTimePost);
+        dest.writeString(itemUserPhoneNumber);
+        dest.writeString(itemName);
+        dest.writeString(itemImage);
+        dest.writeString(itemDescription);
+        dest.writeString(itemUserImage);
+        dest.writeString(itemUserName);
+        dest.writeString(itemPostEdit);
+        dest.writeString(itemNewPrice);
+        dest.writeString(itemBurnedPrice);
+        dest.writeString(itemPrice);
+        dest.writeString(itemActiveOrNot);
+        dest.writeString(date);
+        dest.writeString(timeStamp);
+    }
+
 }

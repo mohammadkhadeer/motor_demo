@@ -6,9 +6,9 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.IdRes;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,11 +28,8 @@ import com.cars.halamotor.view.fragments.FragmentHomeScreen;
 import com.cars.halamotor.view.fragments.FragmentMessage;
 import com.cars.halamotor.view.fragments.FragmentNotification;
 import com.cars.halamotor.view.fragments.FragmentProfile;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+import com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.ListsMainScreenFragment;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabReselectListener;
@@ -66,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
     OnNewNotification onNewNotification;
+    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // to can inti interface in said activity
     @Override
     public void onAttachFragment(Fragment fragment) {
         super.onAttachFragment(fragment);
@@ -313,8 +312,18 @@ public class MainActivity extends AppCompatActivity {
                 }, 6000);
             }
         }
+        if (requestCode == REQUEST_SHOW_ITEM_SELECTED_DETAILS) {
+            // to update UI in lists can't handel it via interface must to overright method
+            //listsMainScreenFragment.onActivityResult(requestCode, resultCode, data);
+            //to update fragment must to use new object
+            FragmentHomeScreen fragmentHomeScreen = new FragmentHomeScreen();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.main_container, fragmentHomeScreen);
+            transaction.commit();
+        }
     }
 
+    ListsMainScreenFragment listsMainScreenFragment = new ListsMainScreenFragment();
     private void updateNumberUnCheckedNotifications() {
         if (getUnreadNotificationsInSP(this) != null)
         {

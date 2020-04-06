@@ -1,10 +1,15 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +23,8 @@ import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimFirstCase;
+import com.cars.halamotor.utils.App;
+import com.cars.halamotor.view.activity.MainActivity;
 import com.cars.halamotor.view.adapters.AdapterInsurance;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterAccAndJunkFirstCase;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCarPlatesFirstCase;
@@ -28,7 +35,6 @@ import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCCEMTAllCases;
 import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstAccAndJunk;
-import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstCarPlates;
 import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstItemCCEMTFirstCase;
 import static com.cars.halamotor.algorithms.ArrangingLists.setEditTextFirstItemWheelsRim;
 import static com.cars.halamotor.dataBase.ReadFunction.getAccAndJunkDatabase;
@@ -44,6 +50,7 @@ public class ListsMainScreenFragment extends Fragment {
     ArrayList<SuggestedItem> suggestedItemsArrayL = new ArrayList<SuggestedItem>();
     ArrayList<String> insuranceArrayL = new ArrayList<String>();
     AdapterSuggestedItem adapterSuggestedItem;
+    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
     TextView suggestedTV,suggestedSeeAllTV,insuranceTV,carForSaleTV,carForSaleSeeAllTV
                 ,carForRentTV,carForRentSeeAllTV,exchangeCarTV,exchangeCarSeeAllTV
@@ -83,22 +90,39 @@ public class ListsMainScreenFragment extends Fragment {
             , layoutManagerTrucks,layoutManagerWheelsRim,carPlatesWheelsRim
             , layoutManagerAccessories,layoutManagerJunk;
 
+    private Activity activity;
+
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        suggestedItemsArrayL = new ArrayList<SuggestedItem>();
-        suggestedItemsArrayL = getSuggestedItemFromDatabase(context);
-        carForSaleArrayL = getCarForSaleDatabase(context,"Car for sale");
-        carForRentArrayL = getCarForSaleDatabase(context,"Car for rent");
-        carExchangeArrayL = getCarForSaleDatabase(context,"Exchange car");
-        motorcycleArrayL = getCarForSaleDatabase(context,"Motorcycle");
-        trucksArrayL = getCarForSaleDatabase(context,"Trucks");
-        wheelsRimArrayL = getWheelsRimDatabase(context);
-        carPlatesArrayL = getCarPlatesDatabase(context);
-        accessoriesArrayL = getAccAndJunkDatabase(context,"Accessories");
-        junkArrayL = getAccAndJunkDatabase(context,"Junk car");
+        activity = (Activity) context;
+        fillArrayLists();
         applyAlgorithmToAllLists();
     }
+
+    private void fillArrayLists() {
+        carForSaleArrayL = new ArrayList<>();
+        carForRentArrayL = new ArrayList<>();
+        carExchangeArrayL = new ArrayList<>();
+        motorcycleArrayL = new ArrayList<>();
+        trucksArrayL = new ArrayList<>();
+        wheelsRimArrayL = new ArrayList<>();
+        carPlatesArrayL = new ArrayList<>();
+        accessoriesArrayL = new ArrayList<>();
+        junkArrayL = new ArrayList<>();
+        suggestedItemsArrayL = new ArrayList<SuggestedItem>();
+        suggestedItemsArrayL = getSuggestedItemFromDatabase(getActivity());
+        carForSaleArrayL = getCarForSaleDatabase(getActivity(),"Car for sale");
+        carForRentArrayL = getCarForSaleDatabase(getActivity(),"Car for rent");
+        carExchangeArrayL = getCarForSaleDatabase(getActivity(),"Exchange car");
+        motorcycleArrayL = getCarForSaleDatabase(getActivity(),"Motorcycle");
+        trucksArrayL = getCarForSaleDatabase(getActivity(),"Trucks");
+        wheelsRimArrayL = getWheelsRimDatabase(getActivity());
+        carPlatesArrayL = getCarPlatesDatabase(getActivity());
+        accessoriesArrayL = getAccAndJunkDatabase(getActivity(),"Accessories");
+        junkArrayL = getAccAndJunkDatabase(getActivity(),"Junk car");
+    }
+
 
     private void applyAlgorithmToAllLists() {
         carForSaleArrayL = setEditTextFirstItemCCEMTFirstCase(carForSaleArrayL);
@@ -351,5 +375,14 @@ public class ListsMainScreenFragment extends Fragment {
         junkCarSeeAllTV = (TextView) view.findViewById(R.id.fragment_suggested_item_see_all_j_tv);
         junkCarSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_suggested_item_see_all_j_rl);
     }
+
+//    @Override
+//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//
+//        if (requestCode == REQUEST_SHOW_ITEM_SELECTED_DETAILS) {
+//            Log.i("TAG", "Update in child fragment");
+//        }
+//    }
 
 }

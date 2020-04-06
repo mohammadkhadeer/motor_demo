@@ -244,36 +244,46 @@
 
         </LinearLayout>
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:id="@+id/fragment_home_fragment_filters_container"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            >-->
+<!--            <fragment-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.FiltersFragment"-->
+<!--                tools:layout="@layout/fragment_filters_fragment"-->
+<!--                />-->
+
+<!--        </RelativeLayout>-->
+
+        <FrameLayout
             android:id="@+id/fragment_home_fragment_filters_container"
-            android:layout_marginTop="2dp"
-            >
-            <fragment
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.FiltersFragment"
-                tools:layout="@layout/fragment_filters_fragment"
-                />
-
-        </RelativeLayout>
-
-        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:id="@+id/fragment_home_fragment_suggested_item_container"
-            >
-            <fragment
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.ListsMainScreenFragment"
-                tools:layout="@layout/adapter_suggested_item"
-                />
+            android:layout_height="wrap_content"/>
 
-        </RelativeLayout>
+        <FrameLayout
+            android:id="@+id/fragment_home_fragment_suggested_item_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+<!--        <RelativeLayout-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_marginTop="8dp"-->
+<!--            android:layout_marginBottom="8dp"-->
+<!--            android:id="@+id/fragment_home_fragment_suggested_item_container"-->
+<!--            >-->
+<!--            <fragment-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.ListsMainScreenFragment"-->
+<!--                tools:layout="@layout/adapter_suggested_item"-->
+<!--                />-->
+
+<!--        </RelativeLayout>-->
 
     </LinearLayout>
 

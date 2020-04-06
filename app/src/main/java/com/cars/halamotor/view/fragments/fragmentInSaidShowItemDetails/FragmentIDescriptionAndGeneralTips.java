@@ -67,11 +67,11 @@ public class FragmentIDescriptionAndGeneralTips extends Fragment {
 
     private void fillDes() {
         String des = getActivity().getResources().getString(R.string.large_text);
-        Log.i("TAG SIZE", String.valueOf(des.length()));
+        //Log.i("TAG SIZE", String.valueOf(des.length()));
         descriptionContentTV.setText(des);
         if (des.length() > 205)
         {
-            Log.i("TAG SIZE", String.valueOf(des.length()));
+            //Log.i("TAG SIZE", String.valueOf(des.length()));
             String seeMore = getActivity().getResources().getString(R.string.see_more);
             makeTextViewResizable(descriptionContentTV, 4, seeMore, true,getActivity());
         }

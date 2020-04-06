@@ -1,10 +1,13 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +16,27 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.AccAndJunkFirstCase;
+import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.model.WheelsRimFirstCase;
+import com.cars.halamotor.presnter.FavouriteChange;
+import com.cars.halamotor.presnter.WhenUserSetItemFavoriteFromShowItemDetails;
+import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
+
+import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertSuggestedItemInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInFCSTable;
 import static com.cars.halamotor.functions.Functions.getPostTime;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCarPlatesFirstCaseFromDB;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getWheelsRimFirstCaseFromDB;
 
 public class FragmentUserInfo extends Fragment {
 
@@ -25,6 +47,12 @@ public class FragmentUserInfo extends Fragment {
     TextView userNameTV,userStatusTV,itemNameTV,dateTV;
     RelativeLayout userStatusRL,favouriteRL,reportRL;
     ImageView userImageIV,favouriteIV,shareIV,reportIV;
+    CCEMTFirestCase ccemtFirestCase;
+    CarPlatesFirstCase carPlatesFirstCase;
+    WheelsRimFirstCase wheelsRimFirstCase;
+    AccAndJunkFirstCase accAndJunkFirstCase;
+    WhenUserSetItemFavoriteFromShowItemDetails favoriteIsChange;
+    FavouriteChange favouriteChange;
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
@@ -39,6 +67,40 @@ public class FragmentUserInfo extends Fragment {
             timStampStr = getArguments().getString("timStamp");
         }
         super.onAttach(context);
+        if (getActivity() instanceof FavouriteChange) {
+            favouriteChange = (FavouriteChange) getActivity();
+        }
+        //favoriteChange = (FavoriteChange) activity;
+        detectObject();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        favoriteIsChange = null;
+    }
+
+    private void detectObject() {
+        if (categoryStr.equals("Car for sale")
+                ||categoryStr.equals("Car for rent")
+                ||categoryStr.equals("Exchange car")
+                ||categoryStr.equals("Motorcycle")
+                ||categoryStr.equals("Trucks")
+        ) {
+            ccemtFirestCase =getCCEMTFirstCaseFromDB(itemIDStr,getActivity());
+        }
+        if (categoryStr.equals("Car plates"))
+        {
+            carPlatesFirstCase =getCarPlatesFirstCaseFromDB(itemIDStr,getActivity());
+        }
+        if (categoryStr.equals("Wheels rim"))
+        {
+            wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(itemIDStr,getActivity());
+        }
+        if (categoryStr.equals("Accessories") || categoryStr.equals("Junk car"))
+        {
+            accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(itemIDStr,getActivity());
+        }
     }
 
     private void inti() {
@@ -71,6 +133,60 @@ public class FragmentUserInfo extends Fragment {
         changeFont();
         fillUserImage();
         fillText();
+        checkIfFavouriteOrNot();
+        actionListenerToFavouriteOrNot();
+    }
+
+    private void actionListenerToFavouriteOrNot() {
+        favouriteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                favouriteChange.onFavouriteChange(true);
+//                test(true);
+                if (checkFavouriteOrNot1(getActivity(),itemIDStr).equals("not_favorite"))
+                {
+                    favouriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+                    insertItemInFCSTable();
+                }else
+                {
+                    favouriteIV.setBackgroundResource(R.drawable.item_favu);
+                    getDataBaseInstance(getActivity()).deleteFCS(itemIDStr);
+                }
+            }
+        });
+    }
+
+    private void insertItemInFCSTable() {
+        if (categoryStr.equals("Car for sale")
+                ||categoryStr.equals("Car for rent")
+                ||categoryStr.equals("Exchange car")
+                ||categoryStr.equals("Motorcycle")
+                ||categoryStr.equals("Trucks")
+        ) {
+            insertCCEMTItemInFCSTable(ccemtFirestCase,getDataBaseInstance(getActivity()),"favorite");
+        }
+        if (categoryStr.equals("Car plates"))
+        {
+            insertCarPlatesInFCSTable(carPlatesFirstCase,getDataBaseInstance(getActivity()),"favorite");
+        }
+        if (categoryStr.equals("Wheels rim"))
+        {
+            insertWheelsRimInFCSTable(wheelsRimFirstCase,getDataBaseInstance(getActivity()),"favorite");
+        }
+        if (categoryStr.equals("Accessories") || categoryStr.equals("Junk car"))
+        {
+            insertAccAndJunkInFCSTable(accAndJunkFirstCase,getDataBaseInstance(getActivity()),"favorite");
+        }
+    }
+
+    private void checkIfFavouriteOrNot() {
+        if (checkFavouriteOrNot1(getActivity(),itemIDStr).equals("not_favorite"))
+        {
+            favouriteIV.setBackgroundResource(R.drawable.item_favu);
+        }else
+        {
+            favouriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+        }
     }
 
     private void fillText() {
