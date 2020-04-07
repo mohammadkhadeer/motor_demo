@@ -40,6 +40,8 @@
     <string name="neighborhood">Neighborhood</string>
     <string name="see_more">See more</string>
     <string name="week">Week</string>
+    <string name="car_plates_city">Plates city</string>
+    <string name="car_plates_number">Plates number</string>
 
     <string name="days">Days</string>
     <string name="day">Day</string>
@@ -557,6 +559,7 @@
     <string name="detect_wheels_siz">Detect Wheels size</string>
 
     <string name="wheels_inch">Inch</string>
+    <string name="wheels_inch_">Wheels inch</string>
     <string name="wheels_siz_13">13</string>
     <string name="wheels_siz_14">14</string>
     <string name="wheels_siz_15">15</string>

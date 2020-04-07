@@ -208,7 +208,7 @@ public class Functions {
         return timePost;
     }
 
-        public static String getDurationBreakdown(long millis,Context context,String date) {
+    public static String getDurationBreakdown(long millis,Context context,String date) {
         if(millis < 0) {
             throw new IllegalArgumentException("Duration must be greater than zero!");
         }
@@ -237,7 +237,7 @@ public class Functions {
         {
             timePost =date;
         }else{
-            if (days < 14 && 7 < days)
+            if (days < 14 && 7 < days || days ==7)
             {
                 timePost = "1" + context.getResources().getString(R.string.week);
             }else{
@@ -282,7 +282,6 @@ public class Functions {
 
         return timePost;
     }
-
 
     public static String getDAY() {
         Date today = new Date();
@@ -334,9 +333,46 @@ public class Functions {
         return stringAfterSplit;
     }
 
+    public static String[] splitString2(String textStr,String signal) {
+        String[] items = textStr.split("|");
+        String text=" ";
+        for (String item : items)
+        {
+            if (!item.equals("|"))
+            {
+                text = text+item;
+            }
+            if (item.equals("|"))
+            {
+                text = " ";
+            }
+        }
+        return items;
+    }
+
+    public static ArrayList<String> getCarOptionsArrayL(String options) {
+        ArrayList<String> carOptionsArrayL = new ArrayList<String>();
+        //this mithod split every single charchter
+        String[] items = options.split("|");
+        String text="  ";
+        for (String item : items)
+        {
+            if (!item.equals("|"))
+            {
+                text = text+item;
+            }
+            if (item.equals("|"))
+            {
+                carOptionsArrayL.add(text);
+                text = " ";
+            }
+        }
+
+        return carOptionsArrayL;
+    }
+
     public static ArrayList<BoostPost> getDefaultBoostPostArrayL() {
         ArrayList<BoostPost> boostPostArrayL = new ArrayList<BoostPost>();
-
         BoostPost boostPost = new BoostPost("boostType","postID");
         boostPostArrayL.add(boostPost);
 

@@ -248,7 +248,7 @@
                             android:id="@+id/text_title1"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/car_make"/>
 
                     </RelativeLayout>
 
@@ -288,6 +288,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
+                android:id="@+id/con1"
                 android:weightSum="100">
 
                 <RelativeLayout
@@ -312,7 +313,7 @@
                             android:id="@+id/text_title2"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/model"/>
 
                     </RelativeLayout>
 
@@ -349,6 +350,12 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/con2">
+
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="40dp"
                 android:orientation="horizontal"
                 android:weightSum="100">
@@ -375,7 +382,7 @@
                             android:id="@+id/text_title3"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/year"/>
 
                     </RelativeLayout>
 
@@ -439,7 +446,7 @@
                             android:id="@+id/text_title4"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/condition"/>
 
                     </RelativeLayout>
 
@@ -503,7 +510,7 @@
                             android:id="@+id/text_title5"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/kilometers"/>
 
                     </RelativeLayout>
 
@@ -567,7 +574,7 @@
                             android:id="@+id/text_title6"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/transmission"/>
 
                     </RelativeLayout>
 
@@ -631,7 +638,7 @@
                             android:id="@+id/text_title7"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/fuel"/>
 
                     </RelativeLayout>
 
@@ -766,7 +773,7 @@
                             android:id="@+id/text_title9"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/car_license"/>
 
                     </RelativeLayout>
 
@@ -830,7 +837,7 @@
                             android:id="@+id/text_title10"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/insurance"/>
 
                     </RelativeLayout>
 
@@ -894,7 +901,7 @@
                             android:id="@+id/text_title11"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/color"/>
 
                     </RelativeLayout>
 
@@ -958,7 +965,7 @@
                             android:id="@+id/text_title12"
                             android:textColor="@color/colorBlack5"
                             android:layout_marginTop="8dp"
-                            android:text="@string/city"/>
+                            android:text="@string/payment_method"/>
 
                     </RelativeLayout>
 
@@ -993,6 +1000,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="0.3dp"
                 android:background="@color/colorSilver3"/>
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -210,7 +210,9 @@ public class ShowItemDetails extends AppCompatActivity
 
     private void intiItemDetails() {
         Bundle bundle = new Bundle();
-        bundle.putString("category", getResources().getString(R.string.complete_car_details));
+        bundle.putString("category", getCategoryFromIntent());
+        bundle.putString("itemID", itemIDStr);
+
         fragmentItemSelectedDetails.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.selected_item_details_container, fragmentItemSelectedDetails);
