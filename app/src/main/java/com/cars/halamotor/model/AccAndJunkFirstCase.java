@@ -2,20 +2,20 @@ package com.cars.halamotor.model;
 
 public class AccAndJunkFirstCase {
 
-    String boostOrNot,boostType,personOrGallery,itemIdInServer
-            ,itemType
+    String boostOrNot,boostType,personOrGallery,itemType
+            ,itemIdInServer
             ,itemNumberOfComments,itemNumberOfImage
             ,itemCity,itemNeighborhood,itemTimePost,itemUserPhoneNumber
             ,itemName,itemImage,itemDescription,itemUserImage,itemUserName
             ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot
             ,data,timeStamp;
 
-    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemIdInServer, String itemType, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot,String data,String timeStamp) {
+    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemType, String itemIdInServer, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot, String data, String timeStamp) {
         this.boostOrNot = boostOrNot;
         this.boostType = boostType;
         this.personOrGallery = personOrGallery;
-        this.itemIdInServer = itemIdInServer;
         this.itemType = itemType;
+        this.itemIdInServer = itemIdInServer;
         this.itemNumberOfComments = itemNumberOfComments;
         this.itemNumberOfImage = itemNumberOfImage;
         this.itemCity = itemCity;
@@ -32,21 +32,7 @@ public class AccAndJunkFirstCase {
         this.itemBurnedPrice = itemBurnedPrice;
         this.itemPrice = itemPrice;
         this.itemActiveOrNot = itemActiveOrNot;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
         this.data = data;
-    }
-
-    public String getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 
@@ -74,20 +60,20 @@ public class AccAndJunkFirstCase {
         this.personOrGallery = personOrGallery;
     }
 
-    public String getItemIdInServer() {
-        return itemIdInServer;
-    }
-
-    public void setItemIdInServer(String itemIdInServer) {
-        this.itemIdInServer = itemIdInServer;
-    }
-
     public String getItemType() {
         return itemType;
     }
 
     public void setItemType(String itemType) {
         this.itemType = itemType;
+    }
+
+    public String getItemIdInServer() {
+        return itemIdInServer;
+    }
+
+    public void setItemIdInServer(String itemIdInServer) {
+        this.itemIdInServer = itemIdInServer;
     }
 
     public String getItemNumberOfComments() {
@@ -216,5 +202,21 @@ public class AccAndJunkFirstCase {
 
     public void setItemActiveOrNot(String itemActiveOrNot) {
         this.itemActiveOrNot = itemActiveOrNot;
+    }
+
+    public String getData() {
+        return data;
+    }
+
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public String getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(String timeStamp) {
+        this.timeStamp = timeStamp;
     }
 }

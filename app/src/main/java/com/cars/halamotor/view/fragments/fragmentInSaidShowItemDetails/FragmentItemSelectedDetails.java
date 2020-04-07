@@ -42,7 +42,7 @@ public class FragmentItemSelectedDetails extends Fragment {
     public FragmentItemSelectedDetails(){}
 
     String categoryStr,itemIDStr,objectType = "null"
-            ,cityStr,neighborhoodStr,catStr;
+            ,cityStr="null",neighborhoodStr="null",catStr="null";
     TextView text_title1,text_title_content1,text_title2,text_title_content2
              ,text_title3,text_title_content3,text_title4,text_title_content4
              ,text_title5,text_title_content5,text_title6,text_title_content6
@@ -70,6 +70,8 @@ public class FragmentItemSelectedDetails extends Fragment {
             itemIDStr = getArguments().getString("itemID");
         }
         super.onAttach(context);
+        Log.i("TAG category",categoryStr);
+        Log.i("TAG id",itemIDStr);
         detectObject();
     }
 
@@ -112,6 +114,10 @@ public class FragmentItemSelectedDetails extends Fragment {
         {
             fillWheelsSize();
         }
+        if (objectType.equals("ac"))
+        {
+            itemDetailsLL.setVisibility(View.GONE);
+        }
     }
 
     private void fillWheelsSize()  {
@@ -149,12 +155,13 @@ public class FragmentItemSelectedDetails extends Fragment {
             wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(itemIDStr,getActivity());
             intiGeneralInfo(wheelsRimFirstCase.getItemCity(),wheelsRimFirstCase.getItemNeighborhood(),getActivity().getResources().getString(R.string.wheels_rim));
         }
-        if (categoryStr.equals("Accessories") || categoryStr.equals("Junk car"))
+        if (categoryStr.equals("Junk car") || categoryStr.equals("Accessories"))
         {
             objectType = "ac";
             accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(itemIDStr,getActivity());
             intiGeneralInfo(accAndJunkFirstCase.getItemCity(),accAndJunkFirstCase.getItemNeighborhood(),accAndJunkFirstCase.getItemType());
         }
+
     }
 
     private void intiGeneralInfo(String itemCity, String itemNeighborhood, String type) {
