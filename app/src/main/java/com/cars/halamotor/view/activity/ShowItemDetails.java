@@ -59,6 +59,7 @@ public class ShowItemDetails extends AppCompatActivity
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr,dateStr,timStampStr;
     private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
+    int numberOfChangeFromInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -282,15 +283,16 @@ public class ShowItemDetails extends AppCompatActivity
     }
 
     @Override
-    public void onFavouriteChange(boolean change) {
-        //Log.i("TAG","interface, showItemDetails");
+    public void onFavouriteChange(int numberOfChange) {
+        numberOfChangeFromInterface = numberOfChange;
     }
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
+        String number = String.valueOf(numberOfChangeFromInterface);
         Intent resultIntent = new Intent();
-        setResult(Activity.RESULT_OK, resultIntent);
+        resultIntent.putExtra("numberOfChange",number);
+        setResult(RESULT_OK, resultIntent);
         finish();
     }
 }

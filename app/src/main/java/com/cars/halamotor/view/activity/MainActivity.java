@@ -289,6 +289,22 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_SHOW_ITEM_SELECTED_DETAILS && resultCode == RESULT_OK && data != null) {
+            // to update UI in lists can't handel it via interface must to overright method
+            //listsMainScreenFragment.onActivityResult(requestCode, resultCode, data);
+            //to update fragment must to use new object
+            //we calculate mode to know if have to change UI "Update"
+            String numberOfChangeStr =data.getExtras().getString("numberOfChange");
+            int numberOfChange =Integer.parseInt(numberOfChangeStr);
+            int result = numberOfChange % 2;
+
+            if (result != 0) {
+                FragmentHomeScreen fragmentHomeScreen = new FragmentHomeScreen();
+                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+                transaction.replace(R.id.main_container, fragmentHomeScreen);
+                transaction.commit();
+            }
+        }
         if (requestCode == ADD_NEW_ITEM && resultCode == Activity.RESULT_OK) {
             if (getUnreadNotificationsInSP(MainActivity.this) != null)
             {
@@ -311,15 +327,6 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }, 6000);
             }
-        }
-        if (requestCode == REQUEST_SHOW_ITEM_SELECTED_DETAILS) {
-            // to update UI in lists can't handel it via interface must to overright method
-            //listsMainScreenFragment.onActivityResult(requestCode, resultCode, data);
-            //to update fragment must to use new object
-            FragmentHomeScreen fragmentHomeScreen = new FragmentHomeScreen();
-            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-            transaction.replace(R.id.main_container, fragmentHomeScreen);
-            transaction.commit();
         }
     }
 

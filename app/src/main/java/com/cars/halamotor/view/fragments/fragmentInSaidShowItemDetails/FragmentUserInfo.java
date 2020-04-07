@@ -1,13 +1,10 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +18,6 @@ import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.presnter.FavouriteChange;
-import com.cars.halamotor.presnter.WhenUserSetItemFavoriteFromShowItemDetails;
-import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
@@ -30,7 +25,6 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkInFCSTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemInFCSTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesInFCSTable;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertSuggestedItemInFCSTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInFCSTable;
 import static com.cars.halamotor.functions.Functions.getPostTime;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
@@ -51,8 +45,9 @@ public class FragmentUserInfo extends Fragment {
     CarPlatesFirstCase carPlatesFirstCase;
     WheelsRimFirstCase wheelsRimFirstCase;
     AccAndJunkFirstCase accAndJunkFirstCase;
-    WhenUserSetItemFavoriteFromShowItemDetails favoriteIsChange;
     FavouriteChange favouriteChange;
+    int numberOfChange =0;
+
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
@@ -77,7 +72,7 @@ public class FragmentUserInfo extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        favoriteIsChange = null;
+        favouriteChange = null;
     }
 
     private void detectObject() {
@@ -141,8 +136,8 @@ public class FragmentUserInfo extends Fragment {
         favouriteRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                favouriteChange.onFavouriteChange(true);
-//                test(true);
+                numberOfChange = numberOfChange+1;
+                favouriteChange.onFavouriteChange(numberOfChange);
                 if (checkFavouriteOrNot1(getActivity(),itemIDStr).equals("not_favorite"))
                 {
                     favouriteIV.setBackgroundResource(R.drawable.selcted_favorite);

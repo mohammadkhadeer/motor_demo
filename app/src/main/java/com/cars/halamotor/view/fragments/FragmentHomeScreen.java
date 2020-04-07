@@ -49,16 +49,4 @@ public class FragmentHomeScreen extends Fragment {
         //suggestedContainerRL = (RelativeLayout) view.findViewById(R.id.fragment_home_fragment_suggested_item_container);
     }
 
-//    @Override
-//    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        super.onActivityResult(requestCode, resultCode, data);
-//
-//        if (requestCode == REQUEST_SHOW_ITEM_SELECTED_DETAILS) {
-//            Log.i("TAG","Update in fragment");
-//
-//        }
-//    }
-//
-//    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
-
 }
