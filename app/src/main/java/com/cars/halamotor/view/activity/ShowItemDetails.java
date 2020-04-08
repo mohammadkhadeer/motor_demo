@@ -37,7 +37,6 @@ import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getWheelsR
 public class ShowItemDetails extends AppCompatActivity
          implements FavouriteChange {
 
-
     Toolbar toolbar;
     CollapsingToolbarLayout collapsingToolbarLayout;
     AppBarLayout appbar;
@@ -57,8 +56,8 @@ public class ShowItemDetails extends AppCompatActivity
     WheelsRimFirstCase wheelsRimFirstCase;
     AccAndJunkFirstCase accAndJunkFirstCase;
 
-    String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr,dateStr,timStampStr;
-    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
+    String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
+            ,dateStr,timStampStr,itemDescription;
     int numberOfChangeFromInterface;
 
     @Override
@@ -95,7 +94,8 @@ public class ShowItemDetails extends AppCompatActivity
             intiUserInfoComp(ccemtFirestCase.getItemIdInServer(),ccemtFirestCase.getItemUserName()
             ,ccemtFirestCase.getItemUserImage(),ccemtFirestCase.getItemName()
             ,ccemtFirestCase.getItemTimePost(),ccemtFirestCase.getBoostType()
-            ,ccemtFirestCase.getDate(),ccemtFirestCase.getTimeStamp());
+            ,ccemtFirestCase.getDate(),ccemtFirestCase.getTimeStamp()
+            ,ccemtFirestCase.getItemDescription());
         }
         if (category.equals("Car plates"))
         {
@@ -103,7 +103,8 @@ public class ShowItemDetails extends AppCompatActivity
             intiUserInfoComp(carPlatesFirstCase.getItemIdInServer(),carPlatesFirstCase.getItemUserName()
                     ,carPlatesFirstCase.getItemUserImage(),carPlatesFirstCase.getItemName()
                     ,carPlatesFirstCase.getItemTimePost(),carPlatesFirstCase.getBoostType()
-                    ,carPlatesFirstCase.getDate(),carPlatesFirstCase.getTimeStamp());
+                    ,carPlatesFirstCase.getDate(),carPlatesFirstCase.getTimeStamp()
+                    ,carPlatesFirstCase.getItemDescription());
         }
         if (category.equals("Wheels rim"))
         {
@@ -111,7 +112,8 @@ public class ShowItemDetails extends AppCompatActivity
             intiUserInfoComp(wheelsRimFirstCase.getItemIdInServer(),wheelsRimFirstCase.getItemUserName()
                     ,wheelsRimFirstCase.getItemUserImage(),wheelsRimFirstCase.getItemName()
                     ,wheelsRimFirstCase.getItemTimePost(),wheelsRimFirstCase.getBoostType()
-                    ,wheelsRimFirstCase.getData(),wheelsRimFirstCase.getTimeStamp());
+                    ,wheelsRimFirstCase.getData(),wheelsRimFirstCase.getTimeStamp()
+                    ,wheelsRimFirstCase.getItemDescription());
         }
         if (category.equals("Accessories") || category.equals("Junk car"))
         {
@@ -119,12 +121,14 @@ public class ShowItemDetails extends AppCompatActivity
             intiUserInfoComp(accAndJunkFirstCase.getItemIdInServer(),accAndJunkFirstCase.getItemUserName()
                     ,accAndJunkFirstCase.getItemUserImage(),accAndJunkFirstCase.getItemName()
                     ,accAndJunkFirstCase.getItemTimePost(),accAndJunkFirstCase.getBoostType()
-                    ,accAndJunkFirstCase.getData(),accAndJunkFirstCase.getTimeStamp());
+                    ,accAndJunkFirstCase.getData(),accAndJunkFirstCase.getTimeStamp()
+                    ,accAndJunkFirstCase.getItemDescription());
         }
     }
 
     private void intiUserInfoComp(String itemIdInServer, String itemUserName, String itemUserImage
-            , String itemName, String itemTimePost, String boostType,String date,String timeStamp) {
+            , String itemName, String itemTimePost, String boostType
+            ,String date,String timeStamp,String itemDescriptionStr) {
         itemIDStr = itemIdInServer;
         userNameStr = itemUserName;
         userImageStr = itemUserImage;
@@ -133,6 +137,7 @@ public class ShowItemDetails extends AppCompatActivity
         postTypeStr = boostType;
         dateStr = date;
         timStampStr = timeStamp;
+        itemDescription = itemDescriptionStr;
     }
 
     private String getCategoryFromIntent() {
@@ -201,7 +206,8 @@ public class ShowItemDetails extends AppCompatActivity
 
     private void intiItemDescriptionAndGeneralTips() {
         Bundle bundle = new Bundle();
-        bundle.putString("category", getResources().getString(R.string.terracan));
+        bundle.putString("category", getCategoryFromIntent());
+        bundle.putString("itemDes", itemDescription);
         fragmentIDescriptionAndGeneralTips.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.selected_item_details_des_general_container, fragmentIDescriptionAndGeneralTips);

@@ -26,14 +26,15 @@ public class FragmentIDescriptionAndGeneralTips extends Fragment {
 
     public FragmentIDescriptionAndGeneralTips(){}
 
-    String test,testDes;
+    String categoryStr,itemDescription;
     View view;
     TextView descriptionContentTV,descriptionTV,generalTips
             ,generalTips1,generalTips2,generalTips3;
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
-            test = getArguments().getString("category");
+            categoryStr = getArguments().getString("category");
+            itemDescription = getArguments().getString("itemDes");
         }
         super.onAttach(context);
 
@@ -43,7 +44,7 @@ public class FragmentIDescriptionAndGeneralTips extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_item_selected_des_general, container, false);
-        //Log.i("TAG",test);
+        Log.i("TAG",categoryStr);
         inti();
         return view;
     }
@@ -68,8 +69,8 @@ public class FragmentIDescriptionAndGeneralTips extends Fragment {
     private void fillDes() {
         String des = getActivity().getResources().getString(R.string.large_text);
         //Log.i("TAG SIZE", String.valueOf(des.length()));
-        descriptionContentTV.setText(des);
-        if (des.length() > 205)
+        descriptionContentTV.setText(itemDescription);
+        if (itemDescription.length() > 185)
         {
             //Log.i("TAG SIZE", String.valueOf(des.length()));
             String seeMore = getActivity().getResources().getString(R.string.see_more);

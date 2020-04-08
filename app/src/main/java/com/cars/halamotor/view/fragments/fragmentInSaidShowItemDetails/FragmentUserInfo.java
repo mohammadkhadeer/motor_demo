@@ -1,6 +1,7 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -36,10 +37,11 @@ public class FragmentUserInfo extends Fragment {
 
     public FragmentUserInfo(){}
 
-    String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr,dateStr,timStampStr,categoryStr;
+    String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
+            ,dateStr,timStampStr,categoryStr,messageShare;
     View view;
     TextView userNameTV,userStatusTV,itemNameTV,dateTV;
-    RelativeLayout userStatusRL,favouriteRL,reportRL;
+    RelativeLayout userStatusRL,favouriteRL,reportRL,shareRL;
     ImageView userImageIV,favouriteIV,shareIV,reportIV;
     CCEMTFirestCase ccemtFirestCase;
     CarPlatesFirstCase carPlatesFirstCase;
@@ -66,6 +68,7 @@ public class FragmentUserInfo extends Fragment {
             favouriteChange = (FavouriteChange) getActivity();
         }
         //favoriteChange = (FavoriteChange) activity;
+        messageShare = "Text well share here";
         detectObject();
     }
 
@@ -108,6 +111,7 @@ public class FragmentUserInfo extends Fragment {
 
         favouriteRL = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_favourite_RL);
         reportRL = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_share_RL);
+        shareRL  = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_share_RL);
 
         favouriteIV = (ImageView) view.findViewById(R.id.fragment_u_i_a_m_favourite_IV);
         shareIV = (ImageView) view.findViewById(R.id.fragment_u_i_a_m_share_IV);
@@ -130,6 +134,19 @@ public class FragmentUserInfo extends Fragment {
         fillText();
         checkIfFavouriteOrNot();
         actionListenerToFavouriteOrNot();
+        actionListenerToShare();
+    }
+
+    private void actionListenerToShare() {
+        shareRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sharingIntent = new Intent(Intent.ACTION_SEND);
+                sharingIntent.setType("text/plain");
+                sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, messageShare);
+                startActivity(Intent.createChooser(sharingIntent,"com.facebook.katana"));
+            }
+        });
     }
 
     private void actionListenerToFavouriteOrNot() {
