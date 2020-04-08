@@ -10,9 +10,9 @@ public class FavouriteCallSearch {
             ,itemTimePost,itemUserPhoneNumber,itemName,itemImage,itemDescription
             ,userImage,userName,itemPostEdit,itemNewPrice,itemWheelsSize
             ,itemCarPlatesCity,itemCarPlatesNumber,itemCarPlatesSpecial
-            ,itemBurnedPrice,itemPrice,itemActiveOrNot,fcsType;
+            ,itemBurnedPrice,itemPrice,userID,itemActiveOrNot,fcsType;
 
-    public FavouriteCallSearch(String idInDatabase, String itemBoostType, String itemType, String itemPersonGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYear, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComment, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String userImage, String userName, String itemPostEdit, String itemNewPrice, String itemWheelsSize, String itemCarPlatesCity, String itemCarPlatesNumber, String itemCarPlatesSpecial, String itemBurnedPrice, String itemPrice, String itemActiveOrNot,String fcsType) {
+    public FavouriteCallSearch(String idInDatabase, String itemBoostType, String itemType, String itemPersonGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYear, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComment, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String userImage, String userName, String itemPostEdit, String itemNewPrice, String itemWheelsSize, String itemCarPlatesCity, String itemCarPlatesNumber, String itemCarPlatesSpecial, String itemBurnedPrice, String itemPrice,String userID, String itemActiveOrNot,String fcsType) {
         this.idInDatabase = idInDatabase;
         this.itemBoostType = itemBoostType;
         this.itemType = itemType;
@@ -43,6 +43,7 @@ public class FavouriteCallSearch {
         this.userName = userName;
         this.itemPostEdit = itemPostEdit;
         this.itemNewPrice = itemNewPrice;
+        this.userID = userID;
         this.itemWheelsSize = itemWheelsSize;
         this.itemCarPlatesCity = itemCarPlatesCity;
         this.itemCarPlatesNumber = itemCarPlatesNumber;
@@ -51,6 +52,14 @@ public class FavouriteCallSearch {
         this.itemPrice = itemPrice;
         this.itemActiveOrNot = itemActiveOrNot;
         this.fcsType = fcsType;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getFcsType() {

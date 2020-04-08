@@ -62,6 +62,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_ITEM_ITEM_CAR_PLATES_SPECIAL_OR_NOT="ITEM_CAR_PLATES_SPECIAL_OR_NOT";
     public static final String COL_ITEM_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_ITEM_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_ITEM_USER_ID="USER_ID";
     public static final String COL_ITEM_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
 
     //this table to save favorite , seen ,call ,as well as search item well give hime
@@ -104,6 +105,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_ITEM_FCS_ITEM_CAR_PLATES_SPECIAL_OR_NOT="ITEM_CAR_PLATES_SPECIAL_OR_NOT";
     public static final String COL_ITEM_FCS_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_ITEM_FCS_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_ITEM_FCS_USER_ID="USER_ID";
     public static final String COL_ITEM_FCS_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
     public static final String COL_ITEM_FCS_TYPE_FCS="FCS_TYPE";
 
@@ -141,6 +143,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CCEMT_ITEM_NEW_PRICE="ITEM_NEW_PRICE";
     public static final String COL_CCEMT_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_CCEMT_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_CCEMT_USER_ID="USER_ID";
     public static final String COL_CCEMT_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
     public static final String COL_CCEMT_ITEM_DATE="ITEM_DATE";
     public static final String COL_CCEMT_ITEM_TIME_STAMP="TIME_STAMP";
@@ -167,6 +170,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_WHEELS_RIM_ITEM_NEW_PRICE="ITEM_NEW_PRICE";
     public static final String COL_WHEELS_RIM_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_WHEELS_RIM_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_WHEELS_RIM_USER_ID="USER_ID";
     public static final String COL_WHEELS_RIM_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
     public static final String COL_WHEELS_RIM_DATE="ITEM_DATE";
     public static final String COL_WHEELS_RIM_TIME_STAMP="TIME_STAMP";
@@ -195,6 +199,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_CAR_PLATES_ITEM_NEW_PRICE="ITEM_NEW_PRICE";
     public static final String COL_CAR_PLATES_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_CAR_PLATES_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_CAR_PLATES_ITEM_USER_ID="USER_ID";
     public static final String COL_CAR_PLATES_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
     public static final String COL_CAR_PLATES_DATE="ITEM_DATE";
     public static final String COL_CAR_PLATES_TIME_STAMP="TIME_STAMP";
@@ -221,6 +226,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_AccAndJunk_ITEM_NEW_PRICE="ITEM_NEW_PRICE";
     public static final String COL_AccAndJunk_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_AccAndJunk_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_AccAndJunk_ITEM_USER_ID="USER_ID";
     public static final String COL_AccAndJunk_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
     public static final String COL_AccAndJunk_ITEM_DATA="ITEM_DATE";
     public static final String COL_AccAndJunk_ITEM_TIME_STAMP="TIME_STAMP";
@@ -263,6 +269,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_SUGGESTED_ITEM_CAR_PLATES_SPECIAL_OR_NOT="ITEM_CAR_PLATES_SPECIAL_OR_NOT";
     public static final String COL_SUGGESTED_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_SUGGESTED_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_SUGGESTED_ITEM_USER_ID="USER_ID";
     public static final String COL_SUGGESTED_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
 
     public static final String TABLE_SIMILAR="item_similar_table";
@@ -303,6 +310,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_SIMILAR_ITEM_CAR_PLATES_SPECIAL_OR_NOT="ITEM_CAR_PLATES_SPECIAL_OR_NOT";
     public static final String COL_SIMILAR_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
     public static final String COL_SIMILAR_ITEM_PRICE="ITEM_PRICE";
+    public static final String COL_SIMILAR_ITEM_USER_ID="USER_ID";
     public static final String COL_SIMILAR_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
 
     public static final String TABLE_NOTIFICATION="notification_table";
@@ -326,31 +334,31 @@ public class DBHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table "+TABLE_ITEM +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT"+ ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
 
         db.execSQL("create table "+TABLE_SUGGESTED +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT"+ ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
 
         db.execSQL("create table "+TABLE_NOTIFICATION +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "PROCESS TEXT" + ",OPEN_OR_NOT_YET TEXT" + ",NOTIFICATION_TITLE TEXT"  + ",PERSON_OR_GALLERY TEXT" + ",IMAGE_PATH TEXT" + ",PROCESS_IMAGE TEXT" + ",TIME_STAMP TEXT"+ ",ITEM_SERVER_ID TEXT" + ",OUT_OR_COME TEXT" + ",AUCTION_OR_ITEM TEXT" + ",DATE TEXT)");
 
         db.execSQL("create table "+TABLE_ITEM_FCS +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",FCS_TYPE TEXT)");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",USER_ID TEXT"+ ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",FCS_TYPE TEXT)");
 
         db.execSQL("create table "+TABLE_CCEMT +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
 
         db.execSQL("create table "+TABLE_WHEELS_RIM +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT" + ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT" + ",ITEM_PRICE TEXT"+ ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
 
         db.execSQL("create table "+TABLE_CAR_PLATES_RIM +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT" + ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT" + ",ITEM_PRICE TEXT" + ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
 
         db.execSQL("create table "+TABLE_AccAndJunk +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT" + ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT" + ",ITEM_PRICE TEXT" + ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
 
         db.execSQL("create table "+TABLE_SIMILAR +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
+                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
     }
 
     @Override
@@ -371,7 +379,7 @@ public class DBHelper extends SQLiteOpenHelper {
     ///////////////////////insert data//////////////////////////////////////////
 
     public boolean insertDataItem(String boostOrNot,String itemBoostType
-            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String itemActiveOrNot)
+            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -411,6 +419,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_ITEM_ITEM_CAR_PLATES_SPECIAL_OR_NOT,itemCarPlatesSpecial);
         contentValues.put(COL_ITEM_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_ITEM_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_ITEM_USER_ID,userID);
         contentValues.put(COL_ITEM_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
 
         long result= db.insert(TABLE_ITEM,null,contentValues);
@@ -421,7 +430,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertDataSuggested(String boostOrNot,String itemBoostType
-            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String itemActiveOrNot)
+            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -461,6 +470,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_SUGGESTED_ITEM_CAR_PLATES_SPECIAL_OR_NOT,itemCarPlatesSpecial);
         contentValues.put(COL_SUGGESTED_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_SUGGESTED_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_SUGGESTED_ITEM_USER_ID,userID);
         contentValues.put(COL_SUGGESTED_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
 
         long result= db.insert(TABLE_SUGGESTED,null,contentValues);
@@ -471,7 +481,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertSimilarAds(String boostOrNot,String itemBoostType
-            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String itemActiveOrNot)
+            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -511,6 +521,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_SIMILAR_ITEM_CAR_PLATES_SPECIAL_OR_NOT,itemCarPlatesSpecial);
         contentValues.put(COL_SIMILAR_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_SIMILAR_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_SIMILAR_ITEM_USER_ID,userID);
         contentValues.put(COL_SIMILAR_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
 
         long result= db.insert(TABLE_SIMILAR,null,contentValues);
@@ -545,7 +556,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertDataFCSItem(String boostOrNot,String itemBoostType
-            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String itemActiveOrNot,String fcsType)
+            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot,String fcsType)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -585,6 +596,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_ITEM_FCS_ITEM_CAR_PLATES_SPECIAL_OR_NOT,itemCarPlatesSpecial);
         contentValues.put(COL_ITEM_FCS_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_ITEM_FCS_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_ITEM_FCS_USER_ID,userID);
         contentValues.put(COL_ITEM_FCS_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
         contentValues.put(COL_ITEM_FCS_TYPE_FCS,fcsType);
 
@@ -596,7 +608,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertDataCCEMTItem(String boostOrNot,String itemBoostType
-            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String itemActiveOrNot,String date,String timeStamp)
+            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot,String date,String timeStamp)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -632,6 +644,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_CCEMT_ITEM_NEW_PRICE,itemNewPrice);
         contentValues.put(COL_CCEMT_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_CCEMT_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_CCEMT_USER_ID,userID);
         contentValues.put(COL_CCEMT_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
         contentValues.put(COL_CCEMT_ITEM_DATE,date);
         contentValues.put(COL_CCEMT_ITEM_TIME_STAMP,timeStamp);
@@ -644,7 +657,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertDataWheels_RimItem(String boostOrNot,String itemBoostType
-            ,String itemPersonGallery,String itemIdInServer,String wheelsSize,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String itemActiveOrNot,String date,String timeStamp)
+            ,String itemPersonGallery,String itemIdInServer,String wheelsSize,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot,String date,String timeStamp)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -668,6 +681,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_WHEELS_RIM_ITEM_NEW_PRICE,itemNewPrice);
         contentValues.put(COL_WHEELS_RIM_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_WHEELS_RIM_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_WHEELS_RIM_USER_ID,userID);
         contentValues.put(COL_WHEELS_RIM_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
         contentValues.put(COL_WHEELS_RIM_DATE,date);
         contentValues.put(COL_WHEELS_RIM_TIME_STAMP,timeStamp);
@@ -680,7 +694,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertDataCarPlatesItem(String boostOrNot,String itemBoostType
-            ,String itemPersonGallery,String itemIdInServer,String platesCity,String platesNumber,String specialOrNot,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String itemActiveOrNot,String date,String timeStamp)
+            ,String itemPersonGallery,String itemIdInServer,String platesCity,String platesNumber,String specialOrNot,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot,String date,String timeStamp)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -708,6 +722,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_CAR_PLATES_ITEM_NEW_PRICE,itemNewPrice);
         contentValues.put(COL_CAR_PLATES_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_CAR_PLATES_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_CAR_PLATES_ITEM_USER_ID,userID);
         contentValues.put(COL_CAR_PLATES_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
         contentValues.put(COL_CAR_PLATES_DATE,date);
         contentValues.put(COL_CAR_PLATES_TIME_STAMP,timeStamp);
@@ -720,7 +735,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean insertDataAccAndJunkItem(String boostOrNot,String itemBoostType
-            ,String type,String itemPersonGallery,String itemIdInServer,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String itemActiveOrNot,String date,String timeStamp)
+            ,String type,String itemPersonGallery,String itemIdInServer,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot,String date,String timeStamp)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
@@ -746,6 +761,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(COL_AccAndJunk_ITEM_NEW_PRICE,itemNewPrice);
         contentValues.put(COL_AccAndJunk_ITEM_BURNED_PRICE,itemBurnedPrice);
         contentValues.put(COL_AccAndJunk_ITEM_PRICE,itemPrice);
+        contentValues.put(COL_AccAndJunk_ITEM_USER_ID,userID);
         contentValues.put(COL_AccAndJunk_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
         contentValues.put(COL_AccAndJunk_ITEM_DATA,date);
         contentValues.put(COL_AccAndJunk_ITEM_TIME_STAMP,timeStamp);

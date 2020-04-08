@@ -3,7 +3,7 @@ package com.cars.halamotor.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class CCEMTFirestCase implements Parcelable {
+public class CCEMTFirestCase {
 
     String boostOrNot,boostType,type,personOrGallery,itemIdInServer
             ,itemCarMake,itemCarModel,itemCarYeay,itemCarCondition
@@ -13,9 +13,9 @@ public class CCEMTFirestCase implements Parcelable {
             ,itemCity,itemNeighborhood,itemTimePost,itemUserPhoneNumber
             ,itemName,itemImage,itemDescription,itemUserImage,itemUserName
             ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot
-            ,date,timeStamp;
+            ,date,timeStamp,userID;
 //34
-    public CCEMTFirestCase(String boostOrNot, String boostType, String type, String personOrGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYeay, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot,String date,String timeStamp) {
+    public CCEMTFirestCase(String boostOrNot, String boostType, String type, String personOrGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYeay, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice,String userID, String itemActiveOrNot,String date,String timeStamp) {
         this.boostOrNot = boostOrNot;
         this.boostType = boostType;
         this.type = type;
@@ -46,11 +46,20 @@ public class CCEMTFirestCase implements Parcelable {
         this.itemUserName = itemUserName;
         this.itemPostEdit = itemPostEdit;
         this.itemNewPrice = itemNewPrice;
+        this.userID = userID;
         this.itemBurnedPrice = itemBurnedPrice;
         this.itemPrice = itemPrice;
         this.itemActiveOrNot = itemActiveOrNot;
         this.date = date;
         this.timeStamp = timeStamp;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getDate() {
@@ -331,49 +340,6 @@ public class CCEMTFirestCase implements Parcelable {
 
     public void setItemActiveOrNot(String itemActiveOrNot) {
         this.itemActiveOrNot = itemActiveOrNot;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(boostOrNot);
-        dest.writeString(boostType);
-        dest.writeString(type);
-        dest.writeString(personOrGallery);
-        dest.writeString(itemIdInServer);
-        dest.writeString(itemCarMake);
-        dest.writeString(itemCarModel);
-        dest.writeString(itemCarYeay);
-        dest.writeString(itemCarCondition);
-        dest.writeString(itemCarKilometers);
-        dest.writeString(itemCarTransmission);
-        dest.writeString(ItemCarLicense);
-        dest.writeString(itemCarInsurance);
-        dest.writeString(itemCarColor);
-        dest.writeString(itemCarPaymentMethod);
-        dest.writeString(itemCarOptions);
-        dest.writeString(itemNumberOfComments);
-        dest.writeString(itemNumberOfImage);
-        dest.writeString(itemCity);
-        dest.writeString(itemNeighborhood);
-        dest.writeString(itemTimePost);
-        dest.writeString(itemUserPhoneNumber);
-        dest.writeString(itemName);
-        dest.writeString(itemImage);
-        dest.writeString(itemDescription);
-        dest.writeString(itemUserImage);
-        dest.writeString(itemUserName);
-        dest.writeString(itemPostEdit);
-        dest.writeString(itemNewPrice);
-        dest.writeString(itemBurnedPrice);
-        dest.writeString(itemPrice);
-        dest.writeString(itemActiveOrNot);
-        dest.writeString(date);
-        dest.writeString(timeStamp);
     }
 
 }

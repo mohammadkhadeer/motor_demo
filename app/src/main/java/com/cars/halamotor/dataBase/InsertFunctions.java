@@ -58,6 +58,7 @@ public class InsertFunctions {
                 ,suggestedItem.getItemCarPlatesSpecial()
                 ,suggestedItem.getItemBurnedPrice()
                 ,suggestedItem.getItemPrice()
+                ,suggestedItem.getUserID()
                 ,suggestedItem.getItemActiveOrNot()
                 ,fcsType
         );
@@ -103,6 +104,7 @@ public class InsertFunctions {
                 ,"0"
                 , ccemtFirestCase.getItemBurnedPrice()
                 , ccemtFirestCase.getItemPrice()
+                , ccemtFirestCase.getUserID()
                 , ccemtFirestCase.getItemActiveOrNot()
                 ,fcsType
         );
@@ -147,6 +149,7 @@ public class InsertFunctions {
                 , "empty"
                 , wheelsRimFirstCase.getItemBurnedPrice()
                 , wheelsRimFirstCase.getItemPrice()
+                , wheelsRimFirstCase.getUserID()
                 , wheelsRimFirstCase.getItemActiveOrNot()
                 ,fcsType
         );
@@ -191,6 +194,7 @@ public class InsertFunctions {
                 ,carPlatesFirstCase.getSpecialOrNot()
                 ,carPlatesFirstCase.getItemBurnedPrice()
                 ,carPlatesFirstCase.getItemPrice()
+                ,carPlatesFirstCase.getUserID()
                 ,carPlatesFirstCase.getItemActiveOrNot()
                 ,fcsType
         );
@@ -235,6 +239,7 @@ public class InsertFunctions {
                 , "empty"
                 ,accAndJunkFirstCase.getItemBurnedPrice()
                 ,accAndJunkFirstCase.getItemPrice()
+                ,accAndJunkFirstCase.getUserID()
                 ,accAndJunkFirstCase.getItemActiveOrNot()
                 ,fcsType
         );
@@ -279,6 +284,7 @@ public class InsertFunctions {
                 ,ccemt.getNewPrice()
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
+                , String.valueOf(ccemt.getUserIDPathInServer())
                 , String.valueOf(ccemt.getActiveOrNot())
 
                 ,ccemt.getYearDate() + "/" + ccemt.getMonthDate() + "/" + ccemt.getDayDate()
@@ -312,6 +318,7 @@ public class InsertFunctions {
                 , wheelsRim.getNewPrice()
                 , String.valueOf(wheelsRim.getBurnedPrice())
                 , String.valueOf(wheelsRim.getPrice())
+                , String.valueOf(wheelsRim.getUserIDPathInServer())
                 , String.valueOf(wheelsRim.getActiveOrNot())
 
                 , wheelsRim.getYearDate() + "/" +wheelsRim.getMonthDate() + "/" + wheelsRim.getDayDate()
@@ -346,6 +353,7 @@ public class InsertFunctions {
                 ,carPlatesModel.getNewPrice()
                 , String.valueOf(carPlatesModel.getBurnedPrice())
                 , String.valueOf(carPlatesModel.getPrice())
+                , String.valueOf(carPlatesModel.getUserIDPathInServer())
                 , String.valueOf(carPlatesModel.getActiveOrNot())
 
                 , carPlatesModel.getYearDate() + "/" + carPlatesModel.getMonthDate() + "/" + carPlatesModel.getDayDate()
@@ -377,6 +385,7 @@ public class InsertFunctions {
             ,accAndJunk.getUserName()
             ,accAndJunk.getPostEdit()
             ,accAndJunk.getNewPrice()
+            ,accAndJunk.getUserIDPathInServer()
 
             , String.valueOf(accAndJunk.getBurnedPrice())
             , String.valueOf(accAndJunk.getPrice())
@@ -444,6 +453,7 @@ public class InsertFunctions {
                 ,"0"
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
+                , String.valueOf(ccemt.getUserIDPathInServer())
                 , String.valueOf(ccemt.getActiveOrNot())
         );
         return isInserted;
@@ -487,6 +497,7 @@ public class InsertFunctions {
                 , String.valueOf(carPlatesModel.getSpecialOrNot())
                 , String.valueOf(carPlatesModel.getBurnedPrice())
                 , String.valueOf(carPlatesModel.getPrice())
+                , String.valueOf(carPlatesModel.getUserIDPathInServer())
                 , String.valueOf(carPlatesModel.getActiveOrNot())
         );
         return isInserted;
@@ -530,6 +541,7 @@ public class InsertFunctions {
                 , "empty"
                 , String.valueOf(wheelsRim.getBurnedPrice())
                 , String.valueOf(wheelsRim.getPrice())
+                , String.valueOf(wheelsRim.getUserIDPathInServer())
                 , String.valueOf(wheelsRim.getActiveOrNot())
         );
         return isInserted;
@@ -573,6 +585,7 @@ public class InsertFunctions {
                 , "empty"
                 , String.valueOf(accAndJunk.getBurnedPrice())
                 , String.valueOf(accAndJunk.getPrice())
+                , String.valueOf(accAndJunk.getUserIDPathInServer())
                 , String.valueOf(accAndJunk.getActiveOrNot())
         );
         return isInserted;
@@ -618,6 +631,7 @@ public class InsertFunctions {
                 ,"0"
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
+                , String.valueOf(ccemt.getUserIDPathInServer())
                 , String.valueOf(ccemt.getActiveOrNot())
         );
         return isInserted;
@@ -661,6 +675,7 @@ public class InsertFunctions {
                 , String.valueOf(carPlatesModel.getSpecialOrNot())
                 , String.valueOf(carPlatesModel.getBurnedPrice())
                 , String.valueOf(carPlatesModel.getPrice())
+                , String.valueOf(carPlatesModel.getUserIDPathInServer())
                 , String.valueOf(carPlatesModel.getActiveOrNot())
         );
         return isInserted;
@@ -704,6 +719,7 @@ public class InsertFunctions {
                 , "empty"
                 , String.valueOf(wheelsRim.getBurnedPrice())
                 , String.valueOf(wheelsRim.getPrice())
+                , String.valueOf(wheelsRim.getUserIDPathInServer())
                 , String.valueOf(wheelsRim.getActiveOrNot())
         );
         return isInserted;
@@ -746,6 +762,7 @@ public class InsertFunctions {
                 ,"empty"
                 , "empty"
                 , String.valueOf(accAndJunk.getBurnedPrice())
+                , String.valueOf(accAndJunk.getUserIDPathInServer())
                 , String.valueOf(accAndJunk.getPrice())
                 , String.valueOf(accAndJunk.getActiveOrNot())
         );

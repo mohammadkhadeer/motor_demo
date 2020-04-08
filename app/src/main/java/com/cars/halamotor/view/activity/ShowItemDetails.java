@@ -57,7 +57,7 @@ public class ShowItemDetails extends AppCompatActivity
     AccAndJunkFirstCase accAndJunkFirstCase;
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
-            ,dateStr,timStampStr,itemDescription;
+            ,dateStr,timStampStr,itemDescription,userID;
     int numberOfChangeFromInterface;
 
     @Override
@@ -95,7 +95,7 @@ public class ShowItemDetails extends AppCompatActivity
             ,ccemtFirestCase.getItemUserImage(),ccemtFirestCase.getItemName()
             ,ccemtFirestCase.getItemTimePost(),ccemtFirestCase.getBoostType()
             ,ccemtFirestCase.getDate(),ccemtFirestCase.getTimeStamp()
-            ,ccemtFirestCase.getItemDescription());
+            ,ccemtFirestCase.getItemDescription(),ccemtFirestCase.getUserID());
         }
         if (category.equals("Car plates"))
         {
@@ -104,7 +104,7 @@ public class ShowItemDetails extends AppCompatActivity
                     ,carPlatesFirstCase.getItemUserImage(),carPlatesFirstCase.getItemName()
                     ,carPlatesFirstCase.getItemTimePost(),carPlatesFirstCase.getBoostType()
                     ,carPlatesFirstCase.getDate(),carPlatesFirstCase.getTimeStamp()
-                    ,carPlatesFirstCase.getItemDescription());
+                    ,carPlatesFirstCase.getItemDescription(),carPlatesFirstCase.getUserID());
         }
         if (category.equals("Wheels rim"))
         {
@@ -113,7 +113,7 @@ public class ShowItemDetails extends AppCompatActivity
                     ,wheelsRimFirstCase.getItemUserImage(),wheelsRimFirstCase.getItemName()
                     ,wheelsRimFirstCase.getItemTimePost(),wheelsRimFirstCase.getBoostType()
                     ,wheelsRimFirstCase.getData(),wheelsRimFirstCase.getTimeStamp()
-                    ,wheelsRimFirstCase.getItemDescription());
+                    ,wheelsRimFirstCase.getItemDescription(),wheelsRimFirstCase.getItemDescription());
         }
         if (category.equals("Accessories") || category.equals("Junk car"))
         {
@@ -122,13 +122,13 @@ public class ShowItemDetails extends AppCompatActivity
                     ,accAndJunkFirstCase.getItemUserImage(),accAndJunkFirstCase.getItemName()
                     ,accAndJunkFirstCase.getItemTimePost(),accAndJunkFirstCase.getBoostType()
                     ,accAndJunkFirstCase.getData(),accAndJunkFirstCase.getTimeStamp()
-                    ,accAndJunkFirstCase.getItemDescription());
+                    ,accAndJunkFirstCase.getItemDescription(),accAndJunkFirstCase.getItemDescription());
         }
     }
 
     private void intiUserInfoComp(String itemIdInServer, String itemUserName, String itemUserImage
             , String itemName, String itemTimePost, String boostType
-            ,String date,String timeStamp,String itemDescriptionStr) {
+            ,String date,String timeStamp,String itemDescriptionStr,String userIDStr) {
         itemIDStr = itemIdInServer;
         userNameStr = itemUserName;
         userImageStr = itemUserImage;
@@ -138,6 +138,7 @@ public class ShowItemDetails extends AppCompatActivity
         dateStr = date;
         timStampStr = timeStamp;
         itemDescription = itemDescriptionStr;
+        userID = userIDStr;
     }
 
     private String getCategoryFromIntent() {
@@ -169,7 +170,11 @@ public class ShowItemDetails extends AppCompatActivity
 
     private void intiFollowUser() {
         Bundle bundle = new Bundle();
-        bundle.putString("category", getResources().getString(R.string.dubai));
+        bundle.putString("category", getCategoryFromIntent());
+        bundle.putString("userName", userNameStr);
+        bundle.putString("userImage", userImageStr);
+        bundle.putString("userID", userID);
+
         fragmentFollowUser.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.selected_item_details_follow_user_container, fragmentFollowUser);

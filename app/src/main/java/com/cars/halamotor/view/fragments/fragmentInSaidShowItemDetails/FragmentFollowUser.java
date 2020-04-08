@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SuggestedItem;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
@@ -23,7 +24,7 @@ public class FragmentFollowUser extends Fragment {
 
     public FragmentFollowUser(){}
 
-    String test;
+    String categoryStr,userNameStr,userImage,userID;
     View view;
     TextView userNameTV,numberOfPostsTV,postsTV,numberOfFollowersTV,followersTV
             ,numberOfFollowingTV,followingTV,followTV;
@@ -33,7 +34,10 @@ public class FragmentFollowUser extends Fragment {
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
-            test = getArguments().getString("category");
+            categoryStr = getArguments().getString("category");
+            userNameStr = getArguments().getString("userName");
+            userImage = getArguments().getString("userImage");
+            userID = getArguments().getString("userID");
         }
         super.onAttach(context);
     }
@@ -56,7 +60,6 @@ public class FragmentFollowUser extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_follow_user, container, false);
-//        Log.i("TAG",test);
         inti();
         return view;
     }
@@ -65,6 +68,17 @@ public class FragmentFollowUser extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         changeFont();
+        fillUserImageAndUserName();
+    }
+
+    private void fillUserImageAndUserName() {
+        Picasso.with(getActivity())
+                .load(userImage)
+                .fit()
+                .centerCrop()
+                .into(userImageIV);
+
+        userNameTV.setText(userNameStr);
     }
 
     private void changeFont() {

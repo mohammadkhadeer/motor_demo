@@ -65,6 +65,7 @@ public class ReadFunction {
                     ,res.getString(36).replace("\n", "")
                     ,res.getString(37).replace("\n", "")
                     ,res.getString(38).replace("\n", "")
+                    ,res.getString(39).replace("\n", "")
             );
             favouriteCallSearchesArrayL.add(favouriteCallSearch);
         }
@@ -115,6 +116,7 @@ public class ReadFunction {
                     ,res.getString(35).replace("\n", "")
                     ,res.getString(36).replace("\n", "")
                     ,res.getString(37).replace("\n", "")
+                    ,res.getString(38).replace("\n", "")
             );
             suggestedItemsArrayL.add(suggestedItem);
         }
@@ -204,6 +206,7 @@ public class ReadFunction {
                         , res.getString(23).replace("\n", "")
                         , res.getString(24).replace("\n", "")
                         , res.getString(25).replace("\n", "")
+                        , res.getString(26).replace("\n", "")
                 );
                 carPlatesArrayL.add(carPlatesFirstCase);
             }
@@ -242,6 +245,7 @@ public class ReadFunction {
                         , res.getString(21).replace("\n", "")
                         , res.getString(22).replace("\n", "")
                         , res.getString(23).replace("\n", "")
+                        , res.getString(24).replace("\n", "")
                 );
                 accAndJunkRimArrayL.add(accAndJunkFirstCase);
             }
@@ -280,6 +284,7 @@ public class ReadFunction {
                         , res.getString(21).replace("\n", "")
                         , res.getString(22).replace("\n", "")
                         , res.getString(23).replace("\n", "")
+                        , res.getString(24).replace("\n", "")
                 );
                 wheelsRimArrayL.add(wheelsRimFirstCase);
             }
@@ -331,6 +336,7 @@ public class ReadFunction {
                         , res.getString(33).replace("\n", "")
                         , res.getString(34).replace("\n", "")
                         , res.getString(35).replace("\n", "")
+                        , res.getString(36).replace("\n", "")
                 );
                 carForSaleArrayL.add(carForSaleCCEMT);
             }

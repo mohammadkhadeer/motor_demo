@@ -8,9 +8,9 @@ public class AccAndJunkFirstCase {
             ,itemCity,itemNeighborhood,itemTimePost,itemUserPhoneNumber
             ,itemName,itemImage,itemDescription,itemUserImage,itemUserName
             ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot
-            ,data,timeStamp;
+            ,data,timeStamp,userID;
 
-    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemType, String itemIdInServer, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice, String itemActiveOrNot, String data, String timeStamp) {
+    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemType, String itemIdInServer, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice,String userID, String itemActiveOrNot, String data, String timeStamp) {
         this.boostOrNot = boostOrNot;
         this.boostType = boostType;
         this.personOrGallery = personOrGallery;
@@ -29,11 +29,20 @@ public class AccAndJunkFirstCase {
         this.itemUserName = itemUserName;
         this.itemPostEdit = itemPostEdit;
         this.itemNewPrice = itemNewPrice;
+        this.userID = userID;
         this.itemBurnedPrice = itemBurnedPrice;
         this.itemPrice = itemPrice;
         this.itemActiveOrNot = itemActiveOrNot;
         this.data = data;
         this.timeStamp = timeStamp;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getBoostOrNot() {

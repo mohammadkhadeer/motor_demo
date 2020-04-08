@@ -70,6 +70,7 @@ public class ArrangingLists {
                         , res.getString(36).replace("\n", "")
                         , res.getString(37).replace("\n", "")
                         , res.getString(38).replace("\n", "")
+                        , res.getString(39).replace("\n", "")
                 );
                 favouriteCallSearchesArrayL.add(favouriteCallSearch);
             }

@@ -9,9 +9,9 @@ public class SuggestedItem {
             ,itemTimePost,itemUserPhoneNumber,itemName,itemImage,itemDescription
             ,userImage,userName,itemPostEdit,itemNewPrice,itemWheelsSize
             ,itemCarPlatesCity,itemCarPlatesNumber,itemCarPlatesSpecial
-            ,itemBurnedPrice,itemPrice,itemActiveOrNot;
+            ,itemBurnedPrice,itemPrice,itemActiveOrNot,userID;
 
-    public SuggestedItem(String idInDatabase, String itemBoostType, String itemType, String itemPersonGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYear, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComment, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String userImage, String userName, String itemPostEdit, String itemNewPrice, String itemWheelsSize, String itemCarPlatesCity, String itemCarPlatesNumber, String itemCarPlatesSpecial, String itemBurnedPrice, String itemPrice, String itemActiveOrNot) {
+    public SuggestedItem(String idInDatabase, String itemBoostType, String itemType, String itemPersonGallery, String itemIdInServer, String itemCarMake, String itemCarModel, String itemCarYear, String itemCarCondition, String itemCarKilometers, String itemCarTransmission, String itemCarFuel, String itemCarLicense, String itemCarInsurance, String itemCarColor, String itemCarPaymentMethod, String itemCarOptions, String itemNumberOfComment, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String userImage, String userName, String itemPostEdit, String itemNewPrice, String itemWheelsSize, String itemCarPlatesCity, String itemCarPlatesNumber, String itemCarPlatesSpecial, String itemBurnedPrice, String itemPrice,String userID, String itemActiveOrNot) {
         this.idInDatabase = idInDatabase;
         this.itemBoostType = itemBoostType;
         this.itemType = itemType;
@@ -48,7 +48,16 @@ public class SuggestedItem {
         this.itemCarPlatesSpecial = itemCarPlatesSpecial;
         this.itemBurnedPrice = itemBurnedPrice;
         this.itemPrice = itemPrice;
+        this.userID = userID;
         this.itemActiveOrNot = itemActiveOrNot;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getIdInDatabase() {

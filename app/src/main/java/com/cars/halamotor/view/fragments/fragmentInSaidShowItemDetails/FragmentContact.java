@@ -24,8 +24,8 @@ public class FragmentContact extends Fragment {
     }
 
     private void inti() {
-        filterContainerRL = (RelativeLayout) view.findViewById(R.id.fragment_home_fragment_filters_container);
-        suggestedContainerRL = (RelativeLayout) view.findViewById(R.id.fragment_home_fragment_suggested_item_container);
+        //filterContainerRL = (RelativeLayout) view.findViewById(R.id.fragment_home_fragment_filters_container);
+        //suggestedContainerRL = (RelativeLayout) view.findViewById(R.id.fragment_home_fragment_suggested_item_container);
     }
 
 }

@@ -4,6 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:focusableInTouchMode="true"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context=".view.activity.ShowItemDetails"
@@ -13,12 +14,14 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:isScrollContainer="false"
+        android:focusableInTouchMode="true"
         android:scrollbars="vertical"
         >
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:focusableInTouchMode="true"
             android:orientation="vertical">
 
             <include

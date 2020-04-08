@@ -54,6 +54,7 @@ public class HandelItemObjectBeforePass {
                 ,res.getString(33).replace("\n", "")
                 ,res.getString(34).replace("\n", "")
                 ,res.getString(35).replace("\n", "")
+                ,res.getString(36).replace("\n", "")
         );
         return ccemtFirestCase;
     }
@@ -85,6 +86,7 @@ public class HandelItemObjectBeforePass {
                 , res.getString(21).replace("\n", "")
                 , res.getString(22).replace("\n", "")
                 , res.getString(23).replace("\n", "")
+                , res.getString(24).replace("\n", "")
         );
         return wheelsRimFirstCase;
     }
@@ -118,6 +120,7 @@ public class HandelItemObjectBeforePass {
                 , res.getString(23).replace("\n", "")
                 , res.getString(24).replace("\n", "")
                 , res.getString(25).replace("\n", "")
+                , res.getString(26).replace("\n", "")
         );
         return carPlatesFirstCase;
     }
@@ -149,6 +152,7 @@ public class HandelItemObjectBeforePass {
                 , res.getString(21).replace("\n", "")
                 , res.getString(22).replace("\n", "")
                 , res.getString(23).replace("\n", "")
+                , res.getString(24).replace("\n", "")
         );
         return accAndJunkFirstCase;
     }
