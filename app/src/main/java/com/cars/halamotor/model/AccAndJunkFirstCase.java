@@ -10,7 +10,7 @@ public class AccAndJunkFirstCase {
             ,itemPostEdit,itemNewPrice,itemBurnedPrice,itemPrice,itemActiveOrNot
             ,data,timeStamp,userID;
 
-    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemType, String itemIdInServer, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice, String itemBurnedPrice, String itemPrice,String userID, String itemActiveOrNot, String data, String timeStamp) {
+    public AccAndJunkFirstCase(String boostOrNot, String boostType, String personOrGallery, String itemType, String itemIdInServer, String itemNumberOfComments, String itemNumberOfImage, String itemCity, String itemNeighborhood, String itemTimePost, String itemUserPhoneNumber, String itemName, String itemImage, String itemDescription, String itemUserImage, String itemUserName, String itemPostEdit, String itemNewPrice,String userID, String itemBurnedPrice, String itemPrice, String itemActiveOrNot, String data, String timeStamp) {
         this.boostOrNot = boostOrNot;
         this.boostType = boostType;
         this.personOrGallery = personOrGallery;

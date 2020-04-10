@@ -113,7 +113,7 @@ public class ShowItemDetails extends AppCompatActivity
                     ,wheelsRimFirstCase.getItemUserImage(),wheelsRimFirstCase.getItemName()
                     ,wheelsRimFirstCase.getItemTimePost(),wheelsRimFirstCase.getBoostType()
                     ,wheelsRimFirstCase.getData(),wheelsRimFirstCase.getTimeStamp()
-                    ,wheelsRimFirstCase.getItemDescription(),wheelsRimFirstCase.getItemDescription());
+                    ,wheelsRimFirstCase.getItemDescription(),wheelsRimFirstCase.getUserID());
         }
         if (category.equals("Accessories") || category.equals("Junk car"))
         {
@@ -122,7 +122,7 @@ public class ShowItemDetails extends AppCompatActivity
                     ,accAndJunkFirstCase.getItemUserImage(),accAndJunkFirstCase.getItemName()
                     ,accAndJunkFirstCase.getItemTimePost(),accAndJunkFirstCase.getBoostType()
                     ,accAndJunkFirstCase.getData(),accAndJunkFirstCase.getTimeStamp()
-                    ,accAndJunkFirstCase.getItemDescription(),accAndJunkFirstCase.getItemDescription());
+                    ,accAndJunkFirstCase.getItemDescription(),accAndJunkFirstCase.getUserID());
         }
     }
 
@@ -262,6 +262,7 @@ public class ShowItemDetails extends AppCompatActivity
         appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isVisible = true;
             int scrollRange = -1;
+
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 if (scrollRange == -1) {
@@ -276,7 +277,9 @@ public class ShowItemDetails extends AppCompatActivity
                 }
             }
         });
+
     }
+
 
     private void changeFont() {
 

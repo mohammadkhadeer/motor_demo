@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.SimilarItem;
@@ -327,6 +328,15 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String AUCTION_OR_ITEM = "AUCTION_OR_ITEM";
     public static final String DATE = "DATE";
 
+    public static final String TABLE_FOLLOWERS="following_table";
+    public static final String COL_FOLLOWERS_id="ID";
+    public static final String COL_FOLLOWERS_NAME= "NAME";
+    public static final String COLO_FOLLOWERS_IMAGE= "IMAGE";
+    public static final String COLO_FOLLOWERS_ID_IN_SERVER= "ID_IN_SERVER";
+    public static final String COLO_FOLLOWERS_FOLLOWING_ID= "FOLLOWING_ID";
+    public static final String COLO_FOLLOWERS_FOLLOWING_ID_IN_OTHER_SAID= "FOLLOWING_ID_IN_OTHER_SAID";
+
+
     public DBHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
     }
@@ -359,6 +369,10 @@ public class DBHelper extends SQLiteOpenHelper {
 
         db.execSQL("create table "+TABLE_SIMILAR +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT)");
+
+        db.execSQL("create table "+TABLE_FOLLOWERS +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "NAME TEXT" + ",IMAGE TEXT" + ",ID_IN_SERVER TEXT" + ",FOLLOWING_ID TEXT" + ",FOLLOWING_ID_IN_OTHER_SAID TEXT)");
+
     }
 
     @Override
@@ -372,6 +386,7 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_CAR_PLATES_RIM);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_AccAndJunk);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_SIMILAR);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_FOLLOWERS);
 
         onCreate(db);
     }
@@ -773,6 +788,41 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean insertFollowing(String name,String image
+            ,String userID,String followingID,String followingIDOtherSaid)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_FOLLOWERS_NAME,name);
+        contentValues.put(COLO_FOLLOWERS_IMAGE,image);
+        contentValues.put(COLO_FOLLOWERS_ID_IN_SERVER,userID);
+        contentValues.put(COLO_FOLLOWERS_FOLLOWING_ID,followingID);
+        contentValues.put(COLO_FOLLOWERS_FOLLOWING_ID_IN_OTHER_SAID,followingIDOtherSaid);
+
+        long result= db.insert(TABLE_FOLLOWERS,null,contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    ////////////////////tester to check if table EXISTS/////////
+
+//    public boolean doesTableExist() {
+//        SQLiteDatabase db =this.getWritableDatabase();
+//        Cursor cursor = db.rawQuery("select DISTINCT tbl_name from sqlite_master where tbl_name = '" + TABLE_FOLLOWERS + "'", null);
+//
+//        if (cursor != null) {
+//            if (cursor.getCount() > 0) {
+//                cursor.close();
+//                return true;
+//            }
+//            cursor.close();
+//        }
+//        return false;
+//    }
+
+
     //////////////////////////to get data /////////////////////
 
     public Cursor descendingItem(){
@@ -839,6 +889,13 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor descendingFollowing(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_FOLLOWERS, null, null,
+                null, null, null, COL_FOLLOWERS_id + " DESC", null);
+        return cursor;
+    }
+
     //////////////////////////////////////update/////////////////////
 
     public void updateNotification(String itemServerID,String openOrNotYet)
@@ -888,7 +945,16 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    //////////////////////////////////////delete data "single line" ////////////////
+    public Cursor getFollowing(String itemServerID)
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_FOLLOWERS + " WHERE " + COLO_FOLLOWERS_ID_IN_SERVER + " = ? ", new String[]{itemServerID});
+        cursor.moveToFirst();
+
+        return cursor;
+    }
+
+    //////////////////////////////////////delete data "single row" ////////////////
 
     public Integer deleteItem(String id){
         SQLiteDatabase db =this.getWritableDatabase();
@@ -928,6 +994,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public Integer deleteAccAndJunk(String id){
         SQLiteDatabase db =this.getWritableDatabase();
         return db.delete(TABLE_AccAndJunk, " ID = ?",new String[] {id});
+    }
+
+    public Integer deleteFollowing(String userID){
+        SQLiteDatabase db =this.getWritableDatabase();
+        return db.delete(TABLE_FOLLOWERS, " ID_IN_SERVER = ?",new String[] {userID});
     }
 
     //////////////////////////////////////delete data "All line" ////////////////

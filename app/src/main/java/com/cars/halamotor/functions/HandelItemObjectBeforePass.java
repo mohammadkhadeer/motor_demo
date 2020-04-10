@@ -9,11 +9,25 @@ import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.model.Following;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 
 public class HandelItemObjectBeforePass {
+
+    public static Following getFollowingObjectFromDB(String itemID, Context context) {
+
+        Cursor res = getDataBaseInstance(context).getFollowing(itemID);
+        Following userFollowingInfo = new Following(
+                res.getString(1).replace("\n", "")
+                , res.getString(2).replace("\n", "")
+                , res.getString(3).replace("\n", "")
+                , res.getString(4).replace("\n", "")
+                , res.getString(5).replace("\n", "")
+        );
+        return userFollowingInfo;
+    }
 
     public static CCEMTFirestCase getCCEMTFirstCaseFromDB(String itemID, Context context) {
 

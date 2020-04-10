@@ -1,10 +1,15 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,22 +19,50 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.functions.Functions;
-import com.cars.halamotor.model.SuggestedItem;
+import com.cars.halamotor.model.Follower;
+import com.cars.halamotor.model.Following;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.algorithms.FollowingTest.checkIfFollow;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertFollowingTable;
+import static com.cars.halamotor.dataBase.ReadFunction.checkIfTableFollowing;
+import static com.cars.halamotor.dataBase.ReadFunction.getFollowing;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertFollower;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertFollowing;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertNewUser;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getFollowingObjectFromDB;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveServerIDInfoInSP;
+import static com.cars.halamotor.sharedPreferences.UserInfoSP.getUserInfoFromSP;
+
 public class FragmentFollowUser extends Fragment {
 
-    public FragmentFollowUser(){}
+    public FragmentFollowUser() {
+    }
 
-    String categoryStr,userNameStr,userImage,userID;
+    String categoryStr, userNameStr, userImage, userID;
+    Boolean followOrNot;
+    String followerToken;
+    long numberOfFollowing;
     View view;
-    TextView userNameTV,numberOfPostsTV,postsTV,numberOfFollowersTV,followersTV
-            ,numberOfFollowingTV,followingTV,followTV;
-    RelativeLayout userStatusRL,followRL;
+    TextView userNameTV, numberOfPostsTV, postsTV, numberOfFollowersTV
+            , followersTV, numberOfFollowingTV, followingTV, followTV;
+    RelativeLayout userStatusRL, followRL;
     ImageView userImageIV;
+    Following userFollowingInfo, userFollowingInfoFromDB;
+    DBHelper myDB;
+    ArrayList<Following> followingArrayList = new ArrayList<Following>();
+    int test2Seconed = 1;
 
     @Override
     public void onAttach(Context context) {
@@ -40,6 +73,12 @@ public class FragmentFollowUser extends Fragment {
             userID = getArguments().getString("userID");
         }
         super.onAttach(context);
+        getIfUserInfoFromServer(userID);
+        numberOfFollowing = checkIfTableFollowing(getActivity());
+        followOrNot = checkIfFollow(getActivity(), userID);
+        //set userName in followID just as init value well need it to insert in
+        //fireBase as object after added well updated
+        userFollowingInfo = new Following(userNameStr, userImage, userID, userNameStr,userNameStr);
     }
 
     private void inti() {
@@ -68,7 +107,91 @@ public class FragmentFollowUser extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         changeFont();
+        myDB = getDataBaseInstance(getActivity());
+        Log.i("TAG", "Number of row " + checkIfTableFollowing(getActivity()));
+        followingArrayList =getFollowing(getActivity());
+        for (int i =0;i<followingArrayList.size();i++)
+        {
+            Log.i("TAG","FollowOtherSaid "+ followingArrayList.get(i).getFollowerIDOtherSaid());
+            Log.i("TAG","FollowID "+ followingArrayList.get(i).getFollowID());
+            Log.i("TAG","userID"+ followingArrayList.get(i).getUserID());
+            Log.i("TAG","USERID "+ userID);
+        }
         fillUserImageAndUserName();
+        fillFollowOrNot();
+        actionListenerToFollow();
+    }
+
+    private void actionListenerToFollow() {
+        followRL.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
+            @Override
+            public void onClick(View v) {
+                if (499 < numberOfFollowing) {
+                    fullMessage();
+                } else {
+                    if (test2Seconed == 1) {
+                        test2Seconed = 0;
+                        makeButtonFreezeTowSec();
+                        if (followTV.getText().toString().equals(getActivity().getResources().getString(R.string.unfollow))) {
+                            deleteFollowing();
+                        } else {
+                            addFollowing();
+                        }
+                    }
+                }
+            }
+        });
+    }
+
+
+    private void makeButtonFreezeTowSec() {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                // this method cos insert and delete need some time
+                test2Seconed = 1;
+            }
+        }, 2000);
+    }
+
+    private void addFollowing() {
+        followRL.setBackgroundResource(R.drawable.edit_profile);
+        followTV.setText(getActivity().getResources().getString(R.string.unfollow));
+        followTV.setTextColor(Color.parseColor("#FFFFFF"));
+        addNewFollower(getActivity());
+        //addNewFollowing(userFollowingInfo, getActivity());
+        Log.i("TAG", "::" + "insert");
+    }
+
+    @SuppressLint("ResourceAsColor")
+    private void deleteFollowing() {
+        followRL.setBackgroundResource(R.drawable.follow_bg);
+        followTV.setText(getActivity().getResources().getString(R.string.follow));
+        followTV.setTextColor(R.color.colorBlue4);
+        userFollowingInfoFromDB = getFollowingObjectFromDB(userID, getActivity());
+        deleteFollowerFromOtherSaid(userFollowingInfoFromDB.getFollowerIDOtherSaid());
+        deleteFollowingFromUserSaid(userFollowingInfoFromDB.getFollowID(), getActivity());
+        myDB.deleteFollowing(userID);
+        Log.i("TAG", "::" + "delete");
+    }
+
+    private void fullMessage() {
+        String message = getActivity().getResources().getString(R.string.u_cant);
+        Snackbar.make(view, message, Snackbar.LENGTH_LONG).show();
+    }
+
+    private void fillFollowOrNot() {
+        if (userID.equals(getUserIdInServerFromSP(getActivity()))) {
+            followRL.setVisibility(View.GONE);
+        } else {
+            if (followOrNot == true) {
+                followRL.setBackgroundResource(R.drawable.edit_profile);
+                followTV.setText(getActivity().getResources().getString(R.string.unfollow));
+                followTV.setTextColor(Color.parseColor("#FFFFFF"));
+            }
+        }
     }
 
     private void fillUserImageAndUserName() {
@@ -91,5 +214,67 @@ public class FragmentFollowUser extends Fragment {
         followingTV.setTypeface(Functions.changeFontGeneral(getActivity()));
         followTV.setTypeface(Functions.changeFontGeneral(getActivity()));
         // userStatusTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+    }
+
+    //here well set connection with server here cos cant return in fireBase database
+    public void getIfUserInfoFromServer(String userID) {
+        getUserPathInServer(userID).child("numberOfAds")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            numberOfPostsTV.setText(dataSnapshot.getValue().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+
+                });
+
+    }
+
+    public void addNewFollower(final Context context) {
+        Follower followerInfo = getUserInfoFromSP(context);
+        insertFollower(context,userID)
+                .push().setValue(followerInfo
+                , new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError databaseError,
+                                           DatabaseReference databaseReference) {
+                        String uniqueKey = databaseReference.getKey();
+                        Log.i("TAG uniqueKey", "::" + uniqueKey);
+                        //insertFollowing(context).child(uniqueKey).child("followID").setValue(uniqueKey);
+                        addNewFollowing(getActivity(),uniqueKey);
+                    }
+                });
+    }
+
+    public void addNewFollowing(final Context context, final String otherID) {
+        insertFollowing(context)
+                .push().setValue(userFollowingInfo
+                , new DatabaseReference.CompletionListener() {
+                    @Override
+                    public void onComplete(DatabaseError databaseError,
+                                           DatabaseReference databaseReference) {
+                        String uniqueKey = databaseReference.getKey();
+                        insertFollowing(context).child(uniqueKey).child("followID").setValue(uniqueKey);
+                        userFollowingInfo.setFollowerIDOtherSaid(otherID);
+                        Following insertFollowing = new Following(userNameStr, userImage, userID, uniqueKey,otherID);
+                        Log.i("TAG uniqueKey", "::" + otherID);
+                        insertFollowingTable(insertFollowing, myDB);
+                    }
+                });
+    }
+
+    private void deleteFollowingFromUserSaid(String followIDInServer, Context context) {
+        Log.i("TAG", "followID: in delete said" + followIDInServer);
+        insertFollowing(context).child(followIDInServer).removeValue();
+    }
+
+    private void deleteFollowerFromOtherSaid(String followIDInOtherSaid) {
+        Log.i("TAG", "followID: in delete said" + followIDInOtherSaid);
+        insertNewUser().child(userID).child("follower").child(followIDInOtherSaid).removeValue();
     }
 }

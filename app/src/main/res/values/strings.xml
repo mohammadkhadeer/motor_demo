@@ -92,6 +92,7 @@
     <string name="write_ur_comment">Write your comment</string>
     <string name="similar">Similar Ads</string>
     <string name="follow">Follow</string>
+    <string name="u_cant">Sorry max follower 500</string>
     <string name="unfollow">Unfollow</string>
     <string name="following">Following</string>
 

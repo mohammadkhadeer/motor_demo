@@ -70,8 +70,6 @@ public class FragmentItemSelectedDetails extends Fragment {
             itemIDStr = getArguments().getString("itemID");
         }
         super.onAttach(context);
-        Log.i("TAG category",categoryStr);
-        Log.i("TAG id",itemIDStr);
         detectObject();
     }
 

@@ -84,6 +84,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
                 intent.putExtras(bundle);
                 ((Activity)context).startActivityForResult(intent , REQUEST_SHOW_ITEM_SELECTED_DETAILS);
                 ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+
             }
         });
     }

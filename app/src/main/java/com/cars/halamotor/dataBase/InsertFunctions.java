@@ -10,6 +10,7 @@ import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CommentsComp;
+import com.cars.halamotor.model.Following;
 import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimFirstCase;
@@ -17,6 +18,17 @@ import com.cars.halamotor.model.WheelsRimModel;
 import java.util.ArrayList;
 
 public class InsertFunctions {
+
+    public static boolean insertFollowingTable(Following following, DBHelper database) {
+        boolean isInserted = database.insertFollowing(
+                following.getName()
+                ,following.getImage()
+                ,following.getUserID()
+                ,following.getFollowID()
+                ,following.getFollowerIDOtherSaid()
+        );
+        return isInserted;
+    }
 
     //this table contain favorite , search ,seen , call item
     public static boolean insertSuggestedItemInFCSTable(SuggestedItem suggestedItem, DBHelper database,String fcsType) {

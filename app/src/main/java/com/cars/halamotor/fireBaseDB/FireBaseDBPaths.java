@@ -1,9 +1,13 @@
 package com.cars.halamotor.fireBaseDB;
 
 
+import android.content.Context;
+
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 
 public class FireBaseDBPaths {
 
@@ -16,6 +20,19 @@ public class FireBaseDBPaths {
         DatabaseReference usersPath = getDataBaseInstance().getReference("users");
         return  usersPath;
     }
+
+    public static DatabaseReference insertFollowing(Context context) {
+        DatabaseReference usersPath = getDataBaseInstance().getReference("users")
+                .child(getUserIdInServerFromSP(context)).child("following");
+        return  usersPath;
+    }
+
+    public static DatabaseReference insertFollower(Context context,String userID) {
+        DatabaseReference usersPath = getDataBaseInstance().getReference("users")
+                .child(userID).child("follower");
+        return  usersPath;
+    }
+
 
     public static DatabaseReference insertCarForSale() {
         DatabaseReference carForSalePath = getDataBaseInstance()

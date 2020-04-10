@@ -2,12 +2,15 @@ package com.cars.halamotor.dataBase;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.database.DatabaseUtils;
+import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.FavouriteCallSearch;
+import com.cars.halamotor.model.Following;
 import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.SimilarItem;
 import com.cars.halamotor.model.SuggestedItem;
@@ -18,6 +21,37 @@ import java.util.ArrayList;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 
 public class ReadFunction {
+
+    //use arrayList to get object from database
+
+    public static long checkIfTableFollowing(Context context) {
+        SQLiteDatabase db = getDataBaseInstance(context).getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, "following_table");
+        db.close();
+        return count;
+    }
+
+    public static ArrayList<Following> getFollowing(Context context) {
+
+        ArrayList<Following> followingArrayList = new ArrayList<Following>();
+
+        Cursor res = getDataBaseInstance(context).descendingFollowing();
+
+        while (res.moveToNext()) {
+            Following favouriteCallSearch = new Following(
+                    res.getString(1).replace("\n", "")
+                    ,res.getString(2).replace("\n", "")
+                    ,res.getString(3).replace("\n", "")
+                    ,res.getString(4).replace("\n", "")
+                    ,res.getString(5).replace("\n", "")
+
+            );
+            followingArrayList.add(favouriteCallSearch);
+        }
+
+        return followingArrayList;
+    }
+
 
     public static ArrayList<FavouriteCallSearch> getFCSDatabase(Context context) {
 

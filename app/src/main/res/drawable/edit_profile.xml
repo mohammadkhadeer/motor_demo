@@ -7,15 +7,15 @@
         <shape
             android:shape="rectangle">
             <solid
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorBlue4" >
             </solid>
             <stroke
                 android:width="0.2dp"
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorBlue4" >
             </stroke>
             <corners
                 android:radius="4dp"
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorBlue4" >
             </corners>
         </shape>
     </item><!-- pressed -->
@@ -26,15 +26,15 @@
         <shape
             android:shape="rectangle">
             <solid
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorBlue4" >
             </solid>
             <stroke
                 android:width="0.2dp"
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorBlue4" >
             </stroke>
             <corners
                 android:radius="4dp"
-                android:color="@color/colorBlue2" >
+                android:color="@color/colorBlue4" >
             </corners>
         </shape>
     </item><!-- focused -->
