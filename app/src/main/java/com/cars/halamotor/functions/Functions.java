@@ -43,7 +43,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
-import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;

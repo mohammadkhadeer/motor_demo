@@ -20,6 +20,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.transition.Fade;
 import android.transition.Transition;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -41,6 +42,7 @@ import com.cars.halamotor.model.CustomGallery;
 import com.cars.halamotor.model.EditValueInCDM;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.permission.CheckPermission;
+import com.cars.halamotor.presnter.NumberOfAllowedAds;
 import com.cars.halamotor.utils.Utils;
 import com.cars.halamotor.view.adapters.AdapterSelectCategory;
 import com.cars.halamotor.view.adapters.SelectedImageAdapter;
@@ -49,9 +51,11 @@ import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
 import butterknife.ButterKnife;
-import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddAdsOrNot;
-import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getIfUserCanAddBurnedPrice;
-import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfUserAds;
+
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.checkUserCanInsertAddOrNot;
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.checkUserCanInsertBurnedPrice;
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfAllowedAdsFromServer;
+import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getNumberOfOldAds;
 import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadAccessoriesModel;
 import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarForExchangeModel;
 import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarForMotorcycleModel;
@@ -78,17 +82,11 @@ import static com.cars.halamotor.functions.Functions.getYEAR;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 import static com.cars.halamotor.functions.Functions.splitString;
 import static com.cars.halamotor.functions.Functions.updateCarDetailsModel;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanIfBurnedPrice;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanIfUserCanAddAdsAds;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.cleanNumberOfAds;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getCityFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getIfUserCanAddAdsInSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getIfUserCanAddBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNeighborhoodFromSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNumberOfAdsInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceAfterConvertedToDoubleInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
@@ -97,7 +95,8 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUse
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserName;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserTokenInFromSP;
 
-public class AddItem extends AppCompatActivity implements ShowSelectedCarDetailsFragment.OnDataPass {
+public class AddItem extends AppCompatActivity implements
+        ShowSelectedCarDetailsFragment.OnDataPass , NumberOfAllowedAds {
 
     RelativeLayout cancelRL, selectImageFGRL, selectVideoRL, coverVideoViewRL, cancelVideoRL, cancelSelectedCategoryRL, add_activity_complete_car_dCV, cityPhoneNumberRL;
     RelativeLayout showSelectedCarDetailsRL, messageContainerRL, messageContentRL;
@@ -148,12 +147,15 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
     WheelsRimModel wheelsRim;
     AccAndJunk accAndJunk;
 
+    NumberOfAllowedAds numberOfAllowedAds;
+    int numberOfAllowedAdsInt,numberOfOldAds,canInsertAndOrNot,canInsertBurnedPrice;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
         ButterKnife.bind(this);
+        numberOfAllowedAds = (NumberOfAllowedAds) this;
         statusBarColor();
         inti();
         hideVideoShowBeforeSelected();
@@ -162,14 +164,13 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         actionListener();
         createSelectCategoryRV();
         actionListenerToRVShowSelectedCategoryAfterUserChoose();
-        //call this method to get number of ads user inserted on server and save in SP because onDataChange can't save and return
-        cleanNumberOfAds(getApplicationContext(),sharedPreferences,editor);
-        cleanIfUserCanAddAdsAds(getApplicationContext(),sharedPreferences,editor);
-        cleanIfBurnedPrice(getApplicationContext(),sharedPreferences,editor);
 
-        getNumberOfUserAds(getApplicationContext(), sharedPreferences, editor);
-        getIfUserCanAddAdsOrNot(getApplicationContext(), sharedPreferences, editor);
-        getIfUserCanAddBurnedPrice(getApplicationContext(), sharedPreferences, editor);
+        //get user info from server
+        getNumberOfAllowedAdsFromServer(this,numberOfAllowedAds);
+        getNumberOfOldAds(this,numberOfAllowedAds);
+        checkUserCanInsertAddOrNot(this,numberOfAllowedAds);
+        checkUserCanInsertBurnedPrice(this,numberOfAllowedAds);
+
     }
 
     private void insertBtnListener() {
@@ -185,12 +186,12 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
                                 if (productDetailsComplete == 1) {
                                     if (getAddressInSP(getApplicationContext()) != null) {
                                         if (checkPhoneNumberRealOrNot(getApplicationContext()) == null) {
-                                            if (getNumberOfAdsInSP(getApplicationContext()) < 5) {
-                                                if (getIfUserCanAddAdsInSP(getApplicationContext()) == 1) {
+                                            if (numberOfOldAds < numberOfAllowedAdsInt) {
+                                                if (canInsertAndOrNot == 1) {
                                                     selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
                                                             .getCategoryNameStr();
                                                     if (getBurnedPriceInSP(getApplicationContext()) != null) {
-                                                        if (getIfUserCanAddBurnedPriceInSP(getApplicationContext()) == 1) {
+                                                        if (canInsertBurnedPrice == 1) {
                                                             itemLiveOrMustToWaitIfBurnedPriceOn =0;
                                                             checkCategoryAndUpload(selectCategory);
                                                         } else {
@@ -300,47 +301,47 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
         if (selectCategory.equals(getResources().getString(R.string.car_for_sale))) {
             createCCMETObject("Car for sale");
             uploadImagesBeforeUploadCarForSaleModel(imagePathArrL, ccemt, "Car_For_Sale"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.car_for_rent))) {
             createCCMETObject("Car for rent");
             uploadImagesBeforeUploadCarForRentModel(imagePathArrL, ccemt, "Car_For_Rent"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.exchange_car))) {
             createCCMETObject("Exchange car");
             uploadImagesBeforeUploadCarForExchangeModel(imagePathArrL, ccemt, "Car_For_Exchange"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.motorcycle))) {
             createCCMETObject("Motorcycle");
             uploadImagesBeforeUploadCarForMotorcycleModel(imagePathArrL, ccemt, "Car_For_Motorcycle"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.trucks))) {
             createCCMETObject("Trucks");
             uploadImagesBeforeUploadCarForTrucksModel(imagePathArrL, ccemt, "Trucks"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.car_plates))) {
             createCarPlatesObject("Car plates");
             uploadImagesBeforeUploadCarPlatesModel(imagePathArrL, carPlatesModel, "Plates"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.wheels_rim))) {
             createWheelsRimObject("Wheels rim");
             uploadImagesBeforeUploadWheelsRimModel(imagePathArrL, wheelsRim, "Wheels_Rim"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.accessories))) {
             createAccAndHunkObject("Accessories");
             uploadImagesBeforeUploadAccessoriesModel(imagePathArrL, accAndJunk, "Accessories"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.junk_car))) {
             createAccAndHunkObject("Junk car");
             uploadImagesBeforeUploadJunkCarModel(imagePathArrL, accAndJunk, "JunkCar"
-                    , getUserIdInServerFromSP(getApplicationContext()), getNumberOfAdsInSP(getApplicationContext()),getApplicationContext());
+                    , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         new Handler().postDelayed(new Runnable() {
             @Override
@@ -876,5 +877,25 @@ public class AddItem extends AppCompatActivity implements ShowSelectedCarDetails
     @Override
     public void onDataPassCarPlates(CarPlatesDetails carPlatesDetailsAfterEdit) {
         carPlatesDetails = carPlatesDetailsAfterEdit;
+    }
+
+    @Override
+    public void numberOfAllowedAds(String AllowedAds) {
+        numberOfAllowedAdsInt = Integer.parseInt(AllowedAds);
+    }
+
+    @Override
+    public void numberOfAds(String oldAds) {
+        numberOfOldAds = Integer.parseInt(oldAds);
+    }
+
+    @Override
+    public void canInsertAds(String canOrNot) {
+        canInsertAndOrNot = Integer.parseInt(canOrNot);
+    }
+
+    @Override
+    public void canInsertBurnedPrice(String canOrNot) {
+        canInsertBurnedPrice = Integer.parseInt(canOrNot);
     }
 }

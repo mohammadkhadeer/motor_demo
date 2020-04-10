@@ -5,11 +5,11 @@ public class UserInfo {
             ,neighbourhoodStr,authenticationIDStr,IDImagePathStr,walletCreditStr
             ,numberOfAdvStr,userTokensStr;
     int numberOfAds,activeToSetAdv,activeToAddAuctions,numberOfAuction,activeToAddBurnedPrice
-            ,numberOfBurnedPriceUsed,BurnedPriceAllowToUse;
+            ,numberOfBurnedPriceUsed,BurnedPriceAllowToUse,numberOfAllowedAds;
 
     public UserInfo(){}
 
-    public UserInfo(String nameStr, String userImageStr, String surNameStr, String emailStr, String phoneNumberStr, String cityStr, String neighbourhoodStr, String authenticationIDStr, String IDImagePathStr, String walletCreditStr, String numberOfAdvStr, String userTokensStr, int numberOfAds, int activeToSetAdv, int activeToAddAuctions, int numberOfAuction, int activeToAddBurnedPrice, int numberOfBurnedPriceUsed, int burnedPriceAllowToUse) {
+    public UserInfo(String nameStr, String userImageStr, String surNameStr, String emailStr, String phoneNumberStr, String cityStr, String neighbourhoodStr, String authenticationIDStr, String IDImagePathStr, String walletCreditStr, String numberOfAdvStr, String userTokensStr, int numberOfAds, int activeToSetAdv, int activeToAddAuctions, int numberOfAuction, int activeToAddBurnedPrice, int numberOfBurnedPriceUsed, int burnedPriceAllowToUse,int numberOfAllowedAds) {
         this.nameStr = nameStr;
         this.userImageStr = userImageStr;
         this.surNameStr = surNameStr;
@@ -28,7 +28,16 @@ public class UserInfo {
         this.numberOfAuction = numberOfAuction;
         this.activeToAddBurnedPrice = activeToAddBurnedPrice;
         this.numberOfBurnedPriceUsed = numberOfBurnedPriceUsed;
-        BurnedPriceAllowToUse = burnedPriceAllowToUse;
+        this.BurnedPriceAllowToUse = burnedPriceAllowToUse;
+        this.numberOfAllowedAds = numberOfAllowedAds;
+    }
+
+    public int getNumberOfAllowedAds() {
+        return numberOfAllowedAds;
+    }
+
+    public void setNumberOfAllowedAds(int numberOfAllowedAds) {
+        this.numberOfAllowedAds = numberOfAllowedAds;
     }
 
     public String getNameStr() {

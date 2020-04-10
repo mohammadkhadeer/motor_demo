@@ -6,6 +6,7 @@ import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.WheelsRimModel;
+import com.cars.halamotor.presnter.NumberOfAllowedAds;
 import com.cars.halamotor.view.activity.WheelsRim;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -14,6 +15,8 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
+
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
 
 public class ReadFromFireBase {
 

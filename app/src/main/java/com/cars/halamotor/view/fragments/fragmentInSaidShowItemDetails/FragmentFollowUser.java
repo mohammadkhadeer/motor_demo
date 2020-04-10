@@ -73,7 +73,7 @@ public class FragmentFollowUser extends Fragment {
             userID = getArguments().getString("userID");
         }
         super.onAttach(context);
-        getIfUserInfoFromServer(userID);
+        getNumberOfAdsFromServer(userID);
         numberOfFollowing = checkIfTableFollowing(getActivity());
         followOrNot = checkIfFollow(getActivity(), userID);
         //set userName in followID just as init value well need it to insert in
@@ -108,15 +108,14 @@ public class FragmentFollowUser extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         changeFont();
         myDB = getDataBaseInstance(getActivity());
-        Log.i("TAG", "Number of row " + checkIfTableFollowing(getActivity()));
         followingArrayList =getFollowing(getActivity());
-        for (int i =0;i<followingArrayList.size();i++)
-        {
-            Log.i("TAG","FollowOtherSaid "+ followingArrayList.get(i).getFollowerIDOtherSaid());
-            Log.i("TAG","FollowID "+ followingArrayList.get(i).getFollowID());
-            Log.i("TAG","userID"+ followingArrayList.get(i).getUserID());
-            Log.i("TAG","USERID "+ userID);
-        }
+//        for (int i =0;i<followingArrayList.size();i++)
+//        {
+//            Log.i("TAG","FollowOtherSaid "+ followingArrayList.get(i).getFollowerIDOtherSaid());
+//            Log.i("TAG","FollowID "+ followingArrayList.get(i).getFollowID());
+//            Log.i("TAG","userID"+ followingArrayList.get(i).getUserID());
+//            Log.i("TAG","USERID "+ userID);
+//        }
         fillUserImageAndUserName();
         fillFollowOrNot();
         actionListenerToFollow();
@@ -162,7 +161,6 @@ public class FragmentFollowUser extends Fragment {
         followTV.setTextColor(Color.parseColor("#FFFFFF"));
         addNewFollower(getActivity());
         //addNewFollowing(userFollowingInfo, getActivity());
-        Log.i("TAG", "::" + "insert");
     }
 
     @SuppressLint("ResourceAsColor")
@@ -174,7 +172,6 @@ public class FragmentFollowUser extends Fragment {
         deleteFollowerFromOtherSaid(userFollowingInfoFromDB.getFollowerIDOtherSaid());
         deleteFollowingFromUserSaid(userFollowingInfoFromDB.getFollowID(), getActivity());
         myDB.deleteFollowing(userID);
-        Log.i("TAG", "::" + "delete");
     }
 
     private void fullMessage() {
@@ -217,7 +214,7 @@ public class FragmentFollowUser extends Fragment {
     }
 
     //here well set connection with server here cos cant return in fireBase database
-    public void getIfUserInfoFromServer(String userID) {
+    public void getNumberOfAdsFromServer(String userID) {
         getUserPathInServer(userID).child("numberOfAds")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -244,7 +241,6 @@ public class FragmentFollowUser extends Fragment {
                     public void onComplete(DatabaseError databaseError,
                                            DatabaseReference databaseReference) {
                         String uniqueKey = databaseReference.getKey();
-                        Log.i("TAG uniqueKey", "::" + uniqueKey);
                         //insertFollowing(context).child(uniqueKey).child("followID").setValue(uniqueKey);
                         addNewFollowing(getActivity(),uniqueKey);
                     }
@@ -262,19 +258,16 @@ public class FragmentFollowUser extends Fragment {
                         insertFollowing(context).child(uniqueKey).child("followID").setValue(uniqueKey);
                         userFollowingInfo.setFollowerIDOtherSaid(otherID);
                         Following insertFollowing = new Following(userNameStr, userImage, userID, uniqueKey,otherID);
-                        Log.i("TAG uniqueKey", "::" + otherID);
                         insertFollowingTable(insertFollowing, myDB);
                     }
                 });
     }
 
     private void deleteFollowingFromUserSaid(String followIDInServer, Context context) {
-        Log.i("TAG", "followID: in delete said" + followIDInServer);
         insertFollowing(context).child(followIDInServer).removeValue();
     }
 
     private void deleteFollowerFromOtherSaid(String followIDInOtherSaid) {
-        Log.i("TAG", "followID: in delete said" + followIDInOtherSaid);
         insertNewUser().child(userID).child("follower").child(followIDInOtherSaid).removeValue();
     }
 }

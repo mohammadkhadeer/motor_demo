@@ -1,78 +1,84 @@
 package com.cars.halamotor.fireBaseDB;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.util.Log;
-
-import com.cars.halamotor.model.UserInfo;
+import com.cars.halamotor.presnter.NumberOfAllowedAds;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveIfUserCanAddAdsInSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveIfUserCanAddBurnedPriceInSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveNumberOfAdsInSP;
 
 public class GetFromFireBaseDB {
 
-    public static void getNumberOfUserAds(final Context context, final SharedPreferences sharedPreferences, final SharedPreferences.Editor editor) {
-        //save on SP because when save in value can't do it this
-        //because this use this track
-        getUserPathInServer(getUserIdInServerFromSP(context))
-                .addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.exists()) {
-                    UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
-                    saveNumberOfAdsInSP(context,sharedPreferences,editor,
-                            userInfo.getNumberOfAds());
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {}
-
-        });
-    }
-
-
-    public static void getIfUserCanAddAdsOrNot(final Context context, final SharedPreferences sharedPreferences, final SharedPreferences.Editor editor) {
-        //use this because may insert sex adv or any reason from 5 reason
-        getUserPathInServer(getUserIdInServerFromSP(context))
+    public static void getNumberOfAllowedAdsFromServer(Context context, final NumberOfAllowedAds numberOfAllowedAds) {
+        getUserPathInServer(getUserIdInServerFromSP(context)).child("numberOfAllowedAds")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
-                            saveIfUserCanAddAdsInSP(context,sharedPreferences,editor,
-                                    userInfo.getActiveToSetAdv());
+                            numberOfAllowedAds.numberOfAllowedAds(dataSnapshot.getValue().toString());
                         }
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {}
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
 
                 });
+
     }
 
-    public static void getIfUserCanAddBurnedPrice(final Context context, final SharedPreferences sharedPreferences, final SharedPreferences.Editor editor) {
-        //use this because may insert sex adv or any reason from 5 reason
-        getUserPathInServer(getUserIdInServerFromSP(context))
+    public static void getNumberOfOldAds(Context context, final NumberOfAllowedAds numberOfAllowedAds) {
+        getUserPathInServer(getUserIdInServerFromSP(context)).child("numberOfAds")
                 .addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if (dataSnapshot.exists()) {
-                            UserInfo userInfo = dataSnapshot.getValue(UserInfo.class);
-                            saveIfUserCanAddBurnedPriceInSP(context,sharedPreferences,editor,
-                                    userInfo.getActiveToAddBurnedPrice());
+                            numberOfAllowedAds.numberOfAds(dataSnapshot.getValue().toString());
                         }
                     }
 
                     @Override
-                    public void onCancelled(DatabaseError databaseError) {}
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
 
                 });
+
+    }
+
+    public static void checkUserCanInsertAddOrNot(Context context, final NumberOfAllowedAds numberOfAllowedAds) {
+        getUserPathInServer(getUserIdInServerFromSP(context)).child("activeToSetAdv")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            numberOfAllowedAds.canInsertAds(dataSnapshot.getValue().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+
+                });
+
+    }
+
+    public static void checkUserCanInsertBurnedPrice(Context context, final NumberOfAllowedAds numberOfAllowedAds) {
+        getUserPathInServer(getUserIdInServerFromSP(context)).child("activeToAddBurnedPrice")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            numberOfAllowedAds.canInsertBurnedPrice(dataSnapshot.getValue().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+
+                });
+
     }
 }
