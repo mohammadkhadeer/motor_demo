@@ -193,7 +193,9 @@ public class ShowItemDetails extends AppCompatActivity
 
     private void intiSuggestedFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("category", getResources().getString(R.string.sharjah));
+        bundle.putString("category", getCategoryFromIntent());
+        bundle.putString("itemID", itemIDStr);
+
         fragmentSuggestedAntherItems.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
         transaction.add(R.id.selected_item_details_suggested_container, fragmentSuggestedAntherItems);

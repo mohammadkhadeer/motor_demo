@@ -4,6 +4,7 @@ import android.util.Log;
 
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
+import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.NumberOfAllowedAds;
@@ -62,9 +63,37 @@ public class ReadFromFireBase {
         return carForRentL;
     }
 
-    public static List<CCEMT> getCarForExchangeItems(final List<CCEMT> carForExchangeL,int numberOfCarFromServer) {
+    public static List<CCEMT> getCarForExchangeItems(final List<CCEMT> carForExchangeL
+            , int numberOfCarFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
                 .child("category").child("Car_For_Exchange").limitToLast(numberOfCarFromServer);
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot carForExchangeList: dataSnapshot.getChildren()) {
+                    CCEMT ccemt = carForExchangeList.getValue(CCEMT.class);
+                    carForExchangeL.add(ccemt);
+                }
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.i("TAG ERROR", databaseError.toString());
+
+            }
+
+        });
+        return carForExchangeL;
+    }
+
+    public static List<CCEMT> getCarForExchangeItemsSearch(final List<CCEMT> carForExchangeL
+            , int numberOfCarFromServer,String category,String carMake,String carModel,String year
+            ,String carCondition,String carKilometers,String carTransmission
+            ,String carFuel,String carColor) {
+        Query mRef = null;
+         mRef = FirebaseDatabase.getInstance().getReference()
+                .child("category").child(category);
+
+        mRef.limitToFirst(numberOfCarFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

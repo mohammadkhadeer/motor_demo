@@ -53,6 +53,48 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUse
 
 public class Functions {
 
+    public static String replace(String category) {
+
+        if (category.equals("Car for sale"))
+        {
+            category ="Car_For_Sale";
+        }
+        if (category.equals("Car for rent"))
+        {
+            category ="Car_For_Rent";
+        }
+        if (category.equals("Exchange car"))
+        {
+            category ="Car_For_Exchange";
+        }
+        if (category.equals("Motorcycle"))
+        {
+            category ="Motorcycle";
+        }
+        if (category.equals("Trucks"))
+        {
+            category ="Trucks";
+        }
+        if (category.equals("Car plates"))
+        {
+            category ="Plates";
+        }
+        if (category.equals("Wheels rim"))
+        {
+            category ="Wheels_Rim";
+        }
+        if (category.equals("Junk car"))
+        {
+            category ="JunkCar";
+        }
+        if (category.equals("Accessories"))
+        {
+            category ="Accessories";
+        }
+
+        return category;
+    }
+
     public static void makeTextViewResizable(final TextView tv, final int maxLine
             , final String expandText, final boolean viewMore, final Context context) {
 

@@ -167,7 +167,7 @@ public class FragmentFollowUser extends Fragment {
     private void deleteFollowing() {
         followRL.setBackgroundResource(R.drawable.follow_bg);
         followTV.setText(getActivity().getResources().getString(R.string.follow));
-        followTV.setTextColor(R.color.colorBlue4);
+        followTV.setTextColor(R.color.colorBlue5);
         userFollowingInfoFromDB = getFollowingObjectFromDB(userID, getActivity());
         deleteFollowerFromOtherSaid(userFollowingInfoFromDB.getFollowerIDOtherSaid());
         deleteFollowingFromUserSaid(userFollowingInfoFromDB.getFollowID(), getActivity());

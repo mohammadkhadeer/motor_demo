@@ -3,6 +3,8 @@ package com.cars.halamotor.fireBaseDB;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 

@@ -774,8 +774,8 @@ public class InsertFunctions {
                 ,"empty"
                 , "empty"
                 , String.valueOf(accAndJunk.getBurnedPrice())
-                , String.valueOf(accAndJunk.getUserIDPathInServer())
                 , String.valueOf(accAndJunk.getPrice())
+                , String.valueOf(accAndJunk.getUserIDPathInServer())
                 , String.valueOf(accAndJunk.getActiveOrNot())
         );
         return isInserted;
@@ -817,7 +817,7 @@ public class InsertFunctions {
     public static String imagePath(ArrayList<String> imageArrayL) {
         String itemImageStr = null;
         String noImage = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
-        if (imageArrayL.size() == 1 && imageArrayL.get(0).equals(noImage))
+        if (imageArrayL.isEmpty())
             return itemImageStr = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
         else
             return imageArrayL.get(0);
