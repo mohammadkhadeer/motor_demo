@@ -70,44 +70,8 @@ public class DBHelper extends SQLiteOpenHelper {
     //name FCS
     public static final String TABLE_ITEM_FCS="item_fcs_table";
     public static final String COL_ITEM_FCS_id="ID";
-    public static final String COL_ITEM_FCS_BOOST_OR_NOT="BOOST_OR_NOT";
-    public static final String COL_ITEM_FCS_BOOST_TYPE="BOOST_TYPE";
-    public static final String COL_ITEM_FCS_TYPE="TYPE";
-    public static final String COL_ITEM_FCS_PERSON_GALLERY="PERSON_GALLERY";
     public static final String COL_ITEM_FCS_ID_IN_SERVER="ITEM_ID_IN_SERVER";
-    public static final String COL_ITEM_FCS_CAR_MAKE="ITEM_CAR_MAKE";
-    public static final String COL_ITEM_FCS_CAR_MODEL="ITEM_CAR_MODEL";
-    public static final String COL_ITEM_FCS_CAR_YEAR="ITEM_CAR_YEAR";
-    public static final String COL_ITEM_FCS_CAR_CONDITION="ITEM_CAR_CONDITION";
-    public static final String COL_ITEM_FCS_CAR_KILOMETERS="ITEM_CAR_KILOMETERS";
-    public static final String COL_ITEM_FCS_CAR_TRANSMISSION="ITEM_CAR_TRANSMISSION";
-    public static final String COL_ITEM_FCS_CAR_FUEL="ITEM_CAR_FUEL";
-    public static final String COL_ITEM_FCS_CAR_LICENSE="ITEM_CAR_LICENSE";
-    public static final String COL_ITEM_FCS_CAR_INSURANCE="ITEM_CAR_INSURANCE";
-    public static final String COL_ITEM_FCS_CAR_COLOR="ITEM_CAR_COLOR";
-    public static final String COL_ITEM_FCS_CAR_PAYMENT_METHOD="ITEM_CAR_PAYMENT_METHOD";
-    public static final String COL_ITEM_FCS_CAR_OPTIONS="ITEM_CAR_OPTIONS";
-    public static final String COL_ITEM_FCS_NUMBER_OF_COMMENT="ITEM_NUMBER_OF_COMMENT";
-    public static final String COL_ITEM_FCS_NUMBER_OF_IMAGE="ITEM_NUMBER_OF_IMAGE";
-    public static final String COL_ITEM_FCS_CITY="ITEM_CITY";
-    public static final String COL_ITEM_FCS_NEIGHBORHOOD="ITEM_NEIGHBORHOOD";
-    public static final String COL_ITEM_FCS_TIME_POST="ITEM_TIME_POST";
-    public static final String COL_ITEM_FCS_USER_PHONE_NUMBER="ITEM_USER_PHONE_NUMBER";
-    public static final String COL_ITEM_FCS_ITEM_NAME="ITEM_NAME";
-    public static final String COL_ITEM_FCS_ITEM_IMAGE="ITEM_IMAGE";
-    public static final String COL_ITEM_FCS_ITEM_DESCRIPTION="ITEM_DESCRIPTION";
-    public static final String COL_ITEM_FCS_USER_IMAGE="ITEM_USER_IMAGE";
-    public static final String COL_ITEM_FCS_ITEM_USER_NAME="ITEM_USER_NAME";
-    public static final String COL_ITEM_FCS_ITEM_POST_EDIT="ITEM_POST_EDIT";
-    public static final String COL_ITEM_FCS_ITEM_NEW_PRICE="ITEM_NEW_PRICE";
-    public static final String COL_ITEM_FCS_ITEM_WHEELS_SIZE="ITEM_WHEELS_SIZE";
-    public static final String COL_ITEM_FCS_ITEM_CAR_PLATES_CITY="ITEM_CAR_PLATES_CITY";
-    public static final String COL_ITEM_FCS_ITEM_CAR_PLATES_NUMBER="ITEM_CAR_PLATES_NUMBER";
-    public static final String COL_ITEM_FCS_ITEM_CAR_PLATES_SPECIAL_OR_NOT="ITEM_CAR_PLATES_SPECIAL_OR_NOT";
-    public static final String COL_ITEM_FCS_ITEM_BURNED_PRICE="ITEM_BURNED_PRICE";
-    public static final String COL_ITEM_FCS_ITEM_PRICE="ITEM_PRICE";
-    public static final String COL_ITEM_FCS_USER_ID="USER_ID";
-    public static final String COL_ITEM_FCS_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
+    public static final String COL_ITEM_FCS_CATEGORY="CATEGORY";
     public static final String COL_ITEM_FCS_TYPE_FCS="FCS_TYPE";
 
     public static final String TABLE_CCEMT="ccemt_table";
@@ -353,7 +317,7 @@ public class DBHelper extends SQLiteOpenHelper {
                 "PROCESS TEXT" + ",OPEN_OR_NOT_YET TEXT" + ",NOTIFICATION_TITLE TEXT"  + ",PERSON_OR_GALLERY TEXT" + ",IMAGE_PATH TEXT" + ",PROCESS_IMAGE TEXT" + ",TIME_STAMP TEXT"+ ",ITEM_SERVER_ID TEXT" + ",OUT_OR_COME TEXT" + ",AUCTION_OR_ITEM TEXT" + ",DATE TEXT)");
 
         db.execSQL("create table "+TABLE_ITEM_FCS +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
-                "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_WHEELS_SIZE TEXT" + ",ITEM_CAR_PLATES_CITY TEXT" + ",ITEM_CAR_PLATES_NUMBER TEXT" + ",ITEM_CAR_PLATES_SPECIAL_OR_NOT TEXT"+ ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",USER_ID TEXT"+ ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",FCS_TYPE TEXT)");
+                "ITEM_ID_IN_SERVER TEXT" +",CATEGORY TEXT" + ",FCS_TYPE TEXT)");
 
         db.execSQL("create table "+TABLE_CCEMT +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "BOOST_OR_NOT TEXT" + ",BOOST_TYPE TEXT" + ",TYPE TEXT" + ",PERSON_GALLERY TEXT" + ",ITEM_ID_IN_SERVER TEXT" + ",ITEM_CAR_MAKE TEXT" + ",ITEM_CAR_MODEL TEXT" + ",ITEM_CAR_YEAR TEXT" + ",ITEM_CAR_CONDITION TEXT" + ",ITEM_CAR_KILOMETERS TEXT" + ",ITEM_CAR_TRANSMISSION TEXT" + ",ITEM_CAR_FUEL TEXT" + ",ITEM_CAR_LICENSE TEXT" + ",ITEM_CAR_INSURANCE TEXT" + ",ITEM_CAR_COLOR TEXT" + ",ITEM_CAR_PAYMENT_METHOD TEXT" + ",ITEM_CAR_OPTIONS TEXT" + ",ITEM_NUMBER_OF_COMMENT TEXT" + ",ITEM_NUMBER_OF_IMAGE TEXT" + ",ITEM_CITY TEXT" + ",ITEM_NEIGHBORHOOD TEXT" + ",ITEM_TIME_POST TEXT" + ",ITEM_USER_PHONE_NUMBER TEXT" + ",ITEM_NAME TEXT" + ",ITEM_IMAGE TEXT" + ",ITEM_DESCRIPTION TEXT" + ",ITEM_USER_IMAGE TEXT" + ",ITEM_USER_NAME TEXT" + ",ITEM_POST_EDIT TEXT" + ",ITEM_NEW_PRICE TEXT" + ",ITEM_BURNED_PRICE TEXT"+ ",ITEM_PRICE TEXT" + ",USER_ID TEXT" + ",ITEM_NAME_ACTIVE_OR_NOT TEXT" + ",ITEM_DATE TEXT"+",TIME_STAMP TEXT )");
@@ -570,49 +534,12 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
     }
 
-    public boolean insertDataFCSItem(String boostOrNot,String itemBoostType
-            ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot,String fcsType)
+    public boolean insertDataFCSItem(String itemIdInServer,String category,String fcsType)
     {
         SQLiteDatabase db =this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
-        contentValues.put(COL_ITEM_FCS_BOOST_OR_NOT,boostOrNot);
-        contentValues.put(COL_ITEM_FCS_BOOST_TYPE,itemBoostType);
-        contentValues.put(COL_ITEM_FCS_TYPE,itemType);
-        contentValues.put(COL_ITEM_FCS_PERSON_GALLERY,itemPersonGallery);
         contentValues.put(COL_ITEM_FCS_ID_IN_SERVER,itemIdInServer);
-        contentValues.put(COL_ITEM_FCS_CAR_MAKE,itemCarMake);
-        contentValues.put(COL_ITEM_FCS_CAR_MODEL,itemCarModel);
-        contentValues.put(COL_ITEM_FCS_CAR_YEAR,itemCarYear);
-        contentValues.put(COL_ITEM_FCS_CAR_CONDITION,itemCarCondition);
-        contentValues.put(COL_ITEM_FCS_CAR_KILOMETERS,itemCarKilometers);
-        contentValues.put(COL_ITEM_FCS_CAR_TRANSMISSION,itemCarTransmission);
-        contentValues.put(COL_ITEM_FCS_CAR_FUEL,itemCarFuel);
-        contentValues.put(COL_ITEM_FCS_CAR_LICENSE,itemCarLicense);
-        contentValues.put(COL_ITEM_FCS_CAR_INSURANCE,itemCarInsurance);
-        contentValues.put(COL_ITEM_FCS_CAR_COLOR,itemCarColor);
-        contentValues.put(COL_ITEM_FCS_CAR_PAYMENT_METHOD,itemCarPaymentMethod);
-        contentValues.put(COL_ITEM_FCS_CAR_OPTIONS,itemCarOptions);
-        contentValues.put(COL_ITEM_FCS_NUMBER_OF_COMMENT,itemNumberOfComment);
-        contentValues.put(COL_ITEM_FCS_NUMBER_OF_IMAGE,itemNumberOfImage);
-        contentValues.put(COL_ITEM_FCS_CITY,itemCity);
-        contentValues.put(COL_ITEM_FCS_NEIGHBORHOOD,itemNeighborhood);
-        contentValues.put(COL_ITEM_FCS_TIME_POST,itemTimePost);
-        contentValues.put(COL_ITEM_FCS_USER_PHONE_NUMBER,itemUserPhoneNumber);
-        contentValues.put(COL_ITEM_FCS_ITEM_NAME,itemName);
-        contentValues.put(COL_ITEM_FCS_ITEM_IMAGE,itemImage);
-        contentValues.put(COL_ITEM_FCS_ITEM_DESCRIPTION,itemDescription);
-        contentValues.put(COL_ITEM_FCS_USER_IMAGE,userImage);
-        contentValues.put(COL_ITEM_FCS_ITEM_USER_NAME,userName);
-        contentValues.put(COL_ITEM_FCS_ITEM_POST_EDIT,itemPostEdit);
-        contentValues.put(COL_ITEM_FCS_ITEM_NEW_PRICE,itemNewPrice);
-        contentValues.put(COL_ITEM_FCS_ITEM_WHEELS_SIZE,itemWheelsSize);
-        contentValues.put(COL_ITEM_FCS_ITEM_CAR_PLATES_CITY,itemCarPlatesCity);
-        contentValues.put(COL_ITEM_FCS_ITEM_CAR_PLATES_NUMBER,itemCarPlatesNumber);
-        contentValues.put(COL_ITEM_FCS_ITEM_CAR_PLATES_SPECIAL_OR_NOT,itemCarPlatesSpecial);
-        contentValues.put(COL_ITEM_FCS_ITEM_BURNED_PRICE,itemBurnedPrice);
-        contentValues.put(COL_ITEM_FCS_ITEM_PRICE,itemPrice);
-        contentValues.put(COL_ITEM_FCS_USER_ID,userID);
-        contentValues.put(COL_ITEM_FCS_ITEM_ACTIVE_OR_NOT,itemActiveOrNot);
+        contentValues.put(COL_ITEM_FCS_CATEGORY,category);
         contentValues.put(COL_ITEM_FCS_TYPE_FCS,fcsType);
 
         long result= db.insert(TABLE_ITEM_FCS,null,contentValues);

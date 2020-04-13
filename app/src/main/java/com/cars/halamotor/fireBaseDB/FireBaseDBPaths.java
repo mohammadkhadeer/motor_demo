@@ -46,6 +46,18 @@ public class FireBaseDBPaths {
         return  usersPath;
     }
 
+    public static DatabaseReference getObjectPathInServer(String categoryName,String itemID) {
+        DatabaseReference usersPath = getDataBaseInstance()
+                .getReference("category").child(categoryName).child(itemID);
+        return  usersPath;
+    }
+
+    public static DatabaseReference getObjectCommentPathInServer(String categoryName,String itemID) {
+        DatabaseReference usersPath = getDataBaseInstance()
+                .getReference("category").child(categoryName).child(itemID).child("commentsArrayL");
+        return  usersPath;
+    }
+
     public static DatabaseReference getUserPathInServerFB(String userID) {
         DatabaseReference usersPath = getDataBaseInstance().getReference("users")
                 .child(userID);

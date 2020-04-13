@@ -1,6 +1,10 @@
 package com.cars.halamotor.model;
 
-public class CommentsComp {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class CommentsComp implements Parcelable {
+
     String commentContentStr,narratorTokenStr,narratorImageStr,commentTimeStampStr;
 
     public CommentsComp (){}
@@ -13,6 +17,25 @@ public class CommentsComp {
         this.narratorImageStr = narratorImageStr;
         this.commentTimeStampStr = commentTimeStampStr;
     }
+
+    protected CommentsComp(Parcel in) {
+        commentContentStr = in.readString();
+        narratorTokenStr = in.readString();
+        narratorImageStr = in.readString();
+        commentTimeStampStr = in.readString();
+    }
+
+    public static final Creator<CommentsComp> CREATOR = new Creator<CommentsComp>() {
+        @Override
+        public CommentsComp createFromParcel(Parcel in) {
+            return new CommentsComp(in);
+        }
+
+        @Override
+        public CommentsComp[] newArray(int size) {
+            return new CommentsComp[size];
+        }
+    };
 
     public String getCommentContentStr() {
         return commentContentStr;
@@ -44,5 +67,18 @@ public class CommentsComp {
 
     public void setCommentTimeStampStr(String commentTimeStampStr) {
         this.commentTimeStampStr = commentTimeStampStr;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(commentContentStr);
+        dest.writeString(narratorTokenStr);
+        dest.writeString(narratorImageStr);
+        dest.writeString(commentTimeStampStr);
     }
 }

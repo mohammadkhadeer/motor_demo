@@ -90,6 +90,7 @@
     <string name="posts">Posts</string>
     <string name="followers">Follower</string>
     <string name="write_ur_comment">Write your comment</string>
+    <string name="comment">Comments</string>
     <string name="similar">Similar Ads</string>
     <string name="follow">Follow</string>
     <string name="u_cant">Sorry max follower 500</string>

@@ -1,6 +1,9 @@
 package com.cars.halamotor.model;
 
-public class BoostPost {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class BoostPost implements Parcelable {
     String boostType,postID;
 
     public BoostPost(){}
@@ -9,6 +12,23 @@ public class BoostPost {
         this.boostType = boostType;
         this.postID = postID;
     }
+
+    protected BoostPost(Parcel in) {
+        boostType = in.readString();
+        postID = in.readString();
+    }
+
+    public static final Creator<BoostPost> CREATOR = new Creator<BoostPost>() {
+        @Override
+        public BoostPost createFromParcel(Parcel in) {
+            return new BoostPost(in);
+        }
+
+        @Override
+        public BoostPost[] newArray(int size) {
+            return new BoostPost[size];
+        }
+    };
 
     public String getBoostType() {
         return boostType;
@@ -24,5 +44,17 @@ public class BoostPost {
 
     public void setPostID(String postID) {
         this.postID = postID;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(boostType);
+        dest.writeString(postID);
+
     }
 }

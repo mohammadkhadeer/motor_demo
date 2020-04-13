@@ -60,11 +60,11 @@
                 android:layout_height="match_parent"
                 />
 
-            <include
-                layout="@layout/content_show_item_selected_comments"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+<!--            <include-->
+<!--                layout="@layout/content_show_item_selected_comments"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                />-->
 
         </LinearLayout>
     </ScrollView>

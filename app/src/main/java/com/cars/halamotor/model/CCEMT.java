@@ -1,8 +1,11 @@
 package com.cars.halamotor.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class CCEMT {
+public class CCEMT implements Parcelable {
 
     String itemID,city,neighborhood,userToken,timePost,phoneNumber,itemName,itemDescription
             ,userImage,userName,auctionPath,postEdit,newPrice,numberOfEdit,videoPath
@@ -81,6 +84,81 @@ public class CCEMT {
         this.fromKilometers = fromKilometers;
         this.toKilometers = toKilometers;
     }
+
+    protected CCEMT(Parcel in) {
+        itemID = in.readString();
+        city = in.readString();
+        neighborhood = in.readString();
+        userToken = in.readString();
+        timePost = in.readString();
+        phoneNumber = in.readString();
+        itemName = in.readString();
+        itemDescription = in.readString();
+        userImage = in.readString();
+        userName = in.readString();
+        auctionPath = in.readString();
+        postEdit = in.readString();
+        newPrice = in.readString();
+        numberOfEdit = in.readString();
+        videoPath = in.readString();
+        categoryName = in.readString();
+        subCategory = in.readString();
+        carMake = in.readString();
+        carModel = in.readString();
+        year = in.readString();
+        condition = in.readString();
+        kilometers = in.readString();
+        transmission = in.readString();
+        fuel = in.readString();
+        carLicense = in.readString();
+        insurance = in.readString();
+        color = in.readString();
+        paymentMethod = in.readString();
+        carOptions = in.readString();
+        personOrGallery = in.readString();
+        timeStamp = in.readString();
+        userIDPathInServer = in.readString();
+        reportDescriptionArrayL = in.createStringArrayList();
+        imagePathArrayL = in.createStringArrayList();
+        commentsArrayL = in.createTypedArrayList(CommentsComp.CREATOR);
+        watchersArrayL = in.createStringArrayList();
+        boostPostsArrayL = in.createTypedArrayList(BoostPost.CREATOR);
+        auctionOrNot = in.readInt();
+        burnedPrice = in.readInt();
+        reportsOrNot = in.readInt();
+        numberOfReports = in.readInt();
+        activeOrNot = in.readInt();
+        yearDate = in.readInt();
+        monthDate = in.readInt();
+        dayDate = in.readInt();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            fromKilometers = null;
+        } else {
+            fromKilometers = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            toKilometers = null;
+        } else {
+            toKilometers = in.readDouble();
+        }
+    }
+
+    public static final Creator<CCEMT> CREATOR = new Creator<CCEMT>() {
+        @Override
+        public CCEMT createFromParcel(Parcel in) {
+            return new CCEMT(in);
+        }
+
+        @Override
+        public CCEMT[] newArray(int size) {
+            return new CCEMT[size];
+        }
+    };
 
     public String getItemID() {
         return itemID;
@@ -464,5 +542,66 @@ public class CCEMT {
 
     public void setToKilometers(Double toKilometers) {
         this.toKilometers = toKilometers;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(itemID);
+        dest.writeString(city);
+        dest.writeString(neighborhood);
+        dest.writeString(userToken);
+        dest.writeString(timePost);
+        dest.writeString(phoneNumber);
+        dest.writeString(itemName);
+        dest.writeString(itemDescription);
+        dest.writeString(userImage);
+        dest.writeString(userName);
+        dest.writeString(auctionPath);
+        dest.writeString(postEdit);
+        dest.writeString(newPrice);
+        dest.writeString(numberOfEdit);
+        dest.writeString(videoPath);
+        dest.writeString(categoryName);
+        dest.writeString(subCategory);
+
+        dest.writeString(carMake);
+        dest.writeString(carModel);
+        dest.writeString(year);
+        dest.writeString(condition);
+        dest.writeString(kilometers);
+        dest.writeString(transmission);
+        dest.writeString(fuel);
+        dest.writeString(carLicense);
+        dest.writeString(insurance);
+        dest.writeString(color);
+        dest.writeString(paymentMethod);
+        dest.writeString(carOptions);
+
+        dest.writeString(personOrGallery);
+        dest.writeString(timeStamp);
+        dest.writeString(userIDPathInServer);
+        dest.writeStringList(reportDescriptionArrayL);
+        dest.writeStringList(imagePathArrayL);
+        dest.writeTypedList(commentsArrayL);
+        dest.writeStringList(watchersArrayL);
+        dest.writeTypedList(boostPostsArrayL);
+
+        dest.writeInt(auctionOrNot);
+        dest.writeInt(burnedPrice);
+        dest.writeInt(reportsOrNot);
+        dest.writeInt(numberOfReports);
+        dest.writeInt(activeOrNot);
+        dest.writeInt(yearDate);
+        dest.writeInt(monthDate);
+        dest.writeInt(dayDate);
+
+        dest.writeDouble(price);
+        dest.writeDouble(fromKilometers);
+        dest.writeDouble(toKilometers);
     }
 }

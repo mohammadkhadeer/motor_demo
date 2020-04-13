@@ -22,7 +22,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
 import static com.cars.halamotor.functions.Functions.getCarPlatesNumber;
 
 public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPlatesFirstCase.ViewHolder>{
@@ -68,7 +68,8 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
                 if (checkFavouriteOrNot1(context,carPlatesArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertCarPlatesInFCSTable(carPlatesArrayL.get(position),getDataBaseInstance(context),"favorite");
+                    insertItemsToFavorite(carPlatesArrayL.get(position).getItemIdInServer(),"Plates"
+                            ,getDataBaseInstance(context),"favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);

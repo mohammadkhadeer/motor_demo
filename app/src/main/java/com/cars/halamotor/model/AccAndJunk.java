@@ -1,8 +1,11 @@
 package com.cars.halamotor.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class AccAndJunk {
+public class AccAndJunk implements Parcelable {
     String itemID,city,neighborhood,userToken,timePost,phoneNumber,itemName,itemDescription
             ,userImage,userName,postEdit,newPrice,numberOfEdit,videoPath
             ,categoryName,subCategory
@@ -54,6 +57,58 @@ public class AccAndJunk {
         this.dayDate = dayDate;
         this.price = price;
     }
+
+    protected AccAndJunk(Parcel in) {
+        itemID = in.readString();
+        city = in.readString();
+        neighborhood = in.readString();
+        userToken = in.readString();
+        timePost = in.readString();
+        phoneNumber = in.readString();
+        itemName = in.readString();
+        itemDescription = in.readString();
+        userImage = in.readString();
+        userName = in.readString();
+        postEdit = in.readString();
+        newPrice = in.readString();
+        numberOfEdit = in.readString();
+        videoPath = in.readString();
+        categoryName = in.readString();
+        subCategory = in.readString();
+        personOrGallery = in.readString();
+        timeStamp = in.readString();
+        userIDPathInServer = in.readString();
+        reportDescriptionArrayL = in.createStringArrayList();
+        imagePathArrayL = in.createStringArrayList();
+        commentsArrayL = in.createTypedArrayList(CommentsComp.CREATOR);
+        watchersArrayL = in.createStringArrayList();
+        boostPostsArrayL = in.createTypedArrayList(BoostPost.CREATOR);
+        auctionOrNot = in.readInt();
+        burnedPrice = in.readInt();
+        reportsOrNot = in.readInt();
+        numberOfReports = in.readInt();
+        activeOrNot = in.readInt();
+        yearDate = in.readInt();
+        monthDate = in.readInt();
+        dayDate = in.readInt();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readDouble();
+        }
+    }
+
+    public static final Creator<AccAndJunk> CREATOR = new Creator<AccAndJunk>() {
+        @Override
+        public AccAndJunk createFromParcel(Parcel in) {
+            return new AccAndJunk(in);
+        }
+
+        @Override
+        public AccAndJunk[] newArray(int size) {
+            return new AccAndJunk[size];
+        }
+    };
 
     public String getItemID() {
         return itemID;
@@ -317,5 +372,51 @@ public class AccAndJunk {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(itemID);
+        dest.writeString(city);
+        dest.writeString(neighborhood);
+        dest.writeString(userToken);
+        dest.writeString(timePost);
+        dest.writeString(phoneNumber);
+        dest.writeString(itemName);
+        dest.writeString(itemDescription);
+        dest.writeString(userImage);
+        dest.writeString(userName);
+        dest.writeString(postEdit);
+        dest.writeString(newPrice);
+        dest.writeString(numberOfEdit);
+        dest.writeString(videoPath);
+        dest.writeString(categoryName);
+        dest.writeString(subCategory);
+        dest.writeString(personOrGallery);
+        dest.writeString(timeStamp);
+        dest.writeString(userIDPathInServer);
+
+        dest.writeStringList(reportDescriptionArrayL);
+        dest.writeStringList(imagePathArrayL);
+        dest.writeTypedList(commentsArrayL);
+        dest.writeStringList(watchersArrayL);
+        dest.writeTypedList(boostPostsArrayL);
+
+        dest.writeInt(auctionOrNot);
+        dest.writeInt(burnedPrice);
+        dest.writeInt(reportsOrNot);
+        dest.writeInt(numberOfReports);
+        dest.writeInt(activeOrNot);
+        dest.writeInt(yearDate);
+        dest.writeInt(monthDate);
+        dest.writeInt(dayDate);
+
+        dest.writeDouble(price);
+
     }
 }

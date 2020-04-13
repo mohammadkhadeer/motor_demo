@@ -19,10 +19,14 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.AccAndJunkFirstCase;
+import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.WheelsRimFirstCase;
+import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
 import com.cars.halamotor.view.adapters.AdapterCarOption;
 
@@ -41,7 +45,7 @@ public class FragmentItemSelectedDetails extends Fragment {
 
     public FragmentItemSelectedDetails(){}
 
-    String categoryStr,itemIDStr,objectType = "null"
+    String categoryStr,itemIDStr,cat = "null"
             ,cityStr="null",neighborhoodStr="null",catStr="null";
     TextView text_title1,text_title_content1,text_title2,text_title_content2
              ,text_title3,text_title_content3,text_title4,text_title_content4
@@ -56,10 +60,11 @@ public class FragmentItemSelectedDetails extends Fragment {
     ArrayList<String> carOptionsArrayList = new ArrayList<String>();
     AdapterCarOption adapterCarOption;
 
-    CCEMTFirestCase ccemtFirestCase;
-    CarPlatesFirstCase carPlatesFirstCase;
-    WheelsRimFirstCase wheelsRimFirstCase;
-    AccAndJunkFirstCase accAndJunkFirstCase;
+
+    CCEMT ccemt;
+    CarPlatesModel carPlatesModel;
+    WheelsRimModel wheelsRimModel;
+    AccAndJunk accAndJunkObject;
 
     View view;
 
@@ -68,6 +73,19 @@ public class FragmentItemSelectedDetails extends Fragment {
         if (getArguments() != null) {
             categoryStr = getArguments().getString("category");
             itemIDStr = getArguments().getString("itemID");
+            cat = getArguments().getString("cat");
+
+            if (cat.equals("ccemt"))
+                ccemt = getArguments().getParcelable("object");
+
+            if (cat.equals("cp"))
+                carPlatesModel = getArguments().getParcelable("object");
+
+            if (cat.equals("wr"))
+                wheelsRimModel = getArguments().getParcelable("object");
+
+            if (cat.equals("aaj"))
+                accAndJunkObject = getArguments().getParcelable("object");
         }
         super.onAttach(context);
         detectObject();
@@ -100,19 +118,19 @@ public class FragmentItemSelectedDetails extends Fragment {
     }
 
     private void fillItemInfo() {
-        if (objectType.equals("ccemt"))
+        if (cat.equals("ccemt"))
         {
             fillCarDetails();
         }
-        if (objectType.equals("cp"))
+        if (cat.equals("cp"))
         {
             fillCarPlates();
         }
-        if (objectType.equals("wr"))
+        if (cat.equals("wr"))
         {
             fillWheelsSize();
         }
-        if (objectType.equals("ac"))
+        if (cat.equals("ac"))
         {
             itemDetailsLL.setVisibility(View.GONE);
         }
@@ -120,45 +138,28 @@ public class FragmentItemSelectedDetails extends Fragment {
 
     private void fillWheelsSize()  {
         text_title1.setText(getActivity().getResources().getString(R.string.wheels_inch_));
-        text_title_content1.setText(wheelsRimFirstCase.getWheelsSize());
+        text_title_content1.setText(wheelsRimModel.getWheelSize());
         con1LL.setVisibility(View.GONE);
         con2LL.setVisibility(View.GONE);
     }
 
     private void fillArrayList() {
         carOptionsArrayList = new ArrayList<>();
-        carOptionsArrayList =getCarOptionsArrayL(ccemtFirestCase.getItemCarOptions());
+        carOptionsArrayList =getCarOptionsArrayL(ccemt.getCarOptions());
     }
 
     private void detectObject() {
-        if (categoryStr.equals("Car for sale")
-                ||categoryStr.equals("Car for rent")
-                ||categoryStr.equals("Exchange car")
-                ||categoryStr.equals("Motorcycle")
-                ||categoryStr.equals("Trucks")
-        ) {
-            objectType = "ccemt";
-            ccemtFirestCase =getCCEMTFirstCaseFromDB(itemIDStr,getActivity());
-            intiGeneralInfo(ccemtFirestCase.getItemCity(),ccemtFirestCase.getItemNeighborhood(),ccemtFirestCase.getType());
-        }
-        if (categoryStr.equals("Car plates"))
-        {
-            objectType = "cp";
-            carPlatesFirstCase =getCarPlatesFirstCaseFromDB(itemIDStr,getActivity());
-            intiGeneralInfo(carPlatesFirstCase.getItemCity(),carPlatesFirstCase.getItemNeighborhood(),getActivity().getResources().getString(R.string.car_plates));
-        }
-        if (categoryStr.equals("Wheels rim"))
-        {
-            objectType = "wr";
-            wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(itemIDStr,getActivity());
-            intiGeneralInfo(wheelsRimFirstCase.getItemCity(),wheelsRimFirstCase.getItemNeighborhood(),getActivity().getResources().getString(R.string.wheels_rim));
-        }
-        if (categoryStr.equals("Junk car") || categoryStr.equals("Accessories"))
-        {
-            objectType = "ac";
-            accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(itemIDStr,getActivity());
-            intiGeneralInfo(accAndJunkFirstCase.getItemCity(),accAndJunkFirstCase.getItemNeighborhood(),accAndJunkFirstCase.getItemType());
-        }
+        if (cat.equals("ccemt"))
+            intiGeneralInfo(ccemt.getCity(),ccemt.getNeighborhood(),ccemt.getCategoryName());
+
+        if (cat.equals("cp"))
+            intiGeneralInfo(carPlatesModel.getCity(),carPlatesModel.getNeighborhood(),getActivity().getResources().getString(R.string.car_plates));
+
+        if (cat.equals("wr"))
+            intiGeneralInfo(wheelsRimModel.getCity(),wheelsRimModel.getNeighborhood(),getActivity().getResources().getString(R.string.wheels_rim));
+
+        if (cat.equals("aaj"))
+            intiGeneralInfo(accAndJunkObject.getCity(),accAndJunkObject.getNeighborhood(),accAndJunkObject.getCategoryName());
 
     }
 
@@ -170,25 +171,25 @@ public class FragmentItemSelectedDetails extends Fragment {
 
     private void fillCarPlates() {
         text_title1.setText(getActivity().getResources().getString(R.string.car_plates_city));
-        text_title_content1.setText(carPlatesFirstCase.getCarPlatesCity());
+        text_title_content1.setText(carPlatesModel.getCarPlatesCity());
         text_title2.setText(getActivity().getResources().getString(R.string.car_plates_number));
-        text_title_content2.setText(getCarPlatesNumber(carPlatesFirstCase.getCarPlatesNumber()));
+        text_title_content2.setText(getCarPlatesNumber(carPlatesModel.getCarPlatesNumber()));
         con2LL.setVisibility(View.GONE);
     }
 
     private void fillCarDetails() {
-        text_title_content1.setText(ccemtFirestCase.getItemCarMake());
-        text_title_content2.setText(ccemtFirestCase.getItemCarModel());
-        text_title_content3.setText(ccemtFirestCase.getItemCarYeay());
-        text_title_content4.setText(ccemtFirestCase.getItemCarCondition());
-        text_title_content5.setText(ccemtFirestCase.getItemCarKilometers());
-        text_title_content6.setText(ccemtFirestCase.getItemCarTransmission());
-        text_title_content7.setText(ccemtFirestCase.getItemCarFuel());
+        text_title_content1.setText(ccemt.getCarMake());
+        text_title_content2.setText(ccemt.getCarModel());
+        text_title_content3.setText(ccemt.getYear());
+        text_title_content4.setText(ccemt.getCondition());
+        text_title_content5.setText(ccemt.getKilometers());
+        text_title_content6.setText(ccemt.getTransmission());
+        text_title_content7.setText(ccemt.getFuel());
         fillCarOptions();
-        text_title_content9.setText(ccemtFirestCase.getItemCarLicense());
-        text_title_content10.setText(ccemtFirestCase.getItemCarInsurance());
-        text_title_content11.setText(ccemtFirestCase.getItemCarColor());
-        text_title_content12.setText(ccemtFirestCase.getItemCarPaymentMethod());
+        text_title_content9.setText(ccemt.getCarLicense());
+        text_title_content10.setText(ccemt.getInsurance());
+        text_title_content11.setText(ccemt.getColor());
+        text_title_content12.setText(ccemt.getPaymentMethod());
     }
 
     private void fillCarOptions() {

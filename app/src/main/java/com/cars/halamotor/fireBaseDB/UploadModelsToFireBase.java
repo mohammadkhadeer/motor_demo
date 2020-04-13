@@ -9,6 +9,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.model.FCWSU;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.google.firebase.database.DatabaseError;
@@ -16,6 +17,7 @@ import com.google.firebase.database.DatabaseReference;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertNotificationTable;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getObjectCommentPathInServer;
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServerFB;
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertCarForSale;
 import static com.cars.halamotor.functions.Functions.getNotification;
@@ -116,6 +118,12 @@ public class UploadModelsToFireBase {
                                 ,getDataBaseInstance(context));
                     }
                 });
+    }
+
+    //write comment
+    public static void writeComment(final CommentsComp commentsComp,String categoryName
+            , final String itemID) {
+        getObjectCommentPathInServer(categoryName,itemID).push().setValue(commentsComp);
     }
 
 }

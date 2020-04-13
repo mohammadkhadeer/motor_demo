@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,19 +15,20 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.AccAndJunkFirstCase;
+import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.WheelsRimFirstCase;
+import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FavouriteChange;
 import com.squareup.picasso.Picasso;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkInFCSTable;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemInFCSTable;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesInFCSTable;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
 import static com.cars.halamotor.functions.Functions.getPostTime;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
@@ -38,7 +40,7 @@ public class FragmentUserInfo extends Fragment {
     public FragmentUserInfo(){}
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
-            ,dateStr,timStampStr,categoryStr,messageShare;
+            ,dateStr,timStampStr,categoryStr,messageShare,cat;
     View view;
     TextView userNameTV,userStatusTV,itemNameTV,dateTV;
     RelativeLayout userStatusRL,favouriteRL,reportRL,shareRL;
@@ -49,6 +51,11 @@ public class FragmentUserInfo extends Fragment {
     AccAndJunkFirstCase accAndJunkFirstCase;
     FavouriteChange favouriteChange;
     int numberOfChange =0;
+
+    CCEMT ccemt;
+    CarPlatesModel carPlatesModel;
+    WheelsRimModel wheelsRimModel;
+    AccAndJunk accAndJunkObject;
 
     @Override
     public void onAttach(Context context) {
@@ -62,43 +69,72 @@ public class FragmentUserInfo extends Fragment {
             postTypeStr = getArguments().getString("postType");
             dateStr = getArguments().getString("date");
             timStampStr = getArguments().getString("timStamp");
+            cat = getArguments().getString("cat");
+
+            if (cat.equals("ccemt"))
+                ccemt = getArguments().getParcelable("object");
+
+            if (cat.equals("cp"))
+                carPlatesModel = getArguments().getParcelable("object");
+
+            if (cat.equals("wr"))
+                wheelsRimModel = getArguments().getParcelable("object");
+
+            if (cat.equals("aaj"))
+                accAndJunkObject = getArguments().getParcelable("object");
         }
         super.onAttach(context);
         if (getActivity() instanceof FavouriteChange) {
             favouriteChange = (FavouriteChange) getActivity();
         }
         //favoriteChange = (FavoriteChange) activity;
+        fillInfo();
         messageShare = "Text well share here";
-        detectObject();
+    }
+
+    private void fillInfo() {
+        if (cat.equals("ccemt"))
+        {
+            userNameStr = ccemt.getUserName();
+            userImageStr = ccemt.getUserImage();
+            itemNameStr = ccemt.getItemName();
+            timStampStr = ccemt.getTimeStamp();
+            postTypeStr = ccemt.getBoostPostsArrayL().get(0).getBoostType();
+            dateStr = String.valueOf(ccemt.getDayDate())+String.valueOf(ccemt.getMonthDate())+String.valueOf(ccemt.getYear()) ;
+        }
+        if (cat.equals("cp"))
+        {
+            userNameStr = carPlatesModel.getUserName();
+            userImageStr = carPlatesModel.getUserImage();
+            itemNameStr = carPlatesModel.getItemName();
+            timStampStr = carPlatesModel.getTimeStamp();
+            postTypeStr = carPlatesModel.getBoostPostsArrayL().get(0).getBoostType();
+            dateStr = String.valueOf(carPlatesModel.getDayDate())+"/"+String.valueOf(carPlatesModel.getMonthDate())+"/"+String.valueOf(carPlatesModel.getYearDate()) ;
+        }
+        if (cat.equals("wr"))
+        {
+            userNameStr = wheelsRimModel.getUserName();
+            userImageStr = wheelsRimModel.getUserImage();
+            itemNameStr = wheelsRimModel.getItemName();
+            timStampStr = wheelsRimModel.getTimeStamp();
+            postTypeStr = wheelsRimModel.getBoostPostsArrayL().get(0).getBoostType();
+            dateStr = String.valueOf(wheelsRimModel.getDayDate())+"/"+String.valueOf(wheelsRimModel.getMonthDate())+"/"+String.valueOf(wheelsRimModel.getYearDate()) ;
+        }
+        if (cat.equals("aaj"))
+        {
+            userNameStr = accAndJunkObject.getUserName();
+            userImageStr = accAndJunkObject.getUserImage();
+            itemNameStr = accAndJunkObject.getItemName();
+            timStampStr = accAndJunkObject.getTimeStamp();
+            postTypeStr = accAndJunkObject.getBoostPostsArrayL().get(0).getBoostType();
+            dateStr = String.valueOf(accAndJunkObject.getDayDate())+"/"+String.valueOf(accAndJunkObject.getMonthDate())+"/"+String.valueOf(accAndJunkObject.getYearDate()) ;
+        }
     }
 
     @Override
     public void onDetach() {
         super.onDetach();
         favouriteChange = null;
-    }
-
-    private void detectObject() {
-        if (categoryStr.equals("Car for sale")
-                ||categoryStr.equals("Car for rent")
-                ||categoryStr.equals("Exchange car")
-                ||categoryStr.equals("Motorcycle")
-                ||categoryStr.equals("Trucks")
-        ) {
-            ccemtFirestCase =getCCEMTFirstCaseFromDB(itemIDStr,getActivity());
-        }
-        if (categoryStr.equals("Car plates"))
-        {
-            carPlatesFirstCase =getCarPlatesFirstCaseFromDB(itemIDStr,getActivity());
-        }
-        if (categoryStr.equals("Wheels rim"))
-        {
-            wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(itemIDStr,getActivity());
-        }
-        if (categoryStr.equals("Accessories") || categoryStr.equals("Junk car"))
-        {
-            accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(itemIDStr,getActivity());
-        }
     }
 
     private void inti() {
@@ -169,26 +205,7 @@ public class FragmentUserInfo extends Fragment {
     }
 
     private void insertItemInFCSTable() {
-        if (categoryStr.equals("Car for sale")
-                ||categoryStr.equals("Car for rent")
-                ||categoryStr.equals("Exchange car")
-                ||categoryStr.equals("Motorcycle")
-                ||categoryStr.equals("Trucks")
-        ) {
-            insertCCEMTItemInFCSTable(ccemtFirestCase,getDataBaseInstance(getActivity()),"favorite");
-        }
-        if (categoryStr.equals("Car plates"))
-        {
-            insertCarPlatesInFCSTable(carPlatesFirstCase,getDataBaseInstance(getActivity()),"favorite");
-        }
-        if (categoryStr.equals("Wheels rim"))
-        {
-            insertWheelsRimInFCSTable(wheelsRimFirstCase,getDataBaseInstance(getActivity()),"favorite");
-        }
-        if (categoryStr.equals("Accessories") || categoryStr.equals("Junk car"))
-        {
-            insertAccAndJunkInFCSTable(accAndJunkFirstCase,getDataBaseInstance(getActivity()),"favorite");
-        }
+        insertItemsToFavorite(itemIDStr,categoryStr,getDataBaseInstance(getActivity()),"favorite");
     }
 
     private void checkIfFavouriteOrNot() {

@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
 
 public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccAndJunkFirstCase.ViewHolder>{
 
@@ -67,7 +67,8 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
                 if (checkFavouriteOrNot1(context,accAndJunkArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertAccAndJunkInFCSTable(accAndJunkArrayL.get(position),getDataBaseInstance(context),"favorite");
+                    insertItemsToFavorite(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getItemType()
+                            ,getDataBaseInstance(context),"favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);

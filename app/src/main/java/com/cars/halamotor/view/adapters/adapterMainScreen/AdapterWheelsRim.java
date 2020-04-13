@@ -22,8 +22,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertSuggestedItemInFCSTable;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
 
 public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.ViewHolder>{
 
@@ -77,7 +76,8 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
                 if (checkFavouriteOrNot1(context,wheelsRimArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertWheelsRimInFCSTable(wheelsRimArrayL.get(position),getDataBaseInstance(context),"favorite");
+                    insertItemsToFavorite(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
+                            ,getDataBaseInstance(context),"favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);

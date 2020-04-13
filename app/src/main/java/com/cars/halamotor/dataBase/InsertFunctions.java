@@ -31,232 +31,196 @@ public class InsertFunctions {
     }
 
     //this table contain favorite , search ,seen , call item
-    public static boolean insertSuggestedItemInFCSTable(SuggestedItem suggestedItem, DBHelper database,String fcsType) {
+//    public static boolean insertSuggestedItemInFCSTable(SuggestedItem suggestedItem, DBHelper database,String fcsType) {
+//
+//        boolean isInserted = database.insertDataFCSItem(
+//                suggestedItem.getItemBoostType()
+//                ,suggestedItem.getItemBoostType()
+//                ,suggestedItem.getItemType()
+//                ,suggestedItem.getItemPersonGallery()
+//                ,suggestedItem.getItemIdInServer()
+//                ,suggestedItem.getItemCarMake()
+//                ,suggestedItem.getItemCarModel()
+//                ,suggestedItem.getItemCarYear()
+//                ,suggestedItem.getItemCarCondition()
+//                ,suggestedItem.getItemCarKilometers()
+//                ,suggestedItem.getItemCarTransmission()
+//                ,suggestedItem.getItemCarFuel()
+//                ,suggestedItem.getItemCarLicense()
+//                ,suggestedItem.getItemCarInsurance()
+//                ,suggestedItem.getItemCarColor()
+//                ,suggestedItem.getItemCarPaymentMethod()
+//                ,suggestedItem.getItemCarOptions()
+//                ,suggestedItem.getItemNumberOfComment()
+//                ,suggestedItem.getItemNumberOfImage()
+//                ,suggestedItem.getItemCity()
+//                ,suggestedItem.getItemNeighborhood()
+//                ,suggestedItem.getItemTimePost()
+//                ,suggestedItem.getItemUserPhoneNumber()
+//                ,suggestedItem.getItemName()
+//                ,suggestedItem.getItemImage()
+//                ,suggestedItem.getItemDescription()
+//                ,suggestedItem.getUserImage()
+//                ,suggestedItem.getUserName()
+//                ,suggestedItem.getItemPostEdit()
+//                ,suggestedItem.getItemNewPrice()
+//                ,suggestedItem.getItemWheelsSize()
+//                ,suggestedItem.getItemCarPlatesCity()
+//                ,suggestedItem.getItemCarPlatesNumber()
+//                ,suggestedItem.getItemCarPlatesSpecial()
+//                ,suggestedItem.getItemBurnedPrice()
+//                ,suggestedItem.getItemPrice()
+//                ,suggestedItem.getUserID()
+//                ,suggestedItem.getItemActiveOrNot()
+//                ,fcsType
+//        );
+//        return isInserted;
+//    }
+
+    public static boolean insertItemsToFavorite(String itemID,String category, DBHelper database, String fcsType) {
 
         boolean isInserted = database.insertDataFCSItem(
-                suggestedItem.getItemBoostType()
-                ,suggestedItem.getItemBoostType()
-                ,suggestedItem.getItemType()
-                ,suggestedItem.getItemPersonGallery()
-                ,suggestedItem.getItemIdInServer()
-                ,suggestedItem.getItemCarMake()
-                ,suggestedItem.getItemCarModel()
-                ,suggestedItem.getItemCarYear()
-                ,suggestedItem.getItemCarCondition()
-                ,suggestedItem.getItemCarKilometers()
-                ,suggestedItem.getItemCarTransmission()
-                ,suggestedItem.getItemCarFuel()
-                ,suggestedItem.getItemCarLicense()
-                ,suggestedItem.getItemCarInsurance()
-                ,suggestedItem.getItemCarColor()
-                ,suggestedItem.getItemCarPaymentMethod()
-                ,suggestedItem.getItemCarOptions()
-                ,suggestedItem.getItemNumberOfComment()
-                ,suggestedItem.getItemNumberOfImage()
-                ,suggestedItem.getItemCity()
-                ,suggestedItem.getItemNeighborhood()
-                ,suggestedItem.getItemTimePost()
-                ,suggestedItem.getItemUserPhoneNumber()
-                ,suggestedItem.getItemName()
-                ,suggestedItem.getItemImage()
-                ,suggestedItem.getItemDescription()
-                ,suggestedItem.getUserImage()
-                ,suggestedItem.getUserName()
-                ,suggestedItem.getItemPostEdit()
-                ,suggestedItem.getItemNewPrice()
-                ,suggestedItem.getItemWheelsSize()
-                ,suggestedItem.getItemCarPlatesCity()
-                ,suggestedItem.getItemCarPlatesNumber()
-                ,suggestedItem.getItemCarPlatesSpecial()
-                ,suggestedItem.getItemBurnedPrice()
-                ,suggestedItem.getItemPrice()
-                ,suggestedItem.getUserID()
-                ,suggestedItem.getItemActiveOrNot()
+                itemID
+                ,category
                 ,fcsType
         );
         return isInserted;
     }
 
-    public static boolean insertCCEMTItemInFCSTable(CCEMTFirestCase ccemtFirestCase, DBHelper database, String fcsType) {
-
-        boolean isInserted = database.insertDataFCSItem(
-                ccemtFirestCase.getBoostType()
-                ,ccemtFirestCase.getBoostType()
-                ,ccemtFirestCase.getType()
-                ,ccemtFirestCase.getPersonOrGallery()
-                ,ccemtFirestCase.getItemIdInServer()
-                ,ccemtFirestCase.getItemCarMake()
-                ,ccemtFirestCase.getItemCarModel()
-                ,ccemtFirestCase.getItemCarYeay()
-                ,ccemtFirestCase.getItemCarCondition()
-                ,ccemtFirestCase.getItemCarKilometers()
-                ,ccemtFirestCase.getItemCarTransmission()
-                ,ccemtFirestCase.getItemCarFuel()
-                ,ccemtFirestCase.getItemCarLicense()
-                ,ccemtFirestCase.getItemCarInsurance()
-                ,ccemtFirestCase.getItemCarColor()
-                ,ccemtFirestCase.getItemCarPaymentMethod()
-                ,ccemtFirestCase.getItemCarOptions()
-                ,ccemtFirestCase.getItemNumberOfComments()
-                ,ccemtFirestCase.getItemImage()
-                ,ccemtFirestCase.getItemCity()
-                ,ccemtFirestCase.getItemNeighborhood()
-                ,ccemtFirestCase.getItemTimePost()
-                ,ccemtFirestCase.getItemUserPhoneNumber()
-                ,ccemtFirestCase.getItemName()
-                ,ccemtFirestCase.getItemImage()
-                ,ccemtFirestCase.getItemDescription()
-                ,ccemtFirestCase.getItemUserImage()
-                ,ccemtFirestCase.getItemUserName()
-                ,ccemtFirestCase.getItemPostEdit()
-                ,ccemtFirestCase.getItemNewPrice()
-                ,"0"
-                ,"0"
-                ,"0"
-                ,"0"
-                , ccemtFirestCase.getItemBurnedPrice()
-                , ccemtFirestCase.getItemPrice()
-                , ccemtFirestCase.getUserID()
-                , ccemtFirestCase.getItemActiveOrNot()
-                ,fcsType
-        );
-        return isInserted;
-    }
-
-    public static boolean insertWheelsRimInFCSTable(WheelsRimFirstCase wheelsRimFirstCase, DBHelper database, String fcsType) {
-        boolean isInserted = database.insertDataFCSItem(
-                wheelsRimFirstCase.getBoostOrNot()
-                ,wheelsRimFirstCase.getBoostType()
-                ,"Wheels rim"
-                ,wheelsRimFirstCase.getPersonOrGallery()
-                ,wheelsRimFirstCase.getItemIdInServer()
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,wheelsRimFirstCase.getItemNumberOfComments()
-                ,wheelsRimFirstCase.getItemNumberOfImage()
-                ,wheelsRimFirstCase.getItemCity()
-                ,wheelsRimFirstCase.getItemNeighborhood()
-                ,wheelsRimFirstCase.getItemTimePost()
-                ,wheelsRimFirstCase.getItemUserPhoneNumber()
-                ,wheelsRimFirstCase.getItemName()
-                ,wheelsRimFirstCase.getItemImage()
-                ,wheelsRimFirstCase.getItemDescription()
-                ,wheelsRimFirstCase.getItemUserImage()
-                ,wheelsRimFirstCase.getItemUserName()
-                ,wheelsRimFirstCase.getItemPostEdit()
-                ,wheelsRimFirstCase.getItemNewPrice()
-                ,wheelsRimFirstCase.getWheelsSize()
-                ,"empty"
-                ,"empty"
-                , "empty"
-                , wheelsRimFirstCase.getItemBurnedPrice()
-                , wheelsRimFirstCase.getItemPrice()
-                , wheelsRimFirstCase.getUserID()
-                , wheelsRimFirstCase.getItemActiveOrNot()
-                ,fcsType
-        );
-        return isInserted;
-    }
-
-    public static boolean insertCarPlatesInFCSTable(CarPlatesFirstCase carPlatesFirstCase, DBHelper database, String fcsType) {
-        boolean isInserted = database.insertDataFCSItem(
-                carPlatesFirstCase.getBoostOrNot()
-                ,carPlatesFirstCase.getBoostType()
-                ,"Car plates"
-                ,carPlatesFirstCase.getPersonOrGallery()
-                ,carPlatesFirstCase.getItemIdInServer()
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,carPlatesFirstCase.getItemNumberOfComments()
-                ,carPlatesFirstCase.getItemNumberOfImage()
-                ,carPlatesFirstCase.getItemCity()
-                ,carPlatesFirstCase.getItemNeighborhood()
-                ,carPlatesFirstCase.getItemTimePost()
-                ,carPlatesFirstCase.getItemUserPhoneNumber()
-                ,carPlatesFirstCase.getItemName()
-                ,carPlatesFirstCase.getItemImage()
-                ,carPlatesFirstCase.getItemDescription()
-                ,carPlatesFirstCase.getItemUserImage()
-                ,carPlatesFirstCase.getItemUserName()
-                ,carPlatesFirstCase.getItemPostEdit()
-                ,carPlatesFirstCase.getItemNewPrice()
-                ,"0"
-                ,carPlatesFirstCase.getCarPlatesCity()
-                ,carPlatesFirstCase.getCarPlatesNumber()
-                ,carPlatesFirstCase.getSpecialOrNot()
-                ,carPlatesFirstCase.getItemBurnedPrice()
-                ,carPlatesFirstCase.getItemPrice()
-                ,carPlatesFirstCase.getUserID()
-                ,carPlatesFirstCase.getItemActiveOrNot()
-                ,fcsType
-        );
-        return isInserted;
-    }
-
-    public static boolean insertAccAndJunkInFCSTable(AccAndJunkFirstCase accAndJunkFirstCase, DBHelper database, String fcsType) {
-        boolean isInserted = database.insertDataFCSItem(
-                accAndJunkFirstCase.getBoostOrNot()
-                ,accAndJunkFirstCase.getBoostType()
-                ,accAndJunkFirstCase.getItemType()
-                ,accAndJunkFirstCase.getPersonOrGallery()
-                ,accAndJunkFirstCase.getItemIdInServer()
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                ,accAndJunkFirstCase.getItemNumberOfComments()
-                ,accAndJunkFirstCase.getItemNumberOfImage()
-                ,accAndJunkFirstCase.getItemCity()
-                ,accAndJunkFirstCase.getItemNeighborhood()
-                ,accAndJunkFirstCase.getItemTimePost()
-                ,accAndJunkFirstCase.getItemUserPhoneNumber()
-                ,accAndJunkFirstCase.getItemName()
-                ,accAndJunkFirstCase.getItemImage()
-                ,accAndJunkFirstCase.getItemDescription()
-                ,accAndJunkFirstCase.getItemUserImage()
-                ,accAndJunkFirstCase.getItemUserName()
-                ,accAndJunkFirstCase.getItemPostEdit()
-                ,accAndJunkFirstCase.getItemNewPrice()
-                ,"empty"
-                ,"empty"
-                ,"empty"
-                , "empty"
-                ,accAndJunkFirstCase.getItemBurnedPrice()
-                ,accAndJunkFirstCase.getItemPrice()
-                ,accAndJunkFirstCase.getUserID()
-                ,accAndJunkFirstCase.getItemActiveOrNot()
-                ,fcsType
-        );
-        return isInserted;
-    }
+//    public static boolean insertWheelsRimInFCSTable(WheelsRimFirstCase wheelsRimFirstCase, DBHelper database, String fcsType) {
+//        boolean isInserted = database.insertDataFCSItem(
+//                wheelsRimFirstCase.getBoostOrNot()
+//                ,wheelsRimFirstCase.getBoostType()
+//                ,"Wheels rim"
+//                ,wheelsRimFirstCase.getPersonOrGallery()
+//                ,wheelsRimFirstCase.getItemIdInServer()
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,wheelsRimFirstCase.getItemNumberOfComments()
+//                ,wheelsRimFirstCase.getItemNumberOfImage()
+//                ,wheelsRimFirstCase.getItemCity()
+//                ,wheelsRimFirstCase.getItemNeighborhood()
+//                ,wheelsRimFirstCase.getItemTimePost()
+//                ,wheelsRimFirstCase.getItemUserPhoneNumber()
+//                ,wheelsRimFirstCase.getItemName()
+//                ,wheelsRimFirstCase.getItemImage()
+//                ,wheelsRimFirstCase.getItemDescription()
+//                ,wheelsRimFirstCase.getItemUserImage()
+//                ,wheelsRimFirstCase.getItemUserName()
+//                ,wheelsRimFirstCase.getItemPostEdit()
+//                ,wheelsRimFirstCase.getItemNewPrice()
+//                ,wheelsRimFirstCase.getWheelsSize()
+//                ,"empty"
+//                ,"empty"
+//                , "empty"
+//                , wheelsRimFirstCase.getItemBurnedPrice()
+//                , wheelsRimFirstCase.getItemPrice()
+//                , wheelsRimFirstCase.getUserID()
+//                , wheelsRimFirstCase.getItemActiveOrNot()
+//                ,fcsType
+//        );
+//        return isInserted;
+//    }
+//
+//    public static boolean insertCarPlatesInFCSTable(CarPlatesFirstCase carPlatesFirstCase, DBHelper database, String fcsType) {
+//        boolean isInserted = database.insertDataFCSItem(
+//                carPlatesFirstCase.getBoostOrNot()
+//                ,carPlatesFirstCase.getBoostType()
+//                ,"Car plates"
+//                ,carPlatesFirstCase.getPersonOrGallery()
+//                ,carPlatesFirstCase.getItemIdInServer()
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,carPlatesFirstCase.getItemNumberOfComments()
+//                ,carPlatesFirstCase.getItemNumberOfImage()
+//                ,carPlatesFirstCase.getItemCity()
+//                ,carPlatesFirstCase.getItemNeighborhood()
+//                ,carPlatesFirstCase.getItemTimePost()
+//                ,carPlatesFirstCase.getItemUserPhoneNumber()
+//                ,carPlatesFirstCase.getItemName()
+//                ,carPlatesFirstCase.getItemImage()
+//                ,carPlatesFirstCase.getItemDescription()
+//                ,carPlatesFirstCase.getItemUserImage()
+//                ,carPlatesFirstCase.getItemUserName()
+//                ,carPlatesFirstCase.getItemPostEdit()
+//                ,carPlatesFirstCase.getItemNewPrice()
+//                ,"0"
+//                ,carPlatesFirstCase.getCarPlatesCity()
+//                ,carPlatesFirstCase.getCarPlatesNumber()
+//                ,carPlatesFirstCase.getSpecialOrNot()
+//                ,carPlatesFirstCase.getItemBurnedPrice()
+//                ,carPlatesFirstCase.getItemPrice()
+//                ,carPlatesFirstCase.getUserID()
+//                ,carPlatesFirstCase.getItemActiveOrNot()
+//                ,fcsType
+//        );
+//        return isInserted;
+//    }
+//
+//    public static boolean insertAccAndJunkInFCSTable(AccAndJunkFirstCase accAndJunkFirstCase, DBHelper database, String fcsType) {
+//        boolean isInserted = database.insertDataFCSItem(
+//                accAndJunkFirstCase.getBoostOrNot()
+//                ,accAndJunkFirstCase.getBoostType()
+//                ,accAndJunkFirstCase.getItemType()
+//                ,accAndJunkFirstCase.getPersonOrGallery()
+//                ,accAndJunkFirstCase.getItemIdInServer()
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                ,accAndJunkFirstCase.getItemNumberOfComments()
+//                ,accAndJunkFirstCase.getItemNumberOfImage()
+//                ,accAndJunkFirstCase.getItemCity()
+//                ,accAndJunkFirstCase.getItemNeighborhood()
+//                ,accAndJunkFirstCase.getItemTimePost()
+//                ,accAndJunkFirstCase.getItemUserPhoneNumber()
+//                ,accAndJunkFirstCase.getItemName()
+//                ,accAndJunkFirstCase.getItemImage()
+//                ,accAndJunkFirstCase.getItemDescription()
+//                ,accAndJunkFirstCase.getItemUserImage()
+//                ,accAndJunkFirstCase.getItemUserName()
+//                ,accAndJunkFirstCase.getItemPostEdit()
+//                ,accAndJunkFirstCase.getItemNewPrice()
+//                ,"empty"
+//                ,"empty"
+//                ,"empty"
+//                , "empty"
+//                ,accAndJunkFirstCase.getItemBurnedPrice()
+//                ,accAndJunkFirstCase.getItemPrice()
+//                ,accAndJunkFirstCase.getUserID()
+//                ,accAndJunkFirstCase.getItemActiveOrNot()
+//                ,fcsType
+//        );
+//        return isInserted;
+//    }
 
     public static boolean insertCCEMTItemInCCEMTTable(CCEMT ccemt,DBHelper database) {
 
@@ -451,7 +415,7 @@ public class InsertFunctions {
                 ,numberOfImage(ccemt.getImagePathArrayL())
                 ,ccemt.getCity()
                 ,ccemt.getNeighborhood()
-                ,ccemt.getTimePost()
+                ,ccemt.getTimeStamp()
                 ,ccemt.getPhoneNumber()
                 ,ccemt.getItemName()
                 ,imagePath(ccemt.getImagePathArrayL())
@@ -494,7 +458,7 @@ public class InsertFunctions {
                 ,numberOfImage(carPlatesModel.getImagePathArrayL())
                 ,carPlatesModel.getCity()
                 ,carPlatesModel.getNeighborhood()
-                ,carPlatesModel.getTimePost()
+                ,carPlatesModel.getTimeStamp()
                 ,carPlatesModel.getPhoneNumber()
                 ,carPlatesModel.getItemName()
                 ,imagePath(carPlatesModel.getImagePathArrayL())
@@ -538,7 +502,7 @@ public class InsertFunctions {
                 ,numberOfImage(wheelsRim.getImagePathArrayL())
                 ,wheelsRim.getCity()
                 ,wheelsRim.getNeighborhood()
-                ,wheelsRim.getTimePost()
+                ,wheelsRim.getTimeStamp()
                 ,wheelsRim.getPhoneNumber()
                 ,wheelsRim.getItemName()
                 ,imagePath(wheelsRim.getImagePathArrayL())
@@ -582,7 +546,7 @@ public class InsertFunctions {
                 ,numberOfImage(accAndJunk.getImagePathArrayL())
                 ,accAndJunk.getCity()
                 ,accAndJunk.getNeighborhood()
-                ,accAndJunk.getTimePost()
+                ,accAndJunk.getTimeStamp()
                 ,accAndJunk.getPhoneNumber()
                 ,accAndJunk.getItemName()
                 ,imagePath(accAndJunk.getImagePathArrayL())

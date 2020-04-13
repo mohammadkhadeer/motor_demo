@@ -24,8 +24,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemInFCSTable;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertSuggestedItemInFCSTable;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
 
 public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCases.ViewHolder>{
 
@@ -70,7 +69,8 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
                 if (checkFavouriteOrNot1(context,carForSaleArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertCCEMTItemInFCSTable(carForSaleArrayL.get(position),getDataBaseInstance(context),"favorite");
+                    insertItemsToFavorite(carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType()
+                            ,getDataBaseInstance(context),"favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);
