@@ -33,7 +33,7 @@ public class FragmentTitleDescriptionPrice extends Fragment {
     EditText adTitleEdt,adDesEdt,priceEdt;
     ImageView cancelTitleIV,cancelDesIV;
     TextView questionTV,messageTV;
-    SwitchCompat switchCompat;
+    //SwitchCompat switchCompat;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
@@ -93,23 +93,23 @@ public class FragmentTitleDescriptionPrice extends Fragment {
     }
 
     private void listenerSwitch() {
-        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
-        {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
-            {
-
-                if (isChecked) {
-                    //if 'isChecked' is true do whatever you need...
-                    messageTV.setVisibility(View.VISIBLE);
-                    saveBurnedPriceInSP(getActivity(),sharedPreferences,editor,"1");
-                }
-                else {
-                    messageTV.setVisibility(View.GONE);
-                    saveBurnedPriceInSP(getActivity(),sharedPreferences,editor,"0");
-                }
-        }
-    });
+//        switchCompat.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener()
+//        {
+//            @Override
+//            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked)
+//            {
+//
+//                if (isChecked) {
+//                    //if 'isChecked' is true do whatever you need...
+//                    messageTV.setVisibility(View.VISIBLE);
+//                    saveBurnedPriceInSP(getActivity(),sharedPreferences,editor,"1");
+//                }
+//                else {
+//                    messageTV.setVisibility(View.GONE);
+//                    saveBurnedPriceInSP(getActivity(),sharedPreferences,editor,"0");
+//                }
+//        }
+//    });
     }
 
     private void inti() {
@@ -120,7 +120,7 @@ public class FragmentTitleDescriptionPrice extends Fragment {
         cancelDesIV = (ImageView) view.findViewById(R.id.fragment_title_description_description_IV);
         messageTV = (TextView) view.findViewById(R.id.fragment_title_description_message_TV);
         questionTV = (TextView) view.findViewById(R.id.fragment_title_description_q_TV);
-        switchCompat = (SwitchCompat) view.findViewById(R.id.fragment_title_description_switch_TV);
+        //switchCompat = (SwitchCompat) view.findViewById(R.id.fragment_title_description_switch_TV);
     }
 
     private void makeCancelDesIVDeleteTextInDesEdt() {

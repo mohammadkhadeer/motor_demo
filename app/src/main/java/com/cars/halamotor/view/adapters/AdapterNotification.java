@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -16,6 +17,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.NotificationComp;
+import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
@@ -77,8 +79,21 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
             public void onClick(View v) {
                 getDataBaseInstance(context).updateNotification(notificationCompsArrayL.get(position).getItemServerID(),"1");
                 holder.coverRL.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));
+                transporteToShowItemSelectedDetails(context,position,holder);
             }
         });
+    }
+
+    private void transporteToShowItemSelectedDetails(Context context, int position, ViewHolder holder) {
+        Bundle bundle = new Bundle();
+        bundle.putString("category",notificationCompsArrayL.get(position).getProcess());
+        bundle.putString("from","not");
+        bundle.putString("itemID",notificationCompsArrayL.get(position).getItemServerID());
+
+        Intent intent = new Intent(context, ShowItemDetails.class);
+        intent.putExtras(bundle);
+        ((Activity)context).startActivity(intent);
+        ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     private void fillTextHeadAndDes(Context context, int position, ViewHolder holder) {
