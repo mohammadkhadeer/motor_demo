@@ -26,6 +26,7 @@ import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FavouriteChange;
 import com.cars.halamotor.presnter.ItemModel;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentComments;
+import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentContact;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentFollowUser;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentIDescriptionAndGeneralTips;
 import com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.FragmentImageSlider;
@@ -57,13 +58,9 @@ public class ShowItemDetails extends AppCompatActivity
     FragmentComments fragmentComments = new FragmentComments();
     FragmentFollowUser fragmentFollowUser = new FragmentFollowUser();
     FragmentImageSlider fragmentImageSlider = new FragmentImageSlider();
+    FragmentContact fragmentContact = new FragmentContact();
 
     String category;
-
-    CCEMTFirestCase ccemtFirestCase;
-    CarPlatesFirstCase carPlatesFirstCase;
-    WheelsRimFirstCase wheelsRimFirstCase;
-    AccAndJunkFirstCase accAndJunkFirstCase;
 
     CCEMT ccemtObject;
     CarPlatesModel carPlatesModel;
@@ -87,14 +84,10 @@ public class ShowItemDetails extends AppCompatActivity
         itemModel = (ItemModel) this;
         inti();
         getItemIDFromIntent();
-
         intiObject();
 
         titleActionBar();
 
-        intiItemDescriptionAndGeneralTips();
-        intiShareFragment();
-        intiFollowUser();
         intiSuggestedFragment();
         //intiCommentsFragment();
 
@@ -114,88 +107,30 @@ public class ShowItemDetails extends AppCompatActivity
                 ||category.equals("Motorcycle")
                 ||category.equals("Trucks")
         ) {
-//            ccemtFirestCase =getCCEMTFirstCaseFromDB(itemIDStr,this);
-//            intiUserInfoComp(ccemtFirestCase.getItemIdInServer(),ccemtFirestCase.getItemUserName()
-//            ,ccemtFirestCase.getItemUserImage(),ccemtFirestCase.getItemName()
-//            ,ccemtFirestCase.getItemTimePost(),ccemtFirestCase.getBoostType()
-//            ,ccemtFirestCase.getDate(),ccemtFirestCase.getTimeStamp()
-//            ,ccemtFirestCase.getItemDescription(),ccemtFirestCase.getUserID());
             cat = "ccemt";
             getCCEMTObject(categoryStr,itemIDStr,itemModel);
         }
         if (category.equals("Car plates"))
         {
-//            carPlatesFirstCase =getCarPlatesFirstCaseFromDB(itemIDStr,this);
-//            intiUserInfoComp(carPlatesFirstCase.getItemIdInServer(),carPlatesFirstCase.getItemUserName()
-//                    ,carPlatesFirstCase.getItemUserImage(),carPlatesFirstCase.getItemName()
-//                    ,carPlatesFirstCase.getItemTimePost(),carPlatesFirstCase.getBoostType()
-//                    ,carPlatesFirstCase.getDate(),carPlatesFirstCase.getTimeStamp()
-//                    ,carPlatesFirstCase.getItemDescription(),carPlatesFirstCase.getUserID());
             cat = "cp";
             getCarPlatesObject(categoryStr,itemIDStr,itemModel);
         }
         if (category.equals("Wheels rim"))
         {
-//            wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(itemIDStr,this);
-//            intiUserInfoComp(wheelsRimFirstCase.getItemIdInServer(),wheelsRimFirstCase.getItemUserName()
-//                    ,wheelsRimFirstCase.getItemUserImage(),wheelsRimFirstCase.getItemName()
-//                    ,wheelsRimFirstCase.getItemTimePost(),wheelsRimFirstCase.getBoostType()
-//                    ,wheelsRimFirstCase.getData(),wheelsRimFirstCase.getTimeStamp()
-//                    ,wheelsRimFirstCase.getItemDescription(),wheelsRimFirstCase.getUserID());
             cat = "wr";
             getWheelsSizeObject(categoryStr,itemIDStr,itemModel);
         }
         if (category.equals("Accessories") || category.equals("Junk car"))
         {
-//            accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(itemIDStr,this);
-//            intiUserInfoComp(accAndJunkFirstCase.getItemIdInServer(),accAndJunkFirstCase.getItemUserName()
-//                    ,accAndJunkFirstCase.getItemUserImage(),accAndJunkFirstCase.getItemName()
-//                    ,accAndJunkFirstCase.getItemTimePost(),accAndJunkFirstCase.getBoostType()
-//                    ,accAndJunkFirstCase.getData(),accAndJunkFirstCase.getTimeStamp()
-//                    ,accAndJunkFirstCase.getItemDescription(),accAndJunkFirstCase.getUserID());
             cat = "aaj";
             getAccAndJunkObject(categoryStr,itemIDStr,itemModel);
         }
-    }
-
-    private void intiUserInfoComp(String itemIdInServer, String itemUserName, String itemUserImage
-            , String itemName, String itemTimePost, String boostType
-            ,String date,String timeStamp,String itemDescriptionStr,String userIDStr) {
-        itemIDStr = itemIdInServer;
-        userNameStr = itemUserName;
-        userImageStr = itemUserImage;
-        itemNameStr = itemName;
-        timePostStr = itemTimePost;
-        postTypeStr = boostType;
-        dateStr = date;
-        timStampStr = timeStamp;
-        itemDescription = itemDescriptionStr;
-        userID = userIDStr;
     }
 
     private String getCategoryFromIntent() {
         Bundle bundle = getIntent().getExtras();
         String category =bundle.getString("category");
         return category;
-    }
-
-
-    private void getItemIDFromIntent() {
-        Bundle bundle = getIntent().getExtras();
-        itemIDStr =bundle.getString("itemID");
-        userNameStr =bundle.getString("userName");
-        userImageStr =bundle.getString("userImage");
-        itemNameStr =bundle.getString("itemName");
-        timePostStr =bundle.getString("time");
-        postTypeStr =bundle.getString("postBoostType");
-        dateStr =bundle.getString("2/3/2020");
-        timStampStr =bundle.getString("time");
-        itemDescription =bundle.getString("itemDes");
-        userID =bundle.getString("userID");
-        itemImage =bundle.getString("itemIV");
-        whereCome =bundle.getString("from");
-        categoryStr =bundle.getString("category");
-        numberOfImage =bundle.getString("numberOfImage");
     }
 
 
@@ -304,6 +239,16 @@ public class ShowItemDetails extends AppCompatActivity
         transaction.commit();
     }
 
+    private void intiContact() {
+        Bundle bundle = new Bundle();
+        bundle.putString("category", getCategoryFromIntent());
+
+        fragmentContact.setArguments(bundle);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.selected_item_details_contact, fragmentContact);
+        transaction.commit();
+    }
+
     private void intiUserInfoFragment() {
         Bundle bundle = new Bundle();
         bundle.putString("category", getCategoryFromIntent());
@@ -399,11 +344,72 @@ public class ShowItemDetails extends AppCompatActivity
         finish();
     }
 
+    private void getItemIDFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        itemIDStr =bundle.getString("itemID");
+        categoryStr =bundle.getString("category");
+        whereCome =bundle.getString("from");
+
+    }
+
+    private void intiValues(String userName, String userImage, String itemName, String timeStamp
+            , String boostType,String date, String itemDes, String userIDPathInServer
+            , String itemIV, int numberOfIg) {
+
+        userNameStr =userName;
+        userImageStr =userImage;
+        itemNameStr =itemName;
+        timePostStr =timeStamp;
+        postTypeStr =boostType;
+        dateStr =date;
+        timStampStr =timeStamp;
+        itemDescription =itemDes;
+        userID =userIDPathInServer;
+        itemImage =itemIV;
+        numberOfImage =String.valueOf(numberOfIg);
+    }
     @Override
     public void onReceiveCCEMTObject(CCEMT ccemt) {
        //to pass object to fragment
-        Log.i("TAG",ccemt.getItemID());
         ccemtObject = ccemt;
+        String date = String.valueOf(ccemt.getDayDate())+"/"+String.valueOf(ccemt.getMonthDate())+"/"+String.valueOf(ccemt.getYear());
+        intiValues(ccemt.getUserName(),ccemt.getUserImage(),ccemt.getItemName()
+        ,ccemt.getTimeStamp(),ccemt.getBoostPostsArrayL().get(0).getBoostType(),date
+        ,ccemt.getItemDescription(),ccemt.getUserIDPathInServer(),ccemt.getImagePathArrayL().get(0)
+        ,ccemt.getImagePathArrayL().size());
+        intiAllFragment();
+    }
+
+    @Override
+    public void onReceiveAccAndJunkObject(AccAndJunk accAndJunk) {
+        accAndJunkObject = accAndJunk;
+        String date = String.valueOf(accAndJunk.getDayDate())+"/"+String.valueOf(accAndJunk.getMonthDate())+"/"+String.valueOf(accAndJunk.getYearDate());
+        intiValues(accAndJunk.getUserName(),accAndJunk.getUserImage(),accAndJunk.getItemName()
+                ,accAndJunk.getTimeStamp(),accAndJunk.getBoostPostsArrayL().get(0).getBoostType(),date
+                ,accAndJunk.getItemDescription(),accAndJunk.getUserIDPathInServer(),accAndJunk.getImagePathArrayL().get(0)
+                ,accAndJunk.getImagePathArrayL().size());
+        intiAllFragment();
+    }
+
+    @Override
+    public void onReceiveWheelsRimObject(WheelsRimModel wheelsRim) {
+        wheelsRimModel = wheelsRim;
+        String date = String.valueOf(wheelsRim.getDayDate())+"/"+String.valueOf(wheelsRim.getMonthDate())+"/"+String.valueOf(wheelsRim.getYearDate());
+        intiValues(wheelsRim.getUserName(),wheelsRim.getUserImage(),wheelsRim.getItemName()
+                ,wheelsRim.getTimeStamp(),wheelsRim.getBoostPostsArrayL().get(0).getBoostType(),date
+                ,wheelsRim.getItemDescription(),wheelsRim.getUserIDPathInServer(),wheelsRim.getImagePathArrayL().get(0)
+                ,wheelsRim.getImagePathArrayL().size());
+        intiAllFragment();
+    }
+
+    @Override
+    public void onReceiveCarPlatesObject(CarPlatesModel carPlates) {
+        carPlatesModel = carPlates;
+        String date = String.valueOf(carPlates.getDayDate())+"/"+String.valueOf(carPlates.getMonthDate())+"/"+String.valueOf(carPlates.getYearDate());
+        intiValues(carPlates.getUserName(),carPlates.getUserImage(),carPlates.getItemName()
+                ,carPlates.getTimeStamp(),carPlates.getBoostPostsArrayL().get(0).getBoostType(),date
+                ,carPlates.getItemDescription(),carPlates.getUserIDPathInServer(),carPlates.getImagePathArrayL().get(0)
+                ,carPlates.getImagePathArrayL().size());
         intiAllFragment();
     }
 
@@ -411,24 +417,10 @@ public class ShowItemDetails extends AppCompatActivity
         intiUserInfoFragment();
         intiItemDetails();
         intiImageSlider();
-    }
-
-    @Override
-    public void onReceiveAccAndJunkObject(AccAndJunk accAndJunk) {
-        accAndJunkObject = accAndJunk;
-        intiAllFragment();
-    }
-
-    @Override
-    public void onReceiveWheelsRimObject(WheelsRimModel wheelsRim) {
-        wheelsRimModel = wheelsRim;
-        intiAllFragment();
-    }
-
-    @Override
-    public void onReceiveCarPlatesObject(CarPlatesModel carPlates) {
-        carPlatesModel = carPlates;
-        intiAllFragment();
+        intiItemDescriptionAndGeneralTips();
+        intiShareFragment();
+        intiFollowUser();
+        intiContact();
     }
 
 }

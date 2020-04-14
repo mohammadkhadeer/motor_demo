@@ -79,15 +79,6 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
                 bundle.putString("category",suggestedItemsArrayL.get(position).getItemType());
                 bundle.putString("from","stu");
                 bundle.putString("itemID",suggestedItemsArrayL.get(position).getItemIdInServer());
-                bundle.putString("itemIV",suggestedItemsArrayL.get(position).getItemImage());
-                bundle.putString("userName",suggestedItemsArrayL.get(position).getUserName());
-                bundle.putString("userImage",suggestedItemsArrayL.get(position).getUserImage());
-                bundle.putString("itemName",suggestedItemsArrayL.get(position).getItemName());
-                bundle.putString("time",suggestedItemsArrayL.get(position).getItemTimePost());
-                bundle.putString("postBoostType",suggestedItemsArrayL.get(position).getItemBoostType());
-                bundle.putString("itemDes",suggestedItemsArrayL.get(position).getItemDescription());
-                bundle.putString("userID",suggestedItemsArrayL.get(position).getUserID());
-                bundle.putString("numberOfImage",suggestedItemsArrayL.get(position).getItemNumberOfImage());
 
                 Intent intent = new Intent(context, ShowItemDetails.class);
                 intent.putExtras(bundle);

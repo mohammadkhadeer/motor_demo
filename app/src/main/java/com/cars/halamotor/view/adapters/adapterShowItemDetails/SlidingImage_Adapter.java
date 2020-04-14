@@ -1,8 +1,11 @@
 package com.cars.halamotor.view.adapters.adapterShowItemDetails;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
+import android.support.v7.graphics.Palette;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SlidImage;
+import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -50,11 +54,12 @@ public class SlidingImage_Adapter extends PagerAdapter {
         final TextView numberOfImage = (TextView) imageLayout
                 .findViewById(R.id.numberOfImage);
 
-        Picasso.with(context)
-                .load(imageModelArrayList.get(position).getImagePath())
-                .fit()
-                .centerCrop()
+
+        Picasso.with(context).load(imageModelArrayList.get(position).getImagePath())
+                .config(Bitmap.Config.RGB_565)
+                .fit().centerCrop()
                 .into(imageView);
+
 
         numberOfImage.setText(imageModelArrayList.get(position).getImageNumber()
                 +"/"+imageModelArrayList.get(position).getTotalImage());

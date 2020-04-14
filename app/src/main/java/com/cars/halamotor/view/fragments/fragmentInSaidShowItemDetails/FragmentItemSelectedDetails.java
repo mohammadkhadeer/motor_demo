@@ -130,7 +130,7 @@ public class FragmentItemSelectedDetails extends Fragment {
         {
             fillWheelsSize();
         }
-        if (cat.equals("ac"))
+        if (cat.equals("aaj"))
         {
             itemDetailsLL.setVisibility(View.GONE);
         }

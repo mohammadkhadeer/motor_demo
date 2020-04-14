@@ -223,6 +223,7 @@ public class FragmentUserInfo extends Fragment {
         itemNameTV.setText(itemNameStr);
         userStatusTV.setText(getActivity().getResources().getString(R.string.online));
         dateTV.setText(getPostTime(dateStr,timStampStr,getActivity()));
+       // dateTV.setText(dateStr);
     }
 
     private void fillUserImage() {

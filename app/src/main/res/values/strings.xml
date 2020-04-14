@@ -93,6 +93,7 @@
     <string name="comment">Comments</string>
     <string name="similar">Similar Ads</string>
     <string name="follow">Follow</string>
+    <string name="we_cant">Can not help without permission</string>
     <string name="u_cant">Sorry max follower 500</string>
     <string name="unfollow">Unfollow</string>
     <string name="following">Following</string>

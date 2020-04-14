@@ -243,7 +243,7 @@ public class Functions {
         String timePost ="0";
         long serverTimeStamp = Long.parseLong(timeStamp);
         long def ;
-        def = Math.abs(serverTimeStamp-System.currentTimeMillis());
+        def = Math.abs(System.currentTimeMillis()-serverTimeStamp);
         timePost = getDurationBreakdown(def,context,date);
 
         return timePost;

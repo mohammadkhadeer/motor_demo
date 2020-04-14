@@ -1,12 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="350dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".view.fragments.FragmentMessage">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/item_image_load_rl"
+        android:layout_marginTop="0.5dp"
+        android:layout_marginLeft="0.5dp"
+        android:layout_marginStart="0.5dp"
+        >
+
+        <ImageView
+            android:id="@+id/item_image_load"
+            android:layout_width="match_parent"
+            android:layout_marginLeft="-50dp"
+            android:layout_height="350dp"
+            android:src="@color/colorSilver_"
+            />
+
+        <ImageView
+            android:id="@+id/item_image_shin"
+            android:layout_width="50dp"
+            android:layout_marginLeft="-50dp"
+            android:layout_height="350dp"
+            android:src="@drawable/shine" />
+
+    </RelativeLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/pager"
@@ -15,10 +41,6 @@
         android:layout_alignParentTop="true"
         />
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/firstImage"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -35,7 +57,7 @@
             android:textSize="19dp"
             android:layout_marginStart="12dp"
             android:layout_marginEnd="12dp"
-            android:id="@+id/numberOfImage"
+            android:id="@+id/price"
             android:layout_centerVertical="true"
             android:textColor="@color/colorWhite"/>
 
