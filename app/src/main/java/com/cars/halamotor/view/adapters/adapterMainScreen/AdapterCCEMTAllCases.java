@@ -1,9 +1,12 @@
 package com.cars.halamotor.view.adapters.adapterMainScreen;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -18,6 +21,8 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.permission.CheckPermission;
+import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -25,12 +30,14 @@ import java.util.ArrayList;
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCases.ViewHolder>{
 
     private final Context context;
     public ArrayList<CCEMTFirestCase> carForSaleArrayL ;
     String fromWhereCome;
+    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
     public AdapterCCEMTAllCases
             (Context context, ArrayList<CCEMTFirestCase> carForSaleArrayL
@@ -59,8 +66,39 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
             checkTypeAndFillTypeDetails(context, holder, position);
             checkIfFavouriteOrNot(context,holder,position);
             actionListenerToFavorite(context,holder,position);
+            actionListenerToCardButton(context,holder,position);
+            actionListenerToCallBtn(context,holder,position);
         }
     }
+
+    private void actionListenerToCallBtn(final Context context, ViewHolder holder, final int position) {
+        holder.call_buttonRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    callAds(context,carForSaleArrayL.get(position).getItemUserPhoneNumber());
+                }
+            }
+        });
+    }
+
+    private void actionListenerToCardButton(final Context context, ViewHolder holder, final int position) {
+        holder.cardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category",carForSaleArrayL.get(position).getType());
+                bundle.putString("from","ml");
+                bundle.putString("itemID",carForSaleArrayL.get(position).getItemIdInServer());
+
+                Intent intent = new Intent(context, ShowItemDetails.class);
+                intent.putExtras(bundle);
+                ((Activity)context).startActivityForResult(intent , REQUEST_SHOW_ITEM_SELECTED_DETAILS);
+                ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+        });
+    }
+
 
     private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
         holder.favoriteRL.setOnClickListener(new View.OnClickListener() {
@@ -197,7 +235,7 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemNewPriceTV
                 ,itemCityTV,userNameTV,oldPrice;
-        RelativeLayout favoriteRL;
+        RelativeLayout favoriteRL,cardButton,call_buttonRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -222,7 +260,8 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
 
             favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_car_for_sale_case_iv);
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_for_sale_case_rl);
-
+            cardButton = (RelativeLayout) itemView.findViewById(R.id.adapter_ccemt_card_button);
+            call_buttonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_ccemt_call_button);
         }
     }
 

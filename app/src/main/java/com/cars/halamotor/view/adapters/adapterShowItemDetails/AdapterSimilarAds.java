@@ -1,9 +1,12 @@
 package com.cars.halamotor.view.adapters.adapterShowItemDetails;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.widget.RecyclerView;
 import android.util.TypedValue;
@@ -22,6 +25,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SimilarItem;
+import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -31,6 +35,7 @@ public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.Vi
     private final Context context;
     public ArrayList<SimilarItem> similarAdsArrayL ;
     String loadedOrDownloading;
+
     public AdapterSimilarAds
             (Context context, ArrayList<SimilarItem> similarAdsArrayL
             ,String loadedOrDownloading)
@@ -53,6 +58,24 @@ public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.Vi
         fillImage(context,holder,position);
         fillUserName(holder,position);
         fillPrice(holder,position,context);
+        actioListenerToContainer(context,holder,position);
+    }
+
+    private void actioListenerToContainer(final Context context, ViewHolder holder, final int position) {
+        holder.similar_container.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category",similarAdsArrayL.get(position).getItemType());
+                bundle.putString("from","s");
+                bundle.putString("itemID",similarAdsArrayL.get(position).getItemIdInServer());
+
+                Intent intent = new Intent(context, ShowItemDetails.class);
+                intent.putExtras(bundle);
+                ((Activity)context).startActivity(intent);
+                ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+        });
     }
 
     private void fillPrice(ViewHolder holder, int position, Context context) {
@@ -177,7 +200,7 @@ public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.Vi
         ImageView itemImageLoadingIV,itemImageLoading2IV
                     ,itemUserImageLoadIV,itemUserInfoLoadIV,itemUserInShineIV;
         ProgressBar process;
-        RelativeLayout itemImageLoadingRL,itemUserInfoLoadingRL;
+        RelativeLayout itemImageLoadingRL,itemUserInfoLoadingRL,similar_container;
 
         ImageView itemImage,userImage,fireIV;
         LinearLayout priceLinearLayout;
@@ -197,6 +220,7 @@ public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.Vi
             process = (ProgressBar) itemView.findViewById(R.id.adapter_similar_progress);
 
             itemImageLoadingRL = (RelativeLayout) itemView.findViewById(R.id.item_image_load_rl);
+            similar_container = (RelativeLayout) itemView.findViewById(R.id.similar_container);
             itemImageLoadingIV = (ImageView) itemView.findViewById(R.id.item_image_load_iv);
             itemImageLoading2IV = (ImageView) itemView.findViewById(R.id.item_image_load2_iv);
 

@@ -1,9 +1,12 @@
 package com.cars.halamotor.view.adapters.adapterMainScreen;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.util.TypedValue;
@@ -17,6 +20,8 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.permission.CheckPermission;
+import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
@@ -24,12 +29,14 @@ import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
 import static com.cars.halamotor.functions.Functions.getCarPlatesNumber;
+import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPlatesFirstCase.ViewHolder>{
 
     private final Context context;
     public ArrayList<CarPlatesFirstCase> carPlatesArrayL;
     String fromWhereCome;
+    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
     public AdapterCarPlatesFirstCase
             (Context context, ArrayList<CarPlatesFirstCase> carPlatesArrayL
@@ -58,8 +65,44 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
             fillCarDetails(position, holder);
             checkIfFavouriteOrNot(context,holder,position);
             actionListenerToFavorite(context,holder,position);
+            actionListenerToCard(context,position,holder);
+            actionListenerToCallButn(context,position,holder);
         }
     }
+
+    private void actionListenerToCard(final Context context, final int position, ViewHolder holder) {
+        holder.cardButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("category","Car plates");
+                bundle.putString("from","ml");
+                bundle.putString("itemID",carPlatesArrayL.get(position).getItemIdInServer());
+
+                Intent intent = new Intent(context, ShowItemDetails.class);
+                intent.putExtras(bundle);
+                ((Activity)context).startActivityForResult(intent , REQUEST_SHOW_ITEM_SELECTED_DETAILS);
+                ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+        });
+    }
+
+    private void actionListenerToCallButn(final Context context, final int position, final ViewHolder holder) {
+        holder.callButtonRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.callButtonRL.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                            callAds(context,carPlatesArrayL.get(position).getItemUserPhoneNumber());
+                        }
+                    }
+                });
+            }
+        });
+    }
+
 
     private void actionListenerToFavorite(final Context context, final ViewHolder holder, final int position) {
         holder.favoriteRL.setOnClickListener(new View.OnClickListener() {
@@ -186,7 +229,7 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
                 , text1
                 , text4,itemTitleTV,itemPriceTV,itemNewPriceTV
                 ,itemCityTV,userNameTV,oldPrice;
-        RelativeLayout favoriteRL;
+        RelativeLayout favoriteRL,callButtonRL,cardButton;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -211,6 +254,9 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
 
             favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_car_plates_first_f_image);
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_first_f_rl);
+            callButtonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_call_button);
+            cardButton = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_card_button);
+
         }
     }
 

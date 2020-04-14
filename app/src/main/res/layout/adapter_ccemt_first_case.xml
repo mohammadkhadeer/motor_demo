@@ -15,6 +15,12 @@
         android:layout_marginBottom="2dp"
         app:cardCornerRadius="12dp">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="330dp"
+            android:id="@+id/adapter_ccemt_card_button">
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="280dp"
@@ -446,6 +452,7 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:id="@+id/adapter_ccemt_call_button"
                         android:layout_weight="33">
 
                         <ImageView

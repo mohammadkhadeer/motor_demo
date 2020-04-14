@@ -465,6 +465,7 @@
                             android:layout_centerVertical="true"
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
+                            android:id="@+id/adapter_suggested_call_button"
                             android:background="@drawable/call_button_bg"
                             >
                             <TextView

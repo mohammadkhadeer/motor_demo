@@ -22,6 +22,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SuggestedItem;
+import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.cars.halamotor.view.activity.SplashScreen;
 import com.squareup.picasso.Picasso;
@@ -31,6 +32,7 @@ import java.util.ArrayList;
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedItem.ViewHolder>{
 
@@ -68,7 +70,19 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             checkIfFavouriteOrNot(context,holder,position);
             actionListenerToFavorite(context,holder,position);
             actionListenerToGoShowItemDetails(context,holder,position);
+            actionListenerToCallButton(context,holder,position);
         }
+    }
+
+    private void actionListenerToCallButton(final Context context, ViewHolder holder, final int position) {
+        holder.callButtonRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    callAds(context,suggestedItemsArrayL.get(position).getItemUserPhoneNumber());
+                }
+            }
+        });
     }
 
     private void actionListenerToGoShowItemDetails(final Context context, ViewHolder holder, final int position) {
@@ -296,7 +310,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemCityTV
                 ,userNameTV,itemNewPriceTV,oldPriceTV;
-        RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL,cardButton;
+        RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL,cardButton,callButtonRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -328,6 +342,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             userNameTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_user_name);
 
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_favorite_rl);
+            callButtonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_call_button);
         }
     }
 
