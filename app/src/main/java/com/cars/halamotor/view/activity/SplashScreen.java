@@ -74,6 +74,8 @@ public class SplashScreen extends AppCompatActivity {
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
+    int suggested=2700,normal=3700;
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -171,7 +173,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertAccAndJunkItemInAccAndJunk(junkArrayLIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void getAccessoriesIndependent() {
@@ -180,7 +182,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() { insertAccAndJunkItemInAccAndJunk(accessoriesArrayLIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void insertAccAndJunkItemInAccAndJunk(List<AccAndJunk> accAndJunksArrayLIndependent) {
@@ -197,7 +199,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarPlatesToCarPlatesTable(carPlatesListIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void insertCarPlatesToCarPlatesTable(List<CarPlatesModel> carPlatesListIndependent) {
@@ -214,7 +216,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertWheelsRimToWheelsRimTable(wheelsRimListIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void insertWheelsRimToWheelsRimTable(List<WheelsRimModel> wheelsRimListIndependent) {
@@ -232,7 +234,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarForSaleToCCMETTable(truckListIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void getMotorcycleIndependent() {
@@ -242,7 +244,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarForSaleToCCMETTable(motorcycleListIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void getCarForRentIndependent() {
@@ -253,7 +255,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarForSaleToCCMETTable(carForRentListIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void getCarExchangeIndependent() {
@@ -263,7 +265,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() { insertCarForSaleToCCMETTable(carForExchangeListIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void getCarForSaleIndependent() {
@@ -274,7 +276,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarForSaleToCCMETTable(carForSaleListIndependent);
             }
-        }, 3700);
+        }, normal);
     }
 
     private void insertCarForSaleToCCMETTable(List<CCEMT> ccemtList) {
@@ -292,7 +294,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertJunkRimToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getAccessories() {
@@ -301,7 +303,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() { insertAccessoriesRimToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getWheelsRim() {
@@ -311,7 +313,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertWheelsRimToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getCarPlates() {
@@ -321,7 +323,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarPlatesToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getTrucks() {
@@ -332,7 +334,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertTruckToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getMotorcycle() {
@@ -342,7 +344,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertMotorcycleToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getCarExchange() {
@@ -352,7 +354,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() { insertCarForExchangeToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getCarForRent() {
@@ -363,7 +365,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarForRentToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void getCarForSale() {
@@ -374,7 +376,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertCarForSaleToDataBase();
             }
-        }, 2700);
+        }, suggested);
     }
 
     private void insertCarForSaleToDataBase() {

@@ -1,6 +1,7 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
 import android.content.Context;
+import android.graphics.Paint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -52,7 +53,7 @@ public class FragmentImageSlider extends Fragment {
     WheelsRimModel wheelsRimModel;
     AccAndJunk accAndJunkObject;
 
-    TextView textView;
+    TextView itemPriceTV,oldPriceTV,itemNewPriceTV;
 
     @Override
     public void onAttach(Context context) {
@@ -83,12 +84,45 @@ public class FragmentImageSlider extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_image_slider, container, false);
         inti();
-
+        fillPrice();
         AddShineEffect(relativeLayout,shinImageView);
 
         fillImageList();
 
         return view;
+    }
+
+    private void fillPrice() {
+        if (priceE.equals("0"))
+        {
+            itemPriceTV.setVisibility(View.VISIBLE);
+            oldPriceTV.setVisibility(View.GONE);
+            itemNewPriceTV.setText(price
+                    +" "+getResources().getString(R.string.price_contry)+"   ");
+            //itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+            //set new price empty to stay design
+            itemPriceTV.setText("");
+            //itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+        }else{
+            itemPriceTV.setVisibility(View.GONE);
+            oldPriceTV.setVisibility(View.VISIBLE);
+
+            oldPriceTV.setText(price);
+            //change text color
+            oldPriceTV.setTextColor(getResources().getColor(R.color.colorWhite));
+            //set line above old price
+            oldPriceTV.setPaintFlags(itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+            //change size new price
+            //itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+
+            itemNewPriceTV.setText(newPrice
+                    +" "+getResources().getString(R.string.price_contry));
+            //fill old price
+            itemPriceTV.setText(price
+                    +" "+getResources().getString(R.string.price_contry));
+
+        }
     }
 
     private void fillImageList() {
@@ -139,6 +173,9 @@ public class FragmentImageSlider extends Fragment {
         shinImageView = (ImageView) view.findViewById(R.id.item_image_shin);
         imageView = (ImageView) view.findViewById(R.id.item_image_load);
         relativeLayout = (RelativeLayout) view.findViewById(R.id.item_image_load_rl);
+        itemPriceTV = (TextView) view.findViewById(R.id.image_slider_car_price);
+        oldPriceTV = (TextView) view.findViewById(R.id.image_slider_car_old_price);
+        itemNewPriceTV = (TextView) view.findViewById(R.id.image_slider_new_price);
     }
 
     private void AddShineEffect(final RelativeLayout father, final ImageView child) {

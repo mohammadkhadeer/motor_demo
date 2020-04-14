@@ -2,19 +2,27 @@ package com.cars.halamotor.view.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Paint;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.CCEMT;
@@ -74,6 +82,10 @@ public class ShowItemDetails extends AppCompatActivity
     int numberOfChangeFromInterface;
 
     ItemModel itemModel;
+
+    TextView itemPriceTV,oldPriceTV,itemNewPriceTV,title;
+    LinearLayout show_item_details_header;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -86,11 +98,93 @@ public class ShowItemDetails extends AppCompatActivity
         getItemIDFromIntent();
         intiObject();
 
-        titleActionBar();
-
         intiSuggestedFragment();
         //intiCommentsFragment();
 
+    }
+
+    private void inti() {
+        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.show_item_details_toolbar);
+        appbar = (AppBarLayout)findViewById(R.id.show_item_details_app_bar);
+        itemPriceTV = (TextView) findViewById(R.id.show_item_details_car_price);
+        oldPriceTV = (TextView) findViewById(R.id.show_item_details_car_old_price);
+        itemNewPriceTV = (TextView) findViewById(R.id.show_item_details_new_price);
+        show_item_details_header = (LinearLayout) findViewById(R.id.show_item_details_header);
+        title = (TextView) findViewById(R.id.show_item_details_title);
+    }
+
+    private void statusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
+        }
+    }
+
+    private void titleActionBar() {
+        toolbar.setTitle("");
+        setSupportActionBar(toolbar);
+        collapsingToolbarLayout.setTitleEnabled(false);
+        fillPrice();
+
+        appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
+            boolean isVisible = true;
+            int scrollRange = -1;
+
+            @Override
+            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
+                if (scrollRange == -1) {
+                    scrollRange = appBarLayout.getTotalScrollRange();
+                }
+                if (scrollRange + verticalOffset == 0) {
+                    show_item_details_header.setVisibility(View.VISIBLE);
+                    title.setText(itemNameStr);
+                    statusBarColor();
+                    isVisible = true;
+                } else if(isVisible) {
+                    title.setText("");
+                    show_item_details_header.setVisibility(View.GONE);
+                    getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                    isVisible = false;
+                }
+            }
+        });
+
+    }
+
+    private void fillPrice() {
+        if (priceEdit.equals("0"))
+        {
+            itemPriceTV.setVisibility(View.VISIBLE);
+            oldPriceTV.setVisibility(View.GONE);
+            itemNewPriceTV.setText(price
+                    +" "+getResources().getString(R.string.price_contry)+"   ");
+            //itemPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+            //set new price empty to stay design
+            itemPriceTV.setText("");
+            //itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 12);
+        }else{
+            itemPriceTV.setVisibility(View.GONE);
+            oldPriceTV.setVisibility(View.VISIBLE);
+
+            oldPriceTV.setText(price);
+            //change text color
+            oldPriceTV.setTextColor(getResources().getColor(R.color.colorWhite));
+            //set line above old price
+            oldPriceTV.setPaintFlags(itemPriceTV.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+
+            //change size new price
+            //itemNewPriceTV.setTextSize(TypedValue.COMPLEX_UNIT_DIP, 18);
+
+            itemNewPriceTV.setText(newPrice
+                    +" "+getResources().getString(R.string.price_contry));
+            //fill old price
+            itemPriceTV.setText(price
+                    +" "+getResources().getString(R.string.price_contry));
+
+        }
     }
 
     private void makeKeyBordDownEditText() {
@@ -289,41 +383,11 @@ public class ShowItemDetails extends AppCompatActivity
         changeFont();
     }
 
-    private void titleActionBar() {
-        toolbar.setTitle("");
-        setSupportActionBar(toolbar);
-        collapsingToolbarLayout.setTitleEnabled(false);
-
-        appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
-            boolean isVisible = true;
-            int scrollRange = -1;
-
-            @Override
-            public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
-                if (scrollRange == -1) {
-                    scrollRange = appBarLayout.getTotalScrollRange();
-                }
-                if (scrollRange + verticalOffset == 0) {
-                    toolbar.setTitle("Title");
-                    isVisible = true;
-                } else if(isVisible) {
-                    toolbar.setTitle("");
-                    isVisible = false;
-                }
-            }
-        });
-
-    }
-
-
     private void changeFont() {
-
-    }
-
-    private void inti() {
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
-        collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.show_item_details_toolbar);
-        appbar = (AppBarLayout)findViewById(R.id.show_item_details_app_bar);
+        title.setTypeface(Functions.changeFontBold(this));
+        itemPriceTV.setTypeface(Functions.changeFontGeneral(this));
+        oldPriceTV.setTypeface(Functions.changeFontGeneral(this));
+        itemNewPriceTV.setTypeface(Functions.changeFontGeneral(this));
     }
 
     private void statusBarTransparent() {
@@ -425,6 +489,7 @@ public class ShowItemDetails extends AppCompatActivity
     }
 
     private void intiAllFragment() {
+        titleActionBar();
         intiUserInfoFragment();
         intiItemDetails();
         intiImageSlider();
