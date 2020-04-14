@@ -69,7 +69,7 @@ public class ShowItemDetails extends AppCompatActivity
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
             ,dateStr,timStampStr,itemDescription,userID,itemImage,numberOfImage,whereCome
-            ,categoryStr,cat;
+            ,categoryStr,cat,phoneNumber,price,priceEdit,newPrice;
 
     int numberOfChangeFromInterface;
 
@@ -138,6 +138,9 @@ public class ShowItemDetails extends AppCompatActivity
         Bundle bundle = new Bundle();
         bundle.putString("itemIV", itemImage);
         bundle.putString("cat", cat);
+        bundle.putString("price", price);
+        bundle.putString("priceE", priceEdit);
+        bundle.putString("newP", newPrice);
 
         if (cat.equals("ccemt"))
             bundle.putParcelable("object",ccemtObject);
@@ -241,7 +244,7 @@ public class ShowItemDetails extends AppCompatActivity
 
     private void intiContact() {
         Bundle bundle = new Bundle();
-        bundle.putString("category", getCategoryFromIntent());
+        bundle.putString("phoneN", phoneNumber);
 
         fragmentContact.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -354,7 +357,7 @@ public class ShowItemDetails extends AppCompatActivity
 
     private void intiValues(String userName, String userImage, String itemName, String timeStamp
             , String boostType,String date, String itemDes, String userIDPathInServer
-            , String itemIV, int numberOfIg) {
+            , String itemIV, int numberOfIg,String phoneN,Double itemPrice,String priceE,String newP) {
 
         userNameStr =userName;
         userImageStr =userImage;
@@ -367,6 +370,10 @@ public class ShowItemDetails extends AppCompatActivity
         userID =userIDPathInServer;
         itemImage =itemIV;
         numberOfImage =String.valueOf(numberOfIg);
+        phoneNumber = phoneN;
+        price = String.valueOf(itemPrice);
+        priceEdit = priceE;
+        newPrice = newP;
     }
     @Override
     public void onReceiveCCEMTObject(CCEMT ccemt) {
@@ -376,7 +383,8 @@ public class ShowItemDetails extends AppCompatActivity
         intiValues(ccemt.getUserName(),ccemt.getUserImage(),ccemt.getItemName()
         ,ccemt.getTimeStamp(),ccemt.getBoostPostsArrayL().get(0).getBoostType(),date
         ,ccemt.getItemDescription(),ccemt.getUserIDPathInServer(),ccemt.getImagePathArrayL().get(0)
-        ,ccemt.getImagePathArrayL().size());
+        ,ccemt.getImagePathArrayL().size(),ccemt.getPhoneNumber(),ccemt.getPrice()
+        ,ccemt.getPostEdit(),ccemt.getNewPrice());
         intiAllFragment();
     }
 
@@ -387,7 +395,8 @@ public class ShowItemDetails extends AppCompatActivity
         intiValues(accAndJunk.getUserName(),accAndJunk.getUserImage(),accAndJunk.getItemName()
                 ,accAndJunk.getTimeStamp(),accAndJunk.getBoostPostsArrayL().get(0).getBoostType(),date
                 ,accAndJunk.getItemDescription(),accAndJunk.getUserIDPathInServer(),accAndJunk.getImagePathArrayL().get(0)
-                ,accAndJunk.getImagePathArrayL().size());
+                ,accAndJunk.getImagePathArrayL().size(),accAndJunk.getPhoneNumber(),accAndJunk.getPrice()
+                ,accAndJunk.getPostEdit(),accAndJunk.getNewPrice());
         intiAllFragment();
     }
 
@@ -398,7 +407,8 @@ public class ShowItemDetails extends AppCompatActivity
         intiValues(wheelsRim.getUserName(),wheelsRim.getUserImage(),wheelsRim.getItemName()
                 ,wheelsRim.getTimeStamp(),wheelsRim.getBoostPostsArrayL().get(0).getBoostType(),date
                 ,wheelsRim.getItemDescription(),wheelsRim.getUserIDPathInServer(),wheelsRim.getImagePathArrayL().get(0)
-                ,wheelsRim.getImagePathArrayL().size());
+                ,wheelsRim.getImagePathArrayL().size(),wheelsRim.getPhoneNumber(),wheelsRim.getPrice()
+                ,wheelsRim.getPostEdit(),wheelsRim.getNewPrice());
         intiAllFragment();
     }
 
@@ -409,7 +419,8 @@ public class ShowItemDetails extends AppCompatActivity
         intiValues(carPlates.getUserName(),carPlates.getUserImage(),carPlates.getItemName()
                 ,carPlates.getTimeStamp(),carPlates.getBoostPostsArrayL().get(0).getBoostType(),date
                 ,carPlates.getItemDescription(),carPlates.getUserIDPathInServer(),carPlates.getImagePathArrayL().get(0)
-                ,carPlates.getImagePathArrayL().size());
+                ,carPlates.getImagePathArrayL().size(),carPlates.getPhoneNumber(),carPlates.getPrice()
+                ,carPlates.getPostEdit(),carPlates.getNewPrice());
         intiAllFragment();
     }
 

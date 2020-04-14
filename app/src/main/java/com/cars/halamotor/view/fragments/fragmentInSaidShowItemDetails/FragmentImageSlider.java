@@ -44,7 +44,7 @@ public class FragmentImageSlider extends Fragment {
     private ArrayList<String> images;
     CirclePageIndicator indicator;
     ImageView imageView,shinImageView;
-    String itemIV,cat;
+    String itemIV,cat,price,priceE,newPrice;
     RelativeLayout relativeLayout;
 
     CCEMT ccemt;
@@ -59,6 +59,10 @@ public class FragmentImageSlider extends Fragment {
         if (getArguments() != null) {
             itemIV = getArguments().getString("itemIV");
             cat = getArguments().getString("cat");
+            price = getArguments().getString("price");
+            priceE = getArguments().getString("priceE");
+            newPrice = getArguments().getString("newP");
+
             if (cat.equals("ccemt"))
                 ccemt = getArguments().getParcelable("object");
 

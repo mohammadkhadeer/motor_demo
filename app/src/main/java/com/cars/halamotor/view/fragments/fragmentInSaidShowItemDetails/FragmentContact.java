@@ -2,6 +2,7 @@ package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -33,6 +34,15 @@ public class FragmentContact extends Fragment {
     private static final int PHONE = 102;
 
     @Override
+    public void onAttach(Context context) {
+        if (getArguments() != null) {
+            phoneNumber = getArguments().getString("phoneN");
+        }
+        super.onAttach(context);
+
+    }
+
+    @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_contact, container, false);
@@ -45,7 +55,6 @@ public class FragmentContact extends Fragment {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                phoneNumber = "0787239606";
                 Log.i("TAG", phoneNumber);
                 callAdsHere();
             }
@@ -55,9 +64,7 @@ public class FragmentContact extends Fragment {
     @SuppressLint("MissingPermission")
     private void callAdsHere() {
         if (CheckPermission.checkPermissionMethodToPhone(getActivity()) == true) {
-            Intent callIntent = new Intent(Intent.ACTION_CALL);
-            callIntent.setData(Uri.parse("tel:" + phoneNumber));
-            getActivity().startActivity(callIntent);
+            callAds(getActivity(),phoneNumber);
         }else{
             //Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.we_cant),Toast.LENGTH_SHORT).show();
         }

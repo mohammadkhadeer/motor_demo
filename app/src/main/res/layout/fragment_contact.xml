@@ -44,7 +44,7 @@
                             android:paddingTop="6dp"
                             android:paddingBottom="6dp"
                             android:id="@+id/contact_send_message"
-                            android:background="@drawable/message"
+                            android:background="@drawable/contact"
                             >
                             <TextView
                                 android:layout_width="wrap_content"
