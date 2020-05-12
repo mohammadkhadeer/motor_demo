@@ -9,13 +9,11 @@ import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -24,7 +22,6 @@ import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.view.activity.ShowItemDetails;
-import com.cars.halamotor.view.activity.SplashScreen;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
@@ -32,6 +29,7 @@ import java.util.ArrayList;
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedItem.ViewHolder>{
@@ -112,6 +110,9 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
                     insertItemsToFavorite(suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType()
                             ,getDataBaseInstance(context),"favorite");
+
+                    setFavouriteCallSearchOnServer(context,suggestedItemsArrayL.get(position).getItemIdInServer()
+                            ,suggestedItemsArrayL.get(position).getItemType(),"favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);

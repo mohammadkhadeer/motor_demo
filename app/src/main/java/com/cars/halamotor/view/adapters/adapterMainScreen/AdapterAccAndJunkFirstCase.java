@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccAndJunkFirstCase.ViewHolder>{
@@ -106,6 +107,9 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
                     insertItemsToFavorite(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getItemType()
                             ,getDataBaseInstance(context),"favorite");
+
+                    setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer()
+                            ,accAndJunkArrayL.get(position).getPersonOrGallery(),"favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);

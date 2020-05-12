@@ -28,6 +28,7 @@ import java.util.ArrayList;
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.Functions.getCarPlatesNumber;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
@@ -113,6 +114,9 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
                     insertItemsToFavorite(carPlatesArrayL.get(position).getItemIdInServer(),"Plates"
                             ,getDataBaseInstance(context),"favorite");
+
+                    setFavouriteCallSearchOnServer(context,carPlatesArrayL.get(position).getItemIdInServer()
+                            ,"Plates","favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);

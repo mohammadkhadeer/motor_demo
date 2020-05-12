@@ -20,6 +20,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Switch;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
@@ -33,7 +34,7 @@ public class CarPlates extends AppCompatActivity {
     MaterialSpinner spinner;
     String [] emiratesEmirate;
     String selectedCity;
-    SwitchCompat switchCompat;
+    Switch switchCompat;
     EditText carPlatesEdt;
     ImageView cancelCarPlatesIV;
     RelativeLayout cancelCarPlatesRL;
@@ -191,7 +192,7 @@ public class CarPlates extends AppCompatActivity {
 
     private void inti() {
         spinner = (MaterialSpinner) findViewById(R.id.spinner);
-        switchCompat = (SwitchCompat) findViewById(R.id.car_plates_description_switch);
+        switchCompat = (Switch) findViewById(R.id.car_plates_description_switch);
         carPlatesEdt = (EditText) findViewById(R.id.car_plates_number_Edt);
         cancelCarPlatesIV = (ImageView) findViewById(R.id.car_plates_cancel_IV);
         cancelCarPlatesRL = (RelativeLayout) findViewById(R.id.car_plates_cancel_RL);

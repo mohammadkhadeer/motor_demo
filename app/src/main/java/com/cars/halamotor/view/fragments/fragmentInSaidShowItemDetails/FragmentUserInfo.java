@@ -29,6 +29,7 @@ import com.squareup.picasso.Picasso;
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.Functions.getPostTime;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
@@ -195,6 +196,9 @@ public class FragmentUserInfo extends Fragment {
                 {
                     favouriteIV.setBackgroundResource(R.drawable.selcted_favorite);
                     insertItemInFCSTable();
+
+                    setFavouriteCallSearchOnServer(getActivity(),itemIDStr
+                            ,categoryStr,"favorite");
                 }else
                 {
                     favouriteIV.setBackgroundResource(R.drawable.item_favu);

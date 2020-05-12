@@ -309,17 +309,14 @@
                                 android:text="@string/burned_price_1"
                                 />
 
-<!--                            <android.support.v7.widget.SwitchCompat-->
-<!--                                android:layout_width="wrap_content"-->
-<!--                                android:layout_height="45dp"-->
-<!--                                android:layout_marginLeft="1dp"-->
-<!--                                android:layout_marginStart="16dp"-->
-<!--                                android:textOff="OFF"-->
-<!--                                android:textOn="ON"-->
-<!--                                app:switchTextAppearance="@style/BrandedSwitch.text"-->
-<!--                                app:theme="@style/BrandedSwitch.control"-->
-<!--                                android:id="@+id/fragment_title_description_switch_TV"-->
-<!--                                />-->
+                            <Switch
+                                android:layout_width="wrap_content"
+                                android:layout_height="45dp"
+                                android:layout_marginLeft="1dp"
+                                app:theme="@style/BrandedSwitch.control"
+                                android:layout_marginStart="16dp"
+                                android:id="@+id/fragment_title_description_switch_TV"
+                                />
 
                         </LinearLayout>
 

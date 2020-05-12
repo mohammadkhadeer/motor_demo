@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCases.ViewHolder>{
@@ -109,6 +110,9 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
                     insertItemsToFavorite(carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType()
                             ,getDataBaseInstance(context),"favorite");
+
+                    setFavouriteCallSearchOnServer(context,carForSaleArrayL.get(position).getItemIdInServer()
+                            ,carForSaleArrayL.get(position).getType(),"favorite");
                 }else
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.item_favu);

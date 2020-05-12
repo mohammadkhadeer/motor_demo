@@ -312,7 +312,8 @@
                                 android:layout_marginLeft="1dp"
                                 android:layout_marginStart="4dp"
                                 android:id="@+id/adapter_acc_and_junk_fire_iv"
-                                android:background="@drawable/fire"/>
+                                android:background="@drawable/fire"
+                                />
                         </LinearLayout>
 
                     </RelativeLayout>
