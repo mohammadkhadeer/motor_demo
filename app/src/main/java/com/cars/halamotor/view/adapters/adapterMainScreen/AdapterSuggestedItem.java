@@ -77,6 +77,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    setFavouriteCallSearchOnServer(context,suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType(),"call");
                     callAds(context,suggestedItemsArrayL.get(position).getItemUserPhoneNumber());
                 }
             }
@@ -87,6 +88,9 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setFavouriteCallSearchOnServer(context,suggestedItemsArrayL.get(position).getItemIdInServer()
+                        ,suggestedItemsArrayL.get(position).getItemType(),"seen");
+
                 Bundle bundle = new Bundle();
                 bundle.putString("category",suggestedItemsArrayL.get(position).getItemType());
                 bundle.putString("from","stu");

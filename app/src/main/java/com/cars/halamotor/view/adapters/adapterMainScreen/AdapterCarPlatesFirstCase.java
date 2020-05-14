@@ -75,6 +75,9 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setFavouriteCallSearchOnServer(context,carPlatesArrayL.get(position).getItemIdInServer()
+                        ,"Plates","seen");
+
                 Bundle bundle = new Bundle();
                 bundle.putString("category","Car plates");
                 bundle.putString("from","ml");
@@ -96,6 +99,7 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
                     @Override
                     public void onClick(View v) {
                         if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                            setFavouriteCallSearchOnServer(context,carPlatesArrayL.get(position).getItemIdInServer(),"Plates","call");
                             callAds(context,carPlatesArrayL.get(position).getItemUserPhoneNumber());
                         }
                     }

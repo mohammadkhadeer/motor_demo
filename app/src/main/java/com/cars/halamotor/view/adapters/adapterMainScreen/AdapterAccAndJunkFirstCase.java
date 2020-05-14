@@ -74,6 +74,9 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
         holder.cardButtonRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer()
+                        ,accAndJunkArrayL.get(position).getPersonOrGallery(),"seen");
+
                 Bundle bundle = new Bundle();
                 bundle.putString("category",accAndJunkArrayL.get(position).getPersonOrGallery());
                 bundle.putString("from","ml");
@@ -92,6 +95,7 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getPersonOrGallery(),"call");
                     callAds(context,accAndJunkArrayL.get(position).getItemUserPhoneNumber());
                 }
             }

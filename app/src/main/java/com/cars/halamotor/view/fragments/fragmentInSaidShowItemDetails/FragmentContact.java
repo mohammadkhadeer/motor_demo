@@ -21,6 +21,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.permission.CheckPermission;
 
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class FragmentContact extends Fragment {
@@ -30,13 +31,18 @@ public class FragmentContact extends Fragment {
 
     View view;
     RelativeLayout sendMessage, call;
-    String phoneNumber;
+    String phoneNumber,itemID,category;
     private static final int PHONE = 102;
 
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
             phoneNumber = getArguments().getString("phoneN");
+            itemID = getArguments().getString("itemID");
+            category = getArguments().getString("category");
+            Log.i("TAG",phoneNumber);
+            Log.i("TAG",itemID);
+            Log.i("TAG",category);
         }
         super.onAttach(context);
 
@@ -55,7 +61,6 @@ public class FragmentContact extends Fragment {
         call.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.i("TAG", phoneNumber);
                 callAdsHere();
             }
         });
@@ -64,6 +69,7 @@ public class FragmentContact extends Fragment {
     @SuppressLint("MissingPermission")
     private void callAdsHere() {
         if (CheckPermission.checkPermissionMethodToPhone(getActivity()) == true) {
+            setFavouriteCallSearchOnServer(getActivity(),itemID,category,"call");
             callAds(getActivity(),phoneNumber);
         }else{
             //Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.we_cant),Toast.LENGTH_SHORT).show();

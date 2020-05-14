@@ -339,6 +339,8 @@ public class ShowItemDetails extends AppCompatActivity
     private void intiContact() {
         Bundle bundle = new Bundle();
         bundle.putString("phoneN", phoneNumber);
+        bundle.putString("itemID", itemIDStr);
+        bundle.putString("category", getCategoryFromIntent());
 
         fragmentContact.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

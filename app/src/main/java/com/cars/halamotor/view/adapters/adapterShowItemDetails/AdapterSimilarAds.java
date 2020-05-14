@@ -30,6 +30,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
+
 public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.ViewHolder>{
 
     private final Context context;
@@ -65,6 +67,10 @@ public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.Vi
         holder.similar_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                setFavouriteCallSearchOnServer(context,similarAdsArrayL.get(position).getItemIdInServer()
+                        ,similarAdsArrayL.get(position).getItemType(),"seen");
+
                 Bundle bundle = new Bundle();
                 bundle.putString("category",similarAdsArrayL.get(position).getItemType());
                 bundle.putString("from","s");

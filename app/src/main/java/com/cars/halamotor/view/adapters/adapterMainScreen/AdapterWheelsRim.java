@@ -74,6 +74,9 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer()
+                        ,"Wheels_Rim","seen");
+
                 Bundle bundle = new Bundle();
                 bundle.putString("category","Wheels rim");
                 bundle.putString("from","ml");
@@ -92,6 +95,7 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim","call");
                     callAds(context,wheelsRimArrayL.get(position).getItemUserPhoneNumber());
                 }
             }

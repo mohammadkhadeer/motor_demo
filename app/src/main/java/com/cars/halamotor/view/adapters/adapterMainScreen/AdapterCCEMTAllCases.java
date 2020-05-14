@@ -77,6 +77,7 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    setFavouriteCallSearchOnServer(context,carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType(),"call");
                     callAds(context,carForSaleArrayL.get(position).getItemUserPhoneNumber());
                 }
             }
@@ -87,6 +88,9 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                setFavouriteCallSearchOnServer(context,carForSaleArrayL.get(position).getItemIdInServer()
+                        ,carForSaleArrayL.get(position).getType(),"seen");
+
                 Bundle bundle = new Bundle();
                 bundle.putString("category",carForSaleArrayL.get(position).getType());
                 bundle.putString("from","ml");
