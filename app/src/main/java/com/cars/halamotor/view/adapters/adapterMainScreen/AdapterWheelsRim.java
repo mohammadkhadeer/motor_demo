@@ -8,7 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
@@ -74,6 +73,12 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
+                        ,getDataBaseInstance(context),"seen");
+
+                insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
+                        ,getDataBaseInstance(context),"seen");
+
                 setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer()
                         ,"Wheels_Rim","seen");
 
@@ -95,6 +100,9 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
+                            ,getDataBaseInstance(context),"call");
+
                     setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim","call");
                     callAds(context,wheelsRimArrayL.get(position).getItemUserPhoneNumber());
                 }
@@ -119,7 +127,7 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
                 if (checkFavouriteOrNot1(context,wheelsRimArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertItemsToFavorite(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
+                    insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
                             ,getDataBaseInstance(context),"favorite");
 
                     setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer()

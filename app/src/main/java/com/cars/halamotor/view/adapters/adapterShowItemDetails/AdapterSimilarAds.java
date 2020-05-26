@@ -30,6 +30,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 
 public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.ViewHolder>{
@@ -67,6 +69,8 @@ public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.Vi
         holder.similar_container.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insertItemsToFCS(similarAdsArrayL.get(position).getItemIdInServer(),similarAdsArrayL.get(position).getItemType()
+                        ,getDataBaseInstance(context),"seen");
 
                 setFavouriteCallSearchOnServer(context,similarAdsArrayL.get(position).getItemIdInServer()
                         ,similarAdsArrayL.get(position).getItemType(),"seen");

@@ -8,7 +8,6 @@ import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,7 +27,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
@@ -74,6 +73,9 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
         holder.cardButtonRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insertItemsToFCS(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getPersonOrGallery()
+                        ,getDataBaseInstance(context),"seen");
+
                 setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer()
                         ,accAndJunkArrayL.get(position).getPersonOrGallery(),"seen");
 
@@ -95,6 +97,9 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    insertItemsToFCS(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getPersonOrGallery()
+                            ,getDataBaseInstance(context),"call");
+
                     setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getPersonOrGallery(),"call");
                     callAds(context,accAndJunkArrayL.get(position).getItemUserPhoneNumber());
                 }
@@ -109,7 +114,7 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
                 if (checkFavouriteOrNot1(context,accAndJunkArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertItemsToFavorite(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getItemType()
+                    insertItemsToFCS(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getItemType()
                             ,getDataBaseInstance(context),"favorite");
 
                     setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer()

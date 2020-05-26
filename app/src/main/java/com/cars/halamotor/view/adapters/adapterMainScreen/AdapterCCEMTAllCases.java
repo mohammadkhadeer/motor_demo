@@ -8,12 +8,10 @@ import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -29,7 +27,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFavorite;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
@@ -77,6 +75,9 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
+                    insertItemsToFCS(carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType()
+                            ,getDataBaseInstance(context),"call");
+
                     setFavouriteCallSearchOnServer(context,carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType(),"call");
                     callAds(context,carForSaleArrayL.get(position).getItemUserPhoneNumber());
                 }
@@ -88,6 +89,9 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                insertItemsToFCS(carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType()
+                        ,getDataBaseInstance(context),"seen");
+
                 setFavouriteCallSearchOnServer(context,carForSaleArrayL.get(position).getItemIdInServer()
                         ,carForSaleArrayL.get(position).getType(),"seen");
 
@@ -112,7 +116,7 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
                 if (checkFavouriteOrNot1(context,carForSaleArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertItemsToFavorite(carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType()
+                    insertItemsToFCS(carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType()
                             ,getDataBaseInstance(context),"favorite");
 
                     setFavouriteCallSearchOnServer(context,carForSaleArrayL.get(position).getItemIdInServer()

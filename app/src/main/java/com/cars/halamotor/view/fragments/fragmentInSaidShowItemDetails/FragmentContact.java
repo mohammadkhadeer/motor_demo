@@ -21,6 +21,8 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.permission.CheckPermission;
 
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
@@ -40,9 +42,7 @@ public class FragmentContact extends Fragment {
             phoneNumber = getArguments().getString("phoneN");
             itemID = getArguments().getString("itemID");
             category = getArguments().getString("category");
-            Log.i("TAG",phoneNumber);
-            Log.i("TAG",itemID);
-            Log.i("TAG",category);
+
         }
         super.onAttach(context);
 
@@ -69,6 +69,7 @@ public class FragmentContact extends Fragment {
     @SuppressLint("MissingPermission")
     private void callAdsHere() {
         if (CheckPermission.checkPermissionMethodToPhone(getActivity()) == true) {
+            insertItemsToFCS(itemID,category,getDataBaseInstance(getActivity()),"call");
             setFavouriteCallSearchOnServer(getActivity(),itemID,category,"call");
             callAds(getActivity(),phoneNumber);
         }else{
