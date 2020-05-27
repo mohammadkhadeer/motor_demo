@@ -6,7 +6,10 @@ import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.FavouriteCallSearch;
+import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimModel;
+import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.presnter.NumberOfAllowedAds;
 import com.cars.halamotor.view.activity.WheelsRim;
 import com.google.firebase.database.DataSnapshot;
@@ -15,11 +18,47 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
 
 public class ReadFromFireBase {
+
+    public static void getFCSItems(final List<FavouriteCallSearch> favouriteCallSearches
+            ,final FCSItems fcsItemsPresenter
+            ,int numberOfObjectNow,int max) {
+        Log.i("TAG","TAG READ PRESNTER");
+
+        List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
+        SuggestedItem suggestedItem =null;
+//        int i = numberOfObjectNow +1;
+//        for (i;i<max;i++)
+        for (int i =0;i<1;i++)
+        {
+            Query mRef = FirebaseDatabase.getInstance().getReference().child("category")
+                    .child(favouriteCallSearches.get(i).getItemType())
+                    .child(favouriteCallSearches.get(i).getIdInDatabase());
+            mRef.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    Log.i("TAG","respons"+dataSnapshot.toString());
+//                for (DataSnapshot carForSaleList: dataSnapshot.getChildren()) {
+//                    CCEMT ccemt = carForSaleList.getValue(CCEMT.class);
+//                    carForSaleL.add(ccemt);
+//                }
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    Log.i("TAG ERROR", databaseError.toString());
+
+                }
+
+            });
+        }
+
+        fcsItemsPresenter.getItemsObject(suggestedItem);
+    }
 
     public static List<CCEMT> getCarForSaleItems(final List<CCEMT> carForSaleL,int numberOfCarFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()

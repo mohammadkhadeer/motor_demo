@@ -13,7 +13,9 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.view.activity.AddItem;
+import com.cars.halamotor.view.activity.ShowFCS;
 import com.cars.halamotor.view.fragments.fragmentsInSaidProfileFragment.ProfileDetailsInfo;
 
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
@@ -61,6 +63,26 @@ public class FragmentProfile extends Fragment {
 
     private void actionListener() {
         actionListenerToPostAd();
+        actionListenerToFavourite();
+    }
+
+    private void actionListenerToFavourite() {
+        favouriteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToFCSActivity();
+            }
+        });
+    }
+
+    private void moveToFCSActivity() {
+        Bundle bundle = new Bundle();
+        bundle.putString("fcsTypeStr","favorite");
+
+        Intent intent = new Intent(getActivity(), ShowFCS.class);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     private void actionListenerToPostAd() {

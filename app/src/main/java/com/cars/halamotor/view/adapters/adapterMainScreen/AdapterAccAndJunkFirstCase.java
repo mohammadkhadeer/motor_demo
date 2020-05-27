@@ -114,7 +114,7 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
                 if (checkFavouriteOrNot1(context,accAndJunkArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertItemsToFCS(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getItemType()
+                    insertItemsToFCS(accAndJunkArrayL.get(position).getItemIdInServer(),accAndJunkArrayL.get(position).getPersonOrGallery()
                             ,getDataBaseInstance(context),"favorite");
 
                     setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer()

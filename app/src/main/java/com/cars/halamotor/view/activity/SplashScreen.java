@@ -5,9 +5,12 @@ import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
 import android.support.annotation.RequiresApi;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Window;
+import android.view.WindowManager;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
@@ -81,6 +84,7 @@ public class SplashScreen extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
+        statusBarColor();
 
         myDB = getDataBaseInstance(getApplicationContext());
         addWelcomeNotifications();
@@ -119,6 +123,15 @@ public class SplashScreen extends AppCompatActivity {
             }
         }
 
+    }
+
+    private void statusBarColor() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
+            Window window = this.getWindow();
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
+        }
     }
 
     private void selectAddress() {

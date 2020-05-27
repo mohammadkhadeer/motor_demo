@@ -24,6 +24,27 @@ public class ReadFunction {
 
     //use arrayList to get object from database
 
+    public static ArrayList<FavouriteCallSearch> getFavouriteCallSearch(Context context,String category) {
+
+        ArrayList<FavouriteCallSearch> favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
+
+        Cursor res = getDataBaseInstance(context).descendingFCS();
+
+        while (res.moveToNext()) {
+            if (category.equals(res.getString(3).replace("\n", "")))
+            {
+                FavouriteCallSearch favouriteCallSearch = new FavouriteCallSearch(
+                        res.getString(1).replace("\n", "")
+                        ,res.getString(2).replace("\n", "")
+                        ,res.getString(3).replace("\n", "")
+                );
+                favouriteCallSearchesArrayList.add(favouriteCallSearch);
+            }
+        }
+
+        return favouriteCallSearchesArrayList;
+    }
+
     public static long checkIfTableFollowing(Context context) {
         SQLiteDatabase db = getDataBaseInstance(context).getReadableDatabase();
         long count = DatabaseUtils.queryNumEntries(db, "following_table");

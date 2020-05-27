@@ -338,6 +338,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:id="@+id/fragment_profile_favourite_RL"
+                        android:background="?android:attr/selectableItemBackground"
                         >
 
                         <LinearLayout

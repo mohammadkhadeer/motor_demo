@@ -47,7 +47,6 @@ public class ListsMainScreenFragment extends Fragment {
 
     public ListsMainScreenFragment(){}
     View view;
-    ArrayList<SuggestedItem> suggestedItemsArrayL = new ArrayList<SuggestedItem>();
     ArrayList<String> insuranceArrayL = new ArrayList<String>();
     AdapterSuggestedItem adapterSuggestedItem;
     private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
@@ -63,6 +62,7 @@ public class ListsMainScreenFragment extends Fragment {
                 ,junkCarSeeAllRL;
     AdapterInsurance adapterInsurance;
 
+    ArrayList<SuggestedItem> suggestedItemsArrayL = new ArrayList<SuggestedItem>();
     ArrayList<CCEMTFirestCase> carForSaleArrayL = new ArrayList<CCEMTFirestCase>();
     ArrayList<CCEMTFirestCase> carForRentArrayL = new ArrayList<CCEMTFirestCase>();
     ArrayList<CCEMTFirestCase> carExchangeArrayL = new ArrayList<CCEMTFirestCase>();
