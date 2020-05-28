@@ -1,8 +1,10 @@
 package com.cars.halamotor.fireBaseDB;
 
+import android.os.Handler;
 import android.util.Log;
 
 import com.cars.halamotor.model.AccAndJunk;
+import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesModel;
@@ -22,42 +24,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
+import static com.cars.halamotor.functions.FCSFunctions.convertCat;
+import static com.cars.halamotor.functions.FCSFunctions.handelNumberOfObject;
 
 public class ReadFromFireBase {
 
     public static void getFCSItems(final List<FavouriteCallSearch> favouriteCallSearches
             ,final FCSItems fcsItemsPresenter
             ,int numberOfObjectNow,int max) {
-        Log.i("TAG","TAG READ PRESNTER");
+        final List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
+        SuggestedItem suggestedItem = null;
 
-        List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
-        SuggestedItem suggestedItem =null;
-//        int i = numberOfObjectNow +1;
-//        for (i;i<max;i++)
-        for (int i =0;i<1;i++)
+        for (int i =0;i<13;i++)
         {
-            Query mRef = FirebaseDatabase.getInstance().getReference().child("category")
-                    .child(favouriteCallSearches.get(i).getItemType())
+            final String category = convertCat(favouriteCallSearches.get(i).getItemType());
+            final String categoryBefore = favouriteCallSearches.get(i).getItemType();
+            Log.i("TAG","Cat "+categoryBefore);
+            Query mRef = null;
+            mRef = FirebaseDatabase.getInstance().getReference().child("category")
+                    .child(category)
                     .child(favouriteCallSearches.get(i).getIdInDatabase());
             mRef.addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
-                    Log.i("TAG","respons"+dataSnapshot.toString());
-//                for (DataSnapshot carForSaleList: dataSnapshot.getChildren()) {
-//                    CCEMT ccemt = carForSaleList.getValue(CCEMT.class);
-//                    carForSaleL.add(ccemt);
-//                }
+                    fcsItemsArrayList.add(handelNumberOfObject(dataSnapshot,categoryBefore));
                 }
                 @Override
                 public void onCancelled(DatabaseError databaseError) {
-                    Log.i("TAG ERROR", databaseError.toString());
-
                 }
-
             });
         }
-
-        fcsItemsPresenter.getItemsObject(suggestedItem);
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() { fcsItemsPresenter.getItemsObject(fcsItemsArrayList); }}, 3000);
     }
 
     public static List<CCEMT> getCarForSaleItems(final List<CCEMT> carForSaleL,int numberOfCarFromServer) {

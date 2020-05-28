@@ -23,15 +23,15 @@ public class NewFunction {
                 if (x >= y)
                 {
                     x=x;
-                    Log.i("TAG","x >= y");
+//                    Log.i("TAG","x >= y");
                 }else {
                     int d = y - x;
                     if (d >= 10)
                     {
-                        Log.i("TAG","x = x+10");
+//                        Log.i("TAG","x = x+10");
                         x = x+10;
                     }else {
-                        Log.i("TAG","x = x+d");
+//                        Log.i("TAG","x = x+d");
                         x = x +d;
                     }
                 }
@@ -39,7 +39,6 @@ public class NewFunction {
                 x = y;
             }
         }
-        Log.i("TAG","numberNow in if :"+String.valueOf(x));
         return x;
     }
 

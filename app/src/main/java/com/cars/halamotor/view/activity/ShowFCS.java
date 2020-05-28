@@ -1,16 +1,22 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
@@ -18,8 +24,10 @@ import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.FavouriteCallSearch;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.presnter.FCSItems;
+import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterFCSItems;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 import static com.cars.halamotor.dataBase.ReadFunction.getFavouriteCallSearch;
@@ -31,9 +39,16 @@ public class ShowFCS extends AppCompatActivity implements FCSItems {
 
     String fcsTypeStr;
     ArrayList<FavouriteCallSearch> favouriteCallSearchesArrayList;
+    ArrayList<SuggestedItem> suggestedItemsArrayList;
     TextView messageTV;
+    ProgressBar progressBar;
     static int numberOfObjectNow = 0;
     FCSItems fcsItems;
+
+    RecyclerView fcsItemsRecyclerView;
+    RecyclerView.LayoutManager layoutManagerFCSItems;
+    AdapterFCSItems adapterFCSItems;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,16 +62,10 @@ public class ShowFCS extends AppCompatActivity implements FCSItems {
         favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
         favouriteCallSearchesArrayList = getFavouriteCallSearch(getApplicationContext(),fcsTypeStr);
         numberOfObjectNow =handelNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size());
-    }
-
-    @Override
-    protected void onStart() {
-        super.onStart();
         checkIfHaveFavOrNot();
-        // create object from fcsItem
+        // create object from fcsItem interFace
         fcsItems = (FCSItems) this;
         getFCSItems(favouriteCallSearchesArrayList,fcsItems,numberOfObjectNow,numberOfObjectNow);
-        creteItemsObject();
     }
 
     private void checkIfHaveFavOrNot() {
@@ -70,13 +79,8 @@ public class ShowFCS extends AppCompatActivity implements FCSItems {
 
     private void init() {
         messageTV = (TextView) findViewById(R.id.show_fcs_messageTV);
-    }
-
-    private void creteItemsObject() {
-        //TAG: favorite
-        //TAG: -M4dX5wkDhnjihvfcQAA
-        //TAG: Junk car
-
+        fcsItemsRecyclerView = (RecyclerView) findViewById(R.id.show_fcs_RV);
+        progressBar = (ProgressBar) findViewById(R.id.show_fcs_progress);
     }
 
     private void getInfoFromIntent() {
@@ -118,7 +122,16 @@ public class ShowFCS extends AppCompatActivity implements FCSItems {
     }
 
     @Override
-    public void getItemsObject(SuggestedItem items) {
+    public void getItemsObject(List<SuggestedItem> items) {
+        suggestedItemsArrayList = new ArrayList<>();
+        suggestedItemsArrayList = new ArrayList<SuggestedItem>(items);
 
+        progressBar.setVisibility(View.GONE);
+        fcsItemsRecyclerView.setHasFixedSize(true);
+        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 1);
+        fcsItemsRecyclerView.setLayoutManager(mLayoutManager);
+        adapterFCSItems = new AdapterFCSItems(this, suggestedItemsArrayList);
+        fcsItemsRecyclerView.setAdapter(adapterFCSItems);
     }
+
 }
