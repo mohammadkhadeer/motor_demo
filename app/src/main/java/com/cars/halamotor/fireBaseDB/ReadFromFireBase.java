@@ -31,11 +31,10 @@ public class ReadFromFireBase {
 
     public static void getFCSItems(final List<FavouriteCallSearch> favouriteCallSearches
             ,final FCSItems fcsItemsPresenter
-            ,int numberOfObjectNow,int max) {
+            ,int numberOfObject) {
         final List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
-        SuggestedItem suggestedItem = null;
 
-        for (int i =0;i<13;i++)
+        for (int i =0;i<numberOfObject;i++)
         {
             final String category = convertCat(favouriteCallSearches.get(i).getItemType());
             final String categoryBefore = favouriteCallSearches.get(i).getItemType();

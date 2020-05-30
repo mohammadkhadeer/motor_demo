@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -25,6 +26,7 @@ import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
@@ -33,10 +35,13 @@ import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearc
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterFCSItems extends RecyclerView.Adapter<AdapterFCSItems.ViewHolder>{
+    private static final int VIEW_TYPE_LOADING = 0;
+    private static final int VIEW_TYPE_NORMAL = 1;
+    private boolean isLoaderVisible = false;
+
 
     private final Context context;
     public ArrayList<SuggestedItem> suggestedItemsArrayL ;
-    private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
     public AdapterFCSItems
             (Context context, ArrayList<SuggestedItem> suggestedItemsArrayL)
@@ -46,9 +51,16 @@ public class AdapterFCSItems extends RecyclerView.Adapter<AdapterFCSItems.ViewHo
 
     public AdapterFCSItems.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
     {
-        View view = LayoutInflater.from(viewGroup.getContext()).
-                inflate(R.layout.adapter_fcs_items, viewGroup, false);
-        return new ViewHolder(view);
+        switch (viewType) {
+            case VIEW_TYPE_NORMAL:
+                return new ViewHolder(
+                        LayoutInflater.from(context).inflate(R.layout.adapter_fcs_items, viewGroup, false));
+            case VIEW_TYPE_LOADING:
+                return new ViewHolder(
+                        LayoutInflater.from(context).inflate(R.layout.item_loading, viewGroup, false));
+            default:
+                return null;
+        }
     }
 
     @Override
@@ -56,13 +68,13 @@ public class AdapterFCSItems extends RecyclerView.Adapter<AdapterFCSItems.ViewHo
         makeAllTextViewVISIBLE(holder);
         fillImage(holder, position, context);
         fillTitleAndUserName(holder, position, context);
-        fillPrice(holder,position,context);
+        fillPrice(holder, position, context);
         changeFont(context, holder);
-        checkTypeAndFillTypeDetails(context,holder,position);
-        checkIfFavouriteOrNot(context,holder,position);
-        actionListenerToFavorite(context,holder,position);
-        actionListenerToGoShowItemDetails(context,holder,position);
-        actionListenerToCallButton(context,holder,position);
+        checkTypeAndFillTypeDetails(context, holder, position);
+        checkIfFavouriteOrNot(context, holder, position);
+        actionListenerToFavorite(context, holder, position);
+        actionListenerToGoShowItemDetails(context, holder, position);
+        actionListenerToCallButton(context, holder, position);
     }
 
     private void actionListenerToCallButton(final Context context, ViewHolder holder, final int position) {
@@ -294,10 +306,49 @@ public class AdapterFCSItems extends RecyclerView.Adapter<AdapterFCSItems.ViewHo
                 .into(holder.userImage);
     }
 
+    @Override
+    public int getItemViewType(int position) {
+        if (isLoaderVisible) {
+            return position == suggestedItemsArrayL.size() - 1 ? VIEW_TYPE_LOADING : VIEW_TYPE_NORMAL;
+        } else {
+            return VIEW_TYPE_NORMAL;
+        }
+    }
+
+    public void addItems(ArrayList<SuggestedItem> postItems) {
+        suggestedItemsArrayL.addAll(postItems);
+        notifyDataSetChanged();
+    }
+
+    public void addLoading() {
+        isLoaderVisible = true;
+        suggestedItemsArrayL.add(new SuggestedItem());
+        notifyItemInserted(suggestedItemsArrayL.size() - 1);
+    }
+
+    public void removeLoading() {
+        isLoaderVisible = false;
+        int position = suggestedItemsArrayL.size() - 1;
+        SuggestedItem item = getItem(position);
+        if (item != null) {
+            suggestedItemsArrayL.remove(position);
+            notifyItemRemoved(position);
+        }
+    }
+
+    public void clear() {
+        suggestedItemsArrayL.clear();
+        notifyDataSetChanged();
+    }
+
+    SuggestedItem getItem(int position) {
+        return suggestedItemsArrayL.get(position);
+    }
+
 
     @Override
     public int getItemCount() {
-        return suggestedItemsArrayL.size();
+        return  suggestedItemsArrayL == null ? 0 : suggestedItemsArrayL.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -337,6 +388,16 @@ public class AdapterFCSItems extends RecyclerView.Adapter<AdapterFCSItems.ViewHo
 
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_favorite_rl);
             callButtonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_call_button);
+        }
+    }
+
+    public class ProgressHolder extends RecyclerView.ViewHolder {
+        ProgressBar progressBar;
+
+        @SuppressLint("WrongViewCast")
+        public ProgressHolder(View itemView) {
+            super(itemView);
+            progressBar = (ProgressBar) itemView.findViewById(R.id.item_loding_progressBar);
         }
     }
 

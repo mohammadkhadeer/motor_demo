@@ -1,14 +1,12 @@
 package com.cars.halamotor.view.activity;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -20,11 +18,19 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.FavouriteCallSearch;
+import com.cars.halamotor.model.Paging;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.presnter.FCSItems;
-import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterFCSItems;
+import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
+import com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,23 +38,31 @@ import java.util.Locale;
 
 import static com.cars.halamotor.dataBase.ReadFunction.getFavouriteCallSearch;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getFCSItems;
+import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 import static com.cars.halamotor.functions.NewFunction.actionBarTitleInFCS;
+import static com.cars.halamotor.functions.NewFunction.getNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.handelNumberOfObject;
+import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
+import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
-public class ShowFCS extends AppCompatActivity implements FCSItems {
-
+public class ShowFCS extends AppCompatActivity {
     String fcsTypeStr;
     ArrayList<FavouriteCallSearch> favouriteCallSearchesArrayList;
-    ArrayList<SuggestedItem> suggestedItemsArrayList;
+    ArrayList<FavouriteCallSearch> favouriteCallSearchesArrayListNew;
+    public List<SuggestedItem> suggestedItemsArrayListTest;
+    public List<SuggestedItem> suggestedItemsArrayListDO;
     TextView messageTV;
     ProgressBar progressBar;
     static int numberOfObjectNow = 0;
+    static int numberOfObjectReturn = 0;
     FCSItems fcsItems;
-
+    private int currentPage = PAGE_START;
     RecyclerView fcsItemsRecyclerView;
-    RecyclerView.LayoutManager layoutManagerFCSItems;
-    AdapterFCSItems adapterFCSItems;
-    
+    private boolean isLastPage = false;
+    private boolean isLoading = false;
+    LinearLayoutManager layoutManager;
+    AdapterShowFCSItems adapterShowFCSItems;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -61,11 +75,36 @@ public class ShowFCS extends AppCompatActivity implements FCSItems {
         actionBarTitle();
         favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
         favouriteCallSearchesArrayList = getFavouriteCallSearch(getApplicationContext(),fcsTypeStr);
-        numberOfObjectNow =handelNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size());
+//        numberOfObjectNow =handelNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size());
         checkIfHaveFavOrNot();
-        // create object from fcsItem interFace
-        fcsItems = (FCSItems) this;
-        getFCSItems(favouriteCallSearchesArrayList,fcsItems,numberOfObjectNow,numberOfObjectNow);
+
+        createRV();
+        getData();
+        doApiCall();
+        actionListenerToRV();
+    }
+
+    private void actionListenerToRV() {
+        fcsItemsRecyclerView.addOnScrollListener(new PaginationListener(layoutManager) {
+            @Override
+            protected void loadMoreItems() {
+                isLoading = true;
+                numberOfObjectNow =handelNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size());
+                currentPage++;
+                getData();
+                doApiCall();
+            }
+
+            @Override
+            public boolean isLastPage() {
+                return isLastPage;
+            }
+
+            @Override
+            public boolean isLoading() {
+                return isLoading;
+            }
+        });
     }
 
     private void checkIfHaveFavOrNot() {
@@ -74,7 +113,7 @@ public class ShowFCS extends AppCompatActivity implements FCSItems {
 
     private void changeFont() {
         if (numberOfObjectNow == 0)
-        messageTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+            messageTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
     }
 
     private void init() {
@@ -121,17 +160,80 @@ public class ShowFCS extends AppCompatActivity implements FCSItems {
         abar.setHomeButtonEnabled(false);
     }
 
-    @Override
-    public void getItemsObject(List<SuggestedItem> items) {
-        suggestedItemsArrayList = new ArrayList<>();
-        suggestedItemsArrayList = new ArrayList<SuggestedItem>(items);
-
-        progressBar.setVisibility(View.GONE);
+    private void createRV() {
         fcsItemsRecyclerView.setHasFixedSize(true);
-        GridLayoutManager mLayoutManager = new GridLayoutManager(this, 1);
-        fcsItemsRecyclerView.setLayoutManager(mLayoutManager);
-        adapterFCSItems = new AdapterFCSItems(this, suggestedItemsArrayList);
-        fcsItemsRecyclerView.setAdapter(adapterFCSItems);
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
+        fcsItemsRecyclerView.setLayoutManager(layoutManager);
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this);
+        fcsItemsRecyclerView.setAdapter(adapterShowFCSItems);
     }
 
+    private void doApiCall() {
+        suggestedItemsArrayListDO = new ArrayList<>();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+                suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
+                if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
+                adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
+                if (numberOfObjectNow != favouriteCallSearchesArrayList.size()) {
+                    adapterShowFCSItems.addLoading();
+                } else {
+                    isLastPage = true;
+                }
+                isLoading = false;
+            }
+        }, 3100);
+    }
+
+    private void getData() {
+        final List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
+        suggestedItemsArrayListTest = new ArrayList<>();
+        favouriteCallSearchesArrayListNew = new ArrayList<>();
+        int numberOfObject = nowNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size());
+        favouriteCallSearchesArrayListNew = getCategoryList(numberOfObject);
+        if (numberOfObject!=1000)
+        {
+            for (int i =0;i<numberOfObject;i++)
+            {
+                final String category = convertCat(favouriteCallSearchesArrayListNew.get(i).getItemType());
+                final String categoryBefore = favouriteCallSearchesArrayListNew.get(i).getItemType();
+                Query mRef = null;
+                mRef = FirebaseDatabase.getInstance().getReference().child("category")
+                        .child(category)
+                        .child(favouriteCallSearchesArrayListNew.get(i).getIdInDatabase());
+                mRef.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(dataSnapshot,categoryBefore));
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+                });
+            }
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override public void run() {
+                suggestedItemsArrayListTest.addAll(fcsItemsArrayList);
+            }
+        }, 3000);
+    }
+
+    private ArrayList<FavouriteCallSearch> getCategoryList(int condition) {
+        ArrayList<FavouriteCallSearch> newCat = new ArrayList<>();
+        for (int j=0;j<condition;j++)
+        {
+            if (numberOfObjectReturn < favouriteCallSearchesArrayList.size())
+            {
+                newCat.add(favouriteCallSearchesArrayList.get(numberOfObjectReturn));
+                numberOfObjectReturn++;
+            }
+        }
+        return newCat;
+    }
 }
