@@ -15,7 +15,7 @@ public abstract class PaginationListener extends RecyclerView.OnScrollListener {
   /**
    * Set scrolling threshold here (for now i'm assuming 10 item in one page)
    */
-  private static final int PAGE_SIZE = 3;
+  private static final int PAGE_SIZE = 8;
 
   /**
    * Supporting only LinearLayoutManager for now.

@@ -53,8 +53,8 @@ public class ShowFCS extends AppCompatActivity {
     public List<SuggestedItem> suggestedItemsArrayListDO;
     TextView messageTV;
     ProgressBar progressBar;
-    static int numberOfObjectNow = 0;
-    static int numberOfObjectReturn = 0;
+     int numberOfObjectNow = 0;
+     int numberOfObjectReturn = 0;
     FCSItems fcsItems;
     private int currentPage = PAGE_START;
     RecyclerView fcsItemsRecyclerView;
@@ -108,6 +108,7 @@ public class ShowFCS extends AppCompatActivity {
     }
 
     private void checkIfHaveFavOrNot() {
+        if (favouriteCallSearchesArrayList.size()==0)
         messageTV.setText(getResources().getString(R.string.no_favorite));
     }
 
@@ -123,9 +124,8 @@ public class ShowFCS extends AppCompatActivity {
     }
 
     private void getInfoFromIntent() {
-//        Bundle bundle = getIntent().getExtras();
-//        fcsTypeStr =bundle.getString("fcsTypeStr");
-        fcsTypeStr = "favorite";
+        Bundle bundle = getIntent().getExtras();
+        fcsTypeStr =bundle.getString("fcsTypeStr");
     }
 
     private void statusBarColor() {
@@ -165,7 +165,7 @@ public class ShowFCS extends AppCompatActivity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         fcsItemsRecyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this);
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this,fcsTypeStr);
         fcsItemsRecyclerView.setAdapter(adapterShowFCSItems);
     }
 

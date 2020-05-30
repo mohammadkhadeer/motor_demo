@@ -1,9 +1,5 @@
 package com.cars.halamotor.functions;
 
-import android.content.Context;
-import android.util.Log;
-
-import com.cars.halamotor.R;
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.SuggestedItem;
 import com.google.firebase.database.DataSnapshot;
@@ -62,7 +58,7 @@ public class FCSFunctions {
             String itemCarPlatesSpecial = "empty";
             Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
             Long itemPrice = (Long) dataSnapshot.child("price").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("auctionOrNot").getValue();
+            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
             String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
 
 //            Log.i("TAG","itemID  "+idInDatabase);
@@ -183,7 +179,7 @@ public class FCSFunctions {
             Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
             Long itemPrice = (Long) dataSnapshot.child("price").getValue();
             String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("auctionOrNot").getValue();
+            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
 
             suggestedItem = new SuggestedItem(
                     itemBoostType
@@ -251,7 +247,7 @@ public class FCSFunctions {
             Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
             Long itemPrice = (Long) dataSnapshot.child("price").getValue();
             String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("auctionOrNot").getValue();
+            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
 
             suggestedItem = new SuggestedItem(
                     itemBoostType
@@ -318,7 +314,7 @@ public class FCSFunctions {
             Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
             Long itemPrice = (Long) dataSnapshot.child("price").getValue();
             String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("auctionOrNot").getValue();
+            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
 
             suggestedItem = new SuggestedItem(
                     itemBoostType
@@ -405,5 +401,4 @@ public class FCSFunctions {
         }
         return CategoryAfterConvert;
     }
-
 }

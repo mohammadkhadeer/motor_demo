@@ -576,6 +576,8 @@
     <string name="wheels_siz_21">21</string>
     <string name="wheels_siz_other">Other</string>
 
+    <string name="can_not_see_content">Content not available</string>
+
 
     <string name="used">Used</string>
     <string name="car_new">New</string>

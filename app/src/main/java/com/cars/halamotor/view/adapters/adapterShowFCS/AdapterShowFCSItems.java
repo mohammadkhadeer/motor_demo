@@ -17,6 +17,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
@@ -30,6 +31,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
@@ -42,10 +44,12 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
 
   private List<SuggestedItem> suggestedItemsList;
   Context context;
+  String comeFrom;
 
-  public AdapterShowFCSItems(List<SuggestedItem> postItems, Context context) {
+  public AdapterShowFCSItems(List<SuggestedItem> postItems, Context context,String comeFrom) {
     this.suggestedItemsList = postItems;
     this.context = context;
+    this.comeFrom = comeFrom;
   }
 
   @NonNull
@@ -127,7 +131,8 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
     TextView text1, text2, text3
             , text4,itemTitleTV,itemPriceTV,itemCityTV
             ,userNameTV,itemNewPriceTV,oldPriceTV;
-    RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL,cardButton,callButtonRL;
+    RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL,cardButton
+            ,callButtonRL,personInfoRL,itemInfoRL,messageInfo;
 
     ViewHolder(View itemView) {
       super(itemView);
@@ -149,6 +154,9 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
       text4RL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_text4);
       itemCityRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_container_city);
       cardButton = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_item_card_button);
+      personInfoRL = (RelativeLayout) itemView.findViewById(R.id.personInfo);
+      itemInfoRL = (RelativeLayout) itemView.findViewById(R.id.itemInfo);
+      messageInfo = (RelativeLayout) itemView.findViewById(R.id.messageInfo);
 
       itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_title);
       itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_price);
@@ -166,26 +174,95 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
 
     public void onBind(int position) {
       super.onBind(position);
-      SuggestedItem item = getObject(position);
 
-      makeAllTextViewVISIBLE(text1,text2,text3,text4,itemCityTV,text2RL,text3RL,text4RL,itemCityRL);
-      fillImage(itemImage, userImage,position, context);
-      fillTitleAndUserName(itemTitleTV,userNameTV, position);
-      fillPrice(itemPriceTV,oldPriceTV,fireIV,itemNewPriceTV, position, context);
-      changeFont(context,text1,text2,text3,text4,itemCityTV,userNameTV,itemPriceTV,itemTitleTV);
-      checkTypeAndFillTypeDetails(context, text1,text2,text3,text4,text2RL,text3RL,text4RL
-              ,itemCityTV,itemCityRL, position);
-      favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-//      actionListenerToFavorite(context, holder, position);
-      actionListenerToGoShowItemDetails(context, cardButton, position);
-      actionListenerToCallButton(context, callButtonRL, position);
+      if (getObject(position).getItemActiveOrNot().equals("1")
+          && getObject(position).getItemBurnedPrice().equals("0")) {
+        messageInfo.setVisibility(View.GONE);
+        itemInfoRL.setVisibility(View.VISIBLE);
+        personInfoRL.setVisibility(View.VISIBLE);
+        makeAllTextViewVISIBLE(text1, text2, text3, text4, itemCityTV, text2RL, text3RL, text4RL, itemCityRL);
+        fillImage(itemImage, userImage, position, context);
+        fillTitleAndUserName(itemTitleTV, userNameTV, position);
+        fillPrice(itemPriceTV, oldPriceTV, fireIV, itemNewPriceTV, position, context);
+        changeFont(context, text1, text2, text3, text4, itemCityTV, userNameTV, itemPriceTV, itemTitleTV);
+        checkTypeAndFillTypeDetails(context, text1, text2, text3, text4, text2RL, text3RL, text4RL
+                , itemCityTV, itemCityRL, position);
+        checkIfFavouriteOrNot(context,favoriteIV,favoriteRL,position);
+        actionListenerToFavorite(context, favoriteRL, position,favoriteIV);
+        actionListenerToGoShowItemDetails(context, cardButton, position);
+        actionListenerToCallButton(context, callButtonRL, position);
+      }else{
+        personInfoRL.setVisibility(View.GONE);
+        itemInfoRL.setVisibility(View.GONE);
+        messageInfo.setVisibility(View.VISIBLE);
+
+        fillImageView(itemImage);
+      }
 
     }
+  }
+
+  private void checkIfFavouriteOrNot(Context context, ImageView favoriteIV, RelativeLayout favoriteRL
+          , int position) {
+    if (comeFrom.equals("favorite"))
+    {
+          favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+    }else{
+      if (checkFavouriteOrNot1(context,getItem(position).getItemIdInServer()).equals("not_favorite"))
+      {
+        favoriteIV.setBackgroundResource(R.drawable.item_favu);
+      }else
+      {
+        favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+      }
+    }
+  }
+
+  private void fillImageView(ImageView itemImage) {
+    String noImage = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
+    Picasso.with(context).load(noImage)
+            .config(Bitmap.Config.RGB_565)
+            .fit().centerCrop()
+            .into(itemImage);
   }
 
   private SuggestedItem getObject(int position){
     SuggestedItem item = suggestedItemsList.get(position);
     return item;
+  }
+
+  private void actionListenerToFavorite(final Context context, RelativeLayout favoriteRL
+          , final int position, final ImageView favoriteIV) {
+    favoriteRL.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (comeFrom.equals("favorite"))
+        {
+          getDataBaseInstance(context).deleteFCS(getObject(position).getItemIdInServer());
+          removeAt(position);
+        }else{
+          if (checkFavouriteOrNot1(context,getItem(position).getItemIdInServer()).equals("not_favorite"))
+          {
+            favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
+            insertItemsToFCS(getItem(position).getItemIdInServer(),getItem(position).getItemType()
+                    ,getDataBaseInstance(context),"favorite");
+
+            setFavouriteCallSearchOnServer(context,getItem(position).getItemIdInServer()
+                    ,getItem(position).getItemType(),"favorite");
+          }else
+          {
+            favoriteIV.setBackgroundResource(R.drawable.item_favu);
+            getDataBaseInstance(context).deleteFCS(getItem(position).getItemIdInServer());
+          }
+        }
+      }
+    });
+  }
+
+  public void removeAt(int position) {
+    suggestedItemsList.remove(position);
+    notifyItemRemoved(position);
+    notifyItemRangeChanged(position, suggestedItemsList.size());
   }
 
   private void actionListenerToCallButton(final Context context, RelativeLayout callButtonRL, final int position) {
@@ -207,15 +284,20 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
     cardButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        Bundle bundle = new Bundle();
-        bundle.putString("category",getObject(position).getItemType());
-        bundle.putString("from","stu");
-        bundle.putString("itemID",getObject(position).getItemIdInServer());
+        if (getObject(position).getItemActiveOrNot().equals("1")
+                && getObject(position).getItemBurnedPrice().equals("0")) {
+          Bundle bundle = new Bundle();
+          bundle.putString("category", getObject(position).getItemType());
+          bundle.putString("from", "stu");
+          bundle.putString("itemID", getObject(position).getItemIdInServer());
 
-        Intent intent = new Intent(context, ShowItemDetails.class);
-        intent.putExtras(bundle);
-        ((Activity)context).startActivity(intent);
-        ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+          Intent intent = new Intent(context, ShowItemDetails.class);
+          intent.putExtras(bundle);
+          ((Activity) context).startActivity(intent);
+          ((Activity) context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+        }else{
+          Toast.makeText(context,context.getResources().getString(R.string.can_not_see_content),Toast.LENGTH_SHORT).show();
+        }
 
       }
     });

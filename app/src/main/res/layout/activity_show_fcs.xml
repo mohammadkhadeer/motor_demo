@@ -12,8 +12,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/show_fcs_messageTV"
         android:textColor="@color/colorBlack"
-        android:text="Message"
-        android:visibility="gone"
         android:textSize="28dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -37,7 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/show_fcs_RV"
-        android:layout_marginTop="12dp"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="0dp"
         />

@@ -14,7 +14,7 @@ import com.cars.halamotor.model.Paging;
 
 public class NewFunction {
 
-    private static final int PAGE_SIZEH = 3;
+    private static final int PAGE_SIZEH = 8;
 
     public static int handelNumberOfObject(int x ,int y) {
         if (y ==0)
@@ -57,8 +57,6 @@ public class NewFunction {
                 {
                     z =1000;
                 }else {
-                    Log.i("TAG","x = "+x);
-                    Log.i("TAG","y = "+y);
                     int d = y - x;
                     if (d >= PAGE_SIZEH)
                     {
