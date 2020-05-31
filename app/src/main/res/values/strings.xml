@@ -72,7 +72,7 @@
     <string name="fill_description">Please fill car description</string>
     <string name="description">Description</string>
     <string name="no_options">No options</string>
-    <string name="no_favorite">No favorite</string>
+    <string name="no_favorite">No items</string>
     <string name="general_tips">General tips</string>
     <string name="general_tips1">\. Only meet in public places</string>
     <string name="general_tips2">\. Never pay or transfer money in advance</string>
@@ -109,6 +109,7 @@
     <string name="recent_viewed_ads">Recent Viewed Ads</string>
     <string name="recent_searches">Recent Searches</string>
     <string name="favourite_ads">Favourite Ads</string>
+    <string name="calls_ads">Calls Ads</string>
     <string name="my_ad">My Ad</string>
     <string name="my_wallet">My Wallet</string>
     <string name="invite_your_friends">Invite your Friends</string>

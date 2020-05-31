@@ -109,7 +109,10 @@ public class ShowFCS extends AppCompatActivity {
 
     private void checkIfHaveFavOrNot() {
         if (favouriteCallSearchesArrayList.size()==0)
-        messageTV.setText(getResources().getString(R.string.no_favorite));
+        {
+            progressBar.setVisibility(View.GONE);
+            messageTV.setText(getResources().getString(R.string.no_favorite));
+        }
     }
 
     private void changeFont() {
@@ -179,7 +182,7 @@ public class ShowFCS extends AppCompatActivity {
                 suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
                 if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
                 adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
-                if (numberOfObjectNow != favouriteCallSearchesArrayList.size()) {
+                if (getNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size())==false) {
                     adapterShowFCSItems.addLoading();
                 } else {
                     isLastPage = true;

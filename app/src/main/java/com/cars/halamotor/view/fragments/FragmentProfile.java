@@ -12,6 +12,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.view.activity.AddItem;
@@ -26,9 +27,11 @@ public class FragmentProfile extends Fragment {
     final Fragment fragmentLoginWithSocialMedia = new ProfileDetailsInfo();
 
     RelativeLayout postAdRL,recentVRL,recentSRL,favouriteRL,myAdsRL
-                   ,myWalletRL,inviteRL,helpRL,contactRL,aboutRL,settingRL;
+            ,myWalletRL,inviteRL,helpRL,contactRL,aboutRL
+            ,settingRL,callsRL,messageRL;
     TextView postAdTV,recentVTV,recentSTV,favouriteTV,myAdsTV
-            ,myWalletTV,inviteTV,helpTV,contactTV,aboutTV,settingTV;
+            ,myWalletTV,inviteTV,helpTV,contactTV,aboutTV
+            ,settingTV,callsTV,messageTV;
 
     View view;
 
@@ -59,25 +62,67 @@ public class FragmentProfile extends Fragment {
         contactTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
         aboutTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
         settingTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+        callsTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+        messageTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
     }
 
     private void actionListener() {
         actionListenerToPostAd();
+        actionListenerToResarchAds();
         actionListenerToFavourite();
+        actionListenerRecentViewedAds();
+        actionListenerToCallButton();
+        actionListenerToMessage();
+    }
+
+    private void actionListenerToResarchAds() {
+        recentSRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToFCSActivity("search");
+            }
+        });
+    }
+
+    private void actionListenerToMessage() {
+        messageRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToFCSActivity("message");
+            }
+        });
+    }
+
+    private void actionListenerToCallButton() {
+        callsRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToFCSActivity("call");
+            }
+        });
+    }
+
+    private void actionListenerRecentViewedAds() {
+        recentVRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToFCSActivity("seen");
+            }
+        });
     }
 
     private void actionListenerToFavourite() {
         favouriteRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                moveToFCSActivity();
+                moveToFCSActivity("favorite");
             }
         });
     }
 
-    private void moveToFCSActivity() {
+    private void moveToFCSActivity(String fcsTypeStr) {
         Bundle bundle = new Bundle();
-        bundle.putString("fcsTypeStr","favorite");
+        bundle.putString("fcsTypeStr",fcsTypeStr);
 
         Intent intent = new Intent(getActivity(), ShowFCS.class);
         intent.putExtras(bundle);
@@ -117,6 +162,8 @@ public class FragmentProfile extends Fragment {
         contactRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_contact_us_RL);
         aboutRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_about_app_RL);
         settingRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_setting_RL);
+        callsRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_calls_RL);
+        messageRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_message_RL);
 
         postAdTV = (TextView) view.findViewById(R.id.fragment_profile_post_free_TV);
         recentVTV = (TextView) view.findViewById(R.id.fragment_profile_recent_v_TV);
@@ -129,6 +176,8 @@ public class FragmentProfile extends Fragment {
         contactTV = (TextView) view.findViewById(R.id.fragment_profile_contact_us_TV);
         aboutTV = (TextView) view.findViewById(R.id.fragment_profile_about_app_TV);
         settingTV = (TextView) view.findViewById(R.id.fragment_profile_setting_TV);
+        callsTV = (TextView) view.findViewById(R.id.fragment_profile_call_TV);
+        messageTV = (TextView) view.findViewById(R.id.fragment_profile_message_TV);
     }
 
     private void head() {

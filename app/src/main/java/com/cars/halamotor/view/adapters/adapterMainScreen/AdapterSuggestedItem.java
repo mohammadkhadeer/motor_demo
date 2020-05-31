@@ -77,7 +77,7 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
             @Override
             public void onClick(View v) {
                 insertItemsToFCS(suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType()
-                        ,getDataBaseInstance(context),"seen");
+                        ,getDataBaseInstance(context),"call");
 
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
                     setFavouriteCallSearchOnServer(context,suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType(),"call");
