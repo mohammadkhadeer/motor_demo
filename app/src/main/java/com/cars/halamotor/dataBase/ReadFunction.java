@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import com.cars.halamotor.model.AccAndJunkFirstCase;
+import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.FavouriteCallSearch;
@@ -21,6 +22,76 @@ import java.util.ArrayList;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 
 public class ReadFunction {
+
+    public static ArrayList<FavouriteCallSearch>
+    getFCSCallSearch(ArrayList<BrowsingFilter> favouriteCallSearchesArrayListFilter
+            ,Context context) {
+
+        ArrayList<FavouriteCallSearch> favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
+
+        Cursor res = getDataBaseInstance(context).descendingFCS();
+
+        if (favouriteCallSearchesArrayListFilter.isEmpty() || favouriteCallSearchesArrayListFilter.size() ==4)
+        {
+            while (res.moveToNext()) {
+                FavouriteCallSearch favouriteCallSearch = new FavouriteCallSearch(
+                        res.getString(1).replace("\n", "")
+                        ,res.getString(2).replace("\n", "")
+                        ,res.getString(3).replace("\n", "")
+                );
+                favouriteCallSearchesArrayList.add(favouriteCallSearch);
+            }
+        }
+        if (favouriteCallSearchesArrayListFilter.size() ==1)
+        {
+            while (res.moveToNext()) {
+                if (favouriteCallSearchesArrayListFilter.get(0).getFilterContentStr()
+                        .equals(res.getString(3).replace("\n", "")))
+                {
+                    FavouriteCallSearch favouriteCallSearch = new FavouriteCallSearch(
+                            res.getString(1).replace("\n", "")
+                            ,res.getString(2).replace("\n", "")
+                            ,res.getString(3).replace("\n", "")
+                    );
+                    favouriteCallSearchesArrayList.add(favouriteCallSearch);
+                }
+            }
+        }
+        if (favouriteCallSearchesArrayListFilter.size() ==2)
+        {
+            while (res.moveToNext()) {
+                if (favouriteCallSearchesArrayListFilter.get(0).getFilterContentStr().equals(res.getString(3).replace("\n", "")) ||
+                        favouriteCallSearchesArrayListFilter.get(1).getFilterContentStr().equals(res.getString(3).replace("\n", "")))
+                {
+                    FavouriteCallSearch favouriteCallSearch = new FavouriteCallSearch(
+                            res.getString(1).replace("\n", "")
+                            ,res.getString(2).replace("\n", "")
+                            ,res.getString(3).replace("\n", "")
+                    );
+                    favouriteCallSearchesArrayList.add(favouriteCallSearch);
+                }
+            }
+        }
+        if (favouriteCallSearchesArrayListFilter.size() ==3)
+        {
+            while (res.moveToNext()) {
+                if (favouriteCallSearchesArrayListFilter.get(0).getFilterContentStr().equals(res.getString(3).replace("\n", "")) ||
+                        favouriteCallSearchesArrayListFilter.get(1).getFilterContentStr().equals(res.getString(3).replace("\n", "")) ||
+                        favouriteCallSearchesArrayListFilter.get(2).getFilterContentStr().equals(res.getString(3).replace("\n", ""))
+                )
+                {
+                    FavouriteCallSearch favouriteCallSearch = new FavouriteCallSearch(
+                            res.getString(1).replace("\n", "")
+                            ,res.getString(2).replace("\n", "")
+                            ,res.getString(3).replace("\n", "")
+                    );
+                    favouriteCallSearchesArrayList.add(favouriteCallSearch);
+                }
+            }
+        }
+
+        return favouriteCallSearchesArrayList;
+    }
 
     //use arrayList to get object from database
 

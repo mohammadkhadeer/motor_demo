@@ -10,11 +10,37 @@ import android.support.v4.app.ActivityCompat;
 import android.util.Log;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.model.Paging;
+import com.cars.halamotor.view.fragments.browsingFragment.BrowsingItems;
+
+import java.util.ArrayList;
 
 public class NewFunction {
 
     private static final int PAGE_SIZEH = 8;
+
+    public static ArrayList<BrowsingFilter> fillBrowsingArrayL(Context context)
+    {
+        ArrayList<BrowsingFilter> browsingArrayL = new ArrayList<BrowsingFilter>();
+
+//        BrowsingFilter browsingItemsAll = new BrowsingFilter("all", context.getResources().getString(R.string.all),true);
+        BrowsingFilter browsingItemsCall = new BrowsingFilter("call", context.getResources().getString(R.string.call),false);
+        BrowsingFilter browsingItemsFavorite = new BrowsingFilter("favorite", context.getResources().getString(R.string.favourite),false);
+        BrowsingFilter browsingItemsMessage = new BrowsingFilter("message", context.getResources().getString(R.string.tab_message),false);
+        BrowsingFilter browsingItemsSearch = new BrowsingFilter("search", context.getResources().getString(R.string.recent_searches),false);
+        BrowsingFilter browsingItemsSeen = new BrowsingFilter("seen", context.getResources().getString(R.string.seen),false);
+
+//        browsingArrayL.add(browsingItemsAll);
+        browsingArrayL.add(browsingItemsCall);
+        browsingArrayL.add(browsingItemsFavorite);
+        browsingArrayL.add(browsingItemsMessage);
+        browsingArrayL.add(browsingItemsSearch);
+        browsingArrayL.add(browsingItemsSeen);
+
+
+        return browsingArrayL;
+    }
 
     public static int handelNumberOfObject(int x ,int y) {
         if (y ==0)

@@ -1,27 +1,24 @@
-package com.cars.halamotor.view.activity;
+package com.cars.halamotor.view.fragments.browsingFragment;
 
-import android.graphics.Typeface;
-import android.os.Build;
-import android.os.Handler;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.model.FavouriteCallSearch;
-import com.cars.halamotor.model.Paging;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
@@ -34,27 +31,28 @@ import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
+import static com.cars.halamotor.dataBase.ReadFunction.getFCSCallSearch;
 import static com.cars.halamotor.dataBase.ReadFunction.getFavouriteCallSearch;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getFCSItems;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
-import static com.cars.halamotor.functions.NewFunction.actionBarTitleInFCS;
 import static com.cars.halamotor.functions.NewFunction.getNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.handelNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
 import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
-public class ShowFCS extends AppCompatActivity {
-    String fcsTypeStr;
+public class BrowsingItems extends Fragment {
+
+    public BrowsingItems(){}
+
+    String fcsTypeStr = "favorite" ;
     ArrayList<FavouriteCallSearch> favouriteCallSearchesArrayList;
     ArrayList<FavouriteCallSearch> favouriteCallSearchesArrayListNew;
     public List<SuggestedItem> suggestedItemsArrayListTest;
     public List<SuggestedItem> suggestedItemsArrayListDO;
     TextView messageTV;
     ProgressBar progressBar;
-     int numberOfObjectNow = 0;
-     int numberOfObjectReturn = 0;
+    int numberOfObjectNow = 0;
+    int numberOfObjectReturn = 0;
     FCSItems fcsItems;
     private int currentPage = PAGE_START;
     RecyclerView fcsItemsRecyclerView;
@@ -62,82 +60,34 @@ public class ShowFCS extends AppCompatActivity {
     private boolean isLoading = false;
     LinearLayoutManager layoutManager;
     AdapterShowFCSItems adapterShowFCSItems;
+    View view;
+    EditText editText;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_fcs);
-
-        statusBarColor();
-        init();
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_message, container, false);
+        inti();
         changeFont();
         getInfoFromIntent();
-        actionBarTitle();
         favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
-        favouriteCallSearchesArrayList = getFavouriteCallSearch(getApplicationContext(),fcsTypeStr);
-//        numberOfObjectNow =handelNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size());
+        favouriteCallSearchesArrayList = getFavouriteCallSearch(getActivity(),fcsTypeStr);
         checkIfHaveFavOrNot();
-
         createRV();
         getData();
         doApiCall();
         actionListenerToRV();
+
+        return view;
     }
 
-    private void checkIfHaveFavOrNot() {
-        if (favouriteCallSearchesArrayList.size()==0)
-        {
-            progressBar.setVisibility(View.GONE);
-            messageTV.setText(getResources().getString(R.string.no_favorite));
-        }
-    }
-
-    private void changeFont() {
-        if (numberOfObjectNow == 0)
-            messageTV.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
-    }
-
-    private void init() {
-        messageTV = (TextView) findViewById(R.id.show_fcs_messageTV);
-        fcsItemsRecyclerView = (RecyclerView) findViewById(R.id.show_fcs_RV);
-        progressBar = (ProgressBar) findViewById(R.id.show_fcs_progress);
-    }
-
-    private void getInfoFromIntent() {
-        Bundle bundle = getIntent().getExtras();
-        fcsTypeStr =bundle.getString("fcsTypeStr");
-    }
-
-    private void statusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
-        }
-    }
-
-    private void actionBarTitle() {
-        Typeface typeface;
-        final ActionBar abar = getSupportActionBar();
-        View viewActionBar = getLayoutInflater().inflate(R.layout.actionbar_custom_title_view_centered, null);
-        ActionBar.LayoutParams params = new ActionBar.LayoutParams(//Center the textview in the ActionBar !
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                ActionBar.LayoutParams.MATCH_PARENT,
-                Gravity.CENTER);
-        if (Locale.getDefault().getLanguage().equals("ar")) {
-            typeface = Typeface.createFromAsset(getAssets(), "GE_DINAR_ONE_LIGHT.TTF");
-        }else{
-            typeface = Typeface.createFromAsset(getAssets(), "NTAILU.TTF");
-        }
-        TextView textviewTitle = (TextView) viewActionBar.findViewById(R.id.actionbar_textview);
-        textviewTitle.setText(actionBarTitleInFCS(getApplicationContext(),fcsTypeStr));
-        textviewTitle.setTypeface(typeface);
-        abar.setCustomView(viewActionBar, params);
-        abar.setDisplayShowCustomEnabled(true);
-        abar.setDisplayShowTitleEnabled(false);
-        abar.setDisplayHomeAsUpEnabled(false);
-        abar.setHomeButtonEnabled(false);
+    private void refresh() {
+        numberOfObjectNow = 0;
+        numberOfObjectReturn = 0;
+        currentPage = PAGE_START;
+        isLastPage = false;
+        adapterShowFCSItems.clear();
+        doApiCall();
     }
 
     private void actionListenerToRV() {
@@ -166,9 +116,9 @@ public class ShowFCS extends AppCompatActivity {
     private void createRV() {
         fcsItemsRecyclerView.setHasFixedSize(true);
         // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(getActivity());
         fcsItemsRecyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this,fcsTypeStr);
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),fcsTypeStr);
         fcsItemsRecyclerView.setAdapter(adapterShowFCSItems);
     }
 
@@ -179,6 +129,7 @@ public class ShowFCS extends AppCompatActivity {
             @Override
             public void run() {
                 progressBar.setVisibility(View.GONE);
+//                fcsItemsRecyclerView.setVisibility(View.VISIBLE);
                 suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
                 if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
                 adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
@@ -239,4 +190,31 @@ public class ShowFCS extends AppCompatActivity {
         }
         return newCat;
     }
+
+    private void checkIfHaveFavOrNot() {
+        if (favouriteCallSearchesArrayList.size()==0)
+        {
+            progressBar.setVisibility(View.GONE);
+            messageTV.setText(getResources().getString(R.string.no_favorite));
+        }
+    }
+
+    private void getInfoFromIntent() {
+//        Bundle bundle = getIntent().getExtras();
+//        fcsTypeStr =bundle.getString("fcsTypeStr");
+        fcsTypeStr = "favorite";
+    }
+
+    private void inti() {
+        messageTV = (TextView) view.findViewById(R.id.show_fcs_messageTV);
+        fcsItemsRecyclerView = (RecyclerView) view.findViewById(R.id.show_fcs_RV);
+        progressBar = (ProgressBar) view.findViewById(R.id.show_fcs_progress);
+        editText = (EditText) view.findViewById(R.id.edit_text);
+    }
+
+    private void changeFont() {
+        if (numberOfObjectNow == 0)
+            messageTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+    }
+
 }

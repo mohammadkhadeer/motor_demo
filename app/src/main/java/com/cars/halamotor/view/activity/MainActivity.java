@@ -23,9 +23,12 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.presnter.OnNewNotification;
 import com.cars.halamotor.view.fragments.FragmentHomeScreen;
-import com.cars.halamotor.view.fragments.FragmentMessage;
+import com.cars.halamotor.view.fragments.browsingFragment.BrowsingItems;
+import com.cars.halamotor.view.fragments.browsingFragment.FilterBrowsingFragment;
+import com.cars.halamotor.view.fragments.browsingFragment.FragmentBrowsing;
 import com.cars.halamotor.view.fragments.FragmentNotification;
 import com.cars.halamotor.view.fragments.FragmentProfile;
 import com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.ListsMainScreenFragment;
@@ -35,13 +38,15 @@ import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import java.util.ArrayList;
+
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateAllUnreadNotificationsToChecked;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity  {
     private TextView appNameTV;
     DatabaseReference mDatabase;
     BottomBar bottomBar;
@@ -49,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     RelativeLayout headRL;
 
     final Fragment fragmentHome = new FragmentHomeScreen();
-    final Fragment fragmentMessage = new FragmentMessage();
+    final Fragment fragmentMessage = new FragmentBrowsing();
     final Fragment fragmentNotification = new FragmentNotification();
     final Fragment fragmentProfile = new FragmentProfile();
     final FragmentManager fm = getSupportFragmentManager();
@@ -146,7 +151,7 @@ public class MainActivity extends AppCompatActivity {
 
         intiBBT();
 
-        messagesBBT.setBadgeCount(12);
+        //messagesBBT.setBadgeCount(12);
     }
 
     private void intiBBT() {
