@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -17,9 +18,19 @@ import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemAccAndJunk;
+import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +45,17 @@ import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesItemTab
 import static com.cars.halamotor.dataBase.InsertFunctions.insertNotificationTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInWheelsRimTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimItemTable;
+import static com.cars.halamotor.fireBaseDB.FireStorePaths.getCarForSaleItemsStore;
+import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addAccessories;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addCarForExchangeStore;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addCarForRentStore;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addCarForSaleStore;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addItemPlates;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addJunkCar;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addMotorcycle;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addTrucks;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addWheelsRim;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getAccessoriesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForRentItems;
@@ -43,6 +65,15 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getMotorcycleItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getPlatesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getTruckItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getAccessoriesFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleExchangeFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleItemsFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleRentFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getJunkCarPath;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getMotorcycleFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getPlatesFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getTrucksFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getWheelsRimFireStore;
 import static com.cars.halamotor.functions.Functions.getNotification;
 import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.getUserAddressFromSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
@@ -53,31 +84,42 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkI
 
 public class SplashScreen extends AppCompatActivity {
 
-    List<CCEMT> carForRentList = new ArrayList<>();
-    List<CCEMT> carForSaleList = new ArrayList<>();
-    List<CCEMT> carForExchangeList = new ArrayList<>();
-    List<CCEMT> motorcycleList = new ArrayList<>();
-    List<CCEMT> truckList = new ArrayList<>();
-    List<CarPlatesModel> carPlatesList = new ArrayList<>();
-    List<WheelsRimModel> wheelsRimList = new ArrayList<>();
-    List<AccAndJunk> accessoriesArrayL = new ArrayList<>();
-    List<AccAndJunk> junkArrayL = new ArrayList<>();
+    List<ItemCCEMT> carForExchangeListFireStore = new ArrayList<>();
+    List<ItemCCEMT> carForSaleListFireStore = new ArrayList<>();
+    List<ItemCCEMT> carForRentListFireStore = new ArrayList<>();
+    List<ItemCCEMT> motorcycleListFireStore = new ArrayList<>();
+    List<ItemCCEMT> truckListFireStore = new ArrayList<>();
 
-    List<CCEMT> carForRentListIndependent = new ArrayList<>();
-    List<CCEMT> carForSaleListIndependent = new ArrayList<>();
-    List<CCEMT> carForExchangeListIndependent = new ArrayList<>();
-    List<CCEMT> motorcycleListIndependent = new ArrayList<>();
-    List<CCEMT> truckListIndependent = new ArrayList<>();
-    List<CarPlatesModel> carPlatesListIndependent = new ArrayList<>();
-    List<WheelsRimModel> wheelsRimListIndependent = new ArrayList<>();
-    List<AccAndJunk> accessoriesArrayLIndependent = new ArrayList<>();
-    List<AccAndJunk> junkArrayLIndependent = new ArrayList<>();
+    List<ItemPlates> carPlatesListFireStore = new ArrayList<>();
+    List<ItemWheelsRim> wheelsRimListFireStore = new ArrayList<>();
+    List<ItemAccAndJunk> accessoriesArrayLFireStore = new ArrayList<>();
+    List<ItemAccAndJunk> junkArrayLFireStore = new ArrayList<>();
+
+    List<ItemCCEMT> carForRentList = new ArrayList<>();
+    List<ItemCCEMT> carForSaleList = new ArrayList<>();
+    List<ItemCCEMT> carForExchangeList = new ArrayList<>();
+    List<ItemCCEMT> motorcycleList = new ArrayList<>();
+    List<ItemCCEMT> truckList = new ArrayList<>();
+    List<ItemPlates> carPlatesList = new ArrayList<>();
+    List<ItemWheelsRim> wheelsRimList = new ArrayList<>();
+    List<ItemAccAndJunk> accessoriesArrayL = new ArrayList<>();
+    List<ItemAccAndJunk> junkArrayL = new ArrayList<>();
+
+//    List<CCEMT> carForRentListIndependent = new ArrayList<>();
+//    List<CCEMT> carForSaleListIndependent = new ArrayList<>();
+//    List<CCEMT> carForExchangeListIndependent = new ArrayList<>();
+//    List<CCEMT> motorcycleListIndependent = new ArrayList<>();
+//    List<CCEMT> truckListIndependent = new ArrayList<>();
+//    List<CarPlatesModel> carPlatesListIndependent = new ArrayList<>();
+//    List<WheelsRimModel> wheelsRimListIndependent = new ArrayList<>();
+//    List<AccAndJunk> accessoriesArrayLIndependent = new ArrayList<>();
+//    List<AccAndJunk> junkArrayLIndependent = new ArrayList<>();
 
     DBHelper myDB;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
-    int suggested=2700,normal=3700;
+    int suggested=3800,normal=3700;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -98,16 +140,6 @@ public class SplashScreen extends AppCompatActivity {
             {
                 selectAddress();
             }else {
-                //first fill suggested to you list
-                getJunkCar();
-                getAccessories();
-                getWheelsRim();
-                getCarPlates();
-                getTrucks();
-                getMotorcycle();
-                getCarForRent();
-                getCarForSale();
-                getCarExchange();
                 //////////////Independent list in main screen 9 item in every list
                 getCarExchangeIndependent();
                 getCarForSaleIndependent();
@@ -118,8 +150,19 @@ public class SplashScreen extends AppCompatActivity {
                 getCarPlatesIndependent();
                 getAccessoriesIndependent();
                 getJunkCarIndependent();
+                //first fill suggested to you list
+                getJunkCar();
+                getAccessories();
+                getWheelsRim();
+                getCarPlates();
+                getTrucks();
+                getMotorcycle();
+                getCarForRent();
+                getCarForSale();
+                getCarExchange();
 
                 transportToMainActivity();
+                //test();
             }
         }
 
@@ -168,7 +211,7 @@ public class SplashScreen extends AppCompatActivity {
         {
             NotificationComp welcomeNotification = getNotification(
                     "welcome", "Hala Motor" ,this,"welcome","welcome","welcome"
-                    ,"R.drawable.logo"
+                    ,"R.dra  wable.logo"
             );
             if (insertNotificationTable(welcomeNotification,getDataBaseInstance(this)) == true)
             {
@@ -179,26 +222,26 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getJunkCarIndependent() {
-        junkArrayLIndependent = getJunkCarItems(junkArrayLIndependent,9);
+        junkArrayLFireStore = getJunkCarPath(9);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                insertAccAndJunkItemInAccAndJunk(junkArrayLIndependent);
+                insertAccAndJunkItemInAccAndJunk(junkArrayLFireStore);
             }
         }, normal);
     }
 
     private void getAccessoriesIndependent() {
-        accessoriesArrayLIndependent = getAccessoriesItems(accessoriesArrayLIndependent,9);
+        accessoriesArrayLFireStore = getAccessoriesFireStore(9);
         new Handler().postDelayed(new Runnable() {
             @Override
-            public void run() { insertAccAndJunkItemInAccAndJunk(accessoriesArrayLIndependent);
+            public void run() { insertAccAndJunkItemInAccAndJunk(accessoriesArrayLFireStore);
             }
         }, normal);
     }
 
-    private void insertAccAndJunkItemInAccAndJunk(List<AccAndJunk> accAndJunksArrayLIndependent) {
+    private void insertAccAndJunkItemInAccAndJunk(List<ItemAccAndJunk> accAndJunksArrayLIndependent) {
         for (int i=0;i<accAndJunksArrayLIndependent.size();i++)
         {
             insertAccAndJunkItemInAccAndJunkTable(accAndJunksArrayLIndependent.get(i),myDB);
@@ -206,16 +249,16 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getCarPlatesIndependent() {
-        carPlatesListIndependent = getPlatesItems(carPlatesListIndependent,9);
+        carPlatesListFireStore = getPlatesFireStore(9);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                insertCarPlatesToCarPlatesTable(carPlatesListIndependent);
+                insertCarPlatesToCarPlatesTable(carPlatesListFireStore);
             }
         }, normal);
     }
 
-    private void insertCarPlatesToCarPlatesTable(List<CarPlatesModel> carPlatesListIndependent) {
+    private void insertCarPlatesToCarPlatesTable(List<ItemPlates> carPlatesListIndependent) {
         for (int i=0;i<carPlatesListIndependent.size();i++)
         {
             insertCarPlatesItemInCarPlatesTable(carPlatesListIndependent.get(i),myDB);
@@ -223,16 +266,16 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getWheelsRimIndependent() {
-        wheelsRimListIndependent = getWheelsRimItems(wheelsRimListIndependent,9);
+        wheelsRimListFireStore = getWheelsRimFireStore(9);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                insertWheelsRimToWheelsRimTable(wheelsRimListIndependent);
+                insertWheelsRimToWheelsRimTable(wheelsRimListFireStore);
             }
         }, normal);
     }
 
-    private void insertWheelsRimToWheelsRimTable(List<WheelsRimModel> wheelsRimListIndependent) {
+    private void insertWheelsRimToWheelsRimTable(List<ItemWheelsRim> wheelsRimListIndependent) {
         for (int i=0;i<wheelsRimListIndependent.size();i++)
         {
             insertWheelsRimInWheelsRimTable(wheelsRimListIndependent.get(i),myDB);
@@ -240,59 +283,59 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getTrucksIndependent() {
-        truckListIndependent = getTruckItems(truckListIndependent,9);
+        truckListFireStore = getTrucksFireStore(9);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                insertCarForSaleToCCMETTable(truckListIndependent);
+                insertCarForSaleToCCMETTable(truckListFireStore);
             }
         }, normal);
     }
 
     private void getMotorcycleIndependent() {
-        motorcycleListIndependent = getMotorcycleItems(motorcycleListIndependent,9);
+        motorcycleListFireStore = getMotorcycleFireStore(9);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                insertCarForSaleToCCMETTable(motorcycleListIndependent);
+                insertCarForSaleToCCMETTable(motorcycleListFireStore);
             }
         }, normal);
     }
 
     private void getCarForRentIndependent() {
-        carForRentListIndependent = getCarForRentItems(carForRentListIndependent,9);
+        carForRentListFireStore = getCarForSaleRentFireStore(9);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                insertCarForSaleToCCMETTable(carForRentListIndependent);
+                insertCarForSaleToCCMETTable(carForRentListFireStore);
             }
         }, normal);
     }
 
     private void getCarExchangeIndependent() {
-        carForExchangeListIndependent = getCarForExchangeItems(carForExchangeListIndependent,9);
+        carForExchangeListFireStore = getCarForSaleExchangeFireStore(9);
         new Handler().postDelayed(new Runnable() {
 
             @Override
-            public void run() { insertCarForSaleToCCMETTable(carForExchangeListIndependent);
+            public void run() { insertCarForSaleToCCMETTable(carForExchangeListFireStore);
             }
         }, normal);
     }
 
     private void getCarForSaleIndependent() {
-        carForSaleListIndependent = getCarForSaleItems(carForSaleListIndependent,9);
+        carForSaleListFireStore = getCarForSaleItemsFireStore(9);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
-                insertCarForSaleToCCMETTable(carForSaleListIndependent);
+                insertCarForSaleToCCMETTable(carForSaleListFireStore);
             }
         }, normal);
     }
 
-    private void insertCarForSaleToCCMETTable(List<CCEMT> ccemtList) {
+    private void insertCarForSaleToCCMETTable(List<ItemCCEMT> ccemtList) {
         for (int i = 0; i< ccemtList.size(); i++)
         {
             insertCCEMTItemInCCEMTTable(ccemtList.get(i),myDB);
@@ -300,93 +343,107 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void getJunkCar() {
-        junkArrayL = getJunkCarItems(junkArrayL,1);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
+                junkArrayL = new ArrayList<>();
+                junkArrayL.add(junkArrayLFireStore.get(0));
                 insertJunkRimToDataBase();
             }
         }, suggested);
     }
 
     private void getAccessories() {
-        accessoriesArrayL = getAccessoriesItems(accessoriesArrayL,1);
         new Handler().postDelayed(new Runnable() {
             @Override
-            public void run() { insertAccessoriesRimToDataBase();
+            public void run() {
+                accessoriesArrayL = new ArrayList<>();
+                accessoriesArrayL.add(accessoriesArrayLFireStore.get(0));
+                insertAccessoriesRimToDataBase();
             }
         }, suggested);
     }
 
     private void getWheelsRim() {
-        wheelsRimList = getWheelsRimItems(wheelsRimList,1);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                wheelsRimList = new ArrayList<>();
+                wheelsRimList.add(wheelsRimListFireStore.get(0));
                 insertWheelsRimToDataBase();
             }
         }, suggested);
     }
 
     private void getCarPlates() {
-        carPlatesList = getPlatesItems(carPlatesList,1);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                carPlatesList = new ArrayList<>();
+                carPlatesList.add(carPlatesListFireStore.get(0));
                 insertCarPlatesToDataBase();
             }
         }, suggested);
     }
 
     private void getTrucks() {
-        truckList = getTruckItems(truckList,1);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
+                truckList = new ArrayList<>();
+                truckList.add(truckListFireStore.get(0));
                 insertTruckToDataBase();
             }
         }, suggested);
     }
 
     private void getMotorcycle() {
-        motorcycleList = getMotorcycleItems(motorcycleList,1);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                motorcycleList = new ArrayList<>();
+                motorcycleList.add(motorcycleListFireStore.get(0));
                 insertMotorcycleToDataBase();
             }
         }, suggested);
     }
 
     private void getCarExchange() {
-        carForExchangeList = getCarForExchangeItems(carForExchangeList,2);
         new Handler().postDelayed(new Runnable() {
 
             @Override
-            public void run() { insertCarForExchangeToDataBase();
+            public void run() {
+                carForExchangeList = new ArrayList<>();
+                carForExchangeList.add(carForExchangeListFireStore.get(0));
+                carForExchangeList.add(carForExchangeListFireStore.get(1));
+                insertCarForExchangeToDataBase();
             }
         }, suggested);
     }
 
     private void getCarForRent() {
-        carForRentList = getCarForRentItems(carForRentList,2);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
+                carForRentList = new ArrayList<>();
+                carForRentList.add(carForRentListFireStore.get(0));
+                carForRentList.add(carForRentListFireStore.get(1));
                 insertCarForRentToDataBase();
             }
         }, suggested);
     }
 
     private void getCarForSale() {
-        carForSaleList = getCarForSaleItems(carForSaleList,2);
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
+                carForSaleList = new ArrayList<>();
+                carForSaleList.add(carForSaleListFireStore.get(0));
+                carForSaleList.add(carForSaleListFireStore.get(1));
                 insertCarForSaleToDataBase();
             }
         }, suggested);
@@ -467,5 +524,124 @@ public class SplashScreen extends AppCompatActivity {
             }
         }, 4000);
     }
+
+
+    CollectionReference mRef;
+
+    public void getdata(){
+        mRef = getDataStoreInstance().collection("Car_For_Exchange");
+
+        mRef.whereEqualTo("categoryName", "Exchange car")
+                .whereEqualTo("cityS", "Abu Dhabi")
+                .get().addOnSuccessListener
+                (new OnSuccessListener<QuerySnapshot>() {
+                     @Override
+                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                         for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
+                             Log.i("TAG", "Object " + documentSnapshots);
+
+                             ItemCCEMT ccemt = documentSnapshots.toObject(ItemCCEMT.class);
+                             carForExchangeListFireStore.add(ccemt);
+                         }
+//                                                     lastVisible = queryDocumentSnapshots.getDocuments()
+//                                                            .get(queryDocumentSnapshots.size() -1);
+                     }
+                 }
+                ).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d("ERROR fireStore", e.toString());
+            }
+        });
+    }
+
+    private void test() {
+        getdata();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                Log.i("TAG","Size "+String.valueOf(carForExchangeListFireStore.size()));
+                for (int i =0 ;i<carForExchangeListFireStore.size();i++)
+                {
+                    Log.i("TAG","************************ "+
+                            String.valueOf(i+1));
+                    Log.i("TAG","carMake "+
+                            carForExchangeListFireStore.get(i).getCarMake());
+                    Log.i("TAG","carModel "+
+                            carForExchangeListFireStore.get(i).getCarModel());
+                    Log.i("TAG","carColor "+
+                            carForExchangeListFireStore.get(i).getColor());
+                    Log.i("TAG","carCity "+
+                            carForExchangeListFireStore.get(i).getCity());
+                    Log.i("TAG","Price "+
+                            carForExchangeListFireStore.get(i).getPrice());
+                }
+            }
+        }, 9000);
+
+//        new Handler().postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                Log.i("TAG","get data 2 ");
+//                getdata2();
+//
+//            }
+//        }, 20000);
+//
+//
+//        new Handler().postDelayed(new Runnable() {
+//
+//            @Override
+//            public void run() {
+//                Log.i("TAG","Size "+String.valueOf(carForSaleList.size()));
+//                for (int i =0 ;i<carForSaleList.size();i++)
+//                {
+//                    Log.i("TAG","************************ "+
+//                            String.valueOf(i+1));
+//                    Log.i("TAG","carMake "+
+//                            carForSaleList.get(i).getCarMake());
+//                    Log.i("TAG","carModel "+
+//                            carForSaleList.get(i).getCarModel());
+//                    Log.i("TAG","carColor "+
+//                            carForSaleList.get(i).getColor());
+//                    Log.i("TAG","carCity "+
+//                            carForSaleList.get(i).getCity());
+//                    Log.i("TAG","Price "+
+//                            carForSaleList.get(i).getPrice());
+//                }
+//            }
+//        }, 25000);
+    }
+
+
+    DocumentSnapshot lastVisible;
+
+//    public void getdata2(){
+//        mRef = getDataStoreInstance().collection("Car_For_Sale");
+//
+//        mRef.whereEqualTo("categoryName","Car for sale")
+//                .limit(3)
+//                .startAfter(lastVisible)
+//                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+//                                                @Override
+//                                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+//                                                    for (QueryDocumentSnapshot documentSnapshots: queryDocumentSnapshots) {
+//                                                        Log.i("TAG","Object "+documentSnapshots);
+//
+//                                                        CCEMT ccemt = documentSnapshots.toObject(CCEMT.class);
+//                                                        carForSaleList.add(ccemt);
+//                                                    }
+//                                                }
+//                                            }
+//        ).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Log.d("ERROR fireStore",e.toString());
+//            }
+//        });
+//    }
+
 
 }

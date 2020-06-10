@@ -6,10 +6,13 @@ import android.content.Context;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
+import com.google.firebase.firestore.FirebaseFirestore;
 
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 
 public class FireBaseDBPaths {
+
+
 
     public static FirebaseDatabase getDataBaseInstance() {
         FirebaseDatabase database = FirebaseDatabase.getInstance();

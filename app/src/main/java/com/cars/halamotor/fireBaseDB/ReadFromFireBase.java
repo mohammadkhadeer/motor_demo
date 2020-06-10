@@ -59,7 +59,8 @@ public class ReadFromFireBase {
 
     public static List<CCEMT> getCarForSaleItems(final List<CCEMT> carForSaleL,int numberOfCarFromServer) {
         Query mRef = FirebaseDatabase.getInstance().getReference()
-                .child("category").child("Car_For_Sale").limitToLast(numberOfCarFromServer);
+                .child("category").child("Car_For_Sale");
+//        .limitToLast(numberOfCarFromServer);
         mRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

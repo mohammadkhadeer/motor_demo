@@ -11,6 +11,10 @@ import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.model.Following;
+import com.cars.halamotor.model.ItemAccAndJunk;
+import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimFirstCase;
@@ -40,12 +44,12 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertCCEMTItemInCCEMTTable(CCEMT ccemt,DBHelper database) {
+    public static boolean insertCCEMTItemInCCEMTTable(ItemCCEMT ccemt, DBHelper database) {
 
         boolean isInserted = database.insertDataCCEMTItem(
 
-                boostOrNot(ccemt.getBoostPostsArrayL())
-                ,itemBoostType(ccemt.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,ccemt.getCategoryName()
                 ,ccemt.getPersonOrGallery()
                 ,ccemt.getItemID()
@@ -63,7 +67,7 @@ public class InsertFunctions {
                 ,ccemt.getPaymentMethod()
                 ,ccemt.getCarOptions()
 
-                ,numberOfComment(ccemt.getCommentsArrayL())
+                ,"3"
                 ,numberOfImage(ccemt.getImagePathArrayL())
                 ,ccemt.getCity()
                 ,ccemt.getNeighborhood()
@@ -79,7 +83,7 @@ public class InsertFunctions {
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
                 , String.valueOf(ccemt.getUserIDPathInServer())
-                , String.valueOf(ccemt.getActiveOrNot())
+                , String.valueOf(ccemt.getAuctionOrNot())
 
                 ,ccemt.getYearDate() + "/" + ccemt.getMonthDate() + "/" + ccemt.getDayDate()
                 ,ccemt.getTimeStamp()
@@ -87,17 +91,17 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertWheelsRimInWheelsRimTable(WheelsRimModel wheelsRim, DBHelper database) {
+    public static boolean insertWheelsRimInWheelsRimTable(ItemWheelsRim wheelsRim, DBHelper database) {
         boolean isInserted = database.insertDataWheels_RimItem(
 
-                boostOrNot(wheelsRim.getBoostPostsArrayL())
-                , itemBoostType(wheelsRim.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 , wheelsRim.getPersonOrGallery()
                 , wheelsRim.getItemID()
 
                 , wheelsRim.getWheelSize()
 
-                , numberOfComment(wheelsRim.getCommentsArrayL())
+                , "3"
                 , numberOfImage(wheelsRim.getImagePathArrayL())
                 , wheelsRim.getCity()
                 , wheelsRim.getNeighborhood()
@@ -121,10 +125,10 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertCarPlatesItemInCarPlatesTable(CarPlatesModel carPlatesModel, DBHelper database) {
+    public static boolean insertCarPlatesItemInCarPlatesTable(ItemPlates carPlatesModel, DBHelper database) {
         boolean isInserted = database.insertDataCarPlatesItem(
-                boostOrNot(carPlatesModel.getBoostPostsArrayL())
-                ,itemBoostType(carPlatesModel.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,carPlatesModel.getPersonOrGallery()
                 ,carPlatesModel.getItemID()
 
@@ -132,7 +136,7 @@ public class InsertFunctions {
                 , String.valueOf(carPlatesModel.getCarPlatesNum())
                 , String.valueOf(carPlatesModel.getSpecialOrNot())
 
-                ,numberOfComment(carPlatesModel.getCommentsArrayL())
+                ,"2"
                 ,numberOfImage(carPlatesModel.getImagePathArrayL())
                 ,carPlatesModel.getCity()
                 ,carPlatesModel.getNeighborhood()
@@ -156,17 +160,17 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertAccAndJunkItemInAccAndJunkTable(AccAndJunk accAndJunk, DBHelper database) {
+    public static boolean insertAccAndJunkItemInAccAndJunkTable(ItemAccAndJunk accAndJunk, DBHelper database) {
     boolean isInserted = database.insertDataAccAndJunkItem(
-            boostOrNot(accAndJunk.getBoostPostsArrayL())
-            ,itemBoostType(accAndJunk.getBoostPostsArrayL())
+            "empty"
+            ,"empty"
 
             ,accAndJunk.getCategoryName()
 
             ,accAndJunk.getPersonOrGallery()
             ,accAndJunk.getItemID()
 
-            ,numberOfComment(accAndJunk.getCommentsArrayL())
+            ,"empty"
             ,numberOfImage(accAndJunk.getImagePathArrayL())
             ,accAndJunk.getCity()
             ,accAndJunk.getNeighborhood()
@@ -209,11 +213,11 @@ public class InsertFunctions {
     }
 
     //this table contain car_for_sale , car_for_rent ,car_for_exchange , motorcycle and truck
-    public static boolean insertCCEMTItemTable(CCEMT ccemt,DBHelper database) {
+    public static boolean insertCCEMTItemTable(ItemCCEMT ccemt,DBHelper database) {
 
         boolean isInserted = database.insertDataItem(
-                boostOrNot(ccemt.getBoostPostsArrayL())
-                ,itemBoostType(ccemt.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,ccemt.getCategoryName()
                 ,ccemt.getPersonOrGallery()
                 ,ccemt.getItemID()
@@ -229,7 +233,7 @@ public class InsertFunctions {
                 ,ccemt.getColor()
                 ,ccemt.getPaymentMethod()
                 ,ccemt.getCarOptions()
-                ,numberOfComment(ccemt.getCommentsArrayL())
+                ,"1"
                 ,numberOfImage(ccemt.getImagePathArrayL())
                 ,ccemt.getCity()
                 ,ccemt.getNeighborhood()
@@ -248,15 +252,15 @@ public class InsertFunctions {
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
                 , String.valueOf(ccemt.getUserIDPathInServer())
-                , String.valueOf(ccemt.getActiveOrNot())
+                , String.valueOf(ccemt.getAuctionOrNot())
         );
         return isInserted;
     }
 
-    public static boolean insertCarPlatesItemTable(CarPlatesModel carPlatesModel, DBHelper database) {
+    public static boolean insertCarPlatesItemTable(ItemPlates carPlatesModel, DBHelper database) {
         boolean isInserted = database.insertDataItem(
-                boostOrNot(carPlatesModel.getBoostPostsArrayL())
-                ,itemBoostType(carPlatesModel.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,carPlatesModel.getCategoryName()
                 ,carPlatesModel.getPersonOrGallery()
                 ,carPlatesModel.getItemID()
@@ -272,7 +276,7 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(carPlatesModel.getCommentsArrayL())
+                ,"4"
                 ,numberOfImage(carPlatesModel.getImagePathArrayL())
                 ,carPlatesModel.getCity()
                 ,carPlatesModel.getNeighborhood()
@@ -297,10 +301,10 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertWheelsRimItemTable(WheelsRimModel wheelsRim, DBHelper database) {
+    public static boolean insertWheelsRimItemTable(ItemWheelsRim wheelsRim, DBHelper database) {
         boolean isInserted = database.insertDataItem(
-                boostOrNot(wheelsRim.getBoostPostsArrayL())
-                ,itemBoostType(wheelsRim.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,wheelsRim.getCategoryName()
                 ,wheelsRim.getPersonOrGallery()
                 ,wheelsRim.getItemID()
@@ -316,7 +320,7 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(wheelsRim.getCommentsArrayL())
+                ,"4"
                 ,numberOfImage(wheelsRim.getImagePathArrayL())
                 ,wheelsRim.getCity()
                 ,wheelsRim.getNeighborhood()
@@ -341,10 +345,10 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertAccAndJunkTable(AccAndJunk accAndJunk, DBHelper database) {
+    public static boolean insertAccAndJunkTable(ItemAccAndJunk accAndJunk, DBHelper database) {
         boolean isInserted = database.insertDataItem(
-                boostOrNot(accAndJunk.getBoostPostsArrayL())
-                ,itemBoostType(accAndJunk.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,accAndJunk.getCategoryName()
                 ,accAndJunk.getPersonOrGallery()
                 ,accAndJunk.getItemID()
@@ -360,7 +364,7 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(accAndJunk.getCommentsArrayL())
+                ,"empty"
                 ,numberOfImage(accAndJunk.getImagePathArrayL())
                 ,accAndJunk.getCity()
                 ,accAndJunk.getNeighborhood()

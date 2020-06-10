@@ -10,27 +10,34 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.UserFaceBookInfo;
 import com.cars.halamotor.view.activity.LoginWithSocialMedia;
+import com.cars.halamotor.view.activity.ShowPostsActivity;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserFBInfo;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserInfo;
-
 
 public class ProfileDetailsInfo extends Fragment {
 
     View view;
-    RelativeLayout loginWithSocialMedeaBtn,buildTrustRL;
-    CardView registerWithSocialMideaCV,userInfoCV;
+    RelativeLayout buildTrustRL,numberOfPostRL,numberOfFollowerRL,numberOfFollowingRL;
+    CardView userInfoCV;
     ImageView userImageIV;
-    TextView userNameTV,editProfileTV,buildTrustTV;
+    TextView userNameTV,editProfileTV,buildTrustTV,numberOfPostTV,postTV
+            ,numberOfFollowingTV,followingTV,followerTV,numberOfFollowerTV;
 
     public ProfileDetailsInfo(){}
 
@@ -43,13 +50,51 @@ public class ProfileDetailsInfo extends Fragment {
         checkIfRegisterOrNot();
         actionListener();
         changeFont();
+        getNumberOfOldAds();
 
         return view;
     }
 
+    private void getNumberOfOldAds() {
+        getUserPathInServer(getUserIdInServerFromSP(getActivity())).child("numberOfAds")
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            numberOfPostTV.setText(dataSnapshot.getValue().toString());
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+
+                });
+    }
+
     private void actionListener() {
-        actionListenerToLoginWithSM();
         actionListenerBuildTrust();
+        actionListenerToPosts();
+    }
+
+    private void actionListenerToPosts() {
+        numberOfPostRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(numberOfPostTV.getText().toString().equals("0"))
+                {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.no_favorite),Toast.LENGTH_SHORT).show();
+                }else{
+                    Bundle bundle = new Bundle();
+                    bundle.putString("userID", getUserIdInServerFromSP(getActivity()));
+
+                    Intent intent = new Intent(getActivity(), ShowPostsActivity.class);
+                    intent.putExtras(bundle);
+                    getActivity().startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+                }
+            }
+        });
     }
 
     private void actionListenerBuildTrust() {
@@ -63,6 +108,12 @@ public class ProfileDetailsInfo extends Fragment {
 
     private void changeFont() {
         userNameTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        numberOfPostTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        postTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        numberOfFollowingTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        followingTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        followerTV.setTypeface(Functions.changeFontGeneral(getActivity()));
+        numberOfFollowerTV.setTypeface(Functions.changeFontGeneral(getActivity()));
     }
 
     private void checkIfRegisterOrNot() {
@@ -70,9 +121,7 @@ public class ProfileDetailsInfo extends Fragment {
         {
             makeUserInfoOn();
             fillUserInfoFromFB();
-            makeRegisterOff();
         }else{
-            makeRegisterOn();
             makeUserInfoOff();
         }
     }
@@ -84,13 +133,13 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void fillImageUser(String userImageStr) {
-        if (getUserImage(getActivity()) != null)
-        {
-            Picasso.with(getActivity()).load(userImageStr)
-                    .fit()
-                    .centerCrop()
-                    .into(userImageIV);
-                }
+//        if (getUserImage(getActivity()) != null)
+//        {
+//            Picasso.with(getActivity()).load(userImageStr)
+//                    .fit()
+//                    .centerCrop()
+//                    .into(userImageIV);
+//                }
     }
 
     private void makeUserInfoOn() {
@@ -99,23 +148,6 @@ public class ProfileDetailsInfo extends Fragment {
 
     private void makeUserInfoOff() {
         userInfoCV.setVisibility(View.GONE);
-    }
-
-    private void makeRegisterOff() {
-        registerWithSocialMideaCV.setVisibility(View.GONE);
-    }
-
-    private void makeRegisterOn() {
-        registerWithSocialMideaCV.setVisibility(View.VISIBLE);
-    }
-
-    private void actionListenerToLoginWithSM() {
-        loginWithSocialMedeaBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                moveToLoginWithSocialMedia();
-            }
-        });
     }
 
     private void moveToLoginWithSocialMedia() {
@@ -129,14 +161,21 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void inti() {
-        loginWithSocialMedeaBtn = (RelativeLayout) view.findViewById(R.id.profile_details_info_RL);
-        registerWithSocialMideaCV = (CardView) view.findViewById(R.id.profile_details_info_register_CV);
         userInfoCV = (CardView) view.findViewById(R.id.profile_details_info_details_CV);
         userImageIV = (ImageView) view.findViewById(R.id.profile_details_user_image_IV);
         userNameTV = (TextView) view.findViewById(R.id.profile_details_user_name_TV);
         editProfileTV = (TextView) view.findViewById(R.id.profile_details_info_edit_profile_TV);
         buildTrustTV = (TextView) view.findViewById(R.id.profile_details_info_build_trust_TV);
         buildTrustRL = (RelativeLayout) view.findViewById(R.id.profile_details_info_build_trust_RL);
+        numberOfPostRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_post_RL);
+        numberOfFollowerRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_u_i_a_m_share_RL);
+        numberOfFollowingRL = (RelativeLayout) view.findViewById(R.id.fragment_profile_u_i_a_m_report_RL);
+        numberOfPostTV = (TextView) view.findViewById(R.id.fragment_profile_number_post_TV);
+        postTV = (TextView) view.findViewById(R.id.fragment_profile_post_TV);
+        numberOfFollowerTV = (TextView) view.findViewById(R.id.fragment_profile_number_followers_TV);
+        followerTV = (TextView) view.findViewById(R.id.fragment_profile_followers_TV);
+        followingTV = (TextView) view.findViewById(R.id.fragment_profile_number_following_TV);
+        numberOfFollowingTV = (TextView) view.findViewById(R.id.fragment_profile_following_TV);
     }
 
     @Override

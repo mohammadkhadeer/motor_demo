@@ -8,7 +8,6 @@ import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.ItemModel;
 import com.cars.halamotor.presnter.NumberOfAllowedAds;
-import com.cars.halamotor.view.activity.CarPlates;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
