@@ -1,8 +1,11 @@
 package com.cars.halamotor.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class ItemPlates {
+public class ItemPlates implements Parcelable {
 
     String itemID,city,neighborhood,userToken,timePost,phoneNumber,itemName,itemDescription
             ,userImage,userName,postEdit,newPrice,numberOfEdit,videoPath
@@ -62,6 +65,63 @@ public class ItemPlates {
         this.cityS = cityS;
         this.neighborhoodS = neighborhoodS;
     }
+
+    protected ItemPlates(Parcel in) {
+        itemID = in.readString();
+        city = in.readString();
+        neighborhood = in.readString();
+        userToken = in.readString();
+        timePost = in.readString();
+        phoneNumber = in.readString();
+        itemName = in.readString();
+        itemDescription = in.readString();
+        userImage = in.readString();
+        userName = in.readString();
+        postEdit = in.readString();
+        newPrice = in.readString();
+        numberOfEdit = in.readString();
+        videoPath = in.readString();
+        categoryName = in.readString();
+        subCategory = in.readString();
+        carPlatesCity = in.readString();
+        carPlatesNumber = in.readString();
+        personOrGallery = in.readString();
+        timeStamp = in.readString();
+        userIDPathInServer = in.readString();
+        imagePathArrayL = in.createStringArrayList();
+        activeOrNot = in.readInt();
+        burnedPrice = in.readInt();
+        reportsOrNot = in.readInt();
+        numberOfReports = in.readInt();
+        yearDate = in.readInt();
+        monthDate = in.readInt();
+        dayDate = in.readInt();
+        specialOrNot = in.readInt();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readDouble();
+        }
+        carPlatesNum = in.readString();
+        platesCar = in.readString();
+        activeOrNotS = in.readString();
+        categoryNameS = in.readString();
+        carPlatesCityS = in.readString();
+        cityS = in.readString();
+        neighborhoodS = in.readString();
+    }
+
+    public static final Creator<ItemPlates> CREATOR = new Creator<ItemPlates>() {
+        @Override
+        public ItemPlates createFromParcel(Parcel in) {
+            return new ItemPlates(in);
+        }
+
+        @Override
+        public ItemPlates[] newArray(int size) {
+            return new ItemPlates[size];
+        }
+    };
 
     public String getItemID() {
         return itemID;
@@ -365,5 +425,58 @@ public class ItemPlates {
 
     public void setNeighborhoodS(String neighborhoodS) {
         this.neighborhoodS = neighborhoodS;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(itemID);
+        dest.writeString(city);
+        dest.writeString(neighborhood);
+        dest.writeString(userToken);
+        dest.writeString(timePost);
+        dest.writeString(phoneNumber);
+        dest.writeString(itemName);
+        dest.writeString(itemDescription);
+        dest.writeString(userImage);
+        dest.writeString(userName);
+        dest.writeString(postEdit);
+        dest.writeString(newPrice);
+        dest.writeString(numberOfEdit);
+        dest.writeString(videoPath);
+        dest.writeString(categoryName);
+        dest.writeString(subCategory);
+
+        dest.writeString(carPlatesCity);
+        dest.writeString(carPlatesNumber);
+
+        dest.writeString(personOrGallery);
+        dest.writeString(timeStamp);
+        dest.writeString(userIDPathInServer);
+        dest.writeStringList(imagePathArrayL);
+
+        dest.writeInt(activeOrNot);
+
+        dest.writeInt(burnedPrice);
+        dest.writeInt(reportsOrNot);
+        dest.writeInt(numberOfReports);
+        dest.writeInt(yearDate);
+        dest.writeInt(monthDate);
+        dest.writeInt(dayDate);
+        dest.writeInt(specialOrNot);
+
+        dest.writeDouble(price);
+        dest.writeString(carPlatesNum);
+
+        dest.writeString(platesCar);
+        dest.writeString(activeOrNotS);
+        dest.writeString(categoryNameS);
+        dest.writeString(carPlatesCityS);
+        dest.writeString(cityS);
+        dest.writeString(neighborhoodS);
     }
 }

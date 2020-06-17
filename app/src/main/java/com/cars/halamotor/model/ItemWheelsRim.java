@@ -1,8 +1,11 @@
 package com.cars.halamotor.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class ItemWheelsRim {
+public class ItemWheelsRim implements Parcelable {
 
     String itemID,city,neighborhood,userToken,timePost,phoneNumber,itemName,itemDescription
             ,userImage,userName,postEdit,newPrice,numberOfEdit,videoPath
@@ -56,6 +59,60 @@ public class ItemWheelsRim {
         this.neighborhoodS = neighborhoodS;
         this.categoryNameS = categoryNameS;
     }
+
+    protected ItemWheelsRim(Parcel in) {
+        itemID = in.readString();
+        city = in.readString();
+        neighborhood = in.readString();
+        userToken = in.readString();
+        timePost = in.readString();
+        phoneNumber = in.readString();
+        itemName = in.readString();
+        itemDescription = in.readString();
+        userImage = in.readString();
+        userName = in.readString();
+        postEdit = in.readString();
+        newPrice = in.readString();
+        numberOfEdit = in.readString();
+        videoPath = in.readString();
+        categoryName = in.readString();
+        subCategory = in.readString();
+        wheelSize = in.readString();
+        personOrGallery = in.readString();
+        timeStamp = in.readString();
+        userIDPathInServer = in.readString();
+        imagePathArrayL = in.createStringArrayList();
+        burnedPrice = in.readInt();
+        reportsOrNot = in.readInt();
+        numberOfReports = in.readInt();
+        activeOrNot = in.readInt();
+        yearDate = in.readInt();
+        monthDate = in.readInt();
+        dayDate = in.readInt();
+        wheelSizeInt = in.readInt();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readDouble();
+        }
+        activeOrNotS = in.readString();
+        wheelsTypeS = in.readString();
+        cityS = in.readString();
+        neighborhoodS = in.readString();
+        categoryNameS = in.readString();
+    }
+
+    public static final Creator<ItemWheelsRim> CREATOR = new Creator<ItemWheelsRim>() {
+        @Override
+        public ItemWheelsRim createFromParcel(Parcel in) {
+            return new ItemWheelsRim(in);
+        }
+
+        @Override
+        public ItemWheelsRim[] newArray(int size) {
+            return new ItemWheelsRim[size];
+        }
+    };
 
     public String getItemID() {
         return itemID;
@@ -335,5 +392,53 @@ public class ItemWheelsRim {
 
     public void setCategoryNameS(String categoryNameS) {
         this.categoryNameS = categoryNameS;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(itemID);
+        dest.writeString(city);
+        dest.writeString(neighborhood);
+        dest.writeString(userToken);
+        dest.writeString(timePost);
+        dest.writeString(phoneNumber);
+        dest.writeString(itemName);
+        dest.writeString(itemDescription);
+        dest.writeString(userImage);
+        dest.writeString(userName);
+        dest.writeString(postEdit);
+        dest.writeString(newPrice);
+        dest.writeString(numberOfEdit);
+        dest.writeString(videoPath);
+        dest.writeString(categoryName);
+        dest.writeString(subCategory);
+        dest.writeString(wheelSize);
+        dest.writeString(personOrGallery);
+        dest.writeString(timeStamp);
+        dest.writeString(userIDPathInServer);
+
+        dest.writeStringList(imagePathArrayL);
+
+        dest.writeInt(burnedPrice);
+        dest.writeInt(reportsOrNot);
+        dest.writeInt(numberOfReports);
+        dest.writeInt(activeOrNot);
+        dest.writeInt(yearDate);
+        dest.writeInt(monthDate);
+        dest.writeInt(dayDate);
+        dest.writeInt(wheelSizeInt);
+
+        dest.writeDouble(price);
+
+        dest.writeString(activeOrNotS);
+        dest.writeString(wheelsTypeS);
+        dest.writeString(cityS);
+        dest.writeString(neighborhoodS);
+        dest.writeString(categoryNameS);
     }
 }

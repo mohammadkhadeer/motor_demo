@@ -21,6 +21,12 @@ public class FireStorePaths {
         return  database;
     }
 
+    public static DocumentReference getObjectPathInServerFireStore(String categoryName,String itemID) {
+        DocumentReference usersPath = getDataStoreInstance()
+                .collection(categoryName).document(itemID);
+        return  usersPath;
+    }
+
     public static DocumentReference insertItems() {
         DocumentReference usersPath = getDataStoreInstance().collection("Car_For_Sale")
                 .document();

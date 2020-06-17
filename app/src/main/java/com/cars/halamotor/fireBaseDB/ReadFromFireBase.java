@@ -1,8 +1,10 @@
 package com.cars.halamotor.fireBaseDB;
 
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.util.Log;
 
+import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
@@ -14,16 +16,21 @@ import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.presnter.NumberOfAllowedAds;
 import com.cars.halamotor.view.activity.WheelsRim;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
+import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 import static com.cars.halamotor.functions.FCSFunctions.handelNumberOfObject;
 
@@ -39,17 +46,19 @@ public class ReadFromFireBase {
             final String category = convertCat(favouriteCallSearches.get(i).getItemType());
             final String categoryBefore = favouriteCallSearches.get(i).getItemType();
             Log.i("TAG","Cat "+categoryBefore);
-            Query mRef = null;
-            mRef = FirebaseDatabase.getInstance().getReference().child("category")
-                    .child(category)
-                    .child(favouriteCallSearches.get(i).getIdInDatabase());
-            mRef.addValueEventListener(new ValueEventListener() {
+
+            DocumentReference mRef = null;
+            mRef = getDataStoreInstance().collection(category)
+                    .document(favouriteCallSearches.get(i).getIdInDatabase());
+            mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                 @Override
-                public void onDataChange(DataSnapshot dataSnapshot) {
-                    fcsItemsArrayList.add(handelNumberOfObject(dataSnapshot,categoryBefore));
-                }
-                @Override
-                public void onCancelled(DatabaseError databaseError) {
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document,categoryBefore));
+                        }
+                    }
                 }
             });
         }

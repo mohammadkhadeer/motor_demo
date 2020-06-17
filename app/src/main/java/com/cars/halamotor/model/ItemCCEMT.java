@@ -1,8 +1,11 @@
 package com.cars.halamotor.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 
-public class ItemCCEMT {
+public class ItemCCEMT implements Parcelable {
 
     String itemID,city,neighborhood,userToken,timePost,phoneNumber,itemName,itemDescription
             ,userImage,userName,postEdit,newPrice,numberOfEdit,videoPath
@@ -21,6 +24,7 @@ public class ItemCCEMT {
             ,carOptions
             ,personOrGallery
             ,timeStamp,userIDPathInServer;
+
     ArrayList<String> imagePathArrayL = new ArrayList<String>();
 
     int burnedPrice,numberOfReports,yearDate,monthDate,dayDate;
@@ -90,6 +94,87 @@ public class ItemCCEMT {
         this.yearS = yearS;
         this.language = language;
     }
+
+    protected ItemCCEMT(Parcel in) {
+        itemID = in.readString();
+        city = in.readString();
+        neighborhood = in.readString();
+        userToken = in.readString();
+        timePost = in.readString();
+        phoneNumber = in.readString();
+        itemName = in.readString();
+        itemDescription = in.readString();
+        userImage = in.readString();
+        userName = in.readString();
+        postEdit = in.readString();
+        newPrice = in.readString();
+        numberOfEdit = in.readString();
+        videoPath = in.readString();
+        categoryName = in.readString();
+        subCategory = in.readString();
+        carMake = in.readString();
+        carModel = in.readString();
+        year = in.readString();
+        condition = in.readString();
+        kilometers = in.readString();
+        transmission = in.readString();
+        fuel = in.readString();
+        carLicense = in.readString();
+        insurance = in.readString();
+        color = in.readString();
+        paymentMethod = in.readString();
+        carOptions = in.readString();
+        personOrGallery = in.readString();
+        timeStamp = in.readString();
+        userIDPathInServer = in.readString();
+        imagePathArrayL = in.createStringArrayList();
+        burnedPrice = in.readInt();
+        numberOfReports = in.readInt();
+        yearDate = in.readInt();
+        monthDate = in.readInt();
+        dayDate = in.readInt();
+        if (in.readByte() == 0) {
+            price = null;
+        } else {
+            price = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            fromKilometers = null;
+        } else {
+            fromKilometers = in.readDouble();
+        }
+        if (in.readByte() == 0) {
+            toKilometers = null;
+        } else {
+            toKilometers = in.readDouble();
+        }
+        auctionOrNot = in.readString();
+        categoryNameS = in.readString();
+        cityS = in.readString();
+        neighborhoodS = in.readString();
+        carMakeS = in.readString();
+        carModelS = in.readString();
+        personOrGalleryS = in.readString();
+        paymentMethodS = in.readString();
+        fuelS = in.readString();
+        conditionS = in.readString();
+        insuranceS = in.readString();
+        carLicenseS = in.readString();
+        yearS = in.readInt();
+        language = in.readString();
+    }
+
+    public static final Creator<ItemCCEMT> CREATOR = new Creator<ItemCCEMT>() {
+        @Override
+        public ItemCCEMT createFromParcel(Parcel in) {
+            return new ItemCCEMT(in);
+        }
+
+        @Override
+        public ItemCCEMT[] newArray(int size) {
+            return new ItemCCEMT[size];
+        }
+    };
 
     public String getItemID() {
         return itemID;
@@ -521,5 +606,75 @@ public class ItemCCEMT {
 
     public void setLanguage(String language) {
         this.language = language;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(itemID);
+        dest.writeString(city);
+        dest.writeString(neighborhood);
+        dest.writeString(userToken);
+        dest.writeString(timePost);
+        dest.writeString(phoneNumber);
+        dest.writeString(itemName);
+        dest.writeString(itemDescription);
+        dest.writeString(userImage);
+        dest.writeString(userName);
+        dest.writeString(postEdit);
+        dest.writeString(newPrice);
+        dest.writeString(numberOfEdit);
+        dest.writeString(videoPath);
+        dest.writeString(categoryName);
+        dest.writeString(subCategory);
+
+        dest.writeString(carMake);
+        dest.writeString(carModel);
+        dest.writeString(year);
+        dest.writeString(condition);
+        dest.writeString(kilometers);
+        dest.writeString(transmission);
+        dest.writeString(fuel);
+        dest.writeString(carLicense);
+        dest.writeString(insurance);
+        dest.writeString(color);
+        dest.writeString(paymentMethod);
+        dest.writeString(carOptions);
+
+        dest.writeString(personOrGallery);
+        dest.writeString(timeStamp);
+        dest.writeString(userIDPathInServer);
+        dest.writeStringList(imagePathArrayL);
+
+        dest.writeInt(yearS);
+        dest.writeInt(burnedPrice);
+        dest.writeInt(numberOfReports);
+        dest.writeInt(yearDate);
+        dest.writeInt(monthDate);
+        dest.writeInt(dayDate);
+
+        dest.writeDouble(price);
+        dest.writeDouble(fromKilometers);
+        dest.writeDouble(toKilometers);
+
+        dest.writeString(auctionOrNot);
+
+        dest.writeString(categoryNameS);
+        dest.writeString(cityS);
+        dest.writeString(neighborhoodS);
+        dest.writeString(carMakeS);
+        dest.writeString(carModelS);
+        dest.writeString(personOrGalleryS);
+        dest.writeString(paymentMethodS);
+        dest.writeString(fuelS);
+        dest.writeString(conditionS);
+        dest.writeString(insuranceS);
+        dest.writeString(carLicenseS);
+
+        dest.writeString(language);
     }
 }

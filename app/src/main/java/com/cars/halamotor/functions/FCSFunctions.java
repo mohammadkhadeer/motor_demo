@@ -1,12 +1,20 @@
 package com.cars.halamotor.functions;
 
+import android.util.Log;
+
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.SuggestedItem;
 import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.firestore.DocumentSnapshot;
+
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.Map;
 
 public class FCSFunctions {
 
-    public static SuggestedItem handelNumberOfObject(DataSnapshot dataSnapshot , String category) {
+    public static SuggestedItem handelNumberOfObject(DocumentSnapshot dataSnapshot,String category) {
+        ArrayList<String> imagePaths = new ArrayList<>();
         SuggestedItem suggestedItem = null;
         if (category.equals("Car for sale")
                 ||category.equals("Car for rent")
@@ -14,52 +22,53 @@ public class FCSFunctions {
                 ||category.equals("Motorcycle")
                 ||category.equals("Trucks")
         ) {
-            String idInDatabase = (String) dataSnapshot.child("itemID").getValue();
-            BoostPost boostPost = dataSnapshot.child("boostPostsArrayL").child("0").getValue(BoostPost.class);
-            String itemBoostType = boostPost.getBoostType();
-            String itemType = (String) dataSnapshot.child("categoryName").getValue();
+            String idInDatabase = (String) dataSnapshot.getString("itemID");
+            String itemBoostType = "empty";
+            String itemType = (String) dataSnapshot.getString("categoryName");
 
-            String itemPersonGallery = (String) dataSnapshot.child("personOrGallery").getValue();
-            String itemIdInServer = (String) dataSnapshot.child("itemID").getValue();
-            String itemCarMake = (String) dataSnapshot.child("carMake").getValue();
-            String itemCarModel = (String) dataSnapshot.child("carModel").getValue();
-            String itemCarYear = (String) dataSnapshot.child("year").getValue();
+            String itemPersonGallery = (String) dataSnapshot.getString("personOrGallery");
+            String itemIdInServer = (String) dataSnapshot.getString("itemID");
+            String itemCarMake = (String) dataSnapshot.getString("carMake");
+            String itemCarModel = (String) dataSnapshot.getString("carModel");
+            String itemCarYear = (String) dataSnapshot.getString("year");
 
-            String itemCarCondition = (String) dataSnapshot.child("condition").getValue();
-            String itemCarKilometers = (String) dataSnapshot.child("kilometers").getValue();
-            String itemCarTransmission = (String) dataSnapshot.child("transmission").getValue();
-            String itemCarFuel = (String) dataSnapshot.child("fuel").getValue();
-            String itemCarLicense = (String) dataSnapshot.child("carLicense").getValue();
+            String itemCarCondition = (String) dataSnapshot.getString("condition");
+            String itemCarKilometers = (String) dataSnapshot.getString("kilometers");
+            String itemCarTransmission = (String) dataSnapshot.getString("transmission");
+            String itemCarFuel = (String) dataSnapshot.getString("fuel");
+            String itemCarLicense = (String) dataSnapshot.getString("carLicense");
 
-            String itemCarInsurance = (String) dataSnapshot.child("insurance").getValue();
-            String itemCarColor = (String) dataSnapshot.child("color").getValue();
-            String itemCarPaymentMethod = (String) dataSnapshot.child("paymentMethod").getValue();
-            String itemCarOptions = (String) dataSnapshot.child("carOptions").getValue();
+            String itemCarInsurance = (String) dataSnapshot.getString("insurance");
+            String itemCarColor = (String) dataSnapshot.getString("color");
+            String itemCarPaymentMethod = (String) dataSnapshot.getString("paymentMethod");
+            String itemCarOptions = (String) dataSnapshot.getString("carOptions");
             String itemNumberOfComment = "0";
 
             String itemNumberOfImage = "0";
-            String itemCity = (String) dataSnapshot.child("city").getValue();
-            String itemNeighborhood = (String) dataSnapshot.child("neighborhood").getValue();
-            String itemTimePost = (String) dataSnapshot.child("timePost").getValue();
-            String itemUserPhoneNumber = (String) dataSnapshot.child("phoneNumber").getValue();
+            String itemCity = (String) dataSnapshot.getString("city");
+            String itemNeighborhood = (String) dataSnapshot.getString("neighborhood");
+            String itemTimePost = (String) dataSnapshot.getString("timePost");
+            String itemUserPhoneNumber = (String) dataSnapshot.getString("phoneNumber");
 
-            String itemName = (String) dataSnapshot.child("itemName").getValue();
-            String itemImage = (String) dataSnapshot.child("imagePathArrayL").child("0").getValue();
-            String itemDescription = (String) dataSnapshot.child("itemDescription").getValue();
-            String userImage = (String) dataSnapshot.child("userImage").getValue();
-            String userName = (String) dataSnapshot.child("userName").getValue();
+            String itemName = (String) dataSnapshot.getString("itemName");
+            imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
+            String itemImage = imagePaths.get(0);
+            String itemDescription = (String) dataSnapshot.getString("itemDescription");
+            String userImage = (String) dataSnapshot.getString("userImage");
+            String userName = (String) dataSnapshot.getString("userName");
 
-            String itemPostEdit = (String) dataSnapshot.child("postEdit").getValue();
-            String itemNewPrice = (String) dataSnapshot.child("newPrice").getValue();
+            String itemPostEdit = (String) dataSnapshot.getString("postEdit");
+            String itemNewPrice = (String) dataSnapshot.getString("newPrice");
             String itemWheelsSize = "empty";
             String itemCarPlatesCity = "empty";
             String itemCarPlatesNumber = "empty";
 
             String itemCarPlatesSpecial = "empty";
-            Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
-            Long itemPrice = (Long) dataSnapshot.child("price").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
-            String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
+            Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
+            Long itemPrice = (Long) dataSnapshot.getLong("price");
+            String itemActiveOrNotT = (String) dataSnapshot.getString("auctionOrNot");
+            Long itemActiveOrNot = Long.parseLong(itemActiveOrNotT);
+            String userID = (String) dataSnapshot.getString("userIDPathInServer");
 
 //            Log.i("TAG","itemID  "+idInDatabase);
 //            Log.i("TAG","itemBoostType  "+itemBoostType);
@@ -153,33 +162,34 @@ public class FCSFunctions {
         }
         if (category.equals("Plates"))
         {
-            BoostPost boostPost = dataSnapshot.child("boostPostsArrayL").child("0").getValue(BoostPost.class);
-            String itemBoostType = boostPost.getBoostType();
-            String itemPersonGallery = (String) dataSnapshot.child("personOrGallery").getValue();
-            String itemIdInServer = (String) dataSnapshot.child("itemID").getValue();
+            //BoostPost boostPost = dataSnapshot.child("boostPostsArrayL").child("0").getValue(BoostPost.class);
+            String itemBoostType = "empty";
+            String itemPersonGallery = (String) dataSnapshot.getString("personOrGallery");
+            String itemIdInServer = (String) dataSnapshot.getString("itemID");
 
-            String itemCity = (String) dataSnapshot.child("city").getValue();
-            String itemNeighborhood = (String) dataSnapshot.child("neighborhood").getValue();
-            String itemTimePost = (String) dataSnapshot.child("timePost").getValue();
-            String itemUserPhoneNumber = (String) dataSnapshot.child("phoneNumber").getValue();
+            String itemCity = (String) dataSnapshot.getString("city");
+            String itemNeighborhood = (String) dataSnapshot.getString("neighborhood");
+            String itemTimePost = (String) dataSnapshot.getString("timePost");
+            String itemUserPhoneNumber = (String) dataSnapshot.getString("phoneNumber");
 
-            String itemName = (String) dataSnapshot.child("itemName").getValue();
-            String itemImage = (String) dataSnapshot.child("imagePathArrayL").child("0").getValue();
-            String itemDescription = (String) dataSnapshot.child("itemDescription").getValue();
-            String userImage = (String) dataSnapshot.child("userImage").getValue();
-            String userName = (String) dataSnapshot.child("userName").getValue();
+            String itemName = (String) dataSnapshot.getString("itemName");
+            imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
+            String itemImage = imagePaths.get(0);
+            String itemDescription = (String) dataSnapshot.getString("itemDescription");
+            String userImage = (String) dataSnapshot.getString("userImage");
+            String userName = (String) dataSnapshot.getString("userName");
 
-            String itemPostEdit = (String) dataSnapshot.child("postEdit").getValue();
-            String itemNewPrice = (String) dataSnapshot.child("newPrice").getValue();
+            String itemPostEdit = (String) dataSnapshot.getString("postEdit");
+            String itemNewPrice = (String) dataSnapshot.getString("newPrice");
 
-            String carPlatesCity = (String) dataSnapshot.child("carPlatesCity").getValue();
-            String carPlatesNumber = (String) dataSnapshot.child("carPlatesNumber").getValue();
-            Long specialOrNot = (Long) dataSnapshot.child("specialOrNot").getValue();
+            String carPlatesCity = (String) dataSnapshot.getString("carPlatesCity");
+            String carPlatesNumber = (String) dataSnapshot.getString("carPlatesNumber");
+            Long specialOrNot = (Long) dataSnapshot.getLong("specialOrNot");
 
-            Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
-            Long itemPrice = (Long) dataSnapshot.child("price").getValue();
-            String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
+            Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
+            Long itemPrice = (Long) dataSnapshot.getLong("price");
+            String userID = (String) dataSnapshot.getString("userIDPathInServer");
+            Long itemActiveOrNot = (Long) dataSnapshot.getLong("activeOrNot");
 
             suggestedItem = new SuggestedItem(
                     itemBoostType
@@ -225,29 +235,30 @@ public class FCSFunctions {
         }
         if (category.equals("Wheels_Rim"))
         {
-            BoostPost boostPost = dataSnapshot.child("boostPostsArrayL").child("0").getValue(BoostPost.class);
-            String itemBoostType = boostPost.getBoostType();
-            String itemPersonGallery = (String) dataSnapshot.child("personOrGallery").getValue();
-            String itemIdInServer = (String) dataSnapshot.child("itemID").getValue();
+            //BoostPost boostPost = dataSnapshot.child("boostPostsArrayL").child("0").getValue(BoostPost.class);
+            String itemBoostType = "empty";
+            String itemPersonGallery = (String) dataSnapshot.getString("personOrGallery");
+            String itemIdInServer = (String) dataSnapshot.getString("itemID");
 
-            String itemCity = (String) dataSnapshot.child("city").getValue();
-            String itemNeighborhood = (String) dataSnapshot.child("neighborhood").getValue();
-            String itemTimePost = (String) dataSnapshot.child("timePost").getValue();
-            String itemUserPhoneNumber = (String) dataSnapshot.child("phoneNumber").getValue();
+            String itemCity = (String) dataSnapshot.getString("city");
+            String itemNeighborhood = (String) dataSnapshot.getString("neighborhood");
+            String itemTimePost = (String) dataSnapshot.getString("timePost");
+            String itemUserPhoneNumber = (String) dataSnapshot.getString("phoneNumber");
 
-            String itemName = (String) dataSnapshot.child("itemName").getValue();
-            String itemImage = (String) dataSnapshot.child("imagePathArrayL").child("0").getValue();
-            String itemDescription = (String) dataSnapshot.child("itemDescription").getValue();
-            String userImage = (String) dataSnapshot.child("userImage").getValue();
-            String userName = (String) dataSnapshot.child("userName").getValue();
+            String itemName = (String) dataSnapshot.getString("itemName");
+            imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
+            String itemImage = imagePaths.get(0);
+            String itemDescription = (String) dataSnapshot.getString("itemDescription");
+            String userImage = (String) dataSnapshot.getString("userImage");
+            String userName = (String) dataSnapshot.getString("userName");
 
-            String itemPostEdit = (String) dataSnapshot.child("postEdit").getValue();
-            String itemNewPrice = (String) dataSnapshot.child("newPrice").getValue();
-            Long itemWheelsSize = (Long) dataSnapshot.child("wheelSizeInt").getValue();
-            Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
-            Long itemPrice = (Long) dataSnapshot.child("price").getValue();
-            String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
+            String itemPostEdit = (String) dataSnapshot.getString("postEdit");
+            String itemNewPrice = (String) dataSnapshot.getString("newPrice");
+            Long itemWheelsSize = (Long) dataSnapshot.getLong("wheelSizeInt");
+            Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
+            Long itemPrice = (Long) dataSnapshot.getLong("price");
+            String userID = (String) dataSnapshot.getString("userIDPathInServer");
+            Long itemActiveOrNot = (Long) dataSnapshot.getLong("activeOrNot");
 
             suggestedItem = new SuggestedItem(
                     itemBoostType
@@ -293,28 +304,29 @@ public class FCSFunctions {
         }
         if (category.equals("Accessories") || category.equals("Junk car"))
         {
-            BoostPost boostPost = dataSnapshot.child("boostPostsArrayL").child("0").getValue(BoostPost.class);
-            String itemBoostType = boostPost.getBoostType();
-            String itemPersonGallery = (String) dataSnapshot.child("personOrGallery").getValue();
-            String itemIdInServer = (String) dataSnapshot.child("itemID").getValue();
+            //BoostPost boostPost = dataSnapshot.child("boostPostsArrayL").child("0").getValue(BoostPost.class);
+            String itemBoostType = "empty";
+            String itemPersonGallery = (String) dataSnapshot.getString("personOrGallery");
+            String itemIdInServer = (String) dataSnapshot.getString("itemID");
 
-            String itemCity = (String) dataSnapshot.child("city").getValue();
-            String itemNeighborhood = (String) dataSnapshot.child("neighborhood").getValue();
-            String itemTimePost = (String) dataSnapshot.child("timePost").getValue();
-            String itemUserPhoneNumber = (String) dataSnapshot.child("phoneNumber").getValue();
+            String itemCity = (String) dataSnapshot.getString("city");
+            String itemNeighborhood = (String) dataSnapshot.getString("neighborhood");
+            String itemTimePost = (String) dataSnapshot.getString("timePost");
+            String itemUserPhoneNumber = (String) dataSnapshot.getString("phoneNumber");
 
-            String itemName = (String) dataSnapshot.child("itemName").getValue();
-            String itemImage = (String) dataSnapshot.child("imagePathArrayL").child("0").getValue();
-            String itemDescription = (String) dataSnapshot.child("itemDescription").getValue();
-            String userImage = (String) dataSnapshot.child("userImage").getValue();
-            String userName = (String) dataSnapshot.child("userName").getValue();
+            String itemName = (String) dataSnapshot.getString("itemName");
+            imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
+            String itemImage = imagePaths.get(0);
+            String itemDescription = (String) dataSnapshot.getString("itemDescription");
+            String userImage = (String) dataSnapshot.getString("userImage");
+            String userName = (String) dataSnapshot.getString("userName");
 
-            String itemPostEdit = (String) dataSnapshot.child("postEdit").getValue();
-            String itemNewPrice = (String) dataSnapshot.child("newPrice").getValue();
-            Long itemBurnedPrice = (Long) dataSnapshot.child("burnedPrice").getValue();
-            Long itemPrice = (Long) dataSnapshot.child("price").getValue();
-            String userID = (String) dataSnapshot.child("userIDPathInServer").getValue();
-            Long itemActiveOrNot = (Long) dataSnapshot.child("activeOrNot").getValue();
+            String itemPostEdit = (String) dataSnapshot.getString("postEdit");
+            String itemNewPrice = (String) dataSnapshot.getString("newPrice");
+            Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
+            Long itemPrice = (Long) dataSnapshot.getLong("price");
+            String userID = (String) dataSnapshot.getString("userIDPathInServer");
+            Long itemActiveOrNot = (Long) dataSnapshot.getLong("activeOrNot");
 
             suggestedItem = new SuggestedItem(
                     itemBoostType

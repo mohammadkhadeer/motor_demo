@@ -23,6 +23,10 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemAccAndJunk;
+import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.SlidImage;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.view.adapters.adapterShowItemDetails.SlidingImage_Adapter;
@@ -48,10 +52,10 @@ public class FragmentImageSlider extends Fragment {
     String itemIV,cat,price,priceE,newPrice;
     RelativeLayout relativeLayout;
 
-    CCEMT ccemt;
-    CarPlatesModel carPlatesModel;
-    WheelsRimModel wheelsRimModel;
-    AccAndJunk accAndJunkObject;
+    ItemCCEMT ccemt;
+    ItemPlates carPlatesModel;
+    ItemWheelsRim wheelsRimModel;
+    ItemAccAndJunk accAndJunkObject;
 
     TextView itemPriceTV,oldPriceTV,itemNewPriceTV;
 

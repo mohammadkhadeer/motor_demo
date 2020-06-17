@@ -3,6 +3,7 @@ package com.cars.halamotor.view.activity;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -26,17 +27,22 @@ import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
 import static com.cars.halamotor.dataBase.ReadFunction.getFavouriteCallSearch;
+import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getFCSItems;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 import static com.cars.halamotor.functions.NewFunction.actionBarTitleInFCS;
@@ -204,17 +210,18 @@ public class ShowFCS extends AppCompatActivity {
             {
                 final String category = convertCat(favouriteCallSearchesArrayListNew.get(i).getItemType());
                 final String categoryBefore = favouriteCallSearchesArrayListNew.get(i).getItemType();
-                Query mRef = null;
-                mRef = FirebaseDatabase.getInstance().getReference().child("category")
-                        .child(category)
-                        .child(favouriteCallSearchesArrayListNew.get(i).getIdInDatabase());
-                mRef.addValueEventListener(new ValueEventListener() {
+                DocumentReference mRef = null;
+                mRef = getDataStoreInstance().collection(category)
+                        .document(favouriteCallSearchesArrayListNew.get(i).getIdInDatabase());
+                mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
                     @Override
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(dataSnapshot,categoryBefore));
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
+                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                        if (task.isSuccessful()) {
+                            DocumentSnapshot document = task.getResult();
+                            if (document.exists()) {
+                                fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document,categoryBefore));
+                            }
+                        }
                     }
                 });
             }

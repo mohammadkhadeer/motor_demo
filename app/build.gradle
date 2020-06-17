@@ -30,6 +30,8 @@ configurations.all {
 }
 
 dependencies {
+    def glideVersion = '4.8.0'
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path: ':bottom-bar')
     implementation project(path: ':spinner')

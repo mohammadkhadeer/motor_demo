@@ -133,13 +133,13 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void fillImageUser(String userImageStr) {
-//        if (getUserImage(getActivity()) != null)
-//        {
-//            Picasso.with(getActivity()).load(userImageStr)
-//                    .fit()
-//                    .centerCrop()
-//                    .into(userImageIV);
-//                }
+        if (getUserImage(getActivity()) != null)
+        {
+            Picasso.with(getActivity()).load(userImageStr)
+                    .fit()
+                    .centerCrop()
+                    .into(userImageIV);
+                }
     }
 
     private void makeUserInfoOn() {

@@ -25,6 +25,10 @@ import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemAccAndJunk;
+import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
@@ -61,10 +65,10 @@ public class FragmentItemSelectedDetails extends Fragment {
     AdapterCarOption adapterCarOption;
 
 
-    CCEMT ccemt;
-    CarPlatesModel carPlatesModel;
-    WheelsRimModel wheelsRimModel;
-    AccAndJunk accAndJunkObject;
+    ItemCCEMT ccemt;
+    ItemPlates carPlatesModel;
+    ItemWheelsRim wheelsRimModel;
+    ItemAccAndJunk accAndJunkObject;
 
     View view;
 

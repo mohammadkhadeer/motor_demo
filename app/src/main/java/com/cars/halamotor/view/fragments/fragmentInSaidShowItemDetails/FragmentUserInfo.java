@@ -20,6 +20,10 @@ import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemAccAndJunk;
+import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FavouriteChange;
@@ -48,10 +52,10 @@ public class FragmentUserInfo extends Fragment {
     FavouriteChange favouriteChange;
     int numberOfChange =0;
 
-    CCEMT ccemt;
-    CarPlatesModel carPlatesModel;
-    WheelsRimModel wheelsRimModel;
-    AccAndJunk accAndJunkObject;
+    ItemCCEMT ccemt;
+    ItemPlates carPlatesModel;
+    ItemWheelsRim wheelsRimModel;
+    ItemAccAndJunk accAndJunkObject;
 
     @Override
     public void onAttach(Context context) {
@@ -95,7 +99,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = ccemt.getUserImage();
             itemNameStr = ccemt.getItemName();
             timStampStr = ccemt.getTimeStamp();
-            postTypeStr = ccemt.getBoostPostsArrayL().get(0).getBoostType();
+            postTypeStr = "empty";
             dateStr = String.valueOf(ccemt.getDayDate())+String.valueOf(ccemt.getMonthDate())+String.valueOf(ccemt.getYear()) ;
         }
         if (cat.equals("cp"))
@@ -104,7 +108,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = carPlatesModel.getUserImage();
             itemNameStr = carPlatesModel.getItemName();
             timStampStr = carPlatesModel.getTimeStamp();
-            postTypeStr = carPlatesModel.getBoostPostsArrayL().get(0).getBoostType();
+            postTypeStr = "empty";
             dateStr = String.valueOf(carPlatesModel.getDayDate())+"/"+String.valueOf(carPlatesModel.getMonthDate())+"/"+String.valueOf(carPlatesModel.getYearDate()) ;
         }
         if (cat.equals("wr"))
@@ -113,7 +117,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = wheelsRimModel.getUserImage();
             itemNameStr = wheelsRimModel.getItemName();
             timStampStr = wheelsRimModel.getTimeStamp();
-            postTypeStr = wheelsRimModel.getBoostPostsArrayL().get(0).getBoostType();
+            postTypeStr = "empty";
             dateStr = String.valueOf(wheelsRimModel.getDayDate())+"/"+String.valueOf(wheelsRimModel.getMonthDate())+"/"+String.valueOf(wheelsRimModel.getYearDate()) ;
         }
         if (cat.equals("aaj"))
@@ -122,7 +126,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = accAndJunkObject.getUserImage();
             itemNameStr = accAndJunkObject.getItemName();
             timStampStr = accAndJunkObject.getTimeStamp();
-            postTypeStr = accAndJunkObject.getBoostPostsArrayL().get(0).getBoostType();
+            postTypeStr = "empty";
             dateStr = String.valueOf(accAndJunkObject.getDayDate())+"/"+String.valueOf(accAndJunkObject.getMonthDate())+"/"+String.valueOf(accAndJunkObject.getYearDate()) ;
         }
     }

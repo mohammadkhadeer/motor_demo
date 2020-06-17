@@ -29,6 +29,10 @@ import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemAccAndJunk;
+import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FavouriteChange;
@@ -70,10 +74,10 @@ public class ShowItemDetails extends AppCompatActivity
 
     String category;
 
-    CCEMT ccemtObject;
-    CarPlatesModel carPlatesModel;
-    WheelsRimModel wheelsRimModel;
-    AccAndJunk accAndJunkObject;
+    ItemCCEMT ccemtObject;
+    ItemPlates carPlatesModel;
+    ItemWheelsRim wheelsRimModel;
+    ItemAccAndJunk accAndJunkObject;
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
             ,dateStr,timStampStr,itemDescription,userID,itemImage,numberOfImage,whereCome
@@ -441,13 +445,14 @@ public class ShowItemDetails extends AppCompatActivity
         priceEdit = priceE;
         newPrice = newP;
     }
+
     @Override
-    public void onReceiveCCEMTObject(CCEMT ccemt) {
+    public void onReceiveCCEMTObject(ItemCCEMT ccemt) {
        //to pass object to fragment
         ccemtObject = ccemt;
         String date = String.valueOf(ccemt.getDayDate())+"/"+String.valueOf(ccemt.getMonthDate())+"/"+String.valueOf(ccemt.getYear());
         intiValues(ccemt.getUserName(),ccemt.getUserImage(),ccemt.getItemName()
-        ,ccemt.getTimeStamp(),ccemt.getBoostPostsArrayL().get(0).getBoostType(),date
+        ,ccemt.getTimeStamp(),"empty",date
         ,ccemt.getItemDescription(),ccemt.getUserIDPathInServer(),ccemt.getImagePathArrayL().get(0)
         ,ccemt.getImagePathArrayL().size(),ccemt.getPhoneNumber(),ccemt.getPrice()
         ,ccemt.getPostEdit(),ccemt.getNewPrice());
@@ -455,11 +460,11 @@ public class ShowItemDetails extends AppCompatActivity
     }
 
     @Override
-    public void onReceiveAccAndJunkObject(AccAndJunk accAndJunk) {
+    public void onReceiveAccAndJunkObject(ItemAccAndJunk accAndJunk) {
         accAndJunkObject = accAndJunk;
         String date = String.valueOf(accAndJunk.getDayDate())+"/"+String.valueOf(accAndJunk.getMonthDate())+"/"+String.valueOf(accAndJunk.getYearDate());
         intiValues(accAndJunk.getUserName(),accAndJunk.getUserImage(),accAndJunk.getItemName()
-                ,accAndJunk.getTimeStamp(),accAndJunk.getBoostPostsArrayL().get(0).getBoostType(),date
+                ,accAndJunk.getTimeStamp(),"empty",date
                 ,accAndJunk.getItemDescription(),accAndJunk.getUserIDPathInServer(),accAndJunk.getImagePathArrayL().get(0)
                 ,accAndJunk.getImagePathArrayL().size(),accAndJunk.getPhoneNumber(),accAndJunk.getPrice()
                 ,accAndJunk.getPostEdit(),accAndJunk.getNewPrice());
@@ -467,11 +472,11 @@ public class ShowItemDetails extends AppCompatActivity
     }
 
     @Override
-    public void onReceiveWheelsRimObject(WheelsRimModel wheelsRim) {
+    public void onReceiveWheelsRimObject(ItemWheelsRim wheelsRim) {
         wheelsRimModel = wheelsRim;
         String date = String.valueOf(wheelsRim.getDayDate())+"/"+String.valueOf(wheelsRim.getMonthDate())+"/"+String.valueOf(wheelsRim.getYearDate());
         intiValues(wheelsRim.getUserName(),wheelsRim.getUserImage(),wheelsRim.getItemName()
-                ,wheelsRim.getTimeStamp(),wheelsRim.getBoostPostsArrayL().get(0).getBoostType(),date
+                ,wheelsRim.getTimeStamp(),"empty",date
                 ,wheelsRim.getItemDescription(),wheelsRim.getUserIDPathInServer(),wheelsRim.getImagePathArrayL().get(0)
                 ,wheelsRim.getImagePathArrayL().size(),wheelsRim.getPhoneNumber(),wheelsRim.getPrice()
                 ,wheelsRim.getPostEdit(),wheelsRim.getNewPrice());
@@ -479,11 +484,11 @@ public class ShowItemDetails extends AppCompatActivity
     }
 
     @Override
-    public void onReceiveCarPlatesObject(CarPlatesModel carPlates) {
+    public void onReceiveCarPlatesObject(ItemPlates carPlates) {
         carPlatesModel = carPlates;
         String date = String.valueOf(carPlates.getDayDate())+"/"+String.valueOf(carPlates.getMonthDate())+"/"+String.valueOf(carPlates.getYearDate());
         intiValues(carPlates.getUserName(),carPlates.getUserImage(),carPlates.getItemName()
-                ,carPlates.getTimeStamp(),carPlates.getBoostPostsArrayL().get(0).getBoostType(),date
+                ,carPlates.getTimeStamp(),"empty",date
                 ,carPlates.getItemDescription(),carPlates.getUserIDPathInServer(),carPlates.getImagePathArrayL().get(0)
                 ,carPlates.getImagePathArrayL().size(),carPlates.getPhoneNumber(),carPlates.getPrice()
                 ,carPlates.getPostEdit(),carPlates.getNewPrice());

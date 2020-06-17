@@ -105,21 +105,11 @@ public class SplashScreen extends AppCompatActivity {
     List<ItemAccAndJunk> accessoriesArrayL = new ArrayList<>();
     List<ItemAccAndJunk> junkArrayL = new ArrayList<>();
 
-//    List<CCEMT> carForRentListIndependent = new ArrayList<>();
-//    List<CCEMT> carForSaleListIndependent = new ArrayList<>();
-//    List<CCEMT> carForExchangeListIndependent = new ArrayList<>();
-//    List<CCEMT> motorcycleListIndependent = new ArrayList<>();
-//    List<CCEMT> truckListIndependent = new ArrayList<>();
-//    List<CarPlatesModel> carPlatesListIndependent = new ArrayList<>();
-//    List<WheelsRimModel> wheelsRimListIndependent = new ArrayList<>();
-//    List<AccAndJunk> accessoriesArrayLIndependent = new ArrayList<>();
-//    List<AccAndJunk> junkArrayLIndependent = new ArrayList<>();
-
     DBHelper myDB;
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
-    int suggested=3800,normal=3700;
+    int suggested=3800,normal=3700,move=4000;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -149,9 +139,9 @@ public class SplashScreen extends AppCompatActivity {
                 getWheelsRimIndependent();
                 getCarPlatesIndependent();
                 getAccessoriesIndependent();
-                getJunkCarIndependent();
+                //getJunkCarIndependent();
                 //first fill suggested to you list
-                getJunkCar();
+                //getJunkCar();
                 getAccessories();
                 getWheelsRim();
                 getCarPlates();
@@ -522,7 +512,7 @@ public class SplashScreen extends AppCompatActivity {
                 overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
                 finish();
             }
-        }, 4000);
+        }, move);
     }
 
 
