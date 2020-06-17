@@ -11,17 +11,18 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarLicensed;
 
 import java.util.ArrayList;
 
 public class AdapterCarLicensed extends RecyclerView.Adapter<AdapterCarLicensed.ViewHolder>{
 
     private final Context context;
-    public ArrayList<String> carLicensedArrayL ;
+    public ArrayList<CarLicensed> carLicensedArrayL ;
     PassLicensed passLicensed;
 
     public AdapterCarLicensed
-            (Context context, ArrayList<String> carLicensedArrayL,PassLicensed passLicensed)
+            (Context context, ArrayList<CarLicensed> carLicensedArrayL,PassLicensed passLicensed)
     {   this.context = context;
         this.carLicensedArrayL = carLicensedArrayL;
         this.passLicensed = passLicensed;
@@ -37,11 +38,11 @@ public class AdapterCarLicensed extends RecyclerView.Adapter<AdapterCarLicensed.
     @Override
     public void onBindViewHolder(final AdapterCarLicensed.ViewHolder holder, final int position) {
 
-        holder.modelTV.setText(carLicensedArrayL.get(position));
+        holder.modelTV.setText(carLicensedArrayL.get(position).getCarLicensedStr());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passLicensed.onLicensedClicked(carLicensedArrayL.get(position));
+                passLicensed.onLicensedClicked(carLicensedArrayL.get(position).getCarLicensedStr());
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -69,7 +70,7 @@ public class AdapterCarLicensed extends RecyclerView.Adapter<AdapterCarLicensed.
         void onLicensedClicked(String carFuelStr);
     }
 
-    public void filterList(ArrayList<String> filterdNames) {
+    public void filterList(ArrayList<CarLicensed> filterdNames) {
         this.carLicensedArrayL = filterdNames;
         notifyDataSetChanged();
     }

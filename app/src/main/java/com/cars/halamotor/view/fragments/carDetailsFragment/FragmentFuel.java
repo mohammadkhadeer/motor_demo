@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CarFuel;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarFuel;
 import java.util.ArrayList;
@@ -21,7 +22,7 @@ import static com.cars.halamotor.functions.Functions.fillFuelArrayL;
 
 public class FragmentFuel extends Fragment implements AdapterCarFuel.PassFuel{
 
-    public ArrayList<String> carFuelArrayL  = new ArrayList<String>();
+    public ArrayList<CarFuel> carFuelArrayL  = new ArrayList<CarFuel>();
     RecyclerView recyclerView;
     AdapterCarFuel adapterCarFuel;
     EditText searchEdt;
@@ -69,13 +70,13 @@ public class FragmentFuel extends Fragment implements AdapterCarFuel.PassFuel{
     }
 
     private void filter(String text) {
-        ArrayList<String> carKilometersArrayList2  = new ArrayList<String>();
-        for (String Kilometers : carFuelArrayL) {
-            if (Kilometers.toLowerCase().contains(text.toLowerCase())) {
-                carKilometersArrayList2.add(Kilometers);
+        ArrayList<CarFuel> carFuelArrayList2  = new ArrayList<CarFuel>();
+        for (CarFuel carFuel : carFuelArrayL) {
+            if (carFuel.getCarFuelStr().toLowerCase().contains(text.toLowerCase())) {
+                carFuelArrayList2.add(carFuel);
             }
         }
-        adapterCarFuel.filterList(carKilometersArrayList2);
+        adapterCarFuel.filterList(carFuelArrayList2);
     }
 
     private void makeCancelTitleIVGONE() {

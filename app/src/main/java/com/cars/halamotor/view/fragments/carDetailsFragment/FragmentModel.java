@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CarModel;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarModel;
 import java.util.ArrayList;
@@ -23,7 +24,7 @@ import static com.cars.halamotor.functions.FillCarModel.fillCarMakeArrayL;
 
 public class FragmentModel extends Fragment implements AdapterCarModel.PassCarModel{
 
-    public ArrayList<String> carModelArrayL  = new ArrayList<String>();
+    public ArrayList<CarModel> carModelArrayL  = new ArrayList<CarModel>();
     RecyclerView recyclerView;
     AdapterCarModel adapterCarModel;
     String carMakeStr;
@@ -79,10 +80,10 @@ public class FragmentModel extends Fragment implements AdapterCarModel.PassCarMo
     }
 
     private void filter(String text) {
-        ArrayList<String> carModelArrayList2  = new ArrayList<String>();
-        for (String carModel : carModelArrayL) {
+        ArrayList<CarModel> carModelArrayList2  = new ArrayList<CarModel>();
+        for (CarModel carModel : carModelArrayL) {
             //if the existing elements contains the search input
-            if (carModel.toLowerCase().contains(text.toLowerCase())) {
+            if (carModel.getCarModelStr().toLowerCase().contains(text.toLowerCase())) {
                 //adding the element to filtered list
                 carModelArrayList2.add(carModel);
             }

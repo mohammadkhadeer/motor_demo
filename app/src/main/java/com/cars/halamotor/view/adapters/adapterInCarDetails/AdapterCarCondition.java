@@ -11,17 +11,18 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarCondition;
 
 import java.util.ArrayList;
 
 public class AdapterCarCondition extends RecyclerView.Adapter<AdapterCarCondition.ViewHolder>{
 
     private final Context context;
-    public ArrayList<String> carConditionArrayL ;
+    public ArrayList<CarCondition> carConditionArrayL ;
     PassCarCondition passCarCondition;
 
     public AdapterCarCondition
-            (Context context, ArrayList<String> carConditionArrayL,PassCarCondition passCarCondition)
+            (Context context, ArrayList<CarCondition> carConditionArrayL,PassCarCondition passCarCondition)
     {   this.context = context;
         this.carConditionArrayL = carConditionArrayL;
         this.passCarCondition = passCarCondition;
@@ -37,11 +38,11 @@ public class AdapterCarCondition extends RecyclerView.Adapter<AdapterCarConditio
     @Override
     public void onBindViewHolder(final AdapterCarCondition.ViewHolder holder, final int position) {
 
-        holder.modelTV.setText(carConditionArrayL.get(position));
+        holder.modelTV.setText(carConditionArrayL.get(position).getCarConditionStr());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passCarCondition.onConditionClicked(carConditionArrayL.get(position));
+                passCarCondition.onConditionClicked(carConditionArrayL.get(position).getCarConditionStr());
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -69,7 +70,7 @@ public class AdapterCarCondition extends RecyclerView.Adapter<AdapterCarConditio
         void onConditionClicked(String carCarConditionStr);
     }
 
-    public void filterList(ArrayList<String> filterdNames) {
+    public void filterList(ArrayList<CarCondition> filterdNames) {
         this.carConditionArrayL = filterdNames;
         notifyDataSetChanged();
     }

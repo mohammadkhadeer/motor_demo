@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.PaymentMethod;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarFuel;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterPaymentMethod;
@@ -25,7 +26,7 @@ import static com.cars.halamotor.functions.Functions.fillPaymentArrayL;
 
 public class FragmentPaymentMethod extends Fragment implements AdapterPaymentMethod.PassPayment{
 
-    public ArrayList<String> carPaymentArrayL  = new ArrayList<String>();
+    public ArrayList<PaymentMethod> carPaymentArrayL  = new ArrayList<PaymentMethod>();
     RecyclerView recyclerView;
     AdapterPaymentMethod adapterPaymentMethod;
     EditText searchEdt;
@@ -73,9 +74,9 @@ public class FragmentPaymentMethod extends Fragment implements AdapterPaymentMet
     }
 
     private void filter(String text) {
-        ArrayList<String> carPaymentArrayList2  = new ArrayList<String>();
-        for (String payment : carPaymentArrayL) {
-            if (payment.toLowerCase().contains(text.toLowerCase())) {
+        ArrayList<PaymentMethod> carPaymentArrayList2  = new ArrayList<PaymentMethod>();
+        for (PaymentMethod payment : carPaymentArrayL) {
+            if (payment.getPaymentMethodStr().toLowerCase().contains(text.toLowerCase())) {
                 carPaymentArrayList2.add(payment);
             }
         }

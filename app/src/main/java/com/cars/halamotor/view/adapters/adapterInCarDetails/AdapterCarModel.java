@@ -10,17 +10,18 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarModel;
 
 import java.util.ArrayList;
 
 public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHolder>{
 
     private final Context context;
-    public ArrayList<String> carModelArrayL ;
+    public ArrayList<CarModel> carModelArrayL ;
     PassCarModel passCarModel;
 
     public AdapterCarModel
-            (Context context, ArrayList<String> carModelArrayL, PassCarModel passCarModel)
+            (Context context, ArrayList<CarModel> carModelArrayL, PassCarModel passCarModel)
     {   this.context = context;
         this.carModelArrayL = carModelArrayL;
         this.passCarModel = passCarModel;
@@ -36,11 +37,11 @@ public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHo
     @Override
     public void onBindViewHolder(final AdapterCarModel.ViewHolder holder, final int position) {
 
-        holder.modelTV.setText(carModelArrayL.get(position));
+        holder.modelTV.setText(carModelArrayL.get(position).getCarModelStr());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passCarModel.onModeClicked(carModelArrayL.get(position));
+                passCarModel.onModeClicked(carModelArrayL.get(position).getCarModelStr());
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -68,7 +69,7 @@ public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHo
         void onModeClicked(String carModel);
     }
 
-    public void filterList(ArrayList<String> filterdNames) {
+    public void filterList(ArrayList<CarModel> filterdNames) {
         this.carModelArrayL = filterdNames;
         notifyDataSetChanged();
     }

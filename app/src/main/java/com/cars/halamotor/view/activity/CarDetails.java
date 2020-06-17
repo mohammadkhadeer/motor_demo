@@ -16,6 +16,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarColor;
 import com.cars.halamotor.model.CarDetailsModel;
+import com.cars.halamotor.model.CarFuel;
 import com.cars.halamotor.model.CarMake;
 import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarCondition;

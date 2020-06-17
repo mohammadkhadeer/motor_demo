@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CarLicensed;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarFuel;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarLicensed;
@@ -25,7 +26,7 @@ import static com.cars.halamotor.functions.Functions.fillLicensedArrayL;
 
 public class FragmentLicensed extends Fragment implements AdapterCarLicensed.PassLicensed {
 
-    public ArrayList<String> carLicensedArrayL  = new ArrayList<String>();
+    public ArrayList<CarLicensed> carLicensedArrayL  = new ArrayList<CarLicensed>();
     RecyclerView recyclerView;
     AdapterCarLicensed adapterCarLicensed;
     EditText searchEdt;
@@ -73,9 +74,9 @@ public class FragmentLicensed extends Fragment implements AdapterCarLicensed.Pas
     }
 
     private void filter(String text) {
-        ArrayList<String> carLicensedArrayL2  = new ArrayList<String>();
-        for (String tex : carLicensedArrayL) {
-            if (tex.toLowerCase().contains(text.toLowerCase())) {
+        ArrayList<CarLicensed> carLicensedArrayL2  = new ArrayList<CarLicensed>();
+        for (CarLicensed tex : carLicensedArrayL) {
+            if (tex.getCarLicensedStr().toLowerCase().contains(text.toLowerCase())) {
                 carLicensedArrayL2.add(tex);
             }
         }

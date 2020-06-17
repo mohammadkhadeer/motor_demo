@@ -11,17 +11,18 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarFuel;
 
 import java.util.ArrayList;
 
 public class AdapterCarFuel extends RecyclerView.Adapter<AdapterCarFuel.ViewHolder>{
 
     private final Context context;
-    public ArrayList<String> carFuelArrayL ;
+    public ArrayList<CarFuel> carFuelArrayL ;
     PassFuel passFuel;
 
     public AdapterCarFuel
-            (Context context, ArrayList<String> carFuelArrayL,PassFuel passFuel)
+            (Context context, ArrayList<CarFuel> carFuelArrayL,PassFuel passFuel)
     {   this.context = context;
         this.carFuelArrayL = carFuelArrayL;
         this.passFuel = passFuel;
@@ -37,11 +38,11 @@ public class AdapterCarFuel extends RecyclerView.Adapter<AdapterCarFuel.ViewHold
     @Override
     public void onBindViewHolder(final AdapterCarFuel.ViewHolder holder, final int position) {
 
-        holder.modelTV.setText(carFuelArrayL.get(position));
+        holder.modelTV.setText(carFuelArrayL.get(position).getCarFuelStr());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passFuel.onFuelClicked(carFuelArrayL.get(position));
+                passFuel.onFuelClicked(carFuelArrayL.get(position).getCarFuelStr());
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -69,7 +70,7 @@ public class AdapterCarFuel extends RecyclerView.Adapter<AdapterCarFuel.ViewHold
         void onFuelClicked(String carFuelStr);
     }
 
-    public void filterList(ArrayList<String> filterdNames) {
+    public void filterList(ArrayList<CarFuel> filterdNames) {
         this.carFuelArrayL = filterdNames;
         notifyDataSetChanged();
     }

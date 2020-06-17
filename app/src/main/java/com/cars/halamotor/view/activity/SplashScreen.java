@@ -109,7 +109,7 @@ public class SplashScreen extends AppCompatActivity {
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
-    int suggested=3800,normal=3700,move=4000;
+    int suggested=3800,normal=3700,move=4000,normal2=3799;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -139,9 +139,9 @@ public class SplashScreen extends AppCompatActivity {
                 getWheelsRimIndependent();
                 getCarPlatesIndependent();
                 getAccessoriesIndependent();
-                //getJunkCarIndependent();
+                getJunkCarIndependent();
                 //first fill suggested to you list
-                //getJunkCar();
+                getJunkCar();
                 getAccessories();
                 getWheelsRim();
                 getCarPlates();
@@ -219,7 +219,7 @@ public class SplashScreen extends AppCompatActivity {
             public void run() {
                 insertAccAndJunkItemInAccAndJunk(junkArrayLFireStore);
             }
-        }, normal);
+        }, normal2);
     }
 
     private void getAccessoriesIndependent() {

@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CarInsurance;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarInsurance;
 
@@ -23,7 +24,7 @@ import static com.cars.halamotor.functions.Functions.fillInsuranceArrayL;
 
 public class FragmentInsurance extends Fragment implements AdapterCarInsurance.PassIncense{
 
-    public ArrayList<String> carInsuranceArrayL = new ArrayList<String>();
+    public ArrayList<CarInsurance> carInsuranceArrayL = new ArrayList<CarInsurance>();
     RecyclerView recyclerView;
     AdapterCarInsurance adapterCarInsurance;
     EditText searchEdt;
@@ -71,13 +72,13 @@ public class FragmentInsurance extends Fragment implements AdapterCarInsurance.P
     }
 
     private void filter(String text) {
-        ArrayList<String> carKilometersArrayList2  = new ArrayList<String>();
-        for (String Kilometers : carInsuranceArrayL) {
-            if (Kilometers.toLowerCase().contains(text.toLowerCase())) {
-                carKilometersArrayList2.add(Kilometers);
+        ArrayList<CarInsurance> carInsuranceArrayList2  = new ArrayList<CarInsurance>();
+        for (CarInsurance carInsurance : carInsuranceArrayL) {
+            if (carInsurance.getCarInsuranceStr().toLowerCase().contains(text.toLowerCase())) {
+                carInsuranceArrayList2.add(carInsurance);
             }
         }
-        adapterCarInsurance.filterList(carKilometersArrayList2);
+        adapterCarInsurance.filterList(carInsuranceArrayList2);
     }
 
     private void makeCancelTitleIVGONE() {

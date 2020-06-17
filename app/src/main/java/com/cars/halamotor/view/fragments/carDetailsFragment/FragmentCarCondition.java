@@ -14,13 +14,14 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CarCondition;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarCondition;
 import java.util.ArrayList;
 
 public class FragmentCarCondition extends Fragment implements AdapterCarCondition.PassCarCondition{
 
-    public ArrayList<String> carConditionsArrayL  = new ArrayList<String>();
+    public ArrayList<CarCondition> carConditionsArrayL  = new ArrayList<CarCondition>();
     RecyclerView recyclerView;
     AdapterCarCondition adapterCarCondition;
     EditText searchEdt;
@@ -69,9 +70,9 @@ public class FragmentCarCondition extends Fragment implements AdapterCarConditio
     }
 
     private void filter(String text) {
-        ArrayList<String> carConditionArrayList2  = new ArrayList<String>();
-        for (String carCondition : carConditionsArrayL) {
-            if (carCondition.toLowerCase().contains(text.toLowerCase())) {
+        ArrayList<CarCondition> carConditionArrayList2  = new ArrayList<CarCondition>();
+        for (CarCondition carCondition : carConditionsArrayL) {
+            if (carCondition.getCarConditionStr().toLowerCase().contains(text.toLowerCase())) {
                 carConditionArrayList2.add(carCondition);
             }
         }
@@ -105,9 +106,9 @@ public class FragmentCarCondition extends Fragment implements AdapterCarConditio
     }
 
     private void fillArrayList() {
-        carConditionsArrayL  = new ArrayList<String>();
-        carConditionsArrayL.add(getActivity().getResources().getString(R.string.used));
-        carConditionsArrayL.add(getActivity().getResources().getString(R.string.car_new));
+        carConditionsArrayL  = new ArrayList<CarCondition>();
+        carConditionsArrayL.add(new CarCondition(getActivity().getResources().getString(R.string.used),getActivity().getResources().getString(R.string.used_s)));
+        carConditionsArrayL.add(new CarCondition(getActivity().getResources().getString(R.string.car_new),getActivity().getResources().getString(R.string.car_new_s)));
     }
 
     private void inti() {

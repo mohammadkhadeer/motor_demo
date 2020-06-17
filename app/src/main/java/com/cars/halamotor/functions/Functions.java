@@ -26,10 +26,14 @@ import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarColor;
 import com.cars.halamotor.model.CarDetailsModel;
+import com.cars.halamotor.model.CarFuel;
+import com.cars.halamotor.model.CarInsurance;
+import com.cars.halamotor.model.CarLicensed;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CommentsComp;
 import com.cars.halamotor.model.NotificationComp;
+import com.cars.halamotor.model.PaymentMethod;
 import com.cars.halamotor.sharedPreferences.SharedPreferencesInApp;
 import com.cars.halamotor.utils.MySpannable;
 
@@ -678,23 +682,23 @@ public class Functions {
         return carTransmissionArrayL;
     }
 
-    public static ArrayList<String> fillFuelArrayL(ArrayList<String> carFuelArrayL, Context context) {
-        carFuelArrayL = new ArrayList<String>();
+    public static ArrayList<CarFuel> fillFuelArrayL(ArrayList<CarFuel> carFuelArrayL, Context context) {
+        carFuelArrayL = new ArrayList<CarFuel>();
 
-        carFuelArrayL.add(context.getResources().getString(R.string.gasoline));
-        carFuelArrayL.add(context.getResources().getString(R.string.diesel));
-        carFuelArrayL.add(context.getResources().getString(R.string.hybrid));
-        carFuelArrayL.add(context.getResources().getString(R.string.electric));
+        carFuelArrayL.add(new CarFuel(context.getResources().getString(R.string.gasoline),context.getResources().getString(R.string.gasoline_s)));
+        carFuelArrayL.add(new CarFuel(context.getResources().getString(R.string.diesel),context.getResources().getString(R.string.diesel_s)));
+        carFuelArrayL.add(new CarFuel(context.getResources().getString(R.string.hybrid),context.getResources().getString(R.string.hybrid_s)));
+        carFuelArrayL.add(new CarFuel(context.getResources().getString(R.string.electric),context.getResources().getString(R.string.electric_s)));
 
         return carFuelArrayL;
     }
 
-    public static ArrayList<String> fillInsuranceArrayL(ArrayList<String> fillInsuranceArrayL, Context context) {
-        fillInsuranceArrayL = new ArrayList<String>();
+    public static ArrayList<CarInsurance> fillInsuranceArrayL(ArrayList<CarInsurance> fillInsuranceArrayL, Context context) {
+        fillInsuranceArrayL = new ArrayList<CarInsurance>();
 
-        fillInsuranceArrayL.add(context.getResources().getString(R.string.insurance_compulsory));
-        fillInsuranceArrayL.add(context.getResources().getString(R.string.insurance_comprehensive));
-        fillInsuranceArrayL.add(context.getResources().getString(R.string.insurance_not));
+        fillInsuranceArrayL.add(new CarInsurance(context.getResources().getString(R.string.insurance_compulsory),context.getResources().getString(R.string.insurance_compulsory_s)));
+        fillInsuranceArrayL.add(new CarInsurance(context.getResources().getString(R.string.insurance_comprehensive),context.getResources().getString(R.string.insurance_comprehensive_s)));
+        fillInsuranceArrayL.add(new CarInsurance(context.getResources().getString(R.string.insurance_not),context.getResources().getString(R.string.insurance_not_s)));
 
         return fillInsuranceArrayL;
     }
@@ -801,22 +805,22 @@ public class Functions {
         return carOptionsArrayL;
     }
 
-    public static ArrayList<String> fillLicensedArrayL(ArrayList<String> carLicensedArrayL, Context context) {
-        carLicensedArrayL = new ArrayList<String>();
+    public static ArrayList<CarLicensed> fillLicensedArrayL(ArrayList<CarLicensed> carLicensedArrayL, Context context) {
+        carLicensedArrayL = new ArrayList<CarLicensed>();
 
-        carLicensedArrayL.add(context.getResources().getString(R.string.licensed));
-        carLicensedArrayL.add(context.getResources().getString(R.string.no_licensed));
+        carLicensedArrayL.add(new CarLicensed(context.getResources().getString(R.string.licensed),context.getResources().getString(R.string.licensed_s)));
+        carLicensedArrayL.add(new CarLicensed(context.getResources().getString(R.string.no_licensed),context.getResources().getString(R.string.no_licensed_s)));
 
 
         return carLicensedArrayL;
     }
 
-    public static ArrayList<String> fillPaymentArrayL(ArrayList<String> carPaymentArrayL, Context context) {
-        carPaymentArrayL = new ArrayList<String>();
+    public static ArrayList<PaymentMethod> fillPaymentArrayL(ArrayList<PaymentMethod> carPaymentArrayL, Context context) {
+        carPaymentArrayL = new ArrayList<PaymentMethod>();
 
-        carPaymentArrayL.add(context.getResources().getString(R.string.payment_method_1));
-        carPaymentArrayL.add(context.getResources().getString(R.string.payment_method_2));
-        carPaymentArrayL.add(context.getResources().getString(R.string.payment_method_3));
+        carPaymentArrayL.add(new PaymentMethod(context.getResources().getString(R.string.payment_method_1),context.getResources().getString(R.string.payment_method_1_s)));
+        carPaymentArrayL.add(new PaymentMethod(context.getResources().getString(R.string.payment_method_2),context.getResources().getString(R.string.payment_method_2_s)));
+        carPaymentArrayL.add(new PaymentMethod(context.getResources().getString(R.string.payment_method_3),context.getResources().getString(R.string.payment_method_3_s)));
 
 
         return carPaymentArrayL;

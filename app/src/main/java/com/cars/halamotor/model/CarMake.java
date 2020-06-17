@@ -2,12 +2,12 @@ package com.cars.halamotor.model;
 
 public class CarMake {
     int imageIdInt;
-    String makeStr;
+    String makeStr,makeStrS;
 
-    public  CarMake(int imageIdInt,String makeStr)
-    {
+    public CarMake(int imageIdInt, String makeStr, String makeStrS) {
         this.imageIdInt = imageIdInt;
         this.makeStr = makeStr;
+        this.makeStrS = makeStrS;
     }
 
     public int getImageIdInt() {
@@ -24,5 +24,13 @@ public class CarMake {
 
     public void setMakeStr(String makeStr) {
         this.makeStr = makeStr;
+    }
+
+    public String getMakeStrS() {
+        return makeStrS;
+    }
+
+    public void setMakeStrS(String makeStrS) {
+        this.makeStrS = makeStrS;
     }
 }

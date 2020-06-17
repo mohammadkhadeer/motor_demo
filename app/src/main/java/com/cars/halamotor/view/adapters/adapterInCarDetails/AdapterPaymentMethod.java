@@ -11,17 +11,18 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.PaymentMethod;
 
 import java.util.ArrayList;
 
 public class AdapterPaymentMethod extends RecyclerView.Adapter<AdapterPaymentMethod.ViewHolder>{
 
     private final Context context;
-    public ArrayList<String> carPaymentArrayL ;
+    public ArrayList<PaymentMethod> carPaymentArrayL ;
     PassPayment passPayment;
 
     public AdapterPaymentMethod
-            (Context context, ArrayList<String> carPaymentArrayL,PassPayment passPayment)
+            (Context context, ArrayList<PaymentMethod> carPaymentArrayL,PassPayment passPayment)
     {   this.context = context;
         this.carPaymentArrayL = carPaymentArrayL;
         this.passPayment = passPayment;
@@ -37,11 +38,11 @@ public class AdapterPaymentMethod extends RecyclerView.Adapter<AdapterPaymentMet
     @Override
     public void onBindViewHolder(final AdapterPaymentMethod.ViewHolder holder, final int position) {
 
-        holder.modelTV.setText(carPaymentArrayL.get(position));
+        holder.modelTV.setText(carPaymentArrayL.get(position).getPaymentMethodStr());
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passPayment.onPaymentClicked(carPaymentArrayL.get(position));
+                passPayment.onPaymentClicked(carPaymentArrayL.get(position).getPaymentMethodStr());
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -69,7 +70,7 @@ public class AdapterPaymentMethod extends RecyclerView.Adapter<AdapterPaymentMet
         void onPaymentClicked(String carPaymentStr);
     }
 
-    public void filterList(ArrayList<String> filterdNames) {
+    public void filterList(ArrayList<PaymentMethod> filterdNames) {
         this.carPaymentArrayL = filterdNames;
         notifyDataSetChanged();
     }
