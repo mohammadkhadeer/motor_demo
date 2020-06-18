@@ -15,9 +15,14 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarColor;
+import com.cars.halamotor.model.CarCondition;
 import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CarFuel;
+import com.cars.halamotor.model.CarInsurance;
+import com.cars.halamotor.model.CarLicensed;
 import com.cars.halamotor.model.CarMake;
+import com.cars.halamotor.model.CarModel;
+import com.cars.halamotor.model.PaymentMethod;
 import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarCondition;
 import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentCarMake;
@@ -34,6 +39,8 @@ import com.cars.halamotor.view.fragments.carDetailsFragment.FragmentYear;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+
+import static com.cars.halamotor.functions.NewFunction.convertYearToEng;
 
 
 public class CarDetails extends AppCompatActivity {
@@ -72,27 +79,31 @@ public class CarDetails extends AppCompatActivity {
         changeFontType();
     }
 
-    private void passObjectFromCarDetailsToAddItem(String dictionaryStr,String valueStr) {
+    private void passObjectFromCarDetailsToAddItem(String dictionaryStr,String dictionaryStr2
+            ,String valueStr,String valueStr2) {
         Intent resultIntent = new Intent();
         if (dictionaryStr.equals("model"))
         {
             resultIntent.putExtra(dictionaryStr, valueStr);
+            resultIntent.putExtra(dictionaryStr2, valueStr2);
             resultIntent.putExtra("make", carMakeStr);
         }else {
             resultIntent.putExtra(dictionaryStr, valueStr);
+            resultIntent.putExtra(dictionaryStr2, valueStr2);
             resultIntent.putExtra("make", "nothing_to_pass");
         }
         setResult(Activity.RESULT_OK, resultIntent);
         finish();
     }
 
-    public void getCarPaymentStrFromFragmentPaymentMethodAndFinish(String paymentStr)
+    public void getCarPaymentStrFromFragmentPaymentMethodAndFinish(PaymentMethod paymentMethod)
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("payment",paymentStr);
+            passObjectFromCarDetailsToAddItem("payment","paymentS"
+                    ,paymentMethod.getPaymentMethodStr(),paymentMethod.getPaymentMethodStrS());
         }else {
-            carDetailsModel.setPaymentMethod(paymentStr);
+            carDetailsModel.setPaymentMethod(paymentMethod);
             Intent resultIntent = new Intent();
             resultIntent.putExtra("carDetailsObject", carDetailsModel);
             setResult(Activity.RESULT_OK, resultIntent);
@@ -224,7 +235,8 @@ public class CarDetails extends AppCompatActivity {
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("color",carColor.getColorNameStr());
+            passObjectFromCarDetailsToAddItem("color","colorS"
+                    ,carColor.getColorNameStr(),carColor.getColorNameStr());
         }else {
             moveFromColorFragmentToPaymentFragment();
             changeHeadTitle(getResources().getString(R.string.payment_method));
@@ -232,27 +244,29 @@ public class CarDetails extends AppCompatActivity {
         }
     }
 
-    public void getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(String carInsuranceStr)
+    public void getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(CarInsurance carInsurance)
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("insurance",carInsuranceStr);
+            passObjectFromCarDetailsToAddItem("insurance","insurance",
+                    carInsurance.getCarInsuranceStr(),carInsurance.getCarInsuranceStrS());
         }else {
             moveFromInsuranceFragmentToColorFragment();
             changeHeadTitle(getResources().getString(R.string.color));
-            carDetailsModel.setInsurance(carInsuranceStr);
+            carDetailsModel.setInsurance(carInsurance);
         }
     }
 
-    public void getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(String carLicensedStr)
+    public void getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(CarLicensed carLicensed)
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("licensed",carLicensedStr);
+            passObjectFromCarDetailsToAddItem("licensed","licensedS"
+                    ,carLicensed.getCarLicensedStr(),carLicensed.getCarLicensedStrS());
         }else {
             moveFromLicensedFragmentToInsuranceFragment();
             changeHeadTitle(getResources().getString(R.string.insurance));
-            carDetailsModel.setLicenseStr(carLicensedStr);
+            carDetailsModel.setLicenseStr(carLicensed);
         }
     }
 
@@ -260,7 +274,8 @@ public class CarDetails extends AppCompatActivity {
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("options",carOptionsStr);
+            passObjectFromCarDetailsToAddItem("options","optionsS"
+                    ,carOptionsStr,carOptionsStr);
         }else {
             moveFromOptionsFragmentToLicensedFragment();
             changeHeadTitle(getResources().getString(R.string.car_license));
@@ -268,15 +283,16 @@ public class CarDetails extends AppCompatActivity {
         }
     }
 
-    public void getCarFuelStrFromFragmentFuelAndMoveToFragmentOptions(String carFuelStr)
+    public void getCarFuelStrFromFragmentFuelAndMoveToFragmentOptions(CarFuel carFuel)
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("fuel",carFuelStr);
+            passObjectFromCarDetailsToAddItem("fuel","fuelS"
+                    ,carFuel.getCarFuelStr(),carFuel.getCarFuelStrS());
         }else {
             moveFromFuelFragmentToOptionsFragment();
             changeHeadTitle(getResources().getString(R.string.car_options));
-            carDetailsModel.setFuelStr(carFuelStr);
+            carDetailsModel.setFuelStr(carFuel);
         }
     }
 
@@ -284,7 +300,8 @@ public class CarDetails extends AppCompatActivity {
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("transmission",carTransmission);
+            passObjectFromCarDetailsToAddItem("transmission","transmissionS"
+                    ,carTransmission,carTransmission);
         }else {
             moveFromTransmissionFragmentToFuelFragment();
             changeHeadTitle(getResources().getString(R.string.fuel));
@@ -296,7 +313,8 @@ public class CarDetails extends AppCompatActivity {
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("kilometers",carKilometers);
+            passObjectFromCarDetailsToAddItem("kilometers","kilometersS"
+                    ,carKilometers,carKilometers);
         }else {
             moveFromConditionFragmentToTransmissionFragment();
             changeHeadTitle(getResources().getString(R.string.transmission));
@@ -304,11 +322,12 @@ public class CarDetails extends AppCompatActivity {
         }
     }
 
-    public void getCarConditionStrFromFragmentCarConditionAndMoveToFragmentKilometers(String carCondition)
+    public void getCarConditionStrFromFragmentCarConditionAndMoveToFragmentKilometers(CarCondition carCondition)
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
-            passObjectFromCarDetailsToAddItem("condition",carCondition);
+            passObjectFromCarDetailsToAddItem("condition","conditionS"
+                    ,carCondition.getCarConditionStr(),carCondition.getCarConditionStrS());
         }else {
             moveFromConditionFragmentToKilometersFragment();
             changeHeadTitle(getResources().getString(R.string.kilometers));
@@ -321,7 +340,8 @@ public class CarDetails extends AppCompatActivity {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
             carDetailsModel.setYearStr(carYear);
-            passObjectFromCarDetailsToAddItem("year",carYear);
+            passObjectFromCarDetailsToAddItem("year","yearS",carYear,
+                    convertYearToEng(carYear));
         }else{
             moveFromYearFragmentToCondtionFragment();
             changeHeadTitle(getResources().getString(R.string.condition));
@@ -329,12 +349,13 @@ public class CarDetails extends AppCompatActivity {
         }
     }
 
-    public void getCarModelStrFromFragmentCarModelAndMoveToFragmentYear(String carModel)
+    public void getCarModelStrFromFragmentCarModelAndMoveToFragmentYear(CarModel carModel)
     {
         if (whereComeFromStr.equals("fromAShowSelected"))
         {
             carDetailsModel.setModelStr(carModel);
-            passObjectFromCarDetailsToAddItem("model",carModel);
+            passObjectFromCarDetailsToAddItem("model","modelS"
+                    ,carModel.getCarModelStr(),carModel.getCarModelStrS());
         }else {
             moveFromModelFragmentToYearFragment();
             changeHeadTitle(getResources().getString(R.string.year));
@@ -346,7 +367,7 @@ public class CarDetails extends AppCompatActivity {
     {
         passCarMakeToModeFragmentAndMove(carMake);
         changeHeadTitle(getResources().getString(R.string.model));
-        carDetailsModel.setCarMakeStr(carMake.getMakeStr());
+        carDetailsModel.setCarMakeStr(carMake);
     }
 
     private void actionListener() {

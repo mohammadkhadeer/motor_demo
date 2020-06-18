@@ -119,8 +119,8 @@ public class FragmentCarCondition extends Fragment implements AdapterCarConditio
     }
 
     @Override
-    public void onConditionClicked(String carCarConditionStr) {
+    public void onConditionClicked(CarCondition carCarCondition) {
         CarDetails carDetails = (CarDetails) getActivity();
-        carDetails.getCarConditionStrFromFragmentCarConditionAndMoveToFragmentKilometers(carCarConditionStr);
+        carDetails.getCarConditionStrFromFragmentCarConditionAndMoveToFragmentKilometers(carCarCondition);
     }
 }

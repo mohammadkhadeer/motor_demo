@@ -24,30 +24,6 @@ import static com.cars.halamotor.functions.Functions.getNotification;
 
 public class UploadModelsToFireBase {
 
-    public static void addNewItem(final CCEMT ccemt, final String category
-            , final String userID, final int numberOfAdsToUser, final Context context) {
-        insertCarForSale().child(category).push().setValue(ccemt
-                ,new DatabaseReference.CompletionListener() {
-            @RequiresApi(api = Build.VERSION_CODES.O)
-            @Override
-            public void onComplete(DatabaseError databaseError,
-                                   DatabaseReference databaseReference) {
-                String uniqueKey = databaseReference.getKey();
-                //update id item on server
-                insertCarForSale().child(category).child(uniqueKey).child("itemID").setValue(uniqueKey);
-                //insert item to userAds in user table
-                FCWSU fcwsu = new FCWSU(uniqueKey);
-                getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
-                //update number of ads to this user
-                getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
-                //insert notification here to can get item id in server
-                insertNotificationTable(getNotification(category,ccemt.getCarMake() + " " +ccemt.getCarModel(),context, uniqueKey,"out","item",ccemt.getImagePathArrayL().get(0))
-                        ,getDataBaseInstance(context));
-            }
-        });
-
-    }
-
     // new item type carPlates
     public static void addNewCarPlates(final CarPlatesModel carPlatesModel, final String category
             , final String userID, final int numberOfAdsToUser, final Context context) {

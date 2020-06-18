@@ -10,11 +10,14 @@ public class AddressSharedPreferences {
 
 
     public static void saveUserInfoInSP(Context context, SharedPreferences SharedPreferences
-            , SharedPreferences.Editor Editor, String city, String neighborhood) {
+            , SharedPreferences.Editor Editor, String city, String neighborhood
+            ,String cityS,String neighborhoodS) {
         SharedPreferences = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
         Editor = SharedPreferences.edit();
         Editor.putString("userCity",city);
         Editor.putString("userNeighborhood",neighborhood);
+        Editor.putString("userCityS",cityS);
+        Editor.putString("userNeighborhoodS",neighborhoodS);
 
         Editor.commit();
     }

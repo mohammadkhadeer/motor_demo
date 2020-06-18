@@ -329,11 +329,14 @@ public class SharedPreferencesInApp {
     }
 
     public static void saveAddressInSP(Context context,SharedPreferences SharedPreferences,
-                                     SharedPreferences.Editor editor,String cityStr,String neighborhoodStr) {
+             SharedPreferences.Editor editor,String cityStr,String neighborhoodStr
+            ,String cityStrS,String neighborhoodStrS) {
         SharedPreferences = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
         editor = SharedPreferences.edit();
         editor.putString("city",cityStr);
         editor.putString("neighborhood",neighborhoodStr);
+        editor.putString("cityS",cityStrS);
+        editor.putString("neighborhoodS",neighborhoodStrS);
         editor.commit();
     }
 
@@ -368,6 +371,32 @@ public class SharedPreferencesInApp {
         SharedPreferences shared = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
         //can use any comp from user info to check
         neighborhoodStr = (shared.getString("neighborhood", ""));
+        if (neighborhoodStr.equals("") || neighborhoodStr == null) {
+            return  null;
+        }
+        else {
+            return  neighborhoodStr;
+        }
+    }
+
+    public static String getCitySFromSP(Context context) {
+        String cityStr;
+        SharedPreferences shared = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        //can use any comp from user info to check
+        cityStr = (shared.getString("cityS", ""));
+        if (cityStr.equals("") || cityStr == null) {
+            return  null;
+        }
+        else {
+            return  cityStr;
+        }
+    }
+
+    public static String getNeighborhoodSFromSP(Context context) {
+        String neighborhoodStr;
+        SharedPreferences shared = context.getSharedPreferences(PHONE_AND_ADDRESS, MODE_PRIVATE);
+        //can use any comp from user info to check
+        neighborhoodStr = (shared.getString("neighborhoodS", ""));
         if (neighborhoodStr.equals("") || neighborhoodStr == null) {
             return  null;
         }

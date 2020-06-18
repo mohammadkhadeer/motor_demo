@@ -10,6 +10,7 @@ import android.util.Log;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
@@ -20,16 +21,16 @@ import java.util.ArrayList;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertNotificationTable;
 import static com.cars.halamotor.fireBaseDB.FireBaseStoragePaths.carForSalePath;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addNewItemToFireStore;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewAccessories;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewCarPlates;
-import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewItem;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewWheelsRim;
 import static com.cars.halamotor.functions.Functions.getNotification;
 import static com.cars.halamotor.functions.Functions.getTime;
 
 public class UploadToStorage {
 
-    public static void uploadImagesBeforeUploadCarForSaleModel(ArrayList<String> imagePaths, final CCEMT ccemt, String category
+    public static void uploadImagesBeforeUploadCarForSaleModel(ArrayList<String> imagePaths, final ItemCCEMT itemCCEMT, String category
                                     , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -61,17 +62,17 @@ public class UploadToStorage {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-                    ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Car_For_Sale",userIDOnServer,numberOfAds,context);
+                    itemCCEMT.setImagePathArrayL(imagePathsInServer);
+                    addNewItemToFireStore(itemCCEMT,"Car_For_Sale",userIDOnServer,numberOfAds,context);
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Car_For_Sale",userIDOnServer,numberOfAds,context);
+            addNewItemToFireStore(itemCCEMT,"Car_For_Sale",userIDOnServer,numberOfAds,context);
             }
     }
 
     public static void uploadImagesBeforeUploadCarForRentModel(ArrayList<String> imagePaths
-            , final CCEMT ccemt, String category
+            , final ItemCCEMT itemCCEMT, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -103,18 +104,18 @@ public class UploadToStorage {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-                    ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Car_For_Rent",userIDOnServer,numberOfAds,context);
+                    itemCCEMT.setImagePathArrayL(imagePathsInServer);
+                    addNewItemToFireStore(itemCCEMT,"Car_For_Rent",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Car_For_Rent",userIDOnServer,numberOfAds,context);
+            addNewItemToFireStore(itemCCEMT,"Car_For_Rent",userIDOnServer,numberOfAds,context);
         }
     }
 
     public static void uploadImagesBeforeUploadCarForExchangeModel(ArrayList<String> imagePaths
-            , final CCEMT ccemt, String category
+            , final ItemCCEMT itemCCEMT, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -146,17 +147,17 @@ public class UploadToStorage {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-                    ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Car_For_Exchange",userIDOnServer,numberOfAds,context);
+                    itemCCEMT.setImagePathArrayL(imagePathsInServer);
+                    addNewItemToFireStore(itemCCEMT,"Car_For_Exchange",userIDOnServer,numberOfAds,context);
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Car_For_Exchange",userIDOnServer,numberOfAds,context);
+            addNewItemToFireStore(itemCCEMT,"Car_For_Exchange",userIDOnServer,numberOfAds,context);
         }
     }
 
     public static void uploadImagesBeforeUploadCarForMotorcycleModel(ArrayList<String> imagePaths
-            , final CCEMT ccemt, String category
+            , final ItemCCEMT itemCCEMT, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -188,18 +189,18 @@ public class UploadToStorage {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-                    ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Motorcycle",userIDOnServer,numberOfAds,context);
+                    itemCCEMT.setImagePathArrayL(imagePathsInServer);
+                    addNewItemToFireStore(itemCCEMT,"Motorcycle",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Motorcycle",userIDOnServer,numberOfAds,context);
+            addNewItemToFireStore(itemCCEMT,"Motorcycle",userIDOnServer,numberOfAds,context);
         }
     }
 
     public static void uploadImagesBeforeUploadCarForTrucksModel(ArrayList<String> imagePaths
-            , final CCEMT ccemt, String category
+            , final ItemCCEMT itemCCEMT, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -231,13 +232,13 @@ public class UploadToStorage {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-                    ccemt.setImagePathArrayL(imagePathsInServer);
-                    addNewItem(ccemt,"Trucks",userIDOnServer,numberOfAds,context);
+                    itemCCEMT.setImagePathArrayL(imagePathsInServer);
+                    addNewItemToFireStore(itemCCEMT,"Trucks",userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewItem(ccemt,"Trucks",userIDOnServer,numberOfAds,context);
+            addNewItemToFireStore(itemCCEMT,"Trucks",userIDOnServer,numberOfAds,context);
         }
     }
 

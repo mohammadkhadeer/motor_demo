@@ -192,7 +192,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         modelRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                carMakeStr = carDetailsModel.getCarMakeStr();
+                carMakeStr = carDetailsModel.getCarMakeStr().getMakeStr();
                 moveToCarDetailsSpecificFragment("fromAShowSelected",getActivity().getResources().getString(R.string.model),"model");
             }
         });
@@ -297,18 +297,18 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     }
 
     private void fillDetails() {
-        carMakeTV.setText(carDetailsModel.getCarMakeStr());
-        modelTV.setText(carDetailsModel.getModelStr());
+        carMakeTV.setText(carDetailsModel.getCarMakeStr().getMakeStr());
+        modelTV.setText(carDetailsModel.getModelStr().getCarModelStr());
         yearTV.setText(carDetailsModel.getYearStr());
-        conditionTV.setText(carDetailsModel.getConditionStr());
+        conditionTV.setText(carDetailsModel.getConditionStr().getCarConditionStr());
         kilometersTV.setText(carDetailsModel.getKilometersStr());
         transmissionTV.setText(carDetailsModel.getTransmissionStr());
-        fuelTV.setText(carDetailsModel.getFuelStr());
+        fuelTV.setText(carDetailsModel.getFuelStr().getCarFuelStr());
         carOptionsTV.setText(carDetailsModel.getCarOptionsStr());
-        carLicenseTV.setText(carDetailsModel.getLicenseStr());
-        insuranceTV.setText(carDetailsModel.getInsurance());
+        carLicenseTV.setText(carDetailsModel.getLicenseStr().getCarLicensedStr());
+        insuranceTV.setText(carDetailsModel.getInsurance().getCarInsuranceStr());
         colorTV.setText(carDetailsModel.getCarColorStr());
-        paymentMethodTV.setText(carDetailsModel.getPaymentMethod());
+        paymentMethodTV.setText(carDetailsModel.getPaymentMethod().getPaymentMethodStr());
     }
 
     private void inti() {
@@ -355,10 +355,13 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         if (requestCode == EDIT_CAR_DETAILS) {
             if (null!=data)
             {
+                String whatUserWantToChangeValue2Str = whatUserWantToChangeStr+"S";
                 String value = data.getStringExtra(whatUserWantToChangeStr);
+                String value2 = data.getStringExtra(whatUserWantToChangeValue2Str);
                 String makeStr = data.getStringExtra("make");
                 EditValueInCDM dataEdit = new EditValueInCDM(whatUserWantToChangeStr,value);
-                dataPasser.onDataPass(dataEdit);
+                EditValueInCDM dataEdit2 = new EditValueInCDM(whatUserWantToChangeStr,value);
+                dataPasser.onDataPass(dataEdit,dataEdit2);
                 checkWhereAChangeHappenedAndChangeIt(value,makeStr);
             }
         }
@@ -459,7 +462,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     }
 
     public interface OnDataPass {
-        public void onDataPass(EditValueInCDM data);
+        public void onDataPass(EditValueInCDM data,EditValueInCDM data2);
         public void onDataPassCarPlates(CarPlatesDetails carPlatesDetails);
     }
 

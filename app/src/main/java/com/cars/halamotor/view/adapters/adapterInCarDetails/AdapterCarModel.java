@@ -41,7 +41,7 @@ public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHo
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passCarModel.onModeClicked(carModelArrayL.get(position).getCarModelStr());
+                passCarModel.onModeClicked(carModelArrayL.get(position));
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -66,7 +66,7 @@ public class AdapterCarModel extends RecyclerView.Adapter<AdapterCarModel.ViewHo
     }
 
     public interface PassCarModel {
-        void onModeClicked(String carModel);
+        void onModeClicked(CarModel carModel);
     }
 
     public void filterList(ArrayList<CarModel> filterdNames) {

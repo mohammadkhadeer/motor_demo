@@ -126,7 +126,7 @@ public class FragmentModel extends Fragment implements AdapterCarModel.PassCarMo
     }
 
     @Override
-    public void onModeClicked(String carModel) {
+    public void onModeClicked(CarModel carModel) {
         CarDetails carDetails = (CarDetails) getActivity();
         carDetails.getCarModelStrFromFragmentCarModelAndMoveToFragmentYear(carModel);
     }

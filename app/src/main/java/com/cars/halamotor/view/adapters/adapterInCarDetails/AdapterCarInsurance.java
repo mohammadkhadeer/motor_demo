@@ -42,7 +42,7 @@ public class AdapterCarInsurance extends RecyclerView.Adapter<AdapterCarInsuranc
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passIncense.onIncenseClicked(carIncenseArrayL.get(position).getCarInsuranceStr());
+                passIncense.onIncenseClicked(carIncenseArrayL.get(position));
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -67,7 +67,7 @@ public class AdapterCarInsurance extends RecyclerView.Adapter<AdapterCarInsuranc
     }
 
     public interface PassIncense {
-        void onIncenseClicked(String carFuelStr);
+        void onIncenseClicked(CarInsurance carInsurance);
     }
 
     public void filterList(ArrayList<CarInsurance> filterdNames) {

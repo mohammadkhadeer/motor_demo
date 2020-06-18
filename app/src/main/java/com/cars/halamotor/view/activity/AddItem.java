@@ -40,6 +40,7 @@ import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CustomGallery;
 import com.cars.halamotor.model.EditValueInCDM;
+import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.presnter.NumberOfAllowedAds;
@@ -50,6 +51,8 @@ import com.cars.halamotor.view.fragments.FragmentCityPhoneNumber;
 import com.cars.halamotor.view.fragments.ShowSelectedCarDetailsFragment;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import java.util.ArrayList;
+import java.util.Locale;
+
 import butterknife.ButterKnife;
 
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.checkUserCanInsertAddOrNot;
@@ -82,11 +85,14 @@ import static com.cars.halamotor.functions.Functions.getYEAR;
 import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 import static com.cars.halamotor.functions.Functions.splitString;
 import static com.cars.halamotor.functions.Functions.updateCarDetailsModel;
+import static com.cars.halamotor.functions.NewFunction.convertYearToEng;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getCityFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getCitySFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getDesInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNeighborhoodFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getNeighborhoodSFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPhoneNumberInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getPriceAfterConvertedToDoubleInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getTitleInSP;
@@ -137,7 +143,8 @@ public class AddItem extends AppCompatActivity implements
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
-    CCEMT ccemt;
+//    CCEMT ccemt;
+    ItemCCEMT itemCCEMT;
     CarDetailsModel carDetailsModel;
     ArrayList<String> reportDescriptionArrayL;
     ArrayList<String> watchersArrayL;
@@ -258,40 +265,53 @@ public class AddItem extends AppCompatActivity implements
                 secondNumber = "200000" ;
             }
         }
-        ccemt = new CCEMT("NOTYET", getCityFromSP(getApplicationContext())
-                , getNeighborhoodFromSP(getApplicationContext())
-                , getUserTokenInFromSP(getApplicationContext())
-                , getTime(), getPhoneNumberInSP(getApplicationContext())
+        itemCCEMT = new ItemCCEMT(
+                "NOTYET"
+                ,getCityFromSP(getApplicationContext())
+                ,getNeighborhoodFromSP(getApplicationContext())
+                ,getUserTokenInFromSP(getApplicationContext())
+                ,getTime(), getPhoneNumberInSP(getApplicationContext())
                 , getTitleInSP(getApplicationContext())
                 , getDesInSP(getApplicationContext())
-                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
-                , "no auction yet", "0", "123", "0"
-                , getVideoPath(mVideoURI)
-
-                , selectedCategory, selectedCategory
-
-                , carDetailsModel.getCarMakeStr()
-                , carDetailsModel.getModelStr()
+                , getUserImage(getApplicationContext())
+                ,getUserName(getApplicationContext())
+                ,"0","123","0","0"
+                ,selectedCategory, selectedCategory
+                , carDetailsModel.getCarMakeStr().getMakeStr()
+                , carDetailsModel.getModelStr().getCarModelStr()
                 , carDetailsModel.getYearStr()
-                , carDetailsModel.getConditionStr()
+                , carDetailsModel.getConditionStr().getCarConditionStr()
                 , carDetailsModel.getKilometersStr()
                 , carDetailsModel.getTransmissionStr()
-                , carDetailsModel.getFuelStr()
-                , carDetailsModel.getLicenseStr()
-                , carDetailsModel.getInsurance()
+                , carDetailsModel.getFuelStr().getCarFuelStr()
+                , carDetailsModel.getLicenseStr().getCarLicensedStr()
+                , carDetailsModel.getInsurance().getCarInsuranceStr()
                 , carDetailsModel.getCarColorStr()
-                , carDetailsModel.getPaymentMethod()
+                , carDetailsModel.getPaymentMethod().getPaymentMethodStr()
                 , carDetailsModel.getCarOptionsStr()
                 ,"person", getTimeStamp()
                 , getUserIdInServerFromSP(getApplicationContext())
-                , reportDescriptionArrayL
-                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-                , watchersArrayL, getDefaultBoostPostArrayL(), 0
-                , checkBurnedPrice(getApplicationContext())
-                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
-                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
-                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
-                , Double.parseDouble(firstNumber), Double.parseDouble(secondNumber));
+                ,getImagePathsNoImage()
+                ,checkBurnedPrice(getApplicationContext())
+                ,0,Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH())
+                , Integer.parseInt(getDAY())
+                ,getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                , Double.parseDouble(firstNumber), Double.parseDouble(secondNumber)
+                ,String.valueOf(itemLiveOrMustToWaitIfBurnedPriceOn)
+                ,selectedCategory
+                ,getCitySFromSP(getApplicationContext())
+                ,getNeighborhoodSFromSP(getApplicationContext())
+                ,carDetailsModel.getCarMakeStr().getMakeStrS()
+                ,carDetailsModel.getModelStr().getCarModelStrS()
+                ,"person"
+                ,carDetailsModel.getPaymentMethod().getPaymentMethodStrS()
+                ,carDetailsModel.getFuelStr().getCarFuelStrS()
+                ,carDetailsModel.getConditionStr().getCarConditionStrS()
+                ,carDetailsModel.getInsurance().getCarInsuranceStrS()
+                ,carDetailsModel.getInsurance().getCarInsuranceStrS()
+                ,Integer.parseInt(convertYearToEng(getYEAR()))
+                , Locale.getDefault().getLanguage()
+        );
     }
 
     private void checkCategoryAndUpload(String selectCategory) {
@@ -300,27 +320,27 @@ public class AddItem extends AppCompatActivity implements
         progressBar.setVisibility(View.VISIBLE);
         if (selectCategory.equals(getResources().getString(R.string.car_for_sale))) {
             createCCMETObject("Car for sale");
-            uploadImagesBeforeUploadCarForSaleModel(imagePathArrL, ccemt, "Car_For_Sale"
+            uploadImagesBeforeUploadCarForSaleModel(imagePathArrL, itemCCEMT, "Car_For_Sale"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.car_for_rent))) {
             createCCMETObject("Car for rent");
-            uploadImagesBeforeUploadCarForRentModel(imagePathArrL, ccemt, "Car_For_Rent"
+            uploadImagesBeforeUploadCarForRentModel(imagePathArrL, itemCCEMT, "Car_For_Rent"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.exchange_car))) {
             createCCMETObject("Exchange car");
-            uploadImagesBeforeUploadCarForExchangeModel(imagePathArrL, ccemt, "Car_For_Exchange"
+            uploadImagesBeforeUploadCarForExchangeModel(imagePathArrL, itemCCEMT, "Car_For_Exchange"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.motorcycle))) {
             createCCMETObject("Motorcycle");
-            uploadImagesBeforeUploadCarForMotorcycleModel(imagePathArrL, ccemt, "Car_For_Motorcycle"
+            uploadImagesBeforeUploadCarForMotorcycleModel(imagePathArrL, itemCCEMT, "Car_For_Motorcycle"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.trucks))) {
             createCCMETObject("Trucks");
-            uploadImagesBeforeUploadCarForTrucksModel(imagePathArrL, ccemt, "Trucks"
+            uploadImagesBeforeUploadCarForTrucksModel(imagePathArrL, itemCCEMT, "Trucks"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.car_plates))) {
@@ -346,11 +366,12 @@ public class AddItem extends AppCompatActivity implements
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent resultIntent = new Intent();
-                setResult(Activity.RESULT_OK, resultIntent);
-                finish();
+                progressBar.setVisibility(View.GONE);
+//                Intent resultIntent = new Intent();
+//                setResult(Activity.RESULT_OK, resultIntent);
+//                finish();
             }
-        }, 5000);
+        }, 11000);
 
     }
 
@@ -870,8 +891,8 @@ public class AddItem extends AppCompatActivity implements
     }
 
     @Override
-    public void onDataPass(EditValueInCDM data) {
-        carDetailsModel =updateCarDetailsModel(carDetailsModel,data.getWhatUserWantToChangeStr(),data.getValueInWhatUserWantToChangeStr());
+    public void onDataPass(EditValueInCDM data,EditValueInCDM data2) {
+        carDetailsModel =updateCarDetailsModel(carDetailsModel,data.getWhatUserWantToChangeStr(),data.getValueInWhatUserWantToChangeStr(),data2.getValueInWhatUserWantToChangeStr());
     }
 
     @Override

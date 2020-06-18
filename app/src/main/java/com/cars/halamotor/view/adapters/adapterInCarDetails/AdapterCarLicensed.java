@@ -42,7 +42,7 @@ public class AdapterCarLicensed extends RecyclerView.Adapter<AdapterCarLicensed.
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passLicensed.onLicensedClicked(carLicensedArrayL.get(position).getCarLicensedStr());
+                passLicensed.onLicensedClicked(carLicensedArrayL.get(position));
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -67,7 +67,7 @@ public class AdapterCarLicensed extends RecyclerView.Adapter<AdapterCarLicensed.
     }
 
     public interface PassLicensed {
-        void onLicensedClicked(String carFuelStr);
+        void onLicensedClicked(CarLicensed carLicensed);
     }
 
     public void filterList(ArrayList<CarLicensed> filterdNames) {

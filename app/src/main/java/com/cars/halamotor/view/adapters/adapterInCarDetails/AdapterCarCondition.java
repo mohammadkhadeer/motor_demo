@@ -42,7 +42,7 @@ public class AdapterCarCondition extends RecyclerView.Adapter<AdapterCarConditio
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passCarCondition.onConditionClicked(carConditionArrayL.get(position).getCarConditionStr());
+                passCarCondition.onConditionClicked(carConditionArrayL.get(position));
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -67,7 +67,7 @@ public class AdapterCarCondition extends RecyclerView.Adapter<AdapterCarConditio
     }
 
     public interface PassCarCondition {
-        void onConditionClicked(String carCarConditionStr);
+        void onConditionClicked(CarCondition carCarCondition);
     }
 
     public void filterList(ArrayList<CarCondition> filterdNames) {

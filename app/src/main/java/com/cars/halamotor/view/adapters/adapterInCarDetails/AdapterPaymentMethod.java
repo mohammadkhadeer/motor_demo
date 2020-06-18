@@ -42,7 +42,7 @@ public class AdapterPaymentMethod extends RecyclerView.Adapter<AdapterPaymentMet
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passPayment.onPaymentClicked(carPaymentArrayL.get(position).getPaymentMethodStr());
+                passPayment.onPaymentClicked(carPaymentArrayL.get(position));
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -67,7 +67,7 @@ public class AdapterPaymentMethod extends RecyclerView.Adapter<AdapterPaymentMet
     }
 
     public interface PassPayment {
-        void onPaymentClicked(String carPaymentStr);
+        void onPaymentClicked(PaymentMethod carPaymentStr);
     }
 
     public void filterList(ArrayList<PaymentMethod> filterdNames) {

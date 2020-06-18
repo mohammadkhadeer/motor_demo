@@ -25,10 +25,12 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarColor;
+import com.cars.halamotor.model.CarCondition;
 import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CarFuel;
 import com.cars.halamotor.model.CarInsurance;
 import com.cars.halamotor.model.CarLicensed;
+import com.cars.halamotor.model.CarModel;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CommentsComp;
@@ -170,7 +172,6 @@ public class Functions {
         return newNumber;
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.O)
     public static NotificationComp getNotification(String process, String notificationTitle
                         , Context context,String itemIdInServer,String outOrCome,String AuctionOrItem
                         ,String itemImage)
@@ -186,11 +187,13 @@ public class Functions {
 
     public static CarDetailsModel updateCarDetailsModel(CarDetailsModel carDetailsModel
             , String whatUserWantToChange
-            , String valueInWhatUserWantToChange) {
+            , String valueInWhatUserWantToChange
+            , String valueInWhatUserWantToChange2) {
 
         if (whatUserWantToChange.equals("model"))
         {
-            carDetailsModel.setModelStr(valueInWhatUserWantToChange);
+            CarModel carModel = new CarModel(valueInWhatUserWantToChange,valueInWhatUserWantToChange2);
+            carDetailsModel.setModelStr(carModel);
         }
         if (whatUserWantToChange.equals("year"))
         {
@@ -198,7 +201,8 @@ public class Functions {
         }
         if (whatUserWantToChange.equals("condition"))
         {
-            carDetailsModel.setConditionStr(valueInWhatUserWantToChange);
+            CarCondition carCondition = new CarCondition(valueInWhatUserWantToChange,valueInWhatUserWantToChange2);
+            carDetailsModel.setConditionStr(carCondition);
         }
         if (whatUserWantToChange.equals("kilometers"))
         {
@@ -210,7 +214,8 @@ public class Functions {
         }
         if (whatUserWantToChange.equals("fuel"))
         {
-            carDetailsModel.setFuelStr(valueInWhatUserWantToChange);
+            CarFuel carFuel = new CarFuel(valueInWhatUserWantToChange,valueInWhatUserWantToChange2);
+            carDetailsModel.setFuelStr(carFuel);
         }
         if (whatUserWantToChange.equals("options"))
         {
@@ -218,11 +223,13 @@ public class Functions {
         }
         if (whatUserWantToChange.equals("licensed"))
         {
-            carDetailsModel.setLicenseStr(valueInWhatUserWantToChange);
+            CarLicensed carLicensed = new CarLicensed(valueInWhatUserWantToChange,valueInWhatUserWantToChange2);
+            carDetailsModel.setLicenseStr(carLicensed);
         }
         if (whatUserWantToChange.equals("insurance"))
         {
-            carDetailsModel.setInsurance(valueInWhatUserWantToChange);
+            CarInsurance carInsurance = new CarInsurance(valueInWhatUserWantToChange,valueInWhatUserWantToChange2);
+            carDetailsModel.setInsurance(carInsurance);
         }
         if (whatUserWantToChange.equals("color"))
         {
@@ -230,7 +237,8 @@ public class Functions {
         }
         if (whatUserWantToChange.equals("payment"))
         {
-            carDetailsModel.setPaymentMethod(valueInWhatUserWantToChange);
+            PaymentMethod paymentMethod = new PaymentMethod(valueInWhatUserWantToChange,valueInWhatUserWantToChange2);
+            carDetailsModel.setPaymentMethod(paymentMethod);
         }
 
         return carDetailsModel;
@@ -872,5 +880,42 @@ public class Functions {
             city = context.getResources().getString(R.string.fujairah);
         }
         return city;
+    }
+
+    public static String cityS(String city, Context context) {
+        String cityS = "";
+        if (city.equals(context.getResources().getString(R.string.dubai)))
+        {
+            city = context.getResources().getString(R.string.dubai_s);
+        }
+        if (city.equals(context.getResources().getString(R.string.abu_dhabi)))
+        {
+            city = context.getResources().getString(R.string.abu_dhabi_s);
+        }
+        if (city.equals(context.getResources().getString(R.string.sharjah)))
+        {
+            city = context.getResources().getString(R.string.sharjah_s);
+        }
+        if (city.equals(context.getResources().getString(R.string.al_ain)))
+        {
+            city = context.getResources().getString(R.string.al_ain_s);
+        }
+        if (city.equals(context.getResources().getString(R.string.ajman)))
+        {
+            city = context.getResources().getString(R.string.ajman_s);
+        }
+        if (city.equals(context.getResources().getString(R.string.ras_al_khaimah)))
+        {
+            city = context.getResources().getString(R.string.ras_al_khaimah_s);
+        }
+        if (city.equals(context.getResources().getString(R.string.um_al_quwain)))
+        {
+            city = context.getResources().getString(R.string.um_al_quwain_s);
+        }
+        if (city.equals(context.getResources().getString(R.string.fujairah)))
+        {
+            city = context.getResources().getString(R.string.fujairah_s);
+        }
+        return cityS;
     }
 }

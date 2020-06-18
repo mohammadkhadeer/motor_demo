@@ -115,8 +115,8 @@ public class FragmentInsurance extends Fragment implements AdapterCarInsurance.P
     }
 
     @Override
-    public void onIncenseClicked(String carIncenseStr) {
+    public void onIncenseClicked(CarInsurance carIncense) {
         CarDetails carDetails = (CarDetails) getActivity();
-        carDetails.getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(carIncenseStr);
+        carDetails.getCarInsuranceStrFromFragmentInsuranceAndMoveToFragmentColor(carIncense);
     }
 }

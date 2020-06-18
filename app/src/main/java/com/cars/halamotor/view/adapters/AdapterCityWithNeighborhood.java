@@ -81,8 +81,10 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
     private void saveCityAndNeighborhoodInSPAndUpdateInServer(int position) {
         String city = cityWithNeighborhoodsArrayL.get(position).getCityStr();
         String neighborhood = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr();
+        String cityS = cityWithNeighborhoodsArrayL.get(position).getCityStrS();
+        String neighborhoodS = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS();
         saveUserInfoInSP(context,sharedPreferences,editor,city
-        ,neighborhood);
+        ,neighborhood,cityS,neighborhoodS);
         updateCityNeighborhood(context,city,neighborhood);
     }
 
@@ -90,6 +92,8 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
         Intent resultIntent = new Intent();
         resultIntent.putExtra("city", cityWithNeighborhoodsArrayL.get(position).getCityStr());
         resultIntent.putExtra("nei", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr());
+        resultIntent.putExtra("cityS", cityWithNeighborhoodsArrayL.get(position).getCityStrS());
+        resultIntent.putExtra("neiS", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS());
         ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
         ((Activity)context).finish();
     }

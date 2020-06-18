@@ -7,6 +7,7 @@ import android.support.annotation.NonNull;
 import android.support.annotation.RequiresApi;
 import android.util.Log;
 
+import com.cars.halamotor.R;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.FCWSU;
 import com.cars.halamotor.model.ItemAccAndJunk;
@@ -57,7 +58,37 @@ public class InsertToFireBase {
         //String key = insertNewUser().push().getKey();
     }
 
-    public static void addCarForExchangeStore(final ItemCCEMT itemCCEMT) {
+    public static void addNewItemToFireStore(final ItemCCEMT itemCCEMT, final String category
+            , final String userID, final int numberOfAdsToUser, final Context context) {
+
+        getDataStoreInstance().collection(category).add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                if (task.isSuccessful()) {
+                    DocumentReference document = task.getResult();
+                    if (document != null) {
+                        String uniqueKey = document.getId(); //Do what you need to do with the document id
+                        Log.i("TAG","itemID: "+uniqueKey);
+                        getDataStoreInstance().collection(category).document(uniqueKey)
+                                .update("itemID",uniqueKey);
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification(category,itemCCEMT.getCarMake() + " " +itemCCEMT.getCarModel(),context, uniqueKey,"out","item",itemCCEMT.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
+                    }
+                }
+            }
+        });
+
+    }
+
+    public static void addCarForExchangeStore(final ItemCCEMT itemCCEMT, final String category
+            , final String userID, final Context context, final int numberOfAdsToUser) {
+
         carForExchange().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -67,13 +98,24 @@ public class InsertToFireBase {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         Log.i("TAG","itemID: "+uniqueKey);
                         carForExchange().document(uniqueKey).update("itemID",uniqueKey);
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification(category,itemCCEMT.getCarMake() + " " +itemCCEMT.getCarModel(),context, uniqueKey,"out","item",itemCCEMT.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addCarForSaleStore(final ItemCCEMT itemCCEMT) {
+
+
+    public static void addCarForSaleStore(final ItemCCEMT itemCCEMT, final String category
+            , final String userID, final Context context, final int numberOfAdsToUser) {
         carForSale().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -82,15 +124,25 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         carForSale().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification(category,itemCCEMT.getCarMake() + " " +itemCCEMT.getCarModel(),context, uniqueKey,"out","item",itemCCEMT.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addCarForRentStore(final ItemCCEMT itemCCEMT) {
-        carForRent().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+
+
+    public static void addCarForRentStore(final ItemCCEMT itemCCEMT, final String category
+            , final String userID, final Context context, final int numberOfAdsToUser) {
+                carForRent().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
@@ -98,15 +150,25 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         carForRent().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification(category,itemCCEMT.getCarMake() + " " +itemCCEMT.getCarModel(),context, uniqueKey,"out","item",itemCCEMT.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addMotorcycle(final ItemCCEMT itemCCEMT) {
-        motorcycle().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+
+
+    public static void addMotorcycle(final ItemCCEMT itemCCEMT, final String category
+            , final String userID, final Context context, final int numberOfAdsToUser) {
+                motorcycle().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
@@ -114,15 +176,25 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         motorcycle().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification(category,itemCCEMT.getCarMake() + " " +itemCCEMT.getCarModel(),context, uniqueKey,"out","item",itemCCEMT.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addTrucks(final ItemCCEMT itemCCEMT) {
-        trucks().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+
+
+    public static void addTrucks(final ItemCCEMT itemCCEMT, final String category
+            , final String userID, final Context context, final int numberOfAdsToUser) {
+                trucks().add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
@@ -130,15 +202,25 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         trucks().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification(category,itemCCEMT.getCarMake() + " " +itemCCEMT.getCarModel(),context, uniqueKey,"out","item",itemCCEMT.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addItemPlates(final ItemPlates itemPlates) {
-        platesPath().add(itemPlates).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+
+
+    public static void addItemPlates(final ItemPlates itemPlates, final String userID
+                , final Context context, final int numberOfAdsToUser) {
+                platesPath().add(itemPlates).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
@@ -146,15 +228,25 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         platesPath().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification("Plates",itemPlates.getCarPlatesCity() + " " +itemPlates.getCarPlatesNum(),context, uniqueKey,"out","item",itemPlates.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addWheelsRim(final ItemWheelsRim itemWheelsRim) {
-        wheelsRimPath().add(itemWheelsRim).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+
+
+    public static void addWheelsRim(final ItemWheelsRim itemWheelsRim, final String userID
+                , final Context context, final int numberOfAdsToUser) {
+                wheelsRimPath().add(itemWheelsRim).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
@@ -162,15 +254,25 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         wheelsRimPath().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
+                        //insert notification here to can get item id in server
+                        insertNotificationTable(getNotification("Wheels_Rim",itemWheelsRim.getWheelSize()+" "+ context.getResources().getString(R.string.wheels_inch),context, uniqueKey,"out","item",itemWheelsRim.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addAccessories(final ItemAccAndJunk itemAccAndJunk) {
-        accessoriesPath().add(itemAccAndJunk).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+
+
+    public static void addAccessories(final ItemAccAndJunk itemAccAndJunk
+                    , final String userID, final Context context, final int numberOfAdsToUser) {
+                accessoriesPath().add(itemAccAndJunk).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
@@ -178,14 +280,24 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         accessoriesPath().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser + 1);
+                        //insert notification
+                        insertNotificationTable(getNotification("Accessories",itemAccAndJunk.getItemName(),context, uniqueKey,"out","item",itemAccAndJunk.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }
         });
     }
 
-    public static void addJunkCar(final ItemAccAndJunk itemAccAndJunk) {
+
+
+    public static void addJunkCar(final ItemAccAndJunk itemAccAndJunk
+            , final String userID, final Context context, final int numberOfAdsToUser) {
         junkCarPath().add(itemAccAndJunk).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -194,7 +306,14 @@ public class InsertToFireBase {
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id
                         junkCarPath().document(uniqueKey).update("itemID",uniqueKey);
-
+                        //insert item to userAds in user table
+                        FCWSU fcwsu = new FCWSU(uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        //update number of ads to this user
+                        getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser + 1);
+                        //insert notification
+                        insertNotificationTable(getNotification("junkCar",itemAccAndJunk.getItemName(),context, uniqueKey,"out","item",itemAccAndJunk.getImagePathArrayL().get(0))
+                                ,getDataBaseInstance(context));
                     }
                 }
             }

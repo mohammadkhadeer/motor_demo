@@ -32,11 +32,8 @@
             android:name=".view.activity.SplashScreen"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
@@ -61,7 +58,13 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".view.activity.AddItem"
-            android:theme="@style/AppTheme2" />
+            android:theme="@style/AppTheme2" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait"

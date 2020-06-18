@@ -18,6 +18,231 @@ import java.util.ArrayList;
 
 public class NewFunction {
 
+    public static String convertYearToEng(String yearStr){
+        String year = yearStr;
+        if (yearStr.equals("١٩٧٠"))
+        {
+            year = "1970";
+        }
+        if (yearStr.equals("١٩٧١"))
+        {
+            year = "1971";
+        }
+        if (yearStr.equals("١٩٧٢"))
+        {
+            year = "1972";
+        }
+        if (yearStr.equals("١٩٧٣"))
+        {
+            year = "1973";
+        }
+        if (yearStr.equals("١٩٧٤"))
+        {
+            year = "1974";
+        }
+        if (yearStr.equals("١٩٧٥"))
+        {
+            year = "1975";
+        }
+        if (yearStr.equals("١٩٧٦"))
+        {
+            year = "1976";
+        }
+        if (yearStr.equals("١٩٧٧"))
+        {
+            year = "1977";
+        }
+        if (yearStr.equals("١٩٧٨"))
+        {
+            year = "1978";
+        }
+        if (yearStr.equals("١٩٧٩"))
+        {
+            year = "1979";
+        }
+        if (yearStr.equals("١٩٨٠"))
+        {
+            year = "1980";
+        }
+        if (yearStr.equals("١٩٨١"))
+        {
+            year = "1981";
+        }
+        if (yearStr.equals("١٩٨٢"))
+        {
+            year = "1982";
+        }
+        if (yearStr.equals("١٩٨٣"))
+        {
+            year = "1983";
+        }
+        if (yearStr.equals("١٩٨٤"))
+        {
+            year = "1984";
+        }
+        if (yearStr.equals("١٩٨٥"))
+        {
+            year = "1985";
+        }
+        if (yearStr.equals("١٩٨٦"))
+        {
+            year = "1986";
+        }
+        if (yearStr.equals("١٩٨٧"))
+        {
+            year = "1987";
+        }
+        if (yearStr.equals("١٩٨٨"))
+        {
+            year = "1988";
+        }
+        if (yearStr.equals("١٩٨٩"))
+        {
+            year = "1989";
+        }
+        if (yearStr.equals("١٩٩٠"))
+        {
+            year = "1990";
+        }
+        if (yearStr.equals("١٩٩١"))
+        {
+            year = "1991";
+        }
+        if (yearStr.equals("١٩٩٢"))
+        {
+            year = "1992";
+        }
+        if (yearStr.equals("١٩٩٣"))
+        {
+            year = "1993";
+        }
+        if (yearStr.equals("١٩٩٤"))
+        {
+            year = "1994";
+        }
+        if (yearStr.equals("١٩٩٥"))
+        {
+            year = "1995";
+        }
+        if (yearStr.equals("١٩٩٦"))
+        {
+            year = "1996";
+        }
+        if (yearStr.equals("١٩٩٧"))
+        {
+            year = "1997";
+        }
+        if (yearStr.equals("١٩٩٨"))
+        {
+            year = "1998";
+        }
+        if (yearStr.equals("١٩٩٩"))
+        {
+            year = "1999";
+        }
+        if (yearStr.equals("٢٠٠٠"))
+        {
+            year = "2000";
+        }
+        if (yearStr.equals("٢٠٠١"))
+        {
+            year = "2001";
+        }
+        if (yearStr.equals("٢٠٠٢"))
+        {
+            year = "2002";
+        }
+        if (yearStr.equals("٢٠٠٣"))
+        {
+            year = "2003";
+        }
+        if (yearStr.equals("٢٠٠٤"))
+        {
+            year = "2004";
+        }
+        if (yearStr.equals("٢٠٠٥"))
+        {
+            year = "2005";
+        }
+        if (yearStr.equals("٢٠٠٦"))
+        {
+            year = "2006";
+        }
+        if (yearStr.equals("٢٠٠٧"))
+        {
+            year = "2007";
+        }
+        if (yearStr.equals("٢٠٠٨"))
+        {
+            year = "2008";
+        }
+        if (yearStr.equals("٢٠٠٩"))
+        {
+            year = "2009";
+        }
+        if (yearStr.equals("٢٠١٠"))
+        {
+            year = "2010";
+        }
+        if (yearStr.equals("٢٠١١"))
+        {
+            year = "2011";
+        }
+        if (yearStr.equals("٢٠١٢"))
+        {
+            year = "2012";
+        }
+        if (yearStr.equals("٢٠١٣"))
+        {
+            year = "2013";
+        }
+        if (yearStr.equals("٢٠١٤"))
+        {
+            year = "2014";
+        }
+        if (yearStr.equals("٢٠١٥"))
+        {
+            year = "2015";
+        }
+        if (yearStr.equals("٢٠١٦"))
+        {
+            year = "2016";
+        }
+        if (yearStr.equals("٢٠١٧"))
+        {
+            year = "2017";
+        }
+        if (yearStr.equals("٢٠١٨"))
+        {
+            year = "2018";
+        }
+        if (yearStr.equals("٢٠١٩"))
+        {
+            year = "2019";
+        }
+        if (yearStr.equals("٢٠٢٠"))
+        {
+            year = "2020";
+        }
+        if (yearStr.equals("٢٠٢١"))
+        {
+            year = "2021";
+        }
+        if (yearStr.equals("٢٠٢٢"))
+        {
+            year = "2022";
+        }
+        if (yearStr.equals("٢٠٢٣"))
+        {
+            year = "2023";
+        }
+        if (yearStr.equals("٢٠٢٤"))
+        {
+            year = "2024";
+        }
+        return year;
+    }
+
     private static final int PAGE_SIZEH = 8;
 
     public static ArrayList<BrowsingFilter> fillBrowsingArrayL(Context context)

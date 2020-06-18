@@ -117,8 +117,8 @@ public class FragmentLicensed extends Fragment implements AdapterCarLicensed.Pas
     }
 
     @Override
-    public void onLicensedClicked(String carLicensedStr) {
+    public void onLicensedClicked(CarLicensed carLicensed) {
         CarDetails carDetails = (CarDetails) getActivity();
-        carDetails.getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(carLicensedStr);
+        carDetails.getCarLicensedStrFromFragmentLicensedAndMoveToFragmentInsurance(carLicensed);
     }
 }

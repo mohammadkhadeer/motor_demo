@@ -86,7 +86,8 @@ public class FragmentCityPhoneNumber extends Fragment {
         if (requestCode == UPDATE_LOCATION && resultCode == Activity.RESULT_OK) {
             cityTV.setText(data.getExtras().getString("city") + " >> " + data.getExtras().getString("nei"));
             saveAddressInSP(getActivity(),sharedPreferences,editor
-                    ,data.getExtras().getString("city"),data.getExtras().getString("nei"));
+                    ,data.getExtras().getString("city"),data.getExtras().getString("nei")
+                    ,data.getExtras().getString("cityS"),data.getExtras().getString("neiS"));
         }
     }
 

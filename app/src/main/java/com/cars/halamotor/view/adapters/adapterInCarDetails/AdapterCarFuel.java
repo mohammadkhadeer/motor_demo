@@ -42,7 +42,7 @@ public class AdapterCarFuel extends RecyclerView.Adapter<AdapterCarFuel.ViewHold
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                passFuel.onFuelClicked(carFuelArrayL.get(position).getCarFuelStr());
+                passFuel.onFuelClicked(carFuelArrayL.get(position));
             }
         });
         holder.modelTV.setTypeface(Functions.changeFontGeneral(context));
@@ -67,7 +67,7 @@ public class AdapterCarFuel extends RecyclerView.Adapter<AdapterCarFuel.ViewHold
     }
 
     public interface PassFuel {
-        void onFuelClicked(String carFuelStr);
+        void onFuelClicked(CarFuel carFuel);
     }
 
     public void filterList(ArrayList<CarFuel> filterdNames) {

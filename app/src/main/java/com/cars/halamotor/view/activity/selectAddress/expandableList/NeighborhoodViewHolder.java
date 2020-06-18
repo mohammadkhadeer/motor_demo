@@ -19,6 +19,7 @@ import com.thoughtbot.expandablerecyclerview.viewholders.ChildViewHolder;
 import java.util.ArrayList;
 
 import static com.cars.halamotor.functions.Functions.check;
+import static com.cars.halamotor.functions.Functions.cityS;
 
 public class NeighborhoodViewHolder extends ChildViewHolder {
 
@@ -44,32 +45,38 @@ public class NeighborhoodViewHolder extends ChildViewHolder {
             neighborhoodTV.setText(subFavorite.getNeighborhood());
         }
 
-        actionListenerToRL(position,context,group.getItems().size());
+        actionListenerToRL(position,context,group.getItems().size(),subFavorite.getNeighborhoodS());
     }
 
-    private void actionListenerToRL(final int position, final Context context, final int size) {
+    private void actionListenerToRL(final int position, final Context context, final int size, final String neighborhoodS) {
         relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 relativeLayout.setBackgroundResource(R.drawable.neighborhood_selected_bg);
-                checkIfSelectAddressOrNotFound(context,size);
+                checkIfSelectAddressOrNotFound(context,size,neighborhoodS);
             }
         });
     }
 
-    private void checkIfSelectAddressOrNotFound(Context context, int size) {
+    private void checkIfSelectAddressOrNotFound(Context context, int size, String neighborhoodS) {
+        String city = check(size,context);
+        String cityS = cityS(city,context);
         if (!neighborhoodTV.getText().toString().equals(context.getResources().getString(R.string.can_not_find)))
         {
             Intent resultIntent = new Intent();
-            resultIntent.putExtra("city", check(size,context));
+            resultIntent.putExtra("city", city);
             resultIntent.putExtra("nei", neighborhoodTV.getText().toString());
+            resultIntent.putExtra("cityS", cityS);
+            resultIntent.putExtra("neiS", neighborhoodS);
             ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
             ((Activity)context).finish();
         }else{
             myDialog = new Dialog(context);
             Intent resultIntent = new Intent();
-            resultIntent.putExtra("city", check(size,context));
-            resultIntent.putExtra("nei", check(size,context));
+            resultIntent.putExtra("city", city);
+            resultIntent.putExtra("nei", neighborhoodTV.getText().toString());
+            resultIntent.putExtra("cityS",cityS );
+            resultIntent.putExtra("neiS", neighborhoodS);
             ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
             ((Activity)context).finish();
              neighborhoodTV.setTextColor(Color.WHITE);
