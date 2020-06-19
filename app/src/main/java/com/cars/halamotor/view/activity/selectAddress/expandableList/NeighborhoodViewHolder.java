@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -20,6 +21,7 @@ import java.util.ArrayList;
 
 import static com.cars.halamotor.functions.Functions.check;
 import static com.cars.halamotor.functions.Functions.cityS;
+import static com.cars.halamotor.functions.Functions.convertFromCityToCityS;
 
 public class NeighborhoodViewHolder extends ChildViewHolder {
 
@@ -59,10 +61,11 @@ public class NeighborhoodViewHolder extends ChildViewHolder {
     }
 
     private void checkIfSelectAddressOrNotFound(Context context, int size, String neighborhoodS) {
-        String city = check(size,context);
-        String cityS = cityS(city,context);
+        String city,cityS;
         if (!neighborhoodTV.getText().toString().equals(context.getResources().getString(R.string.can_not_find)))
         {
+            city = check(size,context);
+            cityS = convertFromCityToCityS(city,context);
             Intent resultIntent = new Intent();
             resultIntent.putExtra("city", city);
             resultIntent.putExtra("nei", neighborhoodTV.getText().toString());
@@ -71,6 +74,8 @@ public class NeighborhoodViewHolder extends ChildViewHolder {
             ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
             ((Activity)context).finish();
         }else{
+            city = check(size,context);
+            cityS = convertFromCityToCityS(city,context);
             myDialog = new Dialog(context);
             Intent resultIntent = new Intent();
             resultIntent.putExtra("city", city);

@@ -883,38 +883,85 @@ public class Functions {
     }
 
     public static String cityS(String city, Context context) {
-        String cityS = "";
+        String cityS = "empty";
         if (city.equals(context.getResources().getString(R.string.dubai)))
         {
-            city = context.getResources().getString(R.string.dubai_s);
+            cityS = context.getResources().getString(R.string.dubai_s);
         }
         if (city.equals(context.getResources().getString(R.string.abu_dhabi)))
         {
-            city = context.getResources().getString(R.string.abu_dhabi_s);
+            cityS = context.getResources().getString(R.string.abu_dhabi_s);
         }
         if (city.equals(context.getResources().getString(R.string.sharjah)))
         {
-            city = context.getResources().getString(R.string.sharjah_s);
+            cityS = context.getResources().getString(R.string.sharjah_s);
         }
         if (city.equals(context.getResources().getString(R.string.al_ain)))
         {
-            city = context.getResources().getString(R.string.al_ain_s);
+            cityS = context.getResources().getString(R.string.al_ain_s);
         }
         if (city.equals(context.getResources().getString(R.string.ajman)))
         {
-            city = context.getResources().getString(R.string.ajman_s);
+            cityS = context.getResources().getString(R.string.ajman_s);
         }
         if (city.equals(context.getResources().getString(R.string.ras_al_khaimah)))
         {
-            city = context.getResources().getString(R.string.ras_al_khaimah_s);
+            cityS = context.getResources().getString(R.string.ras_al_khaimah_s);
         }
         if (city.equals(context.getResources().getString(R.string.um_al_quwain)))
         {
-            city = context.getResources().getString(R.string.um_al_quwain_s);
+            cityS = context.getResources().getString(R.string.um_al_quwain_s);
         }
         if (city.equals(context.getResources().getString(R.string.fujairah)))
         {
-            city = context.getResources().getString(R.string.fujairah_s);
+            cityS = context.getResources().getString(R.string.fujairah_s);
+        }
+        return cityS;
+    }
+
+    public static String convertFromCityToCityS(String city, Context context) {
+        String cityS = "empty",abu_dhabi,dubai,sharjah,al_ain,ajman,ras_al_khaimah
+                ,um_al_quwain,fujairah;
+        dubai = context.getResources().getString(R.string.dubai);
+        abu_dhabi = context.getResources().getString(R.string.abu_dhabi);
+        sharjah = context.getResources().getString(R.string.sharjah);
+        al_ain = context.getResources().getString(R.string.al_ain);
+        ajman = context.getResources().getString(R.string.ajman);
+        ras_al_khaimah = context.getResources().getString(R.string.ajman);
+        um_al_quwain = context.getResources().getString(R.string.um_al_quwain);
+        fujairah = context.getResources().getString(R.string.fujairah);
+
+        if (city.equals(dubai))
+        {
+            cityS = context.getResources().getString(R.string.dubai_s);
+        }
+        if (city.equals(abu_dhabi))
+        {
+            cityS = context.getResources().getString(R.string.abu_dhabi_s);
+        }
+        if (city.equals(sharjah))
+        {
+            cityS = context.getResources().getString(R.string.sharjah_s);
+        }
+        if (city.equals(al_ain))
+        {
+            cityS = context.getResources().getString(R.string.al_ain_s);
+        }
+        if (city.equals(ajman))
+        {
+            cityS = context.getResources().getString(R.string.ajman_s);
+        }
+        if (city.equals(ras_al_khaimah))
+        {
+            cityS = context.getResources().getString(R.string.ras_al_khaimah_s);
+        }
+        if (city.equals(um_al_quwain))
+        {
+            cityS = context.getResources().getString(R.string.um_al_quwain_s);
+        }
+        if (city.equals(fujairah))
+        {
+            cityS = context.getResources().getString(R.string.fujairah_s);
         }
         return cityS;
     }

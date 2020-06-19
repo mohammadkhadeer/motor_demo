@@ -411,6 +411,8 @@ public class SharedPreferencesInApp {
         editor = SharedPreferences.edit();
         editor.putString("city","");
         editor.putString("neighborhood","");
+        editor.putString("cityS","");
+        editor.putString("neighborhoodS","");
         editor.commit();
     }
 

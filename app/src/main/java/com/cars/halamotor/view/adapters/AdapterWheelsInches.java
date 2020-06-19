@@ -20,11 +20,13 @@ public class AdapterWheelsInches extends RecyclerView.Adapter<AdapterWheelsInche
 
     private final Context context;
     public ArrayList<String> wheelsInchesArrayL ;
+    PassSize passSize;
 
     public AdapterWheelsInches
-            (Context context, ArrayList<String> wheelsInchesArrayL)
+            (Context context, ArrayList<String> wheelsInchesArrayL,PassSize passSize)
     {   this.context = context;
         this.wheelsInchesArrayL = wheelsInchesArrayL;
+        this.passSize = passSize;
     }
 
     public AdapterWheelsInches.ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType)
@@ -42,10 +44,8 @@ public class AdapterWheelsInches extends RecyclerView.Adapter<AdapterWheelsInche
         holder.relativeLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("inchSize", wheelsInchesArrayL.get(position));
-                ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
-                ((Activity)context).finish();
+                passSize.onFuelClicked(wheelsInchesArrayL.get(position));
+
             }
         });
         holder.inchSizeTV.setTypeface(Functions.changeFontBold(context));
@@ -72,5 +72,9 @@ public class AdapterWheelsInches extends RecyclerView.Adapter<AdapterWheelsInche
     public void filterList(ArrayList<String> filterdNames) {
         this.wheelsInchesArrayL = filterdNames;
         notifyDataSetChanged();
+    }
+
+    public interface PassSize {
+        void onFuelClicked(String wheelsSizeStr);
     }
 }

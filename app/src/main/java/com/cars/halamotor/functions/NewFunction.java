@@ -12,11 +12,57 @@ import android.util.Log;
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.model.Paging;
+import com.cars.halamotor.model.PlatesChar;
+import com.cars.halamotor.model.WheelsType;
 import com.cars.halamotor.view.fragments.browsingFragment.BrowsingItems;
 
 import java.util.ArrayList;
 
 public class NewFunction {
+
+    public static ArrayList<WheelsType> fillWheelsType(Context context)
+    {
+        ArrayList<WheelsType> wheelsTypesArrayList = new ArrayList<WheelsType>();
+
+        wheelsTypesArrayList.add(new WheelsType(context.getResources().getString(R.string.kushuk),context.getResources().getString(R.string.kushuk_s)));
+        wheelsTypesArrayList.add(new WheelsType(context.getResources().getString(R.string.metal),context.getResources().getString(R.string.metal_s)));
+
+        return wheelsTypesArrayList;
+    }
+
+    public static ArrayList<PlatesChar> fillPlatesChar(Context context)
+    {
+        ArrayList<PlatesChar> platesCharArrayList = new ArrayList<PlatesChar>();
+
+        platesCharArrayList.add(new PlatesChar("A",true));
+        platesCharArrayList.add(new PlatesChar("B",false));
+        platesCharArrayList.add(new PlatesChar("C",false));
+        platesCharArrayList.add(new PlatesChar("D",false));
+        platesCharArrayList.add(new PlatesChar("E",false));
+        platesCharArrayList.add(new PlatesChar("F",false));
+        platesCharArrayList.add(new PlatesChar("G",false));
+        platesCharArrayList.add(new PlatesChar("H",false));
+        platesCharArrayList.add(new PlatesChar("I",false));
+        platesCharArrayList.add(new PlatesChar("J",false));
+        platesCharArrayList.add(new PlatesChar("K",false));
+        platesCharArrayList.add(new PlatesChar("L",false));
+        platesCharArrayList.add(new PlatesChar("M",false));
+        platesCharArrayList.add(new PlatesChar("O",false));
+        platesCharArrayList.add(new PlatesChar("N",false));
+        platesCharArrayList.add(new PlatesChar("P",false));
+        platesCharArrayList.add(new PlatesChar("Q",false));
+        platesCharArrayList.add(new PlatesChar("R",false));
+        platesCharArrayList.add(new PlatesChar("S",false));
+        platesCharArrayList.add(new PlatesChar("T",false));
+        platesCharArrayList.add(new PlatesChar("U",false));
+        platesCharArrayList.add(new PlatesChar("V",false));
+        platesCharArrayList.add(new PlatesChar("W",false));
+        platesCharArrayList.add(new PlatesChar("X",false));
+        platesCharArrayList.add(new PlatesChar("Y",false));
+        platesCharArrayList.add(new PlatesChar("Z",false));
+
+        return platesCharArrayList;
+    }
 
     public static String convertYearToEng(String yearStr){
         String year = yearStr;

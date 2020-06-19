@@ -19,13 +19,13 @@ public class ItemPlates implements Parcelable {
             ,yearDate,monthDate,dayDate,specialOrNot;
     Double price;
     String carPlatesNum;
-    String platesCar;
 
     String activeOrNotS,categoryNameS,carPlatesCityS,cityS,neighborhoodS;
+    String platesCharStr,languageStr;
 
     public ItemPlates(){}
 
-    public ItemPlates(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carPlatesCity, String carPlatesNumber, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int activeOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int yearDate, int monthDate, int dayDate, int specialOrNot, Double price, String carPlatesNum, String platesCar, String activeOrNotS, String categoryNameS, String carPlatesCityS, String cityS, String neighborhoodS) {
+    public ItemPlates(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carPlatesCity, String carPlatesNumber, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int activeOrNot, int burnedPrice, int reportsOrNot, int numberOfReports, int yearDate, int monthDate, int dayDate, int specialOrNot, Double price, String carPlatesNum, String activeOrNotS, String categoryNameS, String carPlatesCityS, String cityS, String neighborhoodS,String platesCharStr,String languageStr) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -58,12 +58,13 @@ public class ItemPlates implements Parcelable {
         this.specialOrNot = specialOrNot;
         this.price = price;
         this.carPlatesNum = carPlatesNum;
-        this.platesCar = platesCar;
         this.activeOrNotS = activeOrNotS;
         this.categoryNameS = categoryNameS;
         this.carPlatesCityS = carPlatesCityS;
         this.cityS = cityS;
         this.neighborhoodS = neighborhoodS;
+        this.platesCharStr = platesCharStr;
+        this.languageStr = languageStr;
     }
 
     protected ItemPlates(Parcel in) {
@@ -103,12 +104,13 @@ public class ItemPlates implements Parcelable {
             price = in.readDouble();
         }
         carPlatesNum = in.readString();
-        platesCar = in.readString();
         activeOrNotS = in.readString();
         categoryNameS = in.readString();
         carPlatesCityS = in.readString();
         cityS = in.readString();
         neighborhoodS = in.readString();
+        platesCharStr = in.readString();
+        languageStr = in.readString();
     }
 
     public static final Creator<ItemPlates> CREATOR = new Creator<ItemPlates>() {
@@ -379,14 +381,6 @@ public class ItemPlates implements Parcelable {
         this.carPlatesNum = carPlatesNum;
     }
 
-    public String getPlatesCar() {
-        return platesCar;
-    }
-
-    public void setPlatesCar(String platesCar) {
-        this.platesCar = platesCar;
-    }
-
     public String getActiveOrNotS() {
         return activeOrNotS;
     }
@@ -425,6 +419,22 @@ public class ItemPlates implements Parcelable {
 
     public void setNeighborhoodS(String neighborhoodS) {
         this.neighborhoodS = neighborhoodS;
+    }
+
+    public String getPlatesCharStr() {
+        return platesCharStr;
+    }
+
+    public void setPlatesCharStr(String platesCharStr) {
+        this.platesCharStr = platesCharStr;
+    }
+
+    public String getLanguageStr() {
+        return languageStr;
+    }
+
+    public void setLanguageStr(String languageStr) {
+        this.languageStr = languageStr;
     }
 
     @Override
@@ -472,11 +482,12 @@ public class ItemPlates implements Parcelable {
         dest.writeDouble(price);
         dest.writeString(carPlatesNum);
 
-        dest.writeString(platesCar);
         dest.writeString(activeOrNotS);
         dest.writeString(categoryNameS);
         dest.writeString(carPlatesCityS);
         dest.writeString(cityS);
         dest.writeString(neighborhoodS);
+        dest.writeString(platesCharStr);
+        dest.writeString(languageStr);
     }
 }

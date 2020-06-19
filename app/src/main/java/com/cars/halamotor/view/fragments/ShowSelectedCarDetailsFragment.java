@@ -19,11 +19,15 @@ import com.cars.halamotor.model.CarDetailsModel;
 import com.cars.halamotor.model.CarPlatesDetails;
 import com.cars.halamotor.model.EditValueInCDM;
 import com.cars.halamotor.model.ItemDetails;
+import com.cars.halamotor.model.WheelsInfo;
+import com.cars.halamotor.presnter.WheelsComp;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.activity.CarPlates;
 import com.cars.halamotor.view.activity.WheelsRim;
 
 import java.util.ArrayList;
+
+import static com.cars.halamotor.functions.Functions.splitString;
 
 public class ShowSelectedCarDetailsFragment extends Fragment {
 
@@ -46,7 +50,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     CarDetailsModel carDetailsModel= new CarDetailsModel();
     String categoryStr,carMakeStr,whatUserWantToChangeStr,inchSizeStr
             ,carPlatesNumStr,carPlatesCityStr,specialOrNotStr;
-
+    String wheelsTypeStr,wheelsTypeSStr;
     OnDataPass dataPasser;
 
     @Override
@@ -60,6 +64,8 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         if(categoryStr.equals(getResources().getString(R.string.wheels_rim)))
         {
             inchSizeStr = getArguments().getString("inchSize");
+            wheelsTypeStr = getArguments().getString("type");
+            wheelsTypeSStr = getArguments().getString("typeS");
         }else{
             if(categoryStr.equals(getResources().getString(R.string.car_plates)))
             {
@@ -139,6 +145,17 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         carPlatesSpiOrNotTV.setText(spi);
     }
 
+//    private void fillCarPlates(String carPlatesCityStr,String carPlatesNumStr,String platesCharS,String specialOrNotStr) {
+//        String spi;
+//        if (specialOrNotStr.equals("special"))
+//            spi = getResources().getString(R.string.special);
+//        else
+//            spi = "";
+//        carPlatesCityTV.setText(platesCharS +"  "+carPlatesCityStr + " , ");
+//        carPlatesNumTV.setText(carPlatesNumStr);
+//        carPlatesSpiOrNotTV.setText(spi);
+//    }
+
     private void showCarPlates() {
         carPlatesRL.setVisibility(View.VISIBLE);
     }
@@ -167,7 +184,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     }
 
     private void fillWheelsSize() {
-        wheelsRimTV.setText(inchSizeStr);
+        wheelsRimTV.setText(inchSizeStr+" "+wheelsTypeStr);
     }
 
     private void showCarDetails() {
@@ -368,11 +385,16 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
         if (requestCode == REQUEST_WHEELS_RIM) {
             if (data != null && !data.equals("")) {
                 inchSizeStr = data.getExtras().getString("inchSize");
+                wheelsTypeStr = data.getExtras().getString("type");
+                wheelsTypeSStr = data.getExtras().getString("typeS");
+
                 // unknown error handel it via this timer
                 new Handler().postDelayed(new Runnable() {
 
                     @Override
                     public void run() {
+                        WheelsInfo wheelsInfo= new WheelsInfo(inchSizeStr,wheelsTypeStr,wheelsTypeSStr);
+                        dataPasser.onWheelsDataChange(wheelsInfo);
                         fillWheelsSize();
                     }
                 }, 100);
@@ -464,6 +486,7 @@ public class ShowSelectedCarDetailsFragment extends Fragment {
     public interface OnDataPass {
         public void onDataPass(EditValueInCDM data,EditValueInCDM data2);
         public void onDataPassCarPlates(CarPlatesDetails carPlatesDetails);
+        public void onWheelsDataChange(WheelsInfo wheelsInfo);
     }
 
 }

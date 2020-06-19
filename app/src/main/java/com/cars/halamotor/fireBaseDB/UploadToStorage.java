@@ -10,7 +10,10 @@ import android.util.Log;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.storage.StorageReference;
@@ -18,10 +21,12 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.util.ArrayList;
 
-import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.InsertFunctions.insertNotificationTable;
 import static com.cars.halamotor.fireBaseDB.FireBaseStoragePaths.carForSalePath;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addAccessories;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addItemPlates;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addJunkCar;
 import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addNewItemToFireStore;
+import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addWheelsRim;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewAccessories;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewCarPlates;
 import static com.cars.halamotor.fireBaseDB.UploadModelsToFireBase.addNewWheelsRim;
@@ -243,7 +248,7 @@ public class UploadToStorage {
     }
 
     public static void uploadImagesBeforeUploadCarPlatesModel(ArrayList<String> imagePaths
-            , final CarPlatesModel carPlatesModel, String category
+            , final ItemPlates itemPlates, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -275,18 +280,18 @@ public class UploadToStorage {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-                    carPlatesModel.setImagePathArrayL(imagePathsInServer);
-                    addNewCarPlates(carPlatesModel,"Plates",userIDOnServer,numberOfAds,context);
+                    itemPlates.setImagePathArrayL(imagePathsInServer);
+                    addItemPlates(itemPlates,userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewCarPlates(carPlatesModel,"Plates",userIDOnServer,numberOfAds,context);
+            addItemPlates(itemPlates,userIDOnServer,numberOfAds,context);
         }
     }
 
     public static void uploadImagesBeforeUploadWheelsRimModel(ArrayList<String> imagePaths
-            , final WheelsRimModel wheelsRimModel, String category
+            , final ItemWheelsRim wheelsRimModel, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -319,17 +324,17 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     wheelsRimModel.setImagePathArrayL(imagePathsInServer);
-                    addNewWheelsRim(wheelsRimModel,"Wheels_Rim",userIDOnServer,numberOfAds,context);
+                    addWheelsRim(wheelsRimModel,userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewWheelsRim(wheelsRimModel,"Wheels_Rim",userIDOnServer,numberOfAds,context);
+            addWheelsRim(wheelsRimModel,userIDOnServer,numberOfAds,context);
         }
     }
 
     public static void uploadImagesBeforeUploadAccessoriesModel(ArrayList<String> imagePaths
-            , final AccAndJunk accAndJunk, String category
+            , final ItemAccAndJunk itemAccAndJunk, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -361,18 +366,18 @@ public class UploadToStorage {
                 @RequiresApi(api = Build.VERSION_CODES.O)
                 @Override
                 public void run() {
-                    accAndJunk.setImagePathArrayL(imagePathsInServer);
-                    addNewAccessories(accAndJunk,"Accessories",userIDOnServer,numberOfAds,context);
+                    itemAccAndJunk.setImagePathArrayL(imagePathsInServer);
+                    addAccessories(itemAccAndJunk,userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewAccessories(accAndJunk,"Accessories",userIDOnServer,numberOfAds,context);
+            addAccessories(itemAccAndJunk,userIDOnServer,numberOfAds,context);
         }
     }
 
     public static void uploadImagesBeforeUploadJunkCarModel(ArrayList<String> imagePaths
-            , final AccAndJunk accAndJunk, String category
+            , final ItemAccAndJunk accAndJunk, String category
             , final String userIDOnServer, final int numberOfAds, final Context context) {
         //WE ADD timer cos no way to return imagePath after upload to server
         final ArrayList<String> imagePathsInServer = new ArrayList<String>();
@@ -405,12 +410,12 @@ public class UploadToStorage {
                 @Override
                 public void run() {
                     accAndJunk.setImagePathArrayL(imagePathsInServer);
-                    addNewAccessories(accAndJunk,"JunkCar",userIDOnServer,numberOfAds,context);
+                    addJunkCar(accAndJunk,userIDOnServer,numberOfAds,context);
 
                 }
             }, 11000);
         }else{
-            addNewAccessories(accAndJunk,"JunkCar",userIDOnServer,numberOfAds,context);
+            addJunkCar(accAndJunk,userIDOnServer,numberOfAds,context);
         }
     }
 

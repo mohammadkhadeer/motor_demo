@@ -8,9 +8,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SwitchCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.View;
@@ -24,12 +27,17 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.PlatesChar;
+import com.cars.halamotor.view.adapters.AdapterPlatesChar;
 import com.jaredrummler.materialspinner.MaterialSpinner;
+
+import java.util.ArrayList;
 
 import static com.cars.halamotor.functions.Functions.changeFontBold;
 import static com.cars.halamotor.functions.Functions.fillEmiratesEmirate;
+import static com.cars.halamotor.functions.NewFunction.fillPlatesChar;
 
-public class CarPlates extends AppCompatActivity {
+public class CarPlates extends AppCompatActivity implements AdapterPlatesChar.PassChar{
 
     MaterialSpinner spinner;
     String [] emiratesEmirate;
@@ -38,9 +46,15 @@ public class CarPlates extends AppCompatActivity {
     EditText carPlatesEdt;
     ImageView cancelCarPlatesIV;
     RelativeLayout cancelCarPlatesRL;
-    TextView messageTV;
+    TextView messageTV,charTV;
     int specialIntOrNot;
     String specialIntOrNotStr;
+    RecyclerView recyclerView;
+    ArrayList<PlatesChar> platesChar = new ArrayList<>();
+    AdapterPlatesChar adapterPlatesChar;
+    RecyclerView.LayoutManager layoutManager;
+    String platesCharStr = "A";
+    RelativeLayout relativeLayout;
     
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +72,19 @@ public class CarPlates extends AppCompatActivity {
         actionListenerToDoneInKeyBoard();
         listenerCarPlatesEdt();
         actionListenerToCanselTextInEdt();
+        createRV();
+    }
+
+    private void createRV() {
+        platesChar = fillPlatesChar(this);
+        recyclerView.setHasFixedSize(true);
+        layoutManager = new LinearLayoutManager(this,
+                LinearLayoutManager.HORIZONTAL, false);
+
+        recyclerView.setLayoutManager(layoutManager);
+        adapterPlatesChar =new AdapterPlatesChar(getApplicationContext()
+                , platesChar,this);
+        recyclerView.setAdapter(adapterPlatesChar);
     }
 
     private void fillSwitch() {
@@ -160,9 +187,10 @@ public class CarPlates extends AppCompatActivity {
             specialOrNot = "normal";
         if (selectedCity == null)
             selectedCity = getResources().getString(R.string.abu_dhabi);
+
         Intent resultIntent = new Intent();
         resultIntent.putExtra("carPlatesNum", carPlatesEdt.getText().toString());
-        resultIntent.putExtra("carPlatesCity", selectedCity);
+        resultIntent.putExtra("carPlatesCity", platesCharStr+"  "+selectedCity);
         resultIntent.putExtra("specialOrNot", specialOrNot);
         setResult(Activity.RESULT_OK, resultIntent);
         finish();
@@ -197,6 +225,9 @@ public class CarPlates extends AppCompatActivity {
         cancelCarPlatesIV = (ImageView) findViewById(R.id.car_plates_cancel_IV);
         cancelCarPlatesRL = (RelativeLayout) findViewById(R.id.car_plates_cancel_RL);
         messageTV = (TextView) findViewById(R.id.car_plates_description_message_TV);
+        recyclerView = (RecyclerView) findViewById(R.id.activity_car_plates_char_rv);
+        charTV = (TextView) findViewById(R.id.activity_car_plates_tv);
+        relativeLayout = (RelativeLayout) findViewById(R.id.activity_car_plates_coverRL);
     }
 
     private void actionBarTitle() {
@@ -231,5 +262,11 @@ public class CarPlates extends AppCompatActivity {
     public boolean onSupportNavigateUp(){
         finish();
         return true;
+    }
+
+    @Override
+    public void onClicked(String platesChar) {
+        platesCharStr = platesChar;
+        charTV.setText(platesChar);
     }
 }

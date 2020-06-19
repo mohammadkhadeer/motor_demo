@@ -9,6 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/filter_bg"
+        android:id="@+id/coverRL"
         android:layout_marginLeft="4dp"
         android:layout_marginStart="10dp"
         >

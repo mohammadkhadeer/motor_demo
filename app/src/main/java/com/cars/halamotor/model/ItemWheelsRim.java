@@ -17,12 +17,13 @@ public class ItemWheelsRim implements Parcelable {
     int burnedPrice,reportsOrNot,numberOfReports
             ,activeOrNot,yearDate,monthDate,dayDate,wheelSizeInt;
     Double price;
-
+    String wheelsType;
     String activeOrNotS,wheelsTypeS,cityS,neighborhoodS,categoryNameS;
+    String languageStr;
 
     public ItemWheelsRim(){}
 
-    public ItemWheelsRim(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String wheelSize, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, int wheelSizeInt, Double price, String activeOrNotS, String wheelsTypeS, String cityS, String neighborhoodS, String categoryNameS) {
+    public ItemWheelsRim(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String wheelSize, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, int wheelSizeInt, Double price,String wheelsType, String activeOrNotS, String wheelsTypeS, String cityS, String neighborhoodS, String categoryNameS,String languageStr) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -53,11 +54,13 @@ public class ItemWheelsRim implements Parcelable {
         this.dayDate = dayDate;
         this.wheelSizeInt = wheelSizeInt;
         this.price = price;
+        this.wheelsType = wheelsType;
         this.activeOrNotS = activeOrNotS;
         this.wheelsTypeS = wheelsTypeS;
         this.cityS = cityS;
         this.neighborhoodS = neighborhoodS;
         this.categoryNameS = categoryNameS;
+        this.languageStr = languageStr;
     }
 
     protected ItemWheelsRim(Parcel in) {
@@ -83,6 +86,7 @@ public class ItemWheelsRim implements Parcelable {
         userIDPathInServer = in.readString();
         imagePathArrayL = in.createStringArrayList();
         burnedPrice = in.readInt();
+        wheelsType = in.readString();
         reportsOrNot = in.readInt();
         numberOfReports = in.readInt();
         activeOrNot = in.readInt();
@@ -100,6 +104,7 @@ public class ItemWheelsRim implements Parcelable {
         cityS = in.readString();
         neighborhoodS = in.readString();
         categoryNameS = in.readString();
+        languageStr = in.readString();
     }
 
     public static final Creator<ItemWheelsRim> CREATOR = new Creator<ItemWheelsRim>() {
@@ -354,6 +359,14 @@ public class ItemWheelsRim implements Parcelable {
         this.price = price;
     }
 
+    public String getWheelsType() {
+        return wheelsType;
+    }
+
+    public void setWheelsType(String wheelsType) {
+        this.wheelsType = wheelsType;
+    }
+
     public String getActiveOrNotS() {
         return activeOrNotS;
     }
@@ -392,6 +405,14 @@ public class ItemWheelsRim implements Parcelable {
 
     public void setCategoryNameS(String categoryNameS) {
         this.categoryNameS = categoryNameS;
+    }
+
+    public String getLanguageStr() {
+        return languageStr;
+    }
+
+    public void setLanguageStr(String languageStr) {
+        this.languageStr = languageStr;
     }
 
     @Override
@@ -434,11 +455,13 @@ public class ItemWheelsRim implements Parcelable {
         dest.writeInt(wheelSizeInt);
 
         dest.writeDouble(price);
+        dest.writeString(wheelsType);
 
         dest.writeString(activeOrNotS);
         dest.writeString(wheelsTypeS);
         dest.writeString(cityS);
         dest.writeString(neighborhoodS);
         dest.writeString(categoryNameS);
+        dest.writeString(languageStr);
     }
 }

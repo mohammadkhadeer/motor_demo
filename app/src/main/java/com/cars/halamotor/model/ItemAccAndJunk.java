@@ -17,11 +17,11 @@ public class ItemAccAndJunk implements Parcelable {
             ,activeOrNot,yearDate,monthDate,dayDate;
     Double price;
 
-    String activeOrNotS,categoryNameS;
+    String activeOrNotS,categoryNameS,cityS,neighborhoodS,language;
 
     public ItemAccAndJunk(){}
 
-    public ItemAccAndJunk(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, Double price, String activeOrNotS, String categoryNameS) {
+    public ItemAccAndJunk(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int burnedPrice, int reportsOrNot, int numberOfReports, int activeOrNot, int yearDate, int monthDate, int dayDate, Double price, String activeOrNotS, String categoryNameS,String cityS,String neighborhoodS,String language) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -52,6 +52,9 @@ public class ItemAccAndJunk implements Parcelable {
         this.price = price;
         this.activeOrNotS = activeOrNotS;
         this.categoryNameS = categoryNameS;
+        this.cityS = cityS;
+        this.neighborhoodS = neighborhoodS;
+        this.language = language;
     }
 
     protected ItemAccAndJunk(Parcel in) {
@@ -89,6 +92,9 @@ public class ItemAccAndJunk implements Parcelable {
         }
         activeOrNotS = in.readString();
         categoryNameS = in.readString();
+        cityS = in.readString();
+        neighborhoodS = in.readString();
+        language = in.readString();
     }
 
     public static final Creator<ItemAccAndJunk> CREATOR = new Creator<ItemAccAndJunk>() {
@@ -343,6 +349,30 @@ public class ItemAccAndJunk implements Parcelable {
         this.categoryNameS = categoryNameS;
     }
 
+    public String getCityS() {
+        return cityS;
+    }
+
+    public void setCityS(String cityS) {
+        this.cityS = cityS;
+    }
+
+    public String getNeighborhoodS() {
+        return neighborhoodS;
+    }
+
+    public void setNeighborhoodS(String neighborhoodS) {
+        this.neighborhoodS = neighborhoodS;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -384,5 +414,8 @@ public class ItemAccAndJunk implements Parcelable {
 
         dest.writeString(activeOrNotS);
         dest.writeString(categoryNameS);
+        dest.writeString(cityS);
+        dest.writeString(neighborhoodS);
+        dest.writeString(language);
     }
 }

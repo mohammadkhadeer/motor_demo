@@ -40,7 +40,11 @@ import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CustomGallery;
 import com.cars.halamotor.model.EditValueInCDM;
+import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
+import com.cars.halamotor.model.WheelsInfo;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.presnter.NumberOfAllowedAds;
@@ -72,6 +76,7 @@ import static com.cars.halamotor.functions.Functions.checkBurnedPrice;
 import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescriptionRealOrNot;
+import static com.cars.halamotor.functions.Functions.cityS;
 import static com.cars.halamotor.functions.Functions.fillCategoryArrayList;
 import static com.cars.halamotor.functions.Functions.getDAY;
 import static com.cars.halamotor.functions.Functions.getDefaultBoostPostArrayL;
@@ -145,14 +150,17 @@ public class AddItem extends AppCompatActivity implements
 
 //    CCEMT ccemt;
     ItemCCEMT itemCCEMT;
+    ItemPlates itemPlates;
+    ItemWheelsRim itemWheelsRim;
+    ItemAccAndJunk itemAccAndJunk;
     CarDetailsModel carDetailsModel;
     ArrayList<String> reportDescriptionArrayL;
     ArrayList<String> watchersArrayL;
-    String categoryNameStr,wheelsSize;
+    String categoryNameStr,wheelsSize,wheelsType,wheelsTypeS;
     CarPlatesDetails carPlatesDetails;
-    CarPlatesModel carPlatesModel;
-    WheelsRimModel wheelsRim;
-    AccAndJunk accAndJunk;
+//    CarPlatesModel carPlatesModel;
+//    WheelsRimModel wheelsRim;
+//    AccAndJunk accAndJunk;
 
     NumberOfAllowedAds numberOfAllowedAds;
     int numberOfAllowedAdsInt,numberOfOldAds,canInsertAndOrNot,canInsertBurnedPrice;
@@ -177,6 +185,42 @@ public class AddItem extends AppCompatActivity implements
         getNumberOfOldAds(this,numberOfAllowedAds);
         checkUserCanInsertAddOrNot(this,numberOfAllowedAds);
         checkUserCanInsertBurnedPrice(this,numberOfAllowedAds);
+
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
+            getSelectedImagePathes(data);
+            showSelectedImage();
+            if (selectVideoOrNotYet == 1)
+                replayVideo();
+        }
+        if (requestCode == REQUEST_TAKE_GALLERY_VIDEO && resultCode == Activity.RESULT_OK) {
+            selectVideoOrNotYet = 1;
+            showSelectedVideo(data);
+        }
+        if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
+            productDetailsComplete = 1;
+            createShowSelectedCarDetails(data, resultCode, requestCode);
+            createCityPhoneNumber();
+            ChangeUI();
+        }
+        if (requestCode == REQUEST_WHEELS_RIM && resultCode == Activity.RESULT_OK) {
+            productDetailsComplete = 1;
+            selectedCategoryPositionInt = 6;
+            createShowSelectedCarDetails(data, resultCode, REQUEST_WHEELS_RIM);
+            createCityPhoneNumber();
+            ChangeUI();
+        }
+        if (requestCode == REQUEST_CAR_PLATES && resultCode == Activity.RESULT_OK) {
+            productDetailsComplete = 1;
+            selectedCategoryPositionInt = 4;
+            createShowSelectedCarDetails(data, resultCode, REQUEST_CAR_PLATES);
+            createCityPhoneNumber();
+            ChangeUI();
+        }
 
     }
 
@@ -240,12 +284,6 @@ public class AddItem extends AppCompatActivity implements
     }
 
     private void createCCMETObject(String selectedCategory) {
-        reportDescriptionArrayL = new ArrayList<String>();
-        reportDescriptionArrayL.add("noReprotYet");
-
-        watchersArrayL = new ArrayList<String>();
-        watchersArrayL.add("noWatchersYet");
-
         String firstNumber = "0", secondNumber = "0";
         if (!carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_0))
                 && !carDetailsModel.getKilometersStr().equals(getResources().getString(R.string.k_up_200K)))
@@ -345,22 +383,22 @@ public class AddItem extends AppCompatActivity implements
         }
         if (selectCategory.equals(getResources().getString(R.string.car_plates))) {
             createCarPlatesObject("Car plates");
-            uploadImagesBeforeUploadCarPlatesModel(imagePathArrL, carPlatesModel, "Plates"
+            uploadImagesBeforeUploadCarPlatesModel(imagePathArrL, itemPlates, "Plates"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.wheels_rim))) {
             createWheelsRimObject("Wheels rim");
-            uploadImagesBeforeUploadWheelsRimModel(imagePathArrL, wheelsRim, "Wheels_Rim"
+            uploadImagesBeforeUploadWheelsRimModel(imagePathArrL, itemWheelsRim, "Wheels_Rim"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.accessories))) {
             createAccAndHunkObject("Accessories");
-            uploadImagesBeforeUploadAccessoriesModel(imagePathArrL, accAndJunk, "Accessories"
+            uploadImagesBeforeUploadAccessoriesModel(imagePathArrL, itemAccAndJunk, "Accessories"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         if (selectCategory.equals(getResources().getString(R.string.junk_car))) {
             createAccAndHunkObject("Junk car");
-            uploadImagesBeforeUploadJunkCarModel(imagePathArrL, accAndJunk, "JunkCar"
+            uploadImagesBeforeUploadJunkCarModel(imagePathArrL, itemAccAndJunk, "JunkCar"
                     , getUserIdInServerFromSP(getApplicationContext()), numberOfOldAds,getApplicationContext());
         }
         new Handler().postDelayed(new Runnable() {
@@ -376,7 +414,7 @@ public class AddItem extends AppCompatActivity implements
     }
 
     private void createAccAndHunkObject(String selectedCategory) {
-        accAndJunk = new AccAndJunk(
+        itemAccAndJunk = new ItemAccAndJunk(
                 "NOTYET", getCityFromSP(getApplicationContext())
                 , getNeighborhoodFromSP(getApplicationContext())
                 , getUserTokenInFromSP(getApplicationContext())
@@ -389,14 +427,39 @@ public class AddItem extends AppCompatActivity implements
                 ,"person"
                 , getTimeStamp()
                 , getUserIdInServerFromSP(getApplicationContext())
-                , reportDescriptionArrayL
-                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+                , getImagePathsNoImage()
                 , checkBurnedPrice(getApplicationContext())
                 , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
                 , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
                 , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                ,String.valueOf(itemLiveOrMustToWaitIfBurnedPriceOn)
+                ,selectedCategory
+                ,getCitySFromSP(getApplicationContext())
+                ,getNeighborhoodSFromSP(getApplicationContext())
+                ,Locale.getDefault().getLanguage()
         );
+//        accAndJunk = new AccAndJunk(
+//                "NOTYET", getCityFromSP(getApplicationContext())
+//                , getNeighborhoodFromSP(getApplicationContext())
+//                , getUserTokenInFromSP(getApplicationContext())
+//                , getTime(), getPhoneNumberInSP(getApplicationContext())
+//                , getTitleInSP(getApplicationContext())
+//                , getDesInSP(getApplicationContext())
+//                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+//                , "0", "123", "0"
+//                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+//                ,"person"
+//                , getTimeStamp()
+//                , getUserIdInServerFromSP(getApplicationContext())
+//                , reportDescriptionArrayL
+//                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+//
+//                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+//                , checkBurnedPrice(getApplicationContext())
+//                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+//                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+//                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+//        );
     }
 
     private void createWheelsRimObject(String selectedCategory) {
@@ -405,7 +468,8 @@ public class AddItem extends AppCompatActivity implements
             convertWheelsSize = Integer.parseInt(wheelsSize);
         else
             convertWheelsSize = 100;
-        wheelsRim = new WheelsRimModel(
+
+        itemWheelsRim = new ItemWheelsRim(
                 "NOTYET", getCityFromSP(getApplicationContext())
                 , getNeighborhoodFromSP(getApplicationContext())
                 , getUserTokenInFromSP(getApplicationContext())
@@ -419,25 +483,51 @@ public class AddItem extends AppCompatActivity implements
                 ,"person"
                 , getTimeStamp()
                 , getUserIdInServerFromSP(getApplicationContext())
-                , reportDescriptionArrayL
-                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-                , watchersArrayL, getDefaultBoostPostArrayL(), 0
-                , checkBurnedPrice(getApplicationContext())
-                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+                ,getImagePathsNoImage()
+                ,checkBurnedPrice(getApplicationContext())
+                ,0,0, itemLiveOrMustToWaitIfBurnedPriceOn
                 , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
-                , convertWheelsSize
-                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                ,convertWheelsSize
+                ,getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                ,wheelsType
+                ,String.valueOf(itemLiveOrMustToWaitIfBurnedPriceOn)
+                ,wheelsTypeS
+                ,getCitySFromSP(getApplicationContext())
+                ,getNeighborhoodSFromSP(getApplicationContext())
+                ,selectedCategory
+                ,Locale.getDefault().getLanguage()
         );
+
+//        wheelsRim = new WheelsRimModel(
+//                "NOTYET", getCityFromSP(getApplicationContext())
+//                , getNeighborhoodFromSP(getApplicationContext())
+//                , getUserTokenInFromSP(getApplicationContext())
+//                , getTime(), getPhoneNumberInSP(getApplicationContext())
+//                , getTitleInSP(getApplicationContext())
+//                , getDesInSP(getApplicationContext())
+//                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+//                , "0", "123", "0"
+//                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+//                , wheelsSize
+//                ,"person"
+//                , getTimeStamp()
+//                , getUserIdInServerFromSP(getApplicationContext())
+//                , reportDescriptionArrayL
+//                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+//                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+//                , checkBurnedPrice(getApplicationContext())
+//                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+//                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+//                , convertWheelsSize
+//                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+//        );
     }
 
     private void createCarPlatesObject(String selectedCategory) {
-        reportDescriptionArrayL = new ArrayList<String>();
-        reportDescriptionArrayL.add("noReprotYet");
 
-        watchersArrayL = new ArrayList<String>();
-        watchersArrayL.add("noWatchersYet");
+        String[] cityAndChar = splitString(carPlatesDetails.getCarPlatesCity(), "  ");
 
-        carPlatesModel = new CarPlatesModel(
+        itemPlates = new ItemPlates(
                 "NOTYET", getCityFromSP(getApplicationContext())
                 , getNeighborhoodFromSP(getApplicationContext())
                 , getUserTokenInFromSP(getApplicationContext())
@@ -446,21 +536,51 @@ public class AddItem extends AppCompatActivity implements
                 , getDesInSP(getApplicationContext())
                 , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
                 , "0", "123", "0"
-                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
-                , carPlatesDetails.getCarPlatesCity()
+                ,getVideoPath(mVideoURI),selectedCategory, selectedCategory
+                , cityAndChar[0]
                 , carPlatesDetails.getCarPlatesNumber()
-                ,"person"
-                , getTimeStamp()
-                , getUserIdInServerFromSP(getApplicationContext())
-                , reportDescriptionArrayL
-                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-                , watchersArrayL, getDefaultBoostPostArrayL(), 0
-                , checkBurnedPrice(getApplicationContext())
-                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
-                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
-                , carPlatesDetails.getSpecialOrNot()
-                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
-                , Double.parseDouble(carPlatesDetails.getCarPlatesNumber()));
+                ,"person", getTimeStamp()
+                ,getUserIdInServerFromSP(getApplicationContext())
+                ,getImagePathsNoImage()
+                ,itemLiveOrMustToWaitIfBurnedPriceOn
+                ,checkBurnedPrice(getApplicationContext())
+                ,0,0,Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+                ,carPlatesDetails.getSpecialOrNot()
+                ,getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+                ,carPlatesDetails.getCarPlatesNumber()
+                ,String.valueOf(itemLiveOrMustToWaitIfBurnedPriceOn)
+                ,selectedCategory
+                ,cityS(carPlatesDetails.getCarPlatesCity(),this)
+                ,getCitySFromSP(getApplicationContext())
+                ,getNeighborhoodSFromSP(getApplicationContext())
+                ,cityAndChar[1]
+                ,Locale.getDefault().getLanguage()
+        );
+
+//        carPlatesModel = new CarPlatesModel(
+//                "NOTYET", getCityFromSP(getApplicationContext())
+//                , getNeighborhoodFromSP(getApplicationContext())
+//                , getUserTokenInFromSP(getApplicationContext())
+//                , getTime(), getPhoneNumberInSP(getApplicationContext())
+//                , getTitleInSP(getApplicationContext())
+//                , getDesInSP(getApplicationContext())
+//                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
+//                , "0", "123", "0"
+//                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
+//                , carPlatesDetails.getCarPlatesCity()
+//                , carPlatesDetails.getCarPlatesNumber()
+//                ,"person"
+//                , getTimeStamp()
+//                , getUserIdInServerFromSP(getApplicationContext())
+//                , reportDescriptionArrayL
+//                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
+//                , watchersArrayL, getDefaultBoostPostArrayL(), 0
+//                , checkBurnedPrice(getApplicationContext())
+//                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
+//                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
+//                , carPlatesDetails.getSpecialOrNot()
+//                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
+//                , Double.parseDouble(carPlatesDetails.getCarPlatesNumber()));
     }
 
     private void actionListenerToRVShowSelectedCategoryAfterUserChoose() {
@@ -722,42 +842,6 @@ public class AddItem extends AppCompatActivity implements
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 200 && resultCode == Activity.RESULT_OK) {
-            getSelectedImagePathes(data);
-            showSelectedImage();
-            if (selectVideoOrNotYet == 1)
-                replayVideo();
-        }
-        if (requestCode == REQUEST_TAKE_GALLERY_VIDEO && resultCode == Activity.RESULT_OK) {
-            selectVideoOrNotYet = 1;
-            showSelectedVideo(data);
-        }
-        if (requestCode == STATIC_BACK_VALUE && resultCode == Activity.RESULT_OK) {
-            productDetailsComplete = 1;
-            createShowSelectedCarDetails(data, resultCode, requestCode);
-            createCityPhoneNumber();
-            ChangeUI();
-        }
-        if (requestCode == REQUEST_WHEELS_RIM && resultCode == Activity.RESULT_OK) {
-            productDetailsComplete = 1;
-            selectedCategoryPositionInt = 6;
-            createShowSelectedCarDetails(data, resultCode, REQUEST_WHEELS_RIM);
-            createCityPhoneNumber();
-            ChangeUI();
-        }
-        if (requestCode == REQUEST_CAR_PLATES && resultCode == Activity.RESULT_OK) {
-            productDetailsComplete = 1;
-            selectedCategoryPositionInt = 4;
-            createShowSelectedCarDetails(data, resultCode, REQUEST_CAR_PLATES);
-            createCityPhoneNumber();
-            ChangeUI();
-        }
-
-    }
-
     private void createCityPhoneNumber() {
         cityPhoneNumberRL.setVisibility(View.VISIBLE);
 
@@ -780,6 +864,8 @@ public class AddItem extends AppCompatActivity implements
                 Bundle bundle = new Bundle();
                 bundle.putString("category", getResources().getString(R.string.wheels_rim));
                 bundle.putString("inchSize", data.getExtras().getString("inchSize"));
+                bundle.putString("type", data.getExtras().getString("type"));
+                bundle.putString("typeS", data.getExtras().getString("typeS"));
                 fragmentShowSelectedDetails.setArguments(bundle);
 
                 FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -789,6 +875,8 @@ public class AddItem extends AppCompatActivity implements
                 transaction.addToBackStack(null);
                 transaction.commit();
                 wheelsSize = data.getExtras().getString("inchSize");
+                wheelsType = data.getExtras().getString("type");
+                wheelsTypeS = data.getExtras().getString("typeS");
             }
             if (requestCode == REQUEST_CAR_PLATES) {
                 int specialOrNotInt = 0;
@@ -799,6 +887,7 @@ public class AddItem extends AppCompatActivity implements
                         ,data.getExtras().getString("carPlatesNum")
                         ,specialOrNotInt
                 );
+
                 Bundle bundle = new Bundle();
                 bundle.putString("category", getResources().getString(R.string.car_plates));
                 bundle.putString("carPlatesNum", data.getExtras().getString("carPlatesNum"));
@@ -898,6 +987,13 @@ public class AddItem extends AppCompatActivity implements
     @Override
     public void onDataPassCarPlates(CarPlatesDetails carPlatesDetailsAfterEdit) {
         carPlatesDetails = carPlatesDetailsAfterEdit;
+    }
+
+    @Override
+    public void onWheelsDataChange(WheelsInfo wheelsInfo) {
+        wheelsSize = wheelsInfo.getWheelsSizeStr();
+        wheelsType = wheelsInfo.getWheelsTypeStr();
+        wheelsTypeS = wheelsInfo.getWheelsTypeSStr();
     }
 
     @Override

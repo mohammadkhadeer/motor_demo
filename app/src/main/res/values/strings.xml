@@ -139,6 +139,11 @@
     <string name="login_with_social_media">Login</string>
     <string name="must_login">Must to login before add item</string>
 
+    <string name="kushuk">Kushuk</string>
+    <string name="metal">Metal</string>
+
+    <string name="kushuk_s">Kushuk</string>
+    <string name="metal_s">Metal</string>
 
     <string name="dubai">Dubai</string>
     <string name="abu_dhabi">Abu Dhabi</string>
