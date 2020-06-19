@@ -145,22 +145,14 @@ public class AddItem extends AppCompatActivity implements
 
     Uri mVideoURI;
 
-    SharedPreferences.Editor editor;
-    SharedPreferences sharedPreferences;
-
-//    CCEMT ccemt;
     ItemCCEMT itemCCEMT;
     ItemPlates itemPlates;
     ItemWheelsRim itemWheelsRim;
     ItemAccAndJunk itemAccAndJunk;
     CarDetailsModel carDetailsModel;
-    ArrayList<String> reportDescriptionArrayL;
-    ArrayList<String> watchersArrayL;
-    String categoryNameStr,wheelsSize,wheelsType,wheelsTypeS;
+    String wheelsSize,wheelsType,wheelsTypeS;
     CarPlatesDetails carPlatesDetails;
-//    CarPlatesModel carPlatesModel;
-//    WheelsRimModel wheelsRim;
-//    AccAndJunk accAndJunk;
+
 
     NumberOfAllowedAds numberOfAllowedAds;
     int numberOfAllowedAdsInt,numberOfOldAds,canInsertAndOrNot,canInsertBurnedPrice;
@@ -438,28 +430,6 @@ public class AddItem extends AppCompatActivity implements
                 ,getNeighborhoodSFromSP(getApplicationContext())
                 ,Locale.getDefault().getLanguage()
         );
-//        accAndJunk = new AccAndJunk(
-//                "NOTYET", getCityFromSP(getApplicationContext())
-//                , getNeighborhoodFromSP(getApplicationContext())
-//                , getUserTokenInFromSP(getApplicationContext())
-//                , getTime(), getPhoneNumberInSP(getApplicationContext())
-//                , getTitleInSP(getApplicationContext())
-//                , getDesInSP(getApplicationContext())
-//                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
-//                , "0", "123", "0"
-//                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
-//                ,"person"
-//                , getTimeStamp()
-//                , getUserIdInServerFromSP(getApplicationContext())
-//                , reportDescriptionArrayL
-//                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-//
-//                , watchersArrayL, getDefaultBoostPostArrayL(), 0
-//                , checkBurnedPrice(getApplicationContext())
-//                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
-//                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
-//                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
-//        );
     }
 
     private void createWheelsRimObject(String selectedCategory) {
@@ -497,30 +467,6 @@ public class AddItem extends AppCompatActivity implements
                 ,selectedCategory
                 ,Locale.getDefault().getLanguage()
         );
-
-//        wheelsRim = new WheelsRimModel(
-//                "NOTYET", getCityFromSP(getApplicationContext())
-//                , getNeighborhoodFromSP(getApplicationContext())
-//                , getUserTokenInFromSP(getApplicationContext())
-//                , getTime(), getPhoneNumberInSP(getApplicationContext())
-//                , getTitleInSP(getApplicationContext())
-//                , getDesInSP(getApplicationContext())
-//                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
-//                , "0", "123", "0"
-//                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
-//                , wheelsSize
-//                ,"person"
-//                , getTimeStamp()
-//                , getUserIdInServerFromSP(getApplicationContext())
-//                , reportDescriptionArrayL
-//                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-//                , watchersArrayL, getDefaultBoostPostArrayL(), 0
-//                , checkBurnedPrice(getApplicationContext())
-//                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
-//                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
-//                , convertWheelsSize
-//                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
-//        );
     }
 
     private void createCarPlatesObject(String selectedCategory) {
@@ -557,30 +503,6 @@ public class AddItem extends AppCompatActivity implements
                 ,Locale.getDefault().getLanguage()
         );
 
-//        carPlatesModel = new CarPlatesModel(
-//                "NOTYET", getCityFromSP(getApplicationContext())
-//                , getNeighborhoodFromSP(getApplicationContext())
-//                , getUserTokenInFromSP(getApplicationContext())
-//                , getTime(), getPhoneNumberInSP(getApplicationContext())
-//                , getTitleInSP(getApplicationContext())
-//                , getDesInSP(getApplicationContext())
-//                , getUserImage(getApplicationContext()), getUserName(getApplicationContext())
-//                , "0", "123", "0"
-//                , getVideoPath(mVideoURI), selectedCategory, selectedCategory
-//                , carPlatesDetails.getCarPlatesCity()
-//                , carPlatesDetails.getCarPlatesNumber()
-//                ,"person"
-//                , getTimeStamp()
-//                , getUserIdInServerFromSP(getApplicationContext())
-//                , reportDescriptionArrayL
-//                , getImagePathsNoImage(), getDefaultCommentCompArrayL()
-//                , watchersArrayL, getDefaultBoostPostArrayL(), 0
-//                , checkBurnedPrice(getApplicationContext())
-//                , 0, 0, itemLiveOrMustToWaitIfBurnedPriceOn
-//                , Integer.parseInt(getYEAR()), Integer.parseInt(getMONTH()), Integer.parseInt(getDAY())
-//                , carPlatesDetails.getSpecialOrNot()
-//                , getPriceAfterConvertedToDoubleInSP(getApplicationContext())
-//                , Double.parseDouble(carPlatesDetails.getCarPlatesNumber()));
     }
 
     private void actionListenerToRVShowSelectedCategoryAfterUserChoose() {

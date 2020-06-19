@@ -58,7 +58,6 @@ public class FillCarModel {
             carModelArrayList.add(new CarModel(context.getString(R.string.entourage),context.getString(R.string.entourage_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.county),context.getString(R.string.county_s)));
         }
-
         if (carMake.equals(context.getString(R.string.toyota)))
         {
             carModelArrayList.add(new CarModel(context.getString(R.string.toyota_4runner),context.getString(R.string.toyota_4runner_s)));
@@ -181,7 +180,6 @@ public class FillCarModel {
             carModelArrayList.add(new CarModel(context.getString(R.string.toyota_verossa),context.getString(R.string.toyota_verossa_s)));
 
         }
-
         if (carMake.equals(context.getString(R.string.kia)))
         {
             carModelArrayList.add(new CarModel(context.getString(R.string.kia_asia),context.getString(R.string.kia_asia_s)));
@@ -228,6 +226,318 @@ public class FillCarModel {
             carModelArrayList.add(new CarModel(context.getString(R.string.kia_sedona),context.getString(R.string.kia_sedona_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.kia_lotze),context.getString(R.string.kia_lotze_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.kia_pegas),context.getString(R.string.kia_pegas_s)));
+        }
+        if (carMake.equals(context.getString(R.string.bmw)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_116),context.getString(R.string.bmw_116_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_118),context.getString(R.string.bmw_118_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_120),context.getString(R.string.bmw_120_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_125),context.getString(R.string.bmw_125_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_135),context.getString(R.string.bmw_135_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_225),context.getString(R.string.bmw_225_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_),context.getString(R.string.bmw__s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_2002),context.getString(R.string.bmw_2002_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_316),context.getString(R.string.bmw_316_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_318),context.getString(R.string.bmw_318_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_320),context.getString(R.string.bmw_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_323),context.getString(R.string.bmw_323_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_325),context.getString(R.string.bmw_325_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_328),context.getString(R.string.bmw_328_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_330),context.getString(R.string.bmw_330_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_335),context.getString(R.string.bmw_335_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_e30),context.getString(R.string.bmw_e30_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_328_gran_turismo),context.getString(R.string.bmw_328_gran_turismo_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_gt),context.getString(R.string.bmw_gt_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_420),context.getString(R.string.bmw_420_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_428),context.getString(R.string.bmw_428_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_435),context.getString(R.string.bmw_435_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_520),context.getString(R.string.bmw_520_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_523),context.getString(R.string.bmw_523_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_525),context.getString(R.string.bmw_525_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_528),context.getString(R.string.bmw_528_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_530),context.getString(R.string.bmw_530_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_535),context.getString(R.string.bmw_535_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_540),context.getString(R.string.bmw_540_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_545),context.getString(R.string.bmw_545_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_550),context.getString(R.string.bmw_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_e39),context.getString(R.string.bmw_e39_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_535gran_turismo),context.getString(R.string.bmw_535gran_turismo_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_630),context.getString(R.string.bmw_630_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_640),context.getString(R.string.bmw_640_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_645),context.getString(R.string.bmw_645_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_650),context.getString(R.string.bmw_650_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_760),context.getString(R.string.audi_a_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.audi_a),context.getString(R.string.bmw_760_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_730),context.getString(R.string.bmw_730_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_735),context.getString(R.string.bmw_735_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_740),context.getString(R.string.bmw_740_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_745),context.getString(R.string.bmw_745_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_750),context.getString(R.string.audi_a_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_i3),context.getString(R.string.bmw_i3_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_i8),context.getString(R.string.bmw_i8_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_m2),context.getString(R.string.bmw_m2_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_m3),context.getString(R.string.bmw_m3_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_m5),context.getString(R.string.bmw_m5_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_m6),context.getString(R.string.bmw_m6_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_m_coupe),context.getString(R.string.bmw_m_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_m4),context.getString(R.string.bmw_m4_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_1m),context.getString(R.string.bmw_1m_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_m_roadster),context.getString(R.string.bmw_m_roadster_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_x3),context.getString(R.string.bmw_x3_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_x4),context.getString(R.string.bmw_x4_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_x5),context.getString(R.string.bmw_x5_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_x6),context.getString(R.string.bmw_x6_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_x6_m),context.getString(R.string.bmw_x6_m_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_x5_m),context.getString(R.string.bmw_x5_m_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_x7),context.getString(R.string.bmw_x7_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_z1),context.getString(R.string.bmw_z1_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_z3),context.getString(R.string.bmw_z3_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_z3m),context.getString(R.string.bmw_z3m_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_z4),context.getString(R.string.bmw_z4_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_z4m),context.getString(R.string.bmw_z4m_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_z8),context.getString(R.string.bmw_z8_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_1502),context.getString(R.string.bmw_1502_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.bmw_alpina),context.getString(R.string.bmw_alpina_s)));
+        }
+        if (carMake.equals(context.getString(R.string.mercedes_benz)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.Mercedes_benz_gle_400_amg),context.getString(R.string.Mercedes_benz_gle_400_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gle_450_amg),context.getString(R.string.mercedes_benz_gle_450_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.Mercedes_benz_gle_500),context.getString(R.string.Mercedes_benz_gle_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gle_63_amg),context.getString(R.string.mercedes_benz_gle_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gla_class),context.getString(R.string.mercedes_benz_gla_class_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gla_250),context.getString(R.string.mercedes_benz_gla_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gla_45),context.getString(R.string.mercedes_benz_gla_45_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_a_class),context.getString(R.string.mercedes_benz_a_class_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_a_140),context.getString(R.string.mercedes_benz_a_140_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_a_45),context.getString(R.string.mercedes_benz_a_45_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_a_160),context.getString(R.string.mercedes_benz_a_160_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_a_180),context.getString(R.string.mercedes_benz_a_180_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_a_250),context.getString(R.string.mercedes_benz_a_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_a_45_amg),context.getString(R.string.mercedes_benz_a_45_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_b_class),context.getString(R.string.mercedes_benz_b_class_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_b200),context.getString(R.string.mercedes_benz_b200_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_class),context.getString(R.string.mercedes_benz_c_class_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c180),context.getString(R.string.mercedes_benz_c180_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c200),context.getString(R.string.mercedes_benz_c200_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_220),context.getString(R.string.mercedes_benz_c_220_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_230),context.getString(R.string.mercedes_benz_c_230_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_240),context.getString(R.string.mercedes_benz_c_240_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c250),context.getString(R.string.mercedes_benz_c250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_280),context.getString(R.string.mercedes_benz_c_280_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_350),context.getString(R.string.mercedes_benz_c_350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c63_amg),context.getString(R.string.mercedes_benz_c63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_55),context.getString(R.string.mercedes_benz_c_55_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_350e),context.getString(R.string.mercedes_benz_c_350e_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_180_coupe),context.getString(R.string.mercedes_benz_c_180_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_300_coupe),context.getString(R.string.mercedes_benz_c_300_coupe_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_32_amg),context.getString(R.string.mercedes_benz_c_32_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_43_amg),context.getString(R.string.mercedes_benz_c_43_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_55_amg),context.getString(R.string.mercedes_benz_c_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_63_amg),context.getString(R.string.mercedes_benz_c_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_63_coupe),context.getString(R.string.mercedes_benz_c_63_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_200_coupe),context.getString(R.string.mercedes_benz_c_200_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_c_320),context.getString(R.string.mercedes_benz_c_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_300),context.getString(R.string.mercedes_benz_cl_300_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_320),context.getString(R.string.mercedes_benz_cl_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_350),context.getString(R.string.mercedes_benz_cl_350_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_500),context.getString(R.string.mercedes_benz_cl_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_55_amg),context.getString(R.string.mercedes_benz_cl_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_65_amg),context.getString(R.string.mercedes_benz_cl_65_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_550),context.getString(R.string.mercedes_benz_cl_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_63_amg),context.getString(R.string.mercedes_benz_cl_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cl_600),context.getString(R.string.mercedes_benz_cl_600_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cla),context.getString(R.string.mercedes_benz_cla_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cla_200),context.getString(R.string.mercedes_benz_cla_220_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cla_220),context.getString(R.string.mercedes_benz_cla_220_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cla_45_amg),context.getString(R.string.mercedes_benz_cla_45_amg_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cla_450),context.getString(R.string.mercedes_benz_cla_450_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cla_250),context.getString(R.string.mercedes_benz_cla_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_clk),context.getString(R.string.mercedes_benz_clk_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_clk_200),context.getString(R.string.mercedes_benz_clk_200_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_clk_240),context.getString(R.string.mercedes_benz_clk_240_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_clk_350),context.getString(R.string.mercedes_benz_clk_350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_clk_55_amg),context.getString(R.string.mercedes_benz_clk_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_clk_63_amg),context.getString(R.string.mercedes_benz_clk_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_clk_320),context.getString(R.string.mercedes_benz_clk_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cls),context.getString(R.string.mercedes_benz_cls_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cls_350),context.getString(R.string.mercedes_benz_cls_350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cls_400),context.getString(R.string.mercedes_benz_cls_400_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cls_500),context.getString(R.string.mercedes_benz_cls_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cls_55_amg),context.getString(R.string.mercedes_benz_cls_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cls_63_amg),context.getString(R.string.mercedes_benz_cls_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_cls_550),context.getString(R.string.mercedes_benz_cls_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e190),context.getString(R.string.mercedes_benz_e190_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e200),context.getString(R.string.mercedes_benz_e200_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e230),context.getString(R.string.mercedes_benz_e230_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e240),context.getString(R.string.mercedes_benz_e240_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e250),context.getString(R.string.mercedes_benz_e250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e280),context.getString(R.string.mercedes_benz_e280_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e300),context.getString(R.string.mercedes_benz_e300_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e320),context.getString(R.string.mercedes_benz_e320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e350),context.getString(R.string.mercedes_benz_e350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e400),context.getString(R.string.mercedes_benz_e400_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e500),context.getString(R.string.mercedes_benz_e500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e55_amg),context.getString(R.string.mercedes_benz_e55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e550),context.getString(R.string.mercedes_benz_e550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e63_amg),context.getString(R.string.mercedes_benz_e63_amg_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e63),context.getString(R.string.mercedes_benz_e63_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e350e),context.getString(R.string.mercedes_benz_e350e_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e400_coupe),context.getString(R.string.mercedes_benz_e400_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e430),context.getString(R.string.mercedes_benz_e430_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e50),context.getString(R.string.mercedes_benz_e50_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e60_amg),context.getString(R.string.mercedes_benz_e60_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_e250_coupe),context.getString(R.string.mercedes_benz_e250_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_300),context.getString(R.string.mercedes_benz_g_300_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_500),context.getString(R.string.mercedes_benz_g_500_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_55),context.getString(R.string.mercedes_benz_g_55_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_320),context.getString(R.string.mercedes_benz_g_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_36_amg),context.getString(R.string.mercedes_benz_g_36_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_500_4x42),context.getString(R.string.mercedes_benz_g_500_4x42_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_55_amg),context.getString(R.string.mercedes_benz_g_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_550),context.getString(R.string.mercedes_benz_g_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_63_amg_6x6),context.getString(R.string.mercedes_benz_g_63_amg_6x6_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_65_amg),context.getString(R.string.mercedes_benz_g_65_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_g_63_amg),context.getString(R.string.mercedes_benz_g_63_amg)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gl_320),context.getString(R.string.mercedes_benz_gl_320_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gl_450),context.getString(R.string.mercedes_benz_gl_450_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gl_500),context.getString(R.string.mercedes_benz_gl_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gl_550),context.getString(R.string.mercedes_benz_gl_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gl_63_amg),context.getString(R.string.mercedes_benz_gl_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gl),context.getString(R.string.mercedes_benz_gl_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gls),context.getString(R.string.mercedes_benz_gls_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gla),context.getString(R.string.mercedes_benz_gla_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glk_250),context.getString(R.string.mercedes_benz_glk_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glk_300),context.getString(R.string.mercedes_benz_glk_300_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glk_350),context.getString(R.string.mercedes_benz_glk_350_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glk),context.getString(R.string.mercedes_benz_glk_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glc),context.getString(R.string.mercedes_benz_glc_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glc_250_coupe),context.getString(R.string.mercedes_benz_glc_250_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glc_350e_coupe),context.getString(R.string.mercedes_benz_glc_350e_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glc_250),context.getString(R.string.mercedes_benz_glc_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glc_300),context.getString(R.string.mercedes_benz_glc_300_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_glc_350e),context.getString(R.string.mercedes_benz_glc_350e_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gle_500e),context.getString(R.string.mercedes_benz_gle_500e_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gle_400),context.getString(R.string.mercedes_benz_gle_400_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_ml_250),context.getString(R.string.mercedes_benz_ml_250_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_ml_320),context.getString(R.string.mercedes_benz_ml_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_ml_350),context.getString(R.string.mercedes_benz_ml_350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_ml_400),context.getString(R.string.mercedes_benz_ml_400_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_ml_500),context.getString(R.string.mercedes_benz_ml_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_ml_63_amg),context.getString(R.string.mercedes_benz_ml_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gle),context.getString(R.string.mercedes_benz_gle_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gle_400_coupe),context.getString(R.string.mercedes_benz_gle_400_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_ml),context.getString(R.string.mercedes_benz_ml_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_280),context.getString(R.string.mercedes_benz_s_280_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_300),context.getString(R.string.mercedes_benz_s_300_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_320),context.getString(R.string.mercedes_benz_s_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_400),context.getString(R.string.mercedes_benz_s_400_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_500),context.getString(R.string.mercedes_benz_s_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_350),context.getString(R.string.mercedes_benz_s_350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_55_amg),context.getString(R.string.mercedes_benz_s_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_400_coupe),context.getString(R.string.mercedes_benz_s_400_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_430),context.getString(R.string.mercedes_benz_s_430_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_500_coupe),context.getString(R.string.mercedes_benz_s_500_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_55),context.getString(R.string.mercedes_benz_s_55_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_550_Coupe),context.getString(R.string.mercedes_benz_s_550_Coupe_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_63_amg),context.getString(R.string.mercedes_benz_s_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_63_amg_coupe),context.getString(R.string.mercedes_benz_s_63_amg_coupe_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_65_amg),context.getString(R.string.mercedes_benz_s_65_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_550),context.getString(R.string.mercedes_benz_s_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_s_600),context.getString(R.string.mercedes_benz_s_600_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_maybach),context.getString(R.string.mercedes_maybach_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_300_se),context.getString(R.string.mercedes_benz_300_se_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl),context.getString(R.string.mercedes_benz_sl_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_320),context.getString(R.string.mercedes_benz_sl_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_350),context.getString(R.string.mercedes_benz_sl_350_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_400),context.getString(R.string.mercedes_benz_sl_400_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_500),context.getString(R.string.mercedes_benz_sl_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_55_amg),context.getString(R.string.mercedes_benz_sl_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_550),context.getString(R.string.mercedes_benz_sl_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_560),context.getString(R.string.mercedes_benz_sl_560_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_63_amg),context.getString(R.string.mercedes_benz_sl_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sl_65_amg),context.getString(R.string.mercedes_benz_sl_65_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slc),context.getString(R.string.mercedes_benz_slc_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slc_200),context.getString(R.string.mercedes_benz_slc_200_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk),context.getString(R.string.mercedes_benz_slk_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_200),context.getString(R.string.mercedes_benz_slk_200_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_230),context.getString(R.string.mercedes_benz_slk_230_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_250),context.getString(R.string.mercedes_benz_slk_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_280),context.getString(R.string.mercedes_benz_slk_280_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_320),context.getString(R.string.mercedes_benz_slk_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_350),context.getString(R.string.mercedes_benz_slk_350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_55_amg),context.getString(R.string.mercedes_benz_slk_55_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slk_63_amg),context.getString(R.string.mercedes_benz_slk_63_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_v_class),context.getString(R.string.mercedes_benz_v_class_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_vito_119),context.getString(R.string.mercedes_benz_vito_119_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_vito_109),context.getString(R.string.mercedes_benz_vito_109_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_vito_111),context.getString(R.string.mercedes_benz_vito_111_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_vito_114),context.getString(R.string.mercedes_benz_vito_114_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_vito_116),context.getString(R.string.mercedes_benz_vito_116_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_v_250),context.getString(R.string.mercedes_benz_v_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_v_220),context.getString(R.string.mercedes_benz_v_220_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_class),context.getString(R.string.mercedes_benz_r_class_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_280),context.getString(R.string.mercedes_benz_r_280_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_300),context.getString(R.string.mercedes_benz_r_300_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_320),context.getString(R.string.mercedes_benz_r_320_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_350),context.getString(R.string.mercedes_benz_r_350_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_500),context.getString(R.string.mercedes_benz_r_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_550),context.getString(R.string.mercedes_benz_r_550_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_r_63),context.getString(R.string.mercedes_benz_r_63_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_x_220d),context.getString(R.string.mercedes_benz_x_220d_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_x_250d),context.getString(R.string.mercedes_benz_x_250d_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_x_350d),context.getString(R.string.mercedes_benz_x_350d_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_amg_gt),context.getString(R.string.mercedes_benz_amg_gt_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sprinter),context.getString(R.string.mercedes_benz_sprinter_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_smart),context.getString(R.string.mercedes_benz_smart_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_vito),context.getString(R.string.mercedes_benz_vito_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_eqc),context.getString(R.string.mercedes_benz_eqc_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_190),context.getString(R.string.mercedes_benz_190_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_200),context.getString(R.string.mercedes_benz_200_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_230),context.getString(R.string.mercedes_benz_230_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_250),context.getString(R.string.mercedes_benz_250_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_280),context.getString(R.string.mercedes_benz_280_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_300),context.getString(R.string.mercedes_benz_300_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_320),context.getString(R.string.mercedes_benz_320_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_380),context.getString(R.string.mercedes_benz_380_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_450),context.getString(R.string.mercedes_benz_450_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_500),context.getString(R.string.mercedes_benz_500_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_560),context.getString(R.string.mercedes_benz_560_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_actros),context.getString(R.string.mercedes_benz_actros_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_axor),context.getString(R.string.mercedes_benz_axor_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_gazelle),context.getString(R.string.mercedes_benz_gazelle_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_slr),context.getString(R.string.mercedes_benz_slr_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_sls_amg),context.getString(R.string.mercedes_benz_sls_amg_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_viano),context.getString(R.string.mercedes_benz_viano_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.mercedes_benz_other),context.getString(R.string.mercedes_benz_other_s)));
+
+
         }
         if (carMake.equals(context.getString(R.string.audi)))
         {
@@ -278,6 +588,126 @@ public class FillCarModel {
             carModelArrayList.add(new CarModel(context.getString(R.string.audi_other),context.getString(R.string.audi_other_s)));
 
 
+        }
+        if (carMake.equals(context.getString(R.string.isuzu)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_select_all),context.getString(R.string.isuzu_select_all_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_fsr),context.getString(R.string.isuzu_fsr_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_nkr),context.getString(R.string.isuzu_nkr_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_i_mark),context.getString(R.string.isuzu_i_mark_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_aska),context.getString(R.string.isuzu_aska_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_amigo),context.getString(R.string.isuzu_amigo_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_impulse),context.getString(R.string.isuzu_impulse_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_ascender),context.getString(R.string.isuzu_ascender_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_axiom),context.getString(R.string.isuzu_axiom_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_piazza),context.getString(R.string.isuzu_piazza_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_bighorn),context.getString(R.string.isuzu_bighorn_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_trooper),context.getString(R.string.isuzu_trooper_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_giga),context.getString(R.string.isuzu_giga_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_d_max),context.getString(R.string.isuzu_d_max_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_rodeo),context.getString(R.string.isuzu_rodeo_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_fster),context.getString(R.string.isuzu_fster_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_filly),context.getString(R.string.isuzu_filly_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_vehicross),context.getString(R.string.isuzu_vehicross_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_wizard),context.getString(R.string.isuzu_wizard_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_elf),context.getString(R.string.isuzu_elf_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_forward),context.getString(R.string.isuzu_forward_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_juston),context.getString(R.string.isuzu_juston_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_pickup),context.getString(R.string.isuzu_pickup_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_reward),context.getString(R.string.isuzu_reward_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_v430),context.getString(R.string.isuzu_v430_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_other),context.getString(R.string.isuzu_other_s)));
+        }
+        if (carMake.equals(context.getString(R.string.infiniti)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_e),context.getString(R.string.infiniti_e_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_e30),context.getString(R.string.infiniti_e30_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_e35),context.getString(R.string.infiniti_e35_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_ex),context.getString(R.string.infiniti_ex_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_ex25),context.getString(R.string.infiniti_ex25_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_ex35),context.getString(R.string.infiniti_ex35_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_ex37),context.getString(R.string.audi_a_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_FX),context.getString(R.string.infiniti_FX_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_fx37),context.getString(R.string.infiniti_fx37_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_fx45),context.getString(R.string.infiniti_fx45_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_fx50),context.getString(R.string.infiniti_fx50_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_fx56),context.getString(R.string.infiniti_fx56_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_fx35),context.getString(R.string.infiniti_fx35_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_G),context.getString(R.string.infiniti_G_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_g20),context.getString(R.string.infiniti_g20_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_g25),context.getString(R.string.infiniti_g25_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_g35),context.getString(R.string.infiniti_g35_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_g37),context.getString(R.string.infiniti_g37_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_J),context.getString(R.string.infiniti_J_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_j30),context.getString(R.string.infiniti_j30_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_M),context.getString(R.string.infiniti_M_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_m25),context.getString(R.string.infiniti_m25_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_m35),context.getString(R.string.infiniti_m35_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_m37),context.getString(R.string.infiniti_m37_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_m45),context.getString(R.string.infiniti_m45_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_m56),context.getString(R.string.infiniti_m56_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_Q),context.getString(R.string.infiniti_Q_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_q45),context.getString(R.string.infiniti_q45_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_qx4),context.getString(R.string.infiniti_qx4_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_qx56),context.getString(R.string.infiniti_qx56_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_q60),context.getString(R.string.infiniti_q60_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_q70),context.getString(R.string.infiniti_q70_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_qx60),context.getString(R.string.infiniti_qx60_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_q30),context.getString(R.string.infiniti_q30_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_q50),context.getString(R.string.infiniti_q50_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_qx80),context.getString(R.string.infiniti_qx80_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_I30),context.getString(R.string.infiniti_I30_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_jx35),context.getString(R.string.infiniti_jx35_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_q40),context.getString(R.string.infiniti_q40_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_qx50),context.getString(R.string.infiniti_qx50_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_qx70),context.getString(R.string.infiniti_qx70_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.infiniti_other),context.getString(R.string.infiniti_other_s)));
+
+        }
+        if (carMake.equals(context.getString(R.string.opel)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_agila),context.getString(R.string.opel_agila_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_astra),context.getString(R.string.opel_astra_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_ascona),context.getString(R.string.opel_ascona_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_admiral),context.getString(R.string.opel_admiral_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_omega),context.getString(R.string.opel_omega_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_antara),context.getString(R.string.opel_antara_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_insignia),context.getString(R.string.opel_insignia_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_tigra),context.getString(R.string.opel_tigra_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_gt),context.getString(R.string.opel_gt_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_diplomat),context.getString(R.string.opel_diplomat_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_rekord),context.getString(R.string.opel_rekord_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_zafira),context.getString(R.string.opel_zafira_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_speedster),context.getString(R.string.opel_speedster_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_signum),context.getString(R.string.opel_signum_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_senator),context.getString(R.string.opel_senator_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_sintra),context.getString(R.string.opel_sintra_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_frontera),context.getString(R.string.opel_frontera_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_vita),context.getString(R.string.opel_vita_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_vivaro),context.getString(R.string.opel_vivaro_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_kadett),context.getString(R.string.opel_kadett_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_calibra),context.getString(R.string.opel_calibra_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_campo),context.getString(R.string.opel_campo_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_corsa),context.getString(R.string.opel_corsa_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_combo),context.getString(R.string.opel_combo_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_commodore),context.getString(R.string.opel_commodore_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_manta),context.getString(R.string.opel_manta_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_movano),context.getString(R.string.opel_movano_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_monza),context.getString(R.string.opel_monza_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_meriva),context.getString(R.string.opel_meriva_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.opel_other),context.getString(R.string.opel_other_s)));
+
+        }
+
+        if (carMake.equals(context.getString(R.string.audi)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.audi_a),context.getString(R.string.audi_a_s)));
         }
 
             return carModelArrayList;

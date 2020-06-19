@@ -1807,6 +1807,521 @@
     <string name="bmw_alpina">alpina</string>
 
 
+    <string name="gle">GLE Class</string>
+    <string name="Mercedes_benz_gle_400_amg">GLE 400 AMG</string>
+    <string name="mercedes_benz_gle_450_amg">GLE 450 AMG</string>
+    <string name="Mercedes_benz_gle_500">GLE 500 AMG</string>
+    <string name="mercedes_benz_gle_63_amg">GLE 63 AMG</string>
+
+    <string name="mercedes_benz_gla_class">GLA Class</string>
+    <string name="mercedes_benz_gla_250">GLA 250</string>
+    <string name="mercedes_benz_gla_45">GLA 45</string>
+
+    <string name="mercedes_benz_a_class1">AClass</string>
+    <string name="mercedes_benz_a_class">A Class</string>
+    <string name="mercedes_benz_a_140">A 140</string>
+    <string name="mercedes_benz_a_45">A 45</string>
+    <string name="mercedes_benz_a_160">A 160</string>
+    <string name="mercedes_benz_a_180">A 180</string>
+    <string name="mercedes_benz_a_250">A 250</string>
+    <string name="mercedes_benz_a_45_amg">A 45AMG</string>
+
+    <string name="mercedes_benz_b_class1">BClass</string>
+    <string name="mercedes_benz_b_class">B Class</string>
+    <string name="mercedes_benz_b200">B 200</string>
+
+    <string name="mercedes_benz_c_class1">CClass</string>
+    <string name="mercedes_benz_c_class">C Class</string>
+    <string name="mercedes_benz_c180">C 180</string>
+    <string name="mercedes_benz_c200">C 200</string>
+    <string name="mercedes_benz_c_220">C 220</string>
+    <string name="mercedes_benz_c_230">C 230</string>
+    <string name="mercedes_benz_c_240">C 240</string>
+    <string name="mercedes_benz_c250">C 250</string>
+    <string name="mercedes_benz_c_280">C 280</string>
+    <string name="mercedes_benz_c_300">C 300</string>
+    <string name="mercedes_benz_c_350">C 350</string>
+    <string name="mercedes_benz_c63_amg">C63 AMG</string>
+    <string name="mercedes_benz_c_55">C 55</string>
+    <string name="mercedes_benz_c_350e">C 350e</string>
+    <string name="mercedes_benz_c_180_coupe">C 180 Coupe</string>
+    <string name="mercedes_benz_c_300_coupe">C 300 Coupe</string>
+    <string name="mercedes_benz_c_32_amg">C 32 AMG</string>
+    <string name="mercedes_benz_c_43_amg">C 43 AMG</string>
+    <string name="mercedes_benz_c_55_amg">C 55 AMG</string>
+    <string name="mercedes_benz_c_63_amg">C 63 AMG</string>
+    <string name="mercedes_benz_c_63_coupe">C 63 Coupe</string>
+    <string name="mercedes_benz_c_200_coupe">C 200 Coupe</string>
+    <string name="mercedes_benz_c_320">C 320</string>
+
+    <string name="mercedes_benz_cl_class1">CLClass</string>
+    <string name="mercedes_benz_cl_300">CL 300</string>
+    <string name="mercedes_benz_cl_320">CL 320</string>
+    <string name="mercedes_benz_cl_350">CL 350</string>
+    <string name="mercedes_benz_cl_500">CL 500</string>
+    <string name="mercedes_benz_cl_55_amg">CL 55 AMG</string>
+    <string name="mercedes_benz_cl_65_amg">CL 65 AMG</string>
+    <string name="mercedes_benz_cl_550">CL 550</string>
+    <string name="mercedes_benz_cl_63_amg">CL 63 AMG</string>
+    <string name="mercedes_benz_cl_600">CL 600</string>
+
+    <string name="mercedes_benz_cl_a_class">CLA Class</string>
+    <string name="mercedes_benz_cla">C LA</string>
+    <string name="mercedes_benz_cla_200">CLA 200</string>
+    <string name="mercedes_benz_cla_220">CLA 220</string>
+    <string name="mercedes_benz_cla_45_amg">CLA 45 AMG</string>
+    <string name="mercedes_benz_cla_450">CLA 450</string>
+    <string name="mercedes_benz_cla_250">CLA 250</string>
+
+    <string name="mercedes_benz_clk_class">CLK Class</string>
+    <string name="mercedes_benz_clk">CLK</string>
+    <string name="mercedes_benz_clk_200">CLK 200</string>
+    <string name="mercedes_benz_clk_240">CLK 240</string>
+    <string name="mercedes_benz_clk_350">CLK 350</string>
+    <string name="mercedes_benz_clk_55_amg">CLK 55 AMG</string>
+    <string name="mercedes_benz_clk_63_amg">CLK 63 AMG</string>
+    <string name="mercedes_benz_clk_320">CLK 320</string>
+
+    <string name="mercedes_benz_cls_class">CLSClass</string>
+    <string name="mercedes_benz_cls">CLS</string>
+    <string name="mercedes_benz_cls_350">CLS 350</string>
+    <string name="mercedes_benz_cls_400">CLS 400</string>
+    <string name="mercedes_benz_cls_500">CLS 500</string>
+    <string name="mercedes_benz_cls_55_amg">CLS 55 AMG</string>
+    <string name="mercedes_benz_cls_63_amg">CLS 63 AMG</string>
+    <string name="mercedes_benz_cls_550">CLS 550</string>
+
+    <string name="mercedes_benz_e_class">EClass</string>
+    <string name="mercedes_benz_e190">E 190</string>
+    <string name="mercedes_benz_e200">E 200</string>
+    <string name="mercedes_benz_e230">E 230</string>
+    <string name="mercedes_benz_e240">E 240</string>
+    <string name="mercedes_benz_e250">E 250</string>
+    <string name="mercedes_benz_e280">E 280</string>
+    <string name="mercedes_benz_e300">E 300</string>
+    <string name="mercedes_benz_e320">E 320</string>
+    <string name="mercedes_benz_e350">E 350</string>
+    <string name="mercedes_benz_e400">E 400</string>
+    <string name="mercedes_benz_e500">E 500</string>
+    <string name="mercedes_benz_e55_amg">E 55 AMG</string>
+    <string name="mercedes_benz_e550">E 550</string>
+    <string name="mercedes_benz_e63_amg">E 63 AMG</string>
+    <string name="mercedes_benz_e63">E 63</string>
+    <string name="mercedes_benz_e350e">E 350e</string>
+    <string name="mercedes_benz_e400_coupe">E 400 Coupe</string>
+    <string name="mercedes_benz_e430">E 430</string>
+    <string name="mercedes_benz_e50">E 50</string>
+    <string name="mercedes_benz_e60_amg">E 60 AMG</string>
+    <string name="mercedes_benz_e250_coupe">E 250 Coupe</string>
+
+    <string name="mercedes_benz_g_class">GClass</string>
+    <string name="mercedes_benz_g_300">G 300</string>
+    <string name="mercedes_benz_g_500">G 500</string>
+    <string name="mercedes_benz_g_55">G 55</string>
+    <string name="mercedes_benz_g_320">G 320</string>
+    <string name="mercedes_benz_g_36_amg">G 36 AMG</string>
+    <string name="mercedes_benz_g_500_4x42">G 500 4X42</string>
+    <string name="mercedes_benz_g_55_amg">G 55 AMG</string>
+    <string name="mercedes_benz_g_550">G 550</string>
+    <string name="mercedes_benz_g_63_amg_6x6">G 63 AMG 6x6</string>
+    <string name="mercedes_benz_g_65_amg">G 65 AMG</string>
+    <string name="mercedes_benz_g_63_amg">G 63 AMG</string>
+
+    <string name="mercedes_benz_gl_class">GLClass</string>
+    <string name="mercedes_benz_gl_320">GL 320</string>
+    <string name="mercedes_benz_gl_450">GL 450</string>
+    <string name="mercedes_benz_gl_500">GL 500</string>
+    <string name="mercedes_benz_gl_550">GL 550</string>
+    <string name="mercedes_benz_gl_63_amg">GL 63 AMG</string>
+    <string name="mercedes_benz_gl">GL</string>
+    <string name="mercedes_benz_gls">GLS</string>
+
+    <string name="mercedes_benz_gla1">GLA</string>
+    <string name="mercedes_benz_gla">GLA</string>
+    <string name="mercedes_benz_glk_250">GLK 250</string>
+    <string name="mercedes_benz_glk_300">GLK 300</string>
+    <string name="mercedes_benz_glk_350">GLK 350</string>
+    <string name="mercedes_benz_glk">GLK</string>
+
+    <string name="mercedes_benz_glc1">GLC</string>
+    <string name="mercedes_benz_glc">GLC</string>
+    <string name="mercedes_benz_glc_250_coupe">GLC 250 Coupe</string>
+    <string name="mercedes_benz_glc_350e_coupe">GLC 350e Coupe</string>
+    <string name="mercedes_benz_glc_250">GLC 250</string>
+    <string name="mercedes_benz_glc_300">GLC 300</string>
+    <string name="mercedes_benz_glc_350e">GLC 350e</string>
+    <string name="mercedes_benz_gle_500e">GLE 500e</string>
+    <string name="mercedes_benz_gle_400">GLE 400</string>
+
+    <string name="mercedes_benz_m_class">MClass</string>
+    <string name="mercedes_benz_ml_250">ML 250</string>
+    <string name="mercedes_benz_ml_320">ML 320</string>
+    <string name="mercedes_benz_ml_350">ML 350</string>
+    <string name="mercedes_benz_ml_400">ML 400</string>
+    <string name="mercedes_benz_ml_500">ML 500</string>
+    <string name="mercedes_benz_ml_63_amg">ML 63 AMG</string>
+
+    <string name="mercedes_benz_gle">GLE</string>
+    <string name="mercedes_benz_gle_400_coupe">GLE 400 Coupe</string>
+    <string name="mercedes_benz_ml">ML</string>
+
+    <string name="mercedes_benz_s_class">SClass</string>
+    <string name="mercedes_benz_s_280">S 280</string>
+    <string name="mercedes_benz_s_300">S 300</string>
+    <string name="mercedes_benz_s_320">S 320</string>
+    <string name="mercedes_benz_s_400">S 400</string>
+    <string name="mercedes_benz_s_500">S 500</string>
+    <string name="mercedes_benz_s_350">S 350</string>
+    <string name="mercedes_benz_s_55_amg">S 55 AMG</string>
+    <string name="mercedes_benz_s_400_coupe">S 400 Coupe</string>
+    <string name="mercedes_benz_s_430">S 430</string>
+    <string name="mercedes_benz_s_500_coupe">S 500 Coupe</string>
+    <string name="mercedes_benz_s_55">S 55</string>
+    <string name="mercedes_benz_s_550_Coupe">S 550 Coupe</string>
+    <string name="mercedes_benz_s_63_amg">S 63 AMG</string>
+    <string name="mercedes_benz_s_63_amg_coupe">S 63 AMG Coupe</string>
+    <string name="mercedes_benz_s_65_amg">S 65 AMG</string>
+    <string name="mercedes_benz_s_550">S 550</string>
+    <string name="mercedes_benz_s_600">S 600</string>
+    <string name="mercedes_maybach">Mercedes\-Maybach</string>
+
+    <string name="mercedes_benz_se_class">SEClass</string>
+    <string name="mercedes_benz_300_se">300 SE</string>
+
+    <string name="mercedes_benz_sl_class">SL Class</string>
+    <string name="mercedes_benz_sl">SL</string>
+    <string name="mercedes_benz_sl_320">SL 320</string>
+    <string name="mercedes_benz_sl_350">SL 350</string>
+    <string name="mercedes_benz_sl_400">SL 400</string>
+    <string name="mercedes_benz_sl_500">SL 500</string>
+    <string name="mercedes_benz_sl_55_amg">SL 55 AMG</string>
+    <string name="mercedes_benz_sl_550">SL 550</string>
+    <string name="mercedes_benz_sl_560">SL 560</string>
+    <string name="mercedes_benz_sl_63_amg">SL 63 AMG</string>
+    <string name="mercedes_benz_sl_65_amg">SL 65 AMG</string>
+
+    <string name="mercedes_benz_slc">SLC</string>
+    <string name="mercedes_benz_slc_200">SLC 200</string>
+
+    <string name="mercedes_benz_slk_class">SLKClass</string>
+    <string name="mercedes_benz_slk">SLK</string>
+    <string name="mercedes_benz_slk_200">SLK 200</string>
+    <string name="mercedes_benz_slk_230">SLK 230</string>
+    <string name="mercedes_benz_slk_250">SLK 250</string>
+    <string name="mercedes_benz_slk_280">SLK 280</string>
+    <string name="mercedes_benz_slk_320">SLK 320</string>
+    <string name="mercedes_benz_slk_350">SLK 350</string>
+    <string name="mercedes_benz_slk_55_amg">SLK 55AMG</string>
+    <string name="mercedes_benz_slk_63_amg">SLK 63AMG</string>
+
+    <string name="mercedes_benz_v_class1">VClass</string>
+    <string name="mercedes_benz_v_class">V Class</string>
+    <string name="mercedes_benz_vito_119">Vito 119</string>
+    <string name="mercedes_benz_vito_109">Vito 109</string>
+    <string name="mercedes_benz_vito_111">Vito 111</string>
+    <string name="mercedes_benz_vito_114">Vito 114</string>
+    <string name="mercedes_benz_vito_116">Vito 116</string>
+    <string name="mercedes_benz_v_250">V 250</string>
+    <string name="mercedes_benz_v_220">V 220</string>
+
+    <string name="mercedes_benz_r_class1">RClass</string>
+    <string name="mercedes_benz_r_class">R Class</string>
+    <string name="mercedes_benz_r_280">R 280</string>
+    <string name="mercedes_benz_r_300">R 300</string>
+    <string name="mercedes_benz_r_320">R 320</string>
+    <string name="mercedes_benz_r_350">R 350</string>
+    <string name="mercedes_benz_r_500">R 500</string>
+    <string name="mercedes_benz_r_550">R 550</string>
+    <string name="mercedes_benz_r_63">R 63</string>
+
+    <string name="mercedes_benz_x_class">XClass</string>
+    <string name="mercedes_benz_x_220d">X 220d</string>
+    <string name="mercedes_benz_x_250d">X 250d</string>
+    <string name="mercedes_benz_x_350d">X 350d</string>
+
+    <string name="mercedes_benz_amg_gt">AMGGT</string>
+    <string name="mercedes_benz_sprinter">Sprinter</string>
+    <string name="mercedes_benz_smart">Smart</string>
+    <string name="mercedes_benz_vito">Vito</string>
+    <string name="mercedes_benz_eqc">EQC</string>
+    <string name="mercedes_benz_190">190</string>
+    <string name="mercedes_benz_200">200</string>
+    <string name="mercedes_benz_230">230</string>
+    <string name="mercedes_benz_250">250</string>
+    <string name="mercedes_benz_280">280</string>
+    <string name="mercedes_benz_300">300</string>
+    <string name="mercedes_benz_320">320</string>
+    <string name="mercedes_benz_380">380</string>
+    <string name="mercedes_benz_450">450</string>
+    <string name="mercedes_benz_500">500</string>
+    <string name="mercedes_benz_560">560</string>
+    <string name="mercedes_benz_actros">Actros</string>
+    <string name="mercedes_benz_axor">Axor</string>
+    <string name="mercedes_benz_gazelle">Gazelle</string>
+    <string name="mercedes_benz_slr">SLR</string>
+    <string name="mercedes_benz_sls_amg">SLSAMG</string>
+    <string name="mercedes_benz_viano">Viano</string>
+    <string name="mercedes_benz_other">Other</string>
+
+
+
+    <string name="gle_s">GLE Class</string>
+    <string name="Mercedes_benz_gle_400_amg_s">GLE 400 AMG</string>
+    <string name="mercedes_benz_gle_450_amg_s">GLE 450 AMG</string>
+    <string name="Mercedes_benz_gle_500_s">GLE 500 AMG</string>
+    <string name="mercedes_benz_gle_63_amg_s">GLE 63 AMG</string>
+
+    <string name="mercedes_benz_gla_class_s">GLA Class</string>
+    <string name="mercedes_benz_gla_250_s">GLA 250</string>
+    <string name="mercedes_benz_gla_45_s">GLA 45</string>
+
+    <string name="mercedes_benz_a_class1_s">A Class</string>
+    <string name="mercedes_benz_a_class_s">A Class</string>
+    <string name="mercedes_benz_a_140_s">A 140</string>
+    <string name="mercedes_benz_a_45_s">A 45</string>
+    <string name="mercedes_benz_a_160_s">A 160</string>
+    <string name="mercedes_benz_a_180_s">A 180</string>
+    <string name="mercedes_benz_a_250_s">A 250</string>
+    <string name="mercedes_benz_a_45_amg_s">A 45AMG</string>
+
+    <string name="mercedes_benz_b_class1_s">B Class</string>
+    <string name="mercedes_benz_b_class_s">B Class</string>
+    <string name="mercedes_benz_b200_s">B 200</string>
+
+    <string name="mercedes_benz_c_class1_s">C Class</string>
+    <string name="mercedes_benz_c_class_s">C Class</string>
+    <string name="mercedes_benz_c180_s">C 180</string>
+    <string name="mercedes_benz_c200_s">C 200</string>
+    <string name="mercedes_benz_c_220_s">C 220</string>
+    <string name="mercedes_benz_c_230_s">C 230</string>
+    <string name="mercedes_benz_c_240_s">C 240</string>
+    <string name="mercedes_benz_c250_s">C 250</string>
+    <string name="mercedes_benz_c_280_s">C 280</string>
+    <string name="mercedes_benz_c_300_s">C 300</string>
+    <string name="mercedes_benz_c_350_s">C 350</string>
+    <string name="mercedes_benz_c63_amg_s">C63 AMG</string>
+    <string name="mercedes_benz_c_55_s">C 55</string>
+    <string name="mercedes_benz_c_350e_s">C 350e</string>
+    <string name="mercedes_benz_c_180_coupe_s">C 180 Coupe</string>
+    <string name="mercedes_benz_c_300_coupe_s">C 300 Coupe</string>
+    <string name="mercedes_benz_c_32_amg_s">C 32 AMG</string>
+    <string name="mercedes_benz_c_43_amg_s">C 43 AMG</string>
+    <string name="mercedes_benz_c_55_amg_s">C 55 AMG</string>
+    <string name="mercedes_benz_c_63_amg_s">C 63 AMG</string>
+    <string name="mercedes_benz_c_63_coupe_s">C 63 Coupe</string>
+    <string name="mercedes_benz_c_200_coupe_s">C 200 Coupe</string>
+    <string name="mercedes_benz_c_320_s">C 320</string>
+
+    <string name="mercedes_benz_cl_class1_s">CL Class</string>
+    <string name="mercedes_benz_cl_300_s">CL 300</string>
+    <string name="mercedes_benz_cl_320_s">CL 320</string>
+    <string name="mercedes_benz_cl_350_s">CL 350</string>
+    <string name="mercedes_benz_cl_500_s">CL 500</string>
+    <string name="mercedes_benz_cl_55_amg_s">CL 55 AMG</string>
+    <string name="mercedes_benz_cl_65_amg_s">CL 65 AMG</string>
+    <string name="mercedes_benz_cl_550_s">CL 550</string>
+    <string name="mercedes_benz_cl_63_amg_s">CL 63 AMG</string>
+    <string name="mercedes_benz_cl_600_s">CL 600</string>
+
+    <string name="mercedes_benz_cl_a_class_s">CLA Class</string>
+    <string name="mercedes_benz_cla_s">C LA</string>
+    <string name="mercedes_benz_cla_200_s">CLA 200</string>
+    <string name="mercedes_benz_cla_220_s">CLA 220</string>
+    <string name="mercedes_benz_cla_45_amg_s">CLA 45 AMG</string>
+    <string name="mercedes_benz_cla_450_s">CLA 450</string>
+    <string name="mercedes_benz_cla_250_s">CLA 250</string>
+
+    <string name="mercedes_benz_clk_class_s">CLK Class</string>
+    <string name="mercedes_benz_clk_s">CLK</string>
+    <string name="mercedes_benz_clk_200_s">CLK 200</string>
+    <string name="mercedes_benz_clk_240_s">CLK 240</string>
+    <string name="mercedes_benz_clk_350_s">CLK 350</string>
+    <string name="mercedes_benz_clk_55_amg_s">CLK 55 AMG</string>
+    <string name="mercedes_benz_clk_63_amg_s">CLK 63 AMG</string>
+    <string name="mercedes_benz_clk_320_s">CLK 320</string>
+
+    <string name="mercedes_benz_cls_class_s">CLSClass</string>
+    <string name="mercedes_benz_cls_s">CLS</string>
+    <string name="mercedes_benz_cls_350_s">CLS 350</string>
+    <string name="mercedes_benz_cls_400_s">CLS 400</string>
+    <string name="mercedes_benz_cls_500_s">CLS 500</string>
+    <string name="mercedes_benz_cls_55_amg_s">CLS 55 AMG</string>
+    <string name="mercedes_benz_cls_63_amg_s">CLS 63 AMG</string>
+    <string name="mercedes_benz_cls_550_s">CLS 550</string>
+
+    <string name="mercedes_benz_e_class_s">EClass</string>
+    <string name="mercedes_benz_e190_s">E 190</string>
+    <string name="mercedes_benz_e200_s">E 200</string>
+    <string name="mercedes_benz_e230_s">E 230</string>
+    <string name="mercedes_benz_e240_s">E 240</string>
+    <string name="mercedes_benz_e250_s">E 250</string>
+    <string name="mercedes_benz_e280_s">E 280</string>
+    <string name="mercedes_benz_e300_s">E 300</string>
+    <string name="mercedes_benz_e320_s">E 320</string>
+    <string name="mercedes_benz_e350_s">E 350</string>
+    <string name="mercedes_benz_e400_s">E 400</string>
+    <string name="mercedes_benz_e500_s">E 500</string>
+    <string name="mercedes_benz_e55_amg_s">E 55 AMG</string>
+    <string name="mercedes_benz_e550_s">E 550</string>
+    <string name="mercedes_benz_e63_amg_s">E 63 AMG</string>
+    <string name="mercedes_benz_e63_s">E 63</string>
+    <string name="mercedes_benz_e350e_s">E 350e</string>
+    <string name="mercedes_benz_e400_coupe_s">E 400 Coupe</string>
+    <string name="mercedes_benz_e430_s">E 430</string>
+    <string name="mercedes_benz_e50_s">E 50</string>
+    <string name="mercedes_benz_e60_amg_s">E 60 AMG</string>
+    <string name="mercedes_benz_e250_coupe_s">E 250 Coupe</string>
+
+    <string name="mercedes_benz_g_class_s">GClass</string>
+    <string name="mercedes_benz_g_300_s">G 300</string>
+    <string name="mercedes_benz_g_500_s">G 500</string>
+    <string name="mercedes_benz_g_55_s">G 55</string>
+    <string name="mercedes_benz_g_320_s">G 320</string>
+    <string name="mercedes_benz_g_36_amg_s">G 36 AMG</string>
+    <string name="mercedes_benz_g_500_4x42_s">G 500 4X42</string>
+    <string name="mercedes_benz_g_55_amg_s">G 55 AMG</string>
+    <string name="mercedes_benz_g_550_s">G 550</string>
+    <string name="mercedes_benz_g_63_amg_6x6_s">G 63 AMG 6x6</string>
+    <string name="mercedes_benz_g_65_amg_s">G 65 AMG</string>
+    <string name="mercedes_benz_g_63_amg_s">G 63 AMG</string>
+
+    <string name="mercedes_benz_gl_class_s">GLClass</string>
+    <string name="mercedes_benz_gl_320_s">GL 320</string>
+    <string name="mercedes_benz_gl_450_s">GL 450</string>
+    <string name="mercedes_benz_gl_500_s">GL 500</string>
+    <string name="mercedes_benz_gl_550_s">GL 550</string>
+    <string name="mercedes_benz_gl_63_amg_s">GL 63 AMG</string>
+    <string name="mercedes_benz_gl_s">GL</string>
+    <string name="mercedes_benz_gls_s">GLS</string>
+
+    <string name="mercedes_benz_gla1_s">GLA</string>
+    <string name="mercedes_benz_gla_s">GLA</string>
+    <string name="mercedes_benz_glk_250_s">GLK 250</string>
+    <string name="mercedes_benz_glk_300_s">GLK 300</string>
+    <string name="mercedes_benz_glk_350_s">GLK 350</string>
+    <string name="mercedes_benz_glk_s">GLK</string>
+
+    <string name="mercedes_benz_glc1_s">GLC</string>
+    <string name="mercedes_benz_glc_s">GLC</string>
+    <string name="mercedes_benz_glc_250_coupe_s">GLC 250 Coupe</string>
+    <string name="mercedes_benz_glc_350e_coupe_s">GLC 350e Coupe</string>
+    <string name="mercedes_benz_glc_250_s">GLC 250</string>
+    <string name="mercedes_benz_glc_300_s">GLC 300</string>
+    <string name="mercedes_benz_glc_350e_s">GLC 350e</string>
+    <string name="mercedes_benz_gle_500e_s">GLE 500e</string>
+    <string name="mercedes_benz_gle_400_s">GLE 400</string>
+
+    <string name="mercedes_benz_m_class_s">M Class</string>
+    <string name="mercedes_benz_ml_250_s">ML 250</string>
+    <string name="mercedes_benz_ml_320_s">ML 320</string>
+    <string name="mercedes_benz_ml_350_s">ML 350</string>
+    <string name="mercedes_benz_ml_400_s">ML 400</string>
+    <string name="mercedes_benz_ml_500_s">ML 500</string>
+    <string name="mercedes_benz_ml_63_amg_s">ML 63 AMG</string>
+
+    <string name="mercedes_benz_gle_s">GLE</string>
+    <string name="mercedes_benz_gle_400_coupe_s">GLE 400 Coupe</string>
+    <string name="mercedes_benz_ml_s">ML</string>
+
+    <string name="mercedes_benz_s_class_s">SClass</string>
+    <string name="mercedes_benz_s_280_s">S 280</string>
+    <string name="mercedes_benz_s_300_s">S 300</string>
+    <string name="mercedes_benz_s_320_s">S 320</string>
+    <string name="mercedes_benz_s_400_s">S 400</string>
+    <string name="mercedes_benz_s_500_s">S 500</string>
+    <string name="mercedes_benz_s_350_s">S 350</string>
+    <string name="mercedes_benz_s_55_amg_s">S 55 AMG</string>
+    <string name="mercedes_benz_s_400_coupe_s">S 400 Coupe</string>
+    <string name="mercedes_benz_s_430_s">S 430</string>
+    <string name="mercedes_benz_s_500_coupe_s">S 500 Coupe</string>
+    <string name="mercedes_benz_s_55_s">S 55</string>
+    <string name="mercedes_benz_s_550_Coupe_s">S 550 Coupe</string>
+    <string name="mercedes_benz_s_63_amg_s">S 63 AMG</string>
+    <string name="mercedes_benz_s_63_amg_coupe_s">S 63 AMG Coupe</string>
+    <string name="mercedes_benz_s_65_amg_s">S 65 AMG</string>
+    <string name="mercedes_benz_s_550_s">S 550</string>
+    <string name="mercedes_benz_s_600_s">S 600</string>
+    <string name="mercedes_maybach_s">Mercedes\-Maybach</string>
+
+    <string name="mercedes_benz_se_class_s">SE Class</string>
+    <string name="mercedes_benz_300_se_s">300 SE</string>
+
+    <string name="mercedes_benz_sl_class_s">SL Class</string>
+    <string name="mercedes_benz_sl_s">SL</string>
+    <string name="mercedes_benz_sl_320_s">SL 320</string>
+    <string name="mercedes_benz_sl_350_s">SL 350</string>
+    <string name="mercedes_benz_sl_400_s">SL 400</string>
+    <string name="mercedes_benz_sl_500_s">SL 500</string>
+    <string name="mercedes_benz_sl_55_amg_s">SL 55 AMG</string>
+    <string name="mercedes_benz_sl_550_s">SL 550</string>
+    <string name="mercedes_benz_sl_560_s">SL 560</string>
+    <string name="mercedes_benz_sl_63_amg_s">SL 63 AMG</string>
+    <string name="mercedes_benz_sl_65_amg_s">SL 65 AMG</string>
+
+    <string name="mercedes_benz_slc_s">SLC</string>
+    <string name="mercedes_benz_slc_200_s">SLC 200</string>
+
+    <string name="mercedes_benz_slk_class_s">SLK Class</string>
+    <string name="mercedes_benz_slk_s">SLK</string>
+    <string name="mercedes_benz_slk_200_s">SLK 200</string>
+    <string name="mercedes_benz_slk_230_s">SLK 230</string>
+    <string name="mercedes_benz_slk_250_s">SLK 250</string>
+    <string name="mercedes_benz_slk_280_s">SLK 280</string>
+    <string name="mercedes_benz_slk_320_s">SLK 320</string>
+    <string name="mercedes_benz_slk_350_s">SLK 350</string>
+    <string name="mercedes_benz_slk_55_amg_s">SLK 55AMG</string>
+    <string name="mercedes_benz_slk_63_amg_s">SLK 63AMG</string>
+
+    <string name="mercedes_benz_v_class1_s">VClass</string>
+    <string name="mercedes_benz_v_class_s">V Class</string>
+    <string name="mercedes_benz_vito_119_s">Vito 119</string>
+    <string name="mercedes_benz_vito_109_s">Vito 109</string>
+    <string name="mercedes_benz_vito_111_s">Vito 111</string>
+    <string name="mercedes_benz_vito_114_s">Vito 114</string>
+    <string name="mercedes_benz_vito_116_s">Vito 116</string>
+    <string name="mercedes_benz_v_250_s">V 250</string>
+    <string name="mercedes_benz_v_220_s">V 220</string>
+
+    <string name="mercedes_benz_r_class1_s">RClass</string>
+    <string name="mercedes_benz_r_class_s">R Class</string>
+    <string name="mercedes_benz_r_280_s">R 280</string>
+    <string name="mercedes_benz_r_300_s">R 300</string>
+    <string name="mercedes_benz_r_320_s">R 320</string>
+    <string name="mercedes_benz_r_350_s">R 350</string>
+    <string name="mercedes_benz_r_500_s">R 500</string>
+    <string name="mercedes_benz_r_550_s">R 550</string>
+    <string name="mercedes_benz_r_63_s">R 63</string>
+
+    <string name="mercedes_benz_x_class_s">XClass</string>
+    <string name="mercedes_benz_x_220d_s">X 220d</string>
+    <string name="mercedes_benz_x_250d_s">X 250d</string>
+    <string name="mercedes_benz_x_350d_s">X 350d</string>
+
+    <string name="mercedes_benz_amg_gt_s">AMGGT</string>
+    <string name="mercedes_benz_sprinter_s">Sprinter</string>
+    <string name="mercedes_benz_smart_s">Smart</string>
+    <string name="mercedes_benz_vito_s">Vito</string>
+    <string name="mercedes_benz_eqc_s">EQC</string>
+    <string name="mercedes_benz_190_s">190</string>
+    <string name="mercedes_benz_200_s">200</string>
+    <string name="mercedes_benz_230_s">230</string>
+    <string name="mercedes_benz_250_s">250</string>
+    <string name="mercedes_benz_280_s">280</string>
+    <string name="mercedes_benz_300_s">300</string>
+    <string name="mercedes_benz_320_s">320</string>
+    <string name="mercedes_benz_380_s">380</string>
+    <string name="mercedes_benz_450_s">450</string>
+    <string name="mercedes_benz_500_s">500</string>
+    <string name="mercedes_benz_560_s">560</string>
+    <string name="mercedes_benz_actros_s">Actros</string>
+    <string name="mercedes_benz_axor_s">Axor</string>
+    <string name="mercedes_benz_gazelle_s">Gazelle</string>
+    <string name="mercedes_benz_slr_s">SLR</string>
+    <string name="mercedes_benz_sls_amg_s">SLSAMG</string>
+    <string name="mercedes_benz_viano_s">Viano</string>
+    <string name="mercedes_benz_other_s">Other</string>
+
+
 
     <string name="bmw_1_series_s">1 Series</string>
     <string name="bmw_116_s">116</string>
@@ -1996,7 +2511,7 @@
 
 
 
-    <string name="isuzu_select_all">Selecy_all</string>
+    <string name="isuzu_select_all">Selecy all</string>
     <string name="isuzu_fsr">Fsr</string>
     <string name="isuzu_nkr">Nkr</string>
     <string name="isuzu_i_mark">I mark</string>
@@ -2022,14 +2537,8 @@
     <string name="isuzu_reward">Reward</string>
     <string name="isuzu_v430">V430</string>
     <string name="isuzu_other">Other </string>
-    <string name="infiniti_e">E</string>
-    <string name="infiniti_e30">E30</string>
-    <string name="infiniti_e35">E35</string>
-    <string name="infiniti_ex">EX</string>
 
-
-
-    <string name="isuzu_select_all_s">Selecy_all</string>
+    <string name="isuzu_select_all_s">Selecy all</string>
     <string name="isuzu_fsr_s">Fsr</string>
     <string name="isuzu_nkr_s">Nkr</string>
     <string name="isuzu_i_mark_s">I mark</string>
@@ -2063,6 +2572,10 @@
 
 
 
+    <string name="infiniti_e">E</string>
+    <string name="infiniti_e30">E30</string>
+    <string name="infiniti_e35">E35</string>
+    <string name="infiniti_ex">EX</string>
 
     <string name="infiniti_ex25">Ex25</string>
     <string name="infiniti_ex35">Ex35</string>
@@ -2150,7 +2663,6 @@
     <string name="infiniti_qx50_s">Qx50</string>
     <string name="infiniti_qx70_s">Qx70</string>
     <string name="infiniti_other_s">Other</string>
-
 
 
 
