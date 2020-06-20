@@ -2810,14 +2810,3793 @@
     <string name="porsche_panamera_turbo_s">Panamera Turbo S</string>
     <string name="porsche_356">356</string>
     <string name="porsche_other">Other</string>
+
+
+    <string name="porsche_9xx_s">9XX</string>
+    <string name="porsche_924_s">924</string>
+    <string name="porsche_928_s">928</string>
+    <string name="porsche_944_s">944</string>
+    <string name="porsche_959_s">959</string>
+    <string name="porsche_968_s">968</string>
+    <string name="porsche_911_4_s">911 4</string>
+    <string name="porsche_911_4s_s">911 4S</string>
+    <string name="porsche_911_gt2_s">911 GT2</string>
+    <string name="porsche_911_gt_3_s">911 GT 3</string>
+
+    <string name="porsche_911_s_s">911 S</string>
+    <string name="porsche_911_targa_s">911 Targa</string>
+    <string name="porsche_911_targa_4_s">911 Targa 4</string>
+    <string name="porsche_911_turbo_s_s">911 Turbo S</string>
+    <string name="porsche_918_spyder_s">918 Spyder</string>
+    <string name="porsche_993_s">993</string>
+    <string name="porsche_996_s">996</string>
+    <string name="porsche_carrera_gt_s">Carrera GT</string>
+    <string name="porsche_cayman_s_s">Cayman</string>
+    <string name="porsche_cayenne_s_s">Cayenne S</string>
+    <string name="porsche_cayenne_turbo_s_s">Cayenne Turbo S</string>
+    <string name="porsche_cayenne_gts_s">Cayenne GTS</string>
+    <string name="porsche_boxster_gts_s">Boxster GTS</string>
+    <string name="porsche_boxster_s_s">Boxster S</string>
+    <string name="porsche_macan_s_s">Macan S</string>
+    <string name="porsche_macan_turbo_s">Macan Turbo</string>
+    <string name="porsche_panamera_4_s">Panamera 4</string>
+    <string name="porsche_Panamera_4s_s">Panamera 4S</string>
+    <string name="porsche_panamera_gts_s">Panamera GTS</string>
+    <string name="porsche_panamera_s_s">Panamera S</string>
+    <string name="porsche_panamera_turbo_s_s">Panamera Turbo S</string>
+    <string name="porsche_356_s">356</string>
+    <string name="porsche_other_s">Other</string>
+
+
+
+
     <string name="pontiac_6000">6000</string>
     <string name="pontiac_g5">G5</string>
     <string name="pontiac_g6">G6</string>
     <string name="pontiac_g8">G8</string>
     <string name="pontiac_gto">GTO</string>
 
+    <string name="pontiac_aztek">Aztek</string>
+    <string name="pontiac_parisian">Parisian</string>
+    <string name="pontiac_bonneville">Bonneville</string>
+    <string name="pontiac_trans_sport">Trans Sport</string>
+    <string name="pontiac_tempest">Tempest</string>
+    <string name="pontiac_grand_am">GTO</string>
+    <string name="pontiac_gto_grand_prix">Grand Prix</string>
+    <string name="pontiac_g4">G4</string>
+    <string name="pontiac_solstice">Solstice</string>
+    <string name="pontiac_sunbrid">Sunbrid</string>
+
+    <string name="pontiac_vibe">Vibe</string>
+    <string name="pontiac_firebird">Firebird</string>
+    <string name="pontiac_fiero">Fiero</string>
+    <string name="pontiac_phoenix">Phoenix</string>
+    <string name="pontiac_le_mans">leMans</string>
+    <string name="pontiac_montana">Montana</string>
+    <string name="pontiac_roadster">Roadster</string>
+    <string name="pontiac_other">other</string>
+
+    //*************************************************
+
+    <string name="pontiac_6000_s">6000</string>
+    <string name="pontiac_g5_s">G5</string>
+    <string name="pontiac_g6_s">G6</string>
+    <string name="pontiac_g8_s">G8</string>
+    <string name="pontiac_gto_s">GTO</string>
+
+    <string name="pontiac_aztek_s">Aztek</string>
+    <string name="pontiac_parisian_s">Parisian</string>
+    <string name="pontiac_bonneville_s">Bonneville</string>
+    <string name="pontiac_trans_sport_s">Trans Sport</string>
+    <string name="pontiac_tempest_s">Tempest</string>
+    <string name="pontiac_grand_am_s">GTO</string>
+    <string name="pontiac_gto_grand_prix_s">Grand Prix</string>
+    <string name="pontiac_g4_s">G4</string>
+    <string name="pontiac_solstice_s">Solstice</string>
+    <string name="pontiac_sunbrid_s">Sunbrid</string>
+
+    //********************************************
+
+    <string name="pontiac_vibe_s">Vibe</string>
+    <string name="pontiac_firebird_s">Firebird</string>
+    <string name="pontiac_fiero_s">Fiero</string>
+    <string name="pontiac_phoenix_s">Phoenix</string>
+    <string name="pontiac_le_mans_s">leMans</string>
+    <string name="pontiac_montana_s">Montana</string>
+    <string name="pontiac_roadster_s">Roadster</string>
+    <string name="pontiac_other_s">other</string>
 
 
+
+
+    <string name="peugeot_1xx">1XX</string>
+    <string name="peugeot_104">104</string>
+    <string name="peugeot_106">106</string>
+    <string name="peugeot_107">107</string>
+    <string name="peugeot_2xx">2XX</string>
+    <string name="peugeot_204">204</string>
+    <string name="peugeot_205">205</string>
+    <string name="peugeot_206">206</string>
+    <string name="peugeot_207">207</string>
+    <string name="peugeot_208">208</string>
+    <string name="peugeot_3xx">3XX</string>
+
+    <string name="peugeot_301">301</string>
+    <string name="peugeot_304">304</string>
+    <string name="peugeot_305">305</string>
+    <string name="peugeot_306">306</string>
+    <string name="peugeot_307">307</string>
+    <string name="peugeot_308">308</string>
+    <string name="peugeot_309">309</string>
+    <string name="peugeot_3008">3008</string>
+    <string name="peugeot_4xx">4XX</string>
+
+    <string name="Peugeot_405">405</string>
+    <string name="Peugeot_406">406</string>
+    <string name="Peugeot_407">407</string>
+    <string name="Peugeot_408">408</string>
+    <string name="Peugeot_4007">4007</string>
+    <string name="Peugeot_5xx">5XX</string>
+    <string name="Peugeot_504">504</string>
+    <string name="Peugeot_505">505</string>
+    <string name="Peugeot_508">508</string>
+    <string name="peugeot_5008">5008</string>
+    <string name="peugeot_6xx">6XX</string>
+    <string name="peugeot_604">604</string>
+    <string name="peugeot_605">605</string>
+    <string name="peugeot_607">607 </string>
+    <string name="peugeot_8xx">8XX</string>
+    <string name="peugeot_806">806</string>
+    <string name="peugeot_807">807</string>
+    <string name="peugeot_rc">RC</string>
+    <string name="peugeot_rcz">RCZ</string>
+    <string name="peugeot_1007">1007</string>
+    <string name="peugeot_2008">2008</string>
+    <string name="peugeot_partner">Partner</string>
+    <string name="peugeot_boxer">Boxer</string>
+    <string name="peugeot_other">Other</string>
+
+    //**********************************************
+
+    <string name="peugeot_1xx_s">1XX</string>
+    <string name="peugeot_104_s">104</string>
+    <string name="peugeot_106_s">106</string>
+    <string name="peugeot_107_s">107</string>
+    <string name="peugeot_2xx_s">2XX</string>
+    <string name="peugeot_204_s">204</string>
+    <string name="peugeot_205_s">205</string>
+    <string name="peugeot_206_s">206</string>
+    <string name="peugeot_207_s">207</string>
+    <string name="peugeot_208_s">208</string>
+    <string name="peugeot_3xx_s">3XX</string>
+
+    <string name="peugeot_301_s">301</string>
+    <string name="peugeot_304_s">304</string>
+    <string name="peugeot_305_s">305</string>
+    <string name="peugeot_306_s">306</string>
+    <string name="peugeot_307_s">307</string>
+    <string name="peugeot_308_s">308</string>
+    <string name="peugeot_309_s">309</string>
+    <string name="peugeot_3008_s">3008</string>
+    <string name="peugeot_4xx_s">4XX</string>
+
+    <string name="Peugeot_405_s">405</string>
+    <string name="Peugeot_406_s">406</string>
+    <string name="Peugeot_407_s">407</string>
+    <string name="Peugeot_408_s">408</string>
+    <string name="Peugeot_4007_s">4007</string>
+    <string name="Peugeot_5xx_s">5XX</string>
+    <string name="Peugeot_504_s">504</string>
+    <string name="Peugeot_505_s">505</string>
+    <string name="Peugeot_508_s">508</string>
+    <string name="peugeot_5008_s">5008</string>
+    <string name="peugeot_6xx_s">6XX</string>
+    <string name="peugeot_604_s">604</string>
+    <string name="peugeot_605_s">605</string>
+    <string name="peugeot_607_s">607 </string>
+    <string name="peugeot_8xx_s">8XX</string>
+    <string name="peugeot_806_s">806</string>
+    <string name="peugeot_807_s">807</string>
+    <string name="peugeot_rc_s">RC</string>
+    <string name="peugeot_rcz_s">RCZ</string>
+    <string name="peugeot_1007_s">1007</string>
+    <string name="peugeot_2008_s">2008</string>
+    <string name="peugeot_partner_s">Partner</string>
+    <string name="peugeot_boxer_s">Boxer</string>
+    <string name="peugeot_other_s">Other</string>
+
+
+
+
+
+    <string name="jaguar_e_pace">E\-pace</string>
+    <string name="jaguar_e_type">E\-type</string>
+    <string name="jaguar_f_pace">F\-pace</string>
+    <string name="jaguar_f_type">F\-Type</string>
+    <string name="jaguar_s_type">S\-type</string>
+    <string name="jaguar_x_type">X\-type</string>
+    <string name="jaguar_xe">XE</string>
+    <string name="jaguar_xf">XF</string>
+    <string name="jaguar_xfr">XFR</string>
+    <string name="jaguar_xj">XJ</string>
+    <string name="jaguar_xj220">XJ220</string>
+    <string name="jaguar_xjr">XJR</string>
+    <string name="jaguar_xjs">XJS</string>
+    <string name="jaguar_xk">XK</string>
+    <string name="jaguar_xkr_s">XKR\-S</string>
+    <string name="jaguar_xkr">XKR</string>
+    <string name="jaguar_daimler_double_six">Daimler Double Six</string>
+    <string name="jaguar_daimler">Daimler</string>
+    <string name="jaguar_ss100">SS 100</string>
+    <string name="jaguar_xj8">XJ8</string>
+    <string name="jaguar_other">Other</string>
+
+    //*******************************************
+
+    <string name="jaguar_e_pace_s">E\-pace</string>
+    <string name="jaguar_e_type_s">E\-type</string>
+    <string name="jaguar_f_pace_s">F\-pace</string>
+    <string name="jaguar_f_type_s">F\-Type</string>
+    <string name="jaguar_s_type_s">S\-type</string>
+    <string name="jaguar_x_type_s">X\-type</string>
+    <string name="jaguar_xe_s">XE</string>
+    <string name="jaguar_xf_s">XF</string>
+    <string name="jaguar_xfr_s">XFR</string>
+    <string name="jaguar_xj_s">XJ</string>
+    <string name="jaguar_xj220_s">XJ220</string>
+    <string name="jaguar_xjr_s">XJR</string>
+    <string name="jaguar_xjs_s">XJS</string>
+    <string name="jaguar_xk_s">XK</string>
+    <string name="jaguar_xkr_s_s">XKR\-S</string>
+    <string name="jaguar_xkr_xkr_s">XKR</string>
+    <string name="jaguar_daimler_double_six_s">Daimler Double Six</string>
+    <string name="jaguar_daimler_s">Daimler</string>
+    <string name="jaguar_ss100_s">SS 100</string>
+    <string name="jaguar_xj8_s">XJ8</string>
+    <string name="jaguar_other_s">Other</string>
+
+
+
+
+
+    <string name="great_wall_c30">C30</string>
+    <string name="great_wall_m2">M2</string>
+    <string name="great_wall_m4">M4</string>
+    <string name="great_wall_peri">Peri</string>
+    <string name="great_wall_pegasus">Pegasus</string>
+
+    <string name="great_wall_deer">Deer</string>
+    <string name="great_wall_safe">Safe</string>
+    <string name="great_wall_sailor">Sailor</string>
+    <string name="great_wall_socool">Socool</string>
+    <string name="great_wall_florid">Florid</string>
+    <string name="great_wall_voleex">Voleex</string>
+    <string name="great_wall_cowry">Cowry</string>
+    <string name="great_wall_coolbear">Coobear</string>
+    <string name="great_wall_hover">Hover</string>
+    <string name="great_wall_wingle">Wingle</string>
+    <string name="great_wall_haval">Haval</string>
+    <string name="great_wall_other">Other</string>
+
+    //***********************************************
+
+    <string name="great_wall_c30_s">C30</string>
+    <string name="great_wall_m2_s">M2</string>
+    <string name="great_wall_m4_s">M4</string>
+    <string name="great_wall_peri_s">Peri</string>
+    <string name="great_wall_pegasus_s">Pegasus</string>
+
+    <string name="great_wall_deer_s">Deer</string>
+    <string name="great_wall_safe_s">Safe</string>
+    <string name="great_wall_sailor_s">Sailor</string>
+    <string name="great_wall_socool_s">Socool</string>
+    <string name="great_wall_florid_s">Florid</string>
+    <string name="great_wall_voleex_s">Voleex</string>
+    <string name="great_wall_cowry_s">Cowry</string>
+    <string name="great_wall_coolbear_s">Coobear</string>
+    <string name="great_wall_hover_s">Hover</string>
+    <string name="great_wall_wingle_s">Wingle</string>
+    <string name="great_wall_haval_s">Haval</string>
+    <string name="great_wall_other_s">Other</string>
+
+
+
+    <string name="gmc_acadia">Acadia</string>
+    <string name="gmc_envoy">Envoy </string>
+    <string name="gmc_typhoon">Typhoon</string>
+    <string name="gmc_terrain">Terrain</string>
+    <string name="gmc_jimmy">Jimmy</string>
+    <string name="gmc_savana">Savana</string>
+    <string name="gmc_statesman">Statesman</string>
+    <string name="gmc_safari">Safari</string>
+    <string name="gmc_suburban">Suburban</string>
+    <string name="gmc_sierra">Sierra</string>
+    <string name="gmc_vandura">Vandura</string>
+    <string name="gmc_caprice">Caprice</string>
+    <string name="gmc_calais">Calais </string>
+    <string name="gmc_canyon">Canyon</string>
+    <string name="gmc_cruze">Cruze</string>
+    <string name="gmc_commodore">Commodore</string>
+    <string name="gmc_yokon">Youkon </string>
+    <string name="gmc_caballero"> Caballero</string>
+
+    //**********************************************
+
+    <string name="gmc_acadia_s">Acadia</string>
+    <string name="gmc_envoy_s">Envoy </string>
+    <string name="gmc_typhoon_s">Typhoon</string>
+    <string name="gmc_terrain_s">Terrain</string>
+    <string name="gmc_jimmy_s">Jimmy</string>
+    <string name="gmc_savana_s">Savana</string>
+    <string name="gmc_statesman_s">Statesman</string>
+    <string name="gmc_safari_s">Safari</string>
+    <string name="gmc_suburban_s">Suburban</string>
+    <string name="gmc_sierra_s">Sierra</string>
+    <string name="gmc_vandura_s">Vandura</string>
+    <string name="gmc_caprice_s">Caprice</string>
+    <string name="gmc_calais_s">Calais </string>
+    <string name="gmc_canyon_s">Canyon</string>
+    <string name="gmc_cruze_s">Cruze</string>
+    <string name="gmc_commodore_s">Commodore</string>
+    <string name="gmc_yokon_s">Youkon </string>
+    <string name="gmc_caballero_s"> Caballero</string>
+
+
+
+
+    <string name="jeep_patriot">Patriot</string>
+    <string name="jeep_grand_cherokee">Grand_Cherokee</string>
+    <string name="jeep_wrangler">Wrangler</string>
+    <string name="jeep_renegade">Renegade</string>
+    <string name="jeep_cherokee">Cherokee</string>
+    <string name="jeep_commander">Commander</string>
+    <string name="jeep_comanche">Comanche</string>
+    <string name="jeep_laredo">Laredo</string>
+    <string name="jeep_liberty">Liberty</string>
+    <string name="jeep_wagoneer">Wagoneer</string>
+    <string name="jeep_gldiator">Gldiator</string>
+    <string name="jeep_other">Other</string>
+
+    //************************************************
+
+    <string name="jeep_patriot_s">Patriot</string>
+    <string name="jeep_grand_cherokee_s">Grand_Cherokee</string>
+    <string name="jeep_wrangler_s">Wrangler</string>
+    <string name="jeep_renegade_s">Renegade</string>
+    <string name="jeep_cherokee_s">Cherokee</string>
+    <string name="jeep_commander_s">Commander</string>
+    <string name="jeep_comanche_s">Comanche</string>
+    <string name="jeep_laredo_s">Laredo</string>
+    <string name="jeep_liberty_s">Liberty</string>
+    <string name="jeep_wagoneer_s">Wagoneer</string>
+    <string name="jeep_gldiator_s">Gldiator</string>
+    <string name="jeep_other_s">Other</string>
+
+
+
+
+    <string name="daihatsu_yrv">YRV</string>
+    <string name="daihatsu_applause">Applause</string>
+    <string name="daihatsu_atrai">Atrai</string>
+    <string name="daihatsu_alits">Alits</string>
+    <string name="daihatsu_opti">Opti</string>
+    <string name="daihatsu_esse">Esse</string>
+    <string name="daihatsu_boon">Boon</string>
+    <string name="daihatsu_perodua_viva">Perodua_Viva</string>
+    <string name="daihatsu_bazar">Bazar</string>
+    <string name="daihatsu_taft">Taft</string>
+    <string name="daihatsu_tanto">Tanto</string>
+    <string name="daihatsu_trevis">Trevis</string>
+    <string name="daihatsu_charade">Charade</string>
+    <string name="daihatsu_charmant">Charmant</string>
+    <string name="daihatsu_terios">Terios</string>
+    <string name="daihatsu_grand_terios">Grand_Terios</string>
+    <string name="daihatsu_delta">Delta</string>
+
+    <string name="daihatsu_rocky">Rocky</string>
+    <string name="daihatsu_xenia">Xenia</string>
+    <string name="daihatsu_storia">Storia</string>
+    <string name="daihatsu_sonica">Sonica</string>
+    <string name="daihatsu_ceria">Ceriia</string>
+    <string name="daihatsu_sirion">Sirion</string>
+
+    <string name="daihatsu_feroza">Feroza</string>
+    <string name="daihatsu_kancil">Kancil</string>
+    <string name="daihatsu_copen">Copen</string>
+    <string name="daihatsu_cuore">Cuore</string>
+    <string name="daihatsu_leeza">Leeza</string>
+    <string name="daihatsu_materia">Materia</string>
+    <string name="daihatsu_move">Move</string>
+    <string name="daihatsu_mira">Mira</string>
+    <string name="daihatsu_fourtrak">Fourtrak</string>
+    <string name="daihatsu_other">Other</string>
+
+    //***********************************************
+
+    <string name="daihatsu_yrv_s">YRV</string>
+    <string name="daihatsu_applause_s">Applause</string>
+    <string name="daihatsu_atrai_s">Atrai</string>
+    <string name="daihatsu_alits_s">Alits</string>
+    <string name="daihatsu_opti_s">Opti</string>
+    <string name="daihatsu_esse_s">Esse</string>
+    <string name="daihatsu_boon_s">Boon</string>
+    <string name="daihatsu_perodua_viva_s">Perodua_Viva</string>
+    <string name="daihatsu_bazar_s">Bazar</string>
+    <string name="daihatsu_taft_s">Taft</string>
+    <string name="daihatsu_tanto_s">Tanto</string>
+    <string name="daihatsu_trevis_s">Trevis</string>
+    <string name="daihatsu_charade_s">Charade</string>
+    <string name="daihatsu_charmant_s">Charmant</string>
+    <string name="daihatsu_terios_s">Terios</string>
+    <string name="daihatsu_grand_terios_s">Grand_Terios</string>
+    <string name="daihatsu_delta_s">Delta</string>
+
+    <string name="daihatsu_rocky_s">Rocky</string>
+    <string name="daihatsu_xenia_s">Xenia</string>
+    <string name="daihatsu_storia_s">Storia</string>
+    <string name="daihatsu_sonica_s">Sonica</string>
+    <string name="daihatsu_ceria_s">Ceriia</string>
+    <string name="daihatsu_sirion_s">Sirion</string>
+
+    <string name="daihatsu_feroza_s">Feroza</string>
+    <string name="daihatsu_kancil_s">Kancil</string>
+    <string name="daihatsu_copen_s">Copen</string>
+    <string name="daihatsu_cuore_s">Cuore</string>
+    <string name="daihatsu_leeza_s">Leeza</string>
+    <string name="daihatsu_materia_s">Materia</string>
+    <string name="daihatsu_move_s">Move</string>
+    <string name="daihatsu_mira_s">Mira</string>
+    <string name="daihatsu_fourtrak_s">Fourtrak</string>
+    <string name="daihatsu_other_s">Other</string>
+
+
+
+
+
+
+
+    <string name="daewoo_g2x">G2X</string>
+    <string name="daewoo_arcadia">Arcadia</string>
+    <string name="daewoo_espero">Espero</string>
+    <string name="daewoo_istana">Istana</string>
+    <string name="daewoo_evanda">Evanda</string>
+    <string name="daewoo_prince">Prince</string>
+    <string name="daewoo_tacuma">Tacuma</string>
+    <string name="daewoo_tosca">Tosca</string>
+    <string name="daewoo_tico">Tico</string>
+    <string name="daewoo_juliet">Juliet</string>
+    <string name="daewoo_gentra">Gentra</string>
+
+    <string name="daewoo_damas">Damas</string>
+    <string name="daewoo_racer">Racer</string>
+    <string name="daewoo_rezzo">Rezzo</string>
+    <string name="daewoo_zaz">Zaz</string>
+    <string name="daewoo_statesman">Statesman</string>
+    <string name="daewoo_super_salon">Super_Salon</string>
+    <string name="daewoo_cielo">Cielo</string>
+    <string name="daewoo_chairman">Chairman</string>
+    <string name="daewoo_kalos">Kalos</string>
+    <string name="daewoo_labo">Labo</string>
+
+    <string name="daewoo_lacetti">Lacetti</string>
+    <string name="daewoo_lanos">Lanos</string>
+    <string name="daewoo_lanos_1">Lanos_1</string>
+    <string name="daewoo_leganza">Leganza</string>
+    <string name="daewoo_lemans">Lemans</string>
+    <string name="daewoo_matiz">Matiz</string>
+    <string name="daewoo_magnus">Magnus</string>
+    <string name="daewoo_musso">Musso</string>
+    <string name="daewoo_nexia">Nexia</string>
+    <string name="daewoo_nubira">Nubira</string>
+    <string name="daewoo_windstorm">Windstrom</string>
+    <string name="daewoo_bf_106">BF_106</string>
+    <string name="daewoo_other">Other</string>
+
+    //********************************************
+
+    <string name="daewoo_g2x_s">G2X</string>
+    <string name="daewoo_arcadia_s">Arcadia</string>
+    <string name="daewoo_espero_s">Espero</string>
+
+    <string name="daewoo_istana_s">Istana</string>
+    <string name="daewoo_evanda_s">Evanda</string>
+    <string name="daewoo_prince_s">Prince</string>
+    <string name="daewoo_tacuma_s">Tacuma</string>
+    <string name="daewoo_tosca_s">Tosca</string>
+    <string name="daewoo_tico_s">Tico</string>
+    <string name="daewoo_juliet_s">Juliet</string>
+    <string name="daewoo_gentra_s">Gentra</string>
+
+    <string name="daewoo_damas_s">Damas</string>
+    <string name="daewoo_racer_s">Racer</string>
+    <string name="daewoo_rezzo_s">Rezzo</string>
+    <string name="daewoo_zaz_s">Zaz</string>
+    <string name="daewoo_statesman_s">Statesman</string>
+    <string name="daewoo_super_salon_s">Super_Salon</string>
+    <string name="daewoo_cielo_s">Cielo</string>
+    <string name="daewoo_chairman_s">Chairman</string>
+    <string name="daewoo_kalos_s">Kalos</string>
+    <string name="daewoo_labo_s">Labo</string>
+
+    <string name="daewoo_lacetti_s">Lacetti</string>
+    <string name="daewoo_lanos_s">Lanos</string>
+    <string name="daewoo_lanos_1_s">Lanos_1</string>
+    <string name="daewoo_leganza_s">Leganza</string>
+    <string name="daewoo_lemans_s">Lemans</string>
+    <string name="daewoo_matiz_s">Matiz</string>
+    <string name="daewoo_magnus_s">Magnus</string>
+    <string name="daewoo_musso_s">Musso</string>
+    <string name="daewoo_nexia_s">Nexia</string>
+    <string name="daewoo_nubira_s">Nubira</string>
+    <string name="daewoo_windstorm_s">Windstrom</string>
+    <string name="daewoo_bf_106_s">BF_106</string>
+    <string name="daewoo_other_s">Other</string>
+
+
+
+
+    <string name="dodge_avenger">Avenger</string>
+    <string name="dodge_intrepid">Intrepid</string>
+    <string name="dodge_charger">Charger</string>
+    <string name="dodge_challenger">Challenger</string>
+    <string name="dodge_journey">Journey</string>
+    <string name="dodge_dakota">Dakota</string>
+    <string name="dodge_daytona">Daytona</string>
+    <string name="dodge_durango">Durango</string>
+    <string name="dodge_dynasty">Dynasty</string>
+    <string name="dodge_ram">Ram</string>
+    <string name="dodge_spirit">Spirit</string>
+    <string name="dodge_stratus">Stratus</string>
+    <string name="dodge_stealth">Stealth</string>
+    <string name="dodge_shadow">Shadow</string>
+    <string name="dodge_grand_caravan">Grand_Caravan</string>
+    <string name="dodge_caliber">Caliber</string>
+    <string name="dodge_magnum">Magnum</string>
+    <string name="dodge_monaco">Monaco</string>
+    <string name="dodge_nitro">Nitro</string>
+    <string name="dodge_neon">Neon</string>
+    <string name="dodge_dart">Dart</string>
+    <string name="dodge_power_wagon">Power_Wagon</string>
+    <string name="dodge_other">Other</string>
+
+    //********************************************
+
+    <string name="dodge_avenger_s">Avenger</string>
+    <string name="dodge_intrepid_s">Intrepid</string>
+    <string name="dodge_charger_s">Charger</string>
+    <string name="dodge_challenger_s">Challenger</string>
+    <string name="dodge_journey_s">Journey</string>
+    <string name="dodge_dakota_s">Dakota</string>
+    <string name="dodge_daytona_s">Daytona</string>
+    <string name="dodge_durango_s">Durango</string>
+    <string name="dodge_dynasty_s">Dynasty</string>
+    <string name="dodge_ram_s">Ram</string>
+    <string name="dodge_spirit_s">Spirit</string>
+    <string name="dodge_stratus_s">Stratus</string>
+    <string name="dodge_stealth_s">Stealth</string>
+    <string name="dodge_shadow_s">Shadow</string>
+    <string name="dodge_grand_caravan_s">Grand_Caravan</string>
+    <string name="dodge_caliber_s">Caliber</string>
+    <string name="dodge_magnum_s">Magnum</string>
+    <string name="dodge_monaco_s">Monaco</string>
+    <string name="dodge_nitro_s">Nitro</string>
+    <string name="dodge_neon_s">Neon</string>
+    <string name="dodge_dart_s">Dart</string>
+    <string name="dodge_power_wagon_s">Power_Wagon</string>
+    <string name="dodge_other_s">Other</string>
+
+
+
+    <string name="rove_25">25</string>
+    <string name="rove_45">45</string>
+    <string name="rove_75">75</string>
+    <string name="rove_100">100</string>
+    <string name="rove_200">200</string>
+    <string name="rove_400">400</string>
+    <string name="rove_420si">420si</string>
+    <string name="rove_600">600</string>
+    <string name="rove_800">800</string>
+    <string name="rove_mg_f">MG F</string>
+    <string name="rove_streetwise">Streetwies</string>
+    <string name="rove_maestro">Maestro</string>
+    <string name="rove_montego">Montego</string>
+    <string name="rove_mini_mk">MINI_MK</string>
+    <string name="rove_other">Other</string>
+
+    //***********************************
+
+    <string name="rove_25_s">25</string>
+    <string name="rove_45_s">45</string>
+    <string name="rove_75_s">75</string>
+    <string name="rove_100_s">100</string>
+    <string name="rove_200_s">200</string>
+    <string name="rove_400_s">400</string>
+    <string name="rove_420si_s">420si</string>
+    <string name="rove_600_s">600</string>
+    <string name="rove_800_s">800</string>
+    <string name="rove_mg_f_s">MG F</string>
+    <string name="rove_streetwise_s">Streetwies</string>
+    <string name="rove_maestro_s">Maestro</string>
+    <string name="rove_montego_s">Montego</string>
+    <string name="rove_mini_mk_s">MINI_MK</string>
+    <string name="rove_other_s">Other</string>
+
+
+
+
+    <string name="rolls_royce_park_ward">Park ward</string>
+    <string name="rolls_royce_wraith">Wraith</string>
+    <string name="rolls_royce_silver_spur">Silver Spur</string>
+    <string name="rolls_royce_ghost">Ghost</string>
+    <string name="rolls_royce_phantom">Phantom</string>
+    <string name="rolls_royce_corniche">Corniche</string>
+    <string name="rolls_royce_dawn">Dawn</string>
+    <string name="rolls_royce_pininfarina">Pininfarina</string>
+    <string name="rolls_royce_silver_spirit">Silver Spirit</string>
+    <string name="rolls_royce_other">Other</string>
+
+    //************************************************
+
+    <string name="rolls_royce_park_ward_s">Park ward</string>
+    <string name="rolls_royce_wraith_s">Wraith</string>
+    <string name="rolls_royce_silver_spur_s">Silver Spur</string>
+    <string name="rolls_royce_ghost_s">Ghost</string>
+    <string name="rolls_royce_phantom_s">Phantom</string>
+    <string name="rolls_royce_corniche_s">Corniche</string>
+    <string name="rolls_royce_dawn_s">Dawn</string>
+    <string name="rolls_royce_pininfarina_s">Pininfarina</string>
+    <string name="rolls_royce_silver_spirit_s">Silver Spirit</string>
+    <string name="rolls_royce_other_s">Other</string>
+
+
+
+
+
+    <string name="renault_4">4</string>
+    <string name="renault_5">5</string>
+    <string name="renault_6">6</string>
+    <string name="renault_9">9</string>
+    <string name="renault_11">11</string>
+    <string name="renault_12">12</string>
+    <string name="renault_14">14</string>
+    <string name="renault_15">15</string>
+    <string name="renault_16">16</string>
+    <string name="renault_17">17</string>
+    <string name="renault_18">18</string>
+    <string name="renault_19">19</string>
+    <string name="renault_20">20</string>
+    <string name="renault_21">21</string>
+    <string name="renault_25">25</string>
+    <string name="renault_30">30</string>
+    <string name="renault_espace">Espace</string>
+    <string name="renault_avantime">Avantime</string>
+    <string name="renault_express">Express</string>
+    <string name="renault_estafette">Estafette</string>
+    <string name="renault_traviq">Traviq</string>
+    <string name="renault_twizy">Twizy</string>
+    <string name="renault_twingo">Twingo</string>
+    <string name="renault_duster">Duster</string>
+    <string name="renault_dacia">Dacia</string>
+    <string name="renault_dokker_van">Dokker_Van</string>
+    <string name="renault_rapide">Rapida</string>
+    <string name="renault_rainbow">Rainbow</string>
+    <string name="renault_rodeo">Rodeo</string>
+    <string name="renault_zoe">Zoe</string>
+    <string name="renault_safran">Safran</string>
+    <string name="renault_sandero">Sandero</string>
+    <string name="renault_sport_spider">Sport_spider</string>
+    <string name="renault_symbol">Symbol</string>
+    <string name="renault_scenic">Scenic</string>
+    <string name="renault_grand_scenic">Grand_Scenic</string>
+    <string name="renault_fluence">Fluence</string>
+    <string name="renault_fuego">Fuego</string>
+    <string name="renault_vel_satis">Vel_Satis</string>
+    <string name="renault_kangoo">Kangoo</string>
+    <string name="renault_clio">Clio</string>
+    <string name="renault_koleos">Koleos</string>
+    <string name="renault_latitude">Latitude</string>
+    <string name="renault_laguna">Laguna</string>
+    <string name="renault_logan">Logan</string>
+    <string name="renault_master">Master</string>
+    <string name="renault_modus">Modus</string>
+    <string name="renault_megane">Megane</string>
+    <string name="renault_medallion">Medallion</string>
+    <string name="renault_captur">Captur</string>
+    <string name="renault_other">Other</string>
+
+    //****************************************
+
+    <string name="renault_4_s">4</string>
+    <string name="renault_5_s">5</string>
+    <string name="renault_6_s">6</string>
+    <string name="renault_9_s">9</string>
+    <string name="renault_11_s">11</string>
+    <string name="renault_12_s">12</string>
+    <string name="renault_14_s">14</string>
+    <string name="renault_15_s">15</string>
+    <string name="renault_16_s">16</string>
+    <string name="renault_17_s">17</string>
+    <string name="renault_18_s">18</string>
+    <string name="renault_19_s">19</string>
+    <string name="renault_20_s">20</string>
+    <string name="renault_21_s">21</string>
+    <string name="renault_25_s">25</string>
+    <string name="renault_30_s">30</string>
+    <string name="renault_espace_s">Espace</string>
+    <string name="renault_avantime_s">Avantime</string>
+    <string name="renault_express_s">Express</string>
+    <string name="renault_estafette_s">Estafette</string>
+    <string name="renault_traviq_s">Traviq</string>
+    <string name="renault_twizy_s">Twizy</string>
+    <string name="renault_twingo_s">Twingo</string>
+    <string name="renault_duster_s">Duster</string>
+    <string name="renault_dacia_s">Dacia</string>
+    <string name="renault_dokker_van_s">Dokker_Van</string>
+    <string name="renault_rapide_s">Rapida</string>
+    <string name="renault_rainbow_s">Rainbow</string>
+    <string name="renault_rodeo_s">Rodeo</string>
+    <string name="renault_zoe_s">Zoe</string>
+    <string name="renault_safran_s">Safran</string>
+    <string name="renault_sandero_s">Sandero</string>
+    <string name="renault_sport_spider_s">Sport_spider</string>
+    <string name="renault_symbol_s">Symbol</string>
+    <string name="renault_scenic_s">Scenic</string>
+    <string name="renault_grand_scenic_s">Grand_Scenic</string>
+    <string name="renault_fluence_s">Fluence</string>
+    <string name="renault_fuego_s">Fuego</string>
+    <string name="renault_vel_satis_s">Vel_Satis</string>
+    <string name="renault_kangoo_s">Kangoo</string>
+    <string name="renault_clio_s">Clio</string>
+    <string name="renault_koleos_s">Koleos</string>
+    <string name="renault_latitude_s">Latitude</string>
+    <string name="renault_laguna_s">Laguna</string>
+    <string name="renault_logan_s">Logan</string>
+    <string name="renault_master_s">Master</string>
+    <string name="renault_modus_s">Modus</string>
+    <string name="renault_megane_s">Megane</string>
+    <string name="renault_medallion_s">Medallion</string>
+    <string name="renault_captur_s">Captur</string>
+    <string name="renault_other_s">Other</string>
+
+
+
+
+
+    <string name="saad_x9_2">X9\-2</string>
+    <string name="saad_vector9_7">Vector9\-7</string>
+    <string name="saad_x9_7">X9\-7</string>
+    <string name="saad_90">90</string>
+    <string name="saad_93">93</string>
+    <string name="saad_95">95</string>
+    <string name="saad_96">96</string>
+    <string name="saad_99">99</string>
+    <string name="saad_900">900</string>
+    <string name="saad_9000">9000</string>
+    <string name="saad_other">Other</string>
+
+    //****************************************
+
+    <string name="saad_x9_2_s">X9\-2</string>
+    <string name="saad_vector9_7_s">Vector9\-7</string>
+    <string name="saad_x9_7_s">X9\-7</string>
+    <string name="saad_90_s">90</string>
+    <string name="saad_93_s">93</string>
+    <string name="saad_95_s">95</string>
+    <string name="saad_96_s">96</string>
+    <string name="saad_99_s">99</string>
+    <string name="saad_900_s">900</string>
+    <string name="saad_9000_s">9000</string>
+    <string name="saad_other_s">Other</string>
+
+
+
+    <string name="saturn_ls">Ls</string>
+    <string name="saturn_lw">Lw</string>
+    <string name="saturn_sc">Sc</string>
+    <string name="saturn_sl">SL</string>
+    <string name="saturn_outlook">Outlook</string>
+    <string name="saturn_astra">Astra</string>
+    <string name="saturn_lon">Lon</string>
+    <string name="saturn_aura">Aura</string>
+    <string name="saturn_relay">Relay</string>
+    <string name="saturn_sky">Sky</string>
+    <string name="saturn_view">View</string>
+    <string name="saturn_other">Other</string>
+
+    //*************************************
+
+    <string name="saturn_ls_s">Ls</string>
+    <string name="saturn_lw_s">Lw</string>
+    <string name="saturn_sc_s">Sc</string>
+    <string name="saturn_sl_s">SL</string>
+    <string name="saturn_outlook_s">Outlook</string>
+    <string name="saturn_astra_s">Astra</string>
+    <string name="saturn_lon_s">Lon</string>
+    <string name="saturn_aura_s">Aura</string>
+    <string name="saturn_relay_s">Relay</string>
+    <string name="saturn_sky_s">Sky</string>
+    <string name="saturn_view_s">View</string>
+    <string name="saturn_other_s">Other</string>
+
+
+
+
+
+    <string name="ssang_yong_actyon">Actyon</string>
+    <string name="ssang_yong_tiger">Tiger</string>
+    <string name="ssang_yong_chairman">Chairman</string>
+    <string name="ssang_yong_rodius">Rodius</string>
+    <string name="ssang_yong_rexton">Rexton</string>
+    <string name="ssang_yong_family">Family</string>
+    <string name="ssang_yong_kallista">Kallista</string>
+    <string name="ssang_yong_kyron">Kyron</string>
+    <string name="ssang_yong_musso">Musso</string>
+    <string name="ssang_yong_other">Other</string>
+
+    //*********************************************
+
+    <string name="ssang_yong_actyon_s">Actyon</string>
+    <string name="ssang_yong_tiger_s">Tiger</string>
+    <string name="ssang_yong_chairman_s">Chairman</string>
+    <string name="ssang_yong_rodius_s">Rodius</string>
+    <string name="ssang_yong_rexton_s">Rexton</string>
+    <string name="ssang_yong_family_s">Family</string>
+    <string name="ssang_yong_kallista_s">Kallista</string>
+    <string name="ssang_yong_kyron_s">Kyron</string>
+    <string name="ssang_yong_musso_s">Musso</string>
+    <string name="ssang_yong_other_s">Other</string>
+
+
+
+    <string name="citroen_c">C</string>
+    <string name="citroen_c_zero">C\-Zero</string>
+    <string name="citroen_c1">C1</string>
+    <string name="citroen_c15">C15</string>
+    <string name="citroen_c2">C2</string>
+    <string name="citroen_c25">C25</string>
+    <string name="citroen_c3">C3</string>
+    <string name="citroen_c35">C35</string>
+    <string name="citroen_c4">C4</string>
+    <string name="citroen_c5">C5</string>
+    <string name="citroen_c6">C6</string>
+    <string name="citroen_c8">C8</string>
+    <string name="citroen_cx">CX</string>
+    <string name="citroen_ds">DS</string>
+    <string name="citroen_ds2">DS3</string>
+    <string name="citroen_ds4">DS4</string>
+    <string name="citroen_ds5">DS5</string>
+    <string name="citroen_ds9">DS9</string>
+    <string name="citroen_g">G</string>
+    <string name="citroen_gs">GS</string>
+    <string name="citroen_gsa">GSA</string>
+    <string name="citroen_gt">GT</string>
+    <string name="citroen_2cv">2CV</string>
+    <string name="citroen_ax">AX</string>
+    <string name="citroen_bx">BX</string>
+    <string name="citroen_ln">LN</string>
+    <string name="citroen_lna">LNA</string>
+    <string name="citroen_xm">XM</string>
+    <string name="citroen_zx">ZX</string>
+    <string name="citroen_ami">AMI</string>
+    <string name="citroen_acadiane">Acadiane</string>
+    <string name="citroen_xsara">Xsara</string>
+    <string name="citroen_xsara_picasso">Xsara_picasso</string>
+    <string name="citroen_xantia">Xantia</string>
+    <string name="citroen_evasion">Evasion</string>
+    <string name="citroen_berlingo">Berlingo</string>
+    <string name="citroen_c3_picasso">C3_Picasso</string>
+    <string name="citroen_c4_picasso">c4_Picasso</string>
+    <string name="citroen_jumper">Jumper</string>
+    <string name="citroen_jumpy">Jumpy</string>
+    <string name="citroen_dyane">Dyane</string>
+    <string name="citroen_saxo">Saxo</string>
+    <string name="citroen_c_crosser">C\-crosser</string>
+    <string name="citroen_synergie">Synergie</string>
+    <string name="citroen_faf">Faf</string>
+    <string name="citroen_visa">Visa</string>
+    <string name="citroen_mehari">Mehari</string>
+    <string name="citroen_nemo">Nemo</string>
+    <string name="citroen_other">Other</string>
+
+    //******************************************
+
+    <string name="citroen_c_s">C</string>
+    <string name="citroen_c_zero_s">C\-Zero</string>
+    <string name="citroen_c1_s">C1</string>
+    <string name="citroen_c15_s">C15</string>
+    <string name="citroen_c2_s">C2</string>
+    <string name="citroen_c25_s">C25</string>
+    <string name="citroen_c3_s">C3</string>
+    <string name="citroen_c35_s">C35</string>
+    <string name="citroen_c4_s">C4</string>
+    <string name="citroen_c5_s">C5</string>
+    <string name="citroen_c6_s">C6</string>
+    <string name="citroen_c8_s">C8</string>
+    <string name="citroen_cx_s">CX</string>
+    <string name="citroen_ds_s">DS</string>
+    <string name="citroen_ds2_s">DS3</string>
+    <string name="citroen_ds4_s">DS4</string>
+    <string name="citroen_ds5_s">DS5</string>
+    <string name="citroen_ds9_s">DS9</string>
+    <string name="citroen_g_s">G</string>
+    <string name="citroen_gs_s">GS</string>
+    <string name="citroen_gsa_s">GSA</string>
+    <string name="citroen_gt_s">GT</string>
+    <string name="citroen_2cv_s">2CV</string>
+    <string name="citroen_ax_s">AX</string>
+    <string name="citroen_bx_s">BX</string>
+    <string name="citroen_ln_s">LN</string>
+    <string name="citroen_lna_s">LNA</string>
+    <string name="citroen_xm_s">XM</string>
+    <string name="citroen_zx_s">ZX</string>
+    <string name="citroen_ami_s">AMI</string>
+    <string name="citroen_acadiane_s">Acadiane</string>
+    <string name="citroen_xsara_s">Xsara</string>
+    <string name="citroen_xsara_picasso_s">Xsara_picasso</string>
+    <string name="citroen_xantia_s">Xantia</string>
+    <string name="citroen_evasion_s">Evasion</string>
+    <string name="citroen_berlingo_s">Berlingo</string>
+    <string name="citroen_c3_picasso_s">C3_Picasso</string>
+    <string name="citroen_c4_picasso_s">c4_Picasso</string>
+    <string name="citroen_jumper_s">Jumper</string>
+    <string name="citroen_jumpy_s">Jumpy</string>
+    <string name="citroen_dyane_s">Dyane</string>
+    <string name="citroen_saxo_s">Saxo</string>
+    <string name="citroen_c_crosse_sr">C\-crosser</string>
+    <string name="citroen_synergie_s">Synergie</string>
+    <string name="citroen_faf_s">Faf</string>
+    <string name="citroen_visa_s">Visa</string>
+    <string name="citroen_mehari_s">Mehari</string>
+    <string name="citroen_nemo_s">Nemo</string>
+    <string name="citroen_other_s">Other</string>
+
+
+
+
+    <string name="skoda_120_gls">120 GLS</string>
+    <string name="skoda_octavia">Octavia</string>
+    <string name="skoda_praktik">Praktik</string>
+    <string name="skoda_rapide">Rapide</string>
+    <string name="skoda_roomster">Roomster</string>
+    <string name="skoda_superb">Superb</string>
+    <string name="skoda_fabia">Fabia</string>
+    <string name="skoda_favorit">Favorit</string>
+    <string name="skoda_forman">Forman</string>
+    <string name="skoda_felicia">Felicia</string>
+    <string name="skoda_felicia_combi">Felicia Combi</string>
+    <string name="skoda_yeti">Yeti</string>
+    <string name="skoda_other">Other</string>
+
+    //***********************************
+
+    <string name="skoda_120_gls_s">120 GLS</string>
+    <string name="skoda_octavia_s">Octavia</string>
+    <string name="skoda_praktik_s">Praktik</string>
+    <string name="skoda_rapide_s">Rapide</string>
+    <string name="skoda_roomster_s">Roomster</string>
+    <string name="skoda_superb_s">Superb</string>
+    <string name="skoda_fabia_s">Fabia</string>
+    <string name="skoda_favorit_s">Favorit</string>
+    <string name="skoda_forman_s">Forman</string>
+    <string name="skoda_felicia_s">Felicia</string>
+    <string name="skoda_felicia_combi_s">Felicia Combi</string>
+    <string name="skoda_yeti_s">Yeti</string>
+    <string name="skoda_other_s">Other</string>
+
+
+
+
+    <string name="subaru_r1">R1</string>
+    <string name="subaru_r2">R2</string>
+    <string name="subaru_sti">STI</string>
+    <string name="subaru_svx">SVX</string>
+    <string name="subaru_wrx">WRX</string>
+    <string name="subaru_xt">XT</string>
+    <string name="subaru_xv">XV</string>
+    <string name="subaru_outback">Outback</string>
+    <string name="subaru_alcyone">Alcyone</string>
+    <string name="subaru_exiga">Exiga</string>
+    <string name="subaru_impreza">Impreza</string>
+    <string name="subaru_baja">Baja</string>
+    <string name="subaru_pleo">Pleo</string>
+    <string name="subaru_bistro">Bistro</string>
+    <string name="subaru_traviq">Traviq</string>
+    <string name="subaru_tribeca">Tribeca</string>
+    <string name="subaru_trezia">Trezia</string>
+    <string name="subaru_justy">Justy</string>
+    <string name="subaru_domingo">Domingo</string>
+    <string name="subaru_dias">Dias</string>
+    <string name="subaru_dex">Dex</string>
+    <string name="subaru_stella">Stella</string>
+    <string name="subaru_forester">Forester</string>
+    <string name="subaru_vivio">Vivio</string>
+    <string name="subaru_lucra">Lucra</string>
+    <string name="subaru_libero">Libero</string>
+    <string name="subaru_legacy">Legacy</string>
+    <string name="subaru_other">Other</string>
+
+    //*******************************************
+
+    <string name="subaru_r1_s">R1</string>
+    <string name="subaru_r2_s">R2</string>
+    <string name="subaru_sti_s">STI</string>
+    <string name="subaru_svx_s">SVX</string>
+    <string name="subaru_wrx_s">WRX</string>
+    <string name="subaru_xt_s">XT</string>
+    <string name="subaru_xv_s">XV</string>
+    <string name="subaru_outback_s">Outback</string>
+    <string name="subaru_alcyone_s">Alcyone</string>
+    <string name="subaru_exiga_s">Exiga</string>
+    <string name="subaru_impreza_s">Impreza</string>
+    <string name="subaru_baja_s">Baja</string>
+    <string name="subaru_pleo_s">Pleo</string>
+    <string name="subaru_bistro_s">Bistro</string>
+    <string name="subaru_traviq_s">Traviq</string>
+    <string name="subaru_tribeca_s">Tribeca</string>
+    <string name="subaru_trezia_s">Trezia</string>
+    <string name="subaru_justy_s">Justy</string>
+    <string name="subaru_domingo_s">Domingo</string>
+    <string name="subaru_dias_s">Dias</string>
+    <string name="subaru_dex_s">Dex</string>
+    <string name="subaru_stella_s">Stella</string>
+    <string name="subaru_forester_s">Forester</string>
+    <string name="subaru_vivio_s">Vivio</string>
+    <string name="subaru_lucra_s">Lucra</string>
+    <string name="subaru_libero_s">Libero</string>
+    <string name="subaru_legacy_s">Legacy</string>
+    <string name="subaru_other_s">Other</string>
+
+
+
+
+
+    <string name="suzuki_apv">Apv</string>
+    <string name="suzuki_sx4">Sx4</string>
+    <string name="suzuki_x90">X90</string>
+    <string name="suzuki_xl7">XL7</string>
+    <string name="suzuki_wagon_r">Wagon_R</string>
+    <string name="suzuki_alto">Alto</string>
+    <string name="suzuki_mr_wagon">MR_Wagon</string>
+    <string name="suzuki_ertiga">Ertiga</string>
+    <string name="suzuki_ideal">Ideal</string>
+    <string name="suzuki_aerio">Aerio</string>
+    <string name="suzuki_ignis">Ignis</string>
+    <string name="suzuki_every">Every</string>
+    <string name="suzuki_every_landy">Every_Landy</string>
+    <string name="suzuki_baleno">Baleno</string>
+    <string name="suzuki_grand_vitara">Grand_vitara</string>
+    <string name="suzuki_jimny">Jimny</string>
+    <string name="suzuki_reno">Reno</string>
+    <string name="suzuki_samurai">Samurai</string>
+    <string name="suzuki_sidekick">Sidekick</string>
+    <string name="suzuki_splash">Splash</string>
+    <string name="suzuki_super_carry">Super_Carry</string>
+    <string name="suzuki_swift">Swift</string>
+    <string name="suzuki_ciaz">Ciaz</string>
+    <string name="suzuki_cervo">Cervo</string>
+    <string name="suzuki_celerio">Celerio</string>
+    <string name="suzuki_forenza">Forenza</string>
+    <string name="suzuki_vitara">Vitara</string>
+    <string name="suzuki_verona">Verona</string>
+    <string name="suzuki_cappuccino">Cappuccino</string>
+    <string name="suzuki_cultus_wagon">Cultus_Wagon</string>
+    <string name="suzuki_kei">Kei</string>
+    <string name="suzuki_kizashi">Kizashi</string>
+    <string name="suzuki_liana">Liana</string>
+    <string name="suzuki_carry">Carry</string>
+    <string name="suzuki_sj_samurai">SJ_Samurai</string>
+    <string name="suzuki_other">Other</string>
+
+    //********************************************
+
+    <string name="suzuki_apv_s">Apv</string>
+    <string name="suzuki_sx4_s">Sx4</string>
+    <string name="suzuki_x90_s">X90</string>
+    <string name="suzuki_xl7_s">XL7</string>
+    <string name="suzuki_wagon_r_s">Wagon_R</string>
+    <string name="suzuki_alto_s">Alto</string>
+    <string name="suzuki_mr_wagon_s">MR_Wagon</string>
+    <string name="suzuki_ertiga_s">Ertiga</string>
+    <string name="suzuki_ideal_s">Ideal</string>
+    <string name="suzuki_aerio_s">Aerio</string>
+    <string name="suzuki_ignis_s">Ignis</string>
+    <string name="suzuki_every_s">Every</string>
+    <string name="suzuki_every_landy_s">Every_Landy</string>
+    <string name="suzuki_baleno_s">Baleno</string>
+    <string name="suzuki_grand_vitara_s">Grand_vitara</string>
+    <string name="suzuki_jimny_s">Jimny</string>
+    <string name="suzuki_reno_s">Reno</string>
+    <string name="suzuki_samurai_s">Samurai</string>
+    <string name="suzuki_sidekick_s">Sidekick</string>
+    <string name="suzuki_splash_s">Splash</string>
+    <string name="suzuki_super_carry_s">Super_Carry</string>
+    <string name="suzuki_swift_s">Swift</string>
+    <string name="suzuki_ciaz_s">Ciaz</string>
+    <string name="suzuki_cervo_s">Cervo</string>
+    <string name="suzuki_celerio_s">Celerio</string>
+    <string name="suzuki_forenza_s">Forenza</string>
+    <string name="suzuki_vitara_s">Vitara</string>
+    <string name="suzuki_verona_s">Verona</string>
+    <string name="suzuki_cappuccino_s">Cappuccino</string>
+    <string name="suzuki_cultus_wagon_s">Cultus_Wagon</string>
+    <string name="suzuki_kei_s">Kei</string>
+    <string name="suzuki_kizashi_s">Kizashi</string>
+    <string name="suzuki_liana_s">Liana</string>
+    <string name="suzuki_carry_s">Carry</string>
+    <string name="suzuki_sj_samurai_s">SJ_Samurai</string>
+    <string name="suzuki_other_s">Other</string>
+
+
+
+
+    <string name="seat_132">132</string>
+    <string name="seat_133">133</string>
+    <string name="seat_altea">Altea</string>
+    <string name="seat_ibiza">Ibiza</string>
+    <string name="seat_arosa">Arosa</string>
+    <string name="seat_exeo">Exeo</string>
+    <string name="seat_alhambra">Alhambra</string>
+    <string name="seat_toledo">Toledo</string>
+    <string name="seat_terra">Terra</string>
+    <string name="seat_ronda">Ronda</string>
+    <string name="seat_fura">Fura</string>
+    <string name="seat_cordoba">Cordoba</string>
+    <string name="seat_leone">Leone</string>
+    <string name="seat_marbella">Marbella</string>
+    <string name="seat_other">Other</string>
+
+    //**************************************
+
+    <string name="seat_132_s">132</string>
+    <string name="seat_133_s">133</string>
+    <string name="seat_altea_s">Altea</string>
+    <string name="seat_ibiza_s">Ibiza</string>
+    <string name="seat_arosa_s">Arosa</string>
+    <string name="seat_exeo_s">Exeo</string>
+    <string name="seat_alhambra_s">Alhambra</string>
+    <string name="seat_toledo_s">Toledo</string>
+    <string name="seat_terra_s">Terra</string>
+    <string name="seat_ronda_s">Ronda</string>
+    <string name="seat_fura_s">Fura</string>
+    <string name="seat_cordoba_s">Cordoba</string>
+    <string name="seat_leone_s">Leone</string>
+    <string name="seat_marbella_s">Marbella</string>
+    <string name="seat_other_s">Other</string>
+
+
+
+
+    <string name="chery_a11">A11</string>
+    <string name="chery_a113">A113</string>
+    <string name="chery_a5">A5</string>
+    <string name="chery_a620">A620</string>
+    <string name="chery_b11">B11</string>
+    <string name="chery_m11">M11</string>
+    <string name="chery_qq">QQ</string>
+    <string name="chery_qq6">QQ6</string>
+    <string name="chery_amulet">Amulet</string>
+    <string name="chery_oriental_sun">Oriental_Sun</string>
+    <string name="chery_tiggo">Tiggo</string>
+    <string name="chery_fura">Fura</string>
+    <string name="chery_cross_easter">Cross_Easter</string>
+    <string name="chery_other">Other</string>
+
+    //**************************************
+
+    <string name="chery_a11_s">A11</string>
+    <string name="chery_a113_s">A113</string>
+    <string name="chery_a5_s">A5</string>
+    <string name="chery_a620_s">A620</string>
+    <string name="chery_b11_s">B11</string>
+    <string name="chery_m11_s">M11</string>
+    <string name="chery_qq_s">QQ</string>
+    <string name="chery_qq6_s">QQ6</string>
+    <string name="chery_amulet_s">Amulet</string>
+    <string name="chery_oriental_sun_s">Oriental_Sun</string>
+    <string name="chery_tiggo_s">Tiggo</string>
+    <string name="chery_fura_s">Fura</string>
+    <string name="chery_cross_easter_s">Cross_Easter</string>
+    <string name="chery_other_s">Other</string>
+
+
+
+
+
+    <string name="chevrolet_c10">C10</string>
+    <string name="chevrolet_hhr">HHR</string>
+    <string name="chevrolet_luv_d_max">LUV D\-MAX</string>
+    <string name="chevrolet_s_10">S\-10</string>
+    <string name="chevrolet_ssr">SSR</string>
+    <string name="chevrolet_astra">Astra</string>
+    <string name="chevrolet_aveo">Aveo</string>
+    <string name="chevrolet_omega">Omega</string>
+    <string name="chevrolet_uplander">Uplander</string>
+    <string name="chevrolet_epica">Epica</string>
+    <string name="chevrolet_express">Express</string>
+    <string name="chevrolet_astro">Astro</string>
+    <string name="chevrolet_avalanche">Avalanche</string>
+    <string name="chevrolet_explorer">Explorer</string>
+    <string name="chevrolet_equinox">Equinox</string>
+    <string name="chevrolet_alero">Alero</string>
+    <string name="chevrolet_impala">Impala</string>
+    <string name="chevrolet_optra">Optra</string>
+    <string name="chevrolet_evenda">Evanda</string>
+    <string name="chevrolet_prizm">Prizm</string>
+    <string name="chevrolet_blazer">Blazer</string>
+    <string name="chevrolet_bolt">Bolt</string>
+    <string name="chevrolet_beretta">Beretta</string>
+    <string name="chevrolet_bel_air">Bel_Air</string>
+    <string name="chevrolet_travera">Travera</string>
+    <string name="chevrolet_tracker">Tracker</string>
+    <string name="chevrolet_trax">Trax</string>
+    <string name="chevrolet_trans_sport">Trans_Sport</string>
+    <string name="chevrolet_trailblazer">Trailblazer</string>
+    <string name="chevrolet_geo_storm">Geo_Strorm</string>
+    <string name="chevrolet_rezzo">Rezzo</string>
+    <string name="chevrolet_zafira">Zafira</string>
+    <string name="chevrolet_sail">Sail</string>
+    <string name="chevrolet_spark">Spark</string>
+    <string name="chevrolet_sprint">Sprint</string>
+    <string name="chevrolet_silverado">Silverado</string>
+    <string name="chevrolet_suburban">Suburban</string>
+    <string name="chevrolet_sonic">Sonic</string>
+    <string name="chevrolet_celta">Celta</string>
+    <string name="chevrolet_celebrity">Celebrity</string>
+    <string name="chevrolet_chevette">Chevette</string>
+    <string name="chevrolet_van">Van</string>
+    <string name="chevrolet_frontera">Frontera</string>
+    <string name="chevrolet_volt">Volt</string>
+    <string name="chevrolet_vectra">Vectra</string>
+    <string name="chevrolet_venture">Venture</string>
+    <string name="chevrolet_captiva">Captiva</string>
+    <string name="chevrolet_caprice">Caprice</string>
+    <string name="chevrolet_caprice_classic">Caprice Classic</string>
+    <string name="chevrolet_cavalier">Cavalier</string>
+    <string name="chevrolet_cruze">Cruze</string>
+    <string name="chevrolet_camaro">Camaro</string>
+    <string name="chevrolet_cobalt">Coblat</string>
+    <string name="chevrolet_corsa">Corsa</string>
+    <string name="chevrolet_corsica">Corsica</string>
+    <string name="chevrolet_covette">Covette</string>
+    <string name="chevrolet_colorado">Colorado</string>
+    <string name="chevrolet_lacetti">Lacetti</string>
+    <string name="chevrolet_lanos">Lanos</string>
+    <string name="chevrolet_lumina">Lumina</string>
+    <string name="chevrolet_malibu">Malibu</string>
+    <string name="chevrolet_metro">Metro</string>
+    <string name="chevrolet_monte_carlo">Monte Carlo</string>
+    <string name="chevrolet_monza">Monza</string>
+    <string name="chevrolet_nubira">Nubira</string>
+    <string name="chevrolet_niva">Niva</string>
+    <string name="chevrolet_3100">3100</string>
+    <string name="chevrolet_4500">4500</string>
+    <string name="chevrolet_c1500">C1500</string>
+    <string name="chevrolet_cheyenne">Cheyenne</string>
+    <string name="chevrolet_cr8">CR8</string>
+    <string name="chevrolet_el_camino">El_Camino</string>
+    <string name="chevrolet_other">Other</string>
+
+    //***************************************
+
+    <string name="chevrolet_c10_s">C10</string>
+    <string name="chevrolet_hhr_s">HHR</string>
+    <string name="chevrolet_luv_d_max_s">LUV D\-MAX</string>
+    <string name="chevrolet_s_10_s">S\-10</string>
+    <string name="chevrolet_ssr_s">SSR</string>
+    <string name="chevrolet_astra_s">Astra</string>
+    <string name="chevrolet_aveo_s">Aveo</string>
+    <string name="chevrolet_omega_s">Omega</string>
+    <string name="chevrolet_uplander_s">Uplander</string>
+    <string name="chevrolet_epica_s">Epica</string>
+    <string name="chevrolet_express_s">Express</string>
+    <string name="chevrolet_astro_s">Astro</string>
+    <string name="chevrolet_avalanche_s">Avalanche</string>
+    <string name="chevrolet_explorer_s">Explorer</string>
+    <string name="chevrolet_equinox_s">Equinox</string>
+    <string name="chevrolet_alero_s">Alero</string>
+    <string name="chevrolet_impala_s">Impala</string>
+    <string name="chevrolet_optra_s">Optra</string>
+    <string name="chevrolet_evenda_s">Evanda</string>
+    <string name="chevrolet_prizm_s">Prizm</string>
+    <string name="chevrolet_blazer_s">Blazer</string>
+    <string name="chevrolet_bolt_s">Bolt</string>
+    <string name="chevrolet_beretta_s">Beretta</string>
+    <string name="chevrolet_bel_air_s">Bel_Air</string>
+    <string name="chevrolet_travera_s">Travera</string>
+    <string name="chevrolet_tracker_s">Tracker</string>
+    <string name="chevrolet_trax_s">Trax</string>
+    <string name="chevrolet_trans_sport_s">Trans_Sport</string>
+    <string name="chevrolet_trailblazer_s">Trailblazer</string>
+    <string name="chevrolet_geo_storm_s">Geo_Strorm</string>
+    <string name="chevrolet_rezzo_s">Rezzo</string>
+    <string name="chevrolet_zafira_s">Zafira</string>
+    <string name="chevrolet_sail_s">Sail</string>
+    <string name="chevrolet_spark_s">Spark</string>
+    <string name="chevrolet_sprint_s">Sprint</string>
+    <string name="chevrolet_silverado_s">Silverado</string>
+    <string name="chevrolet_suburban_s">Suburban</string>
+    <string name="chevrolet_sonic_s">Sonic</string>
+    <string name="chevrolet_celta_s">Celta</string>
+    <string name="chevrolet_celebrity_s">Celebrity</string>
+    <string name="chevrolet_chevette_s">Chevette</string>
+    <string name="chevrolet_van_s">Van</string>
+    <string name="chevrolet_frontera_s">Frontera</string>
+    <string name="chevrolet_volt_s">Volt</string>
+    <string name="chevrolet_vectra_s">Vectra</string>
+    <string name="chevrolet_venture_s">Venture</string>
+    <string name="chevrolet_captiva_s">Captiva</string>
+    <string name="chevrolet_caprice_s">Caprice</string>
+    <string name="chevrolet_caprice_classic_s">Caprice Classic</string>
+    <string name="chevrolet_cavalier_s">Cavalier</string>
+    <string name="chevrolet_cruze_s">Cruze</string>
+    <string name="chevrolet_camaro_s">Camaro</string>
+    <string name="chevrolet_cobalt_s">Coblat</string>
+    <string name="chevrolet_corsa_s">Corsa</string>
+    <string name="chevrolet_corsica_s">Corsica</string>
+    <string name="chevrolet_covette_s">Covette</string>
+    <string name="chevrolet_colorado_s">Colorado</string>
+    <string name="chevrolet_lacetti_s">Lacetti</string>
+    <string name="chevrolet_lanos_s">Lanos</string>
+    <string name="chevrolet_lumina_s">Lumina</string>
+    <string name="chevrolet_malibu_s">Malibu</string>
+    <string name="chevrolet_metro_s">Metro</string>
+    <string name="chevrolet_monte_carlo_s">Monte Carlo</string>
+    <string name="chevrolet_monza_s">Monza</string>
+    <string name="chevrolet_nubira_s">Nubira</string>
+    <string name="chevrolet_niva_s">Niva</string>
+    <string name="chevrolet_3100_s">3100</string>
+    <string name="chevrolet_4500_s">4500</string>
+    <string name="chevrolet_c1500_s">C1500</string>
+    <string name="chevrolet_cheyenne_s">Cheyenne</string>
+    <string name="chevrolet_cr8_s">CR8</string>
+    <string name="chevrolet_el_camino_s">El_Camino</string>
+    <string name="chevrolet_other_s">Other</string>
+
+
+
+
+
+    <string name="ford_c_max">C\-MAX</string>
+    <string name="ford_f_150">F\-150</string>
+    <string name="ford_f_250">F\-250</string>
+    <string name="ford_f_350">F\-350</string>
+    <string name="ford_gt">GT</string>
+    <string name="ford_aurion">Aurion</string>
+    <string name="ford_aerostar">Aerostar</string>
+    <string name="ford_escort">Escort</string>
+    <string name="ford_explorer">Explorer</string>
+    <string name="ford_s_max">S\-MAX</string>
+    <string name="ford_aspire">Aspire</string>
+    <string name="ford_escape">Escape</string>
+    <string name="ford_expedition">Expedition</string>
+    <string name="ford_excursion">Exursion</string>
+    <string name="ford_edge">Edge</string>
+    <string name="ford_everest">Everest</string>
+    <string name="ford_econoline">Econoline</string>
+    <string name="ford_ecosport">Ecosport</string>
+    <string name="ford_econovan">Econovan</string>
+    <string name="ford_bronco">Bronco</string>
+    <string name="ford_puma">Puma</string>
+    <string name="ford_taunus">Taunus</string>
+    <string name="ford_transit">Transit</string>
+    <string name="ford_tourneo_connect">Tourneo_Connect</string>
+    <string name="ford_tempo">Tempo</string>
+    <string name="ford_thunder_bird">Thunder_bird</string>
+    <string name="ford_raptor">Raptor</string>
+    <string name="ford_ranger">Ranger</string>
+    <string name="ford_sport_trac">Sport_Trac</string>
+    <string name="ford_sport_truck_explorer">Sport_Truck_Explorer</string>
+    <string name="ford_scorpio">Scorpio</string>
+    <string name="ford_sierra">Sierra</string>
+    <string name="ford_shelby">Shelby</string>
+    <string name="ford_galaxy">Galaxy</string>
+    <string name="ford_granada">Granada</string>
+    <string name="ford_five_hundred">Five Hundred</string>
+    <string name="ford_freestyle">Freestyle</string>
+    <string name="ford_focus">Focus</string>
+    <string name="ford_fox_rs">FOX_RS</string>
+    <string name="ford_figo">Figo</string>
+    <string name="ford_fusion">Fusion</string>
+    <string name="ford_fiesta">Fiesta</string>
+    <string name="ford_ka">Ka</string>
+    <string name="ford_capri">Capri</string>
+    <string name="ford_cougar">Cougar</string>
+    <string name="ford_crown_victoria">Crown_Victoria</string>
+    <string name="ford_kuga">Kuga</string>
+    <string name="ford_courier">Courier</string>
+    <string name="ford_contour">Contour</string>
+    <string name="ford_consul">Consul</string>
+    <string name="ford_laser">Laser</string>
+    <string name="ford_maverick">Maverick</string>
+    <string name="ford_mustang">Mustang</string>
+    <string name="ford_mondeo">Mondeo</string>
+    <string name="ford_windstar">Windstar</string>
+    <string name="ford_f550">F550</string>
+    <string name="ford_f450">F450</string>
+    <string name="ford_e_350">E\-350</string>
+    <string name="ford_e_450">E\-450</string>
+    <string name="ford_flex">Flex</string>
+    <string name="ford_ltd">LTD</string>
+    <string name="ford_model_40">Model_40</string>
+    <string name="ford_model_a">Model_A</string>
+    <string name="ford_t_bucket">T\-bucket</string>
+    <string name="ford_other">Other</string>
+
+    //****************************************
+
+    <string name="ford_c_max_s">C\-MAX</string>
+    <string name="ford_f_150_s">F\-150</string>
+    <string name="ford_f_250_s">F\-250</string>
+    <string name="ford_f_350_s">F\-350</string>
+    <string name="ford_gt_s">GT</string>
+    <string name="ford_aurion_s">Aurion</string>
+    <string name="ford_aerostar_s">Aerostar</string>
+    <string name="ford_escort_s">Escort</string>
+    <string name="ford_explorer_s">Explorer</string>
+    <string name="ford_s_max_s">S\-MAX</string>
+    <string name="ford_aspire_s">Aspire</string>
+    <string name="ford_escape_s">Escape</string>
+    <string name="ford_expedition_s">Expedition</string>
+    <string name="ford_excursion_s">Exursion</string>
+    <string name="ford_edge_s">Edge</string>
+    <string name="ford_everest_s">Everest</string>
+    <string name="ford_econoline_s">Econoline</string>
+    <string name="ford_ecosport_s">Ecosport</string>
+    <string name="ford_econovan_s">Econovan</string>
+    <string name="ford_bronco_s">Bronco</string>
+    <string name="ford_puma_s">Puma</string>
+    <string name="ford_taunus_s">Taunus</string>
+    <string name="ford_transit_s">Transit</string>
+    <string name="ford_tourneo_connect_s">Tourneo_Connect</string>
+    <string name="ford_tempo_s">Tempo</string>
+    <string name="ford_thunder_bird_s">Thunder_bird</string>
+    <string name="ford_raptor_s">Raptor</string>
+    <string name="ford_ranger_s">Ranger</string>
+    <string name="ford_sport_trac_s">Sport_Trac</string>
+    <string name="ford_sport_truck_explorer_s">Sport_Truck_Explorer</string>
+    <string name="ford_scorpio_s">Scorpio</string>
+    <string name="ford_sierra_s">Sierra</string>
+    <string name="ford_shelby_s">Shelby</string>
+    <string name="ford_galaxy_s">Galaxy</string>
+    <string name="ford_granada_s">Granada</string>
+    <string name="ford_five_hundred_s">Five Hundred</string>
+    <string name="ford_freestyle_s">Freestyle</string>
+    <string name="ford_focus_s">Focus</string>
+    <string name="ford_fox_rs_s">FOX_RS</string>
+    <string name="ford_figo_s">Figo</string>
+    <string name="ford_fusion_s">Fusion</string>
+    <string name="ford_fiesta_s">Fiesta</string>
+    <string name="ford_ka_s">Ka</string>
+    <string name="ford_capri_s">Capri</string>
+    <string name="ford_cougar_s">Cougar</string>
+    <string name="ford_crown_victoria_s">Crown_Victoria</string>
+    <string name="ford_kuga_s">Kuga</string>
+    <string name="ford_courier_s">Courier</string>
+    <string name="ford_contour_s">Contour</string>
+    <string name="ford_consul_s">Consul</string>
+    <string name="ford_laser_s">Laser</string>
+    <string name="ford_maverick_s">Maverick</string>
+    <string name="ford_mustang_s">Mustang</string>
+    <string name="ford_mondeo_s">Mondeo</string>
+    <string name="ford_windstar_s">Windstar</string>
+    <string name="ford_f550_s">F550</string>
+    <string name="ford_f450_s">F450</string>
+    <string name="ford_e_350_s">E\-350</string>
+    <string name="ford_e_450_s">E\-450</string>
+    <string name="ford_flex_s">Flex</string>
+    <string name="ford_ltd_s">LTD</string>
+    <string name="ford_model_40_s">Model_40</string>
+    <string name="ford_model_a_s">Model_A</string>
+    <string name="ford_t_bucket_s">T\-bucket</string>
+    <string name="ford_other_s">Other</string>
+
+
+
+
+    <string name="volvo_c">C</string>
+    <string name="volvo_c30">C30</string>
+    <string name="volvo_c70">C70</string>
+    <string name="volvo_car_s">S</string>
+    <string name="volvo_s40">S40</string>
+    <string name="volvo_s60">S60</string>
+    <string name="volvo_s70">S70</string>
+    <string name="volvo_s80">S80</string>
+    <string name="volvo_s90">S90</string>
+    <string name="volvo_v">V</string>
+    <string name="volvo_v40">V40</string>
+    <string name="volvo_v50">V50</string>
+    <string name="volvo_v60">v60</string>
+    <string name="volvo_v70">V70</string>
+    <string name="volvo_v90">V90</string>
+    <string name="volvo_xc">XC</string>
+    <string name="volvo_xc60">XC60</string>
+    <string name="volvo_xc70">XC70</string>
+    <string name="volvo_xc90">XC90</string>
+    <string name="volvo_66">66</string>
+    <string name="volvo_140">140</string>
+    <string name="volvo_164">164</string>
+    <string name="volvo_240">240</string>
+    <string name="volvo_260">260</string>
+    <string name="volvo_340">340</string>
+    <string name="volvo_360">360</string>
+    <string name="volvo_440">440</string>
+    <string name="volvo_460">460</string>
+    <string name="volvo_480">480</string>
+    <string name="volvo_740">740</string>
+    <string name="volvo_760">760</string>
+    <string name="volvo_780">780</string>
+    <string name="volvo_850">850</string>
+    <string name="volvo_940">940</string>
+    <string name="volvo_960">960</string>
+    <string name="volvo_laplander">Laplander</string>
+    <string name="volvo_marcopolo">Marcopolo</string>
+    <string name="volvo_p1800">P1800</string>
+    <string name="volvo_other">Other</string>
+
+    //********************************************
+
+    <string name="volvo_c_s">C</string>
+    <string name="volvo_c30_s">C30</string>
+    <string name="volvo_c70_s">C70</string>
+    <string name="volvo_car_s_s">S</string>
+    <string name="volvo_s40_s">S40</string>
+    <string name="volvo_s60_s">S60</string>
+    <string name="volvo_s70_s">S70</string>
+    <string name="volvo_s80_s">S80</string>
+    <string name="volvo_s90_s">S90</string>
+    <string name="volvo_v_s">V</string>
+    <string name="volvo_v40_s">V40</string>
+    <string name="volvo_v50_s">V50</string>
+    <string name="volvo_v60_s">v60</string>
+    <string name="volvo_v70_s">V70</string>
+    <string name="volvo_v90_s">V90</string>
+    <string name="volvo_xc_s">XC</string>
+    <string name="volvo_xc60_s">XC60</string>
+    <string name="volvo_xc70_s">XC70</string>
+    <string name="volvo_xc90_s">XC90</string>
+    <string name="volvo_66_s">66</string>
+    <string name="volvo_140_s">140</string>
+    <string name="volvo_164_s">164</string>
+    <string name="volvo_240_s">240</string>
+    <string name="volvo_260_s">260</string>
+    <string name="volvo_340_s">340</string>
+    <string name="volvo_360_s">360</string>
+    <string name="volvo_440_s">440</string>
+    <string name="volvo_460_s">460</string>
+    <string name="volvo_480_s">480</string>
+    <string name="volvo_740_s">740</string>
+    <string name="volvo_760_s">760</string>
+    <string name="volvo_780_s">780</string>
+    <string name="volvo_850_s">850</string>
+    <string name="volvo_940_s">940</string>
+    <string name="volvo_960_s">960</string>
+    <string name="volvo_laplander_s">Laplander</string>
+    <string name="volvo_marcopolo_s">Marcopolo</string>
+    <string name="volvo_p1800_s">P1800</string>
+    <string name="volvo_other_s">Other</string>
+
+
+
+
+    <string name="volkswagen_cc">CC</string>
+    <string name="volkswagen_gti">GTI</string>
+    <string name="volkswagen_w12">W12</string>
+    <string name="volkswagen_eos">Eos</string>
+    <string name="volkswagen_lltis">Lltis</string>
+    <string name="volkswagen_amarok">Amarok</string>
+    <string name="volkswagen_e_golf">E\-Golf</string>
+    <string name="volkswagen_parati">Parati</string>
+    <string name="volkswagen_passat">Passat</string>
+    <string name="volkswagen_bora">Bora</string>
+    <string name="volkswagen_polo">Polo</string>
+    <string name="volkswagen_pointer">Pointer</string>
+    <string name="volkswagen_beetle">Beetle</string>
+    <string name="volkswagen_taro">Taro</string>
+    <string name="volkswagen_transporter">Transporter</string>
+    <string name="volkswagen_touran">Touran</string>
+    <string name="volkswagen_tiguan">Tiguan</string>
+    <string name="volkswagen_golf">Golf</string>
+    <string name="volkswagen_golf_r">Golf R</string>
+    <string name="volkswagen_golf_plus">Golf puls</string>
+    <string name="volkswagen_jetta">Jetta</string>
+    <string name="volkswagen_routan">Routan</string>
+    <string name="volkswagen_saveiro">Saveiro</string>
+    <string name="volkswagen_santana">Santana</string>
+    <string name="volkswagen_suran">Suran</string>
+    <string name="volkswagen_scirocco">Scirocco</string>
+    <string name="volkswagen_sharan">Sharan</string>
+    <string name="volkswagen_touareg">Touareg</string>
+    <string name="volkswagen_gol">Gol</string>
+    <string name="volkswagen_phaeton">Phaeton</string>
+    <string name="volkswagen_fox">Fox</string>
+    <string name="volkswagen_vento">Vento</string>
+    <string name="volkswagen_caddy">Caddy</string>
+    <string name="volkswagen_caravelle">Caravelle</string>
+    <string name="volkswagen_california">California</string>
+    <string name="volkswagen_crafter">Crafter</string>
+    <string name="volkswagen_crossfox">crossfox</string>
+    <string name="volkswagen_corrado">Corrado</string>
+    <string name="volkswagen_lupo">Lupo</string>
+    <string name="volkswagen_multivan">Multivan</string>
+    <string name="volkswagen_1500">1500</string>
+    <string name="volkswagen_lt">LT</string>
+    <string name="volkswagen_passat_cc">Passat cc</string>
+    <string name="volkswagen_t3_caravelle">T3 caravelle</string>
+    <string name="volkswagen_other">Other</string>
+
+    //********************************************
+
+    <string name="volkswagen_cc_s">CC</string>
+    <string name="volkswagen_gti_s">GTI</string>
+    <string name="volkswagen_w12_s">W12</string>
+    <string name="volkswagen_eos_s">Eos</string>
+    <string name="volkswagen_lltis_s">Lltis</string>
+    <string name="volkswagen_amarok_s">Amarok</string>
+    <string name="volkswagen_e_golf_s">E\-Golf</string>
+    <string name="volkswagen_parati_s">Parati</string>
+    <string name="volkswagen_passat_s">Passat</string>
+    <string name="volkswagen_bora_s">Bora</string>
+    <string name="volkswagen_polo_s">Polo</string>
+    <string name="volkswagen_pointer_s">Pointer</string>
+    <string name="volkswagen_beetle_s">Beetle</string>
+    <string name="volkswagen_taro_s">Taro</string>
+    <string name="volkswagen_transporter_s">Transporter</string>
+    <string name="volkswagen_touran_s">Touran</string>
+    <string name="volkswagen_tiguan_s">Tiguan</string>
+    <string name="volkswagen_golf_s">Golf</string>
+    <string name="volkswagen_golf_r_s">Golf R</string>
+    <string name="volkswagen_golf_plus_s">Golf puls</string>
+    <string name="volkswagen_jetta_s">Jetta</string>
+    <string name="volkswagen_routan_s">Routan</string>
+    <string name="volkswagen_saveiro_s">Saveiro</string>
+    <string name="volkswagen_santana_s">Santana</string>
+    <string name="volkswagen_suran_s">Suran</string>
+    <string name="volkswagen_scirocco_s">Scirocco</string>
+    <string name="volkswagen_sharan_s">Sharan</string>
+    <string name="volkswagen_touareg_s">Touareg</string>
+    <string name="volkswagen_gol_s">Gol</string>
+    <string name="volkswagen_phaeton_s">Phaeton</string>
+    <string name="volkswagen_fox_s">Fox</string>
+    <string name="volkswagen_vento_s">Vento</string>
+    <string name="volkswagen_caddy_s">Caddy</string>
+    <string name="volkswagen_caravelle_s">Caravelle</string>
+    <string name="volkswagen_california_s">California</string>
+    <string name="volkswagen_crafter_s">Crafter</string>
+    <string name="volkswagen_crossfox_s">crossfox</string>
+    <string name="volkswagen_corrado_s">Corrado</string>
+    <string name="volkswagen_lupo_s">Lupo</string>
+    <string name="volkswagen_multivan_s">Multivan</string>
+    <string name="volkswagen_1500_s">1500</string>
+    <string name="volkswagen_lt_s">LT</string>
+    <string name="volkswagen_passat_cc_s">Passat cc</string>
+    <string name="volkswagen_t3_caravelle_s">T3 caravelle</string>
+    <string name="volkswagen_other_s">Other</string>
+
+
+
+
+
+    <string name="fiat_124">124</string>
+    <string name="fiat_126">126</string>
+    <string name="fiat_127">127</string>
+    <string name="fiat_131">131</string>
+
+    <string name="fiat_500">500</string>
+    <string name="fiat_500e">500E</string>
+    <string name="fiat_600">600</string>
+    <string name="fiat_x_1_9">x 1\/9</string>
+    <string name="fiat_argenta">Argenta</string>
+    <string name="fiat_ulysse">Ulysse</string>
+    <string name="fiat_uno">Uno</string>
+    <string name="fiat_albea">Albea</string>
+    <string name="fiat_idea">Idea</string>
+    <string name="fiat_barchetta">Barchetta</string>
+    <string name="fiat_palio">Palio</string>
+    <string name="fiat_panda">Panda</string>
+    <string name="fiat_bravo">Bravo</string>
+    <string name="fiat_bolognese">Bolognese</string>
+    <string name="fiat_punto">Punto</string>
+    <string name="fiat_petra">Petra</string>
+    <string name="fiat_tipo">Tipo</string>
+    <string name="fiat_tempra">Tempra</string>
+    <string name="fiat_grande_punto">Grande Punto</string>
+    <string name="fiat_doblo">Doblo</string>
+    <string name="fiat_dukato">Dukato</string>
+    <string name="fiat_duna">Duna</string>
+    <string name="fiat_ritmo">Ritmo</string>
+    <string name="fiat_regata">Regata</string>
+    <string name="fiat_zastava">Zastava</string>
+    <string name="fiat_strada">Strada</string>
+    <string name="fiat_stilo">Stilo</string>
+    <string name="fiat_sedici">Sedici</string>
+    <string name="fiat_cinquecento">Cinquecento</string>
+    <string name="fiat_seicento">Seicento</string>
+    <string name="fiat_siena">Siena</string>
+    <string name="fiat_florida">Florida</string>
+    <string name="fiat_fiorino">Fiorino</string>
+    <string name="fiat_croma">Croma</string>
+    <string name="fiat_coupe">Coupe</string>
+    <string name="fiat_linea">Linea</string>
+    <string name="fiat_maria">Maria</string>
+    <string name="fiat_mulipla">Mulipa</string>
+    <string name="fiat_nuova_500">Nuova 500</string>
+    <string name="fiat_500c">500C</string>
+    <string name="fiat_750">750</string>
+    <string name="fiat_other">Other</string>
+
+    //*****************************************
+
+    <string name="fiat_124_s">124</string>
+    <string name="fiat_126_s">126</string>
+    <string name="fiat_127_s">127</string>
+    <string name="fiat_131_s">131</string>
+
+    <string name="fiat_500_s">500</string>
+    <string name="fiat_500e_s">500E</string>
+    <string name="fiat_600_s">600</string>
+    <string name="fiat_x_1_9_s">x 1\/9</string>
+    <string name="fiat_argenta_s">Argenta</string>
+    <string name="fiat_ulysse_s">Ulysse</string>
+    <string name="fiat_uno_s">Uno</string>
+    <string name="fiat_albea_s">Albea</string>
+    <string name="fiat_idea_s">Idea</string>
+    <string name="fiat_barchetta_s">Barchetta</string>
+    <string name="fiat_palio_s">Palio</string>
+    <string name="fiat_panda_s">Panda</string>
+    <string name="fiat_bravo_s">Bravo</string>
+    <string name="fiat_bolognese_s">Bolognese</string>
+    <string name="fiat_punto_s">Punto</string>
+    <string name="fiat_petra_s">Petra</string>
+    <string name="fiat_tipo_s">Tipo</string>
+    <string name="fiat_tempra_s">Tempra</string>
+    <string name="fiat_grande_punto_s">Grande Punto</string>
+    <string name="fiat_doblo_s">Doblo</string>
+    <string name="fiat_dukato_s">Dukato</string>
+    <string name="fiat_duna_s">Duna</string>
+    <string name="fiat_ritmo_s">Ritmo</string>
+    <string name="fiat_regata_s">Regata</string>
+    <string name="fiat_zastava_s">Zastava</string>
+    <string name="fiat_strada_s">Strada</string>
+    <string name="fiat_stilo_s">Stilo</string>
+    <string name="fiat_sedici_s">Sedici</string>
+    <string name="fiat_cinquecento_s">Cinquecento</string>
+    <string name="fiat_seicento_s">Seicento</string>
+    <string name="fiat_siena_s">Siena</string>
+    <string name="fiat_florida_s">Florida</string>
+    <string name="fiat_fiorino_s">Fiorino</string>
+    <string name="fiat_croma_s">Croma</string>
+    <string name="fiat_coupe_s">Coupe</string>
+    <string name="fiat_linea_s">Linea</string>
+    <string name="fiat_maria_s">Maria</string>
+    <string name="fiat_mulipla_s">Mulipa</string>
+    <string name="fiat_nuova_500_s">Nuova 500</string>
+    <string name="fiat_500c_s">500C</string>
+    <string name="fiat_750_s">750</string>
+    <string name="fiat_other_s">Other</string>
+
+
+
+
+    <string name="ferrari_208">208</string>
+    <string name="ferrari_308">308</string>
+    <string name="ferrari_328">328</string>
+    <string name="ferrari_348">348</string>
+    <string name="ferrari_355">355</string>
+    <string name="ferrari_360_spider">360 Spider</string>
+    <string name="ferrari_360_modena">360 Modena</string>
+    <string name="ferrari_412">412</string>
+    <string name="ferrari_430">430</string>
+    <string name="ferrari_456_gt">456 GT</string>
+    <string name="ferrari_458_italia">458 Italia</string>
+    <string name="ferrari_512">512</string>
+    <string name="ferrari_550_barchetta">550 Barchetta</string>
+    <string name="ferrari_550_maranello">550 Maranello</string>
+    <string name="ferrari_575_maranello">575 Maranello</string>
+    <string name="ferrari_599_gtb_Fiorano">599 GTB fiorano</string>
+    <string name="ferrari_612_scaglietti">612 Scaglietti</string>
+    <string name="ferrari_f340">F340</string>
+    <string name="ferrari_f355">F355</string>
+    <string name="ferrari_f40">F40</string>
+    <string name="ferrari_f430_scuderia">F430 Scuderia</string>
+    <string name="ferrari_f430_spider">F430 Spider</string>
+    <string name="ferrari_f50">F50</string>
+    <string name="ferrari_fxx">FXX</string>
+    <string name="ferrari_enzo">Enzo</string>
+    <string name="ferrari_testarossa">Testarossa</string>
+    <string name="ferrari_dino">Dino</string>
+    <string name="ferrari_california">Califorrnia</string>
+    <string name="ferrari_laferrari">Laferrari</string>
+    <string name="ferrari_mondial">Mondial</string>
+    <string name="ferrari_246">246</string>
+    <string name="ferrari_250">250</string>
+    <string name="ferrari_330">330</string>
+    <string name="ferrari_360">360</string>
+    <string name="ferrari_365">365</string>
+    <string name="ferrari_456">456</string>
+    <string name="ferrari_488">488</string>
+    <string name="ferrari_575">575</string>
+    <string name="ferrari_599_gtb">599 GTB</string>
+    <string name="ferrari_f12">F12</string>
+    <string name="ferrari_f430">F430</string>
+    <string name="ferrari_ff">FF</string>
+    <string name="ferrari_other">Other</string>
+
+    //*********************************************
+
+    <string name="ferrari_208_s">208</string>
+    <string name="ferrari_308_s">308</string>
+    <string name="ferrari_328_s">328</string>
+    <string name="ferrari_348_s">348</string>
+    <string name="ferrari_355_s">355</string>
+    <string name="ferrari_360_spider_s">360 Spider</string>
+    <string name="ferrari_360_modena_s">360 Modena</string>
+    <string name="ferrari_412_s">412</string>
+    <string name="ferrari_430_s">430</string>
+    <string name="ferrari_456_gt_s">456 GT</string>
+    <string name="ferrari_458_italia_s">458 Italia</string>
+    <string name="ferrari_512_s">512</string>
+    <string name="ferrari_550_barchetta_s">550 Barchetta</string>
+    <string name="ferrari_550_maranello_s">550 Maranello</string>
+    <string name="ferrari_575_maranello_s">575 Maranello</string>
+    <string name="ferrari_599_gtb_Fiorano_s">599 GTB fiorano</string>
+    <string name="ferrari_612_scaglietti_s">612 Scaglietti</string>
+    <string name="ferrari_f340_s">F340</string>
+    <string name="ferrari_f355_s">F355</string>
+    <string name="ferrari_f40_s">F40</string>
+    <string name="ferrari_f430_scuderia_s">F430 Scuderia</string>
+    <string name="ferrari_f430_spider_s">F430 Spider</string>
+    <string name="ferrari_f50_s">F50</string>
+    <string name="ferrari_fxx_s">FXX</string>
+    <string name="ferrari_enzo_s">Enzo</string>
+    <string name="ferrari_testarossa_s">Testarossa</string>
+    <string name="ferrari_dino_s">Dino</string>
+    <string name="ferrari_california_s">Califorrnia</string>
+    <string name="ferrari_laferrari_s">Laferrari</string>
+    <string name="ferrari_mondial_s">Mondial</string>
+    <string name="ferrari_246_s">246</string>
+    <string name="ferrari_250_s">250</string>
+    <string name="ferrari_330_s">330</string>
+    <string name="ferrari_360_s">360</string>
+    <string name="ferrari_365_s">365</string>
+    <string name="ferrari_456_s">456</string>
+    <string name="ferrari_488_s">488</string>
+    <string name="ferrari_575_s">575</string>
+    <string name="ferrari_599_gtb_s">599 GTB</string>
+    <string name="ferrari_f12_s">F12</string>
+    <string name="ferrari_f430_s">F430</string>
+    <string name="ferrari_ff_s">FF</string>
+    <string name="ferrari_other_s">Other</string>
+
+
+
+
+
+    <string name="cadillac_ats"> ATS</string>
+    <string name="cadillac_bls">BLS</string>
+    <string name="cadillac_ctc">CTS</string>
+    <string name="cadillac_dts">ATS</string>
+    <string name="cadillac_deVille">DeVeille</string>
+    <string name="cadillac_elr">ELR</string>
+    <string name="cadillac_srx">SRX</string>
+    <string name="cadillac_sts">STS</string>
+    <string name="cadillac_xlr">XLR</string>
+    <string name="cadillac_escalade">EScalade</string>
+    <string name="cadillac_allante">Allante</string>
+    <string name="cadillac_eldorado">Eldorado</string>
+    <string name="cadillac_brougham">Brougham</string>
+    <string name="cadillac_seville">Seville</string>
+    <string name="cadillac_fleetwood">Fleetwood</string>
+    <string name="cadillac_catera">Catera</string>
+    <string name="cadillac_coupe_deville">Coupe Deville</string>
+    <string name="cadillac_xts">XTS</string>
+    <string name="cadillac_other">Other</string>
+
+    //************************************************
+
+    <string name="cadillac_ats_s"> ATS</string>
+    <string name="cadillac_bls_s">BLS</string>
+    <string name="cadillac_ctc_s">CTS</string>
+    <string name="cadillac_dts_s">ATS</string>
+    <string name="cadillac_deVille_s">DeVeille</string>
+    <string name="cadillac_elr_s">ELR</string>
+    <string name="cadillac_srx_s">SRX</string>
+    <string name="cadillac_sts_s">STS</string>
+    <string name="cadillac_xlr_s">XLR</string>
+    <string name="cadillac_escalade_s">EScalade</string>
+    <string name="cadillac_allante_s">Allante</string>
+    <string name="cadillac_eldorado_s">Eldorado</string>
+    <string name="cadillac_brougham_s">Brougham</string>
+    <string name="cadillac_seville_s">Seville</string>
+    <string name="cadillac_fleetwood_s">Fleetwood</string>
+    <string name="cadillac_catera_s">Catera</string>
+    <string name="cadillac_coupe_deville_s">Coupe Deville</string>
+    <string name="cadillac_xts_s">XTS</string>
+    <string name="cadillac_other_s">Other</string>
+
+
+
+
+
+    <string name="chrysler_200">200</string>
+    <string name="chrysler_300c">300C</string>
+    <string name="chrysler_300m">300M</string>
+    <string name="chrysler_lhs">LHS</string>
+    <string name="chrysler_aspen">Aspen</string>
+    <string name="chrysler_imperial">Imperial</string>
+    <string name="chrysler_intrepid">Intrepid</string>
+    <string name="chrysler_pasifica">Pasifica</string>
+    <string name="chrysler_prowler">Prowler</string>
+    <string name="chrysler_pt_cruiser">PT Cruiser</string>
+    <string name="chrysler_town_country">Town Country</string>
+    <string name="chrysler_grandvoyager">Grand Voyager</string>
+    <string name="chrysler_daytona_shelby">Daytona Shelby</string>
+    <string name="chrysler_saratoga">Saratoga</string>
+    <string name="chrysler_sebring">Sebring</string>
+    <string name="chrysler_cirrus">Cirrus</string>
+    <string name="chrysler_voyager">Voyager</string>
+    <string name="chrysler_vision">Vision</string>
+    <string name="chrysler_fifth_avenue">Fifth Avenue</string>
+    <string name="chrysler_crossfire">Crossfire</string>
+    <string name="chrysler_concorde">Concorde</string>
+    <string name="chrysler_leBaron">LeBaron</string>
+    <string name="chrysler_nassau">Nassau</string>
+    <string name="chrysler_neon">Neon</string>
+    <string name="chrysler_new_yorker">New Yorker</string>
+    <string name="chrysler_300">300</string>
+    <string name="chrysler_300s">300s</string>
+    <string name="chrysler_other">Other</string>
+
+    //*************************************************
+
+    <string name="chrysler_200_s">200</string>
+    <string name="chrysler_300c_s">300C</string>
+    <string name="chrysler_300m_s">300M</string>
+    <string name="chrysler_lhs_s">LHS</string>
+    <string name="chrysler_aspen_s">Aspen</string>
+    <string name="chrysler_imperial_s">Imperial</string>
+    <string name="chrysler_intrepid_s">Intrepid</string>
+    <string name="chrysler_pasifica_s">Pasifica</string>
+    <string name="chrysler_prowler_s">Prowler</string>
+    <string name="chrysler_pt_cruiser_s">PT Cruiser</string>
+    <string name="chrysler_town_country_s">Town Country</string>
+    <string name="chrysler_grandvoyager_s">Grand Voyager</string>
+    <string name="chrysler_daytona_shelby_s">Daytona Shelby</string>
+    <string name="chrysler_saratoga_s">Saratoga</string>
+    <string name="chrysler_sebring_s">Sebring</string>
+    <string name="chrysler_cirrus_s">Cirrus</string>
+    <string name="chrysler_voyager_s">Voyager</string>
+    <string name="chrysler_vision_s">Vision</string>
+    <string name="chrysler_fifth_avenue_s">Fifth Avenue</string>
+    <string name="chrysler_crossfire_s">Crossfire</string>
+    <string name="chrysler_concorde_s">Concorde</string>
+    <string name="chrysler_leBaron_s">LeBaron</string>
+    <string name="chrysler_nassau_s">Nassau</string>
+    <string name="chrysler_neon_s">Neon</string>
+    <string name="chrysler_new_yorker_s">New Yorker</string>
+    <string name="chrysler_300_s">300</string>
+    <string name="chrysler_300s_s">300s</string>
+    <string name="chrysler_other_s">Other</string>
+
+
+
+
+
+
+    <string name="lada_2010">2010</string>
+    <string name="lada_2015">2015</string>
+    <string name="lada_2107">2107</string>
+    <string name="lada_2170">2170</string>
+    <string name="lada_aleko">Aleko</string>
+    <string name="lada_oka">Oka</string>
+    <string name="lada_samara">Samara</string>
+    <string name="lada_niva">Niva</string>
+    <string name="lada_vesta">Vesta</string>
+    <string name="lada_vesta_sw">Vesta SW</string>
+    <string name="lada_granta">Granta</string>
+    <string name="lada_Granta_hb">Granta HB</string>
+    <string name="lada_largus">Largus</string>
+    <string name="lada_4x4_urban">4x4 Urban</string>
+    <string name="lada_other">Other</string>
+
+    //****************************************
+
+    <string name="lada_2010_s">2010</string>
+    <string name="lada_2015_s">2015</string>
+    <string name="lada_2107_s">2107</string>
+    <string name="lada_2170_s">2170</string>
+    <string name="lada_aleko_s">Aleko</string>
+    <string name="lada_oka_s">Oka</string>
+    <string name="lada_samara_s">Samara</string>
+    <string name="lada_niva_s">Niva</string>
+    <string name="lada_vesta_s">Vesta</string>
+    <string name="lada_vesta_sw_s">Vesta SW</string>
+    <string name="lada_granta_s">Granta</string>
+    <string name="lada_Granta_hb_s">Granta HB</string>
+    <string name="lada_largus_s">Largus</string>
+    <string name="lada_4x4_urban_s">4x4 Urban</string>
+    <string name="lada_other_s">Other</string>
+
+
+
+
+
+
+    <string name="lamborghini_lm002">LM002</string>
+    <string name="lamborghini_aventador">Aventador</string>
+    <string name="lamborghini_espada">Espada</string>
+    <string name="lamborghini_jalpa">Jalpa</string>
+    <string name="lamborghini_diablo">Diablo</string>
+    <string name="lamborghini_reventon">Reventon</string>
+    <string name="lamborghini_gallardo">Gallardo</string>
+    <string name="lamborghini_countach">Countach</string>
+    <string name="lamborghini_murcielago">Murcielago</string>
+    <string name="lamborghini_huracan">Huracan</string>
+    <string name="lamborghini_350gt">350GT</string>
+    <string name="lamborghini_other">Other</string>
+
+    //***********************************************
+
+    <string name="lamborghini_lm002_s">LM002</string>
+    <string name="lamborghini_aventador_s">Aventador</string>
+    <string name="lamborghini_espada_s">Espada</string>
+    <string name="lamborghini_jalpa_s">Jalpa</string>
+    <string name="lamborghini_diablo_s">Diablo</string>
+    <string name="lamborghini_reventon_s">Reventon</string>
+    <string name="lamborghini_gallardo_s">Gallardo</string>
+    <string name="lamborghini_countach_s">Countach</string>
+    <string name="lamborghini_murcielago_s">Murcielago</string>
+    <string name="lamborghini_huracan_s">Huracan</string>
+    <string name="lamborghini_350gt_s">350GT</string>
+    <string name="lamborghini_other_s">Other</string>
+
+
+
+
+
+
+    <string name="land_rover_lr4">LR4</string>
+    <string name="land_rover_discovery">Discovery</string>
+    <string name="land_rover_discovery_sport">Discovery Sport</string>
+    <string name="land_rover_defender">Defender</string>
+    <string name="land_rover_range_rover_hse">Range Rover HSE</string>
+    <string name="land_rover_range_rover_evoque">Range Rover Evoque</string>
+    <string name="land_rover_range_rover_sport">Range Rover Sport</string>
+    <string name="land_rover_range_rover_vogue">Range Rover Vogue</string>
+    <string name="land_rover_range_rover_velar">Range Rover Velar</string>
+    <string name="land_rover_range_rover">Range Rover</string>
+    <string name="land_rover_freelander">Freelander</string>
+    <string name="land_rover_other">Other</string>
+
+    //***********************************************
+
+    <string name="land_rover_lr4_s">LR4</string>
+    <string name="land_rover_discovery_s">Discovery</string>
+    <string name="land_rover_discovery_sport_s">Discovery Sport</string>
+    <string name="land_rover_defender_s">Defender</string>
+    <string name="land_rover_range_rover_hse_s">Range Rover HSE</string>
+    <string name="land_rover_range_rover_evoque_s">Range Rover Evoque</string>
+    <string name="land_rover_range_rover_sport_s">Range Rover Sport</string>
+    <string name="land_rover_range_rover_vogue_s">Range Rover Vogue</string>
+    <string name="land_rover_range_rover_velar_s">Range Rover Velar</string>
+    <string name="land_rover_range_rover_s">Range Rover</string>
+    <string name="land_rover_freelander_s">Freelander</string>
+    <string name="land_rover_other_s">Other</string>
+
+
+
+
+
+    <string name="lexus_e_s">E S</string>
+    <string name="lexus_es">ES</string>
+    <string name="lexus_es_250">ES 250</string>
+    <string name="lexus_es_300">ES 300</string>
+    <string name="lexus_es_330">ES 330</string>
+    <string name="lexus_es_350">ES 350</string>
+    <string name="lexus_g_s">G S</string>
+    <string name="lexus_gs_250">GS 250</string>
+    <string name="lexus_gs_300">GS 300</string>
+    <string name="lexus_gs_350">GS 350</string>
+    <string name="lexus_gs_400">GS 400</string>
+    <string name="lexus_gs_430">GS 430</string>
+    <string name="lexus_gs_460">GS</string>
+    <string name="lexus_gx">GX</string>
+    <string name="lexus_gx_460">GX 460</string>
+    <string name="lexus_gx_470">GX 470</string>
+    <string name="lexus_is">IS</string>
+    <string name="lexus_is_200">IS 200</string>
+    <string name="lexus_is_250">IS250</string>
+    <string name="lexus_is_300">IS300</string>
+    <string name="lexus_is_350">IS350</string>
+    <string name="lexus_ls">LS</string>
+    <string name="lexus_ls_400">LS400</string>
+    <string name="lexus_ls_430">LS430</string>
+    <string name="lexus_ls_460">LS460</string>
+    <string name="lexus_ls_600">LS600</string>
+    <string name="lexus_lx">LX</string>
+    <string name="lexus_LX_450">LX450</string>
+    <string name="lexus_LX_470">LX470</string>
+    <string name="lexus_LX_570">LX570</string>
+    <string name="lexus_nx">NX</string>
+    <string name="lexus_nx_200t">NX 200t</string>
+    <string name="lexus_nx_300">NX 300</string>
+    <string name="lexus_rc">RC</string>
+    <string name="lexus_rc_350">RC350</string>
+    <string name="lexus_rc_f">RC F</string>
+    <string name="lexus_rx">Rx</string>
+    <string name="lexus_rx_300">Rx300</string>
+    <string name="lexus_rx_330">Rx330</string>
+    <string name="lexus_rx_350">Rx350</string>
+    <string name="lexus_xr_450">Rx450</string>
+    <string name="lexus_sc">SC</string>
+    <string name="lexus_sc_300">SC300</string>
+    <string name="lexus_sc_430">SC430</string>
+    <string name="lexus_ct">CT</string>
+    <string name="lexus_hs">HS</string>
+    <string name="lexus_isf">ISF</string>
+    <string name="lexus_lfa">LFA</string>
+    <string name="lexus_ux">UX</string>
+    <string name="lexus_other">Other</string>
+
+    //********************************************
+
+    <string name="lexus_e_s_s">E S</string>
+    <string name="lexus_es_s">ES</string>
+    <string name="lexus_es_250_s">ES 250</string>
+    <string name="lexus_es_300_s">ES 300</string>
+    <string name="lexus_es_330_s">ES 330</string>
+    <string name="lexus_es_350_s">ES 350</string>
+    <string name="lexus_g_s_s">G S</string>
+    <string name="lexus_gs_250_s">GS 250</string>
+    <string name="lexus_gs_300_s">GS 300</string>
+    <string name="lexus_gs_350_s">GS 350</string>
+    <string name="lexus_gs_400_s">GS 400</string>
+    <string name="lexus_gs_430_s">GS 430</string>
+    <string name="lexus_gs_460_s">GS</string>
+    <string name="lexus_gx_s">GX</string>
+    <string name="lexus_gx_460_s">GX 460</string>
+    <string name="lexus_gx_470_s">GX 470</string>
+    <string name="lexus_is_s">IS</string>
+    <string name="lexus_is_200_s">IS 200</string>
+    <string name="lexus_is_250_s">IS250</string>
+    <string name="lexus_is_300_s">IS300</string>
+    <string name="lexus_is_350_s">IS350</string>
+    <string name="lexus_ls_s">LS</string>
+    <string name="lexus_ls_400_s">LS400</string>
+    <string name="lexus_ls_430_s">LS430</string>
+    <string name="lexus_ls_460_s">LS460</string>
+    <string name="lexus_ls_600_s">LS600</string>
+    <string name="lexus_lx_s">LX</string>
+    <string name="lexus_LX_450_s">LX450</string>
+    <string name="lexus_LX_470_s">LX470</string>
+    <string name="lexus_LX_570_s">LX570</string>
+    <string name="lexus_nx_s">NX</string>
+    <string name="lexus_nx_200t_s">NX 200t</string>
+    <string name="lexus_nx_300_s">NX 300</string>
+    <string name="lexus_rc_s">RC</string>
+    <string name="lexus_rc_350_s">RC350</string>
+    <string name="lexus_rc_f_s">RC F</string>
+    <string name="lexus_rx_s">Rx</string>
+    <string name="lexus_rx_300_s">Rx300</string>
+    <string name="lexus_rx_330_s">Rx330</string>
+    <string name="lexus_rx_350_s">Rx350</string>
+    <string name="lexus_xr_450_s">Rx450</string>
+    <string name="lexus_sc_s">SC</string>
+    <string name="lexus_sc_300_s">SC300</string>
+    <string name="lexus_sc_430_s">SC430</string>
+    <string name="lexus_ct_s">CT</string>
+    <string name="lexus_hs_s">HS</string>
+    <string name="lexus_isf_s">ISF</string>
+    <string name="lexus_lfa_s">LFA</string>
+    <string name="lexus_ux_s">UX</string>
+    <string name="lexus_other_s">Other</string>
+
+
+
+
+
+    <string name="lotus_esprit">Esprit</string>
+    <string name="lotus_elite">Elite</string>
+    <string name="lotus_elise">Elise</string>
+    <string name="lotus_eclat">Eclat</string>
+    <string name="lotus_evora">Evora</string>
+    <string name="lotus_excel">Excel</string>
+    <string name="lotus_exige">Exige</string>
+    <string name="lotus_elan">Elan</string>
+    <string name="lotus_yoruba">Yoruba</string>
+    <string name="lotus_other">Other</string>
+
+    //*******************************************
+
+    <string name="lotus_esprit_s">Esprit</string>
+    <string name="lotus_elite_s">Elite</string>
+    <string name="lotus_elise_s">Elise</string>
+    <string name="lotus_eclat_s">Eclat</string>
+    <string name="lotus_evora_s">Evora</string>
+    <string name="lotus_excel_s">Excel</string>
+    <string name="lotus_exige_s">Exige</string>
+    <string name="lotus_elan_s">Elan</string>
+    <string name="lotus_yoruba_s">Yoruba</string>
+    <string name="lotus_other_s">Other</string>
+
+
+
+
+
+    <string name="lincoln_mkx">MKX</string>
+    <string name="lincoln_mkz">MKZ</string>
+    <string name="lincoln_mark_lt">Mark LT</string>
+    <string name="lincoln_aviator">Aviator</string>
+    <string name="lincoln_blackwood">Blackwood</string>
+    <string name="lincoln_town_car">Town Car</string>
+    <string name="lincoln_zephyr">Zephyr</string>
+    <string name="lincoln_continental">Continental </string>
+    <string name="lincoln_mark">Mark</string>
+    <string name="lincoln_navigator">Navigator</string>
+    <string name="lincoln_capri">Capri</string>
+    <string name="lincoln_mks">MKS</string>
+    <string name="lincoln_other">Other</string>
+
+    //***********************************************
+
+    <string name="lincoln_mkx_s">MKX</string>
+    <string name="lincoln_mkz_s">MKZ</string>
+    <string name="lincoln_mark_lt_s">Mark LT</string>
+    <string name="lincoln_aviator_s">Aviator</string>
+    <string name="lincoln_blackwood_s">Blackwood</string>
+    <string name="lincoln_town_car_s">Town Car</string>
+    <string name="lincoln_zephyr_s">Zephyr</string>
+    <string name="lincoln_continental_s">Continental </string>
+    <string name="lincoln_mark_s">Mark</string>
+    <string name="lincoln_navigator_s">Navigator</string>
+    <string name="lincoln_capri_s">Capri</string>
+    <string name="lincoln_mks_s">MKS</string>
+    <string name="lincoln_other_s">Other</string>
+
+
+
+
+
+    <string name="mazda_2">2</string>
+    <string name="mazda_3">3</string>
+    <string name="mazda_5">5</string>
+    <string name="mazda_121">121</string>
+    <string name="mazda_323">323</string>
+    <string name="mazda_818">818</string>
+    <string name="mazda_929">929</string>
+    <string name="mazda_1000">1000</string>
+    <string name="mazda_1300">1300</string>
+    <string name="mazda_3_mps">3 MPS</string>
+    <string name="mazda_6_mps">6 MPS</string>
+    <string name="mazda_bt_50">BT\-50</string>
+    <string name="mazda_cx_5">CX\-5</string>
+    <string name="mazda_cx_7">CX\-7</string>
+    <string name="mazda_cx_9">CX\-9</string>
+    <string name="mazda_mpv">MPV</string>
+    <string name="mazda_mx_3">MX\-3</string>
+    <string name="mazda_mx_5">MX\-5</string>
+    <string name="mazda_rx7">RX7</string>
+    <string name="mazda_rx8">RX8</string>
+    <string name="mazda_6">6</string>
+    <string name="mazda_efini">Efini</string>
+    <string name="mazda_proceed">Proceed</string>
+    <string name="mazda_premacy">Premacy</string>
+    <string name="mazda_bongo">Bongo</string>
+    <string name="mazda_binte">Binte</string>
+    <string name="mazda_pickup">pickup</string>
+    <string name="mazda_tribute">Tribute</string>
+    <string name="mazda_demio">Demio</string>
+    <string name="mazda_rustler">Rustler</string>
+    <string name="mazda_spiano">Spiano</string>
+    <string name="mazda_scrumm">Scrumm</string>
+    <string name="mazda_zedos_6">Xedos 6</string>
+    <string name="mazda_zedos_9">Xedos 9</string>
+    <string name="mazda_sentia">Sentia</string>
+    <string name="mazda_fmilia">Fmilia</string>
+    <string name="mazda_vantrend">Vantrend</string>
+    <string name="mazda_capella">Capella</string>
+    <string name="mazda_carol">Carol</string>
+    <string name="mazda_cliff">Cliff</string>
+    <string name="mazda_laputa">Laputa</string>
+    <string name="mazda_lantis">Lantis</string>
+    <string name="mazda_levante">Levante</string>
+    <string name="mazda_luce">Luce</string>
+    <string name="mazda_cx_30">CX\-30</string>
+    <string name="mazda_Tttan">Titan</string>
+    <string name="mazda_other">Other</string>
+
+    //***************************************
+
+    <string name="mazda_2_s">2</string>
+    <string name="mazda_3_s">3</string>
+    <string name="mazda_5_s">5</string>
+    <string name="mazda_121_s">121</string>
+    <string name="mazda_323_s">323</string>
+    <string name="mazda_818_s">818</string>
+    <string name="mazda_929_s">929</string>
+    <string name="mazda_1000_s">1000</string>
+    <string name="mazda_1300_s">1300</string>
+    <string name="mazda_3_mps_s">3 MPS</string>
+    <string name="mazda_6_mps_s">6 MPS</string>
+    <string name="mazda_bt_50_s">BT\-50</string>
+    <string name="mazda_cx_5_s">CX\-5</string>
+    <string name="mazda_cx_7_s">CX\-7</string>
+    <string name="mazda_cx_9_s">CX\-9</string>
+    <string name="mazda_mpv_s">MPV</string>
+    <string name="mazda_mx_3_s">MX\-3</string>
+    <string name="mazda_mx_5_s">MX\-5</string>
+    <string name="mazda_rx7_s">RX7</string>
+    <string name="mazda_rx8_s">RX8</string>
+    <string name="mazda_6_s">6</string>
+    <string name="mazda_efini_s">Efini</string>
+    <string name="mazda_proceed_s">Proceed</string>
+    <string name="mazda_premacy_s">Premacy</string>
+    <string name="mazda_bongo_s">Bongo</string>
+    <string name="mazda_binte_s">Binte</string>
+    <string name="mazda_pickup_s">pickup</string>
+    <string name="mazda_tribute_s">Tribute</string>
+    <string name="mazda_demio_s">Demio</string>
+    <string name="mazda_rustler_s">Rustler</string>
+    <string name="mazda_spiano_s">Spiano</string>
+    <string name="mazda_scrumm_s">Scrumm</string>
+    <string name="mazda_zedos_6_s">Xedos 6</string>
+    <string name="mazda_zedos_9_s">Xedos 9</string>
+    <string name="mazda_sentia_s">Sentia</string>
+    <string name="mazda_fmilia_s">Fmilia</string>
+    <string name="mazda_vantrend_s">Vantrend</string>
+    <string name="mazda_capella_s">Capella</string>
+    <string name="mazda_carol_s">Carol</string>
+    <string name="mazda_cliff_s">Cliff</string>
+    <string name="mazda_laputa_s">Laputa</string>
+    <string name="mazda_lantis_s">Lantis</string>
+    <string name="mazda_levante_s">Levante</string>
+    <string name="mazda_luce_s">Luce</string>
+    <string name="mazda_cx_30_s">CX\-30</string>
+    <string name="mazda_Tttan_s">Titan</string>
+    <string name="mazda_other_s">Other</string>
+
+
+
+
+
+    <string name="maserati_228">228</string>
+    <string name="maserati_gt3200">GT3200</string>
+    <string name="maserati_mc12">MC12</string>
+    <string name="maserati_indy">Indy</string>
+    <string name="maserati_barchetta_stradale">Barchetta Stradale</string>
+    <string name="maserati_bora">Bora</string>
+    <string name="maserati_biturbo">Biturbo</string>
+    <string name="maserati_chubasco">Chubasco</string>
+    <string name="maserati_ghibli">Ghibli</string>
+    <string name="maserati_khamsin">Khamsin</string>
+    <string name="maserati_royale">Royale</string>
+    <string name="maserati_spyder">Spyder</string>
+    <string name="maserati_shamal">Shamal</string>
+    <string name="maserati_granTurismo">GranTurismo</string>
+    <string name="maserati_granSport">GranSport</string>
+    <string name="maserati_granCabrio">GranCabrio</string>
+    <string name="maserati_karif">Karif</string>
+    <string name="maserati_quattroporte">Quattroporte</string>
+    <string name="maserati_coupe">Coupe</string>
+    <string name="maserati_kyalami">Kyalami</string>
+    <string name="maserati_maxico">Maxico</string>
+    <string name="maserati_merak">Merak</string>
+    <string name="maserati_other">Other</string>
+
+    //********************************************
+
+    <string name="maserati_228_s">228</string>
+    <string name="maserati_gt3200_s">GT3200</string>
+    <string name="maserati_mc12_s">MC12</string>
+    <string name="maserati_indy_s">Indy</string>
+    <string name="maserati_barchetta_stradale_s">Barchetta Stradale</string>
+    <string name="maserati_bora_s">Bora</string>
+    <string name="maserati_biturbo_s">Biturbo</string>
+    <string name="maserati_chubasco_s">Chubasco</string>
+    <string name="maserati_ghibli_s">Ghibli</string>
+    <string name="maserati_khamsin_s">Khamsin</string>
+    <string name="maserati_royale_s">Royale</string>
+    <string name="maserati_spyder_s">Spyder</string>
+    <string name="maserati_shamal_s">Shamal</string>
+    <string name="maserati_granTurismo_s">GranTurismo</string>
+    <string name="maserati_granSport_s">GranSport</string>
+    <string name="maserati_granCabrio_s">GranCabrio</string>
+    <string name="maserati_karif_s">Karif</string>
+    <string name="maserati_quattroporte_s">Quattroporte</string>
+    <string name="maserati_coupe_s">Coupe</string>
+    <string name="maserati_kyalami_s">Kyalami</string>
+    <string name="maserati_maxico_s">Maxico</string>
+    <string name="maserati_merak_s">Merak</string>
+    <string name="maserati_other_s">Other</string>
+
+
+
+    <string name="morgan_plus4">Plus4</string>
+    <string name="morgan_plus8">Plus8</string>
+    <string name="morgan_v6">V6</string>
+    <string name="morgan_aero">Aero</string>
+    <string name="morgan_aero_8">Aero 8</string>
+    <string name="morgan_roadster">Roadster</string>
+    <string name="morgan_other">Other</string>
+
+    //*************************************
+
+    <string name="morgan_plus4_s">Plus4</string>
+    <string name="morgan_plus8_s">Plus8</string>
+    <string name="morgan_v6_s">V6</string>
+    <string name="morgan_aero_s">Aero</string>
+    <string name="morgan_aero_8_s">Aero 8</string>
+    <string name="morgan_roadster_s">Roadster</string>
+    <string name="morgan_other_s">Other</string>
+
+
+
+
+    <string name="mitsubishi_asx">ASX</string>
+    <string name="mitsubishi_fto">FTO</string>
+    <string name="mitsubishi_3000gt">3000GT</string>
+    <string name="mitsubishi_gto">GTO</string>
+    <string name="mitsubishi_l200">L200</string>
+    <string name="mitsubishi_rvr">RVR</string>
+    <string name="mitsubishi_outlander">Outlander</string>
+    <string name="mitsubishi_aspire">Aspire</string>
+    <string name="mitsubishi_eclipse">Eclipse</string>
+    <string name="mitsubishi_endeavour">Endeavour</string>
+    <string name="mitsubishi_i_miev">i\-MiEV</string>
+    <string name="mitsubishi_evolution">Evolution</string>
+    <string name="mitsubishi_eK_wagon">eK Wagon</string>
+    <string name="mitsubishi_emeraude">Emeraude</string>
+    <string name="mitsubishi_pajero">Pajero</string>
+    <string name="mitsubishi_pajero_sport">Pajero Sport</string>
+    <string name="mitsubishi_proudia">Proudia</string>
+    <string name="mitsubishi_pistachio">Pistachio</string>
+    <string name="mitsubishi_town_box">Town Box</string>
+    <string name="mitsubishi_tredia">Tredia</string>
+    <string name="mitsubishi_chariot">Chariot</string>
+    <string name="mitsubishi_galant">Galant</string>
+    <string name="mitsubishi_grandis">Grandis</string>
+    <string name="mitsubishi_jeep">Jeep</string>
+    <string name="mitsubishi_debonair">Debonair</string>
+    <string name="mitsubishi_delica">Delica</string>
+    <string name="mitsubishi_dingo">Dingo</string>
+    <string name="mitsubishi_dion">Dion</string>
+    <string name="mitsubishi_raider">Raider</string>
+    <string name="mitsubishi_sapporo">Sapporo</string>
+    <string name="mitsubishi_space_runner">Space Runner</string>
+    <string name="mitsubishi_space_star">Space Star</string>
+    <string name="mitsubishi_space_wagon">Space Wagon</string>
+    <string name="mitsubishi_celeste">Celeste</string>
+    <string name="mitsubishi_fuso_canter">Fuso Canter</string>
+    <string name="mitsubishi_fuso_rosa">Fuso Rosa</string>
+    <string name="mitsubishi_carisma">Carisma</string>
+    <string name="mitsubishi_canter">Canter</string>
+    <string name="mitsubishi_cordia">Cordia</string>
+    <string name="mitsubishi_colt">Colt</string>
+    <string name="mitsubishi_lancer">Lancer</string>
+    <string name="mitsubishi_legnum">Legnum</string>
+    <string name="mitsubishi_magna">Magna</string>
+    <string name="mitsubishi_montero">Montero</string>
+    <string name="mitsubishi_mirage">Mirage</string>
+    <string name="mitsubishi_monica">Monica</string>
+    <string name="mitsubishi_native">Native</string>
+    <string name="mitsubishi_attrage">Attrage</string>
+    <string name="mitsubishi_fuso">Fuso</string>
+    <string name="mitsubishi_pajero_io">Pajero io</string>
+    <string name="mitsubishi_pajero_mini">Pajero Mini</string>
+    <string name="mitsubishi_rosa">Rosa</string>
+    <string name="mitsubishi_other">Other</string>
+
+    //*************************************************
+
+    <string name="mitsubishi_asx_s">ASX</string>
+    <string name="mitsubishi_fto_s">FTO</string>
+    <string name="mitsubishi_3000gt_s">3000GT</string>
+    <string name="mitsubishi_gto_s">GTO</string>
+    <string name="mitsubishi_l200_s">L200</string>
+    <string name="mitsubishi_rvr_s">RVR</string>
+    <string name="mitsubishi_outlander_s">Outlander</string>
+    <string name="mitsubishi_aspire_s">Aspire</string>
+    <string name="mitsubishi_eclipse_s">Eclipse</string>
+    <string name="mitsubishi_endeavour_s">Endeavour</string>
+    <string name="mitsubishi_i_miev_s">i\-MiEV</string>
+    <string name="mitsubishi_evolution_s">Evolution</string>
+    <string name="mitsubishi_eK_wagon_s">eK Wagon</string>
+    <string name="mitsubishi_emeraude_s">Emeraude</string>
+    <string name="mitsubishi_pajero_s">Pajero</string>
+    <string name="mitsubishi_pajero_sport_s">Pajero Sport</string>
+    <string name="mitsubishi_proudia_s">Proudia</string>
+    <string name="mitsubishi_pistachio_s">Pistachio</string>
+    <string name="mitsubishi_town_box_s">Town Box</string>
+    <string name="mitsubishi_tredia_s">Tredia</string>
+    <string name="mitsubishi_chariot_s">Chariot</string>
+    <string name="mitsubishi_galant_s">Galant</string>
+    <string name="mitsubishi_grandis_s">Grandis</string>
+    <string name="mitsubishi_jeep_s">Jeep</string>
+    <string name="mitsubishi_debonair_s">Debonair</string>
+    <string name="mitsubishi_delica_s">Delica</string>
+    <string name="mitsubishi_dingo_s">Dingo</string>
+    <string name="mitsubishi_dion_s">Dion</string>
+    <string name="mitsubishi_raider_s">Raider</string>
+    <string name="mitsubishi_sapporo_s">Sapporo</string>
+    <string name="mitsubishi_space_runner_s">Space Runner</string>
+    <string name="mitsubishi_space_star_s">Space Star</string>
+    <string name="mitsubishi_space_wagon_s">Space Wagon</string>
+    <string name="mitsubishi_celeste_s">Celeste</string>
+    <string name="mitsubishi_fuso_canter_s">Fuso Canter</string>
+    <string name="mitsubishi_fuso_rosa_s">Fuso Rosa</string>
+    <string name="mitsubishi_carisma_s">Carisma</string>
+    <string name="mitsubishi_canter_s">Canter</string>
+    <string name="mitsubishi_cordia_s">Cordia</string>
+    <string name="mitsubishi_colt_s">Colt</string>
+    <string name="mitsubishi_lancer_s">Lancer</string>
+    <string name="mitsubishi_legnum_s">Legnum</string>
+    <string name="mitsubishi_magna_s">Magna</string>
+    <string name="mitsubishi_montero_s">Montero</string>
+    <string name="mitsubishi_mirage_s">Mirage</string>
+    <string name="mitsubishi_monica_s">Monica</string>
+    <string name="mitsubishi_native_s">Native</string>
+    <string name="mitsubishi_attrage_s">Attrage</string>
+    <string name="mitsubishi_fuso_s">Fuso</string>
+    <string name="mitsubishi_pajero_io_s">Pajero io</string>
+    <string name="mitsubishi_pajero_mini_s">Pajero Mini</string>
+    <string name="mitsubishi_rosa_s">Rosa</string>
+    <string name="mitsubishi_other_s">Other</string>
+
+
+
+
+    <string name="mercury_tracer">Tracer</string>
+    <string name="mercury_topaz">Topaz</string>
+    <string name="mercury_grand_marquis">Grand Marquis</string>
+    <string name="mercury_sable">Sable</string>
+    <string name="mercury_villager">Villager</string>
+    <string name="mercury_capri">Capri</string>
+    <string name="mercury_cougar">Cougar</string>
+    <string name="mercury_marauder">Marauder</string>
+    <string name="mercury_marquis">Marquis</string>
+    <string name="mercury_mariner">Mariner</string>
+    <string name="mercury_mountaineer">Mountaineer</string>
+    <string name="mercury_montego">Montego</string>
+    <string name="mercury_mystique">Mystique</string>
+    <string name="mercury_milan">Milan</string>
+    <string name="mercury_other">Other</string>
+
+    //*****************************************
+
+    <string name="mercury_tracer_s">Tracer</string>
+    <string name="mercury_topaz_s">Topaz</string>
+    <string name="mercury_grand_marquis_s">Grand Marquis</string>
+    <string name="mercury_sable_s">Sable</string>
+    <string name="mercury_villager_s">Villager</string>
+    <string name="mercury_capri_s">Capri</string>
+    <string name="mercury_cougar_s">Cougar</string>
+    <string name="mercury_marauder_s">Marauder</string>
+    <string name="mercury_marquis_s">Marquis</string>
+    <string name="mercury_mariner_s">Mariner</string>
+    <string name="mercury_mountaineer_s">Mountaineer</string>
+    <string name="mercury_montego_s">Montego</string>
+    <string name="mercury_mystique_s">Mystique</string>
+    <string name="mercury_milan_s">Milan</string>
+    <string name="mercury_other_s">Other</string>
+
+
+
+
+
+    <string name="mini_one">One</string>
+    <string name="mini_clubman">Clubman</string>
+    <string name="mini_cooper">Cooper</string>
+    <string name="mini_countryman">Countryman</string>
+    <string name="mini_cooper_cabrio">Cooper Cabrio</string>
+    <string name="mini_cooper_paceman">Cooper Paceman</string>
+    <string name="mini_cooper_s">Cooper S</string>
+    <string name="mini_cooper_s_cabrio">Cooper S Cabrio</string>
+    <string name="mini_cooper_s_clubman">Cooper S Clubman</string>
+    <string name="mini_cooper_s_countryman">Cooper S Countryman</string>
+    <string name="mini_cooper_s_Coupé">Cooper S Coupé</string>
+    <string name="mini_cooper_s_paceman">Cooper S Paceman</string>
+    <string name="mini_John_cooper_works">John Cooper Works</string>
+    <string name="mini_John_cooper_works_countryman">John Cooper Works Countryman</string>
+    <string name="mini_john_cooper_works_coupé">John Cooper Works Coupé</string>
+    <string name="mini_other">Other</string>
+
+    //*****************************************
+
+    <string name="mini_one_s">One</string>
+    <string name="mini_clubman_s">Clubman</string>
+    <string name="mini_cooper_car__s">Cooper</string>
+    <string name="mini_countryman_s">Countryman</string>
+    <string name="mini_cooper_cabrio_s">Cooper Cabrio</string>
+    <string name="mini_cooper_paceman_s">Cooper Paceman</string>
+    <string name="mini_cooper_s_s">Cooper S</string>
+    <string name="mini_cooper_s_cabrio_s">Cooper S Cabrio</string>
+    <string name="mini_cooper_s_clubman_s">Cooper S Clubman</string>
+    <string name="mini_cooper_s_countryman_s">Cooper S Countryman</string>
+    <string name="mini_cooper_s_Coupé_s">Cooper S Coupé</string>
+    <string name="mini_cooper_s_paceman_s">Cooper S Paceman</string>
+    <string name="mini_John_cooper_works_s">John Cooper Works</string>
+    <string name="mini_John_cooper_works_countryman_s">John Cooper Works Countryman</string>
+    <string name="mini_john_cooper_works_coupé_s">John Cooper Works Coupé</string>
+    <string name="mini_other_s">Other</string>
+
+
+
+
+
+    <string name="nissan_100nx">100NX</string>
+    <string name="nissan_180sx">180SX</string>
+    <string name="nissan_200sx">200SX</string>
+    <string name="nissan_240sx">240SX</string>
+    <string name="nissan_280zx">280ZX</string>
+    <string name="nissan_300xz">300ZX</string>
+    <string name="nissan_350z">350Z</string>
+    <string name="nissan_370z">370Z</string>
+    <string name="nissan_ad">AD</string>
+    <string name="nissan_gt_r">GT\-R</string>
+    <string name="nissan_np_300">NP 300</string>
+    <string name="nissan_nx_coupe">NX Coupe</string>
+    <string name="nissan_x_trail">X\-Trail</string>
+    <string name="nissan_elgrand">Elgrand</string>
+    <string name="nissan_armada">Armada</string>
+    <string name="nissan_avenir">Avenir</string>
+    <string name="nissan_xterra">Xterra</string>
+    <string name="nissan_altima">Altima</string>
+    <string name="nissan_almera">Almera</string>
+    <string name="nissan_otti">Otti</string>
+    <string name="nissan_patrol">Patrol</string>
+    <string name="nissan_pathfinder">Pathfinder</string>
+    <string name="nissan_bassara">Bassara</string>
+    <string name="nissan_prairie">Prairie</string>
+    <string name="nissan_presage">Presage</string>
+    <string name="nissan_presea">Presea</string>
+    <string name="nissan_president">President</string>
+    <string name="nissan_bluebird">Bluebird</string>
+    <string name="nissan_pulsar">Pulsar </string>
+    <string name="nissan_pickup">Pickup</string>
+    <string name="nissan_titan">Titan</string>
+    <string name="nissan_cherry">Cherry</string>
+    <string name="nissan_tiida">Tiida</string>
+    <string name="nissan_terrano">Terrano</string>
+    <string name="nissan_gloria">Gloria</string>
+    <string name="nissan_juke">Juke</string>
+    <string name="nissan_junior">Junior</string>
+    <string name="nissan_datsun">Datsun</string>
+    <string name="nissan_rasheen">Rasheen</string>
+    <string name="nissan_rogue">Rogue</string>
+    <string name="nissan_stagea">Stagea</string>
+    <string name="nissan_stanza">Stanza</string>
+    <string name="nissan_skyline">Skyline</string>
+    <string name="nissan_sentra">Sentra</string>
+    <string name="nissan_cadric">Cadric</string>
+    <string name="nissan_serena">Serena</string>
+    <string name="nissan_cefiro">Cefiro</string>
+    <string name="nissan_silvia">Silvia</string>
+    <string name="nissan_cima">Cima</string>
+    <string name="nissan_sunny">Sunny</string>
+    <string name="nissan_van">Van</string>
+    <string name="nissan_vanette">Vanette</string>
+    <string name="nissan_fairlady">Fairlady</string>
+    <string name="nissan_frontier">Frontier</string>
+    <string name="nissan_fuga">Fuga</string>
+    <string name="nissan_versa">Versa</string>
+    <string name="nissan_figaro">Figaro</string>
+    <string name="nissan_qashqai">Qashqai</string>
+    <string name="nissan_crew">Crew</string>
+    <string name="nissan_quest">Quest</string>
+    <string name="nissan_kicks">kicks</string>
+    <string name="nissan_cube">Cube</string>
+    <string name="nissan_largo">Largo</string>
+    <string name="nissan_lafesta">Lafesta</string>
+    <string name="nissan_laurel">Laurel</string>
+    <string name="nissan_lucino">Lucino</string>
+    <string name="nissan_lberty">Liberty</string>
+    <string name="nissan_leaf">Leaf</string>
+    <string name="nissan_livina">Livina</string>
+    <string name="nissan_leopard">Leopard</string>
+    <string name="nissan_maxima">Maxima</string>
+    <string name="nissan_murano">Murano</string>
+    <string name="nissan_moco">Moco</string>
+    <string name="nissan_mistral">Mistral</string>
+    <string name="nissan_micra">Micra</string>
+    <string name="nissan_navara">Navara</string>
+    <string name="nissan_n90">N90</string>
+    <string name="nissan_wingroad">Wingroad</string>
+    <string name="nissan_almera_tino">Almera Tino</string>
+    <string name="nissan_caravan">Caravan</string>
+    <string name="nissan_condor">Condor</string>
+    <string name="nissan_dualis">Dualis</string>
+    <string name="nissan_dualis_2">Dualis \+2</string>
+    <string name="nissan_note">Note</string>
+    <string name="nissan_nv350">NV350</string>
+    <string name="nissan_patrol_pickup">Patrol Pickup</string>
+    <string name="nissan_patrol_safari">Patrol Safari</string>
+    <string name="nissan_teana">Teana</string>
+    <string name="nissan_united_diesel">United Diesel</string>
+    <string name="nissan_urvan">Urvan</string>
+    <string name="nissan_other">Other</string>
+
+    //***************************************************
+
+    <string name="nissan_100nx_s">100NX</string>
+    <string name="nissan_180sx_s">180SX</string>
+    <string name="nissan_200sx_s">200SX</string>
+    <string name="nissan_240sx_s">240SX</string>
+    <string name="nissan_280zx_s">280ZX</string>
+    <string name="nissan_300xz_s">300ZX</string>
+    <string name="nissan_350z_s">350Z</string>
+    <string name="nissan_370z_s">370Z</string>
+    <string name="nissan_ad_s">AD</string>
+    <string name="nissan_gt_r_s">GT\-R</string>
+    <string name="nissan_np_300_s">NP 300</string>
+    <string name="nissan_nx_coupe_s">NX Coupe</string>
+    <string name="nissan_x_trail_s">X\-Trail</string>
+    <string name="nissan_elgrand_s">Elgrand</string>
+    <string name="nissan_armada_s">Armada</string>
+    <string name="nissan_avenir_s">Avenir</string>
+    <string name="nissan_xterra_s">Xterra</string>
+    <string name="nissan_altima_s">Altima</string>
+    <string name="nissan_almera_s">Almera</string>
+    <string name="nissan_otti_s">Otti</string>
+    <string name="nissan_patrol_s">Patrol</string>
+    <string name="nissan_pathfinder_s">Pathfinder</string>
+    <string name="nissan_bassara_s">Bassara</string>
+    <string name="nissan_prairie_s">Prairie</string>
+    <string name="nissan_presage_s">Presage</string>
+    <string name="nissan_presea_s">Presea</string>
+    <string name="nissan_president_s">President</string>
+    <string name="nissan_bluebird_s">Bluebird</string>
+    <string name="nissan_pulsar_s">Pulsar </string>
+    <string name="nissan_pickup_s">Pickup</string>
+    <string name="nissan_titan_s">Titan</string>
+    <string name="nissan_cherry_s">Cherry</string>
+    <string name="nissan_tiida_s">Tiida</string>
+    <string name="nissan_terrano_s">Terrano</string>
+    <string name="nissan_gloria_s">Gloria</string>
+    <string name="nissan_juke_s">Juke</string>
+    <string name="nissan_junior_s">Junior</string>
+    <string name="nissan_datsun_s">Datsun</string>
+    <string name="nissan_rasheen_s">Rasheen</string>
+    <string name="nissan_rogue_s">Rogue</string>
+    <string name="nissan_stagea_s">Stagea</string>
+    <string name="nissan_stanza_s">Stanza</string>
+    <string name="nissan_skyline_s">Skyline</string>
+    <string name="nissan_sentra_s">Sentra</string>
+    <string name="nissan_cadric_s">Cadric</string>
+    <string name="nissan_serena_s">Serena</string>
+    <string name="nissan_cefiro_s">Cefiro</string>
+    <string name="nissan_silvia_s">Silvia</string>
+    <string name="nissan_cima_s">Cima</string>
+    <string name="nissan_sunny_s">Sunny</string>
+    <string name="nissan_van_s">Van</string>
+    <string name="nissan_vanette_s">Vanette</string>
+    <string name="nissan_fairlady_s">Fairlady</string>
+    <string name="nissan_frontier_s">Frontier</string>
+    <string name="nissan_fuga_s">Fuga</string>
+    <string name="nissan_versa_s">Versa</string>
+    <string name="nissan_figaro_s">Figaro</string>
+    <string name="nissan_qashqai_s">Qashqai</string>
+    <string name="nissan_crew_s">Crew</string>
+    <string name="nissan_quest_s">Quest</string>
+    <string name="nissan_kicks_s">kicks</string>
+    <string name="nissan_cube_s">Cube</string>
+    <string name="nissan_largo_s">Largo</string>
+    <string name="nissan_lafesta_s">Lafesta</string>
+    <string name="nissan_laurel_s">Laurel</string>
+    <string name="nissan_lucino_s">Lucino</string>
+    <string name="nissan_lberty_s">Liberty</string>
+    <string name="nissan_leaf_s">Leaf</string>
+    <string name="nissan_livina_s">Livina</string>
+    <string name="nissan_leopard_s">Leopard</string>
+    <string name="nissan_maxima_s">Maxima</string>
+    <string name="nissan_murano_s">Murano</string>
+    <string name="nissan_moco_s">Moco</string>
+    <string name="nissan_mistral_s">Mistral</string>
+    <string name="nissan_micra_s">Micra</string>
+    <string name="nissan_navara_s">Navara</string>
+    <string name="nissan_n90_s">N90</string>
+    <string name="nissan_wingroad_s">Wingroad</string>
+    <string name="nissan_almera_tino_s">Almera Tino</string>
+    <string name="nissan_caravan_s">Caravan</string>
+    <string name="nissan_condor_s">Condor</string>
+    <string name="nissan_dualis_s">Dualis</string>
+    <string name="nissan_dualis_2_s">Dualis \+2</string>
+    <string name="nissan_note_s">Note</string>
+    <string name="nissan_nv350_s">NV350</string>
+    <string name="nissan_patrol_pickup_s">Patrol Pickup</string>
+    <string name="nissan_patrol_safari_s">Patrol Safari</string>
+    <string name="nissan_teana_s">Teana</string>
+    <string name="nissan_united_diesel_s">United Diesel</string>
+    <string name="nissan_urvan_s">Urvan</string>
+    <string name="nissan_other_s">Other</string>
+
+
+
+    <string name="hummer_h1">H1</string>
+    <string name="hummer_h2">H2</string>
+    <string name="hummer_h3">H3</string>
+    <string name="hummer_other">Other</string>
+
+    //******************************************
+
+    <string name="hummer_h1_s">H1</string>
+    <string name="hummer_h2_s">H2</string>
+    <string name="hummer_h3_s">H3</string>
+    <string name="hummer_other_s">Other</string>
+
+
+
+
+
+    <string name="honda_cr_v">CR\-V</string>
+    <string name="honda_vr_z">CR\-Z</string>
+    <string name="honda_hr_v">HR\-V</string>
+    <string name="honda_mdx">MDX</string>
+    <string name="honda_mr_v">MR\-V</string>
+    <string name="honda_nsx">NSX</string>
+    <string name="honda_s2000">S2000</string>
+    <string name="honda_smx">SMX</string>
+    <string name="honda_srx">SRX</string>
+    <string name="honda_that_s">That\'s</string>
+    <string name="honda_z">Z</string>
+    <string name="honda_accord">Accord</string>
+    <string name="honda_odyssey">Odyssey</string>
+    <string name="honda_insight">Insight</string>
+    <string name="honda_inspire">Inspire</string>
+    <string name="honda_fcx_clarity">FCX Clarity</string>
+    <string name="honda_avencier">Avencier</string>
+    <string name="honda_element">Element</string>
+    <string name="honda_integra">Integra</string>
+    <string name="honda_orthia">Orthia</string>
+    <string name="honda_edix">Edix</string>
+    <string name="honda_airwave">Airwave</string>
+    <string name="honda_elysion">Elysion</string>
+    <string name="honda_partner">Partner</string>
+    <string name="honda_passport">Passport</string>
+    <string name="honda_pilot">Pilot</string>
+    <string name="honda_prelude">Prelude</string>
+    <string name="honda_beat">Beat</string>
+    <string name="honda_today">Today</string>
+    <string name="honda_domani">Domani</string>
+    <string name="honda_rafaga">Rafaga</string>
+    <string name="honda_ridgeline">Ridgeline</string>
+    <string name="honda_step_wgn">Step WGN</string>
+    <string name="honda_stream">Stream</string>
+    <string name="honda_city">City</string>
+    <string name="honda_civic">Civic</string>
+    <string name="honda_shuttle">Shuttle</string>
+    <string name="honda_vamos">Vamos</string>
+    <string name="honda_vigor">Vigor</string>
+    <string name="honda_jazz">Jazz</string>
+    <string name="honda_fit_aria">Fit Aria</string>
+    <string name="honda_capa">Capa</string>
+    <string name="honda_crossroad">Crossroad</string>
+    <string name="honda_concerto">Concerto</string>
+    <string name="honda_quintet">Quintet</string>
+    <string name="honda_laGreat">LaGreat</string>
+    <string name="honda_life">Life</string>
+    <string name="honda_logo">Logo</string>
+    <string name="honda_legend">Legend</string>
+    <string name="honda_mobilio">Mobilio</string>
+    <string name="honda_accord_Coupe">Accord Coupe</string>
+    <string name="honda_other">Other</string>
+
+    //************************************************
+
+    <string name="honda_cr_v_s">CR\-V</string>
+    <string name="honda_vr_z_s">CR\-Z</string>
+    <string name="honda_hr_v_s">HR\-V</string>
+    <string name="honda_mdx_s">MDX</string>
+    <string name="honda_mr_v_s">MR\-V</string>
+    <string name="honda_nsx_s">NSX</string>
+    <string name="honda_s2000_s">S2000</string>
+    <string name="honda_smx_s">SMX</string>
+    <string name="honda_srx_s">SRX</string>
+    <string name="honda_that_s_s">That\'s</string>
+    <string name="honda_z_s">Z</string>
+    <string name="honda_accord_s">Accord</string>
+    <string name="honda_odyssey_s">Odyssey</string>
+    <string name="honda_insight_s">Insight</string>
+    <string name="honda_inspire_s">Inspire</string>
+    <string name="honda_fcx_clarity_s">FCX Clarity</string>
+    <string name="honda_avencier_s">Avencier</string>
+    <string name="honda_element_s">Element</string>
+    <string name="honda_integra_s">Integra</string>
+    <string name="honda_orthia_s">Orthia</string>
+    <string name="honda_edix_s">Edix</string>
+    <string name="honda_airwave_s">Airwave</string>
+    <string name="honda_elysion_s">Elysion</string>
+    <string name="honda_partner_s">Partner</string>
+    <string name="honda_passport_s">Passport</string>
+    <string name="honda_pilot_s">Pilot</string>
+    <string name="honda_prelude_s">Prelude</string>
+    <string name="honda_beat_s">Beat</string>
+    <string name="honda_today_s">Today</string>
+    <string name="honda_domani_s">Domani</string>
+    <string name="honda_rafaga_s">Rafaga</string>
+    <string name="honda_ridgeline_s">Ridgeline</string>
+    <string name="honda_step_wgn_s">Step WGN</string>
+    <string name="honda_stream_s">Stream</string>
+    <string name="honda_city_s">City</string>
+    <string name="honda_civic_s">Civic</string>
+    <string name="honda_shuttle_s">Shuttle</string>
+    <string name="honda_vamos_s">Vamos</string>
+    <string name="honda_vigor_s">Vigor</string>
+    <string name="honda_jazz_s">Jazz</string>
+    <string name="honda_fit_aria_s">Fit Aria</string>
+    <string name="honda_capa_s">Capa</string>
+    <string name="honda_crossroad_s">Crossroad</string>
+    <string name="honda_concerto_s">Concerto</string>
+    <string name="honda_quintet_s">Quintet</string>
+    <string name="honda_laGreat_s">LaGreat</string>
+    <string name="honda_life_s">Life</string>
+    <string name="honda_logo_s">Logo</string>
+    <string name="honda_legend_s">Legend</string>
+    <string name="honda_mobilio_s">Mobilio</string>
+    <string name="honda_accord_Coupe_s">Accord Coupe</string>
+    <string name="honda_other_s">Other</string>
+
+
+
+
+    <string name="geely_ck">CK</string>
+    <string name="geely_gc2">GC2</string>
+    <string name="geely_gc5">GC5</string>
+    <string name="geely_gc6">GC6</string>
+    <string name="geely_gc7">GC7</string>
+    <string name="geely_gx2">GX2</string>
+    <string name="geely_hq">HQ</string>
+    <string name="geely_lc">LC</string>
+    <string name="geely_mk_cross">MK Cross</string>
+    <string name="geely_sc7">SC7</string>
+    <string name="geely_emgrand_7">Emgrand 7</string>
+    <string name="geely_emgrand_8">Emgrand 8</string>
+    <string name="geely_emgrand_x7">Emgrand X7</string>
+    <string name="geely_emgrand_gt">Emgrand GT</string>
+    <string name="geely_other">Other</string>
+
+    //*************************************************
+
+    <string name="geely_ck_s">CK</string>
+    <string name="geely_gc2_s">GC2</string>
+    <string name="geely_gc5_s">GC5</string>
+    <string name="geely_gc6_s">GC6</string>
+    <string name="geely_gc7_s">GC7</string>
+    <string name="geely_gx2_s">GX2</string>
+    <string name="geely_hq_s">HQ</string>
+    <string name="geely_lc_s">LC</string>
+    <string name="geely_mk_cross_s">MK Cross</string>
+    <string name="geely_sc7_s">SC7</string>
+    <string name="geely_emgrand_7_s">Emgrand 7</string>
+    <string name="geely_emgrand_8_s">Emgrand 8</string>
+    <string name="geely_emgrand_x7_s">Emgrand X7</string>
+    <string name="geely_emgrand_gt_s">Emgrand GT</string>
+    <string name="geely_other_s">Other</string>
+
+
+
+
+
+    <string name="zxauto_admiral">Admiral</string>
+    <string name="zxauto_grand_tiger">Grand Tiger</string>
+    <string name="zxauto_other">Other</string>
+
+    //*************************************************
+
+    <string name="zxauto_admiral_s">Admiral</string>
+    <string name="zxauto_grand_tiger_s">Grand Tiger</string>
+    <string name="zxauto_other_s">Other</string>
+
+
+
+
+
+
+    <string name="mg_mg3">MG3</string>
+    <string name="mg_mg5">MG5</string>
+    <string name="mg_mg6">MG6</string>
+    <string name="mg_350s">350s</string>
+    <string name="mg_550">550</string>
+    <string name="mg_mga">MGA</string>
+    <string name="mg_mgc">MGC</string>
+    <string name="mg_midget">Midget</string>
+    <string name="mg_other">Other</string>
+
+    //*************************************************
+
+    <string name="mg_mg3_s">MG3</string>
+    <string name="mg_mg5_s">MG5</string>
+    <string name="mg_mg6_s">MG6</string>
+    <string name="mg_350s_s">350s</string>
+    <string name="mg_550_s">550</string>
+    <string name="mg_mga_s">MGA</string>
+    <string name="mg_mgc_s">MGC</string>
+    <string name="mg_midget_s">Midget</string>
+    <string name="mg_other_s">Other</string>
+
+
+
+
+
+    <string name="proton_gen_2">Gen\-2</string>
+    <string name="proton_persona">Persona</string>
+    <string name="proton_waja">Waja</string>
+    <string name="proton_other">Other</string>
+
+    //*************************************************
+
+    <string name="proton_gen_2_s">Gen\-2</string>
+    <string name="proton_persona_s">Persona</string>
+    <string name="proton_waja_s">Waja</string>
+    <string name="proton_other_s">Other</string>
+
+
+
+
+
+
+    <string name="brilliance_h220">H220</string>
+    <string name="brilliance_h230">H230</string>
+    <string name="brilliance_h320">H320</string>
+    <string name="brilliance_h330">H330</string>
+    <string name="brilliance_h530">H530</string>
+    <string name="brilliance_m1">M1</string>
+    <string name="brilliance_v5">V5</string>
+    <string name="brilliance_other">Other</string>
+
+    //*************************************************
+
+    <string name="brilliance_h220_s">H220</string>
+    <string name="brilliance_h230_s">H230</string>
+    <string name="brilliance_h320_s">H320</string>
+    <string name="brilliance_h330_s">H330</string>
+    <string name="brilliance_h530_s">H530</string>
+    <string name="brilliance_m1_s">M1</string>
+    <string name="brilliance_v5_s">V5</string>
+    <string name="brilliance_other_s">Other</string>
+
+
+
+
+
+    <string name="bdy_f0">F0</string>
+    <string name="bdy_f3r">F3R</string>
+    <string name="bdy_f5">F5</string>
+    <string name="bdy_f6">F6</string>
+    <string name="bdy_f7">F7</string>
+    <string name="bdy_g3">G3</string>
+    <string name="bdy_s6">S6</string>
+    <string name="bdy_e6">e6</string>
+    <string name="bdy_other">Other</string>
+
+    //************************************
+
+    <string name="bdy_f0_s">F0</string>
+    <string name="bdy_f3r_s">F3R</string>
+    <string name="bdy_f5_s">F5</string>
+    <string name="bdy_f6_s">F6</string>
+    <string name="bdy_f7_s">F7</string>
+    <string name="bdy_g3_s">G3</string>
+    <string name="bdy_s6_s">S6</string>
+    <string name="bdy_e6_s">e6</string>
+    <string name="bdy_other_s">Other</string>
+
+
+
+
+
+    <string name="samsung_qm5">QM5</string>
+    <string name="samsung_qm3">QM3</string>
+    <string name="samsung_sm_3">SM 3</string>
+    <string name="samsung_sm_5">SM 5</string>
+    <string name="samsung_sm_6">SM 6</string>
+    <string name="samsung_sm_7">SM 7</string>
+    <string name="samsung_other">Other</string>
+
+    //************************************
+
+    <string name="samsung_qm5_s">QM5</string>
+    <string name="samsung_qm3_s">QM3</string>
+    <string name="samsung_sm_3_s">SM 3</string>
+    <string name="samsung_sm_5_s">SM 5</string>
+    <string name="samsung_sm_6_s">SM 6</string>
+    <string name="samsung_sm_7_s">SM 7</string>
+    <string name="samsung_other_s">Other</string>
+
+
+
+
+    <string name="tesla_3">3</string>
+    <string name="tesla_S">S</string>
+    <string name="tesla_X">X </string>
+    <string name="tesla_Other">Other</string>
+
+    //************************************
+
+    <string name="tesla_3_s">3</string>
+    <string name="tesla_S_s">S</string>
+    <string name="tesla_X_s">X </string>
+    <string name="tesla_Other_s">Other</string>
+
+
+
+
+
+    <string name="iran_khodro_samand">Samand</string>
+    <string name="iran_khodro_tiba">Tiba</string>
+    <string name="iran_khodro_other">Other</string>
+
+    //************************************
+
+    <string name="iran_khodro_samand_s">Samand</string>
+    <string name="iran_khodro_tiba_s">Tiba</string>
+    <string name="iran_khodro_other_s">Other</string>
+
+
+
+
+
+
+    <string name="tata_aria">Aria</string>
+    <string name="tata_indigo">Indigo</string>
+    <string name="tata_indica">Indica</string>
+    <string name="tata_bolt">Bolt</string>
+    <string name="tata_telcoline">Telcoline</string>
+    <string name="tata_tiago">Tiago</string>
+    <string name="tata_genX_nano">GenX Nano</string>
+    <string name="tata_xenon">Xenon</string>
+    <string name="tata_safari">Safari</string>
+    <string name="tata_sumo">Sumo</string>
+    <string name="tata_nano">Nano</string>
+    <string name="tata_613">613</string>
+    <string name="tata_other">Other</string>
+
+    //************************************
+
+    <string name="tata_aria_s">Aria</string>
+    <string name="tata_indigo_s">Indigo</string>
+    <string name="tata_indica_s">Indica</string>
+    <string name="tata_bolt_s">Bolt</string>
+    <string name="tata_telcoline_s">Telcoline</string>
+    <string name="tata_tiago_s">Tiago</string>
+    <string name="tata_genX_nano_s">GenX Nano</string>
+    <string name="tata_xenon_s">Xenon</string>
+    <string name="tata_safari_s">Safari</string>
+    <string name="tata_sumo_s">Sumo</string>
+    <string name="tata_nano_s">Nano</string>
+    <string name="tata_613_s">613</string>
+    <string name="tata_other_s">Other</string>
+
+
+
+
+
+
+    <string name="bugatti_eb_110">EB 110</string>
+    <string name="bugatti_chiron">Chiron</string>
+    <string name="bugatti_grand_sport">Grand Sport</string>
+    <string name="bugatti_super_sport">Super Sport</string>
+    <string name="bugatti_veyron">Veyron</string>
+    <string name="bugatti_other">Other</string>
+
+    //************************************
+
+    <string name="bugatti_eb_110_s">EB 110</string>
+    <string name="bugatti_chiron_s">Chiron</string>
+    <string name="bugatti_grand_sport_s">Grand Sport</string>
+    <string name="bugatti_super_sport_s">Super Sport</string>
+    <string name="bugatti_veyron_s">Veyron</string>
+    <string name="bugatti_other_s">Other</string>
+
+
+
+
+
+    <string name="buick_envision">Envision</string>
+    <string name="buick_enclave">Enclave</string>
+    <string name="buick_encore">Encore</string>
+    <string name="buick_park_Avenue">Park Avenue</string>
+    <string name="buick_regal">Regal</string>
+    <string name="buick_riviera">Riviera</string>
+    <string name="buick_century">Century</string>
+    <string name="buick_verano">Verano</string>
+    <string name="buick_cascada">Cascada</string>
+    <string name="buick_laCrosse">LaCrosse</string>
+    <string name="buick_leSabre">LeSabre</string>
+    <string name="buick_coupe_super_8">Coupe Super 8</string>
+    <string name="buick_other">Other</string>
+
+    //************************************
+
+    <string name="buick_envision_s">Envision</string>
+    <string name="buick_enclave_s">Enclave</string>
+    <string name="buick_encore_s">Encore</string>
+    <string name="buick_park_Avenue_s">Park Avenue</string>
+    <string name="buick_regal_s">Regal</string>
+    <string name="buick_riviera_s">Riviera</string>
+    <string name="buick_century_s">Century</string>
+    <string name="buick_verano_s">Verano</string>
+    <string name="buick_cascada_s">Cascada</string>
+    <string name="buick_laCrosse_s">LaCrosse</string>
+    <string name="buick_leSabre_s">LeSabre</string>
+    <string name="buick_coupe_super_8_s">Coupe Super 8</string>
+    <string name="buick_other_s">Other</string>
+
+
+
+
+    <string name="acura_cl">CL</string>
+    <string name="acura_ilx">ILX</string>
+    <string name="acura_mdx">MDX</string>
+    <string name="acura_nsx">NSX</string>
+    <string name="acura_rdx">RDX</string>
+    <string name="acura_rl">RL</string>
+    <string name="acura_rlx">RLX</string>
+    <string name="acura_rsx">RSX</string>
+    <string name="acura_tl">TL</string>
+    <string name="acura_tlx">TLX</string>
+    <string name="acura_tsx">TSX</string>
+    <string name="acura_zdx">ZDX</string>
+    <string name="acura_integra">Integra</string>
+    <string name="acura_legend">Legend</string>
+    <string name="acura_other">Other</string>
+
+    //************************************
+
+    <string name="acura_cl_s">CL</string>
+    <string name="acura_ilx_s">ILX</string>
+    <string name="acura_mdx_s">MDX</string>
+    <string name="acura_nsx_s">NSX</string>
+    <string name="acura_rdx_s">RDX</string>
+    <string name="acura_rl_s">RL</string>
+    <string name="acura_rlx_s">RLX</string>
+    <string name="acura_rsx_s">RSX</string>
+    <string name="acura_tl_s">TL</string>
+    <string name="acura_tlx_s">TLX</string>
+    <string name="acura_tsx_s">TSX</string>
+    <string name="acura_zdx_s">ZDX</string>
+    <string name="acura_integra_s">Integra</string>
+    <string name="acura_legend_s">Legend</string>
+    <string name="acura_other_s">Other</string>
+
+
+
+
+    <string name="scion_fr_s">FR\-S</string>
+    <string name="scion_ia">iA</string>
+    <string name="scion_im">iM</string>
+    <string name="scion_tc">tC</string>
+    <string name="scion_xa">xA</string>
+    <string name="scion_xb">xB</string>
+    <string name="scion_xd">xD</string>
+    <string name="scion_fuse">Fuse</string>
+    <string name="scion_other">Other</string>
+
+    //************************************
+
+    <string name="scion_fr_s_s">FR\-S</string>
+    <string name="scion_ia_s">iA</string>
+    <string name="scion_im_s">iM</string>
+    <string name="scion_tc_s">tC</string>
+    <string name="scion_xa_s">xA</string>
+    <string name="scion_xb_s">xB</string>
+    <string name="scion_xd_s">xD</string>
+    <string name="scion_fuse_s">Fuse</string>
+    <string name="scion_other_s">Other</string>
+
+
+
+
+
+    <string name="mclaren_540">540</string>
+    <string name="mclaren_570">570</string>
+    <string name="mclaren_650">650</string>
+    <string name="mclaren_675">675</string>
+    <string name="mclaren_12c">12C</string>
+    <string name="mclaren_p1">P1</string>
+    <string name="mclaren_other">Other</string>
+
+    //*****************************************
+
+    <string name="mclaren_540_s">540</string>
+    <string name="mclaren_570_s">570</string>
+    <string name="mclaren_650_s">650</string>
+    <string name="mclaren_675_s">675</string>
+    <string name="mclaren_12c_s">12C</string>
+    <string name="mclaren_p1_s">P1</string>
+    <string name="mclaren_other_s">Other</string>
+
+
+
+
+    <string name="pagani_zonda">Zonda</string>
+    <string name="pagani_huayra">Huayra</string>
+    <string name="pagani_other">Other</string>
+
+    //*****************************************
+
+    <string name="pagani_zonda_s">Zonda</string>
+    <string name="pagani_huayra_s">Huayra</string>
+    <string name="pagani_other_s">Other</string>
+
+
+
+
+
+    <string name="lancia_thesis">Thesis</string>
+    <string name="lancia_thema">Thema</string>
+    <string name="lancia_delta">Delta</string>
+    <string name="lancia_dedra">Dedra</string>
+    <string name="lancia_flavia">Flavia</string>
+    <string name="lancia_voyager">Voyager</string>
+    <string name="lancia_kappa">Kappa</string>
+    <string name="lancia_lybra">Lybra</string>
+    <string name="lancia_musa">Musa</string>
+    <string name="lancia_ypsilon">Ypsilon</string>
+    <string name="lancia_stratos">Stratos</string>
+    <string name="lancia_other">Other</string>
+
+    //*****************************************
+
+    <string name="lancia_thesis_s">Thesis</string>
+    <string name="lancia_thema_s">Thema</string>
+    <string name="lancia_delta_s">Delta</string>
+    <string name="lancia_dedra_s">Dedra</string>
+    <string name="lancia_flavia_s">Flavia</string>
+    <string name="lancia_voyager_s">Voyager</string>
+    <string name="lancia_kappa_s">Kappa</string>
+    <string name="lancia_lybra_s">Lybra</string>
+    <string name="lancia_musa_s">Musa</string>
+    <string name="lancia_ypsilon_s">Ypsilon</string>
+    <string name="lancia_stratos_s">Stratos</string>
+    <string name="lancia_other_s">Other</string>
+
+
+
+
+    <string name="jac_iev_5">IEV 5</string>
+    <string name="jac_iev_6">IEV 6</string>
+    <string name="jac_s1">S1</string>
+    <string name="jac_s2">S2</string>
+    <string name="jac_s3">S3</string>
+    <string name="jac_s5">S5</string>
+    <string name="jac_s7">S7</string>
+    <string name="jac_spv">SPV</string>
+    <string name="jac_x200">X200</string>
+    <string name="jac_m3">M3</string>
+    <string name="jac_m4">M4</string>
+    <string name="jac_m5">M5</string>
+    <string name="jac_a60">A60</string>
+    <string name="jac_t6_frison">T6 Frison</string>
+    <string name="jac_j4">J4</string>
+    <string name="jac_n_series">N Series</string>
+    <string name="jac_v1">V1</string>
+
+    //*****************************************
+
+    <string name="jac_iev_5_s">IEV 5</string>
+    <string name="jac_iev_6_s">IEV 6</string>
+    <string name="jac_s1_s">S1</string>
+    <string name="jac_s2_s">S2</string>
+    <string name="jac_s3_s">S3</string>
+    <string name="jac_s5_s">S5</string>
+    <string name="jac_s7_s">S7</string>
+    <string name="jac_spv_s">SPV</string>
+    <string name="jac_x200_s">X200</string>
+    <string name="jac_m3_s">M3</string>
+    <string name="jac_m4_s">M4</string>
+    <string name="jac_m5_s">M5</string>
+    <string name="jac_a60_s">A60</string>
+    <string name="jac_t6_frison_s">T6 Frison</string>
+    <string name="jac_j4_s">J4</string>
+    <string name="jac_n_series_s">N Series</string>
+    <string name="jac_v1_s">V1</string>
+
+
+
+
+
+    <string name="lifan_1022">1022</string>
+    <string name="lifan_1025">1025</string>
+    <string name="lifan_320e">320E</string>
+    <string name="lifan_330">330</string>
+    <string name="lifan_330ev">330EV</string>
+    <string name="lifan_620ii">620II</string>
+    <string name="lifan_650ev">650EV</string>
+    <string name="lifan_820">820</string>
+    <string name="lifan_c3">C3</string>
+    <string name="lifan_c30E">C30E</string>
+    <string name="lifan_foison">Foison</string>
+    <string name="lifan_l7">L7</string>
+    <string name="lifan_m7">M7</string>
+    <string name="lifan_seasion">Seasion</string>
+    <string name="lifan_x50">X50</string>
+    <string name="lifan_x60">X60</string>
+    <string name="lifan_x7">X7</string>
+    <string name="lifan_x70">X70</string>
+    <string name="lifan_x80">X80</string>
+
+    //*****************************************
+
+    <string name="lifan_1022_s">1022</string>
+    <string name="lifan_1025_s">1025</string>
+    <string name="lifan_320e_s">320E</string>
+    <string name="lifan_330_s">330</string>
+    <string name="lifan_330ev_s">330EV</string>
+    <string name="lifan_620ii_s">620II</string>
+    <string name="lifan_650ev_s">650EV</string>
+    <string name="lifan_820_s">820</string>
+    <string name="lifan_c3_s">C3</string>
+    <string name="lifan_c30E_s">C30E</string>
+    <string name="lifan_foison_s">Foison</string>
+    <string name="lifan_l7_s">L7</string>
+    <string name="lifan_m7_s">M7</string>
+    <string name="lifan_seasion_s">Seasion</string>
+    <string name="lifan_x50_s">X50</string>
+    <string name="lifan_x60_s">X60</string>
+    <string name="lifan_x7_s">X7</string>
+    <string name="lifan_x70_s">X70</string>
+    <string name="lifan_x80_s">X80</string>
+
+
+
+
+
+
+    <string name="faw_b30">B30</string>
+    <string name="faw_b50">B50</string>
+    <string name="faw_b70">B70</string>
+    <string name="faw_j5k_165">J5K 165</string>
+    <string name="faw_j5m">J5M</string>
+    <string name="faw_j5m_220">J5M 220</string>
+    <string name="faw_j5m_280">J5M 280</string>
+    <string name="faw_j5P_330">J5P 330</string>
+    <string name="faw_j5P_420">J5P 420</string>
+    <string name="faw_v2">V2</string>
+    <string name="faw_x40">X40</string>
+    <string name="faw_x80">X80</string>
+    <string name="faw_xPV">XPV</string>
+    <string name="faw_actis_v80_v80L">ACTIS V80\-V80L</string>
+    <string name="faw_tiger_v">TIGER V</string>
+    <string name="faw_carrier">Carrier</string>
+    <string name="faw_mini_truck_t80">MINI TRUCK T80</string>
+    <string name="faw_hongqi_h7">HONGQi H7</string>
+
+    //********************************************
+
+    <string name="faw_b30_s">B30</string>
+    <string name="faw_b50_s">B50</string>
+    <string name="faw_b70_s">B70</string>
+    <string name="faw_j5k_165_s">J5K 165</string>
+    <string name="faw_j5m_s">J5M</string>
+    <string name="faw_j5m_220_s">J5M 220</string>
+    <string name="faw_j5m_280_s">J5M 280</string>
+    <string name="faw_j5P_330_s">J5P 330</string>
+    <string name="faw_j5P_420_s">J5P 420</string>
+    <string name="faw_v2_s">V2</string>
+    <string name="faw_x40_s">X40</string>
+    <string name="faw_x80_s">X80</string>
+    <string name="faw_xPV_s">XPV</string>
+    <string name="faw_actis_v80_v80L_s">ACTIS V80\-V80L</string>
+    <string name="faw_tiger_v_s">TIGER V</string>
+    <string name="faw_carrier_s">Carrier</string>
+    <string name="faw_mini_truck_t80_s">MINI TRUCK T80</string>
+    <string name="faw_hongqi_h7_s">HONGQi H7</string>
+
+
+
+
+
+    <string name="foton_toana">Toana</string>
+    <string name="foton_toplander">Toplander</string>
+    <string name="foton_tornado">Tornado</string>
+    <string name="foton_thunder">Thunder</string>
+    <string name="foton_gratour">Gratour</string>
+    <string name="foton_view_traveller">View Traveller</string>
+    <string name="foton_view_transvan">View Transvan</string>
+    <string name="foton_sauvana">Sauvana</string>
+    <string name="foton_tunland">Tunland</string>
+    <string name="foton_view_c1">View C1</string>
+    <string name="foton_view_c2">View C2</string>
+    <string name="foton_view_cs2">View CS2</string>
+    <string name="foton_aumark_s">Aumark S</string>
+    <string name="foton_aumark_c">Aumark C</string>
+    <string name="foton_aumark_tx">Aumark TX</string>
+
+    //********************************************
+
+    <string name="foton_toana_s">Toana</string>
+    <string name="foton_toplander_s">Toplander</string>
+    <string name="foton_tornado_s">Tornado</string>
+    <string name="foton_thunder_s">Thunder</string>
+    <string name="foton_gratour_s">Gratour</string>
+    <string name="foton_view_traveller_s">View Traveller</string>
+    <string name="foton_view_transvan_s">View Transvan</string>
+    <string name="foton_sauvana_s">Sauvana</string>
+    <string name="foton_tunland_s">Tunland</string>
+    <string name="foton_view_c1_s">View C1</string>
+    <string name="foton_view_c2_s">View C2</string>
+    <string name="foton_view_cs2_s">View CS2</string>
+    <string name="foton_aumark_s_s">Aumark S</string>
+    <string name="foton_aumark_c_s">Aumark C</string>
+    <string name="foton_aumark_tx_s">Aumark TX</string>
+
+
+
+
+
+    <string name="maruti_Suzuki_eeco">Eeco</string>
+    <string name="maruti_Suzuki_ignis">Ignis</string>
+    <string name="maruti_Suzuki_ertiga">Ertiga</string>
+    <string name="maruti_Suzuki_s_cross">S\-Cross</string>
+    <string name="maruti_Suzuki_alto_800">Alto 800</string>
+    <string name="maruti_Suzuki_alto_k10">Alto K10</string>
+    <string name="maruti_Suzuki_omni">Omni</string>
+    <string name="maruti_Suzuki_baleno">Baleno</string>
+    <string name="maruti_Suzuki_baleno_car_s">Baleno RS</string>
+    <string name="maruti_Suzuki_gypsy">Gypsy</string>
+    <string name="maruti_Suzuki_jimny">Jimny</string>
+    <string name="maruti_Suzuki_dzire">Dzire</string>
+    <string name="maruti_Suzuki_swift">Swift</string>
+    <string name="maruti_Suzuki_ciaz">Ciaz</string>
+    <string name="maruti_Suzuki_ciaz_car_s">Ciaz S</string>
+    <string name="maruti_Suzuki_celerio">Celerio</string>
+    <string name="maruti_Suzuki_celerio_x">Celerio X</string>
+    <string name="maruti_Suzuki_vitara_brezza">Vitara Brezza</string>
+    <string name="maruti_Suzuki_wagon_r">Wagon R</string>
+
+    //********************************************
+
+    <string name="maruti_Suzuki_eeco_s">Eeco</string>
+    <string name="maruti_Suzuki_ignis_s">Ignis</string>
+    <string name="maruti_Suzuki_ertiga_s">Ertiga</string>
+    <string name="maruti_Suzuki_s_cross_s">S\-Cross</string>
+    <string name="maruti_Suzuki_alto_800_s">Alto 800</string>
+    <string name="maruti_Suzuki_alto_k10_s">Alto K10</string>
+    <string name="maruti_Suzuki_omni_s">Omni</string>
+    <string name="maruti_Suzuki_baleno_s">Baleno</string>
+    <string name="maruti_Suzuki_baleno_car_s_s">Baleno RS</string>
+    <string name="maruti_Suzuki_gypsy_s">Gypsy</string>
+    <string name="maruti_Suzuki_jimny_s">Jimny</string>
+    <string name="maruti_Suzuki_dzire_s">Dzire</string>
+    <string name="maruti_Suzuki_swift_s">Swift</string>
+    <string name="maruti_Suzuki_ciaz_s">Ciaz</string>
+    <string name="maruti_Suzuki_ciaz_s_car_s">Ciaz S</string>
+    <string name="maruti_Suzuki_celerio_s">Celerio</string>
+    <string name="maruti_Suzuki_celerio_x_s">Celerio X</string>
+    <string name="maruti_Suzuki_vitara_brezza_s">Vitara Brezza</string>
+    <string name="maruti_Suzuki_wagon_r_s">Wagon R</string>
+
+
+
+
+
+
+    <string name="saipa_111">111</string>
+    <string name="saipa_131">131</string>
+    <string name="saipa_132">132</string>
+    <string name="saipa_141">141</string>
+    <string name="saipa_cs35">CS35</string>
+    <string name="saipa_d_375">D 375</string>
+    <string name="saipa_fh500">FH500</string>
+    <string name="saipa_fm460">FM460</string>
+    <string name="saipa_h220">H220</string>
+    <string name="saipa_h230">H230</string>
+    <string name="saipa_h320">H320</string>
+    <string name="saipa_h330">H330</string>
+    <string name="saipa_r270">R270</string>
+    <string name="saipa_ario">Ario</string>
+    <string name="saipa_azar_van">Azar Van</string>
+    <string name="saipa_eado">EADO</string>
+    <string name="saipa_padra">Padra</string>
+    <string name="saipa_tondar_90">Tondar 90</string>
+    <string name="saipa_tiba">Tiba</string>
+    <string name="saipa_roniz">Roniz</string>
+    <string name="saipa_rich">Rich</string>
+    <string name="saipa_rio">Rio</string>
+    <string name="saipa_sandero">Sandero</string>
+    <string name="saipa_saina">Saina</string>
+    <string name="saipa_stralis">Stralis</string>
+    <string name="saipa_cerato">Cerato</string>
+    <string name="saipa_shooka">Shooka</string>
+    <string name="saipa_foton">FOTON</string>
+    <string name="saipa_qashqai">Qashqai</string>
+    <string name="saipa_koleos">Koleos</string>
+    <string name="saipa_maxima">Maxima</string>
+    <string name="saipa_new_pickup">New Pickup</string>
+    <string name="saipa_new_murano">New Murano</string>
+    <string name="saipa_quick">Quick</string>
+    <string name="saipa_other">Other</string>
+
+    //*********************************************
+
+    <string name="saipa_111_s">111</string>
+    <string name="saipa_131_s">131</string>
+    <string name="saipa_132_s">132</string>
+    <string name="saipa_141_s">141</string>
+    <string name="saipa_cs35_s">CS35</string>
+    <string name="saipa_d_375_s">D 375</string>
+    <string name="saipa_fh500_s">FH500</string>
+    <string name="saipa_fm460_s">FM460</string>
+    <string name="saipa_h220_s">H220</string>
+    <string name="saipa_h230_s">H230</string>
+    <string name="saipa_h320_s">H320</string>
+    <string name="saipa_h330_s">H330</string>
+    <string name="saipa_r270_s">R270</string>
+    <string name="saipa_ario_s">Ario</string>
+    <string name="saipa_azar_van_s">Azar Van</string>
+    <string name="saipa_eado_s">EADO</string>
+    <string name="saipa_padra_s">Padra</string>
+    <string name="saipa_tondar_90_s">Tondar 90</string>
+    <string name="saipa_tiba_s">Tiba</string>
+    <string name="saipa_roniz_s">Roniz</string>
+    <string name="saipa_rich_s">Rich</string>
+    <string name="saipa_rio_s">Rio</string>
+    <string name="saipa_sandero_s">Sandero</string>
+    <string name="saipa_saina_s">Saina</string>
+    <string name="saipa_stralis_s">Stralis</string>
+    <string name="saipa_cerato_s">Cerato</string>
+    <string name="saipa_shooka_s">Shooka</string>
+    <string name="saipa_foton_s">FOTON</string>
+    <string name="saipa_qashqai_s">Qashqai</string>
+    <string name="saipa_koleos_s">Koleos</string>
+    <string name="saipa_maxima_s">Maxima</string>
+    <string name="saipa_new_pickup_s">New Pickup</string>
+    <string name="saipa_new_murano_s">New Murano</string>
+    <string name="saipa_quick_s">Quick</string>
+    <string name="saipa_other_s">Other</string>
+
+
+
+
+
+
+    <string name="private_smart">Smart</string>
+    <string name="private_coupec">Coupec</string>
+
+    //********************************************
+
+    <string name="private_smart_s">Smart</string>
+    <string name="private_coupec_s">Coupec</string>
+
+
+
+
+    <string name="baic_grand_tiger">Grand Tiger</string>
+    <string name="baic_x65">X65</string>
+    <string name="baic_bJ40">BJ40</string>
+    <string name="baic_a113">A113</string>
+    <string name="baic_a115">A115</string>
+    <string name="baic_x35">X35</string>
+
+    //********************************************
+
+    <string name="baic_grand_tiger_s">Grand Tiger</string>
+    <string name="baic_x65_s">X65</string>
+    <string name="baic_bJ40_s">BJ40</string>
+    <string name="baic_a113_s">A113</string>
+    <string name="baic_a115_s">A115</string>
+    <string name="baic_x35_s">X35</string>
+
+
+
+
+
+
+    <string name="changan_cx20">CX20</string>
+    <string name="changan_cx30">CX30</string>
+    <string name="changan_sania">Sania</string>
+    <string name="changan_eado">Eado</string>
+    <string name="changan_v7">V7</string>
+    <string name="changan_xt">XT</string>
+    <string name="changan_raeton">Raeton</string>
+    <string name="changan_cs35">CS35</string>
+    <string name="changan_cs75">CS75</string>
+    <string name="changan_cs85">CS85</string>
+    <string name="changan_cs95">CS95</string>
+    <string name="changan_benni_mini">Benni Mini</string>
+
+    //********************************************
+
+    <string name="changan_cx20_s">CX20</string>
+    <string name="changan_cx30_s">CX30</string>
+    <string name="changan_sania_s">Sania</string>
+    <string name="changan_eado_s">Eado</string>
+    <string name="changan_v7_s">V7</string>
+    <string name="changan_xt_s">XT</string>
+    <string name="changan_raeton_s">Raeton</string>
+    <string name="changan_cs35_s">CS35</string>
+    <string name="changan_cs75_s">CS75</string>
+    <string name="changan_cs85_s">CS85</string>
+    <string name="changan_cs95_s">CS95</string>
+    <string name="changan_benni_mini_s">Benni Mini</string>
+
+
+
+
+
+    <string name="hunaghai_n1">N1</string>
+    <string name="hunaghai_n1s">N1s</string>
+    <string name="hunaghai_n2">N2</string>
+    <string name="hunaghai_n3">N3</string>
+    <string name="hunaghai_dd6591dm">DD6591DM</string>
+    <string name="hunaghai_dd6534gl">DD6534GL</string>
+    <string name="hunaghai_dd6600ev">DD6600EV</string>
+
+    //********************************************
+
+    <string name="hunaghai_n1_s">N1</string>
+    <string name="hunaghai_n1s_s">N1s</string>
+    <string name="hunaghai_n2_s">N2</string>
+    <string name="hunaghai_n3_s">N3</string>
+    <string name="hunaghai_dd6591dm_s">DD6591DM</string>
+    <string name="hunaghai_dd6534gl_s">DD6534GL</string>
+    <string name="hunaghai_dd6600ev_s">DD6600EV</string>
+
+
+
+
+    <string name="dfm_370">370</string>
+    <string name="dfm_580">580</string>
+    <string name="dfm_a30">A30</string>
+    <string name="dfm_a60">A60</string>
+    <string name="dfm_a9">A9</string>
+    <string name="dfm_ax3">AX3</string>
+    <string name="dfm_ax4">AX4</string>
+    <string name="dfm_xa5">AX5</string>
+    <string name="dfm_xa7">AX7</string>
+    <string name="dfm_c37">C37</string>
+    <string name="dfm_cM7">CM7</string>
+    <string name="dfm_e70">E70</string>
+    <string name="dfm_f600">F600</string>
+    <string name="dfm_glory_330">Glory 330</string>
+    <string name="dfm_glory_360">Glory 360</string>
+    <string name="dfm_h30_cross">H30 Cross </string>
+    <string name="dfm_joyear_lv">Joyear LV</string>
+    <string name="dfm_joyear_x3">Joyear X3</string>
+    <string name="dfm_joyear_x5">Joyear X5</string>
+    <string name="dfm_joyear_xl">Joyear XL</string>
+    <string name="dfm_joyear_xv">Joyear XV</string>
+    <string name="dfm_l60">L60</string>
+    <string name="dfm_m3">M3</string>
+    <string name="dfm_m5">M5</string>
+    <string name="dfm_mx6">MX6</string>
+    <string name="dfm_rich">Rich</string>
+    <string name="dfm_succe">Succe</string>
+    <string name="dfm_sx6">SX6</string>
+    <string name="dfm_u_vane">U\-Vane</string>
+    <string name="dfm_v3">V3</string>
+
+    //********************************************
+
+    <string name="dfm_370_s">370</string>
+    <string name="dfm_580_s">580</string>
+    <string name="dfm_a30_s">A30</string>
+    <string name="dfm_a60_s">A60</string>
+    <string name="dfm_a9_s">A9</string>
+    <string name="dfm_ax3_s">AX3</string>
+    <string name="dfm_ax4_s">AX4</string>
+    <string name="dfm_xa5_s">AX5</string>
+    <string name="dfm_xa7_s">AX7</string>
+    <string name="dfm_c37_s">C37</string>
+    <string name="dfm_cM7_s">CM7</string>
+    <string name="dfm_e70_s">E70</string>
+    <string name="dfm_f600_s">F600</string>
+    <string name="dfm_glory_330_s">Glory 330</string>
+    <string name="dfm_glory_360_s">Glory 360</string>
+    <string name="dfm_h30_cross_s">H30 Cross </string>
+    <string name="dfm_joyear_lv_s">Joyear LV</string>
+    <string name="dfm_joyear_x3_s">Joyear X3</string>
+    <string name="dfm_joyear_x5_s">Joyear X5</string>
+    <string name="dfm_joyear_xl_s">Joyear XL</string>
+    <string name="dfm_joyear_xv_s">Joyear XV</string>
+    <string name="dfm_l60_s">L60</string>
+    <string name="dfm_m3_s">M3</string>
+    <string name="dfm_m5_s">M5</string>
+    <string name="dfm_mx6_s">MX6</string>
+    <string name="dfm_rich_s">Rich</string>
+    <string name="dfm_succe_s">Succe</string>
+    <string name="dfm_sx6_s">SX6</string>
+    <string name="dfm_u_vane_s">U\-Vane</string>
+    <string name="dfm_v3_s">V3</string>
 
 
     <string name="title_activity_show_item_details">ShowItemDetails</string>
