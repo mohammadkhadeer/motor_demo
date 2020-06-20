@@ -801,20 +801,55 @@ public class FillCarModel {
             carModelArrayList.add(new CarModel(context.getString(R.string.pontiac_other),context.getString(R.string.pontiac_other_s)));
 
         }
-
-
         if (carMake.equals(context.getString(R.string.aston_martin)))
         {
-            carModelArrayList.add(new CarModel(context.getString(R.string.audi_a),context.getString(R.string.audi_a_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_bd7),context.getString(R.string.aston_martin_bd7_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_bd9),context.getString(R.string.aston_martin_bd9_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_bdc),context.getString(R.string.aston_martin_bdc_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_one_77),context.getString(R.string.aston_martin_one_77_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_v12),context.getString(R.string.aston_martin_v12_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_v8),context.getString(R.string.aston_martin_v8_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_rapide),context.getString(R.string.aston_martin_rapide_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_cygnet),context.getString(R.string.aston_martin_cygnet_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_vanquish),context.getString(R.string.aston_martin_vanquish_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_virage),context.getString(R.string.aston_martin_virage_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_lagonda),context.getString(R.string.aston_martin_lagonda_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_bd6),context.getString(R.string.aston_martin_bd6_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_bds),context.getString(R.string.aston_martin_bds_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_v12_vantage),context.getString(R.string.aston_martin_v12_vantage_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_v8_vantage),context.getString(R.string.aston_martin_v8_vantage_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.aston_martin_other),context.getString(R.string.aston_martin_other_s)));
         }
-
-
         if (carMake.equals(context.getString(R.string.alfa_romeo)))
         {
-            carModelArrayList.add(new CarModel(context.getString(R.string.audi_a),context.getString(R.string.audi_a_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_33),context.getString(R.string.alfa_romeo_33_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_75),context.getString(R.string.alfa_romeo_75_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_145),context.getString(R.string.alfa_romeo_145_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_146),context.getString(R.string.alfa_romeo_146_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_147),context.getString(R.string.alfa_romeo_147_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_155),context.getString(R.string.alfa_romeo_155_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_156),context.getString(R.string.alfa_romeo_156_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_159),context.getString(R.string.alfa_romeo_159_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_164),context.getString(R.string.alfa_romeo_164_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_166),context.getString(R.string.alfa_romeo_166_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_8c),context.getString(R.string.alfa_romeo_8c_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_90),context.getString(R.string.alfa_romeo_90_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_gt),context.getString(R.string.alfa_romeo_gt_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_gtv),context.getString(R.string.alfa_romeo_gtv_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_rz),context.getString(R.string.alfa_romeo_rz_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_sz),context.getString(R.string.alfa_romeo_sz_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_arna),context.getString(R.string.alfa_romeo_arna_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_brera),context.getString(R.string.alfa_romeo_brera_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_giulietta),context.getString(R.string.alfa_romeo_giulietta_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_giulia),context.getString(R.string.alfa_romeo_giulia_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_spider),context.getString(R.string.alfa_romeo_spider_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_mito),context.getString(R.string.alfa_romeo_mito_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_4c),context.getString(R.string.alfa_romeo_4c_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.alfa_romeo_other),context.getString(R.string.alfa_romeo_other_s)));
         }
-
-
         if (carMake.equals(context.getString(R.string.pontiac)))
         {
             carModelArrayList.add(new CarModel(context.getString(R.string.pontiac_6000),context.getString(R.string.pontiac_6000_s)));

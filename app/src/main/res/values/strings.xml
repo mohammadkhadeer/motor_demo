@@ -1513,6 +1513,7 @@
     <string name="toyota_sera">Sera</string>
     <string name="toyota_scepter">Scepter</string>
 
+    //********************************************
 
     <string name="toyota_4runner_s">4Runner</string>
     <string name="toyota_mr2_s">MR2</string>
@@ -1631,6 +1632,8 @@
     <string name="toyota_sera_s">Sera</string>
     <string name="toyota_scepter_s">Scepter</string>
 
+
+
     <string name="kia_asia">Asia</string>
     <string name="kia_avila">Avila</string>
     <string name="kia_optima">Optima</string>
@@ -1676,6 +1679,7 @@
     <string name="kia_lotze">Lotze</string>
     <string name="kia_pegas">Pegas</string>
 
+    //********************************************
 
     <string name="kia_asia_s">Asia</string>
     <string name="kia_avila_s">Avila</string>
@@ -2063,7 +2067,7 @@
     <string name="mercedes_benz_viano">Viano</string>
     <string name="mercedes_benz_other">Other</string>
 
-
+    //********************************************
 
     <string name="gle_s">GLE Class</string>
     <string name="Mercedes_benz_gle_400_amg_s">GLE 400 AMG</string>
@@ -2406,6 +2410,100 @@
     <string name="bmw_1502_s">1502</string>
     <string name="bmw_alpina_s">alpina</string>
 
+
+    <string name="aston_martin_bd7">BD7</string>
+    <string name="aston_martin_bd9">BD9</string>
+    <string name="aston_martin_bdc">BDC</string>
+    <string name="aston_martin_one_77">One\-77</string>
+    <string name="aston_martin_v12">BD7</string>
+    <string name="aston_martin_v8">BD7</string>
+    <string name="aston_martin_rapide">BD7</string>
+    <string name="aston_martin_cygnet">BD7</string>
+    <string name="aston_martin_vanquish">BD7</string>
+    <string name="aston_martin_virage">BD7</string>
+
+    <string name="aston_martin_lagonda">BD7</string>
+    <string name="aston_martin_bd6">BD7</string>
+    <string name="aston_martin_bds">BD7</string>
+    <string name="aston_martin_v12_vantage">BD7</string>
+    <string name="aston_martin_v8_vantage">BD7</string>
+    <string name="aston_martin_other">BD7</string>
+
+    //************************************************
+
+    <string name="aston_martin_bd7_s">BD7</string>
+    <string name="aston_martin_bd9_s">BD9</string>
+    <string name="aston_martin_bdc_s">BDC</string>
+    <string name="aston_martin_one_77_s">One\-77</string>
+    <string name="aston_martin_v12_s">BD7</string>
+    <string name="aston_martin_v8_s">BD7</string>
+    <string name="aston_martin_rapide_s">BD7</string>
+    <string name="aston_martin_cygnet_s">BD7</string>
+    <string name="aston_martin_vanquish_s">BD7</string>
+    <string name="aston_martin_virage_s">BD7</string>
+
+    <string name="aston_martin_lagonda_s">BD7</string>
+    <string name="aston_martin_bd6_s">BD7</string>
+    <string name="aston_martin_bds_s">BD7</string>
+    <string name="aston_martin_v12_vantage_s">BD7</string>
+    <string name="aston_martin_v8_vantage_s">BD7</string>
+    <string name="aston_martin_other_s">BD7</string>
+
+
+
+    <string name="alfa_romeo_33">33</string>
+    <string name="alfa_romeo_75">75</string>
+    <string name="alfa_romeo_145">145</string>
+    <string name="alfa_romeo_146">146</string>
+    <string name="alfa_romeo_147">147</string>
+    <string name="alfa_romeo_155">155</string>
+    <string name="alfa_romeo_156">156</string>
+    <string name="alfa_romeo_159">159</string>
+    <string name="alfa_romeo_164">164</string>
+    <string name="alfa_romeo_166">166</string>
+
+    <string name="alfa_romeo_8c">8C</string>
+    <string name="alfa_romeo_90">90</string>
+    <string name="alfa_romeo_gt">GT</string>
+    <string name="alfa_romeo_gtv">GTV</string>
+    <string name="alfa_romeo_rz">RZ</string>
+    <string name="alfa_romeo_sz">SZ</string>
+    <string name="alfa_romeo_arna">Aran</string>
+    <string name="alfa_romeo_brera">Brera</string>
+    <string name="alfa_romeo_giulietta">Giulietta</string>
+    <string name="alfa_romeo_giulia">Giulia</string>
+    <string name="alfa_romeo_spider">Spider</string>
+    <string name="alfa_romeo_mito">MiTo</string>
+    <string name="alfa_romeo_4c">4C</string>
+    <string name="alfa_romeo_other">other</string>
+
+    //************************************************
+
+    <string name="alfa_romeo_33_s">33</string>
+    <string name="alfa_romeo_75_s">75</string>
+    <string name="alfa_romeo_145_s">145</string>
+    <string name="alfa_romeo_146_s">146</string>
+    <string name="alfa_romeo_147_s">147</string>
+    <string name="alfa_romeo_155_s">155</string>
+    <string name="alfa_romeo_156_s">156</string>
+    <string name="alfa_romeo_159_s">159</string>
+    <string name="alfa_romeo_164_s">164</string>
+    <string name="alfa_romeo_166_s">166</string>
+
+    <string name="alfa_romeo_8c_s">8C</string>
+    <string name="alfa_romeo_90_s">90</string>
+    <string name="alfa_romeo_gt_s">GT</string>
+    <string name="alfa_romeo_gtv_s">GTV</string>
+    <string name="alfa_romeo_rz_s">RZ</string>
+    <string name="alfa_romeo_sz_s">SZ</string>
+    <string name="alfa_romeo_arna_s">Aran</string>
+    <string name="alfa_romeo_brera_s">Brera</string>
+    <string name="alfa_romeo_giulietta_s">Giulietta</string>
+    <string name="alfa_romeo_giulia_s">Giulia</string>
+    <string name="alfa_romeo_spider_s">Spider</string>
+    <string name="alfa_romeo_mito_s">MiTo</string>
+    <string name="alfa_romeo_4c_s">4C</string>
+    <string name="alfa_romeo_other_s">other</string>
 
     <string name="audi_a">A</string>
     <string name="audi_a1">A1</string>
