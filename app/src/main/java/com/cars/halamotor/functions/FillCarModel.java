@@ -1,15 +1,22 @@
 package com.cars.halamotor.functions;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.model.CarMake;
+import com.cars.halamotor.model.CarMakeAndCarModel;
 import com.cars.halamotor.model.CarModel;
 
 import java.util.ArrayList;
 
+import static com.cars.halamotor.functions.FillCarMakeArrayListsInCarDerails.fillCarMakeArrayL;
+
+
 public class FillCarModel {
 
-    public static ArrayList<CarModel> fillCarMakeArrayL(ArrayList<CarModel> carModelArrayList, Context context, String carMake) {
+    public static ArrayList<CarModel> fillCarModelArrayL
+            (ArrayList<CarModel> carModelArrayList, Context context, String carMake) {
         carModelArrayList = new ArrayList<CarModel>();
 
         if (carMake.equals(context.getString(R.string.hyundai)))
@@ -2764,6 +2771,36 @@ public class FillCarModel {
         }
 
             return carModelArrayList;
+    }
+
+
+    public static ArrayList<CarMakeAndCarModel> fillAllCarArrayL(Context context)
+    {
+        ArrayList<CarMakeAndCarModel> allCarArrayList = new ArrayList<>();
+
+        ArrayList<CarMake> carMakeArrayList  = new ArrayList<CarMake>();
+        ArrayList<CarModel> carModelArrayL  = new ArrayList<CarModel>();
+
+        carMakeArrayList = fillCarMakeArrayL(carMakeArrayList,context);
+
+        for (int i =0 ;i<carMakeArrayList.size();i++)
+        {
+            carModelArrayL  = new ArrayList<CarModel>();
+            carModelArrayL = fillCarModelArrayL(carModelArrayL,context,carMakeArrayList.get(i).getMakeStr());
+            for (int j =0;j<carModelArrayL.size();j++)
+            {
+                CarMakeAndCarModel carMakeAndCarModel = new CarMakeAndCarModel
+                        (carMakeArrayList.get(i).getMakeStr()
+                        ,carMakeArrayList.get(i).getMakeStrS()
+                                ,carModelArrayL.get(j).getCarModelStr()
+                                ,carModelArrayL.get(j).getCarModelStrS()
+                        );
+                allCarArrayList.add(carMakeAndCarModel);
+            }
+
+        }
+
+        return allCarArrayList;
     }
 
 }

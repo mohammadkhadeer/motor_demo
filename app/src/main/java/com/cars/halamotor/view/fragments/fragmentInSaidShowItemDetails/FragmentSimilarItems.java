@@ -20,6 +20,10 @@ import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
+import com.cars.halamotor.model.ItemAccAndJunk;
+import com.cars.halamotor.model.ItemCCEMT;
+import com.cars.halamotor.model.ItemPlates;
+import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.SimilarItem;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
@@ -38,6 +42,14 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeIt
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getJunkCarItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getPlatesItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getAccessoriesFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleExchangeFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleRentFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getJunkCarPath;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getMotorcycleFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getPlatesFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getTrucksFireStore;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getWheelsRimFireStore;
 import static com.cars.halamotor.functions.Functions.replace;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
@@ -54,15 +66,15 @@ public class FragmentSimilarItems extends Fragment {
     AdapterSimilarAds adapterSimilarAds,adapterSimilarAds2,adapterSimilarAds3;
 
     View view;
-    List<CCEMT> carForRentList = new ArrayList<>();
-    List<CCEMT> carForSaleList = new ArrayList<>();
-    List<CCEMT> carForExchangeList = new ArrayList<>();
-    List<CCEMT> motorcycleList = new ArrayList<>();
-    List<CCEMT> truckList = new ArrayList<>();
-    List<CarPlatesModel> carPlatesList = new ArrayList<>();
-    List<WheelsRimModel> wheelsRimList = new ArrayList<>();
-    List<AccAndJunk> accessoriesArrayL = new ArrayList<>();
-    List<AccAndJunk> junkArrayL = new ArrayList<>();
+    List<ItemCCEMT> carForRentList = new ArrayList<>();
+    List<ItemCCEMT> carForSaleList = new ArrayList<>();
+    List<ItemCCEMT> carForExchangeList = new ArrayList<>();
+    List<ItemCCEMT> motorcycleList = new ArrayList<>();
+    List<ItemCCEMT> truckList = new ArrayList<>();
+    List<ItemPlates> carPlatesList = new ArrayList<>();
+    List<ItemWheelsRim> wheelsRimList = new ArrayList<>();
+    List<ItemAccAndJunk> accessoriesArrayL = new ArrayList<>();
+    List<ItemAccAndJunk> junkArrayL = new ArrayList<>();
 
     ArrayList<SimilarItem> similarContainerArrayL = new ArrayList<SimilarItem>();
     ArrayList<SimilarItem> similar1ArrayL = new ArrayList<SimilarItem>();
@@ -247,11 +259,7 @@ public class FragmentSimilarItems extends Fragment {
 //        ,ccemtFirestCase.getItemCarKilometers(),ccemtFirestCase.getItemCarTransmission()
 //        ,ccemtFirestCase.getItemCarFuel(),ccemtFirestCase.getItemCarColor());
 
-        carForExchangeList = getCarForExchangeItemsSearch(carForExchangeList,15
-                ,categoryStr,null,null
-                ,null,null
-                ,null,null
-                ,null,null);
+        carForExchangeList = getCarForSaleExchangeFireStore(15);
 
         new Handler().postDelayed(new Runnable() {
 
@@ -262,7 +270,7 @@ public class FragmentSimilarItems extends Fragment {
         }, 2700);
     }
 
-    private void insertCarForExchangeToDataBase(List<CCEMT> list) {
+    private void insertCarForExchangeToDataBase(List<ItemCCEMT> list) {
         for (int i=0;i<list.size();i++)
         {
             insertCCEMTSimilarTable(list.get(i),myDB);
@@ -310,7 +318,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getJunk() {
-        junkArrayL = getJunkCarItems(junkArrayL,15);
+        junkArrayL = getJunkCarPath(15);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -320,7 +328,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getAcc() {
-        accessoriesArrayL = getAccessoriesItems(accessoriesArrayL,15);
+        accessoriesArrayL = getAccessoriesFireStore(15);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -329,7 +337,7 @@ public class FragmentSimilarItems extends Fragment {
         }, 2700);
     }
 
-    private void insertAccAndJunkTable(List<AccAndJunk> list) {
+    private void insertAccAndJunkTable(List<ItemAccAndJunk> list) {
         for (int i=0;i<list.size();i++)
         {
             insertAccAndJunkSimilarTable(list.get(i),myDB);
@@ -337,7 +345,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getWheelsRim() {
-        wheelsRimList = getWheelsRimItems(wheelsRimList,15);
+        wheelsRimList = getWheelsRimFireStore(15);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -346,7 +354,7 @@ public class FragmentSimilarItems extends Fragment {
         }, 2700);
     }
 
-    private void insertWheelsimilarTable(List<WheelsRimModel> wheelsRimList) {
+    private void insertWheelsimilarTable(List<ItemWheelsRim> wheelsRimList) {
         for (int i=0;i<wheelsRimList.size();i++)
         {
             insertWheelsRimSimilarTable(wheelsRimList.get(i),myDB);
@@ -354,7 +362,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getCarPlates() {
-        carPlatesList = getPlatesItems(carPlatesList,15);
+        carPlatesList = getPlatesFireStore(15);
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -363,7 +371,7 @@ public class FragmentSimilarItems extends Fragment {
         }, 2700);
     }
 
-    private void insertPlatesSimilarTable(List<CarPlatesModel> carPlatesList) {
+    private void insertPlatesSimilarTable(List<ItemPlates> carPlatesList) {
         for (int i=0;i<carPlatesList.size();i++)
         {
             insertCarPlatesSimilarTable(carPlatesList.get(i),myDB);
@@ -371,11 +379,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getTrucks() {
-        truckList = getCarForExchangeItemsSearch(truckList,15
-                ,categoryStr,null,null
-                ,null,null
-                ,null,null
-                ,null,null);
+        truckList = getTrucksFireStore(15);
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -386,11 +390,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getMotorcycle() {
-        motorcycleList = getCarForExchangeItemsSearch(motorcycleList,15
-                ,categoryStr,null,null
-                ,null,null
-                ,null,null
-                ,null,null);
+        motorcycleList = getMotorcycleFireStore(15);
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -401,11 +401,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getCarForSale() {
-        carForSaleList = getCarForExchangeItemsSearch(carForSaleList,15
-                ,categoryStr,null,null
-                ,null,null
-                ,null,null
-                ,null,null);
+        carForSaleList = getCarForSaleExchangeFireStore(15);
         new Handler().postDelayed(new Runnable() {
 
             @Override
@@ -416,11 +412,7 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void getCarForRent() {
-        carForRentList = getCarForExchangeItemsSearch(carForRentList,15
-                ,categoryStr,null,null
-                ,null,null
-                ,null,null
-                ,null,null);
+        carForRentList = getCarForSaleRentFireStore(15);
         new Handler().postDelayed(new Runnable() {
 
             @Override

@@ -35,9 +35,11 @@ import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CarDetailsModel;
+import com.cars.halamotor.model.CarMakeAndCarModel;
 import com.cars.halamotor.model.CarPlatesDetails;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CategoryComp;
+import com.cars.halamotor.model.CityWithNeighborhood;
 import com.cars.halamotor.model.CustomGallery;
 import com.cars.halamotor.model.EditValueInCDM;
 import com.cars.halamotor.model.ItemAccAndJunk;
@@ -72,6 +74,8 @@ import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUp
 import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadCarPlatesModel;
 import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadJunkCarModel;
 import static com.cars.halamotor.fireBaseDB.UploadToStorage.uploadImagesBeforeUploadWheelsRimModel;
+import static com.cars.halamotor.functions.FillCarModel.fillAllCarArrayL;
+import static com.cars.halamotor.functions.FillNeighborhood.fillCityAndNeighborhoodArrayL;
 import static com.cars.halamotor.functions.Functions.checkBurnedPrice;
 import static com.cars.halamotor.functions.Functions.checkPhoneNumberRealOrNot;
 import static com.cars.halamotor.functions.Functions.checkTitleAndDescription;
@@ -91,6 +95,7 @@ import static com.cars.halamotor.functions.Functions.isNetworkAvailable;
 import static com.cars.halamotor.functions.Functions.splitString;
 import static com.cars.halamotor.functions.Functions.updateCarDetailsModel;
 import static com.cars.halamotor.functions.NewFunction.convertYearToEng;
+import static com.cars.halamotor.functions.UploadDamiData.uploadDamiDataForTest;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getAddressInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getBurnedPriceInSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getCityFromSP;
@@ -221,58 +226,63 @@ public class AddItem extends AppCompatActivity implements
             @RequiresApi(api = Build.VERSION_CODES.O)
             @Override
             public void onClick(View v) {
-                if (isNetworkAvailable(getApplicationContext())) {
-                    String selectCategory = "empty";
-                    if (selectedCategoryPositionInt != 100) {
-                        if (checkTitleAndDescription(getApplicationContext()) == null) {
-                            if (checkTitleAndDescriptionRealOrNot(getApplicationContext()) == null) {
-                                if (productDetailsComplete == 1) {
-                                    if (getAddressInSP(getApplicationContext()) != null) {
-                                        if (checkPhoneNumberRealOrNot(getApplicationContext()) == null) {
-                                            if (numberOfOldAds < numberOfAllowedAdsInt) {
-                                                if (canInsertAndOrNot == 1) {
-                                                    selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
-                                                            .getCategoryNameStr();
-                                                    if (getBurnedPriceInSP(getApplicationContext()) != null) {
-                                                        if (canInsertBurnedPrice == 1) {
-                                                            itemLiveOrMustToWaitIfBurnedPriceOn =0;
-                                                            checkCategoryAndUpload(selectCategory);
-                                                        } else {
-                                                            completeMessage(getResources().getString(R.string.blocked_bp));
-                                                        }
-                                                    } else {
-                                                        itemLiveOrMustToWaitIfBurnedPriceOn =1;
-                                                        checkCategoryAndUpload(selectCategory);
-                                                    }
-                                                } else {
-                                                    completeMessage(getResources().getString(R.string.blocked));
-                                                }
-                                            } else {
-                                                completeMessage(getResources().getString(R.string.upgrade_ur_account));
-                                            }
-                                        } else {
-                                            completeMessage(checkPhoneNumberRealOrNot(getApplicationContext()));
-                                        }
-                                    } else {
-                                        completeMessage(getResources().getString(R.string.select_address));
-                                    }
-                                } else {
-                                    completeMessage(getResources().getString(R.string.complete_product_details));
-                                }
-                            } else {
-                                completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext()));
-                            }
-                        } else {
-                            completeMessage(checkTitleAndDescription(getApplicationContext()));
-                        }
-                    } else {
-                        completeMessage(getResources().getString(R.string.select_category));
-                    }
-                } else {
-                    completeMessage(getResources().getString(R.string.message_no_internet));
-                }
+                checkBeforUpload();
+                //uploadDamiDataForTest(getApplicationContext());
             }
         });
+    }
+
+    private void checkBeforUpload() {
+        if (isNetworkAvailable(getApplicationContext())) {
+            String selectCategory = "empty";
+            if (selectedCategoryPositionInt != 100) {
+                if (checkTitleAndDescription(getApplicationContext()) == null) {
+                    if (checkTitleAndDescriptionRealOrNot(getApplicationContext()) == null) {
+                        if (productDetailsComplete == 1) {
+                            if (getAddressInSP(getApplicationContext()) != null) {
+                                if (checkPhoneNumberRealOrNot(getApplicationContext()) == null) {
+                                    if (numberOfOldAds < numberOfAllowedAdsInt) {
+                                        if (canInsertAndOrNot == 1) {
+                                            selectCategory = categoryCompsArrayL.get(selectedCategoryPositionInt)
+                                                    .getCategoryNameStr();
+                                            if (getBurnedPriceInSP(getApplicationContext()) != null) {
+                                                if (canInsertBurnedPrice == 1) {
+                                                    itemLiveOrMustToWaitIfBurnedPriceOn =0;
+                                                    checkCategoryAndUpload(selectCategory);
+                                                } else {
+                                                    completeMessage(getResources().getString(R.string.blocked_bp));
+                                                }
+                                            } else {
+                                                itemLiveOrMustToWaitIfBurnedPriceOn =1;
+                                                checkCategoryAndUpload(selectCategory);
+                                            }
+                                        } else {
+                                            completeMessage(getResources().getString(R.string.blocked));
+                                        }
+                                    } else {
+                                        completeMessage(getResources().getString(R.string.upgrade_ur_account));
+                                    }
+                                } else {
+                                    completeMessage(checkPhoneNumberRealOrNot(getApplicationContext()));
+                                }
+                            } else {
+                                completeMessage(getResources().getString(R.string.select_address));
+                            }
+                        } else {
+                            completeMessage(getResources().getString(R.string.complete_product_details));
+                        }
+                    } else {
+                        completeMessage(checkTitleAndDescriptionRealOrNot(getApplicationContext()));
+                    }
+                } else {
+                    completeMessage(checkTitleAndDescription(getApplicationContext()));
+                }
+            } else {
+                completeMessage(getResources().getString(R.string.select_category));
+            }
+        } else {
+            completeMessage(getResources().getString(R.string.message_no_internet));
+        }
     }
 
     private void createCCMETObject(String selectedCategory) {
@@ -338,7 +348,7 @@ public class AddItem extends AppCompatActivity implements
                 ,carDetailsModel.getFuelStr().getCarFuelStrS()
                 ,carDetailsModel.getConditionStr().getCarConditionStrS()
                 ,carDetailsModel.getInsurance().getCarInsuranceStrS()
-                ,carDetailsModel.getInsurance().getCarInsuranceStrS()
+                ,carDetailsModel.getLicenseStr().getCarLicensedStrS()
                 ,Integer.parseInt(convertYearToEng(getYEAR()))
                 , Locale.getDefault().getLanguage()
         );

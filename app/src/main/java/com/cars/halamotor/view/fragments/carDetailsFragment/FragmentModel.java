@@ -20,7 +20,7 @@ import com.cars.halamotor.model.CarModel;
 import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarModel;
 import java.util.ArrayList;
-import static com.cars.halamotor.functions.FillCarModel.fillCarMakeArrayL;
+import static com.cars.halamotor.functions.FillCarModel.fillCarModelArrayL;
 
 public class FragmentModel extends Fragment implements AdapterCarModel.PassCarModel{
 
@@ -110,7 +110,7 @@ public class FragmentModel extends Fragment implements AdapterCarModel.PassCarMo
     }
 
     private void createRV() {
-        carModelArrayL= fillCarMakeArrayL(carModelArrayL,getActivity(),carMakeStr);
+        carModelArrayL= fillCarModelArrayL(carModelArrayL,getActivity(),carMakeStr);
         recyclerView.setHasFixedSize(true);
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 1);
         recyclerView.setLayoutManager(mLayoutManager);

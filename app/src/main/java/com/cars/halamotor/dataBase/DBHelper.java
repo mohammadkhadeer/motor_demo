@@ -966,4 +966,10 @@ public class DBHelper extends SQLiteOpenHelper {
         db.close();
     }
 
+    public void deleteNotifications(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        db.execSQL("DELETE FROM notification_table"); //delete all rows in a table
+        db.close();
+    }
+
 }

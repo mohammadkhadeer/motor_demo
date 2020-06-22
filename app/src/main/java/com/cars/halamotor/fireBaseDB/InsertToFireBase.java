@@ -1,5 +1,6 @@
 package com.cars.halamotor.fireBaseDB;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -16,6 +17,7 @@ import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.UserInfo;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DatabaseError;
@@ -60,7 +62,6 @@ public class InsertToFireBase {
 
     public static void addNewItemToFireStore(final ItemCCEMT itemCCEMT, final String category
             , final String userID, final int numberOfAdsToUser, final Context context) {
-
         getDataStoreInstance().collection(category).add(itemCCEMT).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
@@ -81,6 +82,13 @@ public class InsertToFireBase {
                                 ,getDataBaseInstance(context));
                     }
                 }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.i("TAG","Error: " + "Onfailure listner"+e.toString());
+
             }
         });
 
@@ -194,6 +202,7 @@ public class InsertToFireBase {
             @Override
             public void onComplete(@NonNull Task<DocumentReference> task) {
                 if (task.isSuccessful()) {
+                    Log.i("TAG","******************"+"isSuccessful");
                     DocumentReference document = task.getResult();
                     if (document != null) {
                         String uniqueKey = document.getId(); //Do what you need to do with the document id

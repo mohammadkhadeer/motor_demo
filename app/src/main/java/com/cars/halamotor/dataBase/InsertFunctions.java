@@ -391,11 +391,11 @@ public class InsertFunctions {
 
 
     //this table contain car_for_sale , car_for_rent ,car_for_exchange , motorcycle and truck
-    public static boolean insertCCEMTSimilarTable(CCEMT ccemt,DBHelper database) {
+    public static boolean insertCCEMTSimilarTable(ItemCCEMT ccemt,DBHelper database) {
 
         boolean isInserted = database.insertSimilarAds(
-                boostOrNot(ccemt.getBoostPostsArrayL())
-                ,itemBoostType(ccemt.getBoostPostsArrayL())
+               "empty"
+                ,"empty"
                 ,ccemt.getCategoryName()
                 ,ccemt.getPersonOrGallery()
                 ,ccemt.getItemID()
@@ -411,7 +411,7 @@ public class InsertFunctions {
                 ,ccemt.getColor()
                 ,ccemt.getPaymentMethod()
                 ,ccemt.getCarOptions()
-                ,numberOfComment(ccemt.getCommentsArrayL())
+                ,"0"
                 ,numberOfImage(ccemt.getImagePathArrayL())
                 ,ccemt.getCity()
                 ,ccemt.getNeighborhood()
@@ -430,15 +430,15 @@ public class InsertFunctions {
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
                 , String.valueOf(ccemt.getUserIDPathInServer())
-                , String.valueOf(ccemt.getActiveOrNot())
+                , String.valueOf(ccemt.getAuctionOrNot())
         );
         return isInserted;
     }
 
-    public static boolean insertCarPlatesSimilarTable(CarPlatesModel carPlatesModel, DBHelper database) {
+    public static boolean insertCarPlatesSimilarTable(ItemPlates carPlatesModel, DBHelper database) {
         boolean isInserted = database.insertSimilarAds(
-                boostOrNot(carPlatesModel.getBoostPostsArrayL())
-                ,itemBoostType(carPlatesModel.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,carPlatesModel.getCategoryName()
                 ,carPlatesModel.getPersonOrGallery()
                 ,carPlatesModel.getItemID()
@@ -454,7 +454,7 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(carPlatesModel.getCommentsArrayL())
+                ,"0"
                 ,numberOfImage(carPlatesModel.getImagePathArrayL())
                 ,carPlatesModel.getCity()
                 ,carPlatesModel.getNeighborhood()
@@ -479,10 +479,10 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertWheelsRimSimilarTable(WheelsRimModel wheelsRim, DBHelper database) {
+    public static boolean insertWheelsRimSimilarTable(ItemWheelsRim wheelsRim, DBHelper database) {
         boolean isInserted = database.insertSimilarAds(
-                boostOrNot(wheelsRim.getBoostPostsArrayL())
-                ,itemBoostType(wheelsRim.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,wheelsRim.getCategoryName()
                 ,wheelsRim.getPersonOrGallery()
                 ,wheelsRim.getItemID()
@@ -498,7 +498,7 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(wheelsRim.getCommentsArrayL())
+                ,"0"
                 ,numberOfImage(wheelsRim.getImagePathArrayL())
                 ,wheelsRim.getCity()
                 ,wheelsRim.getNeighborhood()
@@ -523,10 +523,10 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertAccAndJunkSimilarTable(AccAndJunk accAndJunk, DBHelper database) {
+    public static boolean insertAccAndJunkSimilarTable(ItemAccAndJunk accAndJunk, DBHelper database) {
         boolean isInserted = database.insertSimilarAds(
-                boostOrNot(accAndJunk.getBoostPostsArrayL())
-                ,itemBoostType(accAndJunk.getBoostPostsArrayL())
+                "empty"
+                ,"empty"
                 ,accAndJunk.getCategoryName()
                 ,accAndJunk.getPersonOrGallery()
                 ,accAndJunk.getItemID()
@@ -542,7 +542,7 @@ public class InsertFunctions {
                 ,"empty"
                 ,"empty"
                 ,"empty"
-                ,numberOfComment(accAndJunk.getCommentsArrayL())
+                ,"0"
                 ,numberOfImage(accAndJunk.getImagePathArrayL())
                 ,accAndJunk.getCity()
                 ,accAndJunk.getNeighborhood()
