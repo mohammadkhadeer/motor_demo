@@ -14,7 +14,9 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.Following;
 import com.cars.halamotor.model.UserFaceBookInfo;
+import com.cars.halamotor.view.activity.FollowingActivity;
 import com.cars.halamotor.view.activity.LoginWithSocialMedia;
 import com.cars.halamotor.view.activity.ShowPostsActivity;
 import com.google.firebase.database.DataSnapshot;
@@ -22,10 +24,12 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
+import static com.cars.halamotor.dataBase.ReadFunction.getFollowing;
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserFBInfo;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserImage;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserInfo;
@@ -38,7 +42,7 @@ public class ProfileDetailsInfo extends Fragment {
     ImageView userImageIV;
     TextView userNameTV,editProfileTV,buildTrustTV,numberOfPostTV,postTV
             ,numberOfFollowingTV,followingTV,followerTV,numberOfFollowerTV;
-
+    ArrayList<Following> followingArrayList = new ArrayList<Following>();
     public ProfileDetailsInfo(){}
 
     @Override
@@ -75,6 +79,27 @@ public class ProfileDetailsInfo extends Fragment {
     private void actionListener() {
         actionListenerBuildTrust();
         actionListenerToPosts();
+        actionListenerToFollowing();
+    }
+
+    private void actionListenerToFollowing() {
+        numberOfFollowingRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(numberOfPostTV.getText().toString().equals("0"))
+                {
+                    Toast.makeText(getActivity(),getResources().getString(R.string.no_favorite),Toast.LENGTH_SHORT).show();
+                }else{
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("userID", getUserIdInServerFromSP(getActivity()));
+
+                    Intent intent = new Intent(getActivity(), FollowingActivity.class);
+//                    intent.putExtras(bundle);
+                    getActivity().startActivity(intent);
+                    getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+                }
+            }
+        });
     }
 
     private void actionListenerToPosts() {
@@ -85,11 +110,11 @@ public class ProfileDetailsInfo extends Fragment {
                 {
                     Toast.makeText(getActivity(),getResources().getString(R.string.no_favorite),Toast.LENGTH_SHORT).show();
                 }else{
-                    Bundle bundle = new Bundle();
-                    bundle.putString("userID", getUserIdInServerFromSP(getActivity()));
+//                    Bundle bundle = new Bundle();
+//                    bundle.putString("userID", getUserIdInServerFromSP(getActivity()));
 
                     Intent intent = new Intent(getActivity(), ShowPostsActivity.class);
-                    intent.putExtras(bundle);
+//                    intent.putExtras(bundle);
                     getActivity().startActivity(intent);
                     getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
                 }
@@ -127,8 +152,10 @@ public class ProfileDetailsInfo extends Fragment {
     }
 
     private void fillUserInfoFromFB() {
+        followingArrayList =getFollowing(getActivity());
         UserFaceBookInfo userFaceBookInfo = getUserInfo(getActivity());
         userNameTV.setText(userFaceBookInfo.getFirstNameStr());
+        followingTV.setText(String.valueOf(followingArrayList.size()));
         fillImageUser(userFaceBookInfo.getUserImageStr());
     }
 

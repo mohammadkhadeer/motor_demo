@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.activity.ShowPostsActivity">
+    tools:context=".view.activity.FollowingActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -16,7 +16,7 @@
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
-            android:id="@+id/show_posts_progress"
+            android:id="@+id/following_progress"
             />
 
     </RelativeLayout>
@@ -24,7 +24,7 @@
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/show_posts_RV"
+        android:id="@+id/following_RV"
         android:layout_marginLeft="20dp"
         android:layout_marginStart="0dp"
         />

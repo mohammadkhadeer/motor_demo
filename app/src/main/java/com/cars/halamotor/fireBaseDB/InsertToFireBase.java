@@ -16,6 +16,7 @@ import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.UserInfo;
+import com.cars.halamotor.model.UserItem;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -74,7 +75,8 @@ public class InsertToFireBase {
                                 .update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemCCEMT.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -107,7 +109,8 @@ public class InsertToFireBase {
                         platesPath().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemPlates.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -131,7 +134,8 @@ public class InsertToFireBase {
                         wheelsRimPath().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemWheelsRim.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -156,7 +160,8 @@ public class InsertToFireBase {
                         accessoriesPath().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemAccAndJunk.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser + 1);
                         //insert notification
@@ -182,7 +187,8 @@ public class InsertToFireBase {
                         carForExchange().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemCCEMT.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -209,7 +215,8 @@ public class InsertToFireBase {
                         carForSale().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemCCEMT.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -235,7 +242,8 @@ public class InsertToFireBase {
                         carForRent().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemCCEMT.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -261,7 +269,8 @@ public class InsertToFireBase {
                         motorcycle().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemCCEMT.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -287,7 +296,8 @@ public class InsertToFireBase {
                         trucks().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemCCEMT.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser+1);
                         //insert notification here to can get item id in server
@@ -313,7 +323,8 @@ public class InsertToFireBase {
                         junkCarPath().document(uniqueKey).update("itemID",uniqueKey);
                         //insert item to userAds in user table
                         FCWSU fcwsu = new FCWSU(uniqueKey);
-                        getUserPathInServerFB(userID).child("usersAds").push().setValue(fcwsu);
+                        UserItem userItem = new UserItem(itemAccAndJunk.getCategoryNameS(),uniqueKey);
+                        getUserPathInServerFB(userID).child("usersAds").push().setValue(userItem);
                         //update number of ads to this user
                         getUserPathInServerFB(userID).child("numberOfAds").setValue(numberOfAdsToUser + 1);
                         //insert notification

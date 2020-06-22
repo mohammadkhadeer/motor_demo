@@ -407,11 +407,11 @@ public class AddItem extends AppCompatActivity implements
             @Override
             public void run() {
                 progressBar.setVisibility(View.GONE);
-//                Intent resultIntent = new Intent();
-//                setResult(Activity.RESULT_OK, resultIntent);
-//                finish();
+                Intent resultIntent = new Intent();
+                setResult(Activity.RESULT_OK, resultIntent);
+                finish();
             }
-        }, 11000);
+        }, 5000);
 
     }
 

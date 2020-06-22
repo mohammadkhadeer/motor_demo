@@ -2,24 +2,65 @@ package com.cars.halamotor.view.activity;
 
 import android.graphics.Typeface;
 import android.os.Build;
+import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.FCSFunctions;
+import com.cars.halamotor.model.SuggestedItem;
+import com.cars.halamotor.model.UserItem;
+import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
+import com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
+import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
+import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 import static com.cars.halamotor.functions.NewFunction.actionBarTitleInFCS;
+import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
+import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
 public class ShowPostsActivity extends AppCompatActivity {
+
+    ProgressBar progressBar;
+    RecyclerView recyclerView;
+    LinearLayoutManager layoutManager;
+    AdapterShowFCSItems adapterShowFCSItems;
+
+    ArrayList<UserItem> itemIDsArrayL= new ArrayList<>();
+    public List<SuggestedItem> suggestedItemsArrayListTest;
+    public List<SuggestedItem> suggestedItemsArrayListDO;
+
+
+    private int currentPage = PAGE_START;
+    private int totalPage = 10;
+    private boolean isLastPage = false;
+    private boolean isLoading = false;
+    int itemCount = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +69,147 @@ public class ShowPostsActivity extends AppCompatActivity {
 
         statusBarColor();
         actionBarTitle();
-        Log.i("TAG ",getStringFromIntent());
+        init();
+        getUserItemInfoList();
+        timer();
+
+    }
+
+    private void init() {
+        progressBar = (ProgressBar) findViewById(R.id.show_posts_progress);
+        recyclerView = (RecyclerView) findViewById(R.id.show_posts_RV);
+    }
+
+    private void timer() {
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                prite();
+            }
+        }, 1000);
+    }
+
+    private void prite() {
+        if (itemIDsArrayL.size()==0)
+        {
+            timer();
+        }else {
+            createRV();
+            getData();
+            doApiCall();
+            actionListenerToRV();
+        }
+    }
+
+    private void actionListenerToRV() {
+        recyclerView.addOnScrollListener(new PaginationListener(layoutManager) {
+            @Override
+            protected void loadMoreItems() {
+                progressBar.setVisibility(View.VISIBLE);
+                isLoading = true;
+                currentPage++;
+                getData();
+                doApiCall();
+            }
+
+            @Override
+            public boolean isLastPage() {
+                return isLastPage;
+            }
+
+            @Override
+            public boolean isLoading() {
+                return isLoading;
+            }
+        });
+    }
+
+    private void doApiCall() {
+        suggestedItemsArrayListDO = new ArrayList<>();
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                progressBar.setVisibility(View.GONE);
+                suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
+                if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
+                adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
+                if (currentPage < totalPage) {
+                    adapterShowFCSItems.addLoading();
+                } else {
+                    isLastPage = true;
+                }
+                isLoading = false;
+            }
+        }, 3100);
+    }
+
+    private void getData() {
+        final List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
+        suggestedItemsArrayListTest = new ArrayList<>();
+        int numberOfObject = currentPage*10;
+        Log.i("TAG","numberOfObject "+String.valueOf(numberOfObject));
+        Log.i("TAG","i "+String.valueOf(numberOfObject-10));
+
+        for (int i = numberOfObject-10; i < numberOfObject; i++) {
+            final String category = convertCat(itemIDsArrayL.get(i).getCategoryS());
+            final String categoryBefore = itemIDsArrayL.get(i).getCategoryS();
+            Log.i("TAG","i "+String.valueOf(i));
+
+            DocumentReference mRef = null;
+            mRef = getDataStoreInstance().collection(category)
+                    .document(itemIDsArrayL.get(i).getItemID());
+            mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                @Override
+                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                    if (task.isSuccessful()) {
+                        DocumentSnapshot document = task.getResult();
+                        if (document.exists()) {
+                            fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document, categoryBefore));
+                        }
+                    }
+                }
+            });
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                suggestedItemsArrayListTest.addAll(fcsItemsArrayList);
+            }
+        }, 3000);
+    }
+
+    private void createRV() {
+        recyclerView.setHasFixedSize(true);
+        // use a linear layout manager
+        layoutManager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(layoutManager);
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this,"call");
+        recyclerView.setAdapter(adapterShowFCSItems);
+    }
+
+    private void getUserItemInfoList() {
+        itemIDsArrayL = new ArrayList<>();
+        getUserPathInServer(getUserIdInServerFromSP(getApplicationContext()))
+                .child("usersAds")
+                .limitToFirst(101)
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        for (DataSnapshot dataSnapshot1: dataSnapshot.getChildren()) {
+                            UserItem userItem = dataSnapshot1.getValue(UserItem.class);
+                            itemIDsArrayL.add(userItem);
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        Log.i("TAG ERROR", databaseError.toString());
+
+                    }
+
+                });
     }
 
     private void statusBarColor() {
@@ -63,10 +244,4 @@ public class ShowPostsActivity extends AppCompatActivity {
         abar.setHomeButtonEnabled(false);
     }
 
-    private String getStringFromIntent() {
-        String address;
-        Bundle bundle = getIntent().getExtras();
-        address =bundle.getString("userID");
-        return address;
-    }
 }
