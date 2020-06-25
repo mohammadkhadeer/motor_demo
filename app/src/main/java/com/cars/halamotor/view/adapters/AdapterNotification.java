@@ -85,8 +85,34 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
     }
 
     private void transporteToShowItemSelectedDetails(Context context, int position, ViewHolder holder) {
+        String cat =notificationCompsArrayL.get(position).getProcess();
+        if (cat.equals("Car_For_Sale"))
+        {
+            cat = "Car for sale";
+        }
+        if (cat.equals("Car_For_Rent"))
+        {
+            cat = "Car for rent";
+        }
+        if (cat.equals("Car_For_Exchange"))
+        {
+            cat = "Exchange car";
+        }
+
+        if (cat.equals("Plates"))
+        {
+            cat = "Car plates";
+        }
+        if (cat.equals("Wheels_Rim"))
+        {
+            cat = "Wheels rim";
+        }
+        if (cat.equals("JunkCar"))
+        {
+            cat = "Junk car";
+        }
         Bundle bundle = new Bundle();
-        bundle.putString("category",notificationCompsArrayL.get(position).getProcess());
+        bundle.putString("category",cat);
         bundle.putString("from","not");
         bundle.putString("itemID",notificationCompsArrayL.get(position).getItemServerID());
 
