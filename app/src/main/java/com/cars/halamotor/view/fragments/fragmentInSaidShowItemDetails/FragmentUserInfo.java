@@ -27,6 +27,7 @@ import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FavouriteChange;
+import com.cars.halamotor.view.activity.UserProfile;
 import com.squareup.picasso.Picasso;
 
 import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
@@ -40,10 +41,10 @@ public class FragmentUserInfo extends Fragment {
     public FragmentUserInfo(){}
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
-            ,dateStr,timStampStr,categoryStr,messageShare,cat;
+            ,dateStr,timStampStr,categoryStr,messageShare,cat,userID;
     View view;
     TextView userNameTV,userStatusTV,itemNameTV,dateTV;
-    RelativeLayout userStatusRL,favouriteRL,reportRL,shareRL;
+    RelativeLayout userStatusRL,favouriteRL,profileInfoRL,reportRL,shareRL;
     ImageView userImageIV,favouriteIV,shareIV,reportIV;
     CCEMTFirestCase ccemtFirestCase;
     CarPlatesFirstCase carPlatesFirstCase;
@@ -99,6 +100,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = ccemt.getUserImage();
             itemNameStr = ccemt.getItemName();
             timStampStr = ccemt.getTimeStamp();
+            userID = ccemt.getUserIDPathInServer();
             postTypeStr = "empty";
             dateStr = String.valueOf(ccemt.getDayDate())+String.valueOf(ccemt.getMonthDate())+String.valueOf(ccemt.getYear()) ;
         }
@@ -108,6 +110,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = carPlatesModel.getUserImage();
             itemNameStr = carPlatesModel.getItemName();
             timStampStr = carPlatesModel.getTimeStamp();
+            userID = carPlatesModel.getUserIDPathInServer();
             postTypeStr = "empty";
             dateStr = String.valueOf(carPlatesModel.getDayDate())+"/"+String.valueOf(carPlatesModel.getMonthDate())+"/"+String.valueOf(carPlatesModel.getYearDate()) ;
         }
@@ -117,6 +120,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = wheelsRimModel.getUserImage();
             itemNameStr = wheelsRimModel.getItemName();
             timStampStr = wheelsRimModel.getTimeStamp();
+            userID = wheelsRimModel.getUserIDPathInServer();
             postTypeStr = "empty";
             dateStr = String.valueOf(wheelsRimModel.getDayDate())+"/"+String.valueOf(wheelsRimModel.getMonthDate())+"/"+String.valueOf(wheelsRimModel.getYearDate()) ;
         }
@@ -126,6 +130,7 @@ public class FragmentUserInfo extends Fragment {
             userImageStr = accAndJunkObject.getUserImage();
             itemNameStr = accAndJunkObject.getItemName();
             timStampStr = accAndJunkObject.getTimeStamp();
+            userID = accAndJunkObject.getUserIDPathInServer();
             postTypeStr = "empty";
             dateStr = String.valueOf(accAndJunkObject.getDayDate())+"/"+String.valueOf(accAndJunkObject.getMonthDate())+"/"+String.valueOf(accAndJunkObject.getYearDate()) ;
         }
@@ -148,6 +153,7 @@ public class FragmentUserInfo extends Fragment {
         favouriteRL = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_favourite_RL);
         reportRL = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_share_RL);
         shareRL  = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_share_RL);
+        profileInfoRL  = (RelativeLayout) view.findViewById(R.id.fragment_u_i_RL);
 
         favouriteIV = (ImageView) view.findViewById(R.id.fragment_u_i_a_m_favourite_IV);
         shareIV = (ImageView) view.findViewById(R.id.fragment_u_i_a_m_share_IV);
@@ -171,6 +177,23 @@ public class FragmentUserInfo extends Fragment {
         checkIfFavouriteOrNot();
         actionListenerToFavouriteOrNot();
         actionListenerToShare();
+        actionListenerToProfile();
+    }
+
+    private void actionListenerToProfile() {
+        profileInfoRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("userID", userID);
+                bundle.putString("type", "person");
+
+                Intent intent = new Intent(getActivity(), UserProfile.class);
+                intent.putExtras(bundle);
+                startActivityForResult(intent , 10);
+                getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+        });
     }
 
     private void actionListenerToShare() {

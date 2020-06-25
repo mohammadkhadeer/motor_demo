@@ -2,6 +2,7 @@ package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -23,6 +24,7 @@ import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.Follower;
 import com.cars.halamotor.model.Following;
+import com.cars.halamotor.view.activity.UserProfile;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -119,6 +121,28 @@ public class FragmentFollowUser extends Fragment {
         fillUserImageAndUserName();
         fillFollowOrNot();
         actionListenerToFollow();
+        actionListenerToIV();
+    }
+
+    private void actionListenerToIV() {
+        userImageIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (userID.equals(getUserIdInServerFromSP(getActivity()))) {
+
+                } else {
+                    Bundle bundle = new Bundle();
+                    bundle.putString("userID", userID);
+                    bundle.putString("type", "person");
+
+                    Intent intent = new Intent(getActivity(), UserProfile.class);
+                    intent.putExtras(bundle);
+                    startActivityForResult(intent , 10);
+                    getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+
+                }
+            }
+        });
     }
 
     private void actionListenerToFollow() {

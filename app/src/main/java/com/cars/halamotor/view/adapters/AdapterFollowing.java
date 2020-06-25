@@ -1,8 +1,12 @@
 package com.cars.halamotor.view.adapters;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +17,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.Following;
+import com.cars.halamotor.view.activity.UserProfile;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
 
@@ -41,7 +46,7 @@ public class AdapterFollowing extends RecyclerView.Adapter<AdapterFollowing.View
         changeFont(context, holder);
         fillFollowingName(context,position,holder);
         fillImageUserImage(context,holder,position);
-        actionListenerToNotification(context,holder,position);
+        actionListenerToCard(context,holder,position);
     }
 
     private void fillFollowingName(Context context, int position, ViewHolder holder) {
@@ -57,25 +62,24 @@ public class AdapterFollowing extends RecyclerView.Adapter<AdapterFollowing.View
 
     }
 
-    private void actionListenerToNotification(final Context context, final ViewHolder holder, final int position) {
+    private void actionListenerToCard(final Context context, final ViewHolder holder, final int position) {
         holder.coverRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                transporteToShowItemSelectedDetails(context,position,holder);
+                moveToShowItemSelectedDetails(context,position,holder);
             }
         });
     }
 
-    private void transporteToShowItemSelectedDetails(Context context, int position, ViewHolder holder) {
-//        Bundle bundle = new Bundle();
-//        bundle.putString("category",notificationCompsArrayL.get(position).getProcess());
-//        bundle.putString("from","not");
-//        bundle.putString("itemID",notificationCompsArrayL.get(position).getItemServerID());
-//
-//        Intent intent = new Intent(context, ShowItemDetails.class);
-//        intent.putExtras(bundle);
-//        ((Activity)context).startActivity(intent);
-//        ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+    private void moveToShowItemSelectedDetails(Context context, int position, ViewHolder holder) {
+        Bundle bundle = new Bundle();
+        bundle.putString("userID",followingArrayL.get(position).getUserID());
+        bundle.putString("type","person");
+
+        Intent intent = new Intent(context, UserProfile.class);
+        intent.putExtras(bundle);
+        context.startActivity(intent);
+//        context.getApplicationContext().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
 

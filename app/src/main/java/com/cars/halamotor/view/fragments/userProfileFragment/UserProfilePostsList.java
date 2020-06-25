@@ -1,51 +1,67 @@
-package com.cars.halamotor.view.activity;
+package com.cars.halamotor.view.fragments.userProfileFragment;
 
-import android.graphics.Typeface;
-import android.os.Build;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.graphics.Color;
+import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
+import android.support.design.widget.Snackbar;
+import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
-import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.functions.FCSFunctions;
+import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.Follower;
+import com.cars.halamotor.model.Following;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.UserItem;
+import com.cars.halamotor.model.UserProfileInfo;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 
+import static com.cars.halamotor.algorithms.FollowingTest.checkIfFollow;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertFollowingTable;
+import static com.cars.halamotor.dataBase.ReadFunction.checkIfTableFollowing;
+import static com.cars.halamotor.dataBase.ReadFunction.getFollowing;
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertFollower;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertFollowing;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertNewUser;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
-import static com.cars.halamotor.functions.NewFunction.actionBarTitleInFCS;
-import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
-import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserIdInServerFromSP;
+import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getFollowingObjectFromDB;
+import static com.cars.halamotor.sharedPreferences.UserInfoSP.getUserInfoFromSP;
 import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
-public class ShowPostsActivity extends AppCompatActivity {
+public class UserProfilePostsList extends Fragment {
 
+    View view;
     ProgressBar progressBar;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
@@ -62,22 +78,28 @@ public class ShowPostsActivity extends AppCompatActivity {
     private boolean isLoading = false;
     int itemCount = 0;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_show_postes);
+    String userID;
 
-        statusBarColor();
-        actionBarTitle();
-        init();
+    public UserProfilePostsList(){}
+
+    @Override
+    public void onAttach(Context context) {
+        if (getArguments() != null) {
+            userID = getArguments().getString("userID");
+        }
+        super.onAttach(context);
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_user_posts_list, container, false);
+
+        inti();
         getUserItemInfoList();
         timer();
 
-    }
-
-    private void init() {
-        progressBar = (ProgressBar) findViewById(R.id.show_posts_progress);
-        recyclerView = (RecyclerView) findViewById(R.id.show_posts_RV);
+        return view;
     }
 
     private void timer() {
@@ -181,15 +203,15 @@ public class ShowPostsActivity extends AppCompatActivity {
     private void createRV() {
         recyclerView.setHasFixedSize(true);
         // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
+        layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this,"call");
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"call");
         recyclerView.setAdapter(adapterShowFCSItems);
     }
 
     private void getUserItemInfoList() {
         itemIDsArrayL = new ArrayList<>();
-        getUserPathInServer(getUserIdInServerFromSP(getApplicationContext()))
+        getUserPathInServer(userID)
                 .child("usersAds")
                 .limitToFirst(101)
                 .addValueEventListener(new ValueEventListener() {
@@ -209,36 +231,9 @@ public class ShowPostsActivity extends AppCompatActivity {
                 });
     }
 
-    private void statusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
-        }
-    }
-
-    private void actionBarTitle() {
-        Typeface typeface;
-        final ActionBar abar = getSupportActionBar();
-        View viewActionBar = getLayoutInflater().inflate(R.layout.actionbar_custom_title_view_centered, null);
-        ActionBar.LayoutParams params = new ActionBar.LayoutParams(//Center the textview in the ActionBar !
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                ActionBar.LayoutParams.MATCH_PARENT,
-                Gravity.CENTER);
-        if (Locale.getDefault().getLanguage().equals("ar")) {
-            typeface = Typeface.createFromAsset(getAssets(), "GE_DINAR_ONE_LIGHT.TTF");
-        }else{
-            typeface = Typeface.createFromAsset(getAssets(), "NTAILU.TTF");
-        }
-        TextView textviewTitle = (TextView) viewActionBar.findViewById(R.id.actionbar_textview);
-        textviewTitle.setText(getResources().getString(R.string.posts));
-        textviewTitle.setTypeface(typeface);
-        abar.setCustomView(viewActionBar, params);
-        abar.setDisplayShowCustomEnabled(true);
-        abar.setDisplayShowTitleEnabled(false);
-        abar.setDisplayHomeAsUpEnabled(false);
-        abar.setHomeButtonEnabled(false);
+    private void inti() {
+        progressBar = (ProgressBar) view.findViewById(R.id.fragment_user_show_posts_progress);
+        recyclerView = (RecyclerView) view.findViewById(R.id.fragment_user_show_posts_RV);
     }
 
 }

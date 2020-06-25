@@ -23,7 +23,9 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
+                android:background="?android:attr/selectableItemBackground"
                 android:layout_marginTop="1dp"
+                android:id="@+id/fragment_u_i_RL"
                 android:layout_weight="45">
 
                 <LinearLayout

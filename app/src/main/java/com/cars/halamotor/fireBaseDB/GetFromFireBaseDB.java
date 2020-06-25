@@ -2,6 +2,7 @@ package com.cars.halamotor.fireBaseDB;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.cars.halamotor.model.AccAndJunk;
 import com.cars.halamotor.model.CCEMT;
@@ -10,9 +11,11 @@ import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
+import com.cars.halamotor.model.UserProfileInfo;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.ItemModel;
 import com.cars.halamotor.presnter.NumberOfAllowedAds;
+import com.cars.halamotor.presnter.UserInfo;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -182,5 +185,35 @@ public class GetFromFireBaseDB {
             }
         });
 
+    }
+
+    public static void getProfileUserInfo(final String userID, final UserInfo userInfo) {
+        getUserPathInServer(userID)
+                .addListenerForSingleValueEvent(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        if (dataSnapshot.exists()) {
+                            Log.i("TAG",dataSnapshot.toString());
+                            UserProfileInfo userProfileInfo = new UserProfileInfo
+                                    (
+                                            userID
+                                            ,dataSnapshot.child("nameStr").getValue().toString()
+                                            ,dataSnapshot.child("userImageStr").getValue().toString()
+                                            ,dataSnapshot.child("surNameStr").getValue().toString()
+                                            ,dataSnapshot.child("emailStr").getValue().toString()
+                                            ,dataSnapshot.child("cityStr").getValue().toString()
+                                            ,dataSnapshot.child("neighbourhoodStr").getValue().toString()
+                                            ,dataSnapshot.child("numberOfAds").getValue().toString()
+                                            ,dataSnapshot.child("userTokensStr").getValue().toString()
+                                    );
+                            userInfo.userInfo(userProfileInfo);
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                    }
+
+                });
     }
 }

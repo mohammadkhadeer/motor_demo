@@ -19,10 +19,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.FollowingActivity"></activity>
-        <activity android:name=".view.activity.ShowPostsActivity">
-
-        </activity>
+        <activity android:name=".view.activity.UserProfile"
+            android:theme="@style/AppTheme2"
+            ></activity>
+        <activity android:name=".view.activity.FollowingActivity" />
+        <activity android:name=".view.activity.ShowPostsActivity"></activity>
         <activity android:name=".view.activity.PersonProfile" />
         <activity
             android:name=".view.activity.ShowFCS"
@@ -30,7 +31,7 @@
         <activity
             android:name=".view.activity.ShowItemDetails"
             android:label="@string/title_activity_show_item_details"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.SplashScreen"
             android:screenOrientation="portrait"
@@ -64,7 +65,8 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".view.activity.AddItem"
-            android:theme="@style/AppTheme2"></activity>
+            android:theme="@style/AppTheme2"
+            />
         <activity
             android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait"
