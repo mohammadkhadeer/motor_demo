@@ -1,5 +1,7 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Handler;
@@ -22,6 +24,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.UserItem;
+import com.cars.halamotor.view.adapters.AdapterEditPosts;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -45,11 +48,12 @@ import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUse
 import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
 public class ShowPostsActivity extends AppCompatActivity {
+    private static final int REQUEST_EDIT_POST = 55;
 
     ProgressBar progressBar;
     RecyclerView recyclerView;
     LinearLayoutManager layoutManager;
-    AdapterShowFCSItems adapterShowFCSItems;
+    AdapterEditPosts adapterEditPosts;
 
     ArrayList<UserItem> itemIDsArrayL= new ArrayList<>();
     public List<SuggestedItem> suggestedItemsArrayListTest;
@@ -73,6 +77,21 @@ public class ShowPostsActivity extends AppCompatActivity {
         getUserItemInfoList();
         timer();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_EDIT_POST && resultCode == Activity.RESULT_OK) {
+            String editOrNot =data.getExtras().getString("edit");
+            if (editOrNot.equals("yes"))
+            {
+                progressBar.setVisibility(View.VISIBLE);
+                createRV();
+                getUserItemInfoList();
+                timer();
+            }
+        }
     }
 
     private void init() {
@@ -133,10 +152,10 @@ public class ShowPostsActivity extends AppCompatActivity {
             public void run() {
                 progressBar.setVisibility(View.GONE);
                 suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
-                if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
+                if (currentPage != PAGE_START) adapterEditPosts.removeLoading();
+                adapterEditPosts.addItems(suggestedItemsArrayListDO);
                 if (currentPage < totalPage) {
-                    adapterShowFCSItems.addLoading();
+                    adapterEditPosts.addLoading();
                 } else {
                     isLastPage = true;
                 }
@@ -183,8 +202,8 @@ public class ShowPostsActivity extends AppCompatActivity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this,"call");
-        recyclerView.setAdapter(adapterShowFCSItems);
+        adapterEditPosts = new AdapterEditPosts(new ArrayList<SuggestedItem>(),this);
+        recyclerView.setAdapter(adapterEditPosts);
     }
 
     private void getUserItemInfoList() {

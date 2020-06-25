@@ -139,9 +139,9 @@ public class SplashScreen extends AppCompatActivity {
                 getWheelsRimIndependent();
                 getCarPlatesIndependent();
                 getAccessoriesIndependent();
-                //getJunkCarIndependent();
+                getJunkCarIndependent();
                 //first fill suggested to you list
-                //getJunkCar();
+                getJunkCar();
                 getAccessories();
                 getWheelsRim();
                 getCarPlates();

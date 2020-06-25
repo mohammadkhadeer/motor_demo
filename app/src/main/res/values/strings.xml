@@ -126,6 +126,7 @@
     <string name="settings">Settings</string>
     <string name="verified">Verified</string>
     <string name="edit_profile">Edit Profile</string>
+    <string name="edit">Edit</string>
     <string name="profile">Profile</string>
     <string name="build_trust">Build Trust</string>
 
@@ -6581,7 +6582,49 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+    <string name="edit_option">Edit</string>
+    <string name="back">Back</string>
+    <string name="fill_new_price">Fill a new price</string>
+    <string name="edited_successfully">Edited successfully</string>
+    <string name="price_m1">New price must to be less than privuse price</string>
+    <string name="delete_option">Delete</string>
+    <string name="delete_message">are you sure you want\n to delete this item </string>
+
     <string name="action_settings">Settings</string>
+    <string name="user_message_1">This is first time you try to change \n
+        Price to item\: </string>
+    <string name="user_message_3">\nAny way this first time try to change
+        \n This product price maximum change \n
+        Is 3 time as well as the new price \n
+    Must to be less than now price</string>
+
+    <string name="user_message_4">This is second time you try to change \n
+        Price to item\: </string>
+
+    <string name="user_message_5">\nAny way have also tow time to change
+        \n This product price maximum change \n
+        Is 3 time as well as the new price \n
+    Must to be less than now price</string>
+
+    <string name="user_message_6">This is third time you try to change \n
+        Price to item\: </string>
+
+    <string name="user_message_7">\nAny way this is last time to change
+        \n This product price maximum change \n
+        Is 3 time as well as the new price \n
+    Must to be less than now price</string>
+
+    <string name="user_message_8">You can not change
+        price to \nItem\: </string>
+
+    <string name="user_message_9">any more</string>
+
+
+    <string name="item_name">Item name\:</string>
+    <string name="item_price">Item price\:</string>
+
+    <string name="new_price">Enter new price</string>
+
     <string name="title_activity_scrolling">ScrollingActivity</string>
 
 
