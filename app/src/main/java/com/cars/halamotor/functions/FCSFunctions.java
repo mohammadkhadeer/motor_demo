@@ -189,7 +189,7 @@ public class FCSFunctions {
             Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
             Long itemPrice = (Long) dataSnapshot.getLong("price");
             String userID = (String) dataSnapshot.getString("userIDPathInServer");
-            Long itemActiveOrNot = (Long) dataSnapshot.getLong("activeOrNotS");
+            String itemActiveOrNot = (String) dataSnapshot.getString("activeOrNotS");
 
             suggestedItem = new SuggestedItem(
                     itemBoostType
@@ -258,7 +258,7 @@ public class FCSFunctions {
             Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
             Long itemPrice = (Long) dataSnapshot.getLong("price");
             String userID = (String) dataSnapshot.getString("userIDPathInServer");
-            Long itemActiveOrNot = (Long) dataSnapshot.getLong("activeOrNotS");
+            String itemActiveOrNot = (String) dataSnapshot.getString("activeOrNotS");
 
             suggestedItem = new SuggestedItem(
                     itemBoostType
@@ -326,7 +326,7 @@ public class FCSFunctions {
             Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
             Long itemPrice = (Long) dataSnapshot.getLong("price");
             String userID = (String) dataSnapshot.getString("userIDPathInServer");
-            Long itemActiveOrNot = (Long) dataSnapshot.getLong("activeOrNotS");
+            String itemActiveOrNot = (String) dataSnapshot.getString("activeOrNotS");
 
             suggestedItem = new SuggestedItem(
                     itemBoostType

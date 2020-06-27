@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarMake;
+import com.cars.halamotor.model.ItemFilterModel;
 
 import java.util.ArrayList;
 
@@ -201,6 +202,23 @@ public class FillCarMakeArrayListsInCarDerails {
         carMakeArrayList.add(carMake86);
 
         return carMakeArrayList;
+    }
+
+    public static ArrayList<ItemFilterModel> fillCarMakeArrayL(Context context) {
+        ArrayList<ItemFilterModel>carMakeFilterArrayList = new ArrayList<ItemFilterModel>();
+
+        ArrayList<CarMake>carMakeArrayList = new ArrayList<CarMake>();
+        carMakeArrayList = fillCarMakeArrayL(carMakeArrayList,context);
+
+        for (int i = 0;i<carMakeArrayList.size();i++)
+        {
+            ItemFilterModel itemFilterModel = new ItemFilterModel(
+                    carMakeArrayList.get(i).getMakeStr()
+                    ,carMakeArrayList.get(i).getMakeStrS()
+            );
+            carMakeFilterArrayList.add(itemFilterModel);
+        }
+        return carMakeFilterArrayList;
     }
 
 }

@@ -7,6 +7,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.model.CarMake;
 import com.cars.halamotor.model.CarMakeAndCarModel;
 import com.cars.halamotor.model.CarModel;
+import com.cars.halamotor.model.ItemFilterModel;
 
 import java.util.ArrayList;
 
@@ -2801,6 +2802,23 @@ public class FillCarModel {
         }
 
         return allCarArrayList;
+    }
+
+    public static ArrayList<ItemFilterModel> fillCarmodelFilterArrayL(Context context,String carMake) {
+        ArrayList<ItemFilterModel>carModelFilterArrayList = new ArrayList<ItemFilterModel>();
+
+        ArrayList<CarModel>carModelArrayList = new ArrayList<CarModel>();
+        carModelArrayList = fillCarModelArrayL(carModelArrayList,context,carMake);
+
+        for (int i = 0;i<carModelArrayList.size();i++)
+        {
+            ItemFilterModel itemFilterModel = new ItemFilterModel(
+                    carModelArrayList.get(i).getCarModelStr()
+                    ,carModelArrayList.get(i).getCarModelStrS()
+            );
+            carModelFilterArrayList.add(itemFilterModel);
+        }
+        return carModelFilterArrayList;
     }
 
 }

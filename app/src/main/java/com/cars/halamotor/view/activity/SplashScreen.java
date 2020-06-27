@@ -338,6 +338,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 junkArrayL = new ArrayList<>();
+                if (!junkArrayLFireStore.isEmpty())
                 junkArrayL.add(junkArrayLFireStore.get(0));
                 insertJunkRimToDataBase();
             }
@@ -349,6 +350,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 accessoriesArrayL = new ArrayList<>();
+                if (!accessoriesArrayLFireStore.isEmpty())
                 accessoriesArrayL.add(accessoriesArrayLFireStore.get(0));
                 insertAccessoriesRimToDataBase();
             }
@@ -360,6 +362,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 wheelsRimList = new ArrayList<>();
+                if (!wheelsRimListFireStore.isEmpty())
                 wheelsRimList.add(wheelsRimListFireStore.get(0));
                 insertWheelsRimToDataBase();
             }
@@ -371,6 +374,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 carPlatesList = new ArrayList<>();
+                if (!carPlatesListFireStore.isEmpty())
                 carPlatesList.add(carPlatesListFireStore.get(0));
                 insertCarPlatesToDataBase();
             }
@@ -383,6 +387,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 truckList = new ArrayList<>();
+                if(!truckListFireStore.isEmpty())
                 truckList.add(truckListFireStore.get(0));
                 insertTruckToDataBase();
             }
@@ -394,6 +399,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 motorcycleList = new ArrayList<>();
+                if (!motorcycleListFireStore.isEmpty())
                 motorcycleList.add(motorcycleListFireStore.get(0));
                 insertMotorcycleToDataBase();
             }
@@ -406,8 +412,11 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 carForExchangeList = new ArrayList<>();
-                carForExchangeList.add(carForExchangeListFireStore.get(0));
-                carForExchangeList.add(carForExchangeListFireStore.get(1));
+                if (!carForExchangeListFireStore.isEmpty())
+                {
+                    carForExchangeList.add(carForExchangeListFireStore.get(0));
+                    carForExchangeList.add(carForExchangeListFireStore.get(1));
+                }
                 insertCarForExchangeToDataBase();
             }
         }, suggested);
@@ -419,8 +428,11 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 carForRentList = new ArrayList<>();
-                carForRentList.add(carForRentListFireStore.get(0));
-                carForRentList.add(carForRentListFireStore.get(1));
+                if (!carForRentListFireStore.isEmpty())
+                {
+                    carForRentList.add(carForRentListFireStore.get(0));
+                    carForRentList.add(carForRentListFireStore.get(1));
+                }
                 insertCarForRentToDataBase();
             }
         }, suggested);
@@ -432,8 +444,11 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 carForSaleList = new ArrayList<>();
-                carForSaleList.add(carForSaleListFireStore.get(0));
-                carForSaleList.add(carForSaleListFireStore.get(1));
+                if (!carForSaleListFireStore.isEmpty())
+                {
+                    carForSaleList.add(carForSaleListFireStore.get(0));
+                    carForSaleList.add(carForSaleListFireStore.get(1));
+                }
                 insertCarForSaleToDataBase();
             }
         }, suggested);

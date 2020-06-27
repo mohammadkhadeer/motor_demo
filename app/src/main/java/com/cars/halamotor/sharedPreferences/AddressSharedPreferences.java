@@ -37,4 +37,17 @@ public class AddressSharedPreferences {
         }
     }
 
+    public static String getUserNeighborhoodFromSP(Context context) {
+        String userNeighborhood;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        userNeighborhood = (shared.getString("userNeighborhood", ""));
+        if (userNeighborhood.equals("") || userNeighborhood == null) {
+            return  null;
+        }
+        else {
+            return  userNeighborhood;
+        }
+    }
+
 }
