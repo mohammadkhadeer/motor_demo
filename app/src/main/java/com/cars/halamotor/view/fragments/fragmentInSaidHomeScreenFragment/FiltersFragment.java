@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
@@ -18,6 +19,7 @@ import com.cars.halamotor.model.CityModel;
 import com.cars.halamotor.model.ItemFilterModel;
 import com.cars.halamotor.model.ItemSelectedFilterModel;
 import com.cars.halamotor.model.Neighborhood;
+import com.cars.halamotor.presnter.Filter;
 import com.cars.halamotor.view.adapters.adapterFilterFragment.AdapterFiltersCity;
 import com.cars.halamotor.view.adapters.adapterFilterFragment.AdapterFiltersItem;
 import com.cars.halamotor.view.adapters.adapterFilterFragment.AdapterSelectedFilters;
@@ -61,6 +63,23 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
 
     AdapterFiltersItem adapterFiltersItem;
     int numberOfSelectedFilter=0;
+    Filter filter;
+
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        if (context instanceof Filter) {
+            filter = (Filter) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement FragmentAListener");
+        }
+    }
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        filter = null;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,6 +104,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
             public void onClick(View v) {
                 selectedNeighborhoodCV.setVisibility(View.GONE);
                 recyclerViewNeighborhood.setVisibility(View.VISIBLE);
+                filter.onFilterNeighborhoodCancel(false);
 //                createNeighborhoodRV(selectedCityStr);
             }
         });
@@ -99,6 +119,8 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
 
                 selectedCityCV.setVisibility(View.GONE);
                 filter1RV.setVisibility(View.VISIBLE);
+
+                filter.onFilterCityCancel(false);
             }
         });
     }
@@ -177,7 +199,11 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
         filter1RV.setVisibility(View.GONE);
 
         selectedCityStr = cityModel.getCity();
+
+        filter.onFilterCityClick(cityModel);
+
         createNeighborhoodRV(cityModel.getCity());
+
     }
 
     private void createNeighborhoodRV(String city) {
@@ -204,6 +230,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
 
     @Override
     public void onNeighborhoodClicked(Neighborhood neighborhood) {
+        filter.onFilterNeighborhoodClick(neighborhood);
         neighborhoodNameTV.setText(neighborhood.getNeighborhood());
         selectedNeighborhoodCV.setVisibility(View.VISIBLE);
         recyclerViewNeighborhood.setVisibility(View.GONE);
@@ -225,6 +252,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
         selectedFilterArrayL.add(new ItemSelectedFilterModel(itemFilterModel.getFilter(),itemFilterModel.getFilterS(),itemTypeFromFilterAdapter.get(itemTypeFromFilterAdapter.size()-1).getFilterType()));
         adapterSelectedFilters.notifyDataSetChanged();
 
+        filter.onFilterClick(itemFilterModel,itemTypeFromFilterAdapter.get(itemTypeFromFilterAdapter.size()-1).getFilterType());
         createFilterTowRV();
 
     }
@@ -246,7 +274,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
             selectedFilterArrayL.remove(selectedFilterArrayL.size()-1);
             adapterSelectedFilters.notifyDataSetChanged();
         }
-
+        filter.onFilterCancel();
         createFilterTowRV();
     }
 }

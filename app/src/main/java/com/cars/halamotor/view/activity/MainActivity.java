@@ -24,6 +24,11 @@ import android.widget.Toast;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.BrowsingFilter;
+import com.cars.halamotor.model.CityModel;
+import com.cars.halamotor.model.ItemFilterModel;
+import com.cars.halamotor.model.ItemSelectedFilterModel;
+import com.cars.halamotor.model.Neighborhood;
+import com.cars.halamotor.presnter.Filter;
 import com.cars.halamotor.presnter.OnNewNotification;
 import com.cars.halamotor.view.fragments.FragmentHomeScreen;
 import com.cars.halamotor.view.fragments.browsingFragment.BrowsingItems;
@@ -46,14 +51,14 @@ import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements Filter{
     private TextView appNameTV;
     DatabaseReference mDatabase;
     BottomBar bottomBar;
     EditText searchEdt;
     RelativeLayout headRL;
 
-    final Fragment fragmentHome = new FragmentHomeScreen();
+    final FragmentHomeScreen fragmentHome = new FragmentHomeScreen();
     final Fragment fragmentMessage = new FragmentBrowsing();
     final Fragment fragmentNotification = new FragmentNotification();
     final Fragment fragmentProfile = new FragmentProfile();
@@ -350,10 +355,40 @@ public class MainActivity extends AppCompatActivity  {
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        getDataBaseInstance(getApplicationContext()).deleteAllItem();
-        getDataBaseInstance(getApplicationContext()).deleteCCEMTItem();
-        getDataBaseInstance(getApplicationContext()).deleteWheels_RimItem();
-        getDataBaseInstance(getApplicationContext()).deleteCarPlatesItem();
-        getDataBaseInstance(getApplicationContext()).deleteAccAndJunkItem();
+//        getDataBaseInstance(getApplicationContext()).deleteAllItem();
+//        getDataBaseInstance(getApplicationContext()).deleteCCEMTItem();
+//        getDataBaseInstance(getApplicationContext()).deleteWheels_RimItem();
+//        getDataBaseInstance(getApplicationContext()).deleteCarPlatesItem();
+//        getDataBaseInstance(getApplicationContext()).deleteAccAndJunkItem();
+    }
+
+    @Override
+    public void onFilterClick(ItemFilterModel filterModel, String filterType) {
+        fragmentHome.onFilterClicked(filterModel,filterType);
+    }
+
+    @Override
+    public void onFilterCancel() {
+        fragmentHome.onFilterCanceled();
+    }
+
+    @Override
+    public void onFilterCityClick(CityModel cityModel) {
+        fragmentHome.onCityClicked(cityModel);
+    }
+
+    @Override
+    public void onFilterCityCancel(Boolean cancel) {
+        fragmentHome.onCityCanceled(cancel);
+    }
+
+    @Override
+    public void onFilterNeighborhoodClick(Neighborhood neighborhood) {
+        fragmentHome.onNeighborhoodClicked(neighborhood);
+    }
+
+    @Override
+    public void onFilterNeighborhoodCancel(Boolean cancel) {
+        fragmentHome.onNeighborhoodCanceled(cancel);
     }
 }

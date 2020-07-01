@@ -83,7 +83,7 @@ public class InsertFunctions {
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
                 , String.valueOf(ccemt.getUserIDPathInServer())
-                , String.valueOf(ccemt.getAuctionOrNot())
+                , String.valueOf(ccemt.getActiveOrNotS())
 
                 ,ccemt.getYearDate() + "/" + ccemt.getMonthDate() + "/" + ccemt.getDayDate()
                 ,ccemt.getTimeStamp()
@@ -252,7 +252,7 @@ public class InsertFunctions {
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
                 , String.valueOf(ccemt.getUserIDPathInServer())
-                , String.valueOf(ccemt.getAuctionOrNot())
+                , String.valueOf(ccemt.getActiveOrNotS())
         );
         return isInserted;
     }
@@ -430,7 +430,7 @@ public class InsertFunctions {
                 , String.valueOf(ccemt.getBurnedPrice())
                 , String.valueOf(ccemt.getPrice())
                 , String.valueOf(ccemt.getUserIDPathInServer())
-                , String.valueOf(ccemt.getAuctionOrNot())
+                , String.valueOf(ccemt.getActiveOrNotS())
         );
         return isInserted;
     }

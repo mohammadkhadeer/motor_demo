@@ -249,36 +249,26 @@ public class AdapterEditPosts extends RecyclerView.Adapter<BaseViewHolder> {
                     public void onClick(DialogInterface dialog, int which) {
                       final String category = convertCat(suggestedItemsList.get(position).getItemType());
                       //cos have mistake on CCEMT object model we set acution alternative to active
-                      if (suggestedItemsList.get(position).getItemType().equals("Car for sale")
-                              || suggestedItemsList.get(position).getItemType().equals("Car for rent")
-                              || suggestedItemsList.get(position).getItemType().equals("Motorcycle")
-                              || suggestedItemsList.get(position).getItemType().equals("Exchange car")
-                              || suggestedItemsList.get(position).getItemType().equals("Trucks"))
-                      {
-                        DocumentReference documentReference=getObjectPathInServerFireStore(category,suggestedItemsList.get(position).getItemIdInServer());
-                        documentReference.update("auctionOrNot","0").addOnCompleteListener(new OnCompleteListener<Void>() {
-                          @Override
-                          public void onComplete(@NonNull Task<Void> task) {
+                      DocumentReference documentReference=getObjectPathInServerFireStore(category,suggestedItemsList.get(position).getItemIdInServer());
+                      documentReference.update("activeOrNotS","0").addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task) {
 
-                            if (task.isSuccessful())
-                            {
-                              itemInfoRL.setVisibility(View.GONE);
-                              messageInfo.setVisibility(View.VISIBLE);
+                          if (task.isSuccessful())
+                          {
+                            itemInfoRL.setVisibility(View.GONE);
+                            messageInfo.setVisibility(View.VISIBLE);
 
-                              fillImageView(itemImage);
-                              suggestedItemsList.get(position).setItemActiveOrNot("0");
-                            }
+                            fillImageView(itemImage);
+                            suggestedItemsList.get(position).setItemActiveOrNot("0");
                           }
-                        }).addOnFailureListener(new OnFailureListener() {
-                          @Override
-                          public void onFailure(@NonNull Exception e) {
-                            Log.i("TAG","erorr "+ e.toString());
-                          }
-                        });
-                      }else{
-                        DocumentReference documentReference=getObjectPathInServerFireStore(category,suggestedItemsList.get(position).getItemIdInServer());
-                        documentReference.update("activeOrNotS","0");
-                      }
+                        }
+                      }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                          Log.i("TAG","erorr "+ e.toString());
+                        }
+                      });
 
                       dialog.dismiss();
                       //perform action

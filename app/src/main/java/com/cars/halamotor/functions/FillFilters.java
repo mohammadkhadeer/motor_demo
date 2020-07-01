@@ -149,43 +149,40 @@ public class FillFilters {
             )
             {
 //                textView.setText(context.getResources().getString(R.string.detect_condition));
-                filterArrayL =fillCarConditionsFilterType(context);
+                filterArrayL =fillPaymentArrayL(context);
             }
         }
         if (numberOfFilterSelectedNow ==7)
         {
             if (filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_sale))
-                    || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_rent))
                     || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.motorcycle))
             )
             {
-                filterArrayL =fillPaymentArrayL(context);
+                filterArrayL =fillCarConditionsFilterType(context);
             }
         }
         if (numberOfFilterSelectedNow ==8)
         {
             if (filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_sale))
-                    || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_rent))
-                    || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.motorcycle))
-            )
-            {
-                filterArrayL =fillLicensedFilterArrayL(context);
-            }
-        }
-        if (numberOfFilterSelectedNow ==9)
-        {
-            if (filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_sale))
-                    || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_rent))
                     || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.motorcycle))
             )
             {
                 filterArrayL =fillInsuranceFilterArrayL(context);
             }
         }
+        if (numberOfFilterSelectedNow ==9)
+        {
+            if (filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_sale))
+                    || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.motorcycle))
+            )
+            {
+                filterArrayL =fillLicensedFilterArrayL(context);
+            }
+        }
+
         if (numberOfFilterSelectedNow ==10)
         {
             if (filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_sale))
-                    || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.car_for_rent))
                     || filterType.get(0).getFilterType().equals(context.getResources().getString(R.string.motorcycle))
             )
             {
@@ -199,6 +196,9 @@ public class FillFilters {
     public static ArrayList<ItemFilterModel> fillFuelFilterArrayL(Context context) {
         ArrayList<ItemFilterModel> carFuelFilterArrayL = new ArrayList<ItemFilterModel>();
 
+        String any = context.getResources().getString(R.string.any);
+//        carFuelFilterArrayL.add(new ItemFilterModel(any,any));
+
         carFuelFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.gasoline),context.getResources().getString(R.string.gasoline_s)));
         carFuelFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.diesel),context.getResources().getString(R.string.diesel_s)));
         carFuelFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.hybrid),context.getResources().getString(R.string.hybrid_s)));
@@ -209,6 +209,9 @@ public class FillFilters {
 
     public static ArrayList<ItemFilterModel> fillInsuranceFilterArrayL(Context context) {
         ArrayList<ItemFilterModel> carInsuranceFilterArrayL = new ArrayList<ItemFilterModel>();
+
+        String any = context.getResources().getString(R.string.any);
+//        carInsuranceFilterArrayL.add(new ItemFilterModel(any,any));
 
         carInsuranceFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.insurance_compulsory),context.getResources().getString(R.string.insurance_compulsory_s)));
         carInsuranceFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.insurance_comprehensive),context.getResources().getString(R.string.insurance_comprehensive_s)));
@@ -230,6 +233,9 @@ public class FillFilters {
     public static ArrayList<ItemFilterModel> fillLicensedFilterArrayL(Context context) {
         ArrayList<ItemFilterModel> carLicensedFilterArrayL = new ArrayList<ItemFilterModel>();
 
+        String any = context.getResources().getString(R.string.any);
+//        carLicensedFilterArrayL.add(new ItemFilterModel(any,any));
+
         carLicensedFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.licensed),context.getResources().getString(R.string.licensed_s)));
         carLicensedFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.no_licensed),context.getResources().getString(R.string.no_licensed_s)));
 
@@ -240,6 +246,10 @@ public class FillFilters {
     {
         ArrayList<ItemFilterModel> carConditionsFilterArrayL = new ArrayList<ItemFilterModel>();
 
+        String any = context.getResources().getString(R.string.any);
+        String anyS = context.getResources().getString(R.string.any_s);
+
+//        carConditionsFilterArrayL.add(new ItemFilterModel(any,any));
         carConditionsFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.used),context.getResources().getString(R.string.used_s)));
         carConditionsFilterArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.car_new),context.getResources().getString(R.string.car_new_s)));
 
@@ -251,9 +261,13 @@ public class FillFilters {
         int year = calendar.get(Calendar.YEAR);
         ArrayList<ItemFilterModel> filterYearArrayList = new ArrayList<ItemFilterModel>();
 
+        String any = context.getResources().getString(R.string.any);
+        String anyS = context.getResources().getString(R.string.any_s);
+//        filterYearArrayList.add(new ItemFilterModel(any,anyS));
+
         for (int i=year;i>=1970;i--)
         {
-            filterYearArrayList.add(new ItemFilterModel(String.valueOf(i),convertYearToEng(getYEAR())));
+            filterYearArrayList.add(new ItemFilterModel(String.valueOf(i),convertYearToEng(String.valueOf(i))));
         }
 
         return filterYearArrayList;
@@ -395,7 +409,7 @@ public class FillFilters {
         if (category.equals(context.getResources().getString(R.string.car_for_sale))||category.equals(context.getResources().getString(R.string.trucks))||category.equals(context.getResources().getString(R.string.motorcycle))||category.equals(context.getResources().getString(R.string.car_plates)))
         {
             int x = Integer.parseInt(fromPrice);
-            if (x==1000)
+            if (x==1)
             {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.t_5000),context.getResources().getString(R.string.t_5000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.t_10000),context.getResources().getString(R.string.t_10000_s)));
@@ -607,7 +621,7 @@ public class FillFilters {
         if (category.equals(context.getResources().getString(R.string.car_for_rent))||category.equals(context.getResources().getString(R.string.accessories)))
         {
             int x = Integer.parseInt(fromPrice);
-            if (x ==50)
+            if (x ==5)
             {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.ra_100),context.getResources().getString(R.string.ra_100_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.ra_150),context.getResources().getString(R.string.ra_200_s)));
@@ -799,7 +813,7 @@ public class FillFilters {
         if (category.equals(context.getResources().getString(R.string.junk_car))||category.equals(context.getResources().getString(R.string.wheels_rim)))
         {
             int x = Integer.parseInt(fromPrice);
-            if (x == 500)
+            if (x == 5)
             {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_600),context.getResources().getString(R.string.wj_600_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_700),context.getResources().getString(R.string.wj_700_s)));

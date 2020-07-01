@@ -1,267 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<android.support.v4.widget.NestedScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/home_fragment"
     android:layout_marginTop="90dp"
     android:layout_height="match_parent"
     tools:context=".view.fragments.FragmentHomeScreen">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:visibility="gone"
-            android:layout_marginTop="8dp"
-            android:weightSum="100">
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="33">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginRight="12dp"
-                            android:orientation="horizontal">
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                >
-<!--                                android:background="@drawable/filter"-->
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_centerHorizontal="true"
-                                    />
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                >
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/filter"
-                                    android:textSize="18dp"
-                                    android:textColor="@color/colorBlack"
-                                    android:layout_marginLeft="1dp"
-                                    android:layout_marginStart="8dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_centerHorizontal="true"
-                                    />
-
-                            </RelativeLayout>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5">
-
-                <RelativeLayout
-                    android:layout_width="1px"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:alpha="0.6"
-                    android:layout_marginBottom="2dp"
-                    android:background="@color/colorSilver"
-                    />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="33">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                >
-<!--                                android:background="@drawable/arrangement"-->
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_centerHorizontal="true"
-                                    />
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                >
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/arrangement"
-                                    android:textSize="16dp"
-                                    android:textColor="@color/colorBlack"
-                                    android:layout_marginLeft="1dp"
-                                    android:layout_marginStart="4dp"
-                                    android:layout_centerVertical="true"
-                                    />
-
-                            </RelativeLayout>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="0.5">
-
-                <RelativeLayout
-                    android:layout_width="1px"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="2dp"
-                    android:alpha="0.6"
-                    android:layout_marginBottom="2dp"
-                    android:background="@color/colorSilver"
-                    />
-
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="33">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    >
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_centerHorizontal="true"
-                        android:layout_centerVertical="true"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            >
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                >
-<!--                                android:background="@drawable/all_detalis_filter"-->
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_centerHorizontal="true"
-                                    />
-
-                            </RelativeLayout>
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginStart="16dp"
-                                >
-<!--                                android:background="@drawable/medium_filter"-->
-
-                                <ImageView
-                                    android:layout_width="25dp"
-                                    android:layout_height="25dp"
-                                    android:layout_centerVertical="true"
-                                    android:layout_centerHorizontal="true"
-                                    />
-
-                            </RelativeLayout>
-
-                        </LinearLayout>
-
-                    </RelativeLayout>
-
-                </RelativeLayout>
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:id="@+id/fragment_home_fragment_filters_container"-->
-<!--            android:layout_marginTop="2dp"-->
-<!--            >-->
-<!--            <fragment-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.FiltersFragment"-->
-<!--                tools:layout="@layout/fragment_filters_fragment"-->
-<!--                />-->
-
-<!--        </RelativeLayout>-->
+        android:orientation="vertical"
+        >
 
         <FrameLayout
             android:id="@+id/fragment_home_fragment_filters_container"
@@ -273,40 +25,249 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-<!--        <RelativeLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            android:layout_marginTop="8dp"-->
-<!--            android:layout_marginBottom="8dp"-->
-<!--            android:id="@+id/fragment_home_fragment_suggested_item_container"-->
-<!--            >-->
-<!--            <fragment-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:name="com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.ListsMainScreenFragment"-->
-<!--                tools:layout="@layout/adapter_suggested_item"-->
-<!--                />-->
-
-<!--        </RelativeLayout>-->
-
     </LinearLayout>
 
 
-<!--    <RelativeLayout-->
+<!--    <LinearLayout-->
 <!--        android:layout_width="match_parent"-->
 <!--        android:layout_height="wrap_content"-->
-<!--        android:id="@+id/continer">-->
+<!--        android:orientation="vertical">-->
 
-<!--        <include-->
-<!--            layout="@layout/content_hom_screen_fragment"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="match_parent"-->
-<!--            />-->
+<!--&lt;!&ndash;        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:visibility="gone"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:layout_marginTop="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;            android:weightSum="100">&ndash;&gt;-->
 
+<!--&lt;!&ndash;            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="33">&ndash;&gt;-->
 
-<!--    </RelativeLayout>-->
+<!--&lt;!&ndash;                <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    >&ndash;&gt;-->
 
+<!--&lt;!&ndash;                    <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                        >&ndash;&gt;-->
 
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginLeft="12dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_marginRight="12dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="horizontal">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                >&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                android:background="@drawable/filter"&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                >&ndash;&gt;-->
+<!--&lt;!&ndash;                                <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:text="@string/filter"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:textSize="18dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:textColor="@color/colorBlack"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_marginLeft="1dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_marginStart="8dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="0.5">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="1px"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginTop="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:alpha="0.6"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginBottom="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@color/colorSilver"&ndash;&gt;-->
+<!--&lt;!&ndash;                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="33">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    >&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                        >&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                            >&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                >&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                android:background="@drawable/arrangement"&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                >&ndash;&gt;-->
+<!--&lt;!&ndash;                                <TextView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:text="@string/arrangement"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:textSize="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:textColor="@color/colorBlack"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_marginLeft="1dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_marginStart="4dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="0.5">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="1px"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginTop="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:alpha="0.6"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_marginBottom="2dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:background="@color/colorSilver"&ndash;&gt;-->
+<!--&lt;!&ndash;                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_width="0dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                android:layout_weight="33">&ndash;&gt;-->
+
+<!--&lt;!&ndash;                <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_width="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                    >&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                        android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                        >&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        <LinearLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:layout_height="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                            android:orientation="horizontal"&ndash;&gt;-->
+<!--&lt;!&ndash;                            >&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                >&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                android:background="@drawable/all_detalis_filter"&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            <RelativeLayout&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_width="wrap_content"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_height="match_parent"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_marginLeft="1dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                android:layout_marginStart="16dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                >&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                                android:background="@drawable/medium_filter"&ndash;&gt;&ndash;&gt;-->
+
+<!--&lt;!&ndash;                                <ImageView&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_width="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_height="25dp"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerVertical="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    android:layout_centerHorizontal="true"&ndash;&gt;-->
+<!--&lt;!&ndash;                                    />&ndash;&gt;-->
+
+<!--&lt;!&ndash;                            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                        </LinearLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                    </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;                </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;            </RelativeLayout>&ndash;&gt;-->
+
+<!--&lt;!&ndash;        </LinearLayout>&ndash;&gt;-->
+<!--&lt;!&ndash;        &ndash;&gt;-->
+
+<!--    </LinearLayout>-->
 
 
 </android.support.v4.widget.NestedScrollView>

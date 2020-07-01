@@ -349,7 +349,7 @@ public class AddItem extends AppCompatActivity implements
                 ,carDetailsModel.getConditionStr().getCarConditionStrS()
                 ,carDetailsModel.getInsurance().getCarInsuranceStrS()
                 ,carDetailsModel.getLicenseStr().getCarLicensedStrS()
-                ,Integer.parseInt(convertYearToEng(getYEAR()))
+                ,Integer.parseInt(convertYearToEng(carDetailsModel.getYearStr()))
                 , Locale.getDefault().getLanguage()
         );
     }

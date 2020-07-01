@@ -847,35 +847,35 @@ public class Functions {
 
     public static String check(int size, Context context) {
         String city = "";
-        if (size == 125)
+        if (size == 124)
         {
             city = context.getResources().getString(R.string.dubai);
         }
-        if (size == 90)
+        if (size == 89)
         {
             city = context.getResources().getString(R.string.abu_dhabi);
         }
-        if (size == 69)
+        if (size == 68)
         {
             city = context.getResources().getString(R.string.sharjah);
         }
-        if (size == 23)
+        if (size == 67)
         {
             city = context.getResources().getString(R.string.al_ain);
         }
-        if (size == 34)
+        if (size == 33)
         {
             city = context.getResources().getString(R.string.ajman);
         }
-        if (size == 25)
+        if (size == 24)
         {
             city = context.getResources().getString(R.string.ras_al_khaimah);
         }
-        if (size == 21)
+        if (size == 20)
         {
             city = context.getResources().getString(R.string.um_al_quwain);
         }
-        if (size == 12)
+        if (size == 11)
         {
             city = context.getResources().getString(R.string.fujairah);
         }

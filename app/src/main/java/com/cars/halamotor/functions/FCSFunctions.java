@@ -52,7 +52,13 @@ public class FCSFunctions {
 
             String itemName = (String) dataSnapshot.getString("itemName");
             imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
-            String itemImage = imagePaths.get(0);
+            String itemImage;
+            if (imagePaths.size()==0)
+            {
+                itemImage = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
+            }else{
+                 itemImage = imagePaths.get(0);
+            }
             String itemDescription = (String) dataSnapshot.getString("itemDescription");
             String userImage = (String) dataSnapshot.getString("userImage");
             String userName = (String) dataSnapshot.getString("userName");
@@ -66,7 +72,7 @@ public class FCSFunctions {
             String itemCarPlatesSpecial = "empty";
             Long itemBurnedPrice = (Long) dataSnapshot.getLong("burnedPrice");
             Long itemPrice = (Long) dataSnapshot.getLong("price");
-            String itemActiveOrNotT = (String) dataSnapshot.getString("auctionOrNot");
+            String itemActiveOrNotT = (String) dataSnapshot.getString("activeOrNotS");
             Long itemActiveOrNot = Long.parseLong(itemActiveOrNotT);
             String userID = (String) dataSnapshot.getString("userIDPathInServer");
 
@@ -174,7 +180,13 @@ public class FCSFunctions {
 
             String itemName = (String) dataSnapshot.getString("itemName");
             imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
-            String itemImage = imagePaths.get(0);
+            String itemImage;
+            if (imagePaths.size()==0)
+            {
+                itemImage = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
+            }else{
+                itemImage = imagePaths.get(0);
+            }
             String itemDescription = (String) dataSnapshot.getString("itemDescription");
             String userImage = (String) dataSnapshot.getString("userImage");
             String userName = (String) dataSnapshot.getString("userName");
@@ -247,8 +259,13 @@ public class FCSFunctions {
 
             String itemName = (String) dataSnapshot.getString("itemName");
             imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
-            String itemImage = imagePaths.get(0);
-            String itemDescription = (String) dataSnapshot.getString("itemDescription");
+            String itemImage;
+            if (imagePaths.size()==0)
+            {
+                itemImage = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
+            }else{
+                itemImage = imagePaths.get(0);
+            }            String itemDescription = (String) dataSnapshot.getString("itemDescription");
             String userImage = (String) dataSnapshot.getString("userImage");
             String userName = (String) dataSnapshot.getString("userName");
 
@@ -316,8 +333,13 @@ public class FCSFunctions {
 
             String itemName = (String) dataSnapshot.getString("itemName");
             imagePaths = (ArrayList<String>) dataSnapshot.get("imagePathArrayL");
-            String itemImage = imagePaths.get(0);
-            String itemDescription = (String) dataSnapshot.getString("itemDescription");
+            String itemImage;
+            if (imagePaths.size()==0)
+            {
+                itemImage = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
+            }else{
+                itemImage = imagePaths.get(0);
+            }            String itemDescription = (String) dataSnapshot.getString("itemDescription");
             String userImage = (String) dataSnapshot.getString("userImage");
             String userName = (String) dataSnapshot.getString("userName");
 

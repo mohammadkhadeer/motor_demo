@@ -163,7 +163,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                             ,"notYet","notYet"
                                             ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
                                             ,0,1,0,0
-                                            ,1,0,3,4);
+                                            ,1,0,0,4);
 
                                     checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "1");
 
@@ -311,7 +311,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                                     ,"notYet","notYet"
                                                     ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
                                                     ,0,1,0,0
-                                                    ,1,0,3,4);
+                                                    ,1,0,0,4);
 
                                             registerUserInServer(newUser);
 

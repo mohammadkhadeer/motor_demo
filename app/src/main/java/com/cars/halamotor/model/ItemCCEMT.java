@@ -30,7 +30,7 @@ public class ItemCCEMT implements Parcelable {
     int burnedPrice,numberOfReports,yearDate,monthDate,dayDate;
     Double price,fromKilometers,toKilometers;
 
-    String auctionOrNot,categoryNameS,cityS,neighborhoodS,carMakeS,carModelS
+    String activeOrNotS,categoryNameS,cityS,neighborhoodS,carMakeS,carModelS
             ,personOrGalleryS,paymentMethodS,fuelS,conditionS,insuranceS,carLicenseS;
     int yearS;
 
@@ -38,7 +38,7 @@ public class ItemCCEMT implements Parcelable {
 
     public ItemCCEMT(){}
 
-    public ItemCCEMT(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carMake, String carModel, String year, String condition, String kilometers, String transmission, String fuel, String carLicense, String insurance, String color, String paymentMethod, String carOptions, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int burnedPrice, int numberOfReports, int yearDate, int monthDate, int dayDate, Double price, Double fromKilometers, Double toKilometers, String auctionOrNot, String categoryNameS, String cityS, String neighborhoodS, String carMakeS, String carModelS, String personOrGalleryS, String paymentMethodS, String fuelS, String conditionS, String insuranceS, String carLicenseS, int yearS, String language) {
+    public ItemCCEMT(String itemID, String city, String neighborhood, String userToken, String timePost, String phoneNumber, String itemName, String itemDescription, String userImage, String userName, String postEdit, String newPrice, String numberOfEdit, String videoPath, String categoryName, String subCategory, String carMake, String carModel, String year, String condition, String kilometers, String transmission, String fuel, String carLicense, String insurance, String color, String paymentMethod, String carOptions, String personOrGallery, String timeStamp, String userIDPathInServer, ArrayList<String> imagePathArrayL, int burnedPrice, int numberOfReports, int yearDate, int monthDate, int dayDate, Double price, Double fromKilometers, Double toKilometers, String activeOrNotS, String categoryNameS, String cityS, String neighborhoodS, String carMakeS, String carModelS, String personOrGalleryS, String paymentMethodS, String fuelS, String conditionS, String insuranceS, String carLicenseS, int yearS, String language) {
         this.itemID = itemID;
         this.city = city;
         this.neighborhood = neighborhood;
@@ -79,7 +79,7 @@ public class ItemCCEMT implements Parcelable {
         this.price = price;
         this.fromKilometers = fromKilometers;
         this.toKilometers = toKilometers;
-        this.auctionOrNot = auctionOrNot;
+        this.activeOrNotS = activeOrNotS;
         this.categoryNameS = categoryNameS;
         this.cityS = cityS;
         this.neighborhoodS = neighborhoodS;
@@ -148,7 +148,7 @@ public class ItemCCEMT implements Parcelable {
         } else {
             toKilometers = in.readDouble();
         }
-        auctionOrNot = in.readString();
+        activeOrNotS = in.readString();
         categoryNameS = in.readString();
         cityS = in.readString();
         neighborhoodS = in.readString();
@@ -496,12 +496,12 @@ public class ItemCCEMT implements Parcelable {
         this.toKilometers = toKilometers;
     }
 
-    public String getAuctionOrNot() {
-        return auctionOrNot;
+    public String getActiveOrNotS() {
+        return activeOrNotS;
     }
 
-    public void setAuctionOrNot(String auctionOrNot) {
-        this.auctionOrNot = auctionOrNot;
+    public void setActiveOrNotS(String activeOrNotS) {
+        this.activeOrNotS = activeOrNotS;
     }
 
     public String getCategoryNameS() {
@@ -661,7 +661,7 @@ public class ItemCCEMT implements Parcelable {
         dest.writeDouble(fromKilometers);
         dest.writeDouble(toKilometers);
 
-        dest.writeString(auctionOrNot);
+        dest.writeString(activeOrNotS);
 
         dest.writeString(categoryNameS);
         dest.writeString(cityS);

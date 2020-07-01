@@ -109,7 +109,7 @@ public class SplashScreen extends AppCompatActivity {
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
-    int suggested=3800,normal=3700,move=4000,normal2=3799;
+    int suggested=3800,normal=3700,move=1000,normal2=3799;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -117,44 +117,45 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         statusBarColor();
+        transportToMainActivity();
 
-        myDB = getDataBaseInstance(getApplicationContext());
-        addWelcomeNotifications();
-
-        if (checkIfUserRegisterOrNotFromSP(this) == false)
-        {
-            transportToLoginScreen();
-        }
-        else{
-            if (getUserAddressFromSP(this) == null)
-            {
-                selectAddress();
-            }else {
-                //////////////Independent list in main screen 9 item in every list
-                getCarExchangeIndependent();
-                getCarForSaleIndependent();
-                getCarForRentIndependent();
-                getMotorcycleIndependent();
-                getTrucksIndependent();
-                getWheelsRimIndependent();
-                getCarPlatesIndependent();
-                getAccessoriesIndependent();
-                getJunkCarIndependent();
-                //first fill suggested to you list
-                getJunkCar();
-                getAccessories();
-                getWheelsRim();
-                getCarPlates();
-                getTrucks();
-                getMotorcycle();
-                getCarForRent();
-                getCarForSale();
-                getCarExchange();
-
-                transportToMainActivity();
-                //test();
-            }
-        }
+//        myDB = getDataBaseInstance(getApplicationContext());
+//        addWelcomeNotifications();
+//
+//        if (checkIfUserRegisterOrNotFromSP(this) == false)
+//        {
+//            transportToLoginScreen();
+//        }
+//        else{
+//            if (getUserAddressFromSP(this) == null)
+//            {
+//                selectAddress();
+//            }else {
+//                //////////////Independent list in main screen 9 item in every list
+//                getCarExchangeIndependent();
+//                getCarForSaleIndependent();
+//                getCarForRentIndependent();
+//                getMotorcycleIndependent();
+//                getTrucksIndependent();
+//                getWheelsRimIndependent();
+//                getCarPlatesIndependent();
+//                getAccessoriesIndependent();
+//                getJunkCarIndependent();
+//                //first fill suggested to you list
+//                getJunkCar();
+//                getAccessories();
+//                getWheelsRim();
+//                getCarPlates();
+//                getTrucks();
+//                getMotorcycle();
+//                getCarForRent();
+//                getCarForSale();
+//                getCarExchange();
+//
+//                transportToMainActivity();
+//                //test();
+//            }
+//        }
 
     }
 
