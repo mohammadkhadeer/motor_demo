@@ -108,7 +108,9 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
 
   public void removeLoading() {
     isLoaderVisible = false;
+    ////////////here
     int position = suggestedItemsList.size() - 1;
+    Log.i("TAG","position: "+String.valueOf(suggestedItemsList.size() - 1));
     SuggestedItem item = getItem(position);
     if (item != null) {
       suggestedItemsList.remove(position);

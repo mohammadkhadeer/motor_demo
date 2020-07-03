@@ -533,6 +533,7 @@ public class SplashScreen extends AppCompatActivity {
 
 
     CollectionReference mRef;
+    DocumentSnapshot lastVisible;
 
     public void getdata(){
         mRef = getDataStoreInstance().collection("Car_For_Exchange");
@@ -549,8 +550,8 @@ public class SplashScreen extends AppCompatActivity {
                              ItemCCEMT ccemt = documentSnapshots.toObject(ItemCCEMT.class);
                              carForExchangeListFireStore.add(ccemt);
                          }
-//                                                     lastVisible = queryDocumentSnapshots.getDocuments()
-//                                                            .get(queryDocumentSnapshots.size() -1);
+                         lastVisible = queryDocumentSnapshots.getDocuments()
+                                 .get(queryDocumentSnapshots.size() - 1);
                      }
                  }
                 ).addOnFailureListener(new OnFailureListener() {
@@ -622,7 +623,6 @@ public class SplashScreen extends AppCompatActivity {
     }
 
 
-    DocumentSnapshot lastVisible;
 
 //    public void getdata2(){
 //        mRef = getDataStoreInstance().collection("Car_For_Sale");

@@ -170,19 +170,21 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
                 final String category = convertCat(favouriteCallSearchesArrayListNew.get(i).getItemType());
                 final String categoryBefore = favouriteCallSearchesArrayListNew.get(i).getItemType();
                 DocumentReference mRef = null;
-                mRef = getDataStoreInstance().collection(category)
-                        .document(favouriteCallSearchesArrayListNew.get(i).getIdInDatabase());
-                mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document,categoryBefore));
+                if(category != null){
+                    mRef = getDataStoreInstance().collection(category)
+                            .document(favouriteCallSearchesArrayListNew.get(i).getIdInDatabase());
+                    mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document,categoryBefore));
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             }
         }
 
