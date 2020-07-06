@@ -28,6 +28,7 @@ import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
+import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
 import static com.cars.halamotor.functions.Functions.getCarPlatesNumber;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
@@ -74,8 +75,8 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertItemsToFCS(carPlatesArrayL.get(position).getItemIdInServer(),"Plates"
-                        ,getDataBaseInstance(context),"seen");
+                insertItemsToFCS(carPlatesArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS("Plates",context)
+                        ,getDataBaseInstance(context),"seen",context);
 
                 setFavouriteCallSearchOnServer(context,carPlatesArrayL.get(position).getItemIdInServer()
                         ,"Plates","seen");
@@ -101,8 +102,8 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
                     @Override
                     public void onClick(View v) {
                         if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
-                            insertItemsToFCS(carPlatesArrayL.get(position).getItemIdInServer(),"Plates"
-                                    ,getDataBaseInstance(context),"call");
+                            insertItemsToFCS(carPlatesArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS("Plates",context)
+                                    ,getDataBaseInstance(context),"call",context);
 
                             setFavouriteCallSearchOnServer(context,carPlatesArrayL.get(position).getItemIdInServer(),"Plates","call");
                             callAds(context,carPlatesArrayL.get(position).getItemUserPhoneNumber());
@@ -121,8 +122,8 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
                 if (checkFavouriteOrNot1(context,carPlatesArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertItemsToFCS(carPlatesArrayL.get(position).getItemIdInServer(),"Plates"
-                            ,getDataBaseInstance(context),"favorite");
+                    insertItemsToFCS(carPlatesArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS("Plates",context)
+                            ,getDataBaseInstance(context),"favorite",context);
 
                     setFavouriteCallSearchOnServer(context,carPlatesArrayL.get(position).getItemIdInServer()
                             ,"Plates","favorite");

@@ -23,11 +23,13 @@
     <string name="motorcycle">Motorcycle</string>
     <string name="motorcycle_s">Motorcycle</string>
     <string name="car_plates">Car plates</string>
+    <string name="car_plates2">Plates</string>
     <string name="car_plates_s">Plates</string>
     <string name="accessories">Accessories</string>
     <string name="accessories_s">Accessories</string>
     <string name="wheels_rim">Wheels rim</string>
     <string name="wheels_rim_s">Wheels_Rim</string>
+    <string name="wheels_rim2">Wheels_Rim</string>
     <string name="wheels_rim_size">Wheels rim size</string>
     <string name="trucks">Trucks</string>
     <string name="trucks_s">Trucks</string>

@@ -29,6 +29,7 @@ import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
+import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.ViewHolder>{
@@ -73,11 +74,8 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
-                        ,getDataBaseInstance(context),"seen");
-
-                insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
-                        ,getDataBaseInstance(context),"seen");
+                insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS("Wheels_Rim",context)
+                        ,getDataBaseInstance(context),"seen",context);
 
                 setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer()
                         ,"Wheels_Rim","seen");
@@ -100,8 +98,8 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
             @Override
             public void onClick(View v) {
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
-                    insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
-                            ,getDataBaseInstance(context),"call");
+                    insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS("Wheels_Rim",context)
+                            ,getDataBaseInstance(context),"call",context);
 
                     setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim","call");
                     callAds(context,wheelsRimArrayL.get(position).getItemUserPhoneNumber());
@@ -127,8 +125,8 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
                 if (checkFavouriteOrNot1(context,wheelsRimArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),"Wheels_Rim"
-                            ,getDataBaseInstance(context),"favorite");
+                    insertItemsToFCS(wheelsRimArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS("Wheels_Rim",context)
+                            ,getDataBaseInstance(context),"favorite",context);
 
                     setFavouriteCallSearchOnServer(context,wheelsRimArrayL.get(position).getItemIdInServer()
                             ,"Wheels_Rim","favorite");

@@ -34,6 +34,7 @@ import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
+import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
 import static com.cars.halamotor.functions.Functions.getPostTime;
 
 public class FragmentUserInfo extends Fragment {
@@ -231,7 +232,7 @@ public class FragmentUserInfo extends Fragment {
     }
 
     private void insertItemInFCSTable() {
-        insertItemsToFCS(itemIDStr,categoryStr,getDataBaseInstance(getActivity()),"favorite");
+        insertItemsToFCS(itemIDStr,convertCategoryToCategoryS(categoryStr,getActivity()),getDataBaseInstance(getActivity()),"favorite",getActivity());
     }
 
     private void checkIfFavouriteOrNot() {

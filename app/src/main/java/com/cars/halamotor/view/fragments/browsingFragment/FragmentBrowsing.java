@@ -5,6 +5,7 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -81,6 +82,7 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
     RecyclerView.LayoutManager layoutManagerSuggested;
     public ArrayList<BrowsingFilter> filterContentArrayL ;
     TextView textView,browsingDep;
+    CardView cardView;
 
     public FragmentBrowsing(){}
 
@@ -95,13 +97,24 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
 
         favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
         favouriteCallSearchesArrayList = getFavouriteCallSearch(getActivity(),fcsTypeStr);
-//        checkIfHaveFavOrNot();
+        checkIfHaveFavOrNot();
         createRV();
         getData();
         doApiCall();
         actionListenerToRV();
 
         return view;
+    }
+
+    private void checkIfHaveFavOrNot() {
+        if (favouriteCallSearchesArrayList.size()==0)
+        {
+            progressBar.setVisibility(View.GONE);
+            cardView.setVisibility(View.VISIBLE);
+            messageTV.setText(getResources().getString(R.string.no_favorite));
+        }else{
+            cardView.setVisibility(View.GONE);
+        }
     }
 
     private void actionListenerToRV() {
@@ -234,6 +247,7 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
         messageTV = (TextView) view.findViewById(R.id.show_fcs_messageTV);
         fcsItemsRecyclerView = (RecyclerView) view.findViewById(R.id.show_fcs_RV);
         progressBar = (ProgressBar) view.findViewById(R.id.show_fcs_progress);
+        cardView = (CardView) view.findViewById(R.id.fragment_message_message_empty);
     }
 
     @Override
@@ -273,9 +287,7 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
 
         favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
         favouriteCallSearchesArrayList = getFCSCallSearch(filterContentArrayL,getActivity());
-//        Log.i("TAG","**************");
-//        Log.i("TAG fcs", String.valueOf(favouriteCallSearchesArrayList.size()));
-//        Log.i("TAG filter", String.valueOf(filterContentArrayL.size()));
+        checkIfHaveFavOrNot();
 
         refresh();
     }

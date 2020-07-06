@@ -35,6 +35,7 @@ import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
+import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
@@ -246,8 +247,8 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
           if (checkFavouriteOrNot1(context,getItem(position).getItemIdInServer()).equals("not_favorite"))
           {
             favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-            insertItemsToFCS(getItem(position).getItemIdInServer(),getItem(position).getItemType()
-                    ,getDataBaseInstance(context),"favorite");
+            insertItemsToFCS(getItem(position).getItemIdInServer(),convertCategoryToCategoryS(getItem(position).getItemType(),context)
+                    ,getDataBaseInstance(context),"favorite",context);
 
             setFavouriteCallSearchOnServer(context,getItem(position).getItemIdInServer()
                     ,getItem(position).getItemType(),"favorite");
@@ -271,8 +272,8 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
     callButtonRL.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
-        insertItemsToFCS(getObject(position).getItemIdInServer(),getObject(position).getItemType()
-                ,getDataBaseInstance(context),"seen");
+        insertItemsToFCS(getObject(position).getItemIdInServer(),convertCategoryToCategoryS(getObject(position).getItemType(),context)
+                ,getDataBaseInstance(context),"call",context);
 
         if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
           setFavouriteCallSearchOnServer(context,getObject(position).getItemIdInServer(),getObject(position).getItemType(),"call");
@@ -288,6 +289,12 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
       public void onClick(View v) {
         if (getObject(position).getItemActiveOrNot().equals("1")
                 && getObject(position).getItemBurnedPrice().equals("0")) {
+          /////////////
+          if (comeFrom.equals("search"))
+          {
+            setFavouriteCallSearchOnServer(context,getObject(position).getItemIdInServer()
+                    ,getObject(position).getItemType(),"search");
+          }
           Bundle bundle = new Bundle();
           bundle.putString("category", getObject(position).getItemType());
           bundle.putString("from", "stu");

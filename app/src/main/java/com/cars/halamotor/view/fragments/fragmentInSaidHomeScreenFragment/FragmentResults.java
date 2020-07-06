@@ -107,10 +107,8 @@ public class FragmentResults extends Fragment {
 
     public void onCityCanceled(Boolean isCanceled) {
         citySelected = isCanceled;
-        if (check()==false)
+        if (check())
         {
-            //Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.fill_category_please),Toast.LENGTH_SHORT).show();
-        }else{
             handelResult();
         }
     }

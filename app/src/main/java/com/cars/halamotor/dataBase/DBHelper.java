@@ -66,7 +66,7 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String COL_ITEM_USER_ID="USER_ID";
     public static final String COL_ITEM_ITEM_ACTIVE_OR_NOT="ITEM_NAME_ACTIVE_OR_NOT";
 
-    //this table to save favorite , seen ,call ,as well as search item well give hime
+    //this table to save favorite , seen ,call ,as well as search item well give him
     //name FCS
     public static final String TABLE_ITEM_FCS="item_fcs_table";
     public static final String COL_ITEM_FCS_id="ID";
@@ -549,6 +549,19 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean CheckIsDataAlreadyInDBorNot(String fieldValue) {
+        SQLiteDatabase db =this.getWritableDatabase();
+        String Query = "Select * from " + TABLE_ITEM_FCS + " where " + COL_ITEM_FCS_ID_IN_SERVER
+                + " = ?;" + fieldValue;
+        Cursor cursor = db.rawQuery(Query,  new String[]{fieldValue});
+        if(cursor.getCount() <= 0){
+            cursor.close();
+            return false;
+        }
+        cursor.close();
+        return true;
+    }
+
     public boolean insertDataCCEMTItem(String boostOrNot,String itemBoostType
             ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot,String date,String timeStamp)
     {
@@ -969,6 +982,12 @@ public class DBHelper extends SQLiteOpenHelper {
     public void deleteNotifications(){
         SQLiteDatabase db =this.getWritableDatabase();
         db.execSQL("DELETE FROM notification_table"); //delete all rows in a table
+        db.close();
+    }
+
+    public void deleteAllFSC(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        db.execSQL("DELETE FROM item_fcs_table"); //delete all rows in a table
         db.close();
     }
 

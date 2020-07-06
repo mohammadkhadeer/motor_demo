@@ -1,5 +1,6 @@
 package com.cars.halamotor.dataBase;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.cars.halamotor.model.AccAndJunk;
@@ -21,6 +22,8 @@ import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import java.util.ArrayList;
 
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+
 public class InsertFunctions {
 
     public static boolean insertFollowingTable(Following following, DBHelper database) {
@@ -34,8 +37,13 @@ public class InsertFunctions {
         return isInserted;
     }
 
-    public static boolean insertItemsToFCS(String itemID, String category, DBHelper database, String fcsType) {
-
+    public static boolean insertItemsToFCS(String itemID, String category, DBHelper database, String fcsType, Context context) {
+        //remove item if already exist
+        DBHelper dataBase = getDataBaseInstance(context);
+        if (dataBase.CheckIsDataAlreadyInDBorNot(itemID))
+        {
+            dataBase.deleteFCS(itemID);
+        }
         boolean isInserted = database.insertDataFCSItem(
                 itemID
                 ,category

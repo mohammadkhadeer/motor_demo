@@ -965,4 +965,57 @@ public class Functions {
         }
         return cityS;
     }
+
+    public static String convertCategoryToCategoryS(String category, Context context) {
+        String categoryS="empty";
+
+        if (category.equals( context.getResources().getString(R.string.car_for_sale)))
+        {
+            categoryS = "Car for sale";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.car_for_rent)))
+        {
+            categoryS = "Car for rent";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.exchange_car)))
+        {
+            categoryS = "Exchange car";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.motorcycle)))
+        {
+            categoryS = "Motorcycle";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.trucks)))
+        {
+            categoryS = "Trucks";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.car_plates))||category.equals( context.getResources().getString(R.string.car_plates2)))
+        {
+            categoryS = "Plates";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.wheels_rim)) || category.equals( context.getResources().getString(R.string.wheels_rim2)))
+        {
+            categoryS = "Wheels_Rim";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.accessories)))
+        {
+            categoryS = "Accessories";
+        }
+
+        if (category.equals( context.getResources().getString(R.string.junk_car)))
+        {
+            categoryS = "Junk car";
+        }
+
+        return categoryS;
+    }
+
+
 }

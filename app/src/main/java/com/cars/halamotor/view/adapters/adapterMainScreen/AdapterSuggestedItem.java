@@ -30,6 +30,7 @@ import static com.cars.halamotor.algorithms.ArrangingLists.checkFavouriteOrNot1;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
+import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedItem.ViewHolder>{
@@ -76,8 +77,8 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         holder.callButtonRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertItemsToFCS(suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType()
-                        ,getDataBaseInstance(context),"call");
+                insertItemsToFCS(suggestedItemsArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS(suggestedItemsArrayL.get(position).getItemType(),context)
+                        ,getDataBaseInstance(context),"call",context);
 
                 if (CheckPermission.checkPermissionMethodToPhone((Activity) context) == true) {
                     setFavouriteCallSearchOnServer(context,suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType(),"call");
@@ -91,8 +92,8 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
         holder.cardButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                insertItemsToFCS(suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType()
-                        ,getDataBaseInstance(context),"seen");
+                insertItemsToFCS(suggestedItemsArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS(suggestedItemsArrayL.get(position).getItemType(),context)
+                        ,getDataBaseInstance(context),"seen",context);
 
                 setFavouriteCallSearchOnServer(context,suggestedItemsArrayL.get(position).getItemIdInServer()
                         ,suggestedItemsArrayL.get(position).getItemType(),"seen");
@@ -118,8 +119,8 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
                 if (checkFavouriteOrNot1(context,suggestedItemsArrayL.get(position).getItemIdInServer()).equals("not_favorite"))
                 {
                     holder.favoriteIV.setBackgroundResource(R.drawable.selcted_favorite);
-                    insertItemsToFCS(suggestedItemsArrayL.get(position).getItemIdInServer(),suggestedItemsArrayL.get(position).getItemType()
-                            ,getDataBaseInstance(context),"favorite");
+                    insertItemsToFCS(suggestedItemsArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS(suggestedItemsArrayL.get(position).getItemType(),context)
+                            ,getDataBaseInstance(context),"favorite",context);
 
                     setFavouriteCallSearchOnServer(context,suggestedItemsArrayL.get(position).getItemIdInServer()
                             ,suggestedItemsArrayL.get(position).getItemType(),"favorite");
