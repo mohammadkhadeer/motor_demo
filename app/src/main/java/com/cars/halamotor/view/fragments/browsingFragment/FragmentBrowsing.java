@@ -65,7 +65,7 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
     public List<SuggestedItem> suggestedItemsArrayListTest;
     public List<SuggestedItem> suggestedItemsArrayListDO;
     TextView messageTV;
-    ProgressBar progressBar;
+    ProgressBar progressBar,progressBarLoadMore;
     int numberOfObjectNow = 0;
     int numberOfObjectReturn = 0;
     FCSItems fcsItems;
@@ -96,7 +96,7 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
         createSelectedFilterRV();
 
         favouriteCallSearchesArrayList = new ArrayList<FavouriteCallSearch>();
-        favouriteCallSearchesArrayList = getFavouriteCallSearch(getActivity(),fcsTypeStr);
+        favouriteCallSearchesArrayList = getFCSCallSearch(filterContentArrayL,getActivity());
         checkIfHaveFavOrNot();
         createRV();
         getData();
@@ -150,11 +150,13 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
     }
 
     private void doApiCall() {
+        progressBarLoadMore.setVisibility(View.VISIBLE);
         suggestedItemsArrayListDO = new ArrayList<>();
         new Handler().postDelayed(new Runnable() {
 
             @Override
             public void run() {
+                progressBarLoadMore.setVisibility(View.GONE);
                 progressBar.setVisibility(View.GONE);
 //                fcsItemsRecyclerView.setVisibility(View.VISIBLE);
                 suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
@@ -247,6 +249,7 @@ public class FragmentBrowsing extends Fragment implements AdapterBrowsingFilter.
         messageTV = (TextView) view.findViewById(R.id.show_fcs_messageTV);
         fcsItemsRecyclerView = (RecyclerView) view.findViewById(R.id.show_fcs_RV);
         progressBar = (ProgressBar) view.findViewById(R.id.show_fcs_progress);
+        progressBarLoadMore = (ProgressBar) view.findViewById(R.id.show_fcs_progress_load_more);
         cardView = (CardView) view.findViewById(R.id.fragment_message_message_empty);
     }
 

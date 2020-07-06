@@ -31,7 +31,11 @@ public class ReadFunction {
 
         Cursor res = getDataBaseInstance(context).descendingFCS();
 
-        if (favouriteCallSearchesArrayListFilter.isEmpty() || favouriteCallSearchesArrayListFilter.size() ==4)
+        if (favouriteCallSearchesArrayListFilter !=null)
+        {
+            Log.i("TAG","Size: "+String.valueOf(favouriteCallSearchesArrayListFilter.size()));
+        }
+        if (favouriteCallSearchesArrayListFilter ==null ||favouriteCallSearchesArrayListFilter.isEmpty() || favouriteCallSearchesArrayListFilter.size() ==5)
         {
             while (res.moveToNext()) {
                 FavouriteCallSearch favouriteCallSearch = new FavouriteCallSearch(
@@ -42,7 +46,7 @@ public class ReadFunction {
                 favouriteCallSearchesArrayList.add(favouriteCallSearch);
             }
         }
-        if (favouriteCallSearchesArrayListFilter.size() ==1)
+        if (favouriteCallSearchesArrayListFilter !=null && favouriteCallSearchesArrayListFilter.size() ==1)
         {
             while (res.moveToNext()) {
                 if (favouriteCallSearchesArrayListFilter.get(0).getFilterContentStr()
@@ -57,7 +61,7 @@ public class ReadFunction {
                 }
             }
         }
-        if (favouriteCallSearchesArrayListFilter.size() ==2)
+        if (favouriteCallSearchesArrayListFilter !=null && favouriteCallSearchesArrayListFilter.size() ==2)
         {
             while (res.moveToNext()) {
                 if (favouriteCallSearchesArrayListFilter.get(0).getFilterContentStr().equals(res.getString(3).replace("\n", "")) ||
@@ -72,7 +76,7 @@ public class ReadFunction {
                 }
             }
         }
-        if (favouriteCallSearchesArrayListFilter.size() ==3)
+        if (favouriteCallSearchesArrayListFilter !=null && favouriteCallSearchesArrayListFilter.size() ==3)
         {
             while (res.moveToNext()) {
                 if (favouriteCallSearchesArrayListFilter.get(0).getFilterContentStr().equals(res.getString(3).replace("\n", "")) ||

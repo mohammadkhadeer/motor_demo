@@ -30,6 +30,7 @@ import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
 import static com.cars.halamotor.functions.Functions.getCarPlatesNumber;
+import static com.cars.halamotor.functions.Functions.openWhatsApp;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPlatesFirstCase.ViewHolder>{
@@ -66,9 +67,21 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
             fillCarDetails(position, holder);
             checkIfFavouriteOrNot(context,holder,position);
             actionListenerToFavorite(context,holder,position);
+            actionListenerToMessage(context,holder,position);
             actionListenerToCard(context,position,holder);
             actionListenerToCallButn(context,position,holder);
         }
+    }
+
+    private void actionListenerToMessage(final Context context, ViewHolder holder, final int position) {
+        holder.messageRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                insertItemsToFCS(carPlatesArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS("Plates",context),getDataBaseInstance(context),"message",context);
+                setFavouriteCallSearchOnServer(context,carPlatesArrayL.get(position).getItemIdInServer(),"Plates","message");
+                openWhatsApp(carPlatesArrayL.get(position).getItemUserPhoneNumber(),context);
+            }
+        });
     }
 
     private void actionListenerToCard(final Context context, final int position, ViewHolder holder) {
@@ -243,7 +256,7 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
                 , text1
                 , text4,itemTitleTV,itemPriceTV,itemNewPriceTV
                 ,itemCityTV,userNameTV,oldPrice;
-        RelativeLayout favoriteRL,callButtonRL,cardButton;
+        RelativeLayout favoriteRL,callButtonRL,cardButton,messageRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -269,6 +282,7 @@ public class AdapterCarPlatesFirstCase extends RecyclerView.Adapter<AdapterCarPl
             favoriteIV = (ImageView) itemView.findViewById(R.id.adapter_car_plates_first_f_image);
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_first_f_rl);
             callButtonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_call_button);
+            messageRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_first_m_rl);
             cardButton = (RelativeLayout) itemView.findViewById(R.id.adapter_car_plates_card_button);
 
         }

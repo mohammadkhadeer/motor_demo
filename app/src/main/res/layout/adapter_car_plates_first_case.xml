@@ -112,6 +112,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     app:cardCornerRadius="6dp"
+                    android:visibility="gone"
                     android:layout_marginLeft="1dp"
                     android:layout_marginStart="4dp">
 
@@ -392,6 +393,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:id="@+id/adapter_car_plates_call_button"
+                        android:background="?android:attr/selectableItemBackground"
                         android:layout_weight="33">
 
                         <ImageView
@@ -423,11 +425,13 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:background="?android:attr/selectableItemBackground"
+                        android:id="@+id/adapter_car_plates_first_m_rl"
                         android:layout_weight="33">
 
                         <ImageView
-                            android:layout_width="20dp"
-                            android:layout_height="20dp"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
                             android:background="@drawable/comment_2"
                             android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"

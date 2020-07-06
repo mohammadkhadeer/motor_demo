@@ -1,13 +1,17 @@
 package com.cars.halamotor.functions;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageManager;
 import android.graphics.Typeface;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
+import android.telephony.PhoneNumberUtils;
 import android.text.Html;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
@@ -20,6 +24,7 @@ import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.BoostPost;
@@ -859,7 +864,7 @@ public class Functions {
         {
             city = context.getResources().getString(R.string.sharjah);
         }
-        if (size == 67)
+        if (size == 22)
         {
             city = context.getResources().getString(R.string.al_ain);
         }
@@ -1017,5 +1022,34 @@ public class Functions {
         return categoryS;
     }
 
+    public static boolean whatsAppInstalledOrNot(String uri,Context context) {
+        PackageManager pm = context.getPackageManager();
+        boolean app_installed = false;
+        try {
+            pm.getPackageInfo(uri, PackageManager.GET_ACTIVITIES);
+            app_installed = true;
+        } catch (PackageManager.NameNotFoundException e) {
+            app_installed = false;
+        }
+        return app_installed;
+    }
+
+    public static void openWhatsApp(String phoneNumber,Context context) {
+        String smsNumber = "971"+phoneNumber.substring(1);
+        if (whatsAppInstalledOrNot("com.whatsapp",context)) {
+
+            Intent sendIntent = new Intent("android.intent.action.MAIN");
+            sendIntent.setComponent(new ComponentName("com.whatsapp", "com.whatsapp.Conversation"));
+            sendIntent.putExtra("jid", PhoneNumberUtils.stripSeparators(smsNumber) + "@s.whatsapp.net");//phone number without "+" prefix
+
+            context.startActivity(sendIntent);
+        } else {
+            Uri uri = Uri.parse("market://details?id=com.whatsapp");
+            Intent goToMarket = new Intent(Intent.ACTION_VIEW, uri);
+            Toast.makeText(context, "WhatsApp not Installed",
+                    Toast.LENGTH_SHORT).show();
+            context.startActivity(goToMarket);
+        }
+    }
 
 }

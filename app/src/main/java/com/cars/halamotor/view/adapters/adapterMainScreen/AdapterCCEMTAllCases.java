@@ -30,6 +30,7 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
+import static com.cars.halamotor.functions.Functions.openWhatsApp;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCases.ViewHolder>{
@@ -66,9 +67,21 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
             checkTypeAndFillTypeDetails(context, holder, position);
             checkIfFavouriteOrNot(context,holder,position);
             actionListenerToFavorite(context,holder,position);
+            actionListenerToMessage(context,position,holder);
             actionListenerToCardButton(context,holder,position);
             actionListenerToCallBtn(context,holder,position);
         }
+    }
+
+    private void actionListenerToMessage(final Context context, final int position, ViewHolder holder) {
+        holder.messageRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                insertItemsToFCS(carForSaleArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS(carForSaleArrayL.get(position).getType(),context),getDataBaseInstance(context),"message",context);
+                setFavouriteCallSearchOnServer(context,carForSaleArrayL.get(position).getItemIdInServer(),carForSaleArrayL.get(position).getType(),"message");
+                openWhatsApp(carForSaleArrayL.get(position).getItemUserPhoneNumber(),context);
+            }
+        });
     }
 
     private void actionListenerToCallBtn(final Context context, ViewHolder holder, final int position) {
@@ -248,7 +261,7 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
                 , text1, text2, text3
                 , text4,itemTitleTV,itemPriceTV,itemNewPriceTV
                 ,itemCityTV,userNameTV,oldPrice;
-        RelativeLayout favoriteRL,cardButton,call_buttonRL;
+        RelativeLayout favoriteRL,cardButton,call_buttonRL,messageRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -275,6 +288,7 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_for_sale_case_rl);
             cardButton = (RelativeLayout) itemView.findViewById(R.id.adapter_ccemt_card_button);
             call_buttonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_ccemt_call_button);
+            messageRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_for_sale_m_rl);
         }
     }
 

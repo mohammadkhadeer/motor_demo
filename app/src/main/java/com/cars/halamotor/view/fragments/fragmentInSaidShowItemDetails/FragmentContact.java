@@ -2,6 +2,7 @@ package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,6 +11,7 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
+import android.telephony.PhoneNumberUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -25,6 +27,8 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
+import static com.cars.halamotor.functions.Functions.openWhatsApp;
+import static com.cars.halamotor.functions.Functions.whatsAppInstalledOrNot;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class FragmentContact extends Fragment {
@@ -63,6 +67,14 @@ public class FragmentContact extends Fragment {
             @Override
             public void onClick(View v) {
                 callAdsHere();
+            }
+        });
+        sendMessage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                insertItemsToFCS(itemID,convertCategoryToCategoryS(category,getActivity()),getDataBaseInstance(getActivity()),"message",getActivity());
+                setFavouriteCallSearchOnServer(getActivity(),itemID,category,"message");
+                openWhatsApp(phoneNumber,getActivity());
             }
         });
     }

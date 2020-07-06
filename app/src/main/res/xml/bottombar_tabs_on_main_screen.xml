@@ -6,7 +6,7 @@
         title="@string/tab_home" />
     <tab
         id="@+id/tab_messages"
-        icon="@mipmap/ic_message"
+        icon="@mipmap/browsers"
         title="@string/tab_browsing" />
     <tab
         id="@+id/tab_adv"

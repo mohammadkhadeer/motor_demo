@@ -30,6 +30,7 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
+import static com.cars.halamotor.functions.Functions.openWhatsApp;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccAndJunkFirstCase.ViewHolder>{
@@ -66,8 +67,21 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
             checkIfFavouriteOrNot(context,holder,position);
             actionListenerToFavorite(context,holder,position);
             actionListenerToCallButn(context,position,holder);
+            actionListenerToMessage(holder,position,context);
             actionListenerToCard(context,position,holder);
         }
+    }
+
+    private void actionListenerToMessage(ViewHolder holder, final int position, final Context context) {
+        holder.messageRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                insertItemsToFCS(accAndJunkArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS(accAndJunkArrayL.get(position).getPersonOrGallery(),context),getDataBaseInstance(context),"message",context);
+                setFavouriteCallSearchOnServer(context,accAndJunkArrayL.get(position).getItemIdInServer(),convertCategoryToCategoryS(accAndJunkArrayL.get(position).getPersonOrGallery(),context),"message");
+                openWhatsApp(accAndJunkArrayL.get(position).getItemUserPhoneNumber(),context);
+
+            }
+        });
     }
 
     private void actionListenerToCard(final Context context, final int position, ViewHolder holder) {
@@ -223,7 +237,7 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
                 , text1
                 , itemTitleTV,itemPriceTV,itemNewPriceTV
                 , userNameTV,oldPrice;
-        RelativeLayout favoriteRL,callButtonRL,cardButtonRL;
+        RelativeLayout favoriteRL,callButtonRL,cardButtonRL,messageRL;
 
         @SuppressLint("WrongViewCast")
         public ViewHolder(View itemView) {
@@ -246,6 +260,7 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
             favoriteRL = (RelativeLayout) itemView.findViewById(R.id.adapter_acc_and_junk_f_rl);
             callButtonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_acc_and_junk_call_button);
             cardButtonRL = (RelativeLayout) itemView.findViewById(R.id.adapter_acc_card_button);
+            messageRL = (RelativeLayout) itemView.findViewById(R.id.adapter_acc_and_junk_m_rl);
 
         }
     }

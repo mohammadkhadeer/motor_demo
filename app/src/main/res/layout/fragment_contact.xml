@@ -34,10 +34,10 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="35">
+                        android:layout_weight="40">
 
                         <RelativeLayout
-                            android:layout_width="120dp"
+                            android:layout_width="150dp"
                             android:layout_height="40dp"
                             android:layout_centerVertical="true"
                             android:layout_centerHorizontal="true"
@@ -46,17 +46,31 @@
                             android:id="@+id/contact_send_message"
                             android:background="@drawable/contact"
                             >
-                            <TextView
+
+                            <LinearLayout
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="@string/tab_message"
-                                android:layout_marginLeft="1dp"
-                                android:layout_marginStart="6dp"
-                                android:textSize="18dp"
-                                android:textColor="@color/colorBlue7"
-                                android:textStyle="bold"
+                                android:layout_height="match_parent"
                                 android:layout_centerHorizontal="true"
-                                />
+                                >
+
+                                <ImageView
+                                    android:layout_width="25dp"
+                                    android:layout_height="25dp"
+                                    android:layout_marginStart="8dp"
+                                    android:src="@drawable/comment_2"/>
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/tab_message"
+                                    android:layout_marginLeft="1dp"
+                                    android:layout_marginStart="6dp"
+                                    android:textSize="18dp"
+                                    android:textColor="@color/colorGreen"
+                                    android:textStyle="bold"
+                                    android:layout_centerHorizontal="true"
+                                    />
+                            </LinearLayout>
 
                         </RelativeLayout>
 
@@ -73,7 +87,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:id="@+id/adapter_suggested_favorite_rl"
-                        android:layout_weight="55">
+                        android:layout_weight="50">
 
                         <RelativeLayout
                             android:layout_width="match_parent"
@@ -93,7 +107,7 @@
                                 android:layout_marginStart="6dp"
                                 android:textStyle="bold"
                                 android:textSize="18dp"
-                                android:textColor="@color/colorGreen"
+                                android:textColor="@color/colorBlue7"
                                 android:layout_centerHorizontal="true"
                                 />
 
