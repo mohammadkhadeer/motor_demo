@@ -2,6 +2,7 @@ package com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,8 +11,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
@@ -64,6 +67,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
     AdapterFiltersItem adapterFiltersItem;
     int numberOfSelectedFilter=0;
     Filter filter;
+    LinearLayout containerFilterLL;
 
     @Override
     public void onAttach(Context context) {
@@ -185,6 +189,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
         selectedNeighborhoodCV = (CardView) view.findViewById(R.id.fragment_filter_selected_neighborhood);
         cancelNeighborhoodRL = (RelativeLayout) view.findViewById(R.id.fragment_filter_selected_cancel_neighborhood);
         neighborhoodNameTV = (TextView) view.findViewById(R.id.fragment_filter_selected_neighborhood_text_view);
+        containerFilterLL = (LinearLayout) view.findViewById(R.id.container_filter);
     }
 
     private void actionListener() {
@@ -203,7 +208,12 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
         filter.onFilterCityClick(cityModel);
 
         createNeighborhoodRV(cityModel.getCity());
-
+//        if (selectedFilterArrayL.size() == 0)
+//        {
+//            Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.fill_category_please),Toast.LENGTH_SHORT).show();
+//        }else{
+//
+//        }
     }
 
     private void createNeighborhoodRV(String city) {
@@ -239,6 +249,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
     /////////////////////////////+
     @Override
     public void onFilterClicked(ItemFilterModel itemFilterModel) {
+        reVISIBLEFilter();
         if (numberOfSelectedFilter==0)
         {
             selectedFilterArrayL.remove(selectedFilterArrayL.size()-1);
@@ -257,11 +268,21 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
 
     }
 
+    private void reVISIBLEFilter() {
+        containerFilterLL.setVisibility(View.GONE);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                containerFilterLL.setVisibility(View.VISIBLE);
+            }
+        }, 1800);
+    }
+
     @Override
     public void onFilterClicked(ItemSelectedFilterModel itemSelectedFilterModel) {
         numberOfSelectedFilter =numberOfSelectedFilter-1;
         //itemTypeFromFilterAdapter = itemSelectedFilterModel.getFilterS();
-
+        reVISIBLEFilter();
         if (numberOfSelectedFilter==0)
         {
             itemTypeFromFilterAdapter.clear();

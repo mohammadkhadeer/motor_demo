@@ -829,7 +829,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 600)
             {
@@ -846,7 +846,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 700)
             {
@@ -862,7 +862,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 800)
             {
@@ -877,7 +877,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 900)
             {
@@ -891,7 +891,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 1000)
             {
@@ -904,7 +904,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 1200)
             {
@@ -916,7 +916,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 1400)
             {
@@ -927,7 +927,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 1750)
             {
@@ -937,7 +937,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 2000)
             {
@@ -946,7 +946,7 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 2500)
             {
@@ -954,33 +954,33 @@ public class FillFilters {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 3000)
             {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_3500),context.getResources().getString(R.string.wj_3500_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 3500)
             {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_4000),context.getResources().getString(R.string.wj_4000_s)));
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 4000)
             {
                 priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_5000),context.getResources().getString(R.string.wj_5000_s)));
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 5000)
             {
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
             if (x == 10000)
             {
-                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_500_s)));
+                priceArrayL.add(new ItemFilterModel(context.getResources().getString(R.string.wj_10000),context.getResources().getString(R.string.wj_10000_s)));
             }
         }
             return priceArrayL;

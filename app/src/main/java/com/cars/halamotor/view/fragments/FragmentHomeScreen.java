@@ -1,6 +1,7 @@
 package com.cars.halamotor.view.fragments;
 
 import android.content.Intent;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
@@ -75,13 +76,9 @@ public class FragmentHomeScreen extends Fragment {
                                                                                           View view = (View) nestedScrollView.getChildAt(nestedScrollView.getChildCount() - 1);
                                                                                           int diff = (view.getBottom() - (nestedScrollView.getHeight() + nestedScrollView.getScrollY()));
                                                                                           if (diff == 0) {
-                                                                                              Log.i("TAG", "loadMore Home fragment:* ");
-
+                                                                                              fragmentResults.loadMore();
                                                                                               //code to fetch more data for endless scrolling
-                                                                                              if (resulteCreate == 1)
-                                                                                              {
-                                                                                                  fragmentResults.loadMore();
-                                                                                              }
+
                                                                                           }
                                                                                       }
                                                                                   });
@@ -94,7 +91,7 @@ public class FragmentHomeScreen extends Fragment {
     public void onCityClicked(CityModel cityModel) {
         fragmentResults.onCityClicked(cityModel);
         citySelected = true;
-        createFragmentResults();
+        //createFragmentResults();
     }
 
     public void onCityCanceled(Boolean isCanceled) {
@@ -116,9 +113,9 @@ public class FragmentHomeScreen extends Fragment {
         itemFilterArrayList.add(new ItemSelectedFilterModel(itemFilterModel.getFilter(), itemFilterModel.getFilterS(), filterType));
 
         fragmentResults.onFilterClicked(itemFilterModel, filterType);
-        createFragmentResults();
         if (resulteCreate==0)
         {
+            createFragmentResults();
             scrollView();
         }
         resulteCreate =1;

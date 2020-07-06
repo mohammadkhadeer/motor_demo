@@ -26,6 +26,16 @@ public class FilterFireStore {
 
     public static ResultFilter filterResult(ArrayList<ItemSelectedFilterModel> itemFilterArrayList
             , int burnedPrice, Context context, String city, String neighborhood){
+        /*
+        I return data from server as a object coz i well needed if user have to get more
+        data same data must to base 1.CollectionReference "bath data coz we have categories"
+        2.DocumentSnapshot "array list" coz can't base DocumentSnapshot as single value
+        in fireStore so we us it as arrayList well needed if user try to get more data
+        must start return new data from end first response best way to do this send
+        last DocumentSnapshot as filter
+        3.list of object of response
+        we use a number of filter depend list to can fill a next filter
+         */
 
         ResultFilter resultFilter = null;
 
@@ -34,9 +44,6 @@ public class FilterFireStore {
 
         if (itemFilterArrayList.size() ==1)
         {
-            Log.i("TAG","*************************************");
-            Log.i("TAG","FilterNumber: "+String.valueOf(itemFilterArrayList.size()));
-
             if (city.equals("empty")){
                 resultFilter = getResult(category,categoryBefore,0.0,100000000.0,burnedPrice);
             }else{
@@ -46,9 +53,6 @@ public class FilterFireStore {
 
         if (itemFilterArrayList.size() ==2)
         {
-            Log.i("TAG","*************************************");
-            Log.i("TAG","FilterNumber: "+String.valueOf(itemFilterArrayList.size()));
-
             if (itemFilterArrayList.get(0).getFilterType().equals(context.getResources().getString(R.string.exchange_car)))
             {
                 String carMake = itemFilterArrayList.get(1).getFilterS();
@@ -59,21 +63,16 @@ public class FilterFireStore {
                 }
             }else{
                 double priceFrom = Double.parseDouble(itemFilterArrayList.get(1).getFilterS());
-                Log.i("TAG","priceFrom: "+String.valueOf(priceFrom));
                 if (city.equals("empty")) {
                     resultFilter = getResult(category, categoryBefore, priceFrom, 100000000.0, burnedPrice);
                     }else{
                     resultFilter = getResultWithCityOrNeighborhood(category, categoryBefore, priceFrom, 100000000.0, burnedPrice,city,neighborhood);
-
                     }
                 }
         }
 
         if (itemFilterArrayList.size() ==3)
         {
-            Log.i("TAG","*************************************");
-            Log.i("TAG","FilterNumber: "+String.valueOf(itemFilterArrayList.size()));
-
             if (itemFilterArrayList.get(0).getFilterType().equals(context.getResources().getString(R.string.exchange_car)))
             {
                 String carMake = itemFilterArrayList.get(1).getFilterS();
@@ -96,9 +95,6 @@ public class FilterFireStore {
 
         if(itemFilterArrayList.size()==4)
         {
-            Log.i("TAG","CarMake if car CCEMT wheelsSize carPlats city");
-            Log.i("TAG","FilterNumber: "+String.valueOf(itemFilterArrayList.size()));
-
             double priceFrom = Double.parseDouble(itemFilterArrayList.get(1).getFilterS());
             double priceTo = Double.parseDouble(itemFilterArrayList.get(2).getFilterS());
 
@@ -115,8 +111,8 @@ public class FilterFireStore {
                 }else{
                     resultFilter = getResultMakeWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake,city,neighborhood);
                 }
-
             }
+
             if (itemFilterArrayList.get(0).getFilterType().equals(context.getResources().getString(R.string.wheels_rim))
             ){
                 int wheelsSize = Integer.parseInt(itemFilterArrayList.get(3).getFilterS());
@@ -127,6 +123,7 @@ public class FilterFireStore {
                     resultFilter = getWheelsSizeWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,city,neighborhood);
                 }
             }
+
             if (itemFilterArrayList.get(0).getFilterType().equals(context.getResources().getString(R.string.car_plates))
             ){
                 String platesCity = itemFilterArrayList.get(3).getFilterS();
@@ -137,13 +134,11 @@ public class FilterFireStore {
                     resultFilter = getPlatesCityWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,platesCity,city,neighborhood);
                 }
             }
+
         }
 
         if(itemFilterArrayList.size()==5)
         {
-            Log.i("TAG","CarModel if car CCEMT wheels Type");
-            Log.i("TAG","FilterNumber: "+String.valueOf(itemFilterArrayList.size()));
-
             double priceFrom = Double.parseDouble(itemFilterArrayList.get(1).getFilterS());
             double priceTo = Double.parseDouble(itemFilterArrayList.get(2).getFilterS());
 
@@ -163,8 +158,9 @@ public class FilterFireStore {
                 }
 
             }
-            if (itemFilterArrayList.get(0).getFilterType().equals(context.getResources().getString(R.string.wheels_rim))
-            ){
+
+            if (itemFilterArrayList.get(0).getFilterType().equals(context.getResources().getString(R.string.wheels_rim)))
+            {
                 int wheelsSize = Integer.parseInt(itemFilterArrayList.get(3).getFilterS());
                 String wheelsType = itemFilterArrayList.get(4).getFilterS();
                 if (city.equals("empty"))
@@ -174,6 +170,7 @@ public class FilterFireStore {
                     resultFilter = getWheelsTypeWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,wheelsType,city,neighborhood);
                 }
             }
+
         }
 
         if (itemFilterArrayList.size() ==6)
@@ -197,6 +194,7 @@ public class FilterFireStore {
                     resultFilter = getResultYearWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,city,neighborhood);
                 }
             }
+
         }
 
         if (itemFilterArrayList.size() ==7)
@@ -337,8 +335,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -371,8 +368,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -404,8 +400,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -437,8 +432,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              // we set on list cos no way to bas last documentSnapshots to start from it when load more
                              documentSnapshotsArrayL.add(documentSnapshots);
@@ -467,8 +461,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -502,8 +495,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -538,8 +530,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -575,8 +566,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -614,7 +604,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
+//                             Log.i("TAG", "Object " + documentSnapshots);
 
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
@@ -655,8 +645,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -694,8 +683,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -735,8 +723,7 @@ public class FilterFireStore {
                      @Override
                      public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                          for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                             Log.i("TAG", "Object " + documentSnapshots);
-
+//                             Log.i("TAG", "Object " + documentSnapshots);
                              resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                              documentSnapshotsArrayL.add(documentSnapshots);
                          }
@@ -775,8 +762,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -803,8 +789,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -843,8 +828,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -872,8 +856,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -911,8 +894,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -940,8 +922,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -980,8 +961,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1010,8 +990,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1049,8 +1028,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1078,8 +1056,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1119,8 +1096,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1149,8 +1125,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1192,8 +1167,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1223,8 +1197,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1266,8 +1239,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1298,8 +1270,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1342,7 +1313,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
+//                                 Log.i("TAG", "Object " + documentSnapshots);
 
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
@@ -1375,7 +1346,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
+//                                 Log.i("TAG", "Object " + documentSnapshots);
 
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
@@ -1420,8 +1391,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1454,8 +1424,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1500,8 +1469,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1535,8 +1503,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1583,8 +1550,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }
@@ -1619,8 +1585,7 @@ public class FilterFireStore {
                          @Override
                          public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
                              for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                 Log.i("TAG", "Object " + documentSnapshots);
-
+//                                 Log.i("TAG", "Object " + documentSnapshots);
                                  resultItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,categoryBefore));
                                  documentSnapshotsArrayL.add(documentSnapshots);
                              }

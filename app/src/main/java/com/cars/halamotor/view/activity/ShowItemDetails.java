@@ -208,12 +208,12 @@ public class ShowItemDetails extends AppCompatActivity
             cat = "ccemt";
             getCCEMTObject(categoryStr,itemIDStr,itemModel);
         }
-        if (category.equals("Car plates"))
+        if (category.equals("Car plates") || category.equals("Plates"))
         {
             cat = "cp";
             getCarPlatesObject(categoryStr,itemIDStr,itemModel);
         }
-        if (category.equals("Wheels rim"))
+        if (category.equals("Wheels rim") || category.equals("Wheels_Rim"))
         {
             cat = "wr";
             getWheelsSizeObject(categoryStr,itemIDStr,itemModel);
@@ -474,6 +474,11 @@ public class ShowItemDetails extends AppCompatActivity
     @Override
     public void onReceiveWheelsRimObject(ItemWheelsRim wheelsRim) {
         wheelsRimModel = wheelsRim;
+        Log.i("TAG","Item Show FCS: category: "+ categoryStr);
+
+        Log.i("TAG","Item Show FCS: stu"+ "stu");
+        Log.i("TAG","Item Show FCS: itemID: "+ itemIDStr);
+
         String date = String.valueOf(wheelsRim.getDayDate())+"/"+String.valueOf(wheelsRim.getMonthDate())+"/"+String.valueOf(wheelsRim.getYearDate());
         intiValues(wheelsRim.getUserName(),wheelsRim.getUserImage(),wheelsRim.getItemName()
                 ,wheelsRim.getTimeStamp(),"empty",date

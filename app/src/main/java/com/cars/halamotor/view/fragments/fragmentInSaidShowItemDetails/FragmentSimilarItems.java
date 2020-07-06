@@ -84,10 +84,10 @@ public class FragmentSimilarItems extends Fragment {
     RecyclerView.LayoutManager layoutManagerSimilar1,layoutManagerSimilar2,layoutManagerSimilar3;
     int dataComeFromServer=0;
 
-    CCEMTFirestCase ccemtFirestCase;
-    CarPlatesFirstCase carPlatesFirstCase;
-    WheelsRimFirstCase wheelsRimFirstCase;
-    AccAndJunkFirstCase accAndJunkFirstCase;
+//    CCEMTFirestCase ccemtFirestCase;
+//    CarPlatesFirstCase carPlatesFirstCase;
+//    WheelsRimFirstCase wheelsRimFirstCase;
+//    AccAndJunkFirstCase accAndJunkFirstCase;
 
     @Override
     public void onAttach(Context context) {
@@ -106,26 +106,26 @@ public class FragmentSimilarItems extends Fragment {
     }
 
     private void detectObject() {
-        if (categoryStr.equals("Car for sale")
-                ||categoryStr.equals("Car for rent")
-                ||categoryStr.equals("Exchange car")
-                ||categoryStr.equals("Motorcycle")
-                ||categoryStr.equals("Trucks")
-        ) {
-            ccemtFirestCase =getCCEMTFirstCaseFromDB(itemIDStr,getActivity());
-        }
-        if (categoryStr.equals("Car plates"))
-        {
-            carPlatesFirstCase =getCarPlatesFirstCaseFromDB(itemIDStr,getActivity());
-        }
-        if (categoryStr.equals("Wheels rim"))
-        {
-            wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(itemIDStr,getActivity());
-        }
-        if (categoryStr.equals("Accessories") || categoryStr.equals("Junk car"))
-        {
-            accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(itemIDStr,getActivity());
-        }
+//        if (categoryStr.equals("Car for sale")
+//                ||categoryStr.equals("Car for rent")
+//                ||categoryStr.equals("Exchange car")
+//                ||categoryStr.equals("Motorcycle")
+//                ||categoryStr.equals("Trucks")
+//        ) {
+//            ccemtFirestCase =getCCEMTFirstCaseFromDB(itemIDStr,getActivity());
+//        }
+//        if (categoryStr.equals("Car plates"))
+//        {
+//            carPlatesFirstCase =getCarPlatesFirstCaseFromDB(itemIDStr,getActivity());
+//        }
+//        if (categoryStr.equals("Wheels rim"))
+//        {
+//            wheelsRimFirstCase =getWheelsRimFirstCaseFromDB(itemIDStr,getActivity());
+//        }
+//        if (categoryStr.equals("Accessories") || categoryStr.equals("Junk car"))
+//        {
+//            accAndJunkFirstCase =getAccAndJunkFirstCaseFromDB(itemIDStr,getActivity());
+//        }
     }
 
     @Override

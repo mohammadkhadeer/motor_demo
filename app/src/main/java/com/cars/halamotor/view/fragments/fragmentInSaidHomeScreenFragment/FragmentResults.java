@@ -5,13 +5,17 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.FCSFunctions;
@@ -60,8 +64,14 @@ public class FragmentResults extends Fragment {
     private int totalPage = 10;
     private boolean isLastPage = false;
     private boolean isLoading = false;
+    int controler;
 
     DocumentSnapshot lastVisible;
+
+    ProgressBar progressBar;
+    RelativeLayout relativeLayout;
+    TextView textViewMessage;
+    CardView cardViewContainerMessage;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -80,47 +90,45 @@ public class FragmentResults extends Fragment {
         return view;
     }
 
+    private boolean check(){
+        if (itemFilterArrayList.size() ==0)
+            return false;
+        else return true;
+    }
     public void onCityClicked(CityModel cityModel) {
         citySelected = true;
         city = cityModel.getCityS();
-        handelResult();
-
-//        if (!itemFilterArrayList.isEmpty())
-//        {
-//            resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr);
-//            intiRe();
-//        }
+        if (check())
+        {
+            handelResult();
+        }
     }
+
 
     public void onCityCanceled(Boolean isCanceled) {
         citySelected = isCanceled;
-        handelResult();
-
-//        city="empty";neighborhoodStr="empty";
-//        {
-//            resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr);
-//            intiRe();
-//        }
+        if (check()==false)
+        {
+            //Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.fill_category_please),Toast.LENGTH_SHORT).show();
+        }else{
+            handelResult();
+        }
     }
 
     public void onNeighborhoodClicked(Neighborhood neighborhood) {
         neighborhoodStr = neighborhood.getNeighborhoodS();
-        handelResult();
-
-//        {
-//            resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr);
-//            intiRe();
-//        }
+        if (check())
+        {
+            handelResult();
+        }
     }
 
     public void onNeighborhoodCanceled(Boolean isCanceled) {
         neighborhoodStr="empty";
-        handelResult();
-
-//        {
-//            resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr);
-//            intiRe();
-//        }
+        if (check())
+        {
+            handelResult();
+        }
     }
 
     ////////////////////////+++++++++++++++++++
@@ -141,6 +149,8 @@ public class FragmentResults extends Fragment {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                hidMessageNoResult();
+                progressBar.setVisibility(View.VISIBLE);
                 recyclerView.setVisibility(View.GONE);
             }
         }, 200);
@@ -160,21 +170,34 @@ public class FragmentResults extends Fragment {
         {
             itemFilterArrayList.remove(itemFilterArrayList.size()-1);
             if (itemFilterArrayList.size() != 0) {
-                resultFilter = filterResult(itemFilterArrayList, 0, getActivity(), city, neighborhoodStr);
-                reRV();
-                intiRe();
-                doApiCall(0);
+                handelResult();
             }
         }
     }
 
     public void loadMore(){
-        isLoading = true;
-        currentPage++;
-        getData();
-        doApiCall(1);
+        if (controler ==0 )
+        {
+            loading();
+            isLoading = true;
+            currentPage++;
+            getData();
+            doApiCall(1);
+        }
+        controler =1;
+        handelControler();
     }
 
+    private void handelControler() {
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // set this number coz when scroll don nested scroll call the method twice
+                controler =0;
+
+            }
+        }, 2200);
+    }
 
     private void doApiCall(final int t) {
         resultItemsArrayList = new ArrayList<>();
@@ -182,45 +205,59 @@ public class FragmentResults extends Fragment {
             @Override
             public void run() {
                 recyclerView.setVisibility(View.VISIBLE);
+                progressBar.setVisibility(View.GONE);
                 //set t number to check if this first filter if yes set data else clean old data and load new
                 if (t ==1)
                 {
-                    Log.i("TAG","Size doApiCall 1: "+String.valueOf(resultItemsArrayListCont.size()));
-                    for (int i =0 ;i<resultItemsArrayListCont.size();i++)
-                    {
-                        Log.i("TAG","ItemID doApiCall 1: "+resultItemsArrayListCont.get(i).getItemIdInServer());
-                    }
+                    //case load more
                     resultItemsArrayList.addAll(resultItemsArrayListCont);
-                    if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                    adapterShowFCSItems.addItems(resultItemsArrayList);
-                    if (currentPage < totalPage) {
-                        adapterShowFCSItems.addLoading();
-                    } else {
-                        isLastPage = true;
+                    if (resultItemsArrayListCont.size() ==0)
+                    {
+                        messageNoResult(getActivity().getResources().getString(R.string.no_more_result));
+                    }else{
+                        if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
+                        adapterShowFCSItems.addItems(resultItemsArrayList);
+                        if (currentPage < totalPage) {
+                            adapterShowFCSItems.addLoading();
+                        } else {
+                            isLastPage = true;
+                        }
+                        isLoading = false;
                     }
-                    isLoading = false;
                 }else{
-                    Log.i("TAG","Size doApiCall 0: "+String.valueOf(resultItemsArrayListCont.size()));
-                    for (int i =0 ;i<resultItemsArrayListCont.size();i++)
+                    //case get response
+                    if (resultItemsArrayListCont.size() ==0)
                     {
-                        Log.i("TAG","ItemID: "+resultItemsArrayListCont.get(i).getItemIdInServer());
+                        createRV();
+                        messageNoResult(getActivity().getResources().getString(R.string.no_result));
+                    }else{
+                        createRV();
+                        currentPage = PAGE_START;
+                        resultItemsArrayList.addAll(resultItemsArrayListCont);
+                        if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
+                        adapterShowFCSItems.addItems(resultItemsArrayList);
+                        if (currentPage < totalPage) {
+                            adapterShowFCSItems.addLoading();
+                        } else {
+                            isLastPage = true;
+                        }
+                        isLoading = false;
                     }
-                    createRV();
-                    currentPage = PAGE_START;
-                    resultItemsArrayList.addAll(resultItemsArrayListCont);
-                    if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                    adapterShowFCSItems.addItems(resultItemsArrayList);
-                    if (currentPage < totalPage) {
-                        adapterShowFCSItems.addLoading();
-                    } else {
-                        isLastPage = true;
-                    }
-                    isLoading = false;
                 }
 
             }
         }, 2100);
     }
+
+    private void messageNoResult(String message) {
+        cardViewContainerMessage.setVisibility(View.VISIBLE);
+        textViewMessage.setText(message);
+    }
+
+    private void hidMessageNoResult() {
+        cardViewContainerMessage.setVisibility(View.GONE);
+    }
+
     List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
 
     private void getData() {
@@ -228,11 +265,12 @@ public class FragmentResults extends Fragment {
         final String category = itemFilterArrayList.get(0).getFilterS();
         final String categoryAfter = convertCat(category);
 
-        resultItemsArrayListCont = new ArrayList<>();
-
-        int x= currentPage-1;
-        if (x == PAGE_START)
-            lastVisible = resultFilter.getDocumentSnapshotsArrayL().get(resultFilter.getDocumentSnapshotsArrayL().size()-1);
+        if(resultItemsArrayListCont.size() !=0)
+        {
+            resultItemsArrayListCont = new ArrayList<>();
+            int x= currentPage-1;
+            if (x == PAGE_START)
+                lastVisible = resultFilter.getDocumentSnapshotsArrayL().get(resultFilter.getDocumentSnapshotsArrayL().size()-1);
 
 //        if (lastVisible == null)
 //        {
@@ -240,36 +278,35 @@ public class FragmentResults extends Fragment {
 //        }else{
 //            Log.i("TAG","lastVisible: "+lastVisible);
 //        }
-        CollectionReference mRef = getDataStoreInstance().collection(categoryAfter);
-        mRef.limit(8)
-                .startAfter(lastVisible)
-                .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
-                                                @Override
-                                                public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
-                                                    for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
-                                                        Log.i("TAG", "New Object " + documentSnapshots);
-                                                        fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,category));
-                                                        lastVisible = documentSnapshots;
+            CollectionReference mRef = getDataStoreInstance().collection(categoryAfter);
+            mRef.limit(8)
+                    .startAfter(lastVisible)
+                    .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                                                    @Override
+                                                    public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
+                                                        for (QueryDocumentSnapshot documentSnapshots : queryDocumentSnapshots) {
+//                                                            Log.i("LoadMore", "New Object " + documentSnapshots);
+                                                            fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(documentSnapshots,category));
+                                                            lastVisible = documentSnapshots;
+                                                        }
                                                     }
                                                 }
-                                            }
-        ).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Log.d("ERROR fireStore", e.toString());
-            }
-        });
+            ).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Log.d("ERROR fireStore", e.toString());
+                }
+            });
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    resultItemsArrayListCont.addAll(fcsItemsArrayList);
+                }
+            }, 2000);
+        }
 
-                resultItemsArrayListCont.addAll(fcsItemsArrayList);
-
-            }
-        }, 2000);
     }
-
 
     private void createRV() {
         recyclerView.setNestedScrollingEnabled(false);
@@ -277,12 +314,27 @@ public class FragmentResults extends Fragment {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"call");
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"search");
         recyclerView.setAdapter(adapterShowFCSItems);
     }
 
     private void inti() {
         recyclerView = (RecyclerView) view.findViewById(R.id.show_result_RV);
+        progressBar = (ProgressBar) view.findViewById(R.id.fragment_result);
+        relativeLayout = (RelativeLayout) view.findViewById(R.id.progressBarLodaing);
+        textViewMessage = (TextView) view.findViewById(R.id.fragment_results_message);
+        cardViewContainerMessage=(CardView) view.findViewById(R.id.fragment_results_message_container);
+    }
+
+    private void loading(){
+        relativeLayout.setVisibility(View.VISIBLE);
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                relativeLayout.setVisibility(View.GONE);
+
+            }
+        }, 1200);
     }
 
     private void intiRe() {

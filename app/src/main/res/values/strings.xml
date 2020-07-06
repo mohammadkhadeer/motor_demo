@@ -53,6 +53,10 @@
     <string name="week">Week</string>
     <string name="car_plates_city">Plates city</string>
     <string name="car_plates_number">Plates number</string>
+    <string name="no_result">No results match </string>
+    <string name="no_more_result">No more results</string>
+    <string name="fill_category_please">Fill category please</string>
+
 
     <string name="any">Any</string>
     <string name="any_s">0</string>
