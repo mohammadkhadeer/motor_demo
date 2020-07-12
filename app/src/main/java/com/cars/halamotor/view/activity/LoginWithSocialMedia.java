@@ -18,6 +18,7 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +52,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.firestore.auth.User;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
@@ -62,7 +64,11 @@ import java.lang.ref.WeakReference;
 import java.util.Collections;
 
 import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addNewUser;
+import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getUserInfo;
 import static com.cars.halamotor.functions.Functions.changeFontBold;
+import static com.cars.halamotor.functions.Functions.getDAY;
+import static com.cars.halamotor.functions.Functions.getMONTH;
+import static com.cars.halamotor.functions.Functions.getYEAR;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkFBLoginOrNot;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOnServerSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
@@ -81,6 +87,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
     private FirebaseAuth mAuth;
     TextView welcomeTV;
     SignInButton signInButton;
+    ProgressBar progressBar;
 
     private WeakReference<LoginWithSocialMedia> weakAct = new WeakReference<>(this);
 
@@ -110,7 +117,6 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         handelGoogleButton();
     }
 
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         callbackManager.onActivityResult(requestCode, resultCode, data);
@@ -125,7 +131,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
 
     }
 
-    private void moveBack() {
+    public void moveBack() {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -155,6 +161,10 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
+                                    String year =getYEAR();
+                                    String month = getMONTH();
+                                    String day = getDAY();
+                                    String date = year+"/"+month+"/"+day;
 
                                     UserInfo newUser = new UserInfo(acct.getGivenName()
                                             ,String.valueOf(acct.getPhotoUrl())
@@ -163,7 +173,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                             ,"notYet","notYet"
                                             ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
                                             ,0,1,0,0
-                                            ,1,0,0,4);
+                                            ,1,0,0,4,date);
 
                                     checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "1");
 
@@ -176,7 +186,10 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                     moveBack();
 
                                 }else{
-                                    moveBack();
+                                    progressBar.setVisibility(View.VISIBLE);
+                                    ///////////////here google///////////////////////
+                                    getUserInfo(acct.getEmail(),rgSharedPreferences,rgEditor,fbSharedPreferences,fbEditor,LoginWithSocialMedia.this,acct.getId());
+                                    //moveBack();
                                 }
                             }
                         });
@@ -244,13 +257,11 @@ public class LoginWithSocialMedia extends AppCompatActivity {
 
     private void changeFont() {
         welcomeTV.setTypeface(Functions.changeFontBold(getApplicationContext()));
-
     }
 
     private void handelFBLoginButton() {
         callbackManager = CallbackManager.Factory.create();
         loginButtonFB.setPermissions("email", "public_profile");
-        loginButtonFB.setPermissions("user_birthday");
 
         loginButtonFB.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -275,12 +286,14 @@ public class LoginWithSocialMedia extends AppCompatActivity {
         loginButtonFB = (LoginButton) findViewById(R.id.login_with_s_m_fb);
         welcomeTV = (TextView) findViewById(R.id.login_with_social_media_tv);
         signInButton = findViewById(R.id.login_with_s_m_g);
+        progressBar = (ProgressBar) findViewById(R.id.login_with_social_media_progress);
     }
-
 
     AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
         @Override
         protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
+            Log.i("TAG", "loadUserProfile");
+            Log.i("TAG", "currentAccessToken: "+currentAccessToken);
             if (currentAccessToken != null) {
                 checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "1");
                 checkFBLoginOrNot(getApplicationContext(), fbSharedPreferences, fbEditor, "1");
@@ -294,6 +307,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
     };
 
     private void loadUserProfile(AccessToken accessToken) {
+        progressBar.setVisibility(View.VISIBLE);
         GraphRequest graphRequest = GraphRequest.newMeRequest(accessToken, new GraphRequest.GraphJSONObjectCallback() {
             @Override
             public void onCompleted(final JSONObject object, GraphResponse response) {
@@ -303,7 +317,14 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                 @Override
                                 public void onComplete(@NonNull Task<AuthResult> task) {
                                     if (task.isSuccessful()) {
+                                        progressBar.setVisibility(View.VISIBLE);
                                         try {
+                                            Log.i("TAG", "mAuth");
+                                            String year =getYEAR();
+                                            String month = getMONTH();
+                                            String day = getDAY();
+                                            String date = year+"/"+month+"/"+day;
+
                                             UserInfo newUser = new UserInfo(object.getString("first_name")
                                                     ,"https://graph.facebook.com/" + object.getString("id") + "/picture?type=normal"
                                                     ,object.getString("last_name"),object.getString("email")
@@ -311,18 +332,18 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                                     ,"notYet","notYet"
                                                     ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
                                                     ,0,1,0,0
-                                                    ,1,0,0,4);
+                                                    ,1,0,0,4,date);
 
                                             registerUserInServer(newUser);
 
                                             saveFBInfoInSP(getApplicationContext(), fbSharedPreferences, fbEditor, object.getString("first_name")
                                                     , object.getString("last_name"), object.getString("email")
-                                                    , object.getString("id"), object.getString("birthday")
+                                                    , object.getString("id"), "1/1/2020"
                                                     , "https://graph.facebook.com/" + object.getString("id") + "/picture?type=normal");
 
                                             saveUserInfoIfNotRegister(object.getString("first_name")
                                                     , object.getString("last_name"), object.getString("email")
-                                                    , object.getString("id"), object.getString("birthday")
+                                                    , object.getString("id"), "1/1/2020"
                                                     , "https://graph.facebook.com/" + object.getString("id") + "/picture?type=normal");
 
                                             moveBack();
@@ -331,12 +352,20 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                             e.printStackTrace();
                                         }
                                     }else{
-                                        moveBack();
+                                        Log.i("TAG", "Alredy have it");
+                                        ///////////////here google///////////////////////
+                                        try {
+                                            progressBar.setVisibility(View.VISIBLE);
+                                            getUserInfo(object.getString("email"),rgSharedPreferences,rgEditor,fbSharedPreferences,fbEditor,LoginWithSocialMedia.this,object.getString("id"));
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
                                     }
                                 }
                             });
                 } catch (JSONException e) {
                     e.printStackTrace();
+                    Log.i("TAG ERORR", ": "+e.toString());
                 }
             }
         });

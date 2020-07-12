@@ -355,11 +355,7 @@ public class MainActivity extends AppCompatActivity implements Filter{
     @Override
     protected void onDestroy() {
         super.onDestroy();
-//        getDataBaseInstance(getApplicationContext()).deleteAllItem();
-//        getDataBaseInstance(getApplicationContext()).deleteCCEMTItem();
-//        getDataBaseInstance(getApplicationContext()).deleteWheels_RimItem();
-//        getDataBaseInstance(getApplicationContext()).deleteCarPlatesItem();
-//        getDataBaseInstance(getApplicationContext()).deleteAccAndJunkItem();
+
     }
 
     @Override

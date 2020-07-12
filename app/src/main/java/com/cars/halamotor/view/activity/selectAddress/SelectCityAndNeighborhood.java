@@ -65,8 +65,13 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         setData();
-        createExpandableList();
-        createAllCityWithNeighborhoodRV();
+        if(whereComeFrom.equals("activity")){
+            makeAllCityWithNeighborhoodVISIBLE();
+            createAllCityWithNeighborhoodRV();
+        }else{
+            createExpandableList();
+            createAllCityWithNeighborhoodRV();
+        }
         actionListenerToSearchEdt();
         actionListenerToRemoveTextInSearchEdt();
         changeFont();
@@ -101,9 +106,12 @@ public class SelectCityAndNeighborhood extends AppCompatActivity {
                     makeExpandableListGONE();
                 }
                 else {
-                    makeCancelTitleIVGONE();
-                    makeAllCityWithNeighborhoodGONE();
-                    makeExpandableListVISIBLE();
+                    if (!whereComeFrom.equals("activity"))
+                    {
+                        makeCancelTitleIVGONE();
+                        makeAllCityWithNeighborhoodGONE();
+                        makeExpandableListVISIBLE();
+                    }
                 }
             }
 

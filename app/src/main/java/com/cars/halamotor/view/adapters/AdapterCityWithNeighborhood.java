@@ -85,7 +85,7 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
         String neighborhoodS = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS();
         saveUserInfoInSP(context,sharedPreferences,editor,city
         ,neighborhood,cityS,neighborhoodS);
-        updateCityNeighborhood(context,city,neighborhood);
+        updateCityNeighborhood(context,cityS,neighborhoodS);
     }
 
     private void backToSelectCityFragment(ViewHolder holder, int position) {

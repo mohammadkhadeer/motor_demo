@@ -15,11 +15,27 @@
       },
       "oauth_client": [
         {
-          "client_id": "163503473637-q83aj9s5r3at9gaqmg6arisji77vvgha.apps.googleusercontent.com",
+          "client_id": "163503473637-gd4cjc4f72edqsnarl3cip2mtqf3ertn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cars.halamotor",
+            "certificate_hash": "876cbfe4ac11344202879dba6a8ac21811ad4e72"
+          }
+        },
+        {
+          "client_id": "163503473637-4to9l34n3atej67pnr0hi0cosl3jdkgu.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.cars.halamotor",
             "certificate_hash": "70732a2a2dd944dfce93ec50266cebbea3beabb0"
+          }
+        },
+        {
+          "client_id": "163503473637-kob39c48mju9kevea7arskuc08aip00h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.cars.halamotor",
+            "certificate_hash": "835f8987ff627cbffb66dae626a0d88cc7134b65"
           }
         },
         {

@@ -6,10 +6,10 @@ public class UserInfo {
             ,numberOfAdvStr,userTokensStr;
     int numberOfAds,activeToSetAdv,activeToAddAuctions,numberOfAuction,activeToAddBurnedPrice
             ,numberOfBurnedPriceUsed,BurnedPriceAllowToUse,numberOfAllowedAds;
-
+    String dateReg;
     public UserInfo(){}
 
-    public UserInfo(String nameStr, String userImageStr, String surNameStr, String emailStr, String phoneNumberStr, String cityStr, String neighbourhoodStr, String authenticationIDStr, String IDImagePathStr, String walletCreditStr, String numberOfAdvStr, String userTokensStr, int numberOfAds, int activeToSetAdv, int activeToAddAuctions, int numberOfAuction, int activeToAddBurnedPrice, int numberOfBurnedPriceUsed, int burnedPriceAllowToUse,int numberOfAllowedAds) {
+    public UserInfo(String nameStr, String userImageStr, String surNameStr, String emailStr, String phoneNumberStr, String cityStr, String neighbourhoodStr, String authenticationIDStr, String IDImagePathStr, String walletCreditStr, String numberOfAdvStr, String userTokensStr, int numberOfAds, int activeToSetAdv, int activeToAddAuctions, int numberOfAuction, int activeToAddBurnedPrice, int numberOfBurnedPriceUsed, int burnedPriceAllowToUse, int numberOfAllowedAds, String dateReg) {
         this.nameStr = nameStr;
         this.userImageStr = userImageStr;
         this.surNameStr = surNameStr;
@@ -28,16 +28,9 @@ public class UserInfo {
         this.numberOfAuction = numberOfAuction;
         this.activeToAddBurnedPrice = activeToAddBurnedPrice;
         this.numberOfBurnedPriceUsed = numberOfBurnedPriceUsed;
-        this.BurnedPriceAllowToUse = burnedPriceAllowToUse;
+        BurnedPriceAllowToUse = burnedPriceAllowToUse;
         this.numberOfAllowedAds = numberOfAllowedAds;
-    }
-
-    public int getNumberOfAllowedAds() {
-        return numberOfAllowedAds;
-    }
-
-    public void setNumberOfAllowedAds(int numberOfAllowedAds) {
-        this.numberOfAllowedAds = numberOfAllowedAds;
+        this.dateReg = dateReg;
     }
 
     public String getNameStr() {
@@ -190,5 +183,21 @@ public class UserInfo {
 
     public void setBurnedPriceAllowToUse(int burnedPriceAllowToUse) {
         BurnedPriceAllowToUse = burnedPriceAllowToUse;
+    }
+
+    public int getNumberOfAllowedAds() {
+        return numberOfAllowedAds;
+    }
+
+    public void setNumberOfAllowedAds(int numberOfAllowedAds) {
+        this.numberOfAllowedAds = numberOfAllowedAds;
+    }
+
+    public String getDateReg() {
+        return dateReg;
+    }
+
+    public void setDateReg(String dateReg) {
+        this.dateReg = dateReg;
     }
 }

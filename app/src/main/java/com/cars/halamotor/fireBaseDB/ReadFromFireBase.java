@@ -1,21 +1,19 @@
 package com.cars.halamotor.fireBaseDB;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.util.Log;
-
 import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.model.AccAndJunk;
-import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
-import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.FavouriteCallSearch;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FCSItems;
-import com.cars.halamotor.presnter.NumberOfAllowedAds;
-import com.cars.halamotor.view.activity.WheelsRim;
+import com.cars.halamotor.view.activity.LoginWithSocialMedia;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -29,10 +27,14 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.getUserPathInServer;
+import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertNewUser;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
-import static com.cars.halamotor.functions.FCSFunctions.handelNumberOfObject;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.getUserTokenInFromSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveServerIDInfoInSP;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.saveUserInfoInSP;
+import static com.facebook.FacebookSdk.getApplicationContext;
 
 public class ReadFromFireBase {
 
@@ -64,6 +66,57 @@ public class ReadFromFireBase {
         }
         new Handler().postDelayed(new Runnable() {
             @Override public void run() { fcsItemsPresenter.getItemsObject(fcsItemsArrayList); }}, 3000);
+    }
+
+    public static void getUserInfo(String email, final SharedPreferences rgSharedPreferences, final SharedPreferences.Editor rgEditor
+            , final SharedPreferences fbSharedPreferences, final SharedPreferences.Editor fbEditor, final Context context, final String googleID) {
+        Query mRef = FirebaseDatabase.getInstance().getReference()
+                .child("users").orderByChild("emailStr").equalTo(email);
+//        .limitToLast(numberOfCarFromServer);
+        mRef.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for(DataSnapshot ds : dataSnapshot.getChildren()) {
+                    //userID,
+                    String nameStr = (String) ds.child("nameStr").getValue(String.class);
+                    String surNameStr = (String) ds.child("surNameStr").getValue(String.class);
+                    String userImageStr = (String) ds.child("userImageStr").getValue(String.class);
+                    String authenticationIDStr = (String) ds.child("authenticationIDStr").getValue(String.class);
+                    String emailStr = (String) ds.child("emailStr").getValue(String.class);
+                    String cityStr = (String) ds.child("cityStr").getValue(String.class);
+                    String neighbourhoodStr = (String) ds.child("neighbourhoodStr").getValue(String.class);
+
+                    checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "1");
+
+                    saveServerIDInfoInSP(context,rgSharedPreferences,rgEditor,authenticationIDStr);
+
+                    //update user token
+                    insertNewUser().child(authenticationIDStr).child("userTokensStr").setValue(getUserTokenInFromSP(getApplicationContext()));
+
+                    saveUserInfoInSP(getApplicationContext(), fbSharedPreferences, fbEditor, nameStr
+                            , surNameStr, emailStr
+                            , googleID, "1/1/2020"
+                            , userImageStr);
+
+                    new Handler().postDelayed(new Runnable() {
+
+                        @Override
+                        public void run() {
+                            LoginWithSocialMedia loginWithSocialMedia = (LoginWithSocialMedia) context;
+                            loginWithSocialMedia.moveBack();
+                        }
+                    }, 1000);
+
+                }
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Log.i("TAG ERROR", databaseError.toString());
+
+            }
+
+        });
     }
 
     public static List<CCEMT> getCarForSaleItems(final List<CCEMT> carForSaleL,int numberOfCarFromServer) {

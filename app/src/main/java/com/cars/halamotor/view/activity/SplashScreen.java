@@ -15,15 +15,11 @@ import android.view.WindowManager;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
-import com.cars.halamotor.model.AccAndJunk;
-import com.cars.halamotor.model.CCEMT;
-import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.NotificationComp;
-import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -45,26 +41,7 @@ import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesItemTab
 import static com.cars.halamotor.dataBase.InsertFunctions.insertNotificationTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimInWheelsRimTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimItemTable;
-import static com.cars.halamotor.fireBaseDB.FireStorePaths.getCarForSaleItemsStore;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addAccessories;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addCarForExchangeStore;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addCarForRentStore;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addCarForSaleStore;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addItemPlates;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addJunkCar;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addMotorcycle;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addTrucks;
-import static com.cars.halamotor.fireBaseDB.InsertToFireBase.addWheelsRim;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getAccessoriesItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForRentItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForSaleItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getJunkCarItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getMotorcycleItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getPlatesItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getTruckItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getAccessoriesFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleExchangeFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleItemsFireStore;
@@ -76,7 +53,6 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getTrucksFireStore
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getWheelsRimFireStore;
 import static com.cars.halamotor.functions.Functions.getNotification;
 import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.getUserAddressFromSP;
-import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getWelcomeNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.welcomeNotifications;
@@ -109,7 +85,7 @@ public class SplashScreen extends AppCompatActivity {
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
-    int suggested=3800,normal=3700,move=1000,normal2=3799;
+    int suggested=3800,normal=3700,move=4000,normal2=3799;
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
@@ -117,46 +93,55 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         statusBarColor();
-        transportToMainActivity();
+        //transportToMainActivity();
 
-//        myDB = getDataBaseInstance(getApplicationContext());
-//        addWelcomeNotifications();
-//
-//        if (checkIfUserRegisterOrNotFromSP(this) == false)
-//        {
-//            transportToLoginScreen();
-//        }
-//        else{
-//            if (getUserAddressFromSP(this) == null)
-//            {
-//                selectAddress();
-//            }else {
-//                //////////////Independent list in main screen 9 item in every list
-//                getCarExchangeIndependent();
-//                getCarForSaleIndependent();
-//                getCarForRentIndependent();
-//                getMotorcycleIndependent();
-//                getTrucksIndependent();
-//                getWheelsRimIndependent();
-//                getCarPlatesIndependent();
-//                getAccessoriesIndependent();
-//                getJunkCarIndependent();
-//                //first fill suggested to you list
-//                getJunkCar();
-//                getAccessories();
-//                getWheelsRim();
-//                getCarPlates();
-//                getTrucks();
-//                getMotorcycle();
-//                getCarForRent();
-//                getCarForSale();
-//                getCarExchange();
-//
-//                transportToMainActivity();
-//                //test();
-//            }
-//        }
+        myDB = getDataBaseInstance(getApplicationContext());
+        addWelcomeNotifications();
+        deleteOldData();
 
+        if (checkIfUserRegisterOrNotFromSP(this) == false)
+        {
+            transportToLoginScreen();
+        }
+        else{
+            if (getUserAddressFromSP(this) == null)
+            {
+                selectAddress();
+            }else {
+                //////////////Independent list in main screen 9 item in every list
+                getCarExchangeIndependent();
+                getCarForSaleIndependent();
+                getCarForRentIndependent();
+                getMotorcycleIndependent();
+                getTrucksIndependent();
+                getWheelsRimIndependent();
+                getCarPlatesIndependent();
+                getAccessoriesIndependent();
+                getJunkCarIndependent();
+                //first fill suggested to you list
+                getJunkCar();
+                getAccessories();
+                getWheelsRim();
+                getCarPlates();
+                getTrucks();
+                getMotorcycle();
+                getCarForRent();
+                getCarForSale();
+                getCarExchange();
+
+                transportToMainActivity();
+                //test();
+            }
+        }
+
+    }
+
+    private void deleteOldData() {
+        getDataBaseInstance(getApplicationContext()).deleteAllItem();
+        getDataBaseInstance(getApplicationContext()).deleteCCEMTItem();
+        getDataBaseInstance(getApplicationContext()).deleteWheels_RimItem();
+        getDataBaseInstance(getApplicationContext()).deleteCarPlatesItem();
+        getDataBaseInstance(getApplicationContext()).deleteAccAndJunkItem();
     }
 
     private void statusBarColor() {

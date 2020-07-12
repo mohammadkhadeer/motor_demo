@@ -36,12 +36,6 @@ import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTSimilarTabl
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCarPlatesSimilarTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertWheelsRimSimilarTable;
 import static com.cars.halamotor.dataBase.ReadFunction.getSimilarFromDatabase;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getAccessoriesItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getCarForExchangeItemsSearch;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getJunkCarItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getPlatesItems;
-import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getWheelsRimItems;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getAccessoriesFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleExchangeFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getCarForSaleRentFireStore;
@@ -51,10 +45,6 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getPlatesFireStore
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getTrucksFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getWheelsRimFireStore;
 import static com.cars.halamotor.functions.Functions.replace;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCarPlatesFirstCaseFromDB;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getWheelsRimFirstCaseFromDB;
 
 public class FragmentSimilarItems extends Fragment {
 
