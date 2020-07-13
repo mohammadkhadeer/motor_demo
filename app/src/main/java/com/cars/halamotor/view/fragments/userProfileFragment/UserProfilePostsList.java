@@ -56,6 +56,8 @@ import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertNewUser;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getFollowingObjectFromDB;
+import static com.cars.halamotor.functions.NewFunction.handelNumberOfObject;
+import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
 import static com.cars.halamotor.sharedPreferences.UserInfoSP.getUserInfoFromSP;
 import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
@@ -117,6 +119,7 @@ public class UserProfilePostsList extends Fragment {
         {
             timer();
         }else {
+            //number of ads itemIDsArrayL
             createRV();
             getData();
             doApiCall();
@@ -129,6 +132,7 @@ public class UserProfilePostsList extends Fragment {
             @Override
             protected void loadMoreItems() {
                 progressBar.setVisibility(View.VISIBLE);
+                numberOfObjectNow =handelNumberOfObject(numberOfObjectNow,suggestedItemsArrayListTest.size());
                 isLoading = true;
                 currentPage++;
                 getData();
@@ -167,12 +171,17 @@ public class UserProfilePostsList extends Fragment {
         }, 3100);
     }
 
+    int numberOfObjectNow = 0;
+
     private void getData() {
         final List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
         suggestedItemsArrayListTest = new ArrayList<>();
-        int numberOfObject = currentPage*10;
 
-        for (int i = numberOfObject-10; i < numberOfObject; i++) {
+        //int numberOfObject = currentPage*10;
+        int numberOfObject = nowNumberOfObject(numberOfObjectNow,itemIDsArrayL.size());
+
+        int i;
+        for ( i =0; i < numberOfObject; i++) {
             final String category = convertCat(itemIDsArrayL.get(i).getCategoryS());
             final String categoryBefore = itemIDsArrayL.get(i).getCategoryS();
 
@@ -213,7 +222,7 @@ public class UserProfilePostsList extends Fragment {
         itemIDsArrayL = new ArrayList<>();
         getUserPathInServer(userID)
                 .child("usersAds")
-                .limitToFirst(101)
+                .limitToFirst(500)
                 .addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
