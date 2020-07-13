@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -68,10 +69,21 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
                 }
                 if (whereComeFrom.equals("activity"))
                 {
-                    saveCityAndNeighborhoodInSPAndUpdateInServer(position);
-                    Intent intent = new Intent(context, SplashScreen.class);
-                    ((Activity)context).startActivity(intent);
-                    ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+                    //saveCityAndNeighborhoodInSPAndUpdateInServer(position);
+
+//                    String city = cityWithNeighborhoodsArrayL.get(position).getCityStr();
+//                    String neighborhood = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr();
+//                    String cityS = cityWithNeighborhoodsArrayL.get(position).getCityStrS();
+//                    String neighborhoodS = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS();
+
+                    Intent intent = new Intent();
+
+                    intent.putExtra("city", cityWithNeighborhoodsArrayL.get(position).getCityStr());
+                    intent.putExtra("nei", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr());
+                    intent.putExtra("cityS", cityWithNeighborhoodsArrayL.get(position).getCityStrS());
+                    intent.putExtra("neiS", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS());
+
+                    ((Activity)context).setResult(Activity.RESULT_OK, intent);
                     ((Activity)context).finish();
                 }
             }

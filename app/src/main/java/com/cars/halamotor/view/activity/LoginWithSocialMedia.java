@@ -129,26 +129,35 @@ public class LoginWithSocialMedia extends AppCompatActivity {
             handleSignInResult(task);
         }
 
+//        if (requestCode == SELECT_LOCATION && resultCode == Activity.RESULT_OK) {
+//
+//            Intent intent = new Intent();
+//            setResult(Activity.RESULT_OK, intent);
+//            finish();
+//        }
+
     }
 
+    private static final int SELECT_LOCATION = 555;
+    private static final int LOGIN = 556;
+
     public void moveBack() {
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-//                Intent resultIntent = new Intent();
-//                setResult(Activity.RESULT_OK, resultIntent);
-//                finish();
-
-                Bundle bundle = new Bundle();
-                bundle.putString("whereComeFrom", "activity");
-
-                Intent intent = new Intent(LoginWithSocialMedia.this, SelectCityAndNeighborhood.class);
-                intent.putExtras(bundle);
-                startActivity(intent);
-                overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
-                finish();
-            }
-        }, 500);
+        Intent intent = new Intent();
+        setResult(Activity.RESULT_OK, intent);
+        finish();
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                Bundle bundle = new Bundle();
+//                bundle.putString("whereComeFrom", "activity");
+//
+//                Intent intent = new Intent(LoginWithSocialMedia.this, SelectCityAndNeighborhood.class);
+//                intent.putExtras(bundle);
+//                startActivityForResult(intent , SELECT_LOCATION);
+//                overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+////                finish();
+//            }
+//        }, 500);
     }
 
     private void handleSignInResult(Task<GoogleSignInAccount> completedTask) {
@@ -292,8 +301,6 @@ public class LoginWithSocialMedia extends AppCompatActivity {
     AccessTokenTracker accessTokenTracker = new AccessTokenTracker() {
         @Override
         protected void onCurrentAccessTokenChanged(AccessToken oldAccessToken, AccessToken currentAccessToken) {
-            Log.i("TAG", "loadUserProfile");
-            Log.i("TAG", "currentAccessToken: "+currentAccessToken);
             if (currentAccessToken != null) {
                 checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "1");
                 checkFBLoginOrNot(getApplicationContext(), fbSharedPreferences, fbEditor, "1");

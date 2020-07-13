@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -51,11 +52,14 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getMotorcycleFireS
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getPlatesFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getTrucksFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getWheelsRimFireStore;
+import static com.cars.halamotor.fireBaseDB.UpdateFireBase.updateCityNeighborhood;
 import static com.cars.halamotor.functions.Functions.getNotification;
 import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.getUserAddressFromSP;
+import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.saveUserInfoInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getWelcomeNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.welcomeNotifications;
+import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOnServerSP;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 
 public class SplashScreen extends AppCompatActivity {
@@ -80,6 +84,8 @@ public class SplashScreen extends AppCompatActivity {
     List<ItemWheelsRim> wheelsRimList = new ArrayList<>();
     List<ItemAccAndJunk> accessoriesArrayL = new ArrayList<>();
     List<ItemAccAndJunk> junkArrayL = new ArrayList<>();
+    private static final int SELECT_LOCATION = 555;
+    private static final int LOGIN = 556;
 
     DBHelper myDB;
     SharedPreferences.Editor editor;
@@ -98,8 +104,7 @@ public class SplashScreen extends AppCompatActivity {
         myDB = getDataBaseInstance(getApplicationContext());
         addWelcomeNotifications();
         deleteOldData();
-
-        if (checkIfUserRegisterOrNotFromSP(this) == false)
+        if (checkIfUserRegisterOnServerSP(this) == false)
         {
             transportToLoginScreen();
         }
@@ -108,32 +113,55 @@ public class SplashScreen extends AppCompatActivity {
             {
                 selectAddress();
             }else {
-                //////////////Independent list in main screen 9 item in every list
-                getCarExchangeIndependent();
-                getCarForSaleIndependent();
-                getCarForRentIndependent();
-                getMotorcycleIndependent();
-                getTrucksIndependent();
-                getWheelsRimIndependent();
-                getCarPlatesIndependent();
-                getAccessoriesIndependent();
-                getJunkCarIndependent();
-                //first fill suggested to you list
-                getJunkCar();
-                getAccessories();
-                getWheelsRim();
-                getCarPlates();
-                getTrucks();
-                getMotorcycle();
-                getCarForRent();
-                getCarForSale();
-                getCarExchange();
-
-                transportToMainActivity();
-                //test();
+                getData();
             }
         }
+    }
 
+    public void getData(){
+        //////////////Independent list in main screen 9 item in every list
+        getCarExchangeIndependent();
+        getCarForSaleIndependent();
+        getCarForRentIndependent();
+        getMotorcycleIndependent();
+        getTrucksIndependent();
+        getWheelsRimIndependent();
+        getCarPlatesIndependent();
+        getAccessoriesIndependent();
+        getJunkCarIndependent();
+        //first fill suggested to you list
+        getJunkCar();
+        getAccessories();
+        getWheelsRim();
+        getCarPlates();
+        getTrucks();
+        getMotorcycle();
+        getCarForRent();
+        getCarForSale();
+        getCarExchange();
+
+        transportToMainActivity();
+        //test();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == LOGIN && resultCode == Activity.RESULT_OK) {
+            selectAddress();
+        }
+        if (requestCode == SELECT_LOCATION && resultCode == Activity.RESULT_OK) {
+            String city = data.getExtras().getString("city");
+            String neighborhood = data.getExtras().getString("nei");
+            String cityS = data.getExtras().getString("cityS");
+            String neighborhoodS = data.getExtras().getString("neiS");
+
+            saveUserInfoInSP(this,sharedPreferences,editor,city
+                    ,neighborhood,cityS,neighborhoodS);
+            updateCityNeighborhood(this,cityS,neighborhoodS);
+
+            getData();
+        }
     }
 
     private void deleteOldData() {
@@ -154,14 +182,14 @@ public class SplashScreen extends AppCompatActivity {
     }
 
     private void selectAddress() {
-        Bundle bundle = new Bundle();
-        bundle.putString("whereComeFrom", "activity");
+            Bundle bundle = new Bundle();
+            bundle.putString("whereComeFrom", "activity");
 
-        Intent intent = new Intent(SplashScreen.this, SelectCityAndNeighborhood.class);
-        intent.putExtras(bundle);
-        startActivity(intent);
-        overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
-        finish();
+            Intent intent = new Intent(SplashScreen.this, SelectCityAndNeighborhood.class);
+            intent.putExtras(bundle);
+            startActivityForResult(intent , SELECT_LOCATION);
+            overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            //finish();
     }
 
     private void transportToLoginScreen() {
@@ -174,9 +202,9 @@ public class SplashScreen extends AppCompatActivity {
 
                 Intent intent = new Intent(SplashScreen.this, LoginWithSocialMedia.class);
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent , LOGIN);
                 overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
-                finish();
+//                finish();
             }
         }, 1000);
     }
@@ -509,13 +537,13 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 Intent intent = new Intent(SplashScreen.this, MainActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
                 finish();
             }
         }, move);
     }
-
 
     CollectionReference mRef;
     DocumentSnapshot lastVisible;
