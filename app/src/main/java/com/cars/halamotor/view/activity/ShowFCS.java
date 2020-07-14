@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.activity;
 
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Handler;
@@ -115,12 +116,7 @@ public class ShowFCS extends AppCompatActivity {
     }
 
     private void statusBarColor() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M){
-            Window window = this.getWindow();
-            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorRed));
-        }
+        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
     }
 
     private void actionBarTitle() {
@@ -137,6 +133,7 @@ public class ShowFCS extends AppCompatActivity {
             typeface = Typeface.createFromAsset(getAssets(), "NTAILU.TTF");
         }
         TextView textviewTitle = (TextView) viewActionBar.findViewById(R.id.actionbar_textview);
+        textviewTitle.setTextColor(Color.parseColor("#FF0000"));
         textviewTitle.setText(actionBarTitleInFCS(getApplicationContext(),fcsTypeStr));
         textviewTitle.setTypeface(typeface);
         abar.setCustomView(viewActionBar, params);

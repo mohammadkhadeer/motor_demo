@@ -1077,6 +1077,7 @@
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:background="?android:attr/selectableItemBackground"
                         android:id="@+id/fragment_profile_about_app_RL"
                         >
 

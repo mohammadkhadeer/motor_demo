@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.NotificationComp;
+import com.cars.halamotor.view.activity.AboutUs;
 import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
@@ -77,11 +78,22 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
         holder.coverRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getDataBaseInstance(context).updateNotification(notificationCompsArrayL.get(position).getItemServerID(),"1");
                 holder.coverRL.setBackgroundColor(ContextCompat.getColor(context, R.color.colorWhite));
-                transporteToShowItemSelectedDetails(context,position,holder);
+                if (notificationCompsArrayL.get(position).getInOrOut().equals("welcome"))
+                {
+                    moveToAboutUs();
+                }else{
+                    getDataBaseInstance(context).updateNotification(notificationCompsArrayL.get(position).getItemServerID(),"1");
+                    transporteToShowItemSelectedDetails(context,position,holder);
+                }
             }
         });
+    }
+
+    private void moveToAboutUs() {
+        Intent intent = new Intent(context, AboutUs.class);
+        ((Activity)context).startActivity(intent);
+        ((Activity)context).overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     private void transporteToShowItemSelectedDetails(Context context, int position, ViewHolder holder) {
