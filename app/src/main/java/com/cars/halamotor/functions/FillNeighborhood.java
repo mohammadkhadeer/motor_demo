@@ -670,7 +670,7 @@ public class FillNeighborhood {
         if (city.equals(context.getResources().getString(R.string.al_ain)))
         {
             Neighborhood subFavorite1 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_ain_industrial_area),context.getResources().getString(R.string.al_ain_al_ain_industrial_area_s));
-            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_buraymi),context.getResources().getString(R.string.al_ain_al_buraymi_s));
+//            Neighborhood subFavorite2 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_buraymi),context.getResources().getString(R.string.al_ain_al_buraymi_s));
             Neighborhood subFavorite3 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_faqaa),context.getResources().getString(R.string.al_ain_al_faqaa_s));
             Neighborhood subFavorite4 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_grayyeh),context.getResources().getString(R.string.al_ain_al_grayyeh_s));
             Neighborhood subFavorite5 = new Neighborhood(context.getResources().getString(R.string.al_ain_al_hili),context.getResources().getString(R.string.al_ain_al_hili_s));
@@ -695,7 +695,7 @@ public class FillNeighborhood {
 //            Neighborhood subFavorite130 = new Neighborhood(context.getResources().getString(R.string.can_not_find),context.getResources().getString(R.string.can_not_find));
 
             neighborhoodArrayL.add(subFavorite1);
-            neighborhoodArrayL.add(subFavorite2);
+//            neighborhoodArrayL.add(subFavorite2);
             neighborhoodArrayL.add(subFavorite3);
             neighborhoodArrayL.add(subFavorite4);
             neighborhoodArrayL.add(subFavorite5);
@@ -1238,7 +1238,7 @@ public class FillNeighborhood {
 
 
         CityWithNeighborhood cityWithNeighborhood282 = new CityWithNeighborhood(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_al_ain_industrial_area),context.getResources().getString(R.string.al_ain_s),context.getResources().getString(R.string.al_ain_al_ain_industrial_area_s));
-        CityWithNeighborhood cityWithNeighborhood283 = new CityWithNeighborhood(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_al_buraymi),context.getResources().getString(R.string.al_ain_s),context.getResources().getString(R.string.al_ain_al_buraymi_s));
+//        CityWithNeighborhood cityWithNeighborhood283 = new CityWithNeighborhood(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_al_buraymi),context.getResources().getString(R.string.al_ain_s),context.getResources().getString(R.string.al_ain_al_buraymi_s));
         CityWithNeighborhood cityWithNeighborhood284 = new CityWithNeighborhood(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_al_faqaa),context.getResources().getString(R.string.al_ain_s),context.getResources().getString(R.string.al_ain_al_faqaa_s));
         CityWithNeighborhood cityWithNeighborhood285 = new CityWithNeighborhood(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_al_grayyeh),context.getResources().getString(R.string.al_ain_s),context.getResources().getString(R.string.al_ain_al_grayyeh_s));
         CityWithNeighborhood cityWithNeighborhood286 = new CityWithNeighborhood(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_al_hili),context.getResources().getString(R.string.al_ain_s),context.getResources().getString(R.string.al_ain_al_hili_s));
@@ -1643,7 +1643,7 @@ public class FillNeighborhood {
         cityWithNeighborhoodArrayL.add(cityWithNeighborhood280);
         cityWithNeighborhoodArrayL.add(cityWithNeighborhood281);
         cityWithNeighborhoodArrayL.add(cityWithNeighborhood282);
-        cityWithNeighborhoodArrayL.add(cityWithNeighborhood283);
+//        cityWithNeighborhoodArrayL.add(cityWithNeighborhood283);
         cityWithNeighborhoodArrayL.add(cityWithNeighborhood284);
         cityWithNeighborhoodArrayL.add(cityWithNeighborhood285);
         cityWithNeighborhoodArrayL.add(cityWithNeighborhood286);
