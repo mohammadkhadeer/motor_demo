@@ -136,7 +136,7 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
             , text4,itemTitleTV,itemPriceTV,itemCityTV
             ,userNameTV,itemNewPriceTV,oldPriceTV;
     RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL,cardButton
-            ,callButtonRL,personInfoRL,itemInfoRL,messageInfo,messageRL;
+            ,callButtonRL,personInfoRL,itemInfoRL,messageInfo,messageRL,cardShowFCS;
 
     ViewHolder(View itemView) {
       super(itemView);
@@ -162,6 +162,7 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
       itemInfoRL = (RelativeLayout) itemView.findViewById(R.id.itemInfo);
       messageInfo = (RelativeLayout) itemView.findViewById(R.id.messageInfo);
       messageRL = (RelativeLayout) itemView.findViewById(R.id.adapter_suggested_message_button);
+      cardShowFCS = (RelativeLayout) itemView.findViewById(R.id.adapter_showFCS_item_card);
 
       itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_title);
       itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_suggested_item_car_price);
@@ -194,7 +195,7 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
                 , itemCityTV, itemCityRL, position);
         checkIfFavouriteOrNot(context,favoriteIV,favoriteRL,position);
         actionListenerToFavorite(context, favoriteRL, position,favoriteIV);
-        actionListenerToGoShowItemDetails(context, cardButton, position);
+        actionListenerToGoShowItemDetails(context, cardShowFCS, position);
         actionListenerToCallButton(context, callButtonRL, position);
         actionListenerToMessage(context,position,messageRL);
       }else{
