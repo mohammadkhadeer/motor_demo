@@ -19,22 +19,36 @@
         android:roundIcon="@drawable/logo_t"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".view.activity.EditPostActivity"></activity>
+
         <activity
             android:name=".view.activity.UserProfile"
-            android:theme="@style/AppTheme2" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme22" />
+
         <activity android:name=".view.activity.FollowingActivity" />
+
         <activity android:name=".view.activity.ShowPostsActivity">
 
         </activity>
-        <activity android:name=".view.activity.PersonProfile" />
+
+        <activity android:name=".view.activity.ContactUs"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme22">
+
+        </activity>
+
         <activity
             android:name=".view.activity.ShowFCS"
             android:screenOrientation="portrait" />
+
         <activity
             android:name=".view.activity.ShowItemDetails"
             android:label="@string/title_activity_show_item_details"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
 
         <activity
             android:name=".view.activity.SplashScreen"
@@ -47,28 +61,34 @@
             </intent-filter>
         </activity>
 
+
+
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
+
         <activity
             android:name=".view.activity.CarPlates"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
+
         <activity
             android:name=".view.activity.WheelsRim"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
+
         <activity
             android:name=".view.activity.selectAddress.SelectCityAndNeighborhood"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
+
         <activity android:name=".view.activity.Insurance" />
+
         <activity
             android:name=".view.activity.CarDetails"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
-
 
         <activity
             android:name=".view.activity.AddItem"
@@ -81,6 +101,7 @@
             android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
+
         <activity android:name=".view.showImageFromGallery.CustomGalleryActivity">
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
@@ -119,6 +140,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
     </application>
 
 </manifest>

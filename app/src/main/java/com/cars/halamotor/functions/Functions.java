@@ -39,6 +39,7 @@ import com.cars.halamotor.model.CarModel;
 import com.cars.halamotor.model.CarOption;
 import com.cars.halamotor.model.CategoryComp;
 import com.cars.halamotor.model.CommentsComp;
+import com.cars.halamotor.model.ContactUsTitle;
 import com.cars.halamotor.model.NotificationComp;
 import com.cars.halamotor.model.PaymentMethod;
 import com.cars.halamotor.sharedPreferences.SharedPreferencesInApp;
@@ -603,6 +604,52 @@ public class Functions {
 
         return EmiratesEmirate;
     }
+
+    public static String[] fillTitleContactUs(Context context) {
+        final String[] contactUsTitle = {
+                context.getResources().getString(R.string.suggestion),
+                context.getResources().getString(R.string.complaint),
+                context.getResources().getString(R.string.issue),
+                context.getResources().getString(R.string.other_sp),
+        };
+
+        return contactUsTitle;
+    }
+
+    public static String checkIfContactUsReadyToSend(String name,String email,String phoneNumber,String massage,Context context) {
+        String result = "";
+        if ((name.equals("")|| name.equals("empty")) || (email.equals("")|| email.equals("empty"))
+                || phoneNumber.equals("") || massage.equals(""))
+        {
+            result = context.getResources().getString(R.string.message_contact_1);
+        }else{
+            result = "done";
+        }
+        return result;
+    }
+
+    public static ContactUsTitle getObjectContactUs(String text,Context context) {
+        ContactUsTitle contactUsTitle = null;
+        if (text.equals(context.getResources().getString(R.string.suggestion)))
+        {
+            contactUsTitle = new ContactUsTitle(context.getResources().getString(R.string.suggestion),context.getResources().getString(R.string.suggestion_s));
+        }
+        if (text.equals(context.getResources().getString(R.string.complaint)))
+        {
+            contactUsTitle = new ContactUsTitle(context.getResources().getString(R.string.complaint),context.getResources().getString(R.string.complaint_s));
+        }
+        if (text.equals(context.getResources().getString(R.string.issue)))
+        {
+            contactUsTitle = new ContactUsTitle(context.getResources().getString(R.string.issue),context.getResources().getString(R.string.issue_s));
+        }
+        if (text.equals(context.getResources().getString(R.string.other_sp)))
+        {
+            contactUsTitle = new ContactUsTitle(context.getResources().getString(R.string.other_sp),context.getResources().getString(R.string.other_sp_s));
+        }
+
+        return contactUsTitle;
+    }
+
 
     public static ArrayList<String> fillWheelsInchesArrayL(ArrayList<String> wheelsRimArrayL, Context context) {
         wheelsRimArrayL = new ArrayList<String>();

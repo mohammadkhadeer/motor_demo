@@ -4,6 +4,7 @@
     <string name="facebook_app_id">648618505975230</string>
     <string name="fb_login_protocol_scheme">fb648618505975230</string>
 
+    <string name="email_contact_us">customer\@halaMotor\.com</string>
 
     <string name="tab_home">Home</string>
     <string name="tab_message">Messages</string>
@@ -62,6 +63,8 @@
 
     <string name="any">Any</string>
     <string name="any_s">0</string>
+
+    <string name="leave_ur">Or leave ur message</string>
 
 
     <string name="days">Days</string>
@@ -232,6 +235,7 @@
     <string name="comment">Comments</string>
     <string name="similar">Similar Ads</string>
     <string name="follow">Follow</string>
+    <string name="send">Send</string>
     <string name="we_cant">Can not help without permission</string>
     <string name="u_cant">Sorry max follower 500</string>
     <string name="unfollow">Unfollow</string>
@@ -280,6 +284,18 @@
 
     <string name="kushuk_s">Kushuk</string>
     <string name="metal_s">Metal</string>
+
+    <string name="suggestion">Suggestion</string>
+    <string name="complaint">Complaint</string>
+    <string name="issue">Issue</string>
+    <string name="other_sp">Other</string>
+
+    <string name="suggestion_s">Suggestion</string>
+    <string name="complaint_s">Complaint</string>
+    <string name="issue_s">Issue</string>
+    <string name="other_sp_s">Other</string>
+
+    <string name="message_contact_1">Must fill all requirements</string>
 
     <string name="dubai">Dubai</string>
     <string name="abu_dhabi">Abu Dhabi</string>
@@ -1172,6 +1188,8 @@
 
     <string name="city">City</string>
     <string name="phone_number">Phone number</string>
+    <string name="name">Your name</string>
+    <string name="email">Email</string>
 
     <string name="ad_product_title">Ad Title \(eg\: Range Rover\)</string>
     <string name="set_number">Set number \(eg\: Dubai 8080\)</string>

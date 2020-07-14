@@ -16,6 +16,7 @@ import com.cars.halamotor.functions.Action;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.view.activity.AddItem;
+import com.cars.halamotor.view.activity.ContactUs;
 import com.cars.halamotor.view.activity.ShowFCS;
 import com.cars.halamotor.view.activity.ShowPostsActivity;
 import com.cars.halamotor.view.fragments.fragmentsInSaidProfileFragment.ProfileDetailsInfo;
@@ -75,6 +76,22 @@ public class FragmentProfile extends Fragment {
         actionListenerToCallButton();
         actionListenerToMessage();
         actionListenerToMyAds();
+        actionListenerToContactUs();
+    }
+
+    private void actionListenerToContactUs() {
+        contactRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToContactUsActivity();
+            }
+        });
+    }
+
+    private void moveToContactUsActivity() {
+        Intent intent = new Intent(getActivity(), ContactUs.class);
+        startActivity(intent);
+        getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
     private void actionListenerToMyAds() {

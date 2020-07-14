@@ -218,7 +218,6 @@ public class AddItem extends AppCompatActivity implements
             createCityPhoneNumber();
             ChangeUI();
         }
-
     }
 
     private void insertBtnListener() {

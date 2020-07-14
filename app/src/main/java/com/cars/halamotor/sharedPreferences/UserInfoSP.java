@@ -28,4 +28,18 @@ public class UserInfoSP {
                         ,followerImage,followerEmail,followerCity,followerNeighborhood);
         return followerInfo;
     }
+
+    public static String getUserEmailFromSP(Context context) {
+        String email;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        email = (shared.getString("email", ""));
+        if (email.equals("") || email == null) {
+            return  "empty";
+        }
+        else {
+            return  email;
+        }
+    }
+
 }

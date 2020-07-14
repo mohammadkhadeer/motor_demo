@@ -53,6 +53,7 @@ public class FragmentCityPhoneNumber extends Fragment {
 
     private void actionListener() {
         makeCancelPhoneNumIVDeleteTextInPhoneNumEdt();
+
         listenerAdPhone();
         selectCityActionListener();
     }

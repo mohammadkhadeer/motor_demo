@@ -84,7 +84,7 @@ public class ImageListRecyclerAdapter extends RecyclerView.Adapter<ImageListRecy
 
     public void changeSelection(VerticalItemHolder v, int position) {
 
-        if (getSelected().size() > 4)
+        if (getSelected().size() > 14)
         {
             Log.i("TAG","MAX number of image");
                 mItems.get(position).isSeleted = false;
