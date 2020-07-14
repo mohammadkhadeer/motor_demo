@@ -107,6 +107,8 @@ public class FragmentResults extends Fragment {
 
     public void onCityCanceled(Boolean isCanceled) {
         citySelected = isCanceled;
+        city="empty";
+        neighborhoodStr="empty";
         if (check())
         {
             handelResult();

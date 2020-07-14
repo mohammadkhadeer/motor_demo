@@ -25,6 +25,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
@@ -297,6 +298,7 @@ public class ContactUs extends AppCompatActivity {
                     progressBar.setVisibility(View.VISIBLE);
                     savePhoneNumberInSP(getApplicationContext(),SharedPreferences,editor,phoneNumberStr);
                     addContactUsToFireStore(contactUsMessage,"ContactUs",getApplicationContext());
+                    Toast.makeText(getApplicationContext(),getResources().getString(R.string.send_suc),Toast.LENGTH_SHORT).show();
                     new Handler().postDelayed(new Runnable() {
 
                         @Override

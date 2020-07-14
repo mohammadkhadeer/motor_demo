@@ -461,7 +461,19 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
   }
 
   private void fillTitleAndUserName(TextView itemTitleTV,TextView userNameTV, int position) {
-    itemTitleTV.setText(getObject(position).getItemName());
+    String title = getObject(position).getItemName().replace("\n","");
+    if (title.length()>30)
+    {
+      String newTitle="";
+      char[] charArray = title.toCharArray();
+      for (int i =0;i<30;i++)
+      {
+        newTitle =newTitle+charArray[i];
+      }
+      newTitle = newTitle+"...";
+      title =newTitle;
+    }
+    itemTitleTV.setText(title);
     userNameTV.setText(getObject(position).getUserName());
   }
 
