@@ -90,6 +90,8 @@ public class ShowItemDetails extends AppCompatActivity
     TextView itemPriceTV,oldPriceTV,itemNewPriceTV,title;
     LinearLayout show_item_details_header;
 
+    private static final int REPORT = 2000;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

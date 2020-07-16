@@ -60,6 +60,9 @@
     <string name="no_more_result">No more results</string>
     <string name="fill_category_please">Fill category please</string>
 
+    <string name="report_message2">Thanks to help us make app performance\n
+        Be better \!\n
+        Well take procedure as soon possible</string>
 
     <string name="any">Any</string>
     <string name="any_s">0</string>
@@ -70,6 +73,22 @@
 
     <string name="days">Days</string>
     <string name="day">Day</string>
+
+    <string name="reports">Report</string>
+
+    <string name="ad_sold">Ad Sold</string>
+    <string name="duplicate_ad">Duplicate Ad</string>
+    <string name="inappropriate_ad">Inappropriate Ad</string>
+    <string name="wrong_category">worng categor</string>
+    <string name="other_rep">Other</string>
+
+    <string name="ad_sold_s">Ad Sold</string>
+    <string name="duplicate_ad_s">Duplicate Ad</string>
+    <string name="inappropriate_ad_s">Inappropriate Ad</string>
+    <string name="wrong_category_s">worng categor</string>
+    <string name="other_rep_s">Other</string>
+
+    <string name="message_erp">Please select one of this following reasons</string>
 
     <string name="t_1000">\+ 1\,000</string>
     <string name="t_5000">\+ 5\,000</string>
@@ -236,6 +255,7 @@
     <string name="comment">Comments</string>
     <string name="similar">Similar Ads</string>
     <string name="follow">Follow</string>
+    <string name="close">Close</string>
     <string name="send">Send</string>
     <string name="we_cant">Can not help without permission</string>
     <string name="u_cant">Sorry max follower 500</string>

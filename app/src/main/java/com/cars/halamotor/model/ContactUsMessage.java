@@ -1,10 +1,10 @@
 package com.cars.halamotor.model;
 
 public class ContactUsMessage {
-    String name,email,phoneNumber,userToken,userID,message,title,titleS,date,messageIdOnServer;
-    int seenOrNot;
+    String name,email,phoneNumber,userToken,userID,message,title,titleS,date,messageIdOnServer
+            ,seeOrNot,doneOrNot;
 
-    public ContactUsMessage(String name, String email, String phoneNumber, String userToken, String userID, String message, String title, String titleS, String date, String messageIdOnServer, int seenOrNot) {
+    public ContactUsMessage(String name, String email, String phoneNumber, String userToken, String userID, String message, String title, String titleS, String date, String messageIdOnServer, String seeOrNot, String doneOrNot) {
         this.name = name;
         this.email = email;
         this.phoneNumber = phoneNumber;
@@ -15,7 +15,8 @@ public class ContactUsMessage {
         this.titleS = titleS;
         this.date = date;
         this.messageIdOnServer = messageIdOnServer;
-        this.seenOrNot = seenOrNot;
+        this.seeOrNot = seeOrNot;
+        this.doneOrNot = doneOrNot;
     }
 
     public String getName() {
@@ -98,11 +99,19 @@ public class ContactUsMessage {
         this.messageIdOnServer = messageIdOnServer;
     }
 
-    public int getSeenOrNot() {
-        return seenOrNot;
+    public String getSeeOrNot() {
+        return seeOrNot;
     }
 
-    public void setSeenOrNot(int seenOrNot) {
-        this.seenOrNot = seenOrNot;
+    public void setSeeOrNot(String seeOrNot) {
+        this.seeOrNot = seeOrNot;
+    }
+
+    public String getDoneOrNot() {
+        return doneOrNot;
+    }
+
+    public void setDoneOrNot(String doneOrNot) {
+        this.doneOrNot = doneOrNot;
     }
 }

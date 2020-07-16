@@ -47,6 +47,14 @@
 
     </style>
 
+    <style name="AppTheme44" parent="Theme.AppCompat.Light">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorSilver1</item>
+        <item name="colorPrimaryDark">@color/colorSilver1</item>
+        <item name="colorAccent">@color/colorRed</item>
+
+    </style>
+
     <style name="AppThemeShowItemDetails" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="android:windowTranslucentStatus">true</item>

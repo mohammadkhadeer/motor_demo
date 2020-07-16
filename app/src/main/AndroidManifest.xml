@@ -15,29 +15,35 @@
         android:roundIcon="@drawable/logo_t"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.AboutUs"
-            android:theme="@style/AppTheme22"></activity>
+        <activity android:name=".view.activity.ReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme44">
 
+        </activity>
+        <activity
+            android:name=".view.activity.AboutUs"
+            android:theme="@style/AppTheme22" />
         <activity android:name=".view.activity.EditPostActivity" />
-
         <activity
             android:name=".view.activity.UserProfile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme22" />
         <activity android:name=".view.activity.FollowingActivity" />
-        <activity android:name=".view.activity.ShowPostsActivity"></activity>
+        <activity android:name=".view.activity.ShowPostsActivity" />
         <activity
             android:name=".view.activity.ContactUs"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme22"></activity>
+            android:theme="@style/AppTheme22" />
         <activity
             android:name=".view.activity.ShowFCS"
-            android:theme="@style/AppTheme23"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme23" />
         <activity
             android:name=".view.activity.ShowItemDetails"
             android:label="@string/title_activity_show_item_details"
             android:theme="@style/AppTheme.NoActionBar" />
+
+
         <activity
             android:name=".view.activity.SplashScreen"
             android:screenOrientation="portrait"
@@ -48,6 +54,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"
@@ -71,7 +79,7 @@
             android:theme="@style/AppTheme2" />
         <activity
             android:name=".view.activity.AddItem"
-            android:theme="@style/AppTheme2"></activity>
+            android:theme="@style/AppTheme2" />
         <activity
             android:name=".view.activity.MainActivity"
             android:screenOrientation="portrait"

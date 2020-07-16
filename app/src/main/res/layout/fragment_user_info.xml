@@ -153,6 +153,7 @@
                     <RelativeLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
+                        android:background="?android:attr/selectableItemBackground"
                         android:id="@+id/fragment_u_i_a_m_report_RL"
                         android:layout_weight="33">
 

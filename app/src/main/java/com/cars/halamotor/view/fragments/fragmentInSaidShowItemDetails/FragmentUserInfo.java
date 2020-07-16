@@ -1,15 +1,24 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.cars.halamotor.R;
@@ -27,6 +36,7 @@ import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FavouriteChange;
+import com.cars.halamotor.view.activity.ReportActivity;
 import com.cars.halamotor.view.activity.UserProfile;
 import com.squareup.picasso.Picasso;
 
@@ -47,10 +57,7 @@ public class FragmentUserInfo extends Fragment {
     TextView userNameTV,userStatusTV,itemNameTV,dateTV;
     RelativeLayout userStatusRL,favouriteRL,profileInfoRL,reportRL,shareRL;
     ImageView userImageIV,favouriteIV,shareIV,reportIV;
-    CCEMTFirestCase ccemtFirestCase;
-    CarPlatesFirstCase carPlatesFirstCase;
-    WheelsRimFirstCase wheelsRimFirstCase;
-    AccAndJunkFirstCase accAndJunkFirstCase;
+
     FavouriteChange favouriteChange;
     int numberOfChange =0;
 
@@ -58,6 +65,9 @@ public class FragmentUserInfo extends Fragment {
     ItemPlates carPlatesModel;
     ItemWheelsRim wheelsRimModel;
     ItemAccAndJunk accAndJunkObject;
+    private static final int REPORT = 2000;
+    Dialog myDialog;
+
 
     @Override
     public void onAttach(Context context) {
@@ -152,7 +162,7 @@ public class FragmentUserInfo extends Fragment {
         userStatusTV = (TextView) view.findViewById(R.id.fragment_u_i_a_m_user_status_TV);
 
         favouriteRL = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_favourite_RL);
-        reportRL = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_share_RL);
+        reportRL = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_report_RL);
         shareRL  = (RelativeLayout) view.findViewById(R.id.fragment_u_i_a_m_share_RL);
         profileInfoRL  = (RelativeLayout) view.findViewById(R.id.fragment_u_i_RL);
 
@@ -179,6 +189,51 @@ public class FragmentUserInfo extends Fragment {
         actionListenerToFavouriteOrNot();
         actionListenerToShare();
         actionListenerToProfile();
+        actionListenerToReport();
+    }
+
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REPORT && resultCode == Activity.RESULT_OK) {
+            showPopup(view);
+        }
+    }
+
+    public void showPopup(View anchorView) {
+        myDialog = new Dialog(getActivity());
+        TextView txtclose;
+        RelativeLayout closeRL;
+        myDialog.setContentView(R.layout.popup_layout);
+        txtclose =(TextView) myDialog.findViewById(R.id.popup_layout_tv);
+        txtclose.setTypeface(Functions.changeFontBold(getActivity()));
+        closeRL = (RelativeLayout) myDialog.findViewById(R.id.popup_layout_rl);
+        closeRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
+    }
+
+    private void actionListenerToReport() {
+        reportRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("userID", userID);
+                bundle.putString("category", categoryStr);
+                bundle.putString("itemID", itemIDStr);
+
+                Intent intent = new Intent(getActivity(), ReportActivity.class);
+                intent.putExtras(bundle);
+                startActivityForResult(intent , REPORT);
+                getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+            }
+        });
     }
 
     private void actionListenerToProfile() {
@@ -191,7 +246,7 @@ public class FragmentUserInfo extends Fragment {
 
                 Intent intent = new Intent(getActivity(), UserProfile.class);
                 intent.putExtras(bundle);
-                startActivityForResult(intent , 10);
+                startActivity(intent);
                 getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
             }
         });

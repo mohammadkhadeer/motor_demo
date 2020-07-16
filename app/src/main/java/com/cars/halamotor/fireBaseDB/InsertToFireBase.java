@@ -16,6 +16,7 @@ import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
+import com.cars.halamotor.model.ReportDetails;
 import com.cars.halamotor.model.UserInfo;
 import com.cars.halamotor.model.UserItem;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -349,6 +350,35 @@ public class InsertToFireBase {
                         Log.i("TAG","messageID: "+uniqueKey);
                         getDataStoreInstance().collection(category).document(uniqueKey)
                                 .update("messageIdOnServer",uniqueKey);
+                        //insert notification here to can get item id in server
+//                        String imageStr = "https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/images%2Flogo_2.png?alt=media&token=f9e74a0c-f0af-4998-94f9-02d853457a79";
+//                        insertNotificationTable(getNotification(category,contactUsMessage.getTitle() + " " +contactUsMessage.getTitleS(),context, uniqueKey,"out","contactUs",imageStr)
+//                                ,getDataBaseInstance(context));
+                    }
+                }
+            }
+        }).addOnFailureListener(new OnFailureListener() {
+
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.i("TAG","Error: " + "Onfailure listner"+e.toString());
+
+            }
+        });
+
+    }
+
+    public static void addReportToFireStore(final ReportDetails reportDetails, final Context context) {
+        getDataStoreInstance().collection("Reports").add(reportDetails).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentReference> task) {
+                if (task.isSuccessful()) {
+                    DocumentReference document = task.getResult();
+                    if (document != null) {
+                        String uniqueKey = document.getId(); //Do what you need to do with the document id
+                        Log.i("TAG","messageID: "+uniqueKey);
+                        getDataStoreInstance().collection("Reports").document(uniqueKey)
+                                .update("reportIDOnServer",uniqueKey);
                         //insert notification here to can get item id in server
 //                        String imageStr = "https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/images%2Flogo_2.png?alt=media&token=f9e74a0c-f0af-4998-94f9-02d853457a79";
 //                        insertNotificationTable(getNotification(category,contactUsMessage.getTitle() + " " +contactUsMessage.getTitleS(),context, uniqueKey,"out","contactUs",imageStr)

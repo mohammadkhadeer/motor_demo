@@ -38,6 +38,7 @@ import static com.cars.halamotor.functions.Functions.changeFontBold;
 import static com.cars.halamotor.functions.Functions.checkIfContactUsReadyToSend;
 import static com.cars.halamotor.functions.Functions.fillEmiratesEmirate;
 import static com.cars.halamotor.functions.Functions.fillTitleContactUs;
+import static com.cars.halamotor.functions.Functions.getDATE;
 import static com.cars.halamotor.functions.Functions.getDAY;
 import static com.cars.halamotor.functions.Functions.getMONTH;
 import static com.cars.halamotor.functions.Functions.getObjectContactUs;
@@ -317,9 +318,9 @@ public class ContactUs extends AppCompatActivity {
             Snackbar.make(view,checkIfContactUsReadyToSend(nameStr,emailStr,phoneNumberStr,messageStr,this), Snackbar.LENGTH_LONG).show();
         } else
         {
-            String date = getYEAR()+"/"+getMONTH()+"/"+getDAY();
+            String date = getDATE();
             contactUsMessage = new ContactUsMessage(nameStr,emailStr,phoneNumberStr,userToken,userID
-            ,messageStr,contactUsTitle.getTitle(),contactUsTitle.getTitleS(),date,"NOTYET",0);
+            ,messageStr,contactUsTitle.getTitle(),contactUsTitle.getTitleS(),date,"NOTYET","0","0");
             result = true;
         }
 
