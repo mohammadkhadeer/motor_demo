@@ -5,6 +5,8 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
@@ -14,15 +16,18 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SlidImage;
 import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 public class PopUp_SlidingImage_Adapter extends PagerAdapter {
 
-
     private ArrayList<SlidImage> imageModelArrayList;
     private LayoutInflater inflater;
     private Context context;
+
+    ImageView imageView;
 
     public PopUp_SlidingImage_Adapter(Context context, ArrayList<SlidImage> imageModelArrayList) {
         this.context = context;
@@ -45,26 +50,18 @@ public class PopUp_SlidingImage_Adapter extends PagerAdapter {
         View imageLayout = inflater.inflate(R.layout.popup_slidingimages_layout, view, false);
 
         assert imageLayout != null;
-        final ImageView imageView = (ImageView) imageLayout
+
+        imageView = (ImageView) imageLayout
                 .findViewById(R.id.popup_sliding_image_image);
+
 //        final TextView numberOfImage = (TextView) imageLayout
 //                .findViewById(R.id.numberOfImage);
-
-//        Glide.with(context)
-//                .load(imageModelArrayList.get(position).getImagePath())
-//                .centerCrop()
-//                .into(imageView);
 
         Picasso.get()
                 .load(imageModelArrayList.get(position).getImagePath())
                 .fit()
                 .centerCrop()
                 .into(imageView);
-
-//        Picasso.with(context).load(imageModelArrayList.get(position).getImagePath())
-//                .config(Bitmap.Config.RGB_565)
-//                .fit().centerCrop()
-//                .into(imageView);
 
 
 //        numberOfImage.setText(imageModelArrayList.get(position).getImageNumber()
@@ -97,5 +94,4 @@ public class PopUp_SlidingImage_Adapter extends PagerAdapter {
     public Parcelable saveState() {
         return null;
     }
-
 }

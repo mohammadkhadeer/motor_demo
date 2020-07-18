@@ -14,19 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
-import com.cars.halamotor.model.AccAndJunk;
-import com.cars.halamotor.model.AccAndJunkFirstCase;
-import com.cars.halamotor.model.CCEMT;
-import com.cars.halamotor.model.CCEMTFirestCase;
-import com.cars.halamotor.model.CarPlatesFirstCase;
-import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.SimilarItem;
-import com.cars.halamotor.model.WheelsRimFirstCase;
-import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.view.adapters.adapterShowItemDetails.AdapterSimilarAds;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,11 +65,6 @@ public class FragmentSimilarItems extends Fragment {
 
     RecyclerView.LayoutManager layoutManagerSimilar1,layoutManagerSimilar2,layoutManagerSimilar3;
     int dataComeFromServer=0;
-
-//    CCEMTFirestCase ccemtFirestCase;
-//    CarPlatesFirstCase carPlatesFirstCase;
-//    WheelsRimFirstCase wheelsRimFirstCase;
-//    AccAndJunkFirstCase accAndJunkFirstCase;
 
     @Override
     public void onAttach(Context context) {

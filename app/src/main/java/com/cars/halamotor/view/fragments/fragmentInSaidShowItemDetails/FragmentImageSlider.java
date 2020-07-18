@@ -68,7 +68,6 @@ public class FragmentImageSlider extends Fragment implements SlidingImage_Adapte
 
     TextView itemPriceTV,oldPriceTV,itemNewPriceTV;
 
-    IndependentImageSliderFragment independentImageSliderFragment = new IndependentImageSliderFragment();
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
@@ -214,7 +213,6 @@ public class FragmentImageSlider extends Fragment implements SlidingImage_Adapte
 
     @Override
     public void onImageClicked(Boolean clicked) {
-        Toast.makeText(getActivity(),"here",Toast.LENGTH_SHORT).show();
         createPopUp(getActivity(),view,images,imageModelArrayList);
     }
 }

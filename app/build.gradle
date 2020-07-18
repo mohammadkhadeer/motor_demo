@@ -43,8 +43,6 @@ dependencies {
     implementation project(path: ':bottom-bar')
     implementation project(path: ':spinner')
 
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.9.0'
     //noinspection GradleCompatible
     implementation "com.android.support:appcompat-v7:${rootProject.ext.supportLibraryVersion}"
     //noinspection GradleCompatible

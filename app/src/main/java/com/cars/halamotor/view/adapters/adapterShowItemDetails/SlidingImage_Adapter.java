@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SlidImage;
@@ -55,11 +54,6 @@ public class SlidingImage_Adapter extends PagerAdapter {
                 .findViewById(R.id.image);
         final TextView numberOfImage = (TextView) imageLayout
                 .findViewById(R.id.numberOfImage);
-
-//        Glide.with(context)
-//                .load(imageModelArrayList.get(position).getImagePath())
-//                .centerCrop()
-//                .into(imageView);
 
         Picasso.get()
                 .load(imageModelArrayList.get(position).getImagePath())
