@@ -215,14 +215,16 @@ public class AdapterAccAndJunkFirstCase extends RecyclerView.Adapter<AdapterAccA
 
     private void fillImage(final ViewHolder holder, int position, Context context) {
 
-        Picasso.with(context).load(accAndJunkArrayL.get(position).getItemImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(accAndJunkArrayL.get(position).getItemImage())
+                .fit()
+                .centerCrop()
                 .into(holder.itemImage);
 
-        Picasso.with(context).load(accAndJunkArrayL.get(position).getItemUserImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(accAndJunkArrayL.get(position).getItemUserImage())
+                .fit()
+                .centerCrop()
                 .into(holder.userImage);
     }
 

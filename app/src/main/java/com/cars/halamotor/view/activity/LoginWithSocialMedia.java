@@ -97,6 +97,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
 
     int RC_SIGN_IN = 0;
     int test =0;
+    int numberOfAllowedPosts = 7;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -182,7 +183,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                             ,"notYet","notYet"
                                             ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
                                             ,0,1,0,0
-                                            ,1,0,0,4,date);
+                                            ,1,0,0,numberOfAllowedPosts,date);
 
                                     checkIfUserRegisterOrNotFromSP(getApplicationContext(), rgSharedPreferences, rgEditor, "1");
 
@@ -339,7 +340,7 @@ public class LoginWithSocialMedia extends AppCompatActivity {
                                                     ,"notYet","notYet"
                                                     ,"notYet","notYet",getUserTokenInFromSP(getApplicationContext())
                                                     ,0,1,0,0
-                                                    ,1,0,0,4,date);
+                                                    ,1,0,0,numberOfAllowedPosts,date);
 
                                             registerUserInServer(newUser);
 

@@ -54,12 +54,11 @@ public class AdapterFollowing extends RecyclerView.Adapter<AdapterFollowing.View
     }
 
     private void fillImageUserImage(Context context, ViewHolder holder, int position) {
-        Picasso.with(context)
+        Picasso.get()
                 .load(followingArrayL.get(position).getImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+                .fit()
+                .centerCrop()
                 .into(holder.imageView);
-
     }
 
     private void actionListenerToCard(final Context context, final ViewHolder holder, final int position) {

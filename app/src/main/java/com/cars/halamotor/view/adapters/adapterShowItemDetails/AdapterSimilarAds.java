@@ -145,14 +145,16 @@ public class AdapterSimilarAds extends RecyclerView.Adapter<AdapterSimilarAds.Vi
         {
             loadingCompVisibleAndGone(holder);
             //fill item image
-            Picasso.with(context).load(similarAdsArrayL.get(position).getItemImage())
-                    .config(Bitmap.Config.RGB_565)
-                    .fit().centerCrop()
+            Picasso.get()
+                    .load(similarAdsArrayL.get(position).getItemImage())
+                    .fit()
+                    .centerCrop()
                     .into(holder.itemImage);
 
-            Picasso.with(context).load(similarAdsArrayL.get(position).getUserImage())
-                    .config(Bitmap.Config.RGB_565)
-                    .fit().centerCrop()
+            Picasso.get()
+                    .load(similarAdsArrayL.get(position).getUserImage())
+                    .fit()
+                    .centerCrop()
                     .into(holder.userImage);
         }else{
             loadingCompVisibleAndGone(holder);

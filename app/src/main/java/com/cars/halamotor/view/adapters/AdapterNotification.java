@@ -59,16 +59,16 @@ public class AdapterNotification extends RecyclerView.Adapter<AdapterNotificatio
     private void fillProcessImageAndUserUserImage(Context context, ViewHolder holder, int position) {
         if (notificationCompsArrayL.get(position).getInOrOut().equals("welcome"))
         {
-            Picasso.with(context)
+            Picasso.get()
                     .load(R.drawable.logo)
-                    .config(Bitmap.Config.RGB_565)
-                    .fit().centerCrop()
+                    .fit()
+                    .centerCrop()
                     .into(holder.processIV);
         }else {
-            Picasso.with(context)
+            Picasso.get()
                     .load(notificationCompsArrayL.get(position).getProcessImage())
-                    .config(Bitmap.Config.RGB_565)
-                    .fit().centerCrop()
+                    .fit()
+                    .centerCrop()
                     .into(holder.processIV);
         }
 

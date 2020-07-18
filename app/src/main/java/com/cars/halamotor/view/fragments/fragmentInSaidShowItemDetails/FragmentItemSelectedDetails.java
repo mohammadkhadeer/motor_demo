@@ -1,49 +1,30 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
 
 import android.content.Context;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
-import com.cars.halamotor.model.AccAndJunk;
-import com.cars.halamotor.model.AccAndJunkFirstCase;
-import com.cars.halamotor.model.CCEMT;
-import com.cars.halamotor.model.CCEMTFirestCase;
-import com.cars.halamotor.model.CarPlatesFirstCase;
-import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
-import com.cars.halamotor.model.WheelsRimFirstCase;
-import com.cars.halamotor.model.WheelsRimModel;
-import com.cars.halamotor.utils.LinearLayoutThatDetectsSoftKeyboard;
 import com.cars.halamotor.view.adapters.AdapterCarOption;
 
 import java.util.ArrayList;
 
 import static com.cars.halamotor.functions.Functions.getCarOptionsArrayL;
 import static com.cars.halamotor.functions.Functions.getCarPlatesNumber;
-import static com.cars.halamotor.functions.Functions.splitString;
-import static com.cars.halamotor.functions.Functions.splitString2;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCarPlatesFirstCaseFromDB;
-import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getWheelsRimFirstCaseFromDB;
 
 public class FragmentItemSelectedDetails extends Fragment {
 

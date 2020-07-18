@@ -71,10 +71,10 @@ public class SelectedImageAdapter extends RecyclerView.Adapter<SelectedImageAdap
     }
 
     private void fillImageInImageView(Context context, ViewHolder holder, int position) {
-        Picasso.with(context)
-                .load("file://"+imagePath.get(position)) // Add this
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load("file://"+imagePath.get(position))
+                .fit()
+                .centerCrop()
                 .into(holder.imageView);
     }
 

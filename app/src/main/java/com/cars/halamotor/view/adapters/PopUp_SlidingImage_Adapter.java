@@ -1,38 +1,32 @@
-package com.cars.halamotor.view.adapters.adapterShowItemDetails;
+package com.cars.halamotor.view.adapters;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
-import android.support.v7.graphics.Palette;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.SlidImage;
-import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class SlidingImage_Adapter extends PagerAdapter {
+public class PopUp_SlidingImage_Adapter extends PagerAdapter {
 
 
     private ArrayList<SlidImage> imageModelArrayList;
     private LayoutInflater inflater;
     private Context context;
-    ImageClicked imageClicked;
 
-    public SlidingImage_Adapter(Context context, ArrayList<SlidImage> imageModelArrayList,ImageClicked imageClicked) {
+    public PopUp_SlidingImage_Adapter(Context context, ArrayList<SlidImage> imageModelArrayList) {
         this.context = context;
         this.imageModelArrayList = imageModelArrayList;
-        this.imageClicked = imageClicked;
         inflater = LayoutInflater.from(context);
     }
 
@@ -48,13 +42,13 @@ public class SlidingImage_Adapter extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
-        View imageLayout = inflater.inflate(R.layout.slidingimages_layout, view, false);
+        View imageLayout = inflater.inflate(R.layout.popup_slidingimages_layout, view, false);
 
         assert imageLayout != null;
         final ImageView imageView = (ImageView) imageLayout
-                .findViewById(R.id.image);
-        final TextView numberOfImage = (TextView) imageLayout
-                .findViewById(R.id.numberOfImage);
+                .findViewById(R.id.popup_sliding_image_image);
+//        final TextView numberOfImage = (TextView) imageLayout
+//                .findViewById(R.id.numberOfImage);
 
 //        Glide.with(context)
 //                .load(imageModelArrayList.get(position).getImagePath())
@@ -73,17 +67,17 @@ public class SlidingImage_Adapter extends PagerAdapter {
 //                .into(imageView);
 
 
-        numberOfImage.setText(imageModelArrayList.get(position).getImageNumber()
-                +"/"+imageModelArrayList.get(position).getTotalImage());
-
-        numberOfImage.setTypeface(Functions.changeFontBold(context));
+//        numberOfImage.setText(imageModelArrayList.get(position).getImageNumber()
+//                +"/"+imageModelArrayList.get(position).getTotalImage());
+//
+//        numberOfImage.setTypeface(Functions.changeFontBold(context));
 
         view.addView(imageLayout, 0);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                imageClicked.onImageClicked(true);
+                Log.d("TAG","HERE");
             }
         });
 
@@ -102,10 +96,6 @@ public class SlidingImage_Adapter extends PagerAdapter {
     @Override
     public Parcelable saveState() {
         return null;
-    }
-
-    public interface ImageClicked {
-        void onImageClicked(Boolean clicked);
     }
 
 }

@@ -1104,7 +1104,7 @@ public class Functions {
         ArrayList<ReportType> reportTypesArrayL = new ArrayList<ReportType>();
 
         reportTypesArrayL.add(new ReportType(context.getResources().getString(R.string.ad_sold),context.getResources().getString(R.string.ad_sold_s),R.drawable.sold));
-        reportTypesArrayL.add(new ReportType(context.getResources().getString(R.string.duplicate_ad),context.getResources().getString(R.string.duplicate_ad_s),R.drawable.car_for_sale));
+        reportTypesArrayL.add(new ReportType(context.getResources().getString(R.string.duplicate_ad),context.getResources().getString(R.string.duplicate_ad_s),R.drawable.duplicat));
         reportTypesArrayL.add(new ReportType(context.getResources().getString(R.string.inappropriate_ad),context.getResources().getString(R.string.inappropriate_ad_s),R.drawable.inappropriate));
         reportTypesArrayL.add(new ReportType(context.getResources().getString(R.string.wrong_category),context.getResources().getString(R.string.wrong_category_s),R.drawable.wrong_category));
         reportTypesArrayL.add(new ReportType(context.getResources().getString(R.string.other_rep),context.getResources().getString(R.string.other_rep_s),R.drawable.junk_car));

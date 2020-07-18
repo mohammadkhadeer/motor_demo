@@ -7,17 +7,23 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.model.AccAndJunk;
@@ -35,7 +41,10 @@ import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
 
-public class FragmentImageSlider extends Fragment {
+import static android.content.Context.LAYOUT_INFLATER_SERVICE;
+import static com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.PopUpIndependentImageSlider.createPopUp;
+
+public class FragmentImageSlider extends Fragment implements SlidingImage_Adapter.ImageClicked{
 
     public FragmentImageSlider(){}
 
@@ -59,6 +68,7 @@ public class FragmentImageSlider extends Fragment {
 
     TextView itemPriceTV,oldPriceTV,itemNewPriceTV;
 
+    IndependentImageSliderFragment independentImageSliderFragment = new IndependentImageSliderFragment();
     @Override
     public void onAttach(Context context) {
         if (getArguments() != null) {
@@ -92,7 +102,6 @@ public class FragmentImageSlider extends Fragment {
         AddShineEffect(relativeLayout,shinImageView);
 
         fillImageList();
-
         return view;
     }
 
@@ -165,7 +174,7 @@ public class FragmentImageSlider extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        mPager.setAdapter(new SlidingImage_Adapter(getActivity(),imageModelArrayList));
+        mPager.setAdapter(new SlidingImage_Adapter(getActivity(),imageModelArrayList,this));
         //indicator.setViewPager(mPager);
         final float density = getResources().getDisplayMetrics().density;
         NUM_PAGES =imageModelArrayList.size();
@@ -201,5 +210,11 @@ public class FragmentImageSlider extends Fragment {
         animation.setFillAfter(false);
         animation.setInterpolator(new AccelerateDecelerateInterpolator());
         child.startAnimation(animation);
+    }
+
+    @Override
+    public void onImageClicked(Boolean clicked) {
+        Toast.makeText(getActivity(),"here",Toast.LENGTH_SHORT).show();
+        createPopUp(getActivity(),view,images,imageModelArrayList);
     }
 }

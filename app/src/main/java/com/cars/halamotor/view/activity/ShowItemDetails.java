@@ -147,6 +147,7 @@ public class ShowItemDetails extends AppCompatActivity
                 if (scrollRange + verticalOffset == 0) {
                     show_item_details_header.setVisibility(View.VISIBLE);
                     title.setText(itemNameStr);
+                    title.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
                     statusBarColor();
                     isVisible = true;
                 } else if(isVisible) {

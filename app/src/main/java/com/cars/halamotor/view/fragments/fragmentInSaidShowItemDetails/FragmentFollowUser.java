@@ -216,7 +216,7 @@ public class FragmentFollowUser extends Fragment {
     }
 
     private void fillUserImageAndUserName() {
-        Picasso.with(getActivity())
+        Picasso.get()
                 .load(userImage)
                 .fit()
                 .centerCrop()

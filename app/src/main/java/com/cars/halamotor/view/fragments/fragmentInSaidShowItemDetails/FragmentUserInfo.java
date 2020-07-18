@@ -305,11 +305,11 @@ public class FragmentUserInfo extends Fragment {
         itemNameTV.setText(itemNameStr);
         userStatusTV.setText(getActivity().getResources().getString(R.string.online));
         dateTV.setText(getPostTime(dateStr,timStampStr,getActivity()));
-       // dateTV.setText(dateStr);
+        // dateTV.setText(dateStr);
     }
 
     private void fillUserImage() {
-        Picasso.with(getActivity())
+        Picasso.get()
                 .load(userImageStr)
                 .fit()
                 .centerCrop()

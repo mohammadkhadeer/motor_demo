@@ -238,15 +238,18 @@ public class AdapterCCEMTAllCases extends RecyclerView.Adapter<AdapterCCEMTAllCa
 
     private void fillImage(final ViewHolder holder, int position, Context context) {
 
-        Picasso.with(context).load(carForSaleArrayL.get(position).getItemImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(carForSaleArrayL.get(position).getItemImage())
+                .fit()
+                .centerCrop()
                 .into(holder.itemImage);
 
-        Picasso.with(context).load(carForSaleArrayL.get(position).getItemUserImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(carForSaleArrayL.get(position).getItemUserImage())
+                .fit()
+                .centerCrop()
                 .into(holder.userImage);
+
     }
 
 

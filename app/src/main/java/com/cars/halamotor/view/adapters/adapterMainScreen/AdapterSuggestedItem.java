@@ -298,14 +298,16 @@ public class AdapterSuggestedItem extends RecyclerView.Adapter<AdapterSuggestedI
 
     private void fillImage(final ViewHolder holder, int position, Context context) {
 
-        Picasso.with(context).load(suggestedItemsArrayL.get(position).getItemImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(suggestedItemsArrayL.get(position).getItemImage())
+                .fit()
+                .centerCrop()
                 .into(holder.itemImage);
 
-        Picasso.with(context).load(suggestedItemsArrayL.get(position).getUserImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(suggestedItemsArrayL.get(position).getUserImage())
+                .fit()
+                .centerCrop()
                 .into(holder.userImage);
     }
 

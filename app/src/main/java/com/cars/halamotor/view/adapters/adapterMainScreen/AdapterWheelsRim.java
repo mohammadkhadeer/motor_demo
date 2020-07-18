@@ -221,15 +221,18 @@ public class AdapterWheelsRim extends RecyclerView.Adapter<AdapterWheelsRim.View
 
     private void fillImage(final ViewHolder holder, int position, Context context) {
 
-        Picasso.with(context).load(wheelsRimArrayL.get(position).getItemImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(wheelsRimArrayL.get(position).getItemImage())
+                .fit()
+                .centerCrop()
                 .into(holder.itemImage);
 
-        Picasso.with(context).load(wheelsRimArrayL.get(position).getItemUserImage())
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(wheelsRimArrayL.get(position).getItemUserImage())
+                .fit()
+                .centerCrop()
                 .into(holder.userImage);
+
     }
 
 

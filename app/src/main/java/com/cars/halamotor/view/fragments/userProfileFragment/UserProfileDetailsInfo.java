@@ -268,7 +268,7 @@ public class UserProfileDetailsInfo extends Fragment {
     }
 
     private void fillUserImageAndUserName(String userNameStr,String imagePathStr) {
-        Picasso.with(getActivity())
+        Picasso.get()
                 .load(imagePathStr)
                 .fit()
                 .centerCrop()

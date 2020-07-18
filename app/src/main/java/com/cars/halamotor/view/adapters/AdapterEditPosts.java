@@ -289,9 +289,10 @@ public class AdapterEditPosts extends RecyclerView.Adapter<BaseViewHolder> {
 
   private void fillImageView(ImageView itemImage) {
     String noImage = "https://firebasestorage.googleapis.com/v0/b/hala-motor.appspot.com/o/images%2FnoImage.png?alt=media&token=4e02ba52-69dd-447b-9c66-4a26df53a80d";
-    Picasso.with(context).load(noImage)
-            .config(Bitmap.Config.RGB_565)
-            .fit().centerCrop()
+    Picasso.get()
+            .load(noImage)
+            .fit()
+            .centerCrop()
             .into(itemImage);
   }
 
@@ -469,11 +470,11 @@ public class AdapterEditPosts extends RecyclerView.Adapter<BaseViewHolder> {
   private void fillImage(ImageView itemImage,
                          int position, Context context) {
 
-    Picasso.with(context).load(getObject(position).getItemImage())
-            .config(Bitmap.Config.RGB_565)
-            .fit().centerCrop()
+    Picasso.get()
+            .load(getObject(position).getItemImage())
+            .fit()
+            .centerCrop()
             .into(itemImage);
-
   }
 
   private void makeAllTextViewVISIBLE(TextView text1, TextView text2, TextView text3, TextView text4

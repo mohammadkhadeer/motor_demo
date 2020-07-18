@@ -48,28 +48,32 @@ public class AdapterInsurance extends RecyclerView.Adapter<AdapterInsurance.View
 
         if (position ==0)
         {
-            Picasso.with(context).load(R.drawable.aman_co)
+            Picasso.get()
+                    .load(R.drawable.aman_co)
                     .fit()
                     .centerCrop()
                     .into(holder.insuranceImage);
         }
         if (position ==1)
         {
-            Picasso.with(context).load(R.drawable.methaq_co)
+            Picasso.get()
+                    .load(R.drawable.methaq_co)
                     .fit()
                     .centerCrop()
                     .into(holder.insuranceImage);
         }
         if (position ==2)
         {
-            Picasso.with(context).load(R.drawable.takaful_co)
+            Picasso.get()
+                    .load(R.drawable.takaful_co)
                     .fit()
                     .centerCrop()
                     .into(holder.insuranceImage);
         }
         if (position ==3)
         {
-            Picasso.with(context).load(R.drawable.watania_co)
+            Picasso.get()
+                    .load(R.drawable.takaful_co)
                     .fit()
                     .centerCrop()
                     .into(holder.insuranceImage);

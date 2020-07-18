@@ -178,9 +178,10 @@ public class EditPostActivity extends AppCompatActivity {
     }
 
     private void fillImage() {
-        Picasso.with(getApplicationContext()).load(imagePath)
-                .config(Bitmap.Config.RGB_565)
-                .fit().centerCrop()
+        Picasso.get()
+                .load(imagePath)
+                .fit()
+                .centerCrop()
                 .into(imageView);
     }
 
