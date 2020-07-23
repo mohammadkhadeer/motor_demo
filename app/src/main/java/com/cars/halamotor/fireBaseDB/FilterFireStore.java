@@ -439,7 +439,6 @@ public class FilterFireStore {
                          }
                      }
                  });
-
         return new ResultFilter(resultItemsArrayList,documentSnapshotsArrayL,mRef);
     }
 

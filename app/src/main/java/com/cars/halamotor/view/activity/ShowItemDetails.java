@@ -33,6 +33,7 @@ import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
+import com.cars.halamotor.model.SimilarNeeded;
 import com.cars.halamotor.model.WheelsRimFirstCase;
 import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.presnter.FavouriteChange;
@@ -51,6 +52,7 @@ import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getAccAndJunkObjec
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getCCEMTObject;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getCarPlatesObject;
 import static com.cars.halamotor.fireBaseDB.GetFromFireBaseDB.getWheelsSizeObject;
+import static com.cars.halamotor.functions.FillSimilarNeeded.intiEmptyObject;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getAccAndJunkFirstCaseFromDB;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCCEMTFirstCaseFromDB;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getCarPlatesFirstCaseFromDB;
@@ -81,7 +83,7 @@ public class ShowItemDetails extends AppCompatActivity
 
     String itemIDStr,userNameStr,userImageStr,itemNameStr,timePostStr,postTypeStr
             ,dateStr,timStampStr,itemDescription,userID,itemImage,numberOfImage,whereCome
-            ,categoryStr,cat,phoneNumber,price,priceEdit,newPrice;
+            ,categoryStr,cat,phoneNumber,price,priceEdit,newPrice,personOrGallery;
 
     int numberOfChangeFromInterface;
 
@@ -100,13 +102,12 @@ public class ShowItemDetails extends AppCompatActivity
         makeKeyBordDownEditText();
         //statusBarTransparent();
         itemModel = (ItemModel) this;
+        //this object come from privuse activity to take filter comp to can create good suggested list
+        similarNeeded = intiEmptyObject();
         inti();
         getItemIDFromIntent();
         intiObject();
-
-        intiSuggestedFragment();
         //intiCommentsFragment();
-
     }
 
     private void inti() {
@@ -130,10 +131,12 @@ public class ShowItemDetails extends AppCompatActivity
     }
 
     private void titleActionBar() {
-        toolbar.setTitle("");
+        toolbar.setTitle(" ");
         setSupportActionBar(toolbar);
-        collapsingToolbarLayout.setTitleEnabled(false);
+
         fillPrice();
+        title.setText(itemNameStr);
+        title.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
 
         appbar.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             boolean isVisible = true;
@@ -146,12 +149,12 @@ public class ShowItemDetails extends AppCompatActivity
                 }
                 if (scrollRange + verticalOffset == 0) {
                     show_item_details_header.setVisibility(View.VISIBLE);
-                    title.setText(itemNameStr);
-                    title.setTypeface(Functions.changeFontGeneral(getApplicationContext()));
+                    collapsingToolbarLayout.setTitle(itemNameStr);
+
                     statusBarColor();
                     isVisible = true;
                 } else if(isVisible) {
-                    title.setText("");
+                    collapsingToolbarLayout.setTitle(" ");
                     show_item_details_header.setVisibility(View.GONE);
                     getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
                     isVisible = false;
@@ -291,6 +294,10 @@ public class ShowItemDetails extends AppCompatActivity
         Bundle bundle = new Bundle();
         bundle.putString("category", getCategoryFromIntent());
         bundle.putString("itemID", itemIDStr);
+        bundle.putString("userID", userID);
+        bundle.putString("peronOrGallery", personOrGallery);
+        bundle.putParcelable("similarNeeded", similarNeeded);
+        bundle.putString("userName", userNameStr);
 
         fragmentSuggestedAntherItems.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
@@ -419,18 +426,21 @@ public class ShowItemDetails extends AppCompatActivity
         setResult(RESULT_OK, resultIntent);
         finish();
     }
-
+    SimilarNeeded similarNeeded;
     private void getItemIDFromIntent() {
         Bundle bundle = getIntent().getExtras();
         itemIDStr =bundle.getString("itemID");
         categoryStr =bundle.getString("category");
         whereCome =bundle.getString("from");
-
+        if (whereCome.equals("search"))
+        {
+            similarNeeded = (SimilarNeeded) bundle.getParcelable("similarNeeded");
+        }
     }
 
     private void intiValues(String userName, String userImage, String itemName, String timeStamp
             , String boostType,String date, String itemDes, String userIDPathInServer
-            , String itemIV, int numberOfIg,String phoneN,Double itemPrice,String priceE,String newP) {
+            , String itemIV, int numberOfIg,String phoneN,Double itemPrice,String priceE,String newP,String personOrGalleryS) {
 
         userNameStr =userName;
         userImageStr =userImage;
@@ -447,6 +457,7 @@ public class ShowItemDetails extends AppCompatActivity
         price = String.valueOf(itemPrice);
         priceEdit = priceE;
         newPrice = newP;
+        personOrGallery = personOrGalleryS;
     }
 
     @Override
@@ -458,7 +469,7 @@ public class ShowItemDetails extends AppCompatActivity
         ,ccemt.getTimeStamp(),"empty",date
         ,ccemt.getItemDescription(),ccemt.getUserIDPathInServer(),ccemt.getImagePathArrayL().get(0)
         ,ccemt.getImagePathArrayL().size(),ccemt.getPhoneNumber(),ccemt.getPrice()
-        ,ccemt.getPostEdit(),ccemt.getNewPrice());
+        ,ccemt.getPostEdit(),ccemt.getNewPrice(),ccemt.getPersonOrGallery());
         intiAllFragment();
     }
 
@@ -470,7 +481,7 @@ public class ShowItemDetails extends AppCompatActivity
                 ,accAndJunk.getTimeStamp(),"empty",date
                 ,accAndJunk.getItemDescription(),accAndJunk.getUserIDPathInServer(),accAndJunk.getImagePathArrayL().get(0)
                 ,accAndJunk.getImagePathArrayL().size(),accAndJunk.getPhoneNumber(),accAndJunk.getPrice()
-                ,accAndJunk.getPostEdit(),accAndJunk.getNewPrice());
+                ,accAndJunk.getPostEdit(),accAndJunk.getNewPrice(),accAndJunk.getPersonOrGallery());
         intiAllFragment();
     }
 
@@ -487,7 +498,7 @@ public class ShowItemDetails extends AppCompatActivity
                 ,wheelsRim.getTimeStamp(),"empty",date
                 ,wheelsRim.getItemDescription(),wheelsRim.getUserIDPathInServer(),wheelsRim.getImagePathArrayL().get(0)
                 ,wheelsRim.getImagePathArrayL().size(),wheelsRim.getPhoneNumber(),wheelsRim.getPrice()
-                ,wheelsRim.getPostEdit(),wheelsRim.getNewPrice());
+                ,wheelsRim.getPostEdit(),wheelsRim.getNewPrice(),wheelsRim.getPersonOrGallery());
         intiAllFragment();
     }
 
@@ -499,7 +510,7 @@ public class ShowItemDetails extends AppCompatActivity
                 ,carPlates.getTimeStamp(),"empty",date
                 ,carPlates.getItemDescription(),carPlates.getUserIDPathInServer(),carPlates.getImagePathArrayL().get(0)
                 ,carPlates.getImagePathArrayL().size(),carPlates.getPhoneNumber(),carPlates.getPrice()
-                ,carPlates.getPostEdit(),carPlates.getNewPrice());
+                ,carPlates.getPostEdit(),carPlates.getNewPrice(),carPlates.getPersonOrGallery());
         intiAllFragment();
     }
 
@@ -512,6 +523,7 @@ public class ShowItemDetails extends AppCompatActivity
         intiShareFragment();
         intiFollowUser();
         intiContact();
+        intiSuggestedFragment();
     }
 
 }

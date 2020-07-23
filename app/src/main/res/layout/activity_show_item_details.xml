@@ -65,11 +65,11 @@
                                 android:layout_height="wrap_content"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginStart="8dp"
-                                android:textSize="16dp"
                                 android:layout_centerVertical="true"
                                 android:id="@+id/show_item_details_title"
                                 android:textColor="@color/colorWhite"
-                                android:text="@string/city"/>
+                                android:text="text"
+                                />
 
                         </RelativeLayout>
 

@@ -21,6 +21,7 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.SimilarNeeded;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.permission.CheckPermission;
 import com.cars.halamotor.view.activity.ShowItemDetails;
@@ -47,11 +48,13 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
   private List<SuggestedItem> suggestedItemsList;
   Context context;
   String comeFrom;
+  SimilarNeeded similarNeededR;
 
-  public AdapterShowFCSItems(List<SuggestedItem> postItems, Context context,String comeFrom) {
+  public AdapterShowFCSItems(List<SuggestedItem> postItems, Context context, String comeFrom, SimilarNeeded similarNeeded) {
     this.suggestedItemsList = postItems;
     this.context = context;
     this.comeFrom = comeFrom;
+    this.similarNeededR = similarNeeded;
   }
 
   @NonNull
@@ -97,8 +100,9 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
     return suggestedItemsList == null ? 0 : suggestedItemsList.size();
   }
 
-  public void addItems(List<SuggestedItem> postItems) {
+  public void addItems(List<SuggestedItem> postItems,SimilarNeeded similarNeeded) {
     suggestedItemsList.addAll(postItems);
+    similarNeededR = similarNeeded;
     notifyDataSetChanged();
   }
 
@@ -306,6 +310,7 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
       public void onClick(View v) {
         if (getObject(position).getItemActiveOrNot().equals("1")
                 && getObject(position).getItemBurnedPrice().equals("0")) {
+          Bundle bundle = new Bundle();
           if (comeFrom.equals("search"))
           {
             insertItemsToFCS(getObject(position).getItemIdInServer(),convertCategoryToCategoryS(getObject(position).getItemType(),context)
@@ -313,10 +318,15 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
 
             setFavouriteCallSearchOnServer(context,getObject(position).getItemIdInServer()
                     ,getObject(position).getItemType(),"search");
+            bundle.putParcelable("similarNeeded", similarNeededR);
           }
-          Bundle bundle = new Bundle();
           bundle.putString("category", getObject(position).getItemType());
-          bundle.putString("from", "stu");
+          if (comeFrom.equals("search"))
+          {
+            bundle.putString("from", "search");
+          }else{
+            bundle.putString("from", "stu");
+          }
           bundle.putString("itemID", getObject(position).getItemIdInServer());
 
           Intent intent = new Intent(context, ShowItemDetails.class);

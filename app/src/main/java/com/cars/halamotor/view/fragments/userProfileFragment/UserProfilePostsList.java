@@ -26,6 +26,7 @@ import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.Follower;
 import com.cars.halamotor.model.Following;
+import com.cars.halamotor.model.SimilarNeeded;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.UserItem;
 import com.cars.halamotor.model.UserProfileInfo;
@@ -55,6 +56,7 @@ import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertFollowing;
 import static com.cars.halamotor.fireBaseDB.FireBaseDBPaths.insertNewUser;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
+import static com.cars.halamotor.functions.FillSimilarNeeded.intiEmptyObject;
 import static com.cars.halamotor.functions.HandelItemObjectBeforePass.getFollowingObjectFromDB;
 import static com.cars.halamotor.functions.NewFunction.handelNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
@@ -78,9 +80,9 @@ public class UserProfilePostsList extends Fragment {
     private int totalPage = 10;
     private boolean isLastPage = false;
     private boolean isLoading = false;
-    int itemCount = 0;
-
+    SimilarNeeded similarNeeded;
     String userID;
+    int numberOfObjectNow = 0;
 
     public UserProfilePostsList(){}
 
@@ -96,7 +98,7 @@ public class UserProfilePostsList extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_user_posts_list, container, false);
-
+        similarNeeded = intiEmptyObject();
         inti();
         getUserItemInfoList();
         timer();
@@ -160,7 +162,7 @@ public class UserProfilePostsList extends Fragment {
                 progressBar.setVisibility(View.GONE);
                 suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
                 if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
+                adapterShowFCSItems.addItems(suggestedItemsArrayListDO,similarNeeded);
                 if (currentPage < totalPage) {
                     adapterShowFCSItems.addLoading();
                 } else {
@@ -170,8 +172,6 @@ public class UserProfilePostsList extends Fragment {
             }
         }, 3100);
     }
-
-    int numberOfObjectNow = 0;
 
     private void getData() {
         final List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
@@ -214,7 +214,7 @@ public class UserProfilePostsList extends Fragment {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"call");
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"call",similarNeeded);
         recyclerView.setAdapter(adapterShowFCSItems);
     }
 

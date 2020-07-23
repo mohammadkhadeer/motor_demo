@@ -21,6 +21,7 @@ import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.model.FavouriteCallSearch;
+import com.cars.halamotor.model.SimilarNeeded;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
@@ -42,6 +43,7 @@ import static com.cars.halamotor.dataBase.ReadFunction.getFCSCallSearch;
 import static com.cars.halamotor.dataBase.ReadFunction.getFavouriteCallSearch;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
+import static com.cars.halamotor.functions.FillSimilarNeeded.intiEmptyObject;
 import static com.cars.halamotor.functions.NewFunction.getNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.handelNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
@@ -69,11 +71,13 @@ public class BrowsingItems extends Fragment {
     AdapterShowFCSItems adapterShowFCSItems;
     View view;
     EditText editText;
+    SimilarNeeded similarNeeded;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_message, container, false);
+        similarNeeded = intiEmptyObject();
         inti();
         changeFont();
         getInfoFromIntent();
@@ -125,7 +129,7 @@ public class BrowsingItems extends Fragment {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(getActivity());
         fcsItemsRecyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),fcsTypeStr);
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),fcsTypeStr,similarNeeded);
         fcsItemsRecyclerView.setAdapter(adapterShowFCSItems);
     }
 
@@ -139,7 +143,7 @@ public class BrowsingItems extends Fragment {
 //                fcsItemsRecyclerView.setVisibility(View.VISIBLE);
                 suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
                 if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
+                adapterShowFCSItems.addItems(suggestedItemsArrayListDO,similarNeeded);
                 if (getNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size())==false) {
                     adapterShowFCSItems.addLoading();
                 } else {

@@ -24,6 +24,7 @@ import com.cars.halamotor.functions.FCSFunctions;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.FavouriteCallSearch;
 import com.cars.halamotor.model.Paging;
+import com.cars.halamotor.model.SimilarNeeded;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.presnter.FCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
@@ -46,6 +47,7 @@ import static com.cars.halamotor.dataBase.ReadFunction.getFavouriteCallSearch;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireBase.getFCSItems;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
+import static com.cars.halamotor.functions.FillSimilarNeeded.intiEmptyObject;
 import static com.cars.halamotor.functions.NewFunction.actionBarTitleInFCS;
 import static com.cars.halamotor.functions.NewFunction.getNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.handelNumberOfObject;
@@ -69,11 +71,12 @@ public class ShowFCS extends AppCompatActivity {
     private boolean isLoading = false;
     LinearLayoutManager layoutManager;
     AdapterShowFCSItems adapterShowFCSItems;
-
+    SimilarNeeded similarNeeded;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_fcs);
+        similarNeeded = intiEmptyObject();
 
         statusBarColor();
         init();
@@ -171,7 +174,7 @@ public class ShowFCS extends AppCompatActivity {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(this);
         fcsItemsRecyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this,fcsTypeStr);
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),this,fcsTypeStr,similarNeeded);
         fcsItemsRecyclerView.setAdapter(adapterShowFCSItems);
     }
 
@@ -184,7 +187,7 @@ public class ShowFCS extends AppCompatActivity {
                 progressBar.setVisibility(View.GONE);
                 suggestedItemsArrayListDO.addAll(suggestedItemsArrayListTest);
                 if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                adapterShowFCSItems.addItems(suggestedItemsArrayListDO);
+                adapterShowFCSItems.addItems(suggestedItemsArrayListDO,similarNeeded);
                 if (getNumberOfObject(numberOfObjectNow,favouriteCallSearchesArrayList.size())==false) {
                     adapterShowFCSItems.addLoading();
                 } else {

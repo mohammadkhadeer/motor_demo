@@ -24,6 +24,7 @@ import com.cars.halamotor.model.ItemFilterModel;
 import com.cars.halamotor.model.ItemSelectedFilterModel;
 import com.cars.halamotor.model.Neighborhood;
 import com.cars.halamotor.model.ResultFilter;
+import com.cars.halamotor.model.SimilarNeeded;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
 import com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener;
@@ -43,6 +44,8 @@ import java.util.List;
 import static com.cars.halamotor.fireBaseDB.FilterFireStore.filterResult;
 import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
+import static com.cars.halamotor.functions.FillSimilarNeeded.getSimilarNeeded;
+import static com.cars.halamotor.functions.FillSimilarNeeded.intiEmptyObject;
 import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
 public class FragmentResults extends Fragment {
@@ -72,11 +75,13 @@ public class FragmentResults extends Fragment {
     RelativeLayout relativeLayout;
     TextView textViewMessage;
     CardView cardViewContainerMessage;
+    SimilarNeeded similarNeeded;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_results, container, false);
+        similarNeeded = intiEmptyObject();
         inti();
         createRV();
 
@@ -140,6 +145,7 @@ public class FragmentResults extends Fragment {
 
     private void handelResult() {
         resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr);
+        similarNeeded = getSimilarNeeded(itemFilterArrayList,city,neighborhoodStr,getActivity());
         reRV();
         intiRe();
         doApiCall(0);
@@ -216,7 +222,7 @@ public class FragmentResults extends Fragment {
                         messageNoResult(getActivity().getResources().getString(R.string.no_more_result));
                     }else{
                         if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                        adapterShowFCSItems.addItems(resultItemsArrayList);
+                        adapterShowFCSItems.addItems(resultItemsArrayList,similarNeeded);
                         if (currentPage < totalPage) {
                             adapterShowFCSItems.addLoading();
                         } else {
@@ -235,7 +241,7 @@ public class FragmentResults extends Fragment {
                         currentPage = PAGE_START;
                         resultItemsArrayList.addAll(resultItemsArrayListCont);
                         if (currentPage != PAGE_START) adapterShowFCSItems.removeLoading();
-                        adapterShowFCSItems.addItems(resultItemsArrayList);
+                        adapterShowFCSItems.addItems(resultItemsArrayList,similarNeeded);
                         if (currentPage < totalPage) {
                             adapterShowFCSItems.addLoading();
                         } else {
@@ -281,6 +287,8 @@ public class FragmentResults extends Fragment {
             CollectionReference mRef = getDataStoreInstance().collection(categoryAfter);
             mRef.limit(8)
                     .startAfter(lastVisible)
+                    .whereEqualTo("activeOrNotS", "1")
+                    .whereEqualTo("burnedPrice",0 )
                     .get().addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
                                                     @Override
                                                     public void onSuccess(QuerySnapshot queryDocumentSnapshots) {
@@ -314,7 +322,7 @@ public class FragmentResults extends Fragment {
         // use a linear layout manager
         layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
-        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"search");
+        adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"search",similarNeeded);
         recyclerView.setAdapter(adapterShowFCSItems);
     }
 
@@ -343,27 +351,7 @@ public class FragmentResults extends Fragment {
     }
 
     private void actionListenerToRV() {
-//        recyclerView.addOnScrollListener(new PaginationListener(layoutManager) {
-//            @Override
-//            protected void loadMoreItems() {
-////                progressBar.setVisibility(View.VISIBLE);
-//                isLoading = true;
-//                currentPage++;
-//                Log.i("TAG","HERE:* ");
-//                getData();
-//                doApiCall(1);
-//            }
-//
-//            @Override
-//            public boolean isLastPage() {
-//                return isLastPage;
-//            }
-//
-//            @Override
-//            public boolean isLoading() {
-//                return isLoading;
-//            }
-//        });
+        //Override on nestid scroll in father fragment
     }
 
 }

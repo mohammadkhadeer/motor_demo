@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "/Users/macbookair/Desktop/HalaMotor/bottom-bar/build/intermediates/res/merged/release/layout-v21/notification_action.xml",
+        "source": "/Users/macbookair/.gradle/caches/transforms-2/files-2.1/0b8cd57ca9f9edc7059c99a082bbe855/support-compat-27.1.1/res/layout-v21/notification_action.xml"
+    },
+    {
+        "merged": "/Users/macbookair/Desktop/HalaMotor/bottom-bar/build/intermediates/res/merged/release/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/macbookair/.gradle/caches/transforms-2/files-2.1/0b8cd57ca9f9edc7059c99a082bbe855/support-compat-27.1.1/res/layout-v21/notification_template_icon_group.xml"
+    },
+    {
+        "merged": "/Users/macbookair/Desktop/HalaMotor/bottom-bar/build/intermediates/res/merged/release/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/macbookair/.gradle/caches/transforms-2/files-2.1/0b8cd57ca9f9edc7059c99a082bbe855/support-compat-27.1.1/res/layout-v21/notification_action_tombstone.xml"
+    },
+    {
+        "merged": "/Users/macbookair/Desktop/HalaMotor/bottom-bar/build/intermediates/res/merged/release/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/macbookair/.gradle/caches/transforms-2/files-2.1/0b8cd57ca9f9edc7059c99a082bbe855/support-compat-27.1.1/res/layout-v21/notification_template_custom_big.xml"
+    },
+    {
+        "merged": "/Users/macbookair/Desktop/HalaMotor/bottom-bar/build/intermediates/res/merged/release/layout-v21/bb_bottom_bar_item_container.xml",
+        "source": "/Users/macbookair/Desktop/HalaMotor/bottom-bar/src/main/res/layout-v21/bb_bottom_bar_item_container.xml"
+    }
+]
