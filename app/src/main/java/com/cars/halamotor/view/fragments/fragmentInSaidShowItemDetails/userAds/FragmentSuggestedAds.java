@@ -168,15 +168,34 @@ public class FragmentSuggestedAds extends Fragment {
                     //case get response
                     currentPage = PAGE_START;
                     resultItemsArrayList.addAll(resultItemsArrayListCont);
-                    resultItemsArrayList = getResultWithoutSameAds(resultItemsArrayList);
-                    if (currentPage != PAGE_START) adapterSuggestedItems.removeLoading();
-                    adapterSuggestedItems.addItems(resultItemsArrayList,similarNeeded);
-                    if (currentPage < totalPage) {
-                        adapterSuggestedItems.addLoading();
-                    } else {
-                        isLastPage = true;
+                    if (resultItemsArrayList.size() <8)
+                    {
+                        //this mean the result is less 8 if remove filter we take anther suggested item
+                        similarNeeded = new SimilarNeeded(similarNeeded.getPriceFrom(),similarNeeded.getPriceTo(),"empty","empty","empty","empty",similarNeeded.getWheelsType(),similarNeeded.getCarPlatesCity(),similarNeeded.getWheelsSize());
+                        similarAdsComp = rebuildItemFilter(similarNeeded,category,getActivity());
+                        itemFilterArrayList = similarAdsComp.getItemFilterArrayList();
+                        city =similarAdsComp.getCityS();
+                        neighborhood = similarAdsComp.getNeighborhoodS();
+                        int numberOfAds = 9-resultItemsArrayListCont.size();
+                        resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhood,numberOfAds);
+                        resultItemsArrayListCont = resultFilter.getResultItemsArrayList();
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                doApiCall(0);
+                            }
+                        }, 3000);
+                    }else{
+                        resultItemsArrayList = getResultWithoutSameAds(resultItemsArrayList);
+                        if (currentPage != PAGE_START) adapterSuggestedItems.removeLoading();
+                        adapterSuggestedItems.addItems(resultItemsArrayList,similarNeeded);
+                        if (currentPage < totalPage) {
+                            adapterSuggestedItems.addLoading();
+                        } else {
+                            isLastPage = true;
+                        }
+                        isLoading = false;
                     }
-                    isLoading = false;
                 }
 
             }
@@ -184,13 +203,10 @@ public class FragmentSuggestedAds extends Fragment {
     }
 
     private List<SuggestedItem> getResultWithoutSameAds(List<SuggestedItem> resultItemsArray) {
-        Log.i("TAG","itemId: "+itemId);
-        Log.i("TAG","Size: "+String.valueOf(resultItemsArray.size()));
         for (int i=0;i<resultItemsArray.size();i++)
         {
             if (resultItemsArray.get(i).getItemIdInServer().equals(itemId))
             {
-                Log.i("TAG","itemId loop: "+itemId);
                 resultItemsArray.remove(i);
             }
         }

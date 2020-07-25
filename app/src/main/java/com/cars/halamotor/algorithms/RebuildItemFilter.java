@@ -17,7 +17,6 @@ public class RebuildItemFilter {
 
         SimilarAdsComp similarAdsComp = null;
 
-        Log.i("TAJ","ReBuildFilter: "+"############################");
         //////////////////Exchange car ///////////////////////////
         if (category.equals(context.getResources().getString(R.string.exchange_car_s)))
         {
