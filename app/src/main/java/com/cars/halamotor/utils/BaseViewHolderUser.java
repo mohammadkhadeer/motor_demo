@@ -1,4 +1,4 @@
-package com.cars.halamotor.view.adapters.userAds;
+package com.cars.halamotor.utils;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;

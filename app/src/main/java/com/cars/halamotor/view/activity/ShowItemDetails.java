@@ -298,6 +298,7 @@ public class ShowItemDetails extends AppCompatActivity
         bundle.putString("peronOrGallery", personOrGallery);
         bundle.putParcelable("similarNeeded", similarNeeded);
         bundle.putString("userName", userNameStr);
+        bundle.putString("category", category);
 
         fragmentSuggestedAntherItems.setArguments(bundle);
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();

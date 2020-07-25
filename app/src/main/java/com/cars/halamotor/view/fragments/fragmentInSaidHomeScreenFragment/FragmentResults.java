@@ -144,7 +144,7 @@ public class FragmentResults extends Fragment {
     }
 
     private void handelResult() {
-        resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr);
+        resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr,8);
         similarNeeded = getSimilarNeeded(itemFilterArrayList,city,neighborhoodStr,getActivity());
         reRV();
         intiRe();

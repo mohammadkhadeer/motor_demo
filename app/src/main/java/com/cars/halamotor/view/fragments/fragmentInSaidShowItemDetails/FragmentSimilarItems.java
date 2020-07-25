@@ -22,7 +22,7 @@ public class FragmentSimilarItems extends Fragment {
 
     public FragmentSimilarItems(){}
 
-    String categoryStr,itemIDStr,personOrGalleryStr,userID,userName;
+    String categoryStr,itemIDStr,personOrGalleryStr,userID,userName,category;
     DBHelper myDB;
     View view;
 
@@ -38,7 +38,7 @@ public class FragmentSimilarItems extends Fragment {
             userID = getArguments().getString("userID");
             personOrGalleryStr = getArguments().getString("peronOrGallery");
             userName = getArguments().getString("userName");
-            Log.i("TAJ","onAttach userNameStr: "+userName);
+            category = getArguments().getString("category");
 
             similarNeeded = (SimilarNeeded) getArguments().getParcelable("similarNeeded");
 //            categoryStr = "Car_For_Exchange";
@@ -51,6 +51,7 @@ public class FragmentSimilarItems extends Fragment {
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_item_selected_suggested, container, false);
         intiUserAds();
+        intiSuggestedAds();
         return view;
     }
 
@@ -62,6 +63,19 @@ public class FragmentSimilarItems extends Fragment {
 
         getActivity().getSupportFragmentManager().beginTransaction()
                 .replace(R.id.container_fragment_user_ads, fragmentUserAds)
+                .commit();
+    }
+
+    private void intiSuggestedAds() {
+        Bundle bundle = new Bundle();
+        bundle.putString("userID", userID);
+        bundle.putString("category", category);
+        bundle.putString("itemID", itemIDStr);
+        bundle.putParcelable("similarNeeded", similarNeeded);
+        fragmentSuggestedAds.setArguments(bundle);
+
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_fragment_suggested_ads, fragmentSuggestedAds)
                 .commit();
     }
 

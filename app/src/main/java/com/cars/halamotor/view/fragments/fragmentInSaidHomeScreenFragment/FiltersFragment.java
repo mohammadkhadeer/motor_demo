@@ -258,7 +258,7 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
 
         numberOfSelectedFilter =numberOfSelectedFilter+1;
 
-        itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel(itemFilterModel.getFilter(),itemFilterModel.getFilterS(),itemFilterModel.getFilter()));
+        itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel(itemFilterModel.getFilter(),itemFilterModel.getFilterS(),itemFilterModel.getFilterS()));
 
         selectedFilterArrayL.add(new ItemSelectedFilterModel(itemFilterModel.getFilter(),itemFilterModel.getFilterS(),itemTypeFromFilterAdapter.get(itemTypeFromFilterAdapter.size()-1).getFilterType()));
         adapterSelectedFilters.notifyDataSetChanged();

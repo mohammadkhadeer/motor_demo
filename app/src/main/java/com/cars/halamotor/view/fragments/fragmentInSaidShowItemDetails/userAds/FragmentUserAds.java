@@ -1,12 +1,9 @@
 package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.userAds;
 
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,8 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
@@ -26,7 +21,7 @@ import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.UserItem;
 import com.cars.halamotor.view.adapters.adapterShowItemDetails.AdapterUserItemLoading;
 import com.cars.halamotor.view.adapters.userAds.AdapterShowUserItems;
-import com.cars.halamotor.view.adapters.userAds.PaginationListenerUser;
+import com.cars.halamotor.utils.PaginationListenerUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.DataSnapshot;
@@ -44,7 +39,6 @@ import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 import static com.cars.halamotor.functions.FillSimilarNeeded.intiEmptyObject;
 import static com.cars.halamotor.functions.NewFunction.handelNumberOfObject;
 import static com.cars.halamotor.functions.NewFunction.nowNumberOfObject;
-import static com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener.PAGE_START;
 
 public class FragmentUserAds extends Fragment {
 

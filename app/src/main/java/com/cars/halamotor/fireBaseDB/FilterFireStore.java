@@ -25,7 +25,7 @@ import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 public class FilterFireStore {
 
     public static ResultFilter filterResult(ArrayList<ItemSelectedFilterModel> itemFilterArrayList
-            , int burnedPrice, Context context, String city, String neighborhood){
+            , int burnedPrice, Context context, String city, String neighborhood,int numberResult){
         /*
         I return data from server as a object coz i well needed if user have to get more
         data same data must to base 1.CollectionReference "bath data coz we have categories"
@@ -39,15 +39,14 @@ public class FilterFireStore {
 
         ResultFilter resultFilter = null;
 
-        final String category = convertCat(itemFilterArrayList.get(0).getFilterS());
-        final String categoryBefore = itemFilterArrayList.get(0).getFilterS();
-
+        final String category = convertCat(itemFilterArrayList.get(0).getFilterType());
+        final String categoryBefore = itemFilterArrayList.get(0).getFilterType();
         if (itemFilterArrayList.size() ==1)
         {
             if (city.equals("empty")){
-                resultFilter = getResult(category,categoryBefore,0.0,100000000.0,burnedPrice);
+                resultFilter = getResult(category,categoryBefore,0.0,100000000.0,burnedPrice,numberResult);
             }else{
-                resultFilter = getResultWithCityOrNeighborhood(category,categoryBefore,0.0,100000000.0,burnedPrice,city,neighborhood);
+                resultFilter = getResultWithCityOrNeighborhood(category,categoryBefore,0.0,100000000.0,burnedPrice,city,neighborhood,numberResult);
             }
         }
 
@@ -57,16 +56,16 @@ public class FilterFireStore {
             {
                 String carMake = itemFilterArrayList.get(1).getFilterS();
                 if (city.equals("empty")) {
-                    resultFilter = getResultMake(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake);
+                    resultFilter = getResultMake(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake,numberResult);
                 }else{
-                    resultFilter = getResultMakeWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake,city,neighborhood);
+                    resultFilter = getResultMakeWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake,city,neighborhood,numberResult);
                 }
             }else{
                 double priceFrom = Double.parseDouble(itemFilterArrayList.get(1).getFilterS());
                 if (city.equals("empty")) {
-                    resultFilter = getResult(category, categoryBefore, priceFrom, 100000000.0, burnedPrice);
+                    resultFilter = getResult(category, categoryBefore, priceFrom, 100000000.0, burnedPrice,numberResult);
                     }else{
-                    resultFilter = getResultWithCityOrNeighborhood(category, categoryBefore, priceFrom, 100000000.0, burnedPrice,city,neighborhood);
+                    resultFilter = getResultWithCityOrNeighborhood(category, categoryBefore, priceFrom, 100000000.0, burnedPrice,city,neighborhood,numberResult);
                     }
                 }
         }
@@ -78,17 +77,17 @@ public class FilterFireStore {
                 String carMake = itemFilterArrayList.get(1).getFilterS();
                 String carModel = itemFilterArrayList.get(2).getFilterS();
                 if (city.equals("empty")) {
-                    resultFilter = getResultCarModel(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake, carModel);
+                    resultFilter = getResultCarModel(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake, carModel,numberResult);
                 }else{
-                    resultFilter = getResultCarModelWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake, carModel,city,neighborhood);
+                    resultFilter = getResultCarModelWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake, carModel,city,neighborhood,numberResult);
                 }
             }else {
                 double priceFrom = Double.parseDouble(itemFilterArrayList.get(1).getFilterS());
                 double priceTo = Double.parseDouble(itemFilterArrayList.get(2).getFilterS());
                 if (city.equals("empty")) {
-                    resultFilter = getResult(category, categoryBefore, priceFrom, priceTo, burnedPrice);
+                    resultFilter = getResult(category, categoryBefore, priceFrom, priceTo, burnedPrice,numberResult);
                 }else{
-                    resultFilter = getResultWithCityOrNeighborhood(category, categoryBefore, priceFrom, priceTo, burnedPrice,city,neighborhood);
+                    resultFilter = getResultWithCityOrNeighborhood(category, categoryBefore, priceFrom, priceTo, burnedPrice,city,neighborhood,numberResult);
                 }
             }
         }
@@ -107,9 +106,9 @@ public class FilterFireStore {
                 String carMake = itemFilterArrayList.get(3).getFilterS();
                 if (city.equals("empty"))
                 {
-                    resultFilter = getResultMake(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake);
+                    resultFilter = getResultMake(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,numberResult);
                 }else{
-                    resultFilter = getResultMakeWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake,city,neighborhood);
+                    resultFilter = getResultMakeWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake,city,neighborhood,numberResult);
                 }
             }
 
@@ -118,9 +117,9 @@ public class FilterFireStore {
                 int wheelsSize = Integer.parseInt(itemFilterArrayList.get(3).getFilterS());
                 if (city.equals("empty"))
                 {
-                    resultFilter = getWheelsSize(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize);
+                    resultFilter = getWheelsSize(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,numberResult);
                 }else{
-                    resultFilter = getWheelsSizeWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,city,neighborhood);
+                    resultFilter = getWheelsSizeWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,city,neighborhood,numberResult);
                 }
             }
 
@@ -129,9 +128,9 @@ public class FilterFireStore {
                 String platesCity = itemFilterArrayList.get(3).getFilterS();
                 if (city.equals("empty"))
                 {
-                    resultFilter = getPlatesCity(category,categoryBefore,priceFrom,priceTo,burnedPrice,platesCity);
+                    resultFilter = getPlatesCity(category,categoryBefore,priceFrom,priceTo,burnedPrice,platesCity,numberResult);
                 }else{
-                    resultFilter = getPlatesCityWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,platesCity,city,neighborhood);
+                    resultFilter = getPlatesCityWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,platesCity,city,neighborhood,numberResult);
                 }
             }
 
@@ -152,9 +151,9 @@ public class FilterFireStore {
                 String carModel = itemFilterArrayList.get(4).getFilterS();
                 if (city.equals("empty"))
                 {
-                    resultFilter = getResultCarModel(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel);
+                    resultFilter = getResultCarModel(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,numberResult);
                 }else{
-                    resultFilter = getResultCarModelWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake, carModel,city,neighborhood);
+                    resultFilter = getResultCarModelWithCityOrNeighborhood(category, categoryBefore, 0.0, 100000000.0, burnedPrice, carMake, carModel,city,neighborhood,numberResult);
                 }
 
             }
@@ -165,9 +164,9 @@ public class FilterFireStore {
                 String wheelsType = itemFilterArrayList.get(4).getFilterS();
                 if (city.equals("empty"))
                 {
-                    resultFilter = getWheelsType(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,wheelsType);
+                    resultFilter = getWheelsType(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,wheelsType,numberResult);
                 }else{
-                    resultFilter = getWheelsTypeWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,wheelsType,city,neighborhood);
+                    resultFilter = getWheelsTypeWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,wheelsSize,wheelsType,city,neighborhood,numberResult);
                 }
             }
 
@@ -189,9 +188,9 @@ public class FilterFireStore {
 
                 if (city.equals("empty"))
                 {
-                    resultFilter = getResultYear(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year);
+                    resultFilter = getResultYear(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,numberResult);
                 }else{
-                    resultFilter = getResultYearWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,city,neighborhood);
+                    resultFilter = getResultYearWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,city,neighborhood,numberResult);
                 }
             }
 
@@ -212,9 +211,9 @@ public class FilterFireStore {
                 String carPayment = itemFilterArrayList.get(6).getFilterS();
 
                 if (city.equals("empty")){
-                    resultFilter = getResultPayment(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment);
+                    resultFilter = getResultPayment(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,numberResult);
                 }else{
-                    resultFilter = getResultPaymentWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,city,neighborhood);
+                    resultFilter = getResultPaymentWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,city,neighborhood,numberResult);
                 }
             }
         }
@@ -234,9 +233,9 @@ public class FilterFireStore {
                 String carCondition = itemFilterArrayList.get(7).getFilterS();
 
                 if (city.equals("empty")){
-                    resultFilter = getResultCondition(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition);
+                    resultFilter = getResultCondition(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,numberResult);
                 }else{
-                    resultFilter = getResultConditionWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,city,neighborhood);
+                    resultFilter = getResultConditionWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,city,neighborhood,numberResult);
                 }
             }
         }
@@ -258,9 +257,9 @@ public class FilterFireStore {
                 String carInsuranceS = itemFilterArrayList.get(8).getFilterS();
 
                 if (city.equals("empty")){
-                    resultFilter = getResultInsurance(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS);
+                    resultFilter = getResultInsurance(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,numberResult);
                 }else{
-                    resultFilter = getResultInsuranceWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,city,neighborhood);
+                    resultFilter = getResultInsuranceWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,city,neighborhood,numberResult);
                 }
             }
         }
@@ -283,9 +282,9 @@ public class FilterFireStore {
                 String carLicensed = itemFilterArrayList.get(9).getFilterS();
 
                 if (city.equals("empty")){
-                    resultFilter = getResultLicensed(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed);
+                    resultFilter = getResultLicensed(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed,numberResult);
                 }else{
-                    resultFilter = getResultLicensedWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed,city,neighborhood);
+                    resultFilter = getResultLicensedWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed,city,neighborhood,numberResult);
                 }
             }
         }
@@ -309,9 +308,9 @@ public class FilterFireStore {
                 String carFuel = itemFilterArrayList.get(10).getFilterS();
 
                 if (city.equals("empty")){
-                    resultFilter = getResultFuel(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed,carFuel);
+                    resultFilter = getResultFuel(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed,carFuel,numberResult);
                 }else{
-                    resultFilter = getResultFuelWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed,carFuel,city,neighborhood);
+                    resultFilter = getResultFuelWithCityOrNeighborhood(category,categoryBefore,priceFrom,priceTo,burnedPrice,carMake,carModel,year,carPayment,carCondition,carInsuranceS,carLicensed,carFuel,city,neighborhood,numberResult);
                 }
             }
         }
@@ -319,7 +318,7 @@ public class FilterFireStore {
         return resultFilter;
     }
 
-    private static ResultFilter getPlatesCity(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,String platesCity) {
+    private static ResultFilter getPlatesCity(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,String platesCity,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -329,7 +328,7 @@ public class FilterFireStore {
                 .whereEqualTo("carPlatesCityS",platesCity )
                 .whereGreaterThan("price",priceFrom)
                 .whereLessThanOrEqualTo("price",priceTo)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -351,7 +350,7 @@ public class FilterFireStore {
         return new ResultFilter(resultItemsArrayList,documentSnapshotsArrayL,mRef);
     }
 
-    private static ResultFilter getWheelsType(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize,String wheelsType) {
+    private static ResultFilter getWheelsType(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize,String wheelsType,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -362,7 +361,7 @@ public class FilterFireStore {
                 .whereEqualTo("wheelsTypeS",wheelsType )
                 .whereGreaterThan("price",priceFrom)
                 .whereLessThanOrEqualTo("price",priceTo)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -384,7 +383,7 @@ public class FilterFireStore {
         return new ResultFilter(resultItemsArrayList,documentSnapshotsArrayL,mRef);
     }
 
-    private static ResultFilter getWheelsSize(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize) {
+    private static ResultFilter getWheelsSize(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -394,7 +393,7 @@ public class FilterFireStore {
                 .whereEqualTo("wheelSizeInt",wheelsSize )
                 .whereGreaterThan("price",priceFrom)
                 .whereLessThanOrEqualTo("price",priceTo)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -416,7 +415,7 @@ public class FilterFireStore {
         return new ResultFilter(resultItemsArrayList,documentSnapshotsArrayL,mRef);
     }
 
-    private static ResultFilter getResult(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice) {
+    private static ResultFilter getResult(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int numberResult) {
 
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
@@ -426,7 +425,7 @@ public class FilterFireStore {
                 .whereEqualTo("burnedPrice",burnedPrice )
                 .whereGreaterThan("price",priceFrom)
                 .whereLessThanOrEqualTo("price",priceTo)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -443,7 +442,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultMake(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -453,7 +452,7 @@ public class FilterFireStore {
                 .whereEqualTo("carMakeS",carMake)
                 .whereGreaterThan("price",priceFrom)
                 .whereLessThanOrEqualTo("price",priceTo)
-                .limit(8)
+                .limit(numberResult)
                 .orderBy("price")
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
@@ -477,7 +476,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultCarModel(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -488,7 +487,7 @@ public class FilterFireStore {
                 .whereEqualTo("carModelS",carModel)
                 .whereGreaterThan("price",priceFrom)
                 .whereLessThanOrEqualTo("price",priceTo)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -511,7 +510,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultYear(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -523,7 +522,7 @@ public class FilterFireStore {
                 .whereGreaterThan("price",priceFrom)
                 .whereLessThanOrEqualTo("price",priceTo)
                 .whereEqualTo("yearS",year)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -546,7 +545,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultPayment(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -559,7 +558,7 @@ public class FilterFireStore {
                 .whereLessThanOrEqualTo("price",priceTo)
                 .whereEqualTo("yearS",year)
                 .whereEqualTo("paymentMethod",carPayment)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -583,7 +582,7 @@ public class FilterFireStore {
 
 
     private static ResultFilter getResultCondition(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -597,7 +596,7 @@ public class FilterFireStore {
                 .whereEqualTo("yearS",year)
                 .whereEqualTo("paymentMethod",carPayment)
                 .whereEqualTo("conditionS",condition)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -622,7 +621,7 @@ public class FilterFireStore {
 
 
     private static ResultFilter getResultLicensed(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition,String insurance,String carLicensed) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition,String insurance,String carLicensed,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -638,7 +637,7 @@ public class FilterFireStore {
                 .whereEqualTo("conditionS",condition)
                 .whereEqualTo("insuranceS",insurance)
                 .whereEqualTo("carLicenseS",carLicensed)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -661,7 +660,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultInsurance(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition,String insurance) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition,String insurance,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -676,7 +675,7 @@ public class FilterFireStore {
                 .whereEqualTo("paymentMethod",carPayment)
                 .whereEqualTo("conditionS",condition)
                 .whereEqualTo("insuranceS",insurance)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -699,7 +698,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultFuel(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition,String insurance,String carLicensed,String carFuel) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment,String condition,String insurance,String carLicensed,String carFuel,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
 
@@ -716,7 +715,7 @@ public class FilterFireStore {
                 .whereEqualTo("insuranceS",insurance)
                 .whereEqualTo("carLicenseS",carLicensed)
                 .whereEqualTo("fuelS",carFuel)
-                .limit(8)
+                .limit(numberResult)
                 .get().addOnSuccessListener
                 (new OnSuccessListener<QuerySnapshot>() {
                      @Override
@@ -740,7 +739,7 @@ public class FilterFireStore {
 
     private static ResultFilter getResultWithCityOrNeighborhood(String category
             , final String categoryBefore, Double priceFrom, Double priceTo
-            ,int burnedPrice,String city,String neighborhood) {
+            ,int burnedPrice,String city,String neighborhood,int numberResult) {
 
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         ResultFilter resultFilter = null;
@@ -755,7 +754,7 @@ public class FilterFireStore {
                     .whereEqualTo("cityS",city )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -782,7 +781,7 @@ public class FilterFireStore {
                     .whereEqualTo("neighborhoodS",neighborhood )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -807,7 +806,7 @@ public class FilterFireStore {
         return resultFilter;
     }
 
-    private static ResultFilter getWheelsSizeWithCityOrNeighborhood(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize,String city,String neighborhood) {
+    private static ResultFilter getWheelsSizeWithCityOrNeighborhood(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter =null;
@@ -821,7 +820,7 @@ public class FilterFireStore {
                     .whereEqualTo("cityS",city )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -849,7 +848,7 @@ public class FilterFireStore {
                     .whereEqualTo("neighborhoodS",neighborhood )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -873,7 +872,7 @@ public class FilterFireStore {
         return resultFilter;
     }
 
-    private static ResultFilter getPlatesCityWithCityOrNeighborhood(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,String platesCity,String city,String neighborhood) {
+    private static ResultFilter getPlatesCityWithCityOrNeighborhood(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,String platesCity,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter = null;
@@ -887,7 +886,7 @@ public class FilterFireStore {
                     .whereEqualTo("cityS",city )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -915,7 +914,7 @@ public class FilterFireStore {
                     .whereEqualTo("neighborhoodS",neighborhood )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -939,7 +938,7 @@ public class FilterFireStore {
         return resultFilter;
     }
 
-    private static ResultFilter getWheelsTypeWithCityOrNeighborhood(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize,String wheelsType,String city,String neighborhood) {
+    private static ResultFilter getWheelsTypeWithCityOrNeighborhood(String category, final String categoryBefore, Double priceFrom, Double priceTo,int burnedPrice,int wheelsSize,String wheelsType,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter = null;
@@ -954,7 +953,7 @@ public class FilterFireStore {
                     .whereEqualTo("cityS",city )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -983,7 +982,7 @@ public class FilterFireStore {
                     .whereEqualTo("neighborhoodS",neighborhood )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1008,7 +1007,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultMakeWithCityOrNeighborhood(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String city,String neighborhood) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter =null;
@@ -1021,7 +1020,7 @@ public class FilterFireStore {
                     .whereEqualTo("cityS",city )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1049,7 +1048,7 @@ public class FilterFireStore {
                     .whereEqualTo("neighborhoodS",neighborhood )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1074,7 +1073,7 @@ public class FilterFireStore {
     }
 
     private static ResultFilter getResultCarModelWithCityOrNeighborhood(String category, final String categoryBefore
-            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,String city,String neighborhood) {
+            , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter =null;
@@ -1089,7 +1088,7 @@ public class FilterFireStore {
                     .whereEqualTo("cityS",city )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1118,7 +1117,7 @@ public class FilterFireStore {
                     .whereEqualTo("neighborhoodS",neighborhood )
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1144,7 +1143,7 @@ public class FilterFireStore {
 
     private static ResultFilter getResultYearWithCityOrNeighborhood(String category, final String categoryBefore
             , Double priceFrom, Double priceTo,int burnedPrice,String carMake
-            ,String carModel,int year,String city,String neighborhood) {
+            ,String carModel,int year,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter=null;
@@ -1160,7 +1159,7 @@ public class FilterFireStore {
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
                     .whereEqualTo("yearS",year)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1190,7 +1189,7 @@ public class FilterFireStore {
                     .whereGreaterThan("price",priceFrom)
                     .whereLessThanOrEqualTo("price",priceTo)
                     .whereEqualTo("yearS",year)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1216,7 +1215,7 @@ public class FilterFireStore {
 
     private static ResultFilter getResultPaymentWithCityOrNeighborhood(String category, final String categoryBefore
             , Double priceFrom, Double priceTo,int burnedPrice,String carMake
-            ,String carModel,int year,String carPayment,String city,String neighborhood) {
+            ,String carModel,int year,String carPayment,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter=null;
@@ -1232,7 +1231,7 @@ public class FilterFireStore {
                     .whereLessThanOrEqualTo("price",priceTo)
                     .whereEqualTo("yearS",year)
                     .whereEqualTo("paymentMethod",carPayment)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1263,7 +1262,7 @@ public class FilterFireStore {
                     .whereLessThanOrEqualTo("price",priceTo)
                     .whereEqualTo("yearS",year)
                     .whereEqualTo("paymentMethod",carPayment)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1289,7 +1288,7 @@ public class FilterFireStore {
 
     private static ResultFilter getResultConditionWithCityOrNeighborhood(String category, final String categoryBefore
             , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel
-            ,int year,String carPayment,String condition,String city,String neighborhood) {
+            ,int year,String carPayment,String condition,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter=null;
@@ -1306,7 +1305,7 @@ public class FilterFireStore {
                     .whereEqualTo("yearS",year)
                     .whereEqualTo("paymentMethod",carPayment)
                     .whereEqualTo("conditionS",condition)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1339,7 +1338,7 @@ public class FilterFireStore {
                     .whereEqualTo("yearS",year)
                     .whereEqualTo("paymentMethod",carPayment)
                     .whereEqualTo("conditionS",condition)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1366,7 +1365,7 @@ public class FilterFireStore {
 
     private static ResultFilter getResultInsuranceWithCityOrNeighborhood(String category, final String categoryBefore
             , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel
-            ,int year,String carPayment,String condition,String insurance,String city,String neighborhood) {
+            ,int year,String carPayment,String condition,String insurance,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter=null;
@@ -1384,7 +1383,7 @@ public class FilterFireStore {
                     .whereEqualTo("paymentMethod",carPayment)
                     .whereEqualTo("conditionS",condition)
                     .whereEqualTo("insuranceS",insurance)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1417,7 +1416,7 @@ public class FilterFireStore {
                     .whereEqualTo("paymentMethod",carPayment)
                     .whereEqualTo("conditionS",condition)
                     .whereEqualTo("insuranceS",insurance)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1443,7 +1442,7 @@ public class FilterFireStore {
 
     private static ResultFilter getResultLicensedWithCityOrNeighborhood(String category, final String categoryBefore
             , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel,int year,String carPayment
-            ,String condition,String insurance,String carLicensed,String city,String neighborhood) {
+            ,String condition,String insurance,String carLicensed,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter=null;
@@ -1462,7 +1461,7 @@ public class FilterFireStore {
                     .whereEqualTo("conditionS",condition)
                     .whereEqualTo("insuranceS",insurance)
                     .whereEqualTo("carLicenseS",carLicensed)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1496,7 +1495,7 @@ public class FilterFireStore {
                     .whereEqualTo("conditionS",condition)
                     .whereEqualTo("insuranceS",insurance)
                     .whereEqualTo("carLicenseS",carLicensed)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1523,7 +1522,7 @@ public class FilterFireStore {
     private static ResultFilter getResultFuelWithCityOrNeighborhood(String category, final String categoryBefore
             , Double priceFrom, Double priceTo,int burnedPrice,String carMake,String carModel
             ,int year,String carPayment,String condition,String insurance
-            ,String carLicensed,String carFuel,String city,String neighborhood) {
+            ,String carLicensed,String carFuel,String city,String neighborhood,int numberResult) {
         final List<SuggestedItem> resultItemsArrayList = new ArrayList<>();
         final List<DocumentSnapshot> documentSnapshotsArrayL = new ArrayList<>();
         ResultFilter resultFilter=null;
@@ -1543,7 +1542,7 @@ public class FilterFireStore {
                     .whereEqualTo("insuranceS",insurance)
                     .whereEqualTo("carLicenseS",carLicensed)
                     .whereEqualTo("fuelS",carFuel)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override
@@ -1578,7 +1577,7 @@ public class FilterFireStore {
                     .whereEqualTo("insuranceS",insurance)
                     .whereEqualTo("carLicenseS",carLicensed)
                     .whereEqualTo("fuelS",carFuel)
-                    .limit(8)
+                    .limit(numberResult)
                     .get().addOnSuccessListener
                     (new OnSuccessListener<QuerySnapshot>() {
                          @Override

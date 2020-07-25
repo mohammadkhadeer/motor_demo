@@ -10,9 +10,10 @@ import java.util.ArrayList;
 
 public class FillSimilarNeeded {
 
+    static double priceFromInti=2.0,priceToInti=200000000.0;
     public static SimilarNeeded intiEmptyObject(){
         SimilarNeeded similarNeeded =
-                 new SimilarNeeded(0.0,100000000.0,"empty","empty","empty","empty","empty","empty",0);
+                 new SimilarNeeded(priceFromInti,priceToInti,"empty","empty","empty","empty","empty","empty",0);
         return similarNeeded;
     }
     public static SimilarNeeded getSimilarNeeded(ArrayList<ItemSelectedFilterModel> itemFilterArrayList
@@ -22,13 +23,13 @@ public class FillSimilarNeeded {
         if (itemFilterArrayList.size() ==1)
         {
             if (city.equals("empty")){
-                similarNeeded = new SimilarNeeded(0.0,100000000.0,"empty","empty","empty","empty","empty","empty",0);
+                similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,"empty","empty","empty","empty","empty","empty",0);
             }else{
                 if (neighborhood.equals("empty"))
                 {
-                    similarNeeded = new SimilarNeeded(0.0,100000000.0,"empty","empty",city,"empty","empty","empty",0);
+                    similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,"empty","empty",city,"empty","empty","empty",0);
                 }else{
-                    similarNeeded = new SimilarNeeded(0.0,100000000.0,"empty","empty",city,neighborhood,"empty","empty",0);
+                    similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,"empty","empty",city,neighborhood,"empty","empty",0);
                 }
             }
         }
@@ -39,22 +40,22 @@ public class FillSimilarNeeded {
             {
                 String carMake = itemFilterArrayList.get(1).getFilterS();
                 if (city.equals("empty")) {
-                    similarNeeded = new SimilarNeeded(0.0,100000000.0,carMake,"empty","empty","empty","empty","empty",0);
+                    similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,carMake,"empty","empty","empty","empty","empty",0);
                 }else{
                     if (neighborhood.endsWith("empty"))
                     {
-                        similarNeeded = new SimilarNeeded(0.0,100000000.0,carMake,"empty",city,"empty","empty","empty",0);
+                        similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,carMake,"empty",city,"empty","empty","empty",0);
                     }else{
-                        similarNeeded = new SimilarNeeded(0.0,100000000.0,carMake,"empty",city,neighborhood,"empty","empty",0);
+                        similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,carMake,"empty",city,neighborhood,"empty","empty",0);
                     }
                 }
             }else{
                 double priceFrom = Double.parseDouble(itemFilterArrayList.get(1).getFilterS());
                 if (neighborhood.endsWith("empty"))
                 {
-                    similarNeeded = new SimilarNeeded(priceFrom,100000000.0,"empty","empty",city,"empty","empty","empty",0);
+                    similarNeeded = new SimilarNeeded(priceFrom,priceToInti,"empty","empty",city,"empty","empty","empty",0);
                 }else{
-                    similarNeeded = new SimilarNeeded(priceFrom,100000000.0,"empty","empty",city,neighborhood,"empty","empty",0);
+                    similarNeeded = new SimilarNeeded(priceFrom,priceToInti,"empty","empty",city,neighborhood,"empty","empty",0);
                 }
             }
         }
@@ -66,13 +67,13 @@ public class FillSimilarNeeded {
                 String carMake = itemFilterArrayList.get(1).getFilterS();
                 String carModel = itemFilterArrayList.get(2).getFilterS();
                 if (city.equals("empty")) {
-                    similarNeeded = new SimilarNeeded(0.0,100000000.0,carMake,carModel,"empty","empty","empty","empty",0);
+                    similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,carMake,carModel,"empty","empty","empty","empty",0);
                 }else{
                     if (neighborhood.endsWith("empty"))
                     {
-                        similarNeeded = new SimilarNeeded(0.0,100000000.0,carMake,carModel,city,"empty","empty","empty",0);
+                        similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,carMake,carModel,city,"empty","empty","empty",0);
                     }else{
-                        similarNeeded = new SimilarNeeded(0.0,100000000.0,carMake,carModel,city,neighborhood,"empty","empty",0);
+                        similarNeeded = new SimilarNeeded(priceFromInti,priceToInti,carMake,carModel,city,neighborhood,"empty","empty",0);
                     }
                 }
             }else {

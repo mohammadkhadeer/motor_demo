@@ -42,7 +42,7 @@ import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearc
 import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
-public class AdapterShowUserItems extends RecyclerView.Adapter<BaseViewHolderUser> {
+public class AdapterSuggestedItems extends RecyclerView.Adapter<BaseViewHolderUser> {
   private static final int VIEW_TYPE_LOADING = 0;
   private static final int VIEW_TYPE_NORMAL = 1;
   private boolean isLoaderVisible = false;
@@ -52,7 +52,7 @@ public class AdapterShowUserItems extends RecyclerView.Adapter<BaseViewHolderUse
   String comeFrom;
   SimilarNeeded similarNeededR;
 
-  public AdapterShowUserItems(List<SuggestedItem> postItems, Context context, String comeFrom, SimilarNeeded similarNeeded) {
+  public AdapterSuggestedItems(List<SuggestedItem> postItems, Context context, String comeFrom, SimilarNeeded similarNeeded) {
     this.suggestedItemsList = postItems;
     this.context = context;
     this.comeFrom = comeFrom;
@@ -66,7 +66,7 @@ public class AdapterShowUserItems extends RecyclerView.Adapter<BaseViewHolderUse
     switch (viewType) {
       case VIEW_TYPE_NORMAL:
         return new ViewHolder(
-                LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_user_items, parent, false));
+                LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_suggested_items, parent, false));
       case VIEW_TYPE_LOADING:
         return new ProgressHolder(
                 LayoutInflater.from(parent.getContext()).inflate(R.layout.item_loading_h, parent, false));
