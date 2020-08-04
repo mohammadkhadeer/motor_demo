@@ -226,7 +226,7 @@ public class FragmentFollowUser extends Fragment {
     }
 
     private void changeFont() {
-        userNameTV.setTypeface(Functions.changeFontBold(getActivity()));
+        userNameTV.setTypeface(Functions.changeFontGeneral(getActivity()));
         numberOfPostsTV.setTypeface(Functions.changeFontBold(getActivity()));
         postsTV.setTypeface(Functions.changeFontGeneral(getActivity()));
         numberOfFollowersTV.setTypeface(Functions.changeFontBold(getActivity()));

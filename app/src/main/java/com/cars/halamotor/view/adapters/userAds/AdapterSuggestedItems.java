@@ -40,6 +40,7 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertItemsToFCS;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.setFavouriteCallSearchOnServer;
 import static com.cars.halamotor.functions.Functions.convertCategoryToCategoryS;
+import static com.cars.halamotor.functions.Functions.openWhatsApp;
 import static com.cars.halamotor.functions.NewFunction.callAds;
 
 public class AdapterSuggestedItems extends RecyclerView.Adapter<BaseViewHolderUser> {
@@ -141,7 +142,7 @@ public class AdapterSuggestedItems extends RecyclerView.Adapter<BaseViewHolderUs
             , text4,itemTitleTV,itemPriceTV,itemCityTV
             ,userNameTV,itemNewPriceTV,oldPriceTV;
     RelativeLayout text2RL,text3RL,text4RL,itemCityRL,favoriteRL,cardButton
-            ,callButtonRL,personInfoRL,itemInfoRL,messageInfo,cardShowFCS;
+            ,callButtonRL,personInfoRL,itemInfoRL,messageInfo,cardShowFCS,whatsAppRL;
 
     ViewHolder(View itemView) {
       super(itemView);
@@ -167,6 +168,7 @@ public class AdapterSuggestedItems extends RecyclerView.Adapter<BaseViewHolderUs
       itemInfoRL = (RelativeLayout) itemView.findViewById(R.id.adapter_user_item_itemInfo);
       messageInfo = (RelativeLayout) itemView.findViewById(R.id.adapter_user_item_messageInfo);
       cardShowFCS = (RelativeLayout) itemView.findViewById(R.id.adapter_user_item_item_card);
+      whatsAppRL = (RelativeLayout) itemView.findViewById(R.id.adapter_car_for_sale_m_rl);
 
       itemTitleTV = (TextView) itemView.findViewById(R.id.adapter_user_item_car_title);
       itemPriceTV = (TextView) itemView.findViewById(R.id.adapter_user_item_car_price);
@@ -198,9 +200,11 @@ public class AdapterSuggestedItems extends RecyclerView.Adapter<BaseViewHolderUs
         checkTypeAndFillTypeDetails(context, text1, text2, text3, text4, text2RL, text3RL, text4RL
                 , itemCityTV, itemCityRL, position);
         checkIfFavouriteOrNot(context,favoriteIV,favoriteRL,position);
+
+        actionListenerToCallButton(context, callButtonRL, position);
+        actionListenerToWhatsAap(context, whatsAppRL, position);
         actionListenerToFavorite(context, favoriteRL, position,favoriteIV);
         actionListenerToGoShowItemDetails(context, cardShowFCS, position);
-        actionListenerToCallButton(context, callButtonRL, position);
       }else{
         personInfoRL.setVisibility(View.GONE);
         itemInfoRL.setVisibility(View.GONE);
@@ -210,6 +214,18 @@ public class AdapterSuggestedItems extends RecyclerView.Adapter<BaseViewHolderUs
       }
 
     }
+  }
+
+  private void actionListenerToWhatsAap(final Context context, RelativeLayout whatsAppRL, final int position) {
+    whatsAppRL.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        insertItemsToFCS(getObject(position).getItemIdInServer(),convertCategoryToCategoryS(getObject(position).getItemType(),context)
+                ,getDataBaseInstance(context),"message",context);
+        setFavouriteCallSearchOnServer(context,getObject(position).getItemIdInServer(),getObject(position).getItemType(),"message");
+        openWhatsApp(getObject(position).getItemUserPhoneNumber(),context);
+      }
+    });
   }
 
   private void checkIfFavouriteOrNot(Context context, ImageView favoriteIV, RelativeLayout favoriteRL

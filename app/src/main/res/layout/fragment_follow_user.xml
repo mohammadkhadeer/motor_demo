@@ -78,7 +78,7 @@
                                 android:textColor="@color/colorBlack"
                                 android:text="User Name"
                                 android:layout_centerHorizontal="true"
-                                android:textSize="16dp"
+                                android:textSize="14dp"
                                 android:id="@+id/fragment_follow_user_name_TV"
                                 />
 
