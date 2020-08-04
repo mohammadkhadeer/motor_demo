@@ -55,7 +55,7 @@ public class FragmentUserAds extends Fragment {
     public static final int PAGE_START = 1;
     private int currentPage = PAGE_START;
     private boolean isLastPage = false;
-    private int totalPage = 3;
+    private int totalPage = 10;
     private boolean isLoading = false;
     int itemCount = 0,itemNotActive=0;
     SimilarNeeded similarNeeded;
@@ -140,7 +140,6 @@ public class FragmentUserAds extends Fragment {
             @Override
             protected void loadMoreItems() {
                 numberOfObjectNow =handelNumberOfObject(numberOfObjectNow,suggestedItemsArrayListTest.size());
-                Log.i("TAG","numberOfObjectNow "+String.valueOf(numberOfObjectNow));
                 isLoading = true;
                 currentPage++;
                 getData();
@@ -175,29 +174,28 @@ public class FragmentUserAds extends Fragment {
         if (numberOfObject!=1000) {
             for (int i = 0; i < numberOfObject; i++) {
                 loopStart++;
-                final String category = convertCat(itemIDsArrayL.get(loopStart).getCategoryS());
-                final String categoryBefore = itemIDsArrayL.get(loopStart).getCategoryS();
-
-                DocumentReference mRef = null;
-                mRef = getDataStoreInstance().collection(category)
-                        .document(itemIDsArrayL.get(loopStart).getItemID());
-                mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                        if (task.isSuccessful()) {
-                            DocumentSnapshot document = task.getResult();
-                            if (document.exists()) {
-                                Long itemBurnedPrice = (Long) document.getLong("burnedPrice");
-                                String itemActiveOrNotT = (String) document.getString("activeOrNotS");
-                                if (itemActiveOrNotT.equals("1") && itemBurnedPrice == 0)
+                int xx=itemIDsArrayL.size()-2;
+                if (loopStart < xx)
+                {
+                    final String category = convertCat(itemIDsArrayL.get(loopStart).getCategoryS());
+                    final String categoryBefore = itemIDsArrayL.get(loopStart).getCategoryS();
+                    DocumentReference mRef = null;
+                    mRef = getDataStoreInstance().collection(category)
+                            .document(itemIDsArrayL.get(loopStart).getItemID());
+                    mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    Long itemBurnedPrice = (Long) document.getLong("burnedPrice");
+                                    String itemActiveOrNotT = (String) document.getString("activeOrNotS");
                                     fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document, categoryBefore));
-                                else
-                                    itemNotActive = itemNotActive + 1;
-
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             }
         }
 
@@ -251,7 +249,7 @@ public class FragmentUserAds extends Fragment {
                     }
                     @Override
                     public void onCancelled(DatabaseError databaseError) {
-                        Log.i("TAG ERROR", databaseError.toString());
+                         Log.i("TAG ERROR", databaseError.toString());
                     }
                 });
     }

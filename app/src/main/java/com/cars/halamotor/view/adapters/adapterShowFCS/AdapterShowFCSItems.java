@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
@@ -14,6 +15,9 @@ import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.view.animation.Animation;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -522,9 +526,32 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
 
 
   public class ProgressHolder extends BaseViewHolder {
+    CardView cardView;
+    ImageView shinImageView,imageView,shinImageView2,imageView2,shinImageView3,imageView3
+            ,shinImageView4,imageView4;
+    TextView textViewNoMoreMessage;
+    RelativeLayout relativeLayout,relativeLayout2,relativeLayout3,relativeLayout4,relativeLayoutNoMoreItem;
     ProgressHolder(View itemView) {
       super(itemView);
       ButterKnife.bind(this, itemView);
+      cardView = (CardView) itemView.findViewById(R.id.adapter_show_fsc_item_cv);
+      relativeLayoutNoMoreItem = (RelativeLayout) itemView.findViewById(R.id.adapter_show_fsc_item_no_more_cv);
+      textViewNoMoreMessage = (TextView) itemView.findViewById(R.id.adapter_show_fsc_no_more_tv);
+      shinImageView = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_shin);
+      imageView = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load);
+      relativeLayout = (RelativeLayout) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load_rl);
+
+      shinImageView2 = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_shin2);
+      imageView2 = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load2);
+      relativeLayout2 = (RelativeLayout) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load_rl2);
+
+      shinImageView3 = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_shin3);
+      imageView3 = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load3);
+      relativeLayout3 = (RelativeLayout) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load_rl3);
+
+      shinImageView4 = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_shin4);
+      imageView4 = (ImageView) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load4);
+      relativeLayout4 = (RelativeLayout) itemView.findViewById(R.id.adapter_show_fsc_item_item_image_load_rl4);
     }
 
     @Override
@@ -533,7 +560,60 @@ public class AdapterShowFCSItems extends RecyclerView.Adapter<BaseViewHolder> {
 
     public void onBind(int position) {
       super.onBind(position);
+      int a=suggestedItemsList.size()-1, x = 0,mod=0;
+      if (9 == suggestedItemsList.size())
+      {
+        x= 0;
+        mod = 0;
+      }else{
+        x= a/8;
+        mod = a % 8;
+      }
+
+      if (suggestedItemsList.size() ==1)
+      {
+        cardView.setVisibility(View.GONE);
+        relativeLayoutNoMoreItem.setVisibility(View.GONE);
+      }else {
+        if(mod>0)
+        {
+          cardView.setVisibility(View.GONE);
+          relativeLayoutNoMoreItem.setVisibility(View.VISIBLE);
+          changeFont(textViewNoMoreMessage);
+        }else {
+          AddShineEffect(relativeLayout, shinImageView);
+          AddShineEffect(relativeLayout2, shinImageView2);
+          AddShineEffect(relativeLayout3, shinImageView3);
+          AddShineEffect(relativeLayout4, shinImageView4);
+        }
+      }
     }
+  }
+
+  private void changeFont(TextView textView) {
+    textView.setTypeface(Functions.changeFontGeneral(context));
+  }
+  String loadedOrDownloading="downloading";
+
+  private void AddShineEffect(final RelativeLayout father, final ImageView child) {
+    new Handler().postDelayed(new Runnable() {
+
+      @Override
+      public void run() {
+        animationEffect(father,child);
+        if (loadedOrDownloading.equals("downloading"))
+          AddShineEffect(father,child);
+      }
+    }, 400);
+  }
+
+  private void animationEffect(RelativeLayout father, ImageView child) {
+    Animation animation = new TranslateAnimation(0,
+            father.getWidth()+child.getWidth(),0, 0);
+    animation.setDuration(550);
+    animation.setFillAfter(false);
+    animation.setInterpolator(new AccelerateDecelerateInterpolator());
+    child.startAnimation(animation);
   }
 
 }

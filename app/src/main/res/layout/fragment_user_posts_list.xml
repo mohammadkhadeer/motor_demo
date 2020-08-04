@@ -18,6 +18,7 @@
             android:layout_height="20dp"
             android:layout_centerVertical="true"
             android:layout_centerHorizontal="true"
+            style="@style/Widget.AppCompat.ProgressBar"
             android:id="@+id/fragment_user_show_posts_progress"
             />
 

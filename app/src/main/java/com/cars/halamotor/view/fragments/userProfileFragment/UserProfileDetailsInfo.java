@@ -108,7 +108,6 @@ public class UserProfileDetailsInfo extends Fragment {
         changeFont();
         getProfileInfo();
 
-
         return view;
     }
 
@@ -121,7 +120,7 @@ public class UserProfileDetailsInfo extends Fragment {
 
 
     private void changeFont() {
-        userNameTV.setTypeface(Functions.changeFontBold(getActivity()));
+        userNameTV.setTypeface(Functions.changeFontGeneral(getActivity()));
         numberOfPostsTV.setTypeface(Functions.changeFontBold(getActivity()));
         postsTV.setTypeface(Functions.changeFontGeneral(getActivity()));
         numberOfFollowersTV.setTypeface(Functions.changeFontBold(getActivity()));
@@ -152,8 +151,6 @@ public class UserProfileDetailsInfo extends Fragment {
         userFollowingInfo = new Following(userProfileInfo.getNameStr()
                 , userProfileInfo.getUserImageStr(), userID, userProfileInfo.getNameStr(),userProfileInfo.getNameStr());
         fillUserImageAndUserName(userProfileInfo.getNameStr(),userProfileInfo.getUserImageStr());
-        Log.i("TAG","number of ads "+userProfileInfo.getNumberOfAdvStr());
-        Log.i("TAG","number of ads "+userProfileInfo.getNumberOfAdvStr());
         fillNumberOfPostAndAntherInfo(userProfileInfo.getNumberOfAdvStr());
         fillFollowOrNot();
         actionListenerToFollow(userProfileInfo.getNameStr(),userProfileInfo.getUserImageStr());

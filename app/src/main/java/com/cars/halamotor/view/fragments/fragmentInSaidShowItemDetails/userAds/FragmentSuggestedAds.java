@@ -171,7 +171,7 @@ public class FragmentSuggestedAds extends Fragment {
                     if (resultItemsArrayList.size() <8)
                     {
                         //this mean the result is less 8 if remove filter we take anther suggested item
-                        similarNeeded = new SimilarNeeded(similarNeeded.getPriceFrom(),similarNeeded.getPriceTo(),"empty","empty","empty","empty",similarNeeded.getWheelsType(),similarNeeded.getCarPlatesCity(),similarNeeded.getWheelsSize());
+                        similarNeeded = new SimilarNeeded(similarNeeded.getPriceFrom(),similarNeeded.getPriceTo(),"empty","empty",similarNeeded.getCity(),"empty",similarNeeded.getWheelsType(),similarNeeded.getCarPlatesCity(),similarNeeded.getWheelsSize());
                         similarAdsComp = rebuildItemFilter(similarNeeded,category,getActivity());
                         itemFilterArrayList = similarAdsComp.getItemFilterArrayList();
                         city =similarAdsComp.getCityS();

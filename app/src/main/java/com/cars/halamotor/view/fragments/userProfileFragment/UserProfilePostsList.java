@@ -3,11 +3,13 @@ package com.cars.halamotor.view.fragments.userProfileFragment;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -100,6 +102,8 @@ public class UserProfilePostsList extends Fragment {
         view = inflater.inflate(R.layout.fragment_user_posts_list, container, false);
         similarNeeded = intiEmptyObject();
         inti();
+        progressBar.getIndeterminateDrawable()
+                .setColorFilter(ContextCompat.getColor(getActivity(), R.color.colorRed), PorterDuff.Mode.SRC_IN );
         getUserItemInfoList();
         timer();
 
@@ -123,8 +127,6 @@ public class UserProfilePostsList extends Fragment {
         }else {
             //number of ads itemIDsArrayL
             createRV();
-            getData();
-            doApiCall();
             actionListenerToRV();
         }
     }
@@ -138,7 +140,6 @@ public class UserProfilePostsList extends Fragment {
                 isLoading = true;
                 currentPage++;
                 getData();
-                doApiCall();
             }
 
             @Override
@@ -170,9 +171,10 @@ public class UserProfilePostsList extends Fragment {
                 }
                 isLoading = false;
             }
-        }, 3100);
+        }, 100);
     }
 
+    int loopStart=0;
     private void getData() {
         final List<SuggestedItem> fcsItemsArrayList = new ArrayList<>();
         suggestedItemsArrayListTest = new ArrayList<>();
@@ -180,31 +182,40 @@ public class UserProfilePostsList extends Fragment {
         //int numberOfObject = currentPage*10;
         int numberOfObject = nowNumberOfObject(numberOfObjectNow,itemIDsArrayL.size());
 
-        int i;
-        for ( i =0; i < numberOfObject; i++) {
-            final String category = convertCat(itemIDsArrayL.get(i).getCategoryS());
-            final String categoryBefore = itemIDsArrayL.get(i).getCategoryS();
 
-            DocumentReference mRef = null;
-            mRef = getDataStoreInstance().collection(category)
-                    .document(itemIDsArrayL.get(i).getItemID());
-            mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
-                @Override
-                public void onComplete(@NonNull Task<DocumentSnapshot> task) {
-                    if (task.isSuccessful()) {
-                        DocumentSnapshot document = task.getResult();
-                        if (document.exists()) {
-                            fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document, categoryBefore));
+        if (numberOfObject!=1000) {
+            for (int i = 0; i < numberOfObject; i++) {
+                loopStart++;
+                int xx=itemIDsArrayL.size()-2;
+                if (loopStart < xx)
+                {
+                    final String category = convertCat(itemIDsArrayL.get(loopStart).getCategoryS());
+                    final String categoryBefore = itemIDsArrayL.get(loopStart).getCategoryS();
+                    DocumentReference mRef = null;
+                    mRef = getDataStoreInstance().collection(category)
+                            .document(itemIDsArrayL.get(loopStart).getItemID());
+                    mRef.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                            if (task.isSuccessful()) {
+                                DocumentSnapshot document = task.getResult();
+                                if (document.exists()) {
+                                    Long itemBurnedPrice = (Long) document.getLong("burnedPrice");
+                                    String itemActiveOrNotT = (String) document.getString("activeOrNotS");
+                                    fcsItemsArrayList.add(FCSFunctions.handelNumberOfObject(document, categoryBefore));
+                                }
+                            }
                         }
-                    }
+                    });
                 }
-            });
+            }
         }
 
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 suggestedItemsArrayListTest.addAll(fcsItemsArrayList);
+                doApiCall();
             }
         }, 3000);
     }
@@ -216,6 +227,7 @@ public class UserProfilePostsList extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
         adapterShowFCSItems = new AdapterShowFCSItems(new ArrayList<SuggestedItem>(),getActivity(),"call",similarNeeded);
         recyclerView.setAdapter(adapterShowFCSItems);
+        getData();
     }
 
     private void getUserItemInfoList() {
