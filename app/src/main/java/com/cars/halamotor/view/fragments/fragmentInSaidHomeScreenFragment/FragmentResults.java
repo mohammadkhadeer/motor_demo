@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.FCSFunctions;
@@ -27,13 +25,9 @@ import com.cars.halamotor.model.ResultFilter;
 import com.cars.halamotor.model.SimilarNeeded;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.view.adapters.adapterShowFCS.AdapterShowFCSItems;
-import com.cars.halamotor.view.adapters.adapterShowFCS.PaginationListener;
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
@@ -180,6 +174,11 @@ public class FragmentResults extends Fragment {
             }
         }
     }
+
+    public void removeAllFilter(){
+        itemFilterArrayList.clear();
+    }
+
 
     public void loadMore(){
         if (controler ==0 )

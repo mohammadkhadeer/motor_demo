@@ -128,6 +128,19 @@ public class FragmentHomeScreen extends Fragment {
         checkDef();
     }
 
+    public void removeAllFilter(){
+        itemFilterArrayList.clear();
+        filtersFragment.removeAllSelectedFilter();
+        fragmentResults.removeAllFilter();
+        checkDef();
+    }
+
+    public void removeLastFilter(){
+        itemFilterArrayList.remove(itemFilterArrayList.size() - 1);
+        fragmentResults.onFilterCanceled();
+        filtersFragment.removeLastFilter();
+        checkDef();
+    }
 
     private void createFilterFragment() {
         FragmentTransaction transaction = getActivity().getSupportFragmentManager().beginTransaction();

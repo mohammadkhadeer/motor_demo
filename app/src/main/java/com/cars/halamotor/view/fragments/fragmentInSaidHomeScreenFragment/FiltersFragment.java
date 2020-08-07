@@ -298,4 +298,37 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
         filter.onFilterCancel();
         createFilterTowRV();
     }
+
+    public void removeLastFilter(){
+        numberOfSelectedFilter =selectedFilterArrayL.size()-1;
+        //itemTypeFromFilterAdapter = itemSelectedFilterModel.getFilterS();
+        reVISIBLEFilter();
+        if (numberOfSelectedFilter==0)
+        {
+            itemTypeFromFilterAdapter.clear();
+            selectedFilterArrayL.remove(selectedFilterArrayL.size()-1);
+            selectedFilterArrayL.add(new ItemSelectedFilterModel(getActivity().getResources().getString(R.string.all),getActivity().getResources().getString(R.string.all),"empty" ));
+            adapterSelectedFilters.notifyDataSetChanged();
+        }else{
+            itemTypeFromFilterAdapter.remove(itemTypeFromFilterAdapter.size()-1);
+
+            selectedFilterArrayL.remove(selectedFilterArrayL.size()-1);
+            adapterSelectedFilters.notifyDataSetChanged();
+        }
+        createFilterTowRV();
+    }
+
+    public void removeAllSelectedFilter(){
+        reVISIBLEFilter();
+        numberOfSelectedFilter =0;
+        itemTypeFromFilterAdapter.clear();
+        int x=selectedFilterArrayL.size();
+        for (int i=0;i<x;i++)
+        {
+            selectedFilterArrayL.remove(selectedFilterArrayL.size()-1);
+        }
+        createFilterTowRV();
+        selectedFilterArrayL.add(new ItemSelectedFilterModel(getActivity().getResources().getString(R.string.all),getActivity().getResources().getString(R.string.all),"empty" ));
+        adapterSelectedFilters.notifyDataSetChanged();
+    }
 }

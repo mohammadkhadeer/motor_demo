@@ -559,13 +559,22 @@ public class AdapterSuggestedItems extends RecyclerView.Adapter<BaseViewHolderUs
 
     public void onBind(int position) {
       super.onBind(position);
-      Log.i("TAG","Size: "+String.valueOf(suggestedItemsList.size()));
+      Log.i("TAN","Size: "+String.valueOf(suggestedItemsList.size()));
+      int a=suggestedItemsList.size()-1, x = 0,mod=0;
+      if (9 == suggestedItemsList.size())
+      {
+        x= 0;
+        mod = 0;
+      }else{
+        x= a/8;
+        mod = a % 8;
+      }
       if (suggestedItemsList.size() ==1)
       {
         cardView.setVisibility(View.GONE);
         relativeLayoutNoMoreItem.setVisibility(View.GONE);
       }else {
-        if(suggestedItemsList.size() >1 && suggestedItemsList.size()<8)
+        if(mod>0)
         {
           cardView.setVisibility(View.GONE);
           relativeLayoutNoMoreItem.setVisibility(View.VISIBLE);
