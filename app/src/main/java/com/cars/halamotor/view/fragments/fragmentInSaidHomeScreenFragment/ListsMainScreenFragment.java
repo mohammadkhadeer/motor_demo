@@ -2,14 +2,10 @@ package com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,14 +19,12 @@ import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimFirstCase;
-import com.cars.halamotor.utils.App;
-import com.cars.halamotor.view.activity.MainActivity;
-import com.cars.halamotor.view.adapters.AdapterInsurance;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterAccAndJunkFirstCase;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCarPlatesFirstCase;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterSuggestedItem;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterWheelsRim;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterCCEMTAllCases;
+import com.cars.halamotor.view.fragments.InsuranceFragment;
 
 import java.util.ArrayList;
 
@@ -47,11 +41,10 @@ public class ListsMainScreenFragment extends Fragment {
 
     public ListsMainScreenFragment(){}
     View view;
-    ArrayList<String> insuranceArrayL = new ArrayList<String>();
     AdapterSuggestedItem adapterSuggestedItem;
     private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
 
-    TextView suggestedTV,suggestedSeeAllTV,insuranceTV,carForSaleTV,carForSaleSeeAllTV
+    TextView suggestedTV,suggestedSeeAllTV,carForSaleTV,carForSaleSeeAllTV
                 ,carForRentTV,carForRentSeeAllTV,exchangeCarTV,exchangeCarSeeAllTV
                 ,motorcycleTV,motorcycleSeeAllTV,trucksTV,trucksSeeAllTV
                 ,wheelsRimTV,wheelsRimSeeAllTV,carPlatesTV,carPlatesSeeAllTV
@@ -60,7 +53,6 @@ public class ListsMainScreenFragment extends Fragment {
                 ,exchangeCarSeeAllRL,motorcycleSeeAllRL,trucksSeeAllRL
                 ,wheelsRimSeeAllRL,carPlatesSeeAllRL,accessoriesSeeAllRL
                 ,junkCarSeeAllRL;
-    AdapterInsurance adapterInsurance;
 
     ArrayList<SuggestedItem> suggestedItemsArrayL = new ArrayList<SuggestedItem>();
     ArrayList<CCEMTFirestCase> carForSaleArrayL = new ArrayList<CCEMTFirestCase>();
@@ -80,18 +72,19 @@ public class ListsMainScreenFragment extends Fragment {
     AdapterCarPlatesFirstCase adapterCarPlatesFirstCase;
     AdapterAccAndJunkFirstCase adapterAccessoriesFirstCase,adapterJunkFirstCase;
 
-    RecyclerView suggestedItemRecyclerView,insuranceRecyclerView,carForSaleRecyclerView
+    RecyclerView suggestedItemRecyclerView,carForSaleRecyclerView
             ,carForRentRecyclerView,carExchangeRecyclerView,motorcycleRecyclerView
             ,junkCarRecyclerView,wheelsRimRecyclerView,carPlatesRecyclerView
             ,accessoriesRecyclerView,junkRecyclerView;
 
-    RecyclerView.LayoutManager layoutManagerSuggested,layoutManagerInsurance,layoutManagerCarForSale
+    RecyclerView.LayoutManager layoutManagerSuggested,layoutManagerCarForSale
             ,layoutManagerCarRentSale,layoutManagerCarExchange,layoutManagerCarMotorcycle
             , layoutManagerTrucks,layoutManagerWheelsRim,carPlatesWheelsRim
             , layoutManagerAccessories,layoutManagerJunk;
 
     private Activity activity;
 
+    InsuranceFragment insuranceFragment = new InsuranceFragment();
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -143,7 +136,7 @@ public class ListsMainScreenFragment extends Fragment {
         inti();
         changeFont();
         createSuggestedItemRV();
-        createInsuranceRV();
+        createInsuranceFragment();
         createCarForSaleRV();
         createCarForRentRV();
         createCarExchangeRV();
@@ -156,11 +149,16 @@ public class ListsMainScreenFragment extends Fragment {
         return view;
     }
 
+    private void createInsuranceFragment() {
+        getActivity().getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_insurance_fragment, insuranceFragment)
+                .commit();
+    }
+
     private void changeFont() {
         suggestedTV.setTypeface(Functions.changeFontBold(getActivity()));
         suggestedSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
 
-        insuranceTV.setTypeface(Functions.changeFontBold(getActivity()));
 
         carForSaleTV.setTypeface(Functions.changeFontBold(getActivity()));
         carForSaleSeeAllTV.setTypeface(Functions.changeFontGeneral(getActivity()));
@@ -289,26 +287,6 @@ public class ListsMainScreenFragment extends Fragment {
         carForSaleRecyclerView.setAdapter(adapterCarForSale);
     }
 
-    private void createInsuranceRV() {
-        fillInsurance();
-        insuranceRecyclerView.setHasFixedSize(true);
-        layoutManagerInsurance = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.HORIZONTAL, false);
-
-        insuranceRecyclerView.setLayoutManager(layoutManagerInsurance);
-        adapterInsurance =new AdapterInsurance(getActivity()
-                ,insuranceArrayL);
-        insuranceRecyclerView.setAdapter(adapterInsurance);
-    }
-
-    private void fillInsurance() {
-        insuranceArrayL = new ArrayList<String>();
-        insuranceArrayL.add("Aman");
-        insuranceArrayL.add("Methaq");
-        insuranceArrayL.add("Takaful");
-        insuranceArrayL.add("Watania");
-    }
-
     private void createSuggestedItemRV() {
         suggestedItemRecyclerView.setHasFixedSize(true);
         layoutManagerSuggested = new LinearLayoutManager(getActivity(),
@@ -322,7 +300,6 @@ public class ListsMainScreenFragment extends Fragment {
 
     private void inti() {
         suggestedItemRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_item_RV);
-        insuranceRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_insurance_RV);
         carForSaleRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_car_for_sale_RV);
         carForRentRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_car_for_rent_RV);
         carExchangeRecyclerView = (RecyclerView) view.findViewById(R.id.fragment_suggested_car_exchange_RV);
@@ -336,8 +313,6 @@ public class ListsMainScreenFragment extends Fragment {
         suggestedTV = (TextView) view.findViewById(R.id.fragment_list_main_suggested_tv);
         suggestedSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_stu_tv);
         suggestedSeeAllRL = (RelativeLayout) view.findViewById(R.id.fragment_list_main_see_all_stu_rl);
-
-        insuranceTV = (TextView) view.findViewById(R.id.fragment_list_main_insurance_tv);
 
         carForSaleTV = (TextView) view.findViewById(R.id.fragment_list_main_car_for_sale_tv);
         carForSaleSeeAllTV = (TextView) view.findViewById(R.id.fragment_list_main_see_all_cfs_tv);

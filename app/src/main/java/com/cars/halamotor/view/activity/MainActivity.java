@@ -426,6 +426,8 @@ public class MainActivity extends AppCompatActivity implements Filter{
             if (numberOfFilterSelected != 0)
             {
                 fragmentHome.removeLastFilter();
+            }else{
+                finish();
             }
 
         }else{

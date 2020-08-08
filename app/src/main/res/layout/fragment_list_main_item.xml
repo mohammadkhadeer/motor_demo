@@ -31,7 +31,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/suggested_to_you"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_suggested_tv"
                     />
@@ -48,7 +48,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -69,31 +69,10 @@
             android:layout_marginStart="0dp"
             />
 
-        <RelativeLayout
+        <FrameLayout
+            android:id="@+id/container_insurance_fragment"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            >
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textColor="@color/colorBlack"
-                android:textSize="18dp"
-                android:id="@+id/fragment_list_main_insurance_tv"
-                android:layout_marginLeft="12dp"
-                android:layout_marginRight="12dp"
-                android:text="@string/finish_ur_insurance_in_mint"
-                />
-        </RelativeLayout>
-
-        <android.support.v7.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/fragment_suggested_insurance_RV"
-            android:layout_marginTop="8dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="0dp"
-            />
+            android:layout_height="wrap_content" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -113,7 +92,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/car_for_sale"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_car_for_sale_tv"
                     />
@@ -130,7 +109,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -169,7 +148,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/car_for_rent"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_car_for_rent_tv"
                     />
@@ -186,7 +165,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -225,7 +204,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/exchange_car"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_car_exchange_tv"
                     />
@@ -242,7 +221,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -281,7 +260,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/motorcycle"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_car_motorcycle_tv"
                     />
@@ -298,7 +277,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/tab_message"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -337,7 +316,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/trucks"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_ist_main_car_trucks_tv"
                     />
@@ -353,7 +332,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -392,7 +371,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/wheels_rim"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_wheels_rim_tv"
                     />
@@ -409,7 +388,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -448,7 +427,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/car_plates"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_car_plates_tv"
                     />
@@ -465,7 +444,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -504,7 +483,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/accessories"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_accessories_tv"
                     />
@@ -521,7 +500,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"
@@ -560,7 +539,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/junk_car"
-                    android:textColor="@color/colorBlack"
+                    android:textColor="@color/colorPrimaryDark"
                     android:textSize="19dp"
                     android:id="@+id/fragment_list_main_junk_tv"
                     />
@@ -577,7 +556,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="See all"
+                    android:text="@string/see_all"
                     android:textColor="@color/colorPurple"
                     android:textSize="18dp"
                     android:layout_marginLeft="1dp"

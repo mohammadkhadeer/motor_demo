@@ -25,6 +25,22 @@ item table we saved before user used app can tke its init items
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="hala_motor.db";
 
+    public static final String TABLE_DRIVER_INFORMATION="driver_info_table";
+    public static final String COL_ITEM_DRIVER_INFORMATION_id="ID";
+    public static final String COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE_S="PROCESS_TYPE_S";
+    public static final String COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE="PROCESS_TYPE";
+    public static final String COL_ITEM_DRIVER_INFORMATION_PROCESS_CONTENT="PROCESS_CONTENT";
+    public static final String COL_ITEM_DRIVER_INFORMATION_PROCESS_CONTENT_S="PROCESS_CONTENT_S";
+    public static final String COL_ITEM_DRIVER_INFORMATION_PROCESS_STATUS="PROCESS_STATUS";
+
+    public static final String TABLE_CAR_DETAILS="car_details_table";
+    public static final String COL_ITEM_CAR_DETAILS_id="ID";
+    public static final String COL_ITEM_CAR_DETAILS_PROCESS_TYPE_S="PROCESS_TYPE_S";
+    public static final String COL_ITEM_CAR_DETAILS_PROCESS_TYPE="PROCESS_TYPE";
+    public static final String COL_ITEM_CAR_DETAILS_PROCESS_CONTENT="PROCESS_CONTENT";
+    public static final String COL_ITEM_CAR_DETAILS_PROCESS_CONTENT_S="PROCESS_CONTENT_S";
+    public static final String COL_ITEM_CAR_DETAILS_PROCESS_STATUS="PROCESS_STATUS";
+
     public static final String TABLE_ITEM="item_table";
     public static final String COL_ITEM_id="ID";
     public static final String COL_ITEM_BOOST_OR_NOT="BOOST_OR_NOT";
@@ -337,6 +353,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table "+TABLE_FOLLOWERS +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "NAME TEXT" + ",IMAGE TEXT" + ",ID_IN_SERVER TEXT" + ",FOLLOWING_ID TEXT" + ",FOLLOWING_ID_IN_OTHER_SAID TEXT)");
 
+        db.execSQL("create table "+TABLE_DRIVER_INFORMATION +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "PROCESS_TYPE_S TEXT" + ",PROCESS_TYPE TEXT" + ",PROCESS_CONTENT TEXT" + ",PROCESS_CONTENT_S TEXT" + ",PROCESS_STATUS TEXT)");
+
+        db.execSQL("create table "+TABLE_CAR_DETAILS +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "PROCESS_TYPE_S TEXT" + ",PROCESS_TYPE TEXT" + ",PROCESS_CONTENT TEXT" + ",PROCESS_CONTENT_S TEXT" + ",PROCESS_STATUS TEXT)");
+
     }
 
     @Override
@@ -351,6 +373,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_AccAndJunk);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_SIMILAR);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_FOLLOWERS);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_DRIVER_INFORMATION);
+        db.execSQL("DROP TABLE IF EXISTS "+TABLE_CAR_DETAILS);
 
         onCreate(db);
     }
@@ -746,6 +770,42 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
     }
 
+    public boolean insertDriverInfo(String processTypeS,String processType,String processContent
+            ,String processContentS,String processStatus)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE_S,processTypeS);
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE,processType);
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_CONTENT,processContent);
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_CONTENT_S,processContentS);
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_STATUS,processStatus);
+
+        long result= db.insert(TABLE_DRIVER_INFORMATION,null,contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
+    public boolean insertCarDetails(String processTypeS,String processType,String processContent
+            ,String processContentS,String processStatus)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_TYPE_S,processTypeS);
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_TYPE,processType);
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_CONTENT,processContent);
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_CONTENT_S,processContentS);
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_STATUS,processStatus);
+
+        long result= db.insert(TABLE_CAR_DETAILS,null,contentValues);
+        if(result == -1)
+            return false;
+        else
+            return true;
+    }
+
     ////////////////////tester to check if table EXISTS/////////
 
 //    public boolean doesTableExist() {
@@ -836,6 +896,20 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
+    public Cursor descendingDriverInfo(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_DRIVER_INFORMATION, null, null,
+                null, null, null, COL_ITEM_DRIVER_INFORMATION_id + " DESC", null);
+        return cursor;
+    }
+
+    public Cursor descendingCarDetails(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        Cursor cursor = db.query(TABLE_CAR_DETAILS, null, null,
+                null, null, null, COL_ITEM_CAR_DETAILS_id + " DESC", null);
+        return cursor;
+    }
+
     //////////////////////////////////////update/////////////////////
 
     public void updateNotification(String itemServerID,String openOrNotYet)
@@ -845,6 +919,30 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put(OPEN_OR_NOT_YET,openOrNotYet);
 
         db.update(TABLE_NOTIFICATION,contentValues," ITEM_SERVER_ID = ?",new String[] {itemServerID});
+    }
+
+    public void updateDriverInfo(String processTypeS,String processType,String processContent,String processContentS,String processStatus)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE,processType);
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_CONTENT,processContent);
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_CONTENT_S,processContentS);
+        contentValues.put(COL_ITEM_DRIVER_INFORMATION_PROCESS_STATUS,processStatus);
+
+        db.update(TABLE_DRIVER_INFORMATION,contentValues," PROCESS_TYPE_S = ?",new String[] {processTypeS});
+    }
+
+    public void updateCarDetails(String processTypeS,String processType,String processContent,String processContentS,String processStatus)
+    {
+        SQLiteDatabase db =this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_TYPE,processType);
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_CONTENT,processContent);
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_CONTENT_S,processContentS);
+        contentValues.put(COL_ITEM_CAR_DETAILS_PROCESS_STATUS,processStatus);
+
+        db.update(TABLE_CAR_DETAILS,contentValues," PROCESS_TYPE_S = ?",new String[] {processTypeS});
     }
 
     //////////////////////////////////////get single object//////////
@@ -889,6 +987,24 @@ public class DBHelper extends SQLiteOpenHelper {
     {
         SQLiteDatabase database = getWritableDatabase();
         Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_FOLLOWERS + " WHERE " + COLO_FOLLOWERS_ID_IN_SERVER + " = ? ", new String[]{itemServerID});
+        cursor.moveToFirst();
+
+        return cursor;
+    }
+
+    public Cursor getDriverIfon(String processTypeS)
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_DRIVER_INFORMATION + " WHERE " + COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE_S + " = ? ", new String[]{processTypeS});
+        cursor.moveToFirst();
+
+        return cursor;
+    }
+
+    public Cursor getCarDetails(String processTypeS)
+    {
+        SQLiteDatabase database = getWritableDatabase();
+        Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_CAR_DETAILS + " WHERE " + COL_ITEM_CAR_DETAILS_PROCESS_TYPE_S + " = ? ", new String[]{processTypeS});
         cursor.moveToFirst();
 
         return cursor;
@@ -941,6 +1057,16 @@ public class DBHelper extends SQLiteOpenHelper {
         return db.delete(TABLE_FOLLOWERS, " ID_IN_SERVER = ?",new String[] {userID});
     }
 
+    public Integer deleteDriverInfo(String processTypeS){
+        SQLiteDatabase db =this.getWritableDatabase();
+        return db.delete(TABLE_DRIVER_INFORMATION, " PROCESS_TYPE_S = ?",new String[] {processTypeS});
+    }
+
+    public Integer deleteCarDetails(String processTypeS){
+        SQLiteDatabase db =this.getWritableDatabase();
+        return db.delete(TABLE_CAR_DETAILS, " PROCESS_TYPE_S = ?",new String[] {processTypeS});
+    }
+
     //////////////////////////////////////delete data "All line" ////////////////
 
     public void deleteAllItem(){
@@ -988,6 +1114,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public void deleteAllFSC(){
         SQLiteDatabase db =this.getWritableDatabase();
         db.execSQL("DELETE FROM item_fcs_table"); //delete all rows in a table
+        db.close();
+    }
+
+    public void deleteAllDriverInfo(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        db.execSQL("DELETE FROM driver_info_table"); //delete all rows in a table
+        db.close();
+    }
+
+    public void deleteAllCarDetails(){
+        SQLiteDatabase db =this.getWritableDatabase();
+        db.execSQL("DELETE FROM car_details_table"); //delete all rows in a table
         db.close();
     }
 

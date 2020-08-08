@@ -11,6 +11,7 @@ import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CommentsComp;
+import com.cars.halamotor.model.DriverInformation;
 import com.cars.halamotor.model.Following;
 import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
@@ -26,6 +27,16 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 
 public class InsertFunctions {
 
+    public static boolean insertDriverProcessTable(DriverInformation driverInformation, DBHelper database) {
+        boolean isInserted = database.insertDriverInfo(
+                driverInformation.getDriverProcess().getProcessS()
+                ,driverInformation.getDriverProcess().getProcess()
+                ,driverInformation.getProcessContent().getProcessContent()
+                ,driverInformation.getProcessContent().getProcessContentS()
+                ,String.valueOf(driverInformation.isProcessStatus())
+        );
+        return isInserted;
+    }
     public static boolean insertFollowingTable(Following following, DBHelper database) {
         boolean isInserted = database.insertFollowing(
                 following.getName()

@@ -10,9 +10,12 @@ import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.model.CCEMTFirestCase;
 import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.model.DriverInformation;
+import com.cars.halamotor.model.DriverProcess;
 import com.cars.halamotor.model.FavouriteCallSearch;
 import com.cars.halamotor.model.Following;
 import com.cars.halamotor.model.NotificationComp;
+import com.cars.halamotor.model.ProcessContent;
 import com.cars.halamotor.model.SimilarItem;
 import com.cars.halamotor.model.SuggestedItem;
 import com.cars.halamotor.model.WheelsRimFirstCase;
@@ -22,6 +25,47 @@ import java.util.ArrayList;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 
 public class ReadFunction {
+
+    public static ArrayList<DriverInformation> getAllDriverProcess(Context context) {
+
+        ArrayList<DriverInformation> driverInformationArrayList = new ArrayList<DriverInformation>();
+
+        Cursor res = getDataBaseInstance(context).descendingDriverInfo();
+
+        while (res.moveToNext()) {
+            DriverProcess driverProcess= new DriverProcess(
+                    res.getString(2).replace("\n", "")
+                    ,res.getString(1).replace("\n", "")
+            );
+            ProcessContent processContent=new ProcessContent(
+                    res.getString(3).replace("\n", "")
+                    ,res.getString(4).replace("\n", "")
+            );
+            boolean isSelected = Boolean.valueOf(res.getString(5).replace("\n", ""));
+
+            DriverInformation driverInformation = new DriverInformation(
+                    driverProcess,processContent,isSelected
+            );
+            driverInformationArrayList.add(driverInformation);
+        }
+
+        return driverInformationArrayList;
+    }
+
+    //check if table have column
+    public static long checkIfDriverProcessCreated(Context context) {
+        SQLiteDatabase db = getDataBaseInstance(context).getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, "driver_info_table");
+        db.close();
+        return count;
+    }
+
+    public static long checkIfCarDetailsProcessCreated(Context context) {
+        SQLiteDatabase db = getDataBaseInstance(context).getReadableDatabase();
+        long count = DatabaseUtils.queryNumEntries(db, "car_details_table");
+        db.close();
+        return count;
+    }
 
     public static ArrayList<FavouriteCallSearch>
     getFCSCallSearch(ArrayList<BrowsingFilter> favouriteCallSearchesArrayListFilter

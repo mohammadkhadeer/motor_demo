@@ -912,7 +912,7 @@ public class Functions {
         {
             city = context.getResources().getString(R.string.sharjah);
         }
-        if (size == 22)
+        if (size == 21)
         {
             city = context.getResources().getString(R.string.al_ain);
         }
