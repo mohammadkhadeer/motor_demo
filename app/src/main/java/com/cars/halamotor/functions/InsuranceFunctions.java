@@ -1,17 +1,17 @@
 package com.cars.halamotor.functions;
 
 import android.content.Context;
-import android.util.Log;
+import android.database.Cursor;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
+import com.cars.halamotor.model.CertificateClaims;
 import com.cars.halamotor.model.DriverInformation;
 import com.cars.halamotor.model.DriverProcess;
 import com.cars.halamotor.model.LicenseDuration;
 import com.cars.halamotor.model.License_Nationality;
 import com.cars.halamotor.model.Nationality;
 import com.cars.halamotor.model.ProcessContent;
-import com.cars.halamotor.model.ReportType;
 
 import java.util.ArrayList;
 
@@ -628,6 +628,7 @@ public class InsuranceFunctions {
     public static ArrayList<DriverProcess> fillDriverProcessArrayL(Context context) {
         ArrayList<DriverProcess> driverProcessArrayL = new ArrayList<DriverProcess>();
 
+        driverProcessArrayL.add(new DriverProcess(context.getResources().getString(R.string.birth_day_process),context.getResources().getString(R.string.birth_day_process_s)));
         driverProcessArrayL.add(new DriverProcess(context.getResources().getString(R.string.email_process),context.getResources().getString(R.string.email_process_s)));
         driverProcessArrayL.add(new DriverProcess(context.getResources().getString(R.string.phone_number_process),context.getResources().getString(R.string.phone_number_process_s)));
         driverProcessArrayL.add(new DriverProcess(context.getResources().getString(R.string.name_process),context.getResources().getString(R.string.name_process_s)));
@@ -672,4 +673,42 @@ public class InsuranceFunctions {
         return numberOfCompletedProcess;
     }
 
+    public static DriverInformation getDriverProcess(Context context,String processTypeS){
+        Cursor res = getDataBaseInstance(context).getDriverInfo(processTypeS);
+
+        DriverProcess driverProcess= new DriverProcess(
+                res.getString(2).replace("\n", "")
+                ,res.getString(1).replace("\n", "")
+        );
+        ProcessContent processContent=new ProcessContent(
+                res.getString(3).replace("\n", "")
+                ,res.getString(4).replace("\n", "")
+        );
+        boolean isSelected = Boolean.valueOf(res.getString(5).replace("\n", ""));
+
+        DriverInformation driverInformation = new DriverInformation(
+                driverProcess,processContent,isSelected
+        );
+
+        return driverInformation;
+    }
+
+    public static void resetAllDriverInfoTable(Context context){
+        DBHelper database=getDataBaseInstance(context);
+        database.deleteAllDriverInfo();
+
+        createDriverInfoTable(context);
+    }
+
+    public static ArrayList<CertificateClaims> fillCertificateClaimsArrayL(Context context) {
+        ArrayList<CertificateClaims> certificateClaimsArrayL = new ArrayList<CertificateClaims>();
+
+        certificateClaimsArrayL.add(new CertificateClaims(context.getResources().getString(R.string.certificate_claims_1),context.getResources().getString(R.string.certificate_claims_1_s)));
+        certificateClaimsArrayL.add(new CertificateClaims(context.getResources().getString(R.string.certificate_claims_2),context.getResources().getString(R.string.certificate_claims_2_s)));
+        certificateClaimsArrayL.add(new CertificateClaims(context.getResources().getString(R.string.certificate_claims_3),context.getResources().getString(R.string.certificate_claims_3_s)));
+        certificateClaimsArrayL.add(new CertificateClaims(context.getResources().getString(R.string.certificate_claims_4),context.getResources().getString(R.string.certificate_claims_4_s)));
+        certificateClaimsArrayL.add(new CertificateClaims(context.getResources().getString(R.string.certificate_claims_5),context.getResources().getString(R.string.certificate_claims_5_s)));
+
+        return certificateClaimsArrayL;
+    }
 }

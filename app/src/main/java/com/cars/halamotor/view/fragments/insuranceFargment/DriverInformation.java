@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.fragments.insuranceFargment;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +19,9 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.EditDriverInfo;
 import com.cars.halamotor.view.activity.Insurance;
+import com.cars.halamotor.view.activity.ShowItemDetails;
 import com.cars.halamotor.view.adapters.adapterInsurance.AdapterDriverProcess;
 import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterSuggestedItem;
 
@@ -29,17 +32,21 @@ import static com.cars.halamotor.dataBase.ReadFunction.checkIfDriverProcessCreat
 import static com.cars.halamotor.dataBase.ReadFunction.getAllDriverProcess;
 import static com.cars.halamotor.functions.InsuranceFunctions.createDriverInfoTable;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
+import static com.cars.halamotor.functions.InsuranceFunctions.resetAllDriverInfoTable;
 
 public class DriverInformation extends Fragment implements AdapterDriverProcess.PassProcess {
 
     public DriverInformation(){}
     View view;
-    TextView textViewCompleteDriverInfo;
+    TextView textViewCompleteDriverInfo,textViewRestAll,textViewCompleteProcess,textViewNumberOfCompletedProcess;
     RecyclerView recyclerView;
     LinearLayout linearLayout,linearLayoutRestAllProcess;
     AdapterDriverProcess adapterDriverProcess;
     ArrayList<com.cars.halamotor.model.DriverInformation> driverAllProcessArrayL = new ArrayList<com.cars.halamotor.model.DriverInformation>();
     int numberOfCompletedProcess;
+    private static final int REQUEST_DETAILS = 130;
+    RecyclerView.LayoutManager layoutManager;
+    RelativeLayout relativeLayoutRestAll,relativeLayoutCompleteProcess;
 
     @Override
     public void onAttach(Context context) {
@@ -58,20 +65,23 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
         actionListenerToRL();
         createProcessRV();
         checkIfNoProcessSelectedMakeRestAllGone();
+        fillNumberOfCompletedProcess();
         return view;
     }
 
     private void checkIfNoProcessSelectedMakeRestAllGone() {
         if (numberOfCompletedProcess ==0)
         {
+            linearLayout.setVisibility(View.VISIBLE);
             linearLayoutRestAllProcess.setVisibility(View.GONE);
         }else{
+            linearLayout.setVisibility(View.GONE);
             linearLayoutRestAllProcess.setVisibility(View.VISIBLE);
         }
     }
 
-    RecyclerView.LayoutManager layoutManager;
     private void createProcessRV() {
+        driverAllProcessArrayL = new ArrayList<>();
         driverAllProcessArrayL = getAllDriverProcess(getActivity());
 
         layoutManager = new LinearLayoutManager(getActivity(),
@@ -90,6 +100,15 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
                 moveToCompleteInsuranceDetails();
             }
         });
+        relativeLayoutRestAll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                resetAllDriverInfoTable(getActivity());
+                numberOfCompletedProcess = numberOfDriverProcessSelected(getActivity());
+                checkIfNoProcessSelectedMakeRestAllGone();
+                createProcessRV();
+            }
+        });
     }
 
     private void moveToCompleteInsuranceDetails() {
@@ -100,6 +119,8 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
 
     private void changeFont() {
         textViewCompleteDriverInfo.setTypeface(Functions.changeFontGeneral(getActivity()));
+        textViewRestAll.setTypeface(Functions.changeFontGeneral(getActivity()));
+        textViewCompleteProcess.setTypeface(Functions.changeFontGeneral(getActivity()));
     }
 
     private void init() {
@@ -107,6 +128,11 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
         linearLayout = (LinearLayout) view.findViewById(R.id.driver_info_complete_info_ll);
         recyclerView = (RecyclerView) view.findViewById(R.id.driver_info_complete_info_rv);
         linearLayoutRestAllProcess = (LinearLayout) view.findViewById(R.id.driver_info_complete_rest_all_ll);
+        textViewRestAll = (TextView) view.findViewById(R.id.driver_info_complete_info_reset_tv);
+        textViewCompleteProcess = (TextView) view.findViewById(R.id.driver_info_complete_info_next_tv);
+        textViewNumberOfCompletedProcess = (TextView) view.findViewById(R.id.driver_info_complete_info_number_completed_process_tv);
+        relativeLayoutRestAll = (RelativeLayout) view.findViewById(R.id.driver_info_complete_rest_all_rl);
+        relativeLayoutCompleteProcess = (RelativeLayout) view.findViewById(R.id.driver_info_complete_info_nextRL);
     }
 
     private void creteDriverInfoProcessIfNotHaveIt() {
@@ -120,6 +146,35 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
 
     @Override
     public void onProcessClicked(com.cars.halamotor.model.DriverInformation driverInformation) {
+        Bundle bundle = new Bundle();
+        bundle.putString("processTypeS",driverInformation.getDriverProcess().getProcessS());
+        bundle.putString("processType",driverInformation.getDriverProcess().getProcess());
 
+        Intent intent = new Intent(getActivity(), EditDriverInfo.class);
+        intent.putExtras(bundle);
+        DriverInformation.this.startActivityForResult(intent , REQUEST_DETAILS);
+        getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_DETAILS && resultCode == Activity.RESULT_OK) {
+            numberOfCompletedProcess = numberOfDriverProcessSelected(getActivity());
+            checkIfNoProcessSelectedMakeRestAllGone();
+            createProcessRV();
+            fillNumberOfCompletedProcess();
+        }
+    }
+
+    private void fillNumberOfCompletedProcess() {
+        String text = "("+String.valueOf(numberOfCompletedProcess)+"/"+"10)";
+        textViewNumberOfCompletedProcess.setText(text);
+        if (numberOfCompletedProcess>0)
+        {
+            linearLayout.setVisibility(View.GONE);
+        }else{
+            linearLayout.setVisibility(View.VISIBLE);
+        }
     }
 }

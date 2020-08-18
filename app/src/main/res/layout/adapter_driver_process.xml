@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/adapter_driver_process_rl"
-            android:background="?android:attr/selectableItemBackground"
+            android:background="@drawable/message"
             >
             <RelativeLayout
                 android:layout_width="match_parent"

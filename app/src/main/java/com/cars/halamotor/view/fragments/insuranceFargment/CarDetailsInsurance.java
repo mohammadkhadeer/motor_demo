@@ -41,7 +41,7 @@ public class CarDetailsInsurance extends Fragment {
         //9.Current policy is "Third party liability only
         //10.Do your current policy include agency repair
         //11.is your insurance policy expired
-        Log.i("TAG","Number: "+String.valueOf(checkIfCarDetailsProcessCreated(getActivity())));
+//        Log.i("TAG","Number: "+String.valueOf(checkIfCarDetailsProcessCreated(getActivity())));
     }
 
     private void actionListenerToRL() {

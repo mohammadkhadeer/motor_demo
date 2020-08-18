@@ -38,7 +38,9 @@
     <string name="junk_car_s">Junk car</string>
     <string name="suggested_to_you">Suggested to you</string>
     <string name="next">Next</string>
+    <string name="finish">Finish</string>
     <string name="reset">Reset</string>
+    <string name="reset_all">Reset all</string>
     <string name="call">Call</string>
     <string name="upload_video">Add video</string>
     <string name="upload_photo">Add photo</string>
@@ -62,8 +64,16 @@
     <string name="complete">Complete process</string>
     <string name="complete_driver_info">Complete driver information</string>
     <string name="complete_car_details_insurance">Complete car details</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="fill_how_many">Fill how many</string>
 
-    <string name="empty">Empty</string>
+    <string name="empty">Not complete</string>
+
+    <string name="ur_nationality">Your Nationality is</string>
+    <string name="fill_name">Fill full name please</string>
+    <string name="fill_phone_number">Fill phone number please</string>
+    <string name="fill_email">Fill email please</string>
 
     /////////////////////Driver information/////////////////////
     //1
@@ -75,7 +85,7 @@
     //2
     <string name="lic_nationality">License Nationality</string>
 
-    <string name="lic_nationality_q">the country that issued the first driver\'s license \?</string>
+    <string name="lic_nationality_q">the country that issued the first driver\'s license </string>
 
     <string name="lic_nationality_process">License Nationality</string>
     <string name="lic_nationality_process_s">License Nationality</string>
@@ -108,14 +118,30 @@
     <string name="register_date_process">Register Date</string>
     <string name="register_date_process_s">Register Date</string>
 
+
     //5
     <string name="insurance_pay">Did you pay your uae car insurance last 12 months\?</string>
 
     <string name="insurance_pay_process">Insurance pay</string>
     <string name="insurance_pay_process_s">Insurance pay</string>
 
+    <string name="insurance_pay2">How many time claim last 12 months\?</string>
+    <string name="how_many">How many</string>
+
     //6
-    <string name="certificate_claims">Did you have "no claims certificate" from your insurance company\?</string>
+    <string name="certificate_claims">Did you have \"no claims certificate\" from your insurance company\?</string>
+
+    <string name="certificate_claims_1">No \' have\'nt</string>
+    <string name="certificate_claims_2">Yes 1 year</string>
+    <string name="certificate_claims_3">Yes 2 years</string>
+    <string name="certificate_claims_4">Yes 3 years</string>
+    <string name="certificate_claims_5">Yes more 4 years</string>
+
+    <string name="certificate_claims_1_s">No \' have\'nt</string>
+    <string name="certificate_claims_2_s">Yes 1 year</string>
+    <string name="certificate_claims_3_s">Yes 2 years</string>
+    <string name="certificate_claims_4_s">Yes 3 years</string>
+    <string name="certificate_claims_5_s">Yes more 4 years</string>
 
     <string name="certificate_claims_process">Certificate claims</string>
     <string name="certificate_claims_process_s">Certificate claims</string>
@@ -137,6 +163,12 @@
 
     <string name="email_process">Email</string>
     <string name="email_process_s">Email</string>
+
+    //10
+    <string name="birth_day">Please set your birth day</string>
+
+    <string name="birth_day_process">Birth day</string>
+    <string name="birth_day_process_s">Birth day</string>
 
 
     <string name="insurance_affected">Insurance Affected by\n

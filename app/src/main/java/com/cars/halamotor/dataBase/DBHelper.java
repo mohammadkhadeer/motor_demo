@@ -992,7 +992,7 @@ public class DBHelper extends SQLiteOpenHelper {
         return cursor;
     }
 
-    public Cursor getDriverIfon(String processTypeS)
+    public Cursor getDriverInfo(String processTypeS)
     {
         SQLiteDatabase database = getWritableDatabase();
         Cursor cursor = database.rawQuery("SELECT * FROM " + TABLE_DRIVER_INFORMATION + " WHERE " + COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE_S + " = ? ", new String[]{processTypeS});

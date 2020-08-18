@@ -16,6 +16,7 @@ import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.fragments.insuranceFargment.CarDetailsInsurance;
 import com.cars.halamotor.view.fragments.insuranceFargment.DriverInformation;
 
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.sharedPreferences.InsuranceSP.cleanInsuranceStatus;
 import static com.cars.halamotor.sharedPreferences.InsuranceSP.getInsuranceStatusSP;
 import static com.cars.halamotor.sharedPreferences.InsuranceSP.saveInsuranceSP;
@@ -30,6 +31,7 @@ public class Insurance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insurance);
 
+        //getDataBaseInstance(this).deleteAllDriverInfo();
         statusBarColor();
         inti();
         dialogMessage();

@@ -1,0 +1,92 @@
+package com.cars.halamotor.view.fragments.driverInformationFragment;
+
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.DatePicker;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.cars.halamotor.R;
+import com.cars.halamotor.functions.Functions;
+
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.functions.Functions.getDAY;
+import static com.cars.halamotor.functions.Functions.getMONTH;
+import static com.cars.halamotor.functions.Functions.getYEAR;
+
+public class BirthDay extends Fragment {
+
+    View view;
+    TextView textViewQ,textViewNext;
+    RelativeLayout relativeLayoutNext;
+    DatePicker datePicker;
+    private int yearInt, monthInt, dayInt,
+            yearDPInt, monthDPInt, dayDPInt;
+    public BirthDay(){}
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        view = inflater.inflate(R.layout.fragment_birth_day, container, false);
+
+        inti();
+        changeFont();
+        intiDateToStartInDataP();
+        actionListenerToNext();
+        return view;
+    }
+
+    private void intiDateToStartInDataP() {
+        yearInt = 1992;
+        monthInt = 11;
+        dayInt = 26;
+        datePicker.init(yearInt, monthInt, dayInt, null);
+    }
+
+    private void actionListenerToNext() {
+        relativeLayoutNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                yearDPInt = datePicker.getYear();
+                monthDPInt  = datePicker.getMonth() + 1;
+                dayDPInt = datePicker.getDayOfMonth();
+
+                String date = String.valueOf(yearDPInt)+"/"+String.valueOf(monthDPInt)+"/" +String.valueOf(dayDPInt);
+                Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
+
+                getDataBaseInstance(getActivity()).updateDriverInfo(
+                        "Birth day",getActivity().getResources().getString(R.string.birth_day_process)
+                        ,date
+                        ,date,"true");
+
+                Intent resultIntent = new Intent();
+                getActivity().setResult(Activity.RESULT_OK, resultIntent);
+                getActivity().finish();
+            }
+        });
+    }
+
+    private void inti() {
+        textViewQ = (TextView) view.findViewById(R.id.fragment_birth_day_q_tv);
+        textViewNext = (TextView) view.findViewById(R.id.fragment_birth_day_next_tv);
+        relativeLayoutNext = (RelativeLayout) view.findViewById(R.id.fragment_birth_day_next_rl);
+        datePicker = (DatePicker) view.findViewById(R.id.fragment_birth_day_calendar_v);
+    }
+
+    private void changeFont() {
+        textViewQ.setTypeface(Functions.changeFontGeneral(getActivity()));
+        textViewNext.setTypeface(Functions.changeFontGeneral(getActivity()));
+    }
+
+    public void endDriverNationality(){
+        Intent resultIntent = new Intent();
+        getActivity().setResult(Activity.RESULT_OK, resultIntent);
+        getActivity().finish();
+    }
+}

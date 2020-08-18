@@ -42,4 +42,20 @@ public class UserInfoSP {
         }
     }
 
+    public static String getUserNameFromSP(Context context) {
+        String name,name1,name2;
+        SharedPreferences shared = context.getSharedPreferences(REGISTER, MODE_PRIVATE);
+        //can use any comp from user info to check
+        name1 = (shared.getString("firstName", ""));
+        name2 = (shared.getString("lastName", ""));
+        name = name1+" "+name2;
+        if (name.equals("") || name == null) {
+            return  "empty";
+        }
+        else {
+            return  name;
+        }
+    }
+
+
 }

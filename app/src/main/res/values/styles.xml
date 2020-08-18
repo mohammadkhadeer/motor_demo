@@ -8,6 +8,12 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="MyDatePickerSpinnerStyle" parent="@android:style/Widget.Material.DatePicker">
+        <item name="android:datePickerMode">spinner</item>
+        <item name="android:calendarViewShown">false</item>
+        <item name="colorControlNormal">#039776</item>
+    </style>
+
     <style name="popup_window_animation_phone">
         <item name="android:windowEnterAnimation">@anim/fade_in_animation</item>
     </style>

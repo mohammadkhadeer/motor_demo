@@ -3,6 +3,7 @@ package com.cars.halamotor.view.adapters.adapterInsurance;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -47,17 +48,41 @@ public class AdapterDriverProcess extends RecyclerView.Adapter<AdapterDriverProc
             if (driverProcessArrayL.get(position).isProcessStatus()==true)
             {
                 //process completed
+                fillProcessWithContent(position,holder);
             }else{
                 //process not completed
+                fillProcessWithOutContent(context,position,holder);
             }
         }
         actionListenerToCardView(position,holder);
     }
 
-    private void fillAllProcessNotCompleted(Context context, int position, ViewHolder holder) {
+    private void fillProcessWithOutContent(Context context,int position, ViewHolder holder) {
+        holder.relativeLayout.setAlpha((float) 0.6);
         holder.driverProcessTextView.setText(driverProcessArrayL.get(position).getDriverProcess().getProcess());
-        holder.driverProcessContentTextView.setText("");
-//        holder.driverProcessContentTextView.setText(driverProcessArrayL.get(position).getProcessContent().getProcessContent());
+        holder.driverProcessContentTextView.setText(driverProcessArrayL.get(position).getProcessContent().getProcessContent());
+        holder.driverProcessContentTextView.setTextColor(context.getResources().getColor(R.color.colorRed));
+        holder.driverProcessTextView.setTextColor(context.getResources().getColor(R.color.colorBlack6));
+        holder.driverProcessContentTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+        holder.driverProcessTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 11f);
+    }
+
+    private void fillProcessWithContent(int position, ViewHolder holder) {
+        holder.relativeLayout.setAlpha((float) 1.0);
+        holder.driverProcessTextView.setText(driverProcessArrayL.get(position).getDriverProcess().getProcess());
+        holder.driverProcessContentTextView.setText(driverProcessArrayL.get(position).getProcessContent().getProcessContent());
+
+        holder.driverProcessContentTextView.setTextColor(context.getResources().getColor(R.color.colorBlue7));
+        holder.driverProcessTextView.setTextColor(context.getResources().getColor(R.color.colorPrimaryDark));
+
+        holder.driverProcessContentTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 14f);
+        holder.driverProcessTextView.setTextSize(TypedValue.COMPLEX_UNIT_SP, 13f);
+    }
+
+    private void fillAllProcessNotCompleted(Context context, int position, ViewHolder holder) {
+        holder.relativeLayout.setAlpha((float) 0.6);
+        holder.driverProcessTextView.setText(driverProcessArrayL.get(position).getDriverProcess().getProcess());
+        holder.driverProcessContentTextView.setVisibility(View.GONE);
     }
 
     private void actionListenerToCardView(final int position, ViewHolder holder) {

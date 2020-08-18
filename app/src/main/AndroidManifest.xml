@@ -15,82 +15,65 @@
         android:roundIcon="@drawable/logo_t"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
-        <activity android:name=".view.activity.ReportActivity"
+        <activity android:name=".view.activity.EditDriverInfo"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme44">
-
-        </activity>
-
+            android:theme="@style/AppTheme23"></activity>
+        <activity
+            android:name=".view.activity.ReportActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme44"></activity>
         <activity
             android:name=".view.activity.AboutUs"
             android:theme="@style/AppTheme22" />
         <activity android:name=".view.activity.EditPostActivity" />
-
         <activity
             android:name=".view.activity.UserProfile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme22" />
-
         <activity android:name=".view.activity.FollowingActivity" />
-
         <activity android:name=".view.activity.ShowPostsActivity" />
-
         <activity
             android:name=".view.activity.ContactUs"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme22" />
-
         <activity
             android:name=".view.activity.ShowFCS"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme23" />
-
-        <activity android:name=".view.activity.Insurance"
+        <activity
+            android:name=".view.activity.Insurance"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme24"
-            >
+            android:theme="@style/AppTheme24">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".view.activity.ShowItemDetails"
             android:label="@string/title_activity_show_item_details"
             android:theme="@style/AppTheme.NoActionBar" />
-
-
         <activity
             android:name=".view.activity.SplashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
-
-
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
-
         <activity
             android:name=".view.activity.CarPlates"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
-
         <activity
             android:name=".view.activity.WheelsRim"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
-
         <activity
             android:name=".view.activity.selectAddress.SelectCityAndNeighborhood"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
-
         <activity
             android:name=".view.activity.CarDetails"
             android:screenOrientation="portrait"
