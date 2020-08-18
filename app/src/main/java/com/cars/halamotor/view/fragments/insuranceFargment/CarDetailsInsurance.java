@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.activity.Insurance;
 
 import static com.cars.halamotor.dataBase.ReadFunction.checkIfCarDetailsProcessCreated;
@@ -54,7 +55,13 @@ public class CarDetailsInsurance extends Fragment {
     }
 
     private void moveToCompleteInsuranceDetails() {
-        Intent intent = new Intent(getActivity(), Insurance.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("partType","2");
+        bundle.putString("from","main");
+
+
+        Intent intent = new Intent(getActivity(), CompleteInsuranceInfo.class);
+        intent.putExtras(bundle);
         startActivity(intent);
         getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }

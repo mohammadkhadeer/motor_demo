@@ -16,16 +16,16 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
-
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.sharedPreferences.UserInfoSP.getUserNameFromSP;
+import static com.cars.halamotor.sharedPreferences.UserInfoSP.getUserEmailFromSP;
 
 public class Email extends Fragment {
 
     View view;
     TextView textViewQ,textViewNext,textViewHint;
     RelativeLayout relativeLayoutNext;
-    String userName;
+    String email;
     EditText editText;
     public Email(){}
 
@@ -35,7 +35,7 @@ public class Email extends Fragment {
         view = inflater.inflate(R.layout.fragment_email, container, false);
 
         inti();
-        userName = getUserNameFromSP(getActivity());
+        email = getUserEmailFromSP(getActivity());
         fillNameInEditText();
         changeFont();
         actionListener();
@@ -43,10 +43,10 @@ public class Email extends Fragment {
     }
 
     private void fillNameInEditText() {
-        if (userName != null || userName.equals(""))
+        if (email != null || email.equals(""))
         {
             textViewHint.setVisibility(View.GONE);
-            editText.setText(userName);
+            editText.setText(email);
         }
     }
 
@@ -97,18 +97,35 @@ public class Email extends Fragment {
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.fill_email)
                             ,Toast.LENGTH_SHORT).show();
                 }else{
-                    getDataBaseInstance(getActivity()).updateDriverInfo(
-                            "Email",getActivity().getResources().getString(R.string.email_process)
-                            ,editText.getText().toString()
-                            ,editText.getText().toString(),"true");
-
-                    Intent resultIntent = new Intent();
-                    getActivity().setResult(Activity.RESULT_OK, resultIntent);
-                    getActivity().finish();
+                    saveInDB();
+                    if (getProcessTypeFromIntent().equals("fill"))
+                    {
+                        CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+                        completeInsuranceInfo.nextFragment("Birth day");
+                    }else {
+                        Intent resultIntent = new Intent();
+                        getActivity().setResult(Activity.RESULT_OK, resultIntent);
+                        getActivity().finish();
+                    }
                 }
-                //saveInDB();
             }
         });
+    }
+
+    private void saveInDB() {
+        getDataBaseInstance(getActivity()).updateDriverInfo(
+                "Email",getActivity().getResources().getString(R.string.email_process)
+                ,editText.getText().toString()
+                ,editText.getText().toString(),"true");
+    }
+
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
     }
 
     private void inti() {

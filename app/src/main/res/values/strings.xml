@@ -69,6 +69,8 @@
     <string name="fill_how_many">Fill how many</string>
 
     <string name="empty">Not complete</string>
+    <string name="driver_info">Driver information</string>
+    <string name="car_info">Car information</string>
 
     <string name="ur_nationality">Your Nationality is</string>
     <string name="fill_name">Fill full name please</string>
@@ -131,13 +133,13 @@
     //6
     <string name="certificate_claims">Did you have \"no claims certificate\" from your insurance company\?</string>
 
-    <string name="certificate_claims_1">No \' have\'nt</string>
-    <string name="certificate_claims_2">Yes 1 year</string>
-    <string name="certificate_claims_3">Yes 2 years</string>
-    <string name="certificate_claims_4">Yes 3 years</string>
-    <string name="certificate_claims_5">Yes more 4 years</string>
+    <string name="certificate_claims_1">No\, have\'nt</string>
+    <string name="certificate_claims_2">Yes\, 1 year</string>
+    <string name="certificate_claims_3">Yes\, 2 years</string>
+    <string name="certificate_claims_4">Yes\, 3 years</string>
+    <string name="certificate_claims_5">Yes\, more 4 years</string>
 
-    <string name="certificate_claims_1_s">No \' have\'nt</string>
+    <string name="certificate_claims_1_s">No have\'nt</string>
     <string name="certificate_claims_2_s">Yes 1 year</string>
     <string name="certificate_claims_3_s">Yes 2 years</string>
     <string name="certificate_claims_4_s">Yes 3 years</string>

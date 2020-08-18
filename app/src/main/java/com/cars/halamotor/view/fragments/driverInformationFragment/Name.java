@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.sharedPreferences.UserInfoSP.getUserNameFromSP;
@@ -88,6 +89,14 @@ public class Name extends Fragment {
         textViewHint.setVisibility(View.GONE);
     }
 
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
+    }
 
     private void actionListenerToNext() {
         relativeLayoutNext.setOnClickListener(new View.OnClickListener() {
@@ -98,18 +107,26 @@ public class Name extends Fragment {
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.fill_name)
                             ,Toast.LENGTH_SHORT).show();
                 }else{
-                    getDataBaseInstance(getActivity()).updateDriverInfo(
-                            "Name",getActivity().getResources().getString(R.string.name_process)
-                            ,editText.getText().toString()
-                            ,editText.getText().toString(),"true");
-
-                    Intent resultIntent = new Intent();
-                    getActivity().setResult(Activity.RESULT_OK, resultIntent);
-                    getActivity().finish();
+                    saveInDB();
+                    if (getProcessTypeFromIntent().equals("fill"))
+                    {
+                        CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+                        completeInsuranceInfo.nextFragment("Phone number");
+                    }else{
+                        Intent resultIntent = new Intent();
+                        getActivity().setResult(Activity.RESULT_OK, resultIntent);
+                        getActivity().finish();
+                    }
                 }
-                //saveInDB();
             }
         });
+    }
+
+    private void saveInDB() {
+        getDataBaseInstance(getActivity()).updateDriverInfo(
+                "Name",getActivity().getResources().getString(R.string.name_process)
+                ,editText.getText().toString()
+                ,editText.getText().toString(),"true");
     }
 
     private void inti() {

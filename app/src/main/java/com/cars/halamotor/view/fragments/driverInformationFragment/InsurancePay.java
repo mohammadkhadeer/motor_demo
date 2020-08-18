@@ -19,6 +19,7 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.functions.Functions.getDAY;
@@ -93,12 +94,30 @@ public class InsurancePay extends Fragment {
         });
     }
 
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
+    }
+
     private void actionListenerToNo() {
         relativeLayoutNo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 linearLayout.setVisibility(View.GONE);
                 saveInDB();
+                if (getProcessTypeFromIntent().equals("fill"))
+                {
+                    CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+                    completeInsuranceInfo.nextFragment("Certificate claims");
+                }else{
+                    Intent resultIntent = new Intent();
+                    getActivity().setResult(Activity.RESULT_OK, resultIntent);
+                    getActivity().finish();
+                }
             }
         });
     }
@@ -113,14 +132,20 @@ public class InsurancePay extends Fragment {
                     Toast.makeText(getActivity(),getActivity().getResources().getString(R.string.fill_how_many)
                             ,Toast.LENGTH_SHORT).show();
                 }else{
-                    getDataBaseInstance(getActivity()).updateDriverInfo(
-                            "Insurance pay",getActivity().getResources().getString(R.string.insurance_pay_process)
-                            ,editText.getText().toString()
-                            ,editText.getText().toString(),"true");
+                    if (getProcessTypeFromIntent().equals("fill"))
+                    {
+                        CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+                        completeInsuranceInfo.nextFragment("Certificate claims");
+                    }else {
+                        getDataBaseInstance(getActivity()).updateDriverInfo(
+                                "Insurance pay", getActivity().getResources().getString(R.string.insurance_pay_process)
+                                , editText.getText().toString()
+                                , editText.getText().toString(), "true");
 
-                    Intent resultIntent = new Intent();
-                    getActivity().setResult(Activity.RESULT_OK, resultIntent);
-                    getActivity().finish();
+                        Intent resultIntent = new Intent();
+                        getActivity().setResult(Activity.RESULT_OK, resultIntent);
+                        getActivity().finish();
+                    }
                 }
                 //saveInDB();
             }
@@ -135,10 +160,6 @@ public class InsurancePay extends Fragment {
                 "Insurance pay",getActivity().getResources().getString(R.string.insurance_pay_process)
                 ,no
                 ,"No","true");
-
-        Intent resultIntent = new Intent();
-        getActivity().setResult(Activity.RESULT_OK, resultIntent);
-        getActivity().finish();
     }
 
     private void inti() {

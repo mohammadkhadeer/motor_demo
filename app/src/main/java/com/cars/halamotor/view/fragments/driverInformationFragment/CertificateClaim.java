@@ -21,6 +21,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CertificateClaims;
 import com.cars.halamotor.model.LicenseDuration;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterCertificateClaims;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverDuration;
 
@@ -78,16 +79,35 @@ public class CertificateClaim extends Fragment implements AdapterCertificateClai
         getActivity().finish();
     }
 
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
+    }
+
     @Override
     public void onLicenseCertificateClaimsClicked(CertificateClaims certificateClaims) {
+        saveInDB(certificateClaims);
+
+        if (getProcessTypeFromIntent().equals("fill"))
+        {
+            CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+            completeInsuranceInfo.nextFragment("Name");
+        }else{
+            Intent resultIntent = new Intent();
+            getActivity().setResult(Activity.RESULT_OK, resultIntent);
+            getActivity().finish();
+        }
+    }
+
+    private void saveInDB(CertificateClaims certificateClaims) {
         Toast.makeText(getActivity(),certificateClaims.getClaims(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Certificate claims",getActivity().getResources().getString(R.string.certificate_claims_process)
                 ,certificateClaims.getClaims()
                 ,certificateClaims.getClaimsS(),"true");
-
-        Intent resultIntent = new Intent();
-        getActivity().setResult(Activity.RESULT_OK, resultIntent);
-        getActivity().finish();
     }
 }

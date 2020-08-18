@@ -673,6 +673,45 @@ public class InsuranceFunctions {
         return numberOfCompletedProcess;
     }
 
+    public static String nextFragment(int numberOfCompleteFragments){
+        String nextFragment = null;
+
+        switch (numberOfCompleteFragments) {
+            case 0:
+                nextFragment = "Nationality";
+                break;
+            case 1:
+                nextFragment = "License Nationality";
+                break;
+            case 2:
+                nextFragment = "Drive duration";
+                break;
+            case 3:
+                nextFragment = "Register Date";
+                break;
+            case 4:
+                nextFragment = "Insurance pay";
+                break;
+            case 5:
+                nextFragment = "Certificate claims";
+                break;
+            case 6:
+                nextFragment = "Name";
+                break;
+            case 7:
+                nextFragment = "Phone number";
+                break;
+            case 8:
+                nextFragment = "Email";
+                break;
+            case 9:
+                nextFragment = "Birth day";
+                break;
+        }
+
+        return nextFragment;
+    }
+
     public static DriverInformation getDriverProcess(Context context,String processTypeS){
         Cursor res = getDataBaseInstance(context).getDriverInfo(processTypeS);
 

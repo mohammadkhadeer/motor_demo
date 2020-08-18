@@ -21,6 +21,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.License_Nationality;
 import com.cars.halamotor.model.Nationality;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverLicenceNationality;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverNationality;
 
@@ -123,9 +124,15 @@ public class LicenceNationality extends Fragment implements AdapterDriverLicence
                         ,nationalityS
                         ,"true");
 
-                Intent resultIntent = new Intent();
-                getActivity().setResult(Activity.RESULT_OK, resultIntent);
-                getActivity().finish();
+                if (getProcessTypeFromIntent().equals("fill"))
+                {
+                    CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+                    completeInsuranceInfo.nextFragment("Drive duration");
+                }else{
+                    Intent resultIntent = new Intent();
+                    getActivity().setResult(Activity.RESULT_OK, resultIntent);
+                    getActivity().finish();
+                }
             }
         });
     }
@@ -219,16 +226,34 @@ public class LicenceNationality extends Fragment implements AdapterDriverLicence
         getActivity().finish();
     }
 
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
+    }
+
     @Override
     public void onLicenceNationalityClicked(License_Nationality license_nationality) {
+        saveInDB(license_nationality);
+        if (getProcessTypeFromIntent().equals("fill"))
+        {
+            CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+            completeInsuranceInfo.nextFragment("Drive duration");
+        }else{
+            Intent resultIntent = new Intent();
+            getActivity().setResult(Activity.RESULT_OK, resultIntent);
+            getActivity().finish();
+        }
+    }
+
+    private void saveInDB(License_Nationality license_nationality) {
         Toast.makeText(getActivity(),license_nationality.getLicenseNationality(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "License Nationality",getActivity().getResources().getString(R.string.lic_nationality_process)
                 ,license_nationality.getLicenseNationality()
                 ,license_nationality.getLicenseNationalityS(),"true");
-
-        Intent resultIntent = new Intent();
-        getActivity().setResult(Activity.RESULT_OK, resultIntent);
-        getActivity().finish();
     }
 }

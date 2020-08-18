@@ -24,6 +24,7 @@ import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarFuel;
 import com.cars.halamotor.model.Nationality;
 import com.cars.halamotor.view.activity.CarDetails;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverNationality;
 import com.cars.halamotor.view.adapters.adapterInCarDetails.AdapterCarFuel;
 
@@ -180,17 +181,35 @@ public class DriverNationality extends Fragment implements AdapterDriverNational
         textViewChange = (TextView) view.findViewById(R.id.fragment_driver_nationality_change_natio_tv);
     }
 
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
+    }
+
     @Override
     public void onNationalityClicked(Nationality nationality) {
+        saveInDB(nationality);
+        if (getProcessTypeFromIntent().equals("fill"))
+        {
+            CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+            completeInsuranceInfo.nextFragment("License Nationality");
+        }else{
+            Intent resultIntent = new Intent();
+            getActivity().setResult(Activity.RESULT_OK, resultIntent);
+            getActivity().finish();
+        }
+    }
+
+    private void saveInDB(Nationality nationality) {
         Toast.makeText(getActivity(),nationality.getNationality(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Nationality",getActivity().getResources().getString(R.string.nationality_process)
                 ,nationality.getNationality()
                 ,nationality.getNationalityS(),"true");
-
-        Intent resultIntent = new Intent();
-        getActivity().setResult(Activity.RESULT_OK, resultIntent);
-        getActivity().finish();
     }
 
     public void endDriverNationality(){

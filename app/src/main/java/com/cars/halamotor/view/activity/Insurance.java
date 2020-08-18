@@ -26,6 +26,9 @@ public class Insurance extends AppCompatActivity {
     TextView textViewWelcome;
     CarDetailsInsurance carDetailsInsurance = new CarDetailsInsurance();
     DriverInformation driverInformation = new DriverInformation();
+    SharedPreferences.Editor editor;
+    SharedPreferences sharedPreferences;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,9 +42,6 @@ public class Insurance extends AppCompatActivity {
         createDriverFragment();
         createCarFragment();
     }
-
-    SharedPreferences.Editor editor;
-    SharedPreferences sharedPreferences;
 
     private void createCarFragment() {
         getSupportFragmentManager().beginTransaction()

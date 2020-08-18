@@ -15,13 +15,20 @@
         android:roundIcon="@drawable/logo_t"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.EditDriverInfo"
+        <activity android:name=".view.activity.CompleteInsuranceInfo"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme23"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            >
+
+        </activity>
+        <activity
+            android:name=".view.activity.EditDriverInfo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme23" />
         <activity
             android:name=".view.activity.ReportActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme44"></activity>
+            android:theme="@style/AppTheme44" />
         <activity
             android:name=".view.activity.AboutUs"
             android:theme="@style/AppTheme22" />
@@ -53,11 +60,12 @@
         <activity
             android:name=".view.activity.ShowItemDetails"
             android:label="@string/title_activity_show_item_details"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"
+            />
         <activity
             android:name=".view.activity.SplashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"

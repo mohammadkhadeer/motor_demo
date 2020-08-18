@@ -21,6 +21,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.LicenseDuration;
 import com.cars.halamotor.model.License_Nationality;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverDuration;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverLicenceNationality;
 
@@ -132,17 +133,36 @@ public class DriverDuration extends Fragment implements AdapterDriverDuration.Pa
         textViewQ.setTypeface(Functions.changeFontGeneral(getActivity()));
     }
 
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
+    }
+
     @Override
     public void onLicenseDurationClicked(LicenseDuration licenseDuration) {
+        saveInDB(licenseDuration);
+
+        if (getProcessTypeFromIntent().equals("fill"))
+        {
+            CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+            completeInsuranceInfo.nextFragment("Register Date");
+        }else{
+            Intent resultIntent = new Intent();
+            getActivity().setResult(Activity.RESULT_OK, resultIntent);
+            getActivity().finish();
+        }
+    }
+
+    private void saveInDB(LicenseDuration licenseDuration) {
         Toast.makeText(getActivity(),licenseDuration.getDuration(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Drive duration",getActivity().getResources().getString(R.string.drive_duration_process)
                 ,licenseDuration.getDuration()
                 ,licenseDuration.getDurationS(),"true");
-
-        Intent resultIntent = new Intent();
-        getActivity().setResult(Activity.RESULT_OK, resultIntent);
-        getActivity().finish();
     }
 
     public void endDriverNationality(){

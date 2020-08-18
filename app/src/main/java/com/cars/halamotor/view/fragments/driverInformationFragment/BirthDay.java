@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.functions.Functions.getDAY;
@@ -44,32 +45,49 @@ public class BirthDay extends Fragment {
 
     private void intiDateToStartInDataP() {
         yearInt = 1992;
-        monthInt = 11;
+        monthInt = 10;
         dayInt = 26;
         datePicker.init(yearInt, monthInt, dayInt, null);
+    }
+
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
     }
 
     private void actionListenerToNext() {
         relativeLayoutNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                yearDPInt = datePicker.getYear();
-                monthDPInt  = datePicker.getMonth() + 1;
-                dayDPInt = datePicker.getDayOfMonth();
-
-                String date = String.valueOf(yearDPInt)+"/"+String.valueOf(monthDPInt)+"/" +String.valueOf(dayDPInt);
-                Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
-
-                getDataBaseInstance(getActivity()).updateDriverInfo(
-                        "Birth day",getActivity().getResources().getString(R.string.birth_day_process)
-                        ,date
-                        ,date,"true");
-
+                saveInDB();
+                if (getProcessTypeFromIntent().equals("fill"))
+                {
+                    CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+                    completeInsuranceInfo.nextFragment("Email");
+                }
                 Intent resultIntent = new Intent();
                 getActivity().setResult(Activity.RESULT_OK, resultIntent);
                 getActivity().finish();
             }
         });
+    }
+
+    private void saveInDB() {
+        yearDPInt = datePicker.getYear();
+        monthDPInt  = datePicker.getMonth() + 1;
+        dayDPInt = datePicker.getDayOfMonth();
+
+        String date = String.valueOf(yearDPInt)+"/"+String.valueOf(monthDPInt)+"/" +String.valueOf(dayDPInt);
+        Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
+
+        getDataBaseInstance(getActivity()).updateDriverInfo(
+                "Birth day",getActivity().getResources().getString(R.string.birth_day_process)
+                ,date
+                ,date,"true");
     }
 
     private void inti() {

@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.LicenseDuration;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverDuration;
 
 import java.util.ArrayList;
@@ -61,27 +62,45 @@ public class RegisterDate extends Fragment {
         datePicker.init(yearInt, monthInt, dayInt, null);
     }
 
+    private String getProcessTypeFromIntent() {
+        String processType = null;
+        Bundle bundle = this.getArguments();
+        if (bundle != null) {
+            processType =bundle.getString("editOrFill");
+        }
+        return processType;
+    }
+
     private void actionListenerToNext() {
         relativeLayoutNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                yearDPInt = datePicker.getYear();
-                monthDPInt  = datePicker.getMonth() + 1;
-                dayDPInt = datePicker.getDayOfMonth();
-
-                String date = String.valueOf(yearDPInt)+"/"+String.valueOf(monthDPInt)+"/" +String.valueOf(dayDPInt);
-                Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
-
-                getDataBaseInstance(getActivity()).updateDriverInfo(
-                        "Register Date",getActivity().getResources().getString(R.string.register_date_process)
-                        ,date
-                        ,date,"true");
-
-                Intent resultIntent = new Intent();
-                getActivity().setResult(Activity.RESULT_OK, resultIntent);
-                getActivity().finish();
+                saveInDB();
+                if (getProcessTypeFromIntent().equals("fill"))
+                {
+                    CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
+                    completeInsuranceInfo.nextFragment("Insurance pay");
+                }else{
+                    Intent resultIntent = new Intent();
+                    getActivity().setResult(Activity.RESULT_OK, resultIntent);
+                    getActivity().finish();
+                }
             }
         });
+    }
+
+    private void saveInDB() {
+        yearDPInt = datePicker.getYear();
+        monthDPInt  = datePicker.getMonth() + 1;
+        dayDPInt = datePicker.getDayOfMonth();
+
+        String date = String.valueOf(yearDPInt)+"/"+String.valueOf(monthDPInt)+"/" +String.valueOf(dayDPInt);
+        Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
+
+        getDataBaseInstance(getActivity()).updateDriverInfo(
+                "Register Date",getActivity().getResources().getString(R.string.register_date_process)
+                ,date
+                ,date,"true");
     }
 
     private void inti() {

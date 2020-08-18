@@ -1,15 +1,16 @@
 package com.cars.halamotor.view.activity;
 
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.support.v7.app.ActionBar;
+import android.app.Activity;
+import android.content.Intent;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.fragments.driverInformationFragment.BirthDay;
 import com.cars.halamotor.view.fragments.driverInformationFragment.CertificateClaim;
 import com.cars.halamotor.view.fragments.driverInformationFragment.DriverDuration;
@@ -21,10 +22,10 @@ import com.cars.halamotor.view.fragments.driverInformationFragment.Name;
 import com.cars.halamotor.view.fragments.driverInformationFragment.PhoneNumber;
 import com.cars.halamotor.view.fragments.driverInformationFragment.RegisterDate;
 
-import java.util.Locale;
+public class CompleteInsuranceInfo extends AppCompatActivity {
 
-public class EditDriverInfo extends AppCompatActivity {
-
+    ImageView imageView;
+    TextView textView;
     DriverNationality driverNationality = new DriverNationality();
     LicenceNationality licenceNationality = new LicenceNationality();
     DriverDuration driverDuration = new DriverDuration();
@@ -36,16 +37,64 @@ public class EditDriverInfo extends AppCompatActivity {
     Email email = new Email();
     BirthDay birthDay = new BirthDay();
 
-    String processType;
+    Fragment allFragment[] = {driverNationality,licenceNationality,driverDuration,registerDate,insurancePay
+    ,certificateClaim,name,phoneNumber,email,birthDay};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_driver_info);
+        setContentView(R.layout.activity_complete_insurance_info);
 
-        statusBarColor();
-        actionBarTitle();
+        inti();
+        changeFont();
+        fillIntiInfo();
+        if (getCompleteOrIntiFromIntent().equals("inti"))
+            handelNationalityFragment();
+        else
+            nextFragment(getNextFragmentFromIntent());
+    }
 
-        switch (getProcessTypeSFromIntent()) {
+
+    private void changeFont() {
+        textView.setTypeface(Functions.changeFontBold(this));
+    }
+
+    private void fillIntiInfo() {
+        if (getPartTypeFromIntent().equals("1"))
+        {
+            textView.setText(R.string.driver_info);
+            imageView.setBackgroundResource(R.drawable.driver);
+        }else{
+            textView.setText(R.string.car_info);
+            imageView.setBackgroundResource(R.drawable.car);
+        }
+    }
+
+    private void inti() {
+        imageView = (ImageView) findViewById(R.id.complete_insurance_info_iv);
+        textView = (TextView) findViewById(R.id.complete_insurance_info_tv);
+    }
+
+    private String getPartTypeFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        String processType =bundle.getString("partType");
+        return processType;
+    }
+
+    private String getNextFragmentFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        String processType =bundle.getString("nextFragment");
+        return processType;
+    }
+
+    private String getCompleteOrIntiFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        String processType =bundle.getString("completeOrInti");
+        return processType;
+    }
+
+    public void nextFragment(String fragmentNext){
+        switch (fragmentNext) {
             case "Nationality":
                 handelNationalityFragment();
                 break;
@@ -77,182 +126,112 @@ public class EditDriverInfo extends AppCompatActivity {
                 handelBDFragment();
                 break;
         }
-
     }
 
     private void handelLicenseNationalityFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         licenceNationality.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, licenceNationality)
+                .replace(R.id.container_all_driver_info_fragments, licenceNationality)
                 .commit();
     }
 
     private void handelDriverDurationFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         driverDuration.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, driverDuration)
+                .replace(R.id.container_all_driver_info_fragments, driverDuration)
                 .commit();
     }
 
     private void handelRegisterDateFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         registerDate.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, registerDate)
+                .replace(R.id.container_all_driver_info_fragments, registerDate)
                 .commit();
     }
 
     private void handelInsurancePayFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         insurancePay.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, insurancePay)
+                .replace(R.id.container_all_driver_info_fragments, insurancePay)
                 .commit();
     }
 
     private void handelCertificateClaimFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         certificateClaim.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, certificateClaim)
+                .replace(R.id.container_all_driver_info_fragments, certificateClaim)
                 .commit();
     }
 
     private void handelNameFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         name.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, name)
+                .replace(R.id.container_all_driver_info_fragments, name)
                 .commit();
     }
 
     private void handelPhoneFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         phoneNumber.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, phoneNumber)
+                .replace(R.id.container_all_driver_info_fragments, phoneNumber)
                 .commit();
     }
 
     private void handelEmailFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         email.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, email)
+                .replace(R.id.container_all_driver_info_fragments, email)
                 .commit();
     }
 
     private void handelBDFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         birthDay.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, birthDay)
+                .replace(R.id.container_all_driver_info_fragments, birthDay)
                 .commit();
     }
 
     private void handelNationalityFragment() {
         Bundle bundle = new Bundle();
-        bundle.putString("editOrFill","edit");
+        bundle.putString("editOrFill","fill");
         driverNationality.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container_driver_info_fragments, driverNationality)
+                .replace(R.id.container_all_driver_info_fragments, driverNationality)
                 .commit();
-    }
-
-    private String getProcessTypeSFromIntent() {
-        Bundle bundle = getIntent().getExtras();
-        processType =bundle.getString("processTypeS");
-        return processType;
-    }
-
-    private String getProcessTypeFromIntent() {
-        Bundle bundle = getIntent().getExtras();
-        String processType =bundle.getString("processType");
-        return processType;
-    }
-
-    private void statusBarColor() {
-        getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
-    }
-
-    private void actionBarTitle() {
-        Typeface typeface;
-        final ActionBar abar = getSupportActionBar();
-        View viewActionBar = getLayoutInflater().inflate(R.layout.actionbar_custom_title_view_centered, null);
-        ActionBar.LayoutParams params = new ActionBar.LayoutParams(//Center the textview in the ActionBar !
-                ActionBar.LayoutParams.WRAP_CONTENT,
-                ActionBar.LayoutParams.MATCH_PARENT,
-                Gravity.CENTER);
-        if (Locale.getDefault().getLanguage().equals("ar")) {
-            typeface = Typeface.createFromAsset(getAssets(), "GE_DINAR_ONE_LIGHT.TTF");
-        }else{
-            typeface = Typeface.createFromAsset(getAssets(), "NTAILU.TTF");
-        }
-        TextView textviewTitle = (TextView) viewActionBar.findViewById(R.id.actionbar_textview);
-        textviewTitle.setTextColor(Color.parseColor("#FF0000"));
-        textviewTitle.setText(getProcessTypeFromIntent());
-        textviewTitle.setTypeface(typeface);
-        abar.setCustomView(viewActionBar, params);
-        abar.setDisplayShowCustomEnabled(true);
-        abar.setDisplayShowTitleEnabled(false);
-        abar.setDisplayHomeAsUpEnabled(false);
-        abar.setHomeButtonEnabled(false);
     }
 
     @Override
     public void onBackPressed() {
-        switch (getProcessTypeSFromIntent()) {
-            case "Nationality":
-                driverNationality.endDriverNationality();
-                break;
-            case "License Nationality":
-                licenceNationality.endDriverNationality();
-                break;
-            case "Drive duration":
-                driverDuration.endDriverNationality();
-                break;
-            case "Register Date":
-                registerDate.endDriverNationality();
-                break;
-            case "Insurance pay":
-                insurancePay.endDriverNationality();
-                break;
-            case "Certificate claims":
-                certificateClaim.endDriverNationality();
-                break;
-            case "Name":
-                name.endDriverNationality();
-                break;
-            case "Phone number":
-                phoneNumber.endDriverNationality();
-                break;
-            case "Email":
-                email.endDriverNationality();
-                break;
-            case "Birth day":
-                birthDay.endDriverNationality();
-                break;
-        }
+        Intent resultIntent = new Intent();
+        setResult(Activity.RESULT_OK, resultIntent);
+        finish();
     }
 }

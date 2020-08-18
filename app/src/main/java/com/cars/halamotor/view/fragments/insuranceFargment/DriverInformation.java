@@ -19,6 +19,7 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.activity.EditDriverInfo;
 import com.cars.halamotor.view.activity.Insurance;
 import com.cars.halamotor.view.activity.ShowItemDetails;
@@ -31,6 +32,8 @@ import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.dataBase.ReadFunction.checkIfDriverProcessCreated;
 import static com.cars.halamotor.dataBase.ReadFunction.getAllDriverProcess;
 import static com.cars.halamotor.functions.InsuranceFunctions.createDriverInfoTable;
+import static com.cars.halamotor.functions.InsuranceFunctions.getDriverProcess;
+import static com.cars.halamotor.functions.InsuranceFunctions.nextFragment;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
 import static com.cars.halamotor.functions.InsuranceFunctions.resetAllDriverInfoTable;
 
@@ -109,11 +112,41 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
                 createProcessRV();
             }
         });
+        relativeLayoutCompleteProcess.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                moveToCompleteInsuranceInfo();
+            }
+        });
+    }
+
+    private void moveToCompleteInsuranceInfo() {
+        numberOfCompletedProcess = numberOfDriverProcessSelected(getActivity());
+
+        if (numberOfCompletedProcess!=10)
+        {
+            Bundle bundle = new Bundle();
+            bundle.putString("partType","1");
+            bundle.putString("nextFragment",nextFragment(numberOfCompletedProcess));
+            bundle.putString("from","main");
+            bundle.putString("completeOrInti","complete");
+
+            Intent intent = new Intent(getActivity(), CompleteInsuranceInfo.class);
+            intent.putExtras(bundle);
+            DriverInformation.this.startActivityForResult(intent , REQUEST_DETAILS);
+            getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+        }
     }
 
     private void moveToCompleteInsuranceDetails() {
-        Intent intent = new Intent(getActivity(), Insurance.class);
-        startActivity(intent);
+        Bundle bundle = new Bundle();
+        bundle.putString("partType","1");
+        bundle.putString("from","main");
+        bundle.putString("completeOrInti","inti");
+
+        Intent intent = new Intent(getActivity(), CompleteInsuranceInfo.class);
+        intent.putExtras(bundle);
+        DriverInformation.this.startActivityForResult(intent , REQUEST_DETAILS);
         getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
     }
 
@@ -150,10 +183,13 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
         bundle.putString("processTypeS",driverInformation.getDriverProcess().getProcessS());
         bundle.putString("processType",driverInformation.getDriverProcess().getProcess());
 
-        Intent intent = new Intent(getActivity(), EditDriverInfo.class);
-        intent.putExtras(bundle);
-        DriverInformation.this.startActivityForResult(intent , REQUEST_DETAILS);
-        getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+        if (!getDriverProcess(getActivity(),driverInformation.getDriverProcess().getProcessS()).getProcessContent().getProcessContentS().equals("empty"))
+        {
+            Intent intent = new Intent(getActivity(), EditDriverInfo.class);
+            intent.putExtras(bundle);
+            DriverInformation.this.startActivityForResult(intent , REQUEST_DETAILS);
+            getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
+        }
     }
 
     @Override
@@ -164,6 +200,14 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
             checkIfNoProcessSelectedMakeRestAllGone();
             createProcessRV();
             fillNumberOfCompletedProcess();
+            checkCompleteProcess();
+        }
+    }
+
+    private void checkCompleteProcess() {
+        if (numberOfCompletedProcess == 10)
+        {
+            relativeLayoutCompleteProcess.setAlpha((float) 0.5);
         }
     }
 
