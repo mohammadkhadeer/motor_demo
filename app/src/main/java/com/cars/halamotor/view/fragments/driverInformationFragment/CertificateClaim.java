@@ -96,6 +96,7 @@ public class CertificateClaim extends Fragment implements AdapterCertificateClai
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragment("Name");
+            completeInsuranceInfo.updateTitle("Name");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);

@@ -1,2 +1,0 @@
-D com/roughike/bottombar/TabParser$TabAttribute
-D com/roughike/bottombar/VerticalScrollingBehavior$ScrollDirection

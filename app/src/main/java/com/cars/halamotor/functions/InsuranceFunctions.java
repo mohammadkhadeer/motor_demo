@@ -712,6 +712,45 @@ public class InsuranceFunctions {
         return nextFragment;
     }
 
+    public static String processName(int numberOfCompleteFragments,Context context){
+        String processName = null;
+
+        switch (numberOfCompleteFragments) {
+            case 0:
+                processName = context.getResources().getString(R.string.nationality);
+                break;
+            case 1:
+                processName = context.getResources().getString(R.string.lic_nationality_process);
+                break;
+            case 2:
+                processName = context.getResources().getString(R.string.drive_duration_process);
+                break;
+            case 3:
+                processName = context.getResources().getString(R.string.register_date_process);
+                break;
+            case 4:
+                processName = context.getResources().getString(R.string.insurance_pay_process);
+                break;
+            case 5:
+                processName = context.getResources().getString(R.string.certificate_claims_process);
+                break;
+            case 6:
+                processName = context.getResources().getString(R.string.name_process);
+                break;
+            case 7:
+                processName = context.getResources().getString(R.string.phone_number_process);
+                break;
+            case 8:
+                processName = context.getResources().getString(R.string.email_process);
+                break;
+            case 9:
+                processName = context.getResources().getString(R.string.birth_day_process);
+                break;
+        }
+
+        return processName;
+    }
+
     public static DriverInformation getDriverProcess(Context context,String processTypeS){
         Cursor res = getDataBaseInstance(context).getDriverInfo(processTypeS);
 

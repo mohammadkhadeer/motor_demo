@@ -112,6 +112,7 @@ public class Name extends Fragment {
                     {
                         CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                         completeInsuranceInfo.nextFragment("Phone number");
+                        completeInsuranceInfo.updateTitle("Phone number");
                     }else{
                         Intent resultIntent = new Intent();
                         getActivity().setResult(Activity.RESULT_OK, resultIntent);

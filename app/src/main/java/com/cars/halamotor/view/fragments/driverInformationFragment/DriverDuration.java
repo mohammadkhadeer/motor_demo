@@ -24,6 +24,7 @@ import com.cars.halamotor.model.License_Nationality;
 import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverDuration;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverLicenceNationality;
+import com.cars.halamotor.view.fragments.insuranceFargment.CounterProcess;
 
 import java.util.ArrayList;
 
@@ -150,6 +151,7 @@ public class DriverDuration extends Fragment implements AdapterDriverDuration.Pa
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragment("Register Date");
+            completeInsuranceInfo.updateTitle("Register Date");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);

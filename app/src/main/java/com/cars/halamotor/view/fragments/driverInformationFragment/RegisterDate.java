@@ -57,7 +57,7 @@ public class RegisterDate extends Fragment {
 
     private void intiDateToStartInDataP() {
         yearInt = Integer.parseInt(getYEAR());
-        monthInt = Integer.parseInt(getMONTH());
+        monthInt = Integer.parseInt(getMONTH())-1;
         dayInt = Integer.parseInt(getDAY());
         datePicker.init(yearInt, monthInt, dayInt, null);
     }
@@ -80,6 +80,7 @@ public class RegisterDate extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragment("Insurance pay");
+                    completeInsuranceInfo.updateTitle("Insurance pay");
                 }else{
                     Intent resultIntent = new Intent();
                     getActivity().setResult(Activity.RESULT_OK, resultIntent);

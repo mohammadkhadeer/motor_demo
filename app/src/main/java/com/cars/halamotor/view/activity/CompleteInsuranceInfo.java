@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -21,6 +22,9 @@ import com.cars.halamotor.view.fragments.driverInformationFragment.LicenceNation
 import com.cars.halamotor.view.fragments.driverInformationFragment.Name;
 import com.cars.halamotor.view.fragments.driverInformationFragment.PhoneNumber;
 import com.cars.halamotor.view.fragments.driverInformationFragment.RegisterDate;
+import com.cars.halamotor.view.fragments.insuranceFargment.CounterProcess;
+
+import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
 
 public class CompleteInsuranceInfo extends AppCompatActivity {
 
@@ -36,6 +40,7 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
     PhoneNumber phoneNumber = new PhoneNumber();
     Email email = new Email();
     BirthDay birthDay = new BirthDay();
+    CounterProcess counterProcess = new CounterProcess();
 
     Fragment allFragment[] = {driverNationality,licenceNationality,driverDuration,registerDate,insurancePay
     ,certificateClaim,name,phoneNumber,email,birthDay};
@@ -48,12 +53,24 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
         inti();
         changeFont();
         fillIntiInfo();
+        createCounterFragment();
         if (getCompleteOrIntiFromIntent().equals("inti"))
             handelNationalityFragment();
         else
             nextFragment(getNextFragmentFromIntent());
     }
 
+    private void createCounterFragment() {
+        int numberOfCompletedProcess = numberOfDriverProcessSelected(this);
+        Bundle bundle = new Bundle();
+        bundle.putString("ProcessNum",String.valueOf(numberOfCompletedProcess));
+        bundle.putString("dOrc","driver");
+        counterProcess.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_process_count,counterProcess )
+                .commit();
+    }
 
     private void changeFont() {
         textView.setTypeface(Functions.changeFontBold(this));
@@ -100,30 +117,71 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
                 break;
             case "License Nationality":
                 handelLicenseNationalityFragment();
+//                counterProcess.updateInfoCounte(1);
                 break;
             case "Drive duration":
                 handelDriverDurationFragment();
+//                counterProcess.updateInfoCounte(2);
                 break;
             case "Register Date":
                 handelRegisterDateFragment();
+//                counterProcess.updateInfoCounte(3);
                 break;
             case "Insurance pay":
                 handelInsurancePayFragment();
+//                counterProcess.updateInfoCounte(4);
                 break;
             case "Certificate claims":
                 handelCertificateClaimFragment();
+//                counterProcess.updateInfoCounte(5);
                 break;
             case "Name":
                 handelNameFragment();
+//                counterProcess.updateInfoCounte(6);
                 break;
             case "Phone number":
                 handelPhoneFragment();
+//                counterProcess.updateInfoCounte(7);
                 break;
             case "Email":
                 handelEmailFragment();
+//                counterProcess.updateInfoCounte(8);
                 break;
             case "Birth day":
                 handelBDFragment();
+//                counterProcess.updateInfoCounte(9);
+                break;
+        }
+    }
+
+    public void updateTitle(String newTitle){
+        switch (newTitle) {
+            case "License Nationality":
+                counterProcess.updateInfoCounte(1);
+                break;
+            case "Drive duration":
+                counterProcess.updateInfoCounte(2);
+                break;
+            case "Register Date":
+                counterProcess.updateInfoCounte(3);
+                break;
+            case "Insurance pay":
+                counterProcess.updateInfoCounte(4);
+                break;
+            case "Certificate claims":
+                counterProcess.updateInfoCounte(5);
+                break;
+            case "Name":
+                counterProcess.updateInfoCounte(6);
+                break;
+            case "Phone number":
+                counterProcess.updateInfoCounte(7);
+                break;
+            case "Email":
+                counterProcess.updateInfoCounte(8);
+                break;
+            case "Birth day":
+                counterProcess.updateInfoCounte(9);
                 break;
         }
     }

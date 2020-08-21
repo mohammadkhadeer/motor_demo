@@ -208,6 +208,8 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
         if (numberOfCompletedProcess == 10)
         {
             relativeLayoutCompleteProcess.setAlpha((float) 0.5);
+        }else{
+            relativeLayoutCompleteProcess.setAlpha((float) 1.0);
         }
     }
 

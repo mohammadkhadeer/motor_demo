@@ -197,6 +197,7 @@ public class DriverNationality extends Fragment implements AdapterDriverNational
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragment("License Nationality");
+            completeInsuranceInfo.updateTitle("License Nationality");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);

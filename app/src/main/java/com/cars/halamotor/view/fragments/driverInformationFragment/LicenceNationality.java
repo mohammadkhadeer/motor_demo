@@ -24,6 +24,7 @@ import com.cars.halamotor.model.Nationality;
 import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverLicenceNationality;
 import com.cars.halamotor.view.adapters.adapterDriverInfo.AdapterDriverNationality;
+import com.cars.halamotor.view.fragments.insuranceFargment.CounterProcess;
 
 import java.util.ArrayList;
 
@@ -128,6 +129,7 @@ public class LicenceNationality extends Fragment implements AdapterDriverLicence
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragment("Drive duration");
+                    completeInsuranceInfo.updateTitle("Drive duration");
                 }else{
                     Intent resultIntent = new Intent();
                     getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -242,6 +244,7 @@ public class LicenceNationality extends Fragment implements AdapterDriverLicence
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragment("Drive duration");
+            completeInsuranceInfo.updateTitle("Drive duration");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);

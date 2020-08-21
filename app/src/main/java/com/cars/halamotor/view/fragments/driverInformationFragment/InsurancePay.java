@@ -113,6 +113,7 @@ public class InsurancePay extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragment("Certificate claims");
+                    completeInsuranceInfo.updateTitle("Certificate claims");
                 }else{
                     Intent resultIntent = new Intent();
                     getActivity().setResult(Activity.RESULT_OK, resultIntent);

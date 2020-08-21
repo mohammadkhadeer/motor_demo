@@ -68,6 +68,18 @@
     <string name="no">No</string>
     <string name="fill_how_many">Fill how many</string>
 
+    <string name="one">1</string>
+    <string name="tow">2</string>
+    <string name="three">3</string>
+    <string name="four">4</string>
+    <string name="five">5</string>
+    <string name="six">6</string>
+    <string name="siven">7</string>
+    <string name="eghit">8</string>
+    <string name="nighn">9</string>
+    <string name="tine">10</string>
+    <string name="elvin">11</string>
+
     <string name="empty">Not complete</string>
     <string name="driver_info">Driver information</string>
     <string name="car_info">Car information</string>
@@ -76,6 +88,9 @@
     <string name="fill_name">Fill full name please</string>
     <string name="fill_phone_number">Fill phone number please</string>
     <string name="fill_email">Fill email please</string>
+
+    <string name="coute10">10</string>
+    <string name="coute11">11</string>
 
     /////////////////////Driver information/////////////////////
     //1

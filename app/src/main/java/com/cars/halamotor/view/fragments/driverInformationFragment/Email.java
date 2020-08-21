@@ -102,6 +102,7 @@ public class Email extends Fragment {
                     {
                         CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                         completeInsuranceInfo.nextFragment("Birth day");
+                        completeInsuranceInfo.updateTitle("Birth day");
                     }else {
                         Intent resultIntent = new Intent();
                         getActivity().setResult(Activity.RESULT_OK, resultIntent);

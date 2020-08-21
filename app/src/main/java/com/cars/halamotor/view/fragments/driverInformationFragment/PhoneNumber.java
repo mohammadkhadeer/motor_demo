@@ -100,6 +100,7 @@ public class PhoneNumber extends Fragment {
                     {
                         CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                         completeInsuranceInfo.nextFragment("Email");
+                        completeInsuranceInfo.updateTitle("Email");
                     }else {
                         Intent resultIntent = new Intent();
                         getActivity().setResult(Activity.RESULT_OK, resultIntent);
