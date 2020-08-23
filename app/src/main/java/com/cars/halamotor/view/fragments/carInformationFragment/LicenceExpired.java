@@ -53,7 +53,7 @@ public class LicenceExpired extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragmentCar("Follow GCC");
-                    //            completeInsuranceInfo.updateTitle("License Nationality");
+                    completeInsuranceInfo.updateTitleCar("Follow GCC");
                     getDataBaseInstance(getActivity()).updateCarDetails(
                             "Licence expired", getActivity().getResources().getString(R.string.licence_expired_process)
                             , getActivity().getResources().getString(R.string.licence_expired)
@@ -103,9 +103,6 @@ public class LicenceExpired extends Fragment {
     }
 
     private void saveInDB() {
-        String no = getActivity().getResources().getString(R.string.licence_not_expired);
-        Toast.makeText(getActivity(),no,Toast.LENGTH_SHORT).show();
-
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Licence expired", getActivity().getResources().getString(R.string.licence_expired_process)
                 , getActivity().getResources().getString(R.string.licence_not_expired)

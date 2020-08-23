@@ -745,7 +745,7 @@ public class InsuranceFunctions {
         ArrayList<CarInformation> carAllProcessArrayL = new ArrayList<CarInformation>();
         carAllProcessArrayL = getAllCarProcess(context);
 
-        if (checkIfDriverProcessCreated(context) !=0)
+        if (checkIfCarDetailsProcessCreated(context) !=0)
         {
             for (int i=0;i<carAllProcessArrayL.size();i++)
             {
@@ -869,7 +869,44 @@ public class InsuranceFunctions {
                 processName = context.getResources().getString(R.string.birth_day_process);
                 break;
         }
+        return processName;
+    }
 
+    public static String processCarName(int numberOfCompleteFragments,Context context){
+        String processName = null;
+
+        switch (numberOfCompleteFragments) {
+            case 0:
+                processName = context.getResources().getString(R.string.car_make_process);
+                break;
+            case 1:
+                processName = context.getResources().getString(R.string.car_model_process);
+                break;
+            case 2:
+                processName = context.getResources().getString(R.string.car_year_process);
+                break;
+            case 3:
+                processName = context.getResources().getString(R.string.car_condition_process);
+                break;
+            case 4:
+                processName = context.getResources().getString(R.string.car_cylinder_process);
+                break;
+            case 5:
+                processName = context.getResources().getString(R.string.car_city_process);
+                break;
+            case 6:
+                processName = context.getResources().getString(R.string.licence_expired);
+                break;
+            case 7:
+                processName = context.getResources().getString(R.string.car_modified_process);
+                break;
+            case 8:
+                processName = context.getResources().getString(R.string.insurance_policy_process);
+                break;
+            case 9:
+                processName = context.getResources().getString(R.string.agency_repair_process);
+                break;
+        }
         return processName;
     }
 

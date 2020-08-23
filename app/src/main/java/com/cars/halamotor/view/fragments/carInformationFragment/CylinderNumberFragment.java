@@ -150,7 +150,7 @@ public class CylinderNumberFragment extends Fragment implements AdapterCylinderN
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragmentCar("City");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+            completeInsuranceInfo.updateTitleCar("City");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -159,7 +159,6 @@ public class CylinderNumberFragment extends Fragment implements AdapterCylinderN
     }
 
     private void saveInDataBase(CylinderNumber cylinderNumber) {
-        Toast.makeText(getActivity(),cylinderNumber.getCylinderNumber(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Car cylinder",getActivity().getResources().getString(R.string.car_cylinder_process)
                 ,cylinderNumber.getCylinderNumber()

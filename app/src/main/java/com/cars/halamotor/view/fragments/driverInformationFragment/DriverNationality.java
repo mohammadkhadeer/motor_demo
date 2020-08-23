@@ -206,7 +206,6 @@ public class DriverNationality extends Fragment implements AdapterDriverNational
     }
 
     private void saveInDB(Nationality nationality) {
-        Toast.makeText(getActivity(),nationality.getNationality(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Nationality",getActivity().getResources().getString(R.string.nationality_process)
                 ,nationality.getNationality()

@@ -80,9 +80,7 @@ public class BirthDay extends Fragment {
         yearDPInt = datePicker.getYear();
         monthDPInt  = datePicker.getMonth() + 1;
         dayDPInt = datePicker.getDayOfMonth();
-
         String date = String.valueOf(yearDPInt)+"/"+String.valueOf(monthDPInt)+"/" +String.valueOf(dayDPInt);
-        Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
 
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Birth day",getActivity().getResources().getString(R.string.birth_day_process)

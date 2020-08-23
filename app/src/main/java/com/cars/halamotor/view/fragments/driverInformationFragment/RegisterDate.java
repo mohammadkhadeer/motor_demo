@@ -96,7 +96,6 @@ public class RegisterDate extends Fragment {
         dayDPInt = datePicker.getDayOfMonth();
 
         String date = String.valueOf(yearDPInt)+"/"+String.valueOf(monthDPInt)+"/" +String.valueOf(dayDPInt);
-        Toast.makeText(getActivity(),date,Toast.LENGTH_SHORT).show();
 
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Register Date",getActivity().getResources().getString(R.string.register_date_process)

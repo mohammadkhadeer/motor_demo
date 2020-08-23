@@ -141,7 +141,7 @@ public class CitiesFragment extends Fragment implements AdapterCities.PassCities
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragmentCar("Licence expired");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+            completeInsuranceInfo.updateTitleCar("Licence expired");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -150,7 +150,6 @@ public class CitiesFragment extends Fragment implements AdapterCities.PassCities
     }
 
     private void saveInDataBase(CityModel cityModel) {
-        Toast.makeText(getActivity(),cityModel.getCity(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "City",getActivity().getResources().getString(R.string.car_city_process)
                 ,cityModel.getCity()

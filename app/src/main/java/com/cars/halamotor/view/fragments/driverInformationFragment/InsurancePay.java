@@ -161,7 +161,6 @@ public class InsurancePay extends Fragment {
 
     private void saveInDB() {
         String no = getActivity().getResources().getString(R.string.no);
-        Toast.makeText(getActivity(),no,Toast.LENGTH_SHORT).show();
 
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Insurance pay",getActivity().getResources().getString(R.string.insurance_pay_process)

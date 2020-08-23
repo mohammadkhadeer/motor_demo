@@ -152,7 +152,7 @@ public class CarMakeFragment extends Fragment implements AdapterCarMake.PassCarM
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragmentCar("Car model");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+            completeInsuranceInfo.updateTitleCar("Car model");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -172,7 +172,6 @@ public class CarMakeFragment extends Fragment implements AdapterCarMake.PassCarM
     }
 
     private void saveInDataBase(CarMake carMake) {
-        Toast.makeText(getActivity(),carMake.getMakeStr(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Car make",getActivity().getResources().getString(R.string.car_make_process)
                 ,carMake.getMakeStr()

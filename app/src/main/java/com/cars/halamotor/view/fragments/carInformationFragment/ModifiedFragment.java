@@ -49,7 +49,7 @@ public class ModifiedFragment extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragmentCar("Insurance policy");
-                    //            completeInsuranceInfo.updateTitle("License Nationality");
+                    completeInsuranceInfo.updateTitleCar("Insurance policy");
                     getDataBaseInstance(getActivity()).updateCarDetails(
                             "Follow GCC", getActivity().getResources().getString(R.string.car_modified_process)
                             , getActivity().getResources().getString(R.string.car_modified_1)
@@ -88,7 +88,7 @@ public class ModifiedFragment extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragmentCar("Insurance policy");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+                    completeInsuranceInfo.updateTitleCar("Insurance policy");
                 }else{
                     Intent resultIntent = new Intent();
                     getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -99,9 +99,6 @@ public class ModifiedFragment extends Fragment {
     }
 
     private void saveInDB() {
-        String no = getActivity().getResources().getString(R.string.car_modified_2);
-        Toast.makeText(getActivity(),no,Toast.LENGTH_SHORT).show();
-
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Follow GCC", getActivity().getResources().getString(R.string.car_modified_process)
                 , getActivity().getResources().getString(R.string.car_modified_2)

@@ -160,7 +160,6 @@ public class DriverDuration extends Fragment implements AdapterDriverDuration.Pa
     }
 
     private void saveInDB(LicenseDuration licenseDuration) {
-        Toast.makeText(getActivity(),licenseDuration.getDuration(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Drive duration",getActivity().getResources().getString(R.string.drive_duration_process)
                 ,licenseDuration.getDuration()

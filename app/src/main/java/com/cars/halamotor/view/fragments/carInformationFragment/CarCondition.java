@@ -49,7 +49,7 @@ public class CarCondition extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragmentCar("Car cylinder");
-                    //            completeInsuranceInfo.updateTitle("License Nationality");
+                    completeInsuranceInfo.updateTitleCar("Car cylinder");
                     getDataBaseInstance(getActivity()).updateCarDetails(
                             "Car condition", getActivity().getResources().getString(R.string.car_condition_process)
                             , getActivity().getResources().getString(R.string.car_condition_1)
@@ -87,8 +87,8 @@ public class CarCondition extends Fragment {
                 if (getProcessTypeFromIntent().equals("fill"))
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
-                    completeInsuranceInfo.nextFragmentCar("Follow GCC");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+                    completeInsuranceInfo.nextFragmentCar("Car cylinder");
+                    completeInsuranceInfo.updateTitleCar("Car cylinder");
                 }else{
                     Intent resultIntent = new Intent();
                     getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -99,10 +99,7 @@ public class CarCondition extends Fragment {
     }
 
     private void saveInDB() {
-        String no = getActivity().getResources().getString(R.string.car_condition_2);
-        Toast.makeText(getActivity(),no,Toast.LENGTH_SHORT).show();
-
-        getDataBaseInstance(getActivity()).updateCarDetails(
+                getDataBaseInstance(getActivity()).updateCarDetails(
                 "Car condition", getActivity().getResources().getString(R.string.licence_expired_process)
                 , getActivity().getResources().getString(R.string.car_condition_2)
                 , getActivity().getResources().getString(R.string.car_condition_2_s)

@@ -34,6 +34,7 @@ import com.cars.halamotor.view.fragments.driverInformationFragment.PhoneNumber;
 import com.cars.halamotor.view.fragments.driverInformationFragment.RegisterDate;
 import com.cars.halamotor.view.fragments.insuranceFargment.CounterProcess;
 
+import static com.cars.halamotor.functions.InsuranceFunctions.numberOfCarProcessSelected;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
 
 public class CompleteInsuranceInfo extends AppCompatActivity {
@@ -118,6 +119,41 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
                 break;
             case "Agency repair":
                 handelAgencyRepairFragment();
+                break;
+        }
+    }
+
+    public void updateTitleCar(String newTitle){
+        switch (newTitle) {
+            case "Car make":
+                counterProcess.updateInfoCounteCar(0);
+                break;
+            case "Car model":
+                counterProcess.updateInfoCounteCar(1);
+                break;
+            case "Car year":
+                counterProcess.updateInfoCounteCar(2);
+                break;
+            case "Car condition":
+                counterProcess.updateInfoCounteCar(3);
+                break;
+            case "Car cylinder":
+                counterProcess.updateInfoCounteCar(4);
+                break;
+            case "City":
+                counterProcess.updateInfoCounteCar(5);
+                break;
+            case "Licence expired":
+                counterProcess.updateInfoCounteCar(6);
+                break;
+            case "Follow GCC":
+                counterProcess.updateInfoCounteCar(7);
+                break;
+            case "Insurance policy":
+                counterProcess.updateInfoCounteCar(8);
+                break;
+            case "Agency repair":
+                counterProcess.updateInfoCounteCar(9);
                 break;
         }
     }
@@ -225,10 +261,21 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
 
 
     private void createCounterFragment() {
-        int numberOfCompletedProcess = numberOfDriverProcessSelected(this);
+        int numberOfCompletedProcess=0;
+        String dOrC ="0";
+        if(getPartTypeFromIntent().equals("1"))
+        {
+            numberOfCompletedProcess = numberOfDriverProcessSelected(this);
+            dOrC = "driver";
+        }else{
+            numberOfCompletedProcess = numberOfCarProcessSelected(this);
+            dOrC = "car";
+        }
+        Log.i("TAG","ProcessNum: "+String.valueOf(numberOfCompletedProcess));
+        Log.i("TAG","dOrC: "+String.valueOf(dOrC));
         Bundle bundle = new Bundle();
         bundle.putString("ProcessNum",String.valueOf(numberOfCompletedProcess));
-        bundle.putString("dOrc","driver");
+        bundle.putString("dOrc",dOrC);
         counterProcess.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction()

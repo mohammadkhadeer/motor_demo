@@ -80,9 +80,6 @@ public class AgencyRepair extends Fragment {
     }
 
     private void saveInDB() {
-        String no = getActivity().getResources().getString(R.string.agency_repair_no);
-        Toast.makeText(getActivity(),no,Toast.LENGTH_SHORT).show();
-
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Agency repair", getActivity().getResources().getString(R.string.agency_repair_process)
                 , getActivity().getResources().getString(R.string.agency_repair_no)

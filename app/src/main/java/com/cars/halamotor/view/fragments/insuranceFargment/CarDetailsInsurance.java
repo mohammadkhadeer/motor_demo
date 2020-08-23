@@ -151,7 +151,7 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
         if (numberOfCompletedProcess!=10)
         {
             Bundle bundle = new Bundle();
-            bundle.putString("partType","1");
+            bundle.putString("partType","2");
             bundle.putString("nextFragment",nextCarFragment(numberOfCompletedProcess));
             bundle.putString("from","main");
             bundle.putString("completeOrInti","complete");

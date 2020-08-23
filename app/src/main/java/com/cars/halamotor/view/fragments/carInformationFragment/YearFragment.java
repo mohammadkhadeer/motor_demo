@@ -136,7 +136,7 @@ public class YearFragment extends Fragment implements AdapterCarYear.PassCarYear
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragmentCar("Car condition");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+            completeInsuranceInfo.updateTitleCar("Car condition");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -145,7 +145,6 @@ public class YearFragment extends Fragment implements AdapterCarYear.PassCarYear
     }
 
     private void saveInDataBase(String year) {
-        Toast.makeText(getActivity(),year,Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Car year",getActivity().getResources().getString(R.string.car_year_process)
                 ,year

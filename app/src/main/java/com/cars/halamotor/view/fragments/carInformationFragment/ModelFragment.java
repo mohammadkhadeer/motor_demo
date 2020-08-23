@@ -148,7 +148,7 @@ public class ModelFragment extends Fragment implements AdapterCarModel.PassCarMo
         {
             CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
             completeInsuranceInfo.nextFragmentCar("Car year");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+            completeInsuranceInfo.updateTitleCar("Car year");
         }else{
             Intent resultIntent = new Intent();
             getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -157,7 +157,6 @@ public class ModelFragment extends Fragment implements AdapterCarModel.PassCarMo
     }
 
     private void saveInDataBase(CarModel carModel) {
-        Toast.makeText(getActivity(),carModel.getCarModelStr(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Car model",getActivity().getResources().getString(R.string.car_model_process)
                 ,carModel.getCarModelStr()

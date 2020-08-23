@@ -105,7 +105,6 @@ public class CertificateClaim extends Fragment implements AdapterCertificateClai
     }
 
     private void saveInDB(CertificateClaims certificateClaims) {
-        Toast.makeText(getActivity(),certificateClaims.getClaims(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "Certificate claims",getActivity().getResources().getString(R.string.certificate_claims_process)
                 ,certificateClaims.getClaims()

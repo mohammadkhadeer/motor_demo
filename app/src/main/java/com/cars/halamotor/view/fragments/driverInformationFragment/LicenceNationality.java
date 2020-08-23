@@ -118,7 +118,6 @@ public class LicenceNationality extends Fragment implements AdapterDriverLicence
         relativeLayoutYes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(),nationality,Toast.LENGTH_SHORT).show();
                 getDataBaseInstance(getActivity()).updateDriverInfo(
                         "License Nationality",getActivity().getResources().getString(R.string.lic_nationality_process)
                         ,nationality
@@ -253,7 +252,6 @@ public class LicenceNationality extends Fragment implements AdapterDriverLicence
     }
 
     private void saveInDB(License_Nationality license_nationality) {
-        Toast.makeText(getActivity(),license_nationality.getLicenseNationality(),Toast.LENGTH_SHORT).show();
         getDataBaseInstance(getActivity()).updateDriverInfo(
                 "License Nationality",getActivity().getResources().getString(R.string.lic_nationality_process)
                 ,license_nationality.getLicenseNationality()

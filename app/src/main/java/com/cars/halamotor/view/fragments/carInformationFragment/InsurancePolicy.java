@@ -49,7 +49,7 @@ public class InsurancePolicy extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragmentCar("Agency repair");
-                    //            completeInsuranceInfo.updateTitle("License Nationality");
+                    completeInsuranceInfo.updateTitleCar("Agency repair");
                     getDataBaseInstance(getActivity()).updateCarDetails(
                             "Insurance policy", getActivity().getResources().getString(R.string.insurance_policy_process)
                             , getActivity().getResources().getString(R.string.insurance_policy_yes)
@@ -88,7 +88,7 @@ public class InsurancePolicy extends Fragment {
                 {
                     CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                     completeInsuranceInfo.nextFragmentCar("Agency repair");
-//            completeInsuranceInfo.updateTitle("License Nationality");
+                    completeInsuranceInfo.updateTitleCar("Agency repair");
                 }else{
                     Intent resultIntent = new Intent();
                     getActivity().setResult(Activity.RESULT_OK, resultIntent);
@@ -99,9 +99,6 @@ public class InsurancePolicy extends Fragment {
     }
 
     private void saveInDB() {
-        String no = getActivity().getResources().getString(R.string.insurance_policy_no);
-        Toast.makeText(getActivity(),no,Toast.LENGTH_SHORT).show();
-
         getDataBaseInstance(getActivity()).updateCarDetails(
                 "Insurance policy", getActivity().getResources().getString(R.string.insurance_policy_process)
                 , getActivity().getResources().getString(R.string.insurance_policy_no)

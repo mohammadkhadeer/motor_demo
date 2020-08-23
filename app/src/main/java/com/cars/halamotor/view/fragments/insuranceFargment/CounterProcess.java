@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
+import static com.cars.halamotor.functions.InsuranceFunctions.processCarName;
 import static com.cars.halamotor.functions.InsuranceFunctions.processName;
 
 public class CounterProcess extends Fragment {
@@ -43,10 +44,23 @@ public class CounterProcess extends Fragment {
         textViewProcessName.setText(processName(numberOfCompletedProcess,getActivity()));
     }
 
+    public void updateInfoCounteCar(int numberOfCompletedProcess) {
+        int y = numberOfCompletedProcess+1;
+        textView1.setText(String.valueOf(y));
+        textViewProcessName.setText(processCarName(numberOfCompletedProcess,getActivity()));
+    }
+
     private void checkIntiOrComplete() {
-        int x = Integer.parseInt(getNumberOrProcessFromIntent())+1;
-        textView1.setText(String.valueOf(x));
-        textViewProcessName.setText(processName(Integer.parseInt(getNumberOrProcessFromIntent()),getActivity()));
+        if(getDriverOrCarFromIntent().equals("driver")) {
+            int x = Integer.parseInt(getNumberOrProcessFromIntent()) + 1;
+            textView1.setText(String.valueOf(x));
+            textViewProcessName.setText(processName(Integer.parseInt(getNumberOrProcessFromIntent()), getActivity()));
+        }else{
+            int x = Integer.parseInt(getNumberOrProcessFromIntent()) + 1;
+            textView1.setText(String.valueOf(x));
+            textViewProcessName.setText(processCarName(Integer.parseInt(getNumberOrProcessFromIntent()), getActivity()));
+        }
+
     }
 
     private void checkDriverOrCar() {
