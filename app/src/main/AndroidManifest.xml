@@ -51,11 +51,7 @@
             android:name=".view.activity.Insurance"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme24">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".view.activity.ShowItemDetails"
@@ -65,7 +61,14 @@
         <activity
             android:name=".view.activity.SplashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".view.activity.LoginWithSocialMedia"
             android:screenOrientation="portrait"

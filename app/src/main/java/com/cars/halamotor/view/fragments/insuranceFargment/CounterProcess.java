@@ -68,7 +68,7 @@ public class CounterProcess extends Fragment {
         {
             textView2.setText(getResources().getString(R.string.coute10));
         }else{
-            textView2.setText(getResources().getString(R.string.coute11));
+            textView2.setText(getResources().getString(R.string.coute10));
         }
     }
 

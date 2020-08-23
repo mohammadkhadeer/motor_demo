@@ -61,6 +61,8 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
         createProcessRV();
         checkIfNoProcessSelectedMakeRestAllGone();
         fillNumberOfCompletedProcess();
+        checkCompleteProcess();
+
         return view;
     }
 

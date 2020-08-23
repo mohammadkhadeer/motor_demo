@@ -62,6 +62,8 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
         actionListenerToRL();
         checkIfNoProcessSelectedMakeRestAllGone();
         fillNumberOfCompletedProcess();
+        checkCompleteProcess();
+
         return view;
     }
 
