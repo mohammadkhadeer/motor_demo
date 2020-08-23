@@ -92,6 +92,8 @@
     <string name="coute10">10</string>
     <string name="coute11">11</string>
 
+    <string name="show_result">Show resulte</string>
+
     /////////////////////Driver information/////////////////////
     //1
     <string name="nationality">Nationality</string>

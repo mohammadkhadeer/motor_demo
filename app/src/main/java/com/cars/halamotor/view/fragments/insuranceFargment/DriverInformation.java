@@ -18,6 +18,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.activity.EditInsuranceInfoCarOrDriver;
+import com.cars.halamotor.view.activity.Insurance;
 import com.cars.halamotor.view.adapters.adapterInsurance.AdapterDriverProcess;
 
 import java.util.ArrayList;
@@ -42,18 +43,26 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
     private static final int REQUEST_DETAILS = 130;
     RecyclerView.LayoutManager layoutManager;
     RelativeLayout relativeLayoutRestAll,relativeLayoutCompleteProcess;
+    InsuranceResult insuranceResult;
+    FragmentDriverDetailsCheck fragmentDriverDetailsCheck;
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         numberOfCompletedProcess = numberOfDriverProcessSelected(getActivity());
+        if (context instanceof FragmentDriverDetailsCheck) {
+            fragmentDriverDetailsCheck = (FragmentDriverDetailsCheck) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement FragmentBListener");
+        }
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_driver_info, container, false);
-
+        insuranceResult = new InsuranceResult();
         init();
         creteDriverInfoProcessIfNotHaveIt();
         changeFont();
@@ -62,6 +71,7 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
         checkIfNoProcessSelectedMakeRestAllGone();
         fillNumberOfCompletedProcess();
         checkCompleteProcess();
+        //checkIfNeedToUpdateInsuranceResult();
 
         return view;
     }
@@ -104,6 +114,7 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
                 numberOfCompletedProcess = numberOfDriverProcessSelected(getActivity());
                 checkIfNoProcessSelectedMakeRestAllGone();
                 createProcessRV();
+                checkIfNeedToUpdateInsuranceResult();
             }
         });
         relativeLayoutCompleteProcess.setOnClickListener(new View.OnClickListener() {
@@ -197,6 +208,18 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
             createProcessRV();
             fillNumberOfCompletedProcess();
             checkCompleteProcess();
+            checkIfNeedToUpdateInsuranceResult();
+        }
+    }
+
+    private void checkIfNeedToUpdateInsuranceResult() {
+        //check if all process fill to get result
+        numberOfCompletedProcess = numberOfDriverProcessSelected(getActivity());
+        if (numberOfCompletedProcess == 10)
+        {
+            fragmentDriverDetailsCheck.onDriverComplete(true);
+        }else{
+            fragmentDriverDetailsCheck.onDriverComplete(false);
         }
     }
 
@@ -219,4 +242,9 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
             linearLayout.setVisibility(View.VISIBLE);
         }
     }
+
+    public interface FragmentDriverDetailsCheck {
+        void onDriverComplete(Boolean status);
+    }
+
 }

@@ -17,8 +17,10 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarInformation;
+import com.cars.halamotor.view.activity.CarDetails;
 import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
 import com.cars.halamotor.view.activity.EditInsuranceInfoCarOrDriver;
+import com.cars.halamotor.view.activity.Insurance;
 import com.cars.halamotor.view.adapters.adapterInsurance.AdapterCarProcess;
 
 import java.util.ArrayList;
@@ -43,11 +45,25 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
     AdapterCarProcess adapterCarProcess;
     int numberOfCompletedProcess;
     private static final int REQUEST_DETAILS = 130;
+    InsuranceResult insuranceResult = new InsuranceResult();
+    FragmentCarDetailsCheck fragmentCarDetailsCheck;
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        fragmentCarDetailsCheck = null;
+    }
 
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
         numberOfCompletedProcess = numberOfCarProcessSelected(getActivity());
+        if (context instanceof FragmentCarDetailsCheck) {
+            fragmentCarDetailsCheck = (FragmentCarDetailsCheck) context;
+        } else {
+            throw new RuntimeException(context.toString()
+                    + " must implement FragmentBListener");
+        }
     }
 
     @Override
@@ -63,6 +79,7 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
         checkIfNoProcessSelectedMakeRestAllGone();
         fillNumberOfCompletedProcess();
         checkCompleteProcess();
+        //checkIfMustUpdateFragmentInsuranceResult();
 
         return view;
     }
@@ -126,6 +143,7 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
                 numberOfCompletedProcess = numberOfCarProcessSelected(getActivity());
                 checkIfNoProcessSelectedMakeRestAllGone();
                 createProcessRV();
+                checkIfMustUpdateFragmentInsuranceResult();
             }
         });
         relativeLayoutCompleteProcess.setOnClickListener(new View.OnClickListener() {
@@ -220,6 +238,18 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
             createProcessRV();
             fillNumberOfCompletedProcess();
             checkCompleteProcess();
+            checkIfMustUpdateFragmentInsuranceResult();
+        }
+    }
+
+    private void checkIfMustUpdateFragmentInsuranceResult() {
+        //check if all process fill to get result
+        numberOfCompletedProcess = numberOfCarProcessSelected(getActivity());
+        if (numberOfCompletedProcess == 10)
+        {
+            fragmentCarDetailsCheck.onCarDetailsComplete(true);
+        }else{
+            fragmentCarDetailsCheck.onCarDetailsComplete(false);
         }
     }
 
@@ -232,4 +262,7 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
         }
     }
 
+    public interface FragmentCarDetailsCheck {
+        void onCarDetailsComplete(Boolean status);
+    }
 }

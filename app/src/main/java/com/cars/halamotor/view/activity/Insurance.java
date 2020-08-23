@@ -1,5 +1,6 @@
 package com.cars.halamotor.view.activity;
 
+import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -15,17 +16,23 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.fragments.insuranceFargment.CarDetailsInsurance;
 import com.cars.halamotor.view.fragments.insuranceFargment.DriverInformation;
+import com.cars.halamotor.view.fragments.insuranceFargment.InsuranceResult;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.functions.InsuranceFunctions.numberOfCarProcessSelected;
+import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
 import static com.cars.halamotor.sharedPreferences.InsuranceSP.cleanInsuranceStatus;
 import static com.cars.halamotor.sharedPreferences.InsuranceSP.getInsuranceStatusSP;
 import static com.cars.halamotor.sharedPreferences.InsuranceSP.saveInsuranceSP;
 
 
-public class Insurance extends AppCompatActivity {
+public class Insurance extends AppCompatActivity implements CarDetailsInsurance.FragmentCarDetailsCheck
+        , DriverInformation.FragmentDriverDetailsCheck {
     TextView textViewWelcome;
     CarDetailsInsurance carDetailsInsurance = new CarDetailsInsurance();
     DriverInformation driverInformation = new DriverInformation();
+    InsuranceResult insuranceResult = new InsuranceResult();
+
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
 
@@ -42,6 +49,7 @@ public class Insurance extends AppCompatActivity {
         changeFont();
         createDriverFragment();
         createCarFragment();
+        createInsuranceResultFragment();
     }
 
     private void createCarFragment() {
@@ -127,4 +135,32 @@ public class Insurance extends AppCompatActivity {
         }
     }
 
+    private void createInsuranceResultFragment() {
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_insurance_result, insuranceResult)
+                .commit();
+    }
+
+    @Override
+    public void onCarDetailsComplete(Boolean status) {
+        if (status)
+            insuranceResult.updateResult();
+        else
+            insuranceResult.hideResult();
+    }
+
+    @Override
+    public void onDriverComplete(Boolean status) {
+        if (status)
+            insuranceResult.updateResult();
+        else
+            insuranceResult.hideResult();
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent resultIntent = new Intent();
+        setResult(Activity.RESULT_OK, resultIntent);
+        finish();
+    }
 }

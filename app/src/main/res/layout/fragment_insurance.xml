@@ -65,13 +65,188 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="62">
+                android:layout_weight="26">
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:visibility="gone"
+                android:layout_weight="36">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/fragment_insurance_car_con"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="16dp"
+                                android:layout_centerVertical="true"
+                                android:id="@+id/fragment_insurance_car_logo"
+                                android:background="@drawable/car_logo"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_marginStart="1dp"
+                                android:id="@+id/fragment_insurance_car_tv"
+                                android:textSize="11dp"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textSize="11dp"
+                                android:textColor="@color/colorBlue7"
+                                android:id="@+id/fragment_insurance_car_process_completed"
+                                android:text="@string/coute10"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_marginStart="1dp"
+                                android:textSize="11dp"
+                                android:text="/"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_marginStart="1dp"
+                                android:textSize="11dp"
+                                android:id="@+id/fragment_insurance_car_all_process"
+                                android:text="@string/coute10"
+                                />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/fragment_insurance_driver_con"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="18dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginStart="6dp"
+                                android:id="@+id/fragment_insurance_driver_logo"
+                                android:background="@drawable/driver_logo"/>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_marginStart="4dp"
+                                android:textSize="11dp"
+                                android:id="@+id/fragment_insurance_tv2"
+                                />
+                        </RelativeLayout>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorBlue7"
+                                android:textSize="11dp"
+                                android:id="@+id/fragment_insurance_driver_process_completed"
+                                android:text="@string/coute10"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_marginStart="1dp"
+                                android:text="/"
+                                android:textSize="11dp"
+                                />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            >
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:textColor="@color/colorPrimaryDark"
+                                android:layout_marginStart="1dp"
+                                android:textSize="11dp"
+                                android:id="@+id/fragment_insurance_driver_all_process"
+                                android:text="@string/coute10"
+                                />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:visibility="visible"
                 android:id="@+id/insurance_fragment_complete_process_rl"
                 android:background="?android:attr/selectableItemBackground"
                 android:layout_weight="38">
