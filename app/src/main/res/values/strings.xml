@@ -187,6 +187,92 @@
     <string name="birth_day_process">Birth day</string>
     <string name="birth_day_process_s">Birth day</string>
 
+    //1 car process make
+    <string name="car_make_process">Car make</string>
+    <string name="car_make_process_s">Car make</string>
+
+    //2 car process model
+    <string name="car_model_process">Car model</string>
+    <string name="car_model_process_s">Car model</string>
+
+    //3 car process year
+    <string name="car_year_process">Car year</string>
+    <string name="car_year_process_s">Car year</string>
+
+    //4 car process condition
+    <string name="car_condition_q">Your car is \?</string>
+    <string name="car_condition_process">Car condition</string>
+    <string name="car_condition_process_s">Car condition</string>
+
+    <string name="car_condition_1">New</string>
+    <string name="car_condition_2">Used</string>
+
+    <string name="car_condition_1_s">New</string>
+    <string name="car_condition_2_s">Used</string>
+
+    //5 car cylinder cylinder
+    <string name="car_cylinder_process">Car cylinder</string>
+    <string name="car_cylinder_process_s">Car cylinder</string>
+
+    <string name="car_cylinder_1">less 2 cylinder</string>
+    <string name="car_cylinder_2">2 cylinder</string>
+    <string name="car_cylinder_3">4 cylinder</string>
+    <string name="car_cylinder_4">6 cylinder</string>
+    <string name="car_cylinder_5">8 cylinder</string>
+
+    <string name="car_cylinder_1_s">less 2 cylinder</string>
+    <string name="car_cylinder_2_s">2 cylinder</string>
+    <string name="car_cylinder_3_s">4 cylinder</string>
+    <string name="car_cylinder_4_s">6 cylinder</string>
+    <string name="car_cylinder_5_s">8 cylinder</string>
+
+    //6 car process city
+    <string name="car_city_process">City</string>
+    <string name="car_city_process_s">City</string>
+
+    //7 car process licence expired
+    <string name="licence_expired_q">Is your insurance policy expired\?</string>
+    <string name="licence_expired">Licence expired</string>
+    <string name="licence_not_expired">Not expired</string>
+
+    <string name="licence_expired_s">Licence expired</string>
+    <string name="licence_not_expired_s">Not expired</string>
+
+    <string name="licence_expired_process">Licence expired</string>
+    <string name="licence_expired_process_s">Licence expired</string>
+
+    //8 car process modified
+    <string name="modified_q">Dose the car modified or not follow Gulf Cooperation Council\?</string>
+    <string name="car_modified_process">Follow GCC</string>
+    <string name="car_modified_process_s">Follow GCC</string>
+
+    <string name="car_modified_1">Follow GCC</string>
+    <string name="car_modified_2">Not follow GCC</string>
+
+    <string name="car_modified_1_s">Follow GCC</string>
+    <string name="car_modified_2_s">Not follow GCC</string>
+
+    //9 car process insurance policy AgencyRepair
+    <string name="insurance_policy_q">Current policy is \"Third party liability\" only\?</string>
+    <string name="insurance_policy_process">Insurance policy</string>
+    <string name="insurance_policy_process_s">Insurance policy</string>
+
+    <string name="insurance_policy_yes">Yes</string>
+    <string name="insurance_policy_no">No</string>
+
+    <string name="insurance_policy_yes_s">Yes</string>
+    <string name="insurance_policy_no_s">No</string>
+
+    //10 car process agency repair
+    <string name="agency_repair_q">Do your current policy include agency repair\?</string>
+    <string name="agency_repair_process">Agency repair</string>
+    <string name="agency_repair_process_s">Agency repair</string>
+
+    <string name="agency_repair_yes">Yes</string>
+    <string name="agency_repair_no">No</string>
+
+    <string name="agency_repair_yes_s">Yes</string>
+    <string name="agency_repair_no_s">No</string>
 
     <string name="insurance_affected">Insurance Affected by\n
                                       \.1 Driver information \n

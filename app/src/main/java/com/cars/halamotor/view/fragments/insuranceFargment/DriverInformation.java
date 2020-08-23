@@ -130,6 +130,7 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
             bundle.putString("nextFragment",nextFragment(numberOfCompletedProcess));
             bundle.putString("from","main");
             bundle.putString("completeOrInti","complete");
+            bundle.putString("dOrC","driver");
 
             Intent intent = new Intent(getActivity(), CompleteInsuranceInfo.class);
             intent.putExtras(bundle);
@@ -143,6 +144,7 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
         bundle.putString("partType","1");
         bundle.putString("from","main");
         bundle.putString("completeOrInti","inti");
+        bundle.putString("dOrC","driver");
 
         Intent intent = new Intent(getActivity(), CompleteInsuranceInfo.class);
         intent.putExtras(bundle);

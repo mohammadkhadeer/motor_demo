@@ -12,6 +12,16 @@ import android.widget.TextView;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.view.fragments.carInformationFragment.AgencyRepair;
+import com.cars.halamotor.view.fragments.carInformationFragment.CarCondition;
+import com.cars.halamotor.view.fragments.carInformationFragment.CarMakeFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.CitiesFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.CylinderNumberFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.InsurancePolicy;
+import com.cars.halamotor.view.fragments.carInformationFragment.LicenceExpired;
+import com.cars.halamotor.view.fragments.carInformationFragment.ModelFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.ModifiedFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.YearFragment;
 import com.cars.halamotor.view.fragments.driverInformationFragment.BirthDay;
 import com.cars.halamotor.view.fragments.driverInformationFragment.CertificateClaim;
 import com.cars.halamotor.view.fragments.driverInformationFragment.DriverDuration;
@@ -42,6 +52,17 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
     BirthDay birthDay = new BirthDay();
     CounterProcess counterProcess = new CounterProcess();
 
+    CarMakeFragment carMakeFragment = new CarMakeFragment();
+    ModelFragment modelFragment = new ModelFragment();
+    YearFragment yearFragment = new YearFragment();
+    CarCondition carCondition = new CarCondition();
+    CylinderNumberFragment cylinderNumberFragment = new CylinderNumberFragment();
+    CitiesFragment citiesFragment = new CitiesFragment();
+    LicenceExpired licenceExpired = new LicenceExpired();
+    ModifiedFragment modifiedFragment = new ModifiedFragment();
+    InsurancePolicy insurancePolicy = new InsurancePolicy();
+    AgencyRepair agencyRepair = new AgencyRepair();
+
     Fragment allFragment[] = {driverNationality,licenceNationality,driverDuration,registerDate,insurancePay
     ,certificateClaim,name,phoneNumber,email,birthDay};
 
@@ -55,10 +76,153 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
         fillIntiInfo();
         createCounterFragment();
         if (getCompleteOrIntiFromIntent().equals("inti"))
-            handelNationalityFragment();
-        else
-            nextFragment(getNextFragmentFromIntent());
+            if (getDriverOrCarFromIntent().equals("driver"))
+                handelNationalityFragment();
+            else
+                handelCarMake();
+            else
+                if (getDriverOrCarFromIntent().equals("driver"))
+                    nextFragment(getNextFragmentFromIntent());
+                else
+                    nextFragmentCar(getNextFragmentFromIntent());
     }
+
+    public void nextFragmentCar(String fragmentCarNext) {
+        switch (fragmentCarNext) {
+            case "Car make":
+                handelCarMake();
+                break;
+            case "Car model":
+                handelModelFragment();
+                break;
+            case "Car year":
+                handelCarYearFragment();
+                break;
+            case "Car condition":
+                handelConditionFragment();
+                break;
+            case "Car cylinder":
+                handelCarCylinderFragment();
+                break;
+            case "City":
+                handelCitiesFragment();
+                break;
+            case "Licence expired":
+                handelLicenceExpiredFragment();
+                break;
+            case "Follow GCC":
+                handelFollowGCCFragment();
+                break;
+            case "Insurance policy":
+                handelInsurancePolicyFragment();
+                break;
+            case "Agency repair":
+                handelAgencyRepairFragment();
+                break;
+        }
+    }
+
+    private void handelAgencyRepairFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        agencyRepair.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, agencyRepair)
+                .commit();
+    }
+
+    private void handelInsurancePolicyFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        insurancePolicy.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, insurancePolicy)
+                .commit();
+    }
+
+    private void handelFollowGCCFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        modifiedFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, modifiedFragment)
+                .commit();
+    }
+
+    private void handelLicenceExpiredFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        licenceExpired.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, licenceExpired)
+                .commit();
+    }
+
+    private void handelCitiesFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        citiesFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, citiesFragment)
+                .commit();
+    }
+
+    private void handelCarCylinderFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        cylinderNumberFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, cylinderNumberFragment)
+                .commit();
+    }
+
+    private void handelCarYearFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        yearFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, yearFragment)
+                .commit();
+    }
+
+    private void handelConditionFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        carCondition.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, carCondition)
+                .commit();
+    }
+
+    private void handelModelFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        modelFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, modelFragment)
+                .commit();
+    }
+
+    private void handelCarMake() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","fill");
+        carMakeFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_all_driver_info_fragments, carMakeFragment)
+                .commit();
+    }
+
+
 
     private void createCounterFragment() {
         int numberOfCompletedProcess = numberOfDriverProcessSelected(this);
@@ -99,6 +263,7 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
     }
 
     private String getNextFragmentFromIntent() {
+        //use it when press complete process
         Bundle bundle = getIntent().getExtras();
         String processType =bundle.getString("nextFragment");
         return processType;
@@ -110,6 +275,12 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
         return processType;
     }
 
+    private String getDriverOrCarFromIntent() {
+        Bundle bundle = getIntent().getExtras();
+        String processType =bundle.getString("dOrC");
+        return processType;
+    }
+
     public void nextFragment(String fragmentNext){
         switch (fragmentNext) {
             case "Nationality":
@@ -117,39 +288,30 @@ public class CompleteInsuranceInfo extends AppCompatActivity {
                 break;
             case "License Nationality":
                 handelLicenseNationalityFragment();
-//                counterProcess.updateInfoCounte(1);
                 break;
             case "Drive duration":
                 handelDriverDurationFragment();
-//                counterProcess.updateInfoCounte(2);
                 break;
             case "Register Date":
                 handelRegisterDateFragment();
-//                counterProcess.updateInfoCounte(3);
                 break;
             case "Insurance pay":
                 handelInsurancePayFragment();
-//                counterProcess.updateInfoCounte(4);
                 break;
             case "Certificate claims":
                 handelCertificateClaimFragment();
-//                counterProcess.updateInfoCounte(5);
                 break;
             case "Name":
                 handelNameFragment();
-//                counterProcess.updateInfoCounte(6);
                 break;
             case "Phone number":
                 handelPhoneFragment();
-//                counterProcess.updateInfoCounte(7);
                 break;
             case "Email":
                 handelEmailFragment();
-//                counterProcess.updateInfoCounte(8);
                 break;
             case "Birth day":
                 handelBDFragment();
-//                counterProcess.updateInfoCounte(9);
                 break;
         }
     }

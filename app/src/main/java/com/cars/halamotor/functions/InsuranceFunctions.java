@@ -2,10 +2,15 @@ package com.cars.halamotor.functions;
 
 import android.content.Context;
 import android.database.Cursor;
+import android.util.Log;
 
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
+import com.cars.halamotor.model.CarInformation;
+import com.cars.halamotor.model.CarProcess;
 import com.cars.halamotor.model.CertificateClaims;
+import com.cars.halamotor.model.CityModel;
+import com.cars.halamotor.model.CylinderNumber;
 import com.cars.halamotor.model.DriverInformation;
 import com.cars.halamotor.model.DriverProcess;
 import com.cars.halamotor.model.LicenseDuration;
@@ -16,8 +21,11 @@ import com.cars.halamotor.model.ProcessContent;
 import java.util.ArrayList;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.InsertFunctions.insertCarProcessTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertDriverProcessTable;
+import static com.cars.halamotor.dataBase.ReadFunction.checkIfCarDetailsProcessCreated;
 import static com.cars.halamotor.dataBase.ReadFunction.checkIfDriverProcessCreated;
+import static com.cars.halamotor.dataBase.ReadFunction.getAllCarProcess;
 import static com.cars.halamotor.dataBase.ReadFunction.getAllDriverProcess;
 
 public class InsuranceFunctions {
@@ -642,6 +650,50 @@ public class InsuranceFunctions {
         return driverProcessArrayL;
     }
 
+    public static ArrayList<CarProcess> fillCarProcessArrayL(Context context) {
+        ArrayList<CarProcess> carProcessArrayL = new ArrayList<CarProcess>();
+
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.agency_repair_process),context.getResources().getString(R.string.agency_repair_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.insurance_policy_process),context.getResources().getString(R.string.insurance_policy_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.car_modified_process),context.getResources().getString(R.string.car_modified_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.licence_expired_process),context.getResources().getString(R.string.licence_expired_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.car_city_process),context.getResources().getString(R.string.car_city_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.car_cylinder_process),context.getResources().getString(R.string.car_cylinder_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.car_condition_process),context.getResources().getString(R.string.car_condition_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.car_year_process),context.getResources().getString(R.string.car_year_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.car_model_process),context.getResources().getString(R.string.car_model_process_s)));
+        carProcessArrayL.add(new CarProcess(context.getResources().getString(R.string.car_make_process),context.getResources().getString(R.string.car_make_process_s)));
+
+        return carProcessArrayL;
+    }
+
+    public static ArrayList<CylinderNumber> fillCylinderNumberArrayL(Context context) {
+        ArrayList<CylinderNumber> cylinderNumbersArrayL = new ArrayList<CylinderNumber>();
+
+        cylinderNumbersArrayL.add(new CylinderNumber(context.getResources().getString(R.string.car_cylinder_1),context.getResources().getString(R.string.car_cylinder_1_s)));
+        cylinderNumbersArrayL.add(new CylinderNumber(context.getResources().getString(R.string.car_cylinder_2),context.getResources().getString(R.string.car_cylinder_2_s)));
+        cylinderNumbersArrayL.add(new CylinderNumber(context.getResources().getString(R.string.car_cylinder_3),context.getResources().getString(R.string.car_cylinder_3_s)));
+        cylinderNumbersArrayL.add(new CylinderNumber(context.getResources().getString(R.string.car_cylinder_4),context.getResources().getString(R.string.car_cylinder_4_s)));
+        cylinderNumbersArrayL.add(new CylinderNumber(context.getResources().getString(R.string.car_cylinder_5),context.getResources().getString(R.string.car_cylinder_5_s)));
+
+        return cylinderNumbersArrayL;
+    }
+
+    public static ArrayList<CityModel> fillCitiesArrayL(Context context) {
+        ArrayList<CityModel> citiesArrayL = new ArrayList<CityModel>();
+
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.abu_dhabi),context.getResources().getString(R.string.abu_dhabi_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.dubai),context.getResources().getString(R.string.dubai_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.sharjah),context.getResources().getString(R.string.sharjah_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.ajman),context.getResources().getString(R.string.ajman_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.ras_al_khaimah),context.getResources().getString(R.string.ras_al_khaimah_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.um_al_quwain),context.getResources().getString(R.string.um_al_quwain_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.fujairah),context.getResources().getString(R.string.fujairah_s)));
+
+        return citiesArrayL;
+    }
+
     public static void createDriverInfoTable(Context context){
         ArrayList<DriverProcess> driverProcessArrayL = new ArrayList<DriverProcess>();
         driverProcessArrayL = fillDriverProcessArrayL(context);
@@ -657,6 +709,21 @@ public class InsuranceFunctions {
         }
     }
 
+    public static void createCarInfoTable(Context context){
+        ArrayList<CarProcess> carProcessArrayL = new ArrayList<CarProcess>();
+        carProcessArrayL = fillCarProcessArrayL(context);
+        DBHelper database=getDataBaseInstance(context);
+        if (checkIfCarDetailsProcessCreated(context) ==0)
+        {
+            for (int i=0;i<carProcessArrayL.size();i++)
+            {
+                ProcessContent processContent = new ProcessContent(context.getResources().getString(R.string.empty),"empty");
+                CarInformation carInformation = new CarInformation(carProcessArrayL.get(i),processContent,false);
+                insertCarProcessTable(carInformation,database);
+            }
+        }
+    }
+
     public static int numberOfDriverProcessSelected(Context context){
         int numberOfCompletedProcess =0;
         ArrayList<DriverInformation> driverAllProcessArrayL = new ArrayList<DriverInformation>();
@@ -667,6 +734,22 @@ public class InsuranceFunctions {
             for (int i=0;i<driverAllProcessArrayL.size();i++)
             {
                 if (driverAllProcessArrayL.get(i).isProcessStatus())
+                    numberOfCompletedProcess = numberOfCompletedProcess+1;
+            }
+        }
+        return numberOfCompletedProcess;
+    }
+
+    public static int numberOfCarProcessSelected(Context context){
+        int numberOfCompletedProcess =0;
+        ArrayList<CarInformation> carAllProcessArrayL = new ArrayList<CarInformation>();
+        carAllProcessArrayL = getAllCarProcess(context);
+
+        if (checkIfDriverProcessCreated(context) !=0)
+        {
+            for (int i=0;i<carAllProcessArrayL.size();i++)
+            {
+                if (carAllProcessArrayL.get(i).isProcessStatus())
                     numberOfCompletedProcess = numberOfCompletedProcess+1;
             }
         }
@@ -706,6 +789,45 @@ public class InsuranceFunctions {
                 break;
             case 9:
                 nextFragment = "Birth day";
+                break;
+        }
+
+        return nextFragment;
+    }
+
+    public static String nextCarFragment(int numberOfCompleteFragments){
+        String nextFragment = null;
+
+        switch (numberOfCompleteFragments) {
+            case 0:
+                nextFragment = "Car make";
+                break;
+            case 1:
+                nextFragment = "Car model";
+                break;
+            case 2:
+                nextFragment = "Car year";
+                break;
+            case 3:
+                nextFragment = "Car condition";
+                break;
+            case 4:
+                nextFragment = "Car cylinder";
+                break;
+            case 5:
+                nextFragment = "City";
+                break;
+            case 6:
+                nextFragment = "Licence expired";
+                break;
+            case 7:
+                nextFragment = "Modified";
+                break;
+            case 8:
+                nextFragment = "Insurance policy";
+                break;
+            case 9:
+                nextFragment = "Agency repair";
                 break;
         }
 
@@ -771,11 +893,38 @@ public class InsuranceFunctions {
         return driverInformation;
     }
 
+    public static CarInformation getCarProcess(Context context,String processTypeS){
+        Cursor res = getDataBaseInstance(context).getCarDetails(processTypeS);
+
+        CarProcess driverProcess= new CarProcess(
+                res.getString(2).replace("\n", "")
+                ,res.getString(1).replace("\n", "")
+        );
+        ProcessContent processContent=new ProcessContent(
+                res.getString(3).replace("\n", "")
+                ,res.getString(4).replace("\n", "")
+        );
+        boolean isSelected = Boolean.valueOf(res.getString(5).replace("\n", ""));
+
+        CarInformation carInformation = new CarInformation(
+                driverProcess,processContent,isSelected
+        );
+
+        return carInformation;
+    }
+
     public static void resetAllDriverInfoTable(Context context){
         DBHelper database=getDataBaseInstance(context);
         database.deleteAllDriverInfo();
 
         createDriverInfoTable(context);
+    }
+
+    public static void resetAllCarInfoTable(Context context){
+        DBHelper database=getDataBaseInstance(context);
+        database.deleteAllCarDetails();
+
+        createCarInfoTable(context);
     }
 
     public static ArrayList<CertificateClaims> fillCertificateClaimsArrayL(Context context) {

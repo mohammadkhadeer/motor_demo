@@ -137,6 +137,12 @@ public class InsurancePay extends Fragment {
                     {
                         CompleteInsuranceInfo completeInsuranceInfo = (CompleteInsuranceInfo) getActivity();
                         completeInsuranceInfo.nextFragment("Certificate claims");
+                        completeInsuranceInfo.updateTitle("Certificate claims");
+
+                        getDataBaseInstance(getActivity()).updateDriverInfo(
+                                "Insurance pay", getActivity().getResources().getString(R.string.insurance_pay_process)
+                                , editText.getText().toString()
+                                , editText.getText().toString(), "true");
                     }else {
                         getDataBaseInstance(getActivity()).updateDriverInfo(
                                 "Insurance pay", getActivity().getResources().getString(R.string.insurance_pay_process)

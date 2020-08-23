@@ -9,7 +9,9 @@ import android.util.Log;
 import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.BrowsingFilter;
 import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.model.CarInformation;
 import com.cars.halamotor.model.CarPlatesFirstCase;
+import com.cars.halamotor.model.CarProcess;
 import com.cars.halamotor.model.DriverInformation;
 import com.cars.halamotor.model.DriverProcess;
 import com.cars.halamotor.model.FavouriteCallSearch;
@@ -50,6 +52,32 @@ public class ReadFunction {
         }
 
         return driverInformationArrayList;
+    }
+
+    public static ArrayList<CarInformation> getAllCarProcess(Context context) {
+
+        ArrayList<CarInformation> carInformationArrayList = new ArrayList<CarInformation>();
+
+        Cursor res = getDataBaseInstance(context).descendingCarDetails();
+
+        while (res.moveToNext()) {
+            CarProcess carProcess= new CarProcess(
+                    res.getString(2).replace("\n", "")
+                    ,res.getString(1).replace("\n", "")
+            );
+            ProcessContent processContent=new ProcessContent(
+                    res.getString(3).replace("\n", "")
+                    ,res.getString(4).replace("\n", "")
+            );
+            boolean isSelected = Boolean.valueOf(res.getString(5).replace("\n", ""));
+
+            CarInformation driverInformation = new CarInformation(
+                    carProcess,processContent,isSelected
+            );
+            carInformationArrayList.add(driverInformation);
+        }
+
+        return carInformationArrayList;
     }
 
     //check if table have column

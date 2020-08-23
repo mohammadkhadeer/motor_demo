@@ -10,6 +10,16 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.view.fragments.carInformationFragment.AgencyRepair;
+import com.cars.halamotor.view.fragments.carInformationFragment.CarCondition;
+import com.cars.halamotor.view.fragments.carInformationFragment.CarMakeFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.CitiesFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.CylinderNumberFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.InsurancePolicy;
+import com.cars.halamotor.view.fragments.carInformationFragment.LicenceExpired;
+import com.cars.halamotor.view.fragments.carInformationFragment.ModelFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.ModifiedFragment;
+import com.cars.halamotor.view.fragments.carInformationFragment.YearFragment;
 import com.cars.halamotor.view.fragments.driverInformationFragment.BirthDay;
 import com.cars.halamotor.view.fragments.driverInformationFragment.CertificateClaim;
 import com.cars.halamotor.view.fragments.driverInformationFragment.DriverDuration;
@@ -35,6 +45,17 @@ public class EditDriverInfo extends AppCompatActivity {
     PhoneNumber phoneNumber = new PhoneNumber();
     Email email = new Email();
     BirthDay birthDay = new BirthDay();
+
+    CarMakeFragment carMakeFragment = new CarMakeFragment();
+    ModelFragment modelFragment = new ModelFragment();
+    YearFragment yearFragment = new YearFragment();
+    CarCondition carCondition = new CarCondition();
+    CylinderNumberFragment cylinderNumberFragment = new CylinderNumberFragment();
+    CitiesFragment citiesFragment = new CitiesFragment();
+    LicenceExpired licenceExpired = new LicenceExpired();
+    ModifiedFragment modifiedFragment = new ModifiedFragment();
+    InsurancePolicy insurancePolicy = new InsurancePolicy();
+    AgencyRepair agencyRepair = new AgencyRepair();
 
     String processType;
     @Override
@@ -76,8 +97,138 @@ public class EditDriverInfo extends AppCompatActivity {
             case "Birth day":
                 handelBDFragment();
                 break;
+            case "Car make":
+                handelCarMake();
+                break;
+            case "Car model":
+                handelCarModel();
+                break;
+            case "Car year":
+                handelCarYear();
+                break;
+            case "Car condition":
+                handelCarCondition();
+                break;
+            case "Car cylinder":
+                handelCarCylinder();
+                break;
+            case "City":
+                handelCity();
+                break;
+            case "Licence expired":
+                handelLicenceExpired();
+                break;
+            case "Follow GCC":
+                handelFollowGCCFragment();
+                break;
+            case "Insurance policy":
+                handelInsurancePolicyFragment();
+                break;
+            case "Agency repair":
+                handelAgencyRepairFragment();
+                break;
         }
 
+    }
+
+    private void handelAgencyRepairFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        agencyRepair.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, agencyRepair)
+                .commit();
+    }
+
+    private void handelInsurancePolicyFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        insurancePolicy.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, insurancePolicy)
+                .commit();
+    }
+
+    private void handelFollowGCCFragment() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        modifiedFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, modifiedFragment)
+                .commit();
+    }
+
+    private void handelCity() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        citiesFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, citiesFragment)
+                .commit();
+    }
+
+    private void handelLicenceExpired() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        licenceExpired.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, licenceExpired)
+                .commit();
+    }
+
+    private void handelCarCylinder() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        cylinderNumberFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, cylinderNumberFragment)
+                .commit();
+    }
+
+    private void handelCarYear() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        yearFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, yearFragment)
+                .commit();
+    }
+
+    private void handelCarCondition() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        carCondition.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, carCondition)
+                .commit();
+    }
+
+    private void handelCarModel() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        modelFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, modelFragment)
+                .commit();
+    }
+
+    private void handelCarMake() {
+        Bundle bundle = new Bundle();
+        bundle.putString("editOrFill","edit");
+        carMakeFragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_driver_info_fragments, carMakeFragment)
+                .commit();
     }
 
     private void handelLicenseNationalityFragment() {
@@ -252,6 +403,36 @@ public class EditDriverInfo extends AppCompatActivity {
                 break;
             case "Birth day":
                 birthDay.endDriverNationality();
+                break;
+            case "Car make":
+                carMakeFragment.endDriverNationality();
+                break;
+            case "Car model":
+                modelFragment.endDriverNationality();
+                break;
+            case "Car year":
+                carMakeFragment.endDriverNationality();
+                break;
+            case "Car Condition":
+                carCondition.endDriverNationality();
+                break;
+            case "Car cylinder":
+                cylinderNumberFragment.endDriverNationality();
+                break;
+            case "City":
+                citiesFragment.endDriverNationality();
+                break;
+            case "Licence expired":
+                licenceExpired.endDriverNationality();
+                break;
+            case "Follow GCC":
+                modifiedFragment.endDriverNationality();
+                break;
+            case "Insurance policy":
+                insurancePolicy.endDriverNationality();
+                break;
+            case "Agency repair":
+                agencyRepair.endDriverNationality();
                 break;
         }
     }

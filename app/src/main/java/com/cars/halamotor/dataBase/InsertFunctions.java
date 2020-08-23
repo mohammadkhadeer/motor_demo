@@ -8,6 +8,7 @@ import com.cars.halamotor.model.AccAndJunkFirstCase;
 import com.cars.halamotor.model.BoostPost;
 import com.cars.halamotor.model.CCEMT;
 import com.cars.halamotor.model.CCEMTFirestCase;
+import com.cars.halamotor.model.CarInformation;
 import com.cars.halamotor.model.CarPlatesFirstCase;
 import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.CommentsComp;
@@ -34,6 +35,16 @@ public class InsertFunctions {
                 ,driverInformation.getProcessContent().getProcessContent()
                 ,driverInformation.getProcessContent().getProcessContentS()
                 ,String.valueOf(driverInformation.isProcessStatus())
+        );
+        return isInserted;
+    }
+    public static boolean insertCarProcessTable(CarInformation carInformation, DBHelper database) {
+        boolean isInserted = database.insertCarDetails(
+                carInformation.getCarProcess().getProcessS()
+                ,carInformation.getCarProcess().getProcess()
+                ,carInformation.getProcessContent().getProcessContent()
+                ,carInformation.getProcessContent().getProcessContentS()
+                ,String.valueOf(carInformation.isProcessStatus())
         );
         return isInserted;
     }

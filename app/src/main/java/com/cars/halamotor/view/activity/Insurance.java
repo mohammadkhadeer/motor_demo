@@ -34,7 +34,8 @@ public class Insurance extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_insurance);
 
-        //getDataBaseInstance(this).deleteAllDriverInfo();
+//        getDataBaseInstance(this).deleteAllDriverInfo();
+//        getDataBaseInstance(this).deleteAllCarDetails();
         statusBarColor();
         inti();
         dialogMessage();
