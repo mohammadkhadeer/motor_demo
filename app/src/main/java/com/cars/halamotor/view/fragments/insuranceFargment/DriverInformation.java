@@ -7,29 +7,21 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
-import com.cars.halamotor.dataBase.DBHelper;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
-import com.cars.halamotor.view.activity.EditDriverInfo;
-import com.cars.halamotor.view.activity.Insurance;
-import com.cars.halamotor.view.activity.ShowItemDetails;
+import com.cars.halamotor.view.activity.EditInsuranceInfoCarOrDriver;
 import com.cars.halamotor.view.adapters.adapterInsurance.AdapterDriverProcess;
-import com.cars.halamotor.view.adapters.adapterMainScreen.AdapterSuggestedItem;
 
 import java.util.ArrayList;
 
-import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
-import static com.cars.halamotor.dataBase.ReadFunction.checkIfDriverProcessCreated;
 import static com.cars.halamotor.dataBase.ReadFunction.getAllDriverProcess;
 import static com.cars.halamotor.functions.InsuranceFunctions.createDriverInfoTable;
 import static com.cars.halamotor.functions.InsuranceFunctions.getDriverProcess;
@@ -187,7 +179,7 @@ public class DriverInformation extends Fragment implements AdapterDriverProcess.
 
         if (!getDriverProcess(getActivity(),driverInformation.getDriverProcess().getProcessS()).getProcessContent().getProcessContentS().equals("empty"))
         {
-            Intent intent = new Intent(getActivity(), EditDriverInfo.class);
+            Intent intent = new Intent(getActivity(), EditInsuranceInfoCarOrDriver.class);
             intent.putExtras(bundle);
             DriverInformation.this.startActivityForResult(intent , REQUEST_DETAILS);
             getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);

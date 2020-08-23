@@ -33,7 +33,7 @@ import com.cars.halamotor.view.fragments.driverInformationFragment.RegisterDate;
 
 import java.util.Locale;
 
-public class EditDriverInfo extends AppCompatActivity {
+public class EditInsuranceInfoCarOrDriver extends AppCompatActivity {
 
     DriverNationality driverNationality = new DriverNationality();
     LicenceNationality licenceNationality = new LicenceNationality();
@@ -411,7 +411,7 @@ public class EditDriverInfo extends AppCompatActivity {
                 modelFragment.endDriverNationality();
                 break;
             case "Car year":
-                carMakeFragment.endDriverNationality();
+                yearFragment.endDriverNationality();
                 break;
             case "Car Condition":
                 carCondition.endDriverNationality();

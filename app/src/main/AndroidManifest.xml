@@ -22,7 +22,7 @@
 
         </activity>
         <activity
-            android:name=".view.activity.EditDriverInfo"
+            android:name=".view.activity.EditInsuranceInfoCarOrDriver"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme23" />
         <activity

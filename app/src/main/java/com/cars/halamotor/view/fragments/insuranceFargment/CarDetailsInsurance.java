@@ -7,7 +7,6 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,28 +17,18 @@ import android.widget.TextView;
 import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CarInformation;
-import com.cars.halamotor.model.DriverInformation;
 import com.cars.halamotor.view.activity.CompleteInsuranceInfo;
-import com.cars.halamotor.view.activity.EditDriverInfo;
-import com.cars.halamotor.view.activity.Insurance;
+import com.cars.halamotor.view.activity.EditInsuranceInfoCarOrDriver;
 import com.cars.halamotor.view.adapters.adapterInsurance.AdapterCarProcess;
-import com.cars.halamotor.view.adapters.adapterInsurance.AdapterDriverProcess;
 
 import java.util.ArrayList;
 
-import static com.cars.halamotor.dataBase.ReadFunction.checkIfCarDetailsProcessCreated;
 import static com.cars.halamotor.dataBase.ReadFunction.getAllCarProcess;
-import static com.cars.halamotor.dataBase.ReadFunction.getAllDriverProcess;
 import static com.cars.halamotor.functions.InsuranceFunctions.createCarInfoTable;
-import static com.cars.halamotor.functions.InsuranceFunctions.createDriverInfoTable;
 import static com.cars.halamotor.functions.InsuranceFunctions.getCarProcess;
-import static com.cars.halamotor.functions.InsuranceFunctions.getDriverProcess;
 import static com.cars.halamotor.functions.InsuranceFunctions.nextCarFragment;
-import static com.cars.halamotor.functions.InsuranceFunctions.nextFragment;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfCarProcessSelected;
-import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
 import static com.cars.halamotor.functions.InsuranceFunctions.resetAllCarInfoTable;
-import static com.cars.halamotor.functions.InsuranceFunctions.resetAllDriverInfoTable;
 
 public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.PassProcess{
 
@@ -204,7 +193,7 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
         if (!getCarProcess(getActivity(),carInformation.getCarProcess().getProcessS()).getProcessContent().getProcessContentS().equals("empty")
             && !getCarProcess(getActivity(),carInformation.getCarProcess().getProcessS()).getCarProcess().getProcessS().equals("Car model"))
         {
-            Intent intent = new Intent(getActivity(), EditDriverInfo.class);
+            Intent intent = new Intent(getActivity(), EditInsuranceInfoCarOrDriver.class);
             intent.putExtras(bundle);
             com.cars.halamotor.view.fragments.insuranceFargment.CarDetailsInsurance.this.startActivityForResult(intent , REQUEST_DETAILS);
             getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
@@ -212,7 +201,7 @@ public class CarDetailsInsurance extends Fragment implements AdapterCarProcess.P
             String carMakeProcess = getAllCarProcess(getActivity()).get(0).getProcessContent().getProcessContentS();
             if (!carMakeProcess.equals("empty"))
             {
-                Intent intent = new Intent(getActivity(), EditDriverInfo.class);
+                Intent intent = new Intent(getActivity(), EditInsuranceInfoCarOrDriver.class);
                 intent.putExtras(bundle);
                 com.cars.halamotor.view.fragments.insuranceFargment.CarDetailsInsurance.this.startActivityForResult(intent , REQUEST_DETAILS);
                 getActivity().overridePendingTransition(R.anim.right_to_left, R.anim.no_animation);
