@@ -1,6 +1,7 @@
 package com.cars.halamotor.view.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
@@ -12,10 +13,15 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.InputType;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,6 +31,7 @@ import com.cars.halamotor.R;
 import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.model.CityModel;
 import com.cars.halamotor.model.ItemFilterModel;
+import com.cars.halamotor.model.ItemSelectedFilterModel;
 import com.cars.halamotor.model.Neighborhood;
 import com.cars.halamotor.presnter.Filter;
 import com.cars.halamotor.presnter.OnNewNotification;
@@ -32,6 +39,7 @@ import com.cars.halamotor.view.fragments.FragmentHomeScreen;
 import com.cars.halamotor.view.fragments.browsingFragment.FragmentBrowsing;
 import com.cars.halamotor.view.fragments.FragmentNotification;
 import com.cars.halamotor.view.fragments.FragmentProfile;
+import com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.FragmentSearch;
 import com.cars.halamotor.view.fragments.fragmentInSaidHomeScreenFragment.ListsMainScreenFragment;
 import com.google.firebase.database.DatabaseReference;
 import com.roughike.bottombar.BottomBar;
@@ -39,23 +47,26 @@ import com.roughike.bottombar.BottomBarTab;
 import com.roughike.bottombar.OnTabReselectListener;
 import com.roughike.bottombar.OnTabSelectListener;
 
+import java.util.ArrayList;
+
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.getUnreadNotificationsInSP;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateAllUnreadNotificationsToChecked;
 import static com.cars.halamotor.sharedPreferences.NotificationSharedPreferences.updateNumberUnreadNotifications;
 import static com.cars.halamotor.sharedPreferences.SharedPreferencesInApp.checkIfUserRegisterOrNotFromSP;
 
-public class MainActivity extends AppCompatActivity implements Filter{
+public class MainActivity extends AppCompatActivity implements Filter,FragmentSearch.FragmentSearchListener{
     private TextView appNameTV;
     DatabaseReference mDatabase;
     BottomBar bottomBar;
     EditText searchEdt;
-    RelativeLayout headRL;
+    RelativeLayout headRL,searchRL,bottomRL;
 
     final FragmentHomeScreen fragmentHome = new FragmentHomeScreen();
     final Fragment fragmentMessage = new FragmentBrowsing();
     final Fragment fragmentNotification = new FragmentNotification();
     final Fragment fragmentProfile = new FragmentProfile();
     final FragmentManager fm = getSupportFragmentManager();
+    FragmentSearch fragmentSearch = new FragmentSearch();
     Fragment active = fragmentHome;
 
     BottomBarTab homeBBT,messagesBBT, notificationsBBT, addItemBBT,profileBBT;
@@ -67,7 +78,8 @@ public class MainActivity extends AppCompatActivity implements Filter{
     SharedPreferences sharedPreferences;
     OnNewNotification onNewNotification;
     private static final int REQUEST_SHOW_ITEM_SELECTED_DETAILS = 100;
-    int numberOfFilterSelected=0,selectedAntherFragmentButStillSelectedFilter=0;
+    int numberOfFilterSelected=0,selectedAntherFragmentButStillSelectedFilter=0,searchOnTheTop=0;
+    InputMethodManager imm;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,7 +94,65 @@ public class MainActivity extends AppCompatActivity implements Filter{
         BottomBarMenu();
         moveBetweenFragment();
         updateNumberUnCheckedNotifications();
+        actionListenerToSearch();
+        onPressOnSearch();
+    }
 
+    private void onPressOnSearch() {
+        searchEdt.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN:
+                        searchEdt.setFocusable(true);
+                        searchEdt.requestFocus();
+                        intiSearchFragment();
+                        imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                        imm.showSoftInput(searchEdt, InputMethodManager.SHOW_IMPLICIT);
+                        break;
+                    case MotionEvent.ACTION_UP:
+                        v.performClick();
+                        break;
+                    default:
+                        break;
+                }
+                return true;
+
+            }
+        });
+    }
+
+    private void intiSearchFragment() {
+        bottomRL.setVisibility(View.GONE);
+        searchOnTheTop=1;
+        searchRL.setVisibility(View.VISIBLE);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container_search, fragmentSearch)
+                .commit();
+    }
+
+    private void actionListenerToSearch() {
+        searchEdt.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void onTextChanged(CharSequence cs, int arg1, int arg2, int arg3) {
+                if (cs.length() != 0)
+                    Log.i("TAG","test");//makeCancelTitleIVVISIBLE();
+                else
+                    Log.i("TAG","test");//makeCancelTitleIVGONE();
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int arg1, int arg2, int arg3) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+                fragmentSearch.filter(editable.toString());
+            }
+
+        });
     }
 
     // to can inti interface in said activity
@@ -126,6 +196,8 @@ public class MainActivity extends AppCompatActivity implements Filter{
         appNameTV =(TextView) findViewById(R.id.app_name_tv);
         searchEdt = (EditText) findViewById(R.id.searchEdt);
         headRL = (RelativeLayout) findViewById(R.id.main_activity_head);
+        searchRL = (RelativeLayout) findViewById(R.id.main_activity_search_rl);
+        bottomRL = (RelativeLayout) findViewById(R.id.main_activity_bottom_bat);
         intiBBT();
     }
 
@@ -384,6 +456,7 @@ public class MainActivity extends AppCompatActivity implements Filter{
         }
     }
 
+    ////////////////////////////////////////////////////////////////////////////
     @Override
     public void onFilterClick(ItemFilterModel filterModel, String filterType) {
         numberOfFilterSelected =numberOfFilterSelected+1;
@@ -427,7 +500,17 @@ public class MainActivity extends AppCompatActivity implements Filter{
             {
                 fragmentHome.removeLastFilter();
             }else{
-                finish();
+                if (searchOnTheTop ==1)
+                {
+                    searchOnTheTop =0;
+                    searchEdt.setText("");
+                    searchEdt.clearFocus();
+                    searchRL.setVisibility(View.GONE);
+                    bottomRL.setVisibility(View.VISIBLE);
+
+                }else{
+                    finish();
+                }
             }
 
         }else{
@@ -435,5 +518,26 @@ public class MainActivity extends AppCompatActivity implements Filter{
             handelHomeFragment();
             bottomBar.selectTabWithId(R.id.tab_home);
         }
+    }
+
+    @Override
+    public void onInputSearchSent(ArrayList<ItemSelectedFilterModel> itemTypeFromFilterAdapter) {
+        searchRL.setVisibility(View.GONE);
+        bottomRL.setVisibility(View.VISIBLE);
+        searchEdt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    hideKeyboard(v);
+                }
+            }
+        });
+        searchEdt.clearFocus();
+        //fragmentHome.onFilterClicked(itemTypeFromFilterAdapter);
+    }
+
+    public void hideKeyboard(View view) {
+        InputMethodManager inputMethodManager =(InputMethodManager)getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 }

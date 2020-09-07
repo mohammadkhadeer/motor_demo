@@ -268,6 +268,13 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
 
     }
 
+    public void onSearch(ArrayList<ItemSelectedFilterModel> newSelectedFilterArrayL){
+        numberOfSelectedFilter = 5;
+        selectedFilterArrayL = newSelectedFilterArrayL;
+        adapterSelectedFilters.notifyDataSetChanged();
+        createFilterTowRV();
+    }
+
     private void reVISIBLEFilter() {
         containerFilterLL.setVisibility(View.GONE);
         new Handler().postDelayed(new Runnable() {

@@ -74,7 +74,7 @@ public class PopUp_SlidingImage_Adapter extends PagerAdapter {
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("TAG","HERE");
+                //Log.d("TAG","HERE");
             }
         });
 

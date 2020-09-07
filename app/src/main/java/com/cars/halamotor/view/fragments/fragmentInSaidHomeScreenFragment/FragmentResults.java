@@ -137,6 +137,12 @@ public class FragmentResults extends Fragment {
         handelResult();
     }
 
+    ////////////////////////+search
+    public void onSearchClicked(ArrayList<ItemSelectedFilterModel> newItemFilterArrayList) {
+        itemFilterArrayList=newItemFilterArrayList;
+        handelResult();
+    }
+
     private void handelResult() {
         resultFilter=filterResult(itemFilterArrayList,0,getActivity(),city,neighborhoodStr,8);
         similarNeeded = getSimilarNeeded(itemFilterArrayList,city,neighborhoodStr,getActivity());

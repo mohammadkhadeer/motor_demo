@@ -23,7 +23,6 @@ import static com.cars.halamotor.fireBaseDB.FireStorePaths.getDataStoreInstance;
 import static com.cars.halamotor.functions.FCSFunctions.convertCat;
 
 public class FilterFireStore {
-
     public static ResultFilter filterResult(ArrayList<ItemSelectedFilterModel> itemFilterArrayList
             , int burnedPrice, Context context, String city, String neighborhood,int numberResult){
         /*

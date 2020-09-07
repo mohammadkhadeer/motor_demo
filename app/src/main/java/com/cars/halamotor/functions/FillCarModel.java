@@ -8,6 +8,7 @@ import com.cars.halamotor.model.CarMake;
 import com.cars.halamotor.model.CarMakeAndCarModel;
 import com.cars.halamotor.model.CarModel;
 import com.cars.halamotor.model.ItemFilterModel;
+import com.cars.halamotor.model.SearchCar;
 
 import java.util.ArrayList;
 
@@ -2797,6 +2798,53 @@ public class FillCarModel {
                                 ,carModelArrayL.get(j).getCarModelStrS()
                         );
                 allCarArrayList.add(carMakeAndCarModel);
+            }
+
+        }
+
+        return allCarArrayList;
+    }
+
+    public static ArrayList<SearchCar> fillAllCarArrayL2(Context context)
+    {
+        ArrayList<SearchCar> allCarArrayList = new ArrayList<>();
+
+        ArrayList<CarMake> carMakeArrayList  = new ArrayList<CarMake>();
+        ArrayList<CarModel> carModelArrayL  = new ArrayList<CarModel>();
+
+        carMakeArrayList = fillCarMakeArrayL(carMakeArrayList,context);
+
+        for (int i =0 ;i<carMakeArrayList.size();i++)
+        {
+            carModelArrayL  = new ArrayList<CarModel>();
+            carModelArrayL = fillCarModelArrayL(carModelArrayL,context,carMakeArrayList.get(i).getMakeStr());
+            for (int j =0;j<carModelArrayL.size();j++)
+            {
+                String im ="https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/carLogos%2Fbmw.png?alt=media&token=7c5e9d9f-1fdc-4722-beea-4814203bc904";
+
+                SearchCar searchCarSale = new SearchCar(im
+                        ,context.getResources().getString(R.string.car_for_sale)
+                        ,context.getResources().getString(R.string.car_for_sale_s)
+
+                        ,carMakeArrayList.get(i).getMakeStr()
+                        ,carMakeArrayList.get(i).getMakeStrS()
+
+                        ,carModelArrayL.get(j).getCarModelStr()
+                        ,carModelArrayL.get(j).getCarModelStrS()
+                );
+
+                SearchCar searchCarRent = new SearchCar(im
+                        ,context.getResources().getString(R.string.car_for_rent)
+                        ,context.getResources().getString(R.string.car_for_rent_s)
+
+                        ,carMakeArrayList.get(i).getMakeStr()
+                        ,carMakeArrayList.get(i).getMakeStrS()
+
+                        ,carModelArrayL.get(j).getCarModelStr()
+                        ,carModelArrayL.get(j).getCarModelStrS()
+                );
+                allCarArrayList.add(searchCarSale);
+                allCarArrayList.add(searchCarRent);
             }
 
         }

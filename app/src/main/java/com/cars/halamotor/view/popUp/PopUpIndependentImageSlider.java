@@ -1,4 +1,4 @@
-package com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails;
+package com.cars.halamotor.view.popUp;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

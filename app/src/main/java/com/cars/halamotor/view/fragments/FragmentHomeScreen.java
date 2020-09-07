@@ -108,6 +108,20 @@ public class FragmentHomeScreen extends Fragment {
         fragmentResults.onNeighborhoodCanceled(isCanceled);
     }
 
+    ////////////////////////+searchResult
+    public void onFilterClicked(ArrayList<ItemSelectedFilterModel> newItemFilterArrayList) {
+        itemFilterArrayList = newItemFilterArrayList;
+
+        //fragmentResults.onSearchClicked(newItemFilterArrayList);
+        //filtersFragment.onSearch(newItemFilterArrayList);
+        if (resulteCreate==0)
+        {
+            createFragmentResults();
+            scrollView();
+        }
+        resulteCreate =1;
+    }
+
     ////////////////////////+++++++++++++++++++
     public void onFilterClicked(ItemFilterModel itemFilterModel, String filterType) {
         itemFilterArrayList.add(new ItemSelectedFilterModel(itemFilterModel.getFilter(), itemFilterModel.getFilterS(), filterType));

@@ -7,42 +7,29 @@ import android.os.Handler;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.cars.halamotor.R;
-import com.cars.halamotor.model.AccAndJunk;
-import com.cars.halamotor.model.CCEMT;
-import com.cars.halamotor.model.CarPlatesModel;
 import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
 import com.cars.halamotor.model.ItemWheelsRim;
 import com.cars.halamotor.model.SlidImage;
-import com.cars.halamotor.model.WheelsRimModel;
 import com.cars.halamotor.view.adapters.adapterShowItemDetails.SlidingImage_Adapter;
-import com.squareup.picasso.Picasso;
 import com.viewpagerindicator.CirclePageIndicator;
 
 import java.util.ArrayList;
 
-import static android.content.Context.LAYOUT_INFLATER_SERVICE;
-import static com.cars.halamotor.view.fragments.fragmentInSaidShowItemDetails.PopUpIndependentImageSlider.createPopUp;
+import static com.cars.halamotor.view.popUp.PopUpIndependentImageSlider.createPopUp;
 
 public class FragmentImageSlider extends Fragment implements SlidingImage_Adapter.ImageClicked{
 
