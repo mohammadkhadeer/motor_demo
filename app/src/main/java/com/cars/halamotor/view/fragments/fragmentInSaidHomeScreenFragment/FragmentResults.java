@@ -138,9 +138,17 @@ public class FragmentResults extends Fragment {
     }
 
     ////////////////////////+search
-    public void onSearchClicked(ArrayList<ItemSelectedFilterModel> newItemFilterArrayList) {
-        itemFilterArrayList=newItemFilterArrayList;
-        handelResult();
+    public void onSearchClicked(final ArrayList<ItemSelectedFilterModel> newItemFilterArrayList) {
+        // i use handler cos i don't know why context not created
+        itemFilterArrayList.addAll(newItemFilterArrayList);
+        new Handler().postDelayed(new Runnable() {
+
+            @Override
+            public void run() {
+                handelResult();
+            }
+        }, 500);
+
     }
 
     private void handelResult() {

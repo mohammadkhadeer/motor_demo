@@ -19,6 +19,7 @@ import com.cars.halamotor.view.activity.AddItem;
 import com.cars.halamotor.view.activity.Insurance;
 import com.cars.halamotor.view.activity.MainActivity;
 import com.cars.halamotor.view.fragments.insuranceFargment.DriverInformation;
+import com.squareup.picasso.Picasso;
 
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfCarProcessSelected;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
@@ -30,11 +31,14 @@ public class InsuranceFragment extends Fragment {
     TextView insuranceTV,completeProcessTV,textView,textView2,textViewCarCompletedProcess,textViewAllCarProcess
             ,textViewDriverCompletedProcess,textViewAllDriverProcess;
 
-    ImageView imageView;
+    ImageView imageView,imageViewInsurance,imageViewCar,imageViewDriver;
     RelativeLayout relativeLayout;
     LinearLayout linearLayout,linearLayoutCarProcess,linearLayoutDriverProcess;
     int numberOfDriverCompletedProcess,numberOfCarCompletedProcess;
     private static final int REQUEST_DETAILS = 130;
+    String carPic = "https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/pic%2F1car.png?alt=media&token=3e490ba4-8aa9-4fa7-b2ae-ac96e023b9c3";
+    String driverPic = "https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/pic%2Fdriver_logo.jpg?alt=media&token=5ab66a0a-0ad6-4e0a-bf64-b81c739d139f";
+    String insurancePic = "https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/pic%2Finsurance_logo.png?alt=media&token=b00be8d9-b881-4c8a-95a0-8b3e74791c88";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,9 +47,30 @@ public class InsuranceFragment extends Fragment {
 
         init();
         changeFont();
+        fillImages();
         actionListenerToLinerLayout();
         checkIfCompletedOrEmptyOrShow();
         return view;
+    }
+
+    private void fillImages() {
+        Picasso.get()
+                .load(insurancePic)
+                .fit()
+                .centerCrop()
+                .into(imageViewInsurance);
+
+        Picasso.get()
+                .load(carPic)
+                .fit()
+                .centerCrop()
+                .into(imageViewCar);
+
+        Picasso.get()
+                .load(driverPic)
+                .fit()
+                .centerCrop()
+                .into(imageViewDriver);
     }
 
     private void checkIfCompletedOrEmptyOrShow() {
@@ -123,6 +148,9 @@ public class InsuranceFragment extends Fragment {
         insuranceTV = (TextView) view.findViewById(R.id.insurance_fragment_complete_process_main_tv);
         completeProcessTV = (TextView) view.findViewById(R.id.insurance_fragment_complete_process_tv);
         imageView = (ImageView) view.findViewById(R.id.insurance_fragment_complete_process_iv);
+        imageViewInsurance = (ImageView) view.findViewById(R.id.insurance_logo);
+        imageViewCar = (ImageView) view.findViewById(R.id.fragment_insurance_car_logo);
+        imageViewDriver = (ImageView) view.findViewById(R.id.fragment_insurance_driver_logo);
         relativeLayout = (RelativeLayout) view.findViewById(R.id.insurance_fragment_complete_process_rl);
         linearLayout = (LinearLayout) view.findViewById(R.id.insurance_fragment_complete_process_main_ll);
         linearLayoutCarProcess = (LinearLayout) view.findViewById(R.id.fragment_insurance_car_con);

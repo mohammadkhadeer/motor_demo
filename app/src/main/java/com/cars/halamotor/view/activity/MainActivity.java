@@ -491,37 +491,53 @@ public class MainActivity extends AppCompatActivity implements Filter,FragmentSe
 
     @Override
     public void onBackPressed() {
-        if (lastFragmentStr.equals("fragmentHome"))
+        if (lastFragmentStr.equals("fragmentHome") && searchOnTheTop ==0)
         {
             //when user be press back and still in home fragment back button well remove a filter
             //from home fragment and create public method in result to update response and public
             //method in filter fragment to cancel last filter
-            if (numberOfFilterSelected != 0)
-            {
-                fragmentHome.removeLastFilter();
+            if (searchOnTheTop ==1){
+                searchOnTheTop =0;
+                searchEdt.setText("");
+                searchEdt.clearFocus();
+                searchRL.setVisibility(View.GONE);
+                bottomRL.setVisibility(View.VISIBLE);
             }else{
-                if (searchOnTheTop ==1)
+                if (numberOfFilterSelected != 0)
                 {
-                    searchOnTheTop =0;
-                    searchEdt.setText("");
-                    searchEdt.clearFocus();
-                    searchRL.setVisibility(View.GONE);
-                    bottomRL.setVisibility(View.VISIBLE);
-
+                    fragmentHome.removeLastFilter();
                 }else{
-                    finish();
+                    if (searchOnTheTop ==1)
+                    {
+                        searchOnTheTop =0;
+                        searchEdt.setText("");
+                        searchEdt.clearFocus();
+                        searchRL.setVisibility(View.GONE);
+                        bottomRL.setVisibility(View.VISIBLE);
+
+                    }else{
+                        finish();
+                    }
                 }
             }
-
         }else{
 //            Toast.makeText(getBaseContext(), "numberOfFilterSelected: " + String.valueOf(numberOfFilterSelected), Toast.LENGTH_SHORT).show();
-            handelHomeFragment();
-            bottomBar.selectTabWithId(R.id.tab_home);
+            if (searchOnTheTop ==1){
+                searchOnTheTop =0;
+                searchEdt.setText("");
+                searchEdt.clearFocus();
+                searchRL.setVisibility(View.GONE);
+                bottomRL.setVisibility(View.VISIBLE);
+            }else{
+                handelHomeFragment();
+                bottomBar.selectTabWithId(R.id.tab_home);
+            }
         }
     }
 
     @Override
     public void onInputSearchSent(ArrayList<ItemSelectedFilterModel> itemTypeFromFilterAdapter) {
+        numberOfFilterSelected =5;
         searchRL.setVisibility(View.GONE);
         bottomRL.setVisibility(View.VISIBLE);
         searchEdt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -533,7 +549,7 @@ public class MainActivity extends AppCompatActivity implements Filter,FragmentSe
             }
         });
         searchEdt.clearFocus();
-        //fragmentHome.onFilterClicked(itemTypeFromFilterAdapter);
+        fragmentHome.onFilterClicked(itemTypeFromFilterAdapter);
     }
 
     public void hideKeyboard(View view) {

@@ -92,11 +92,11 @@ public class FragmentSearch extends Fragment implements AdapterSearch.PassSearch
 
     @Override
     public void onSearchClicked(SearchCar searchCar) {
-        Log.i("TAG",searchCar.getCarModel());
+        itemTypeFromFilterAdapter = new ArrayList<>();
         itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel(searchCar.getCategory(),searchCar.getCategoryS(),searchCar.getCategory()));
 
-        itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel("0.0","0.0",searchCar.getCategory()));
-        itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel("100000000.0","100000000.0",searchCar.getCategory()));
+        itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel("1,000","1",searchCar.getCategory()));
+        itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel("200,000","100000000",searchCar.getCategory()));
 
         itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel(searchCar.getCarMake(),searchCar.getCarMakeS(),searchCar.getCategory()));
         itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel(searchCar.getCarModel(),searchCar.getCarModelS(),searchCar.getCategory()));

@@ -110,16 +110,16 @@ public class FragmentHomeScreen extends Fragment {
 
     ////////////////////////+searchResult
     public void onFilterClicked(ArrayList<ItemSelectedFilterModel> newItemFilterArrayList) {
-        itemFilterArrayList = newItemFilterArrayList;
+        itemFilterArrayList.addAll(newItemFilterArrayList);
 
-        //fragmentResults.onSearchClicked(newItemFilterArrayList);
-        //filtersFragment.onSearch(newItemFilterArrayList);
         if (resulteCreate==0)
         {
             createFragmentResults();
             scrollView();
         }
         resulteCreate =1;
+        fragmentResults.onSearchClicked(newItemFilterArrayList);
+        filtersFragment.onSearch(newItemFilterArrayList);
     }
 
     ////////////////////////+++++++++++++++++++

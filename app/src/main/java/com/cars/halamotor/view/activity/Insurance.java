@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
@@ -17,6 +18,7 @@ import com.cars.halamotor.functions.Functions;
 import com.cars.halamotor.view.fragments.insuranceFargment.CarDetailsInsurance;
 import com.cars.halamotor.view.fragments.insuranceFargment.DriverInformation;
 import com.cars.halamotor.view.fragments.insuranceFargment.InsuranceResult;
+import com.squareup.picasso.Picasso;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfCarProcessSelected;
@@ -29,12 +31,14 @@ import static com.cars.halamotor.sharedPreferences.InsuranceSP.saveInsuranceSP;
 public class Insurance extends AppCompatActivity implements CarDetailsInsurance.FragmentCarDetailsCheck
         , DriverInformation.FragmentDriverDetailsCheck {
     TextView textViewWelcome;
+    ImageView imageView;
     CarDetailsInsurance carDetailsInsurance = new CarDetailsInsurance();
     DriverInformation driverInformation = new DriverInformation();
     InsuranceResult insuranceResult = new InsuranceResult();
 
     SharedPreferences.Editor editor;
     SharedPreferences sharedPreferences;
+    String insurancePic = "https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/pic%2Finsurance_logo.png?alt=media&token=b00be8d9-b881-4c8a-95a0-8b3e74791c88";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,11 +49,20 @@ public class Insurance extends AppCompatActivity implements CarDetailsInsurance.
 //        getDataBaseInstance(this).deleteAllCarDetails();
         statusBarColor();
         inti();
+        fillImage();
         dialogMessage();
         changeFont();
         createDriverFragment();
         createCarFragment();
         createInsuranceResultFragment();
+    }
+
+    private void fillImage() {
+        Picasso.get()
+                .load(insurancePic)
+                .fit()
+                .centerCrop()
+                .into(imageView);
     }
 
     private void createCarFragment() {
@@ -70,6 +83,7 @@ public class Insurance extends AppCompatActivity implements CarDetailsInsurance.
 
     private void inti() {
         textViewWelcome = (TextView) findViewById(R.id.insurance_activity_welcome_tv);
+        imageView = (ImageView) findViewById(R.id.insuranceLogo);
     }
 
     private void statusBarColor() {

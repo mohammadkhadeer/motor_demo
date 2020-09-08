@@ -129,19 +129,6 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
         });
     }
 
-    private void createFilterTowRV() {
-        filterItemsArrayL = fillFilter(getActivity(),numberOfSelectedFilter,itemTypeFromFilterAdapter);
-        filter2RV.setHasFixedSize(true);
-        layoutManagerSuggested = new LinearLayoutManager(getActivity(),
-                LinearLayoutManager.HORIZONTAL, false);
-
-        filter2RV.setLayoutManager(layoutManagerSuggested);
-        adapterFiltersItem =new AdapterFiltersItem(getActivity()
-                , filterItemsArrayL,"category",this);
-        filter2RV.setAdapter(adapterFiltersItem);
-    }
-
-
     private void createSelectedFilterRV() {
         fillSelected();
         selectedFilterRV.setHasFixedSize(true);
@@ -269,10 +256,36 @@ public class FiltersFragment extends Fragment implements AdapterFiltersCity.Pass
     }
 
     public void onSearch(ArrayList<ItemSelectedFilterModel> newSelectedFilterArrayL){
+        if (numberOfSelectedFilter==0)
+        {
+            selectedFilterArrayL.remove(selectedFilterArrayL.size()-1);
+        }else{
+            for (int i=0;i<selectedFilterArrayL.size();i++)
+            {
+                selectedFilterArrayL.remove(selectedFilterArrayL.size()-1);
+            }
+        }
         numberOfSelectedFilter = 5;
-        selectedFilterArrayL = newSelectedFilterArrayL;
+        selectedFilterArrayL.addAll(newSelectedFilterArrayL);
         adapterSelectedFilters.notifyDataSetChanged();
+        //add all fillter
+        for (int i=0;i<selectedFilterArrayL.size();i++)
+        {
+            itemTypeFromFilterAdapter.add(new ItemSelectedFilterModel(selectedFilterArrayL.get(i).getFilter(),selectedFilterArrayL.get(i).getFilterS(),selectedFilterArrayL.get(i).getFilterType()));
+        }
         createFilterTowRV();
+    }
+
+    private void createFilterTowRV() {
+        filterItemsArrayL = fillFilter(getActivity(),numberOfSelectedFilter,itemTypeFromFilterAdapter);
+        filter2RV.setHasFixedSize(true);
+        layoutManagerSuggested = new LinearLayoutManager(getActivity(),
+                LinearLayoutManager.HORIZONTAL, false);
+
+        filter2RV.setLayoutManager(layoutManagerSuggested);
+        adapterFiltersItem =new AdapterFiltersItem(getActivity()
+                , filterItemsArrayL,"category",this);
+        filter2RV.setAdapter(adapterFiltersItem);
     }
 
     private void reVISIBLEFilter() {
