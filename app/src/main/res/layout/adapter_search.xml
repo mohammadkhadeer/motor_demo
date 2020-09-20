@@ -38,7 +38,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="75">
+                android:layout_weight="89">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
@@ -107,7 +107,7 @@
             <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="15">
+                android:layout_weight="1">
 
 
             </RelativeLayout>
