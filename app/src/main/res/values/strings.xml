@@ -2165,7 +2165,7 @@
 
     <string name="bmw_630">630</string>
     <string name="bmw_640">640</string>
-    <string name="bmw_645">645></string>
+    <string name="bmw_645">645</string>
     <string name="bmw_650">650</string>
 
     <string name="bmw_760">760</string>
@@ -2207,6 +2207,95 @@
 
     <string name="bmw_1502">1502</string>
     <string name="bmw_alpina">alpina</string>
+
+
+
+
+
+    <string name="bmw_1_series_s">1 Series</string>
+    <string name="bmw_116_s">116</string>
+    <string name="bmw_118_s">118</string>
+    <string name="bmw_120_s">120</string>
+    <string name="bmw_125_s">125</string>
+    <string name="bmw_135_s">135</string>
+    <string name="bmw_225_s">225</string>
+    <string name="bmw__s">228</string>
+    <string name="bmw_2002_s">2002</string>
+    <string name="bmw_316_s">316</string>
+    <string name="bmw_318_s">318</string>
+    <string name="bmw_320_s">320</string>
+    <string name="bmw_323_s">323</string>
+    <string name="bmw_325_s">325</string>
+    <string name="bmw_328_s">328</string>
+    <string name="bmw_330_s">330</string>
+    <string name="bmw_335_s">335</string>
+    <string name="bmw_e30_s">E30</string>
+    <string name="bmw_328_gran_turismo_s">328 Gran Turismo</string>
+    <string name="bmw_e46_s">E46</string>
+    <string name="bmw_gt_s">GT</string>
+
+    <string name="bmw_420_s">420</string>
+    <string name="bmw_428_s">428</string>
+    <string name="bmw_435_s">435</string>
+
+    <string name="bmw_520_s">520</string>
+    <string name="bmw_523_s">523</string>
+    <string name="bmw_525_s">525</string>
+    <string name="bmw_528_s">528</string>
+    <string name="bmw_530_s">530</string>
+    <string name="bmw_535_s">535</string>
+    <string name="bmw_540_s">540</string>
+    <string name="bmw_545_s">545</string>
+    <string name="bmw_550_s">550</string>
+    <string name="bmw_e39_s">e39</string>
+    <string name="bmw_535gran_turismo_s">535 Gran Turismo</string>
+
+    <string name="bmw_630_s">630</string>
+    <string name="bmw_640_s">640</string>
+    <string name="bmw_645_s">645</string>
+    <string name="bmw_650_s">650</string>
+
+    <string name="bmw_760_s">760</string>
+    <string name="bmw_730_s">730</string>
+    <string name="bmw_735_s">735</string>
+    <string name="bmw_740_s">740</string>
+    <string name="bmw_745_s">745</string>
+    <string name="bmw_750_s">750</string>
+
+    <string name="bmw_8_Series_s">8 Series</string>
+
+    <string name="bmw_i3_s">i3</string>
+    <string name="bmw_i8_s">i8</string>
+
+    <string name="bmw_m2_s">M2</string>
+    <string name="bmw_m3_s">M3</string>
+    <string name="bmw_m5_s">M5</string>
+    <string name="bmw_m6_s">M6</string>
+    <string name="bmw_m_coupe_s">M Coupe</string>
+    <string name="bmw_m4_s">M4</string>
+    <string name="bmw_1m_s">1M</string>
+    <string name="bmw_m_roadster_s">Roadster</string>
+
+    <string name="bmw_x1_s">X1</string>
+    <string name="bmw_x3_s">X3</string>
+    <string name="bmw_x4_s">X4</string>
+    <string name="bmw_x5_s">X5</string>
+    <string name="bmw_x6_s">X6</string>
+    <string name="bmw_x6_m_s">X6 M</string>
+    <string name="bmw_x5_m_s">X5 M</string>
+    <string name="bmw_x7_s">X7</string>
+
+    <string name="bmw_z1_s">Z1</string>
+    <string name="bmw_z3_s">Z3</string>
+    <string name="bmw_z3m_s">Z3m</string>
+    <string name="bmw_z4_s">Z4</string>
+    <string name="bmw_z4m_s">Z4M</string>
+    <string name="bmw_z8_s">Z8</string>
+
+    <string name="bmw_1502_s">1502</string>
+    <string name="bmw_alpina_s">alpina</string>
+
+
 
 
     <string name="gle">GLE Class</string>
@@ -2268,7 +2357,7 @@
     <string name="mercedes_benz_cl_600">CL 600</string>
 
     <string name="mercedes_benz_cl_a_class">CLA Class</string>
-    <string name="mercedes_benz_cla">C LA</string>
+    <string name="mercedes_benz_cla">CLA</string>
     <string name="mercedes_benz_cla_200">CLA 200</string>
     <string name="mercedes_benz_cla_220">CLA 220</string>
     <string name="mercedes_benz_cla_45_amg">CLA 45 AMG</string>
@@ -2526,7 +2615,7 @@
     <string name="mercedes_benz_cl_600_s">CL 600</string>
 
     <string name="mercedes_benz_cl_a_class_s">CLA Class</string>
-    <string name="mercedes_benz_cla_s">C LA</string>
+    <string name="mercedes_benz_cla_s">CLA</string>
     <string name="mercedes_benz_cla_200_s">CLA 200</string>
     <string name="mercedes_benz_cla_220_s">CLA 220</string>
     <string name="mercedes_benz_cla_45_amg_s">CLA 45 AMG</string>
@@ -2724,107 +2813,24 @@
     <string name="mercedes_benz_other_s">Other</string>
 
 
-    <string name="bmw_1_series_s">1 Series</string>
-    <string name="bmw_116_s">116</string>
-    <string name="bmw_118_s">118</string>
-    <string name="bmw_120_s">120</string>
-    <string name="bmw_125_s">125</string>
-    <string name="bmw_135_s">135</string>
-    <string name="bmw_225_s">225</string>
-    <string name="bmw__s">228</string>
-    <string name="bmw_2002_s">2002</string>
-    <string name="bmw_316_s">316</string>
-    <string name="bmw_318_s">318</string>
-    <string name="bmw_320_s">320</string>
-    <string name="bmw_323_s">323</string>
-    <string name="bmw_325_s">325</string>
-    <string name="bmw_328_s">328</string>
-    <string name="bmw_330_s">330</string>
-    <string name="bmw_335_s">335</string>
-    <string name="bmw_e30_s">E30</string>
-    <string name="bmw_328_gran_turismo_s">328 Gran Turismo</string>
-    <string name="bmw_e46_s">E46</string>
-    <string name="bmw_gt_s">GT</string>
-
-    <string name="bmw_420_s">420</string>
-    <string name="bmw_428_s">428</string>
-    <string name="bmw_435_s">435</string>
-
-    <string name="bmw_520_s">520</string>
-    <string name="bmw_523_s">523</string>
-    <string name="bmw_525_s">525</string>
-    <string name="bmw_528_s">528</string>
-    <string name="bmw_530_s">530</string>
-    <string name="bmw_535_s">535</string>
-    <string name="bmw_540_s">540</string>
-    <string name="bmw_545_s">545</string>
-    <string name="bmw_550_s">550</string>
-    <string name="bmw_e39_s">e39</string>
-    <string name="bmw_535gran_turismo_s">535 Gran Turismo</string>
-
-    <string name="bmw_630_s">630</string>
-    <string name="bmw_640_s">640</string>
-    <string name="bmw_645_s">645></string>
-    <string name="bmw_650_s">650</string>
-
-    <string name="bmw_760_s">760</string>
-    <string name="bmw_730_s">730</string>
-    <string name="bmw_735_s">735</string>
-    <string name="bmw_740_s">740</string>
-    <string name="bmw_745_s">745</string>
-    <string name="bmw_750_s">750</string>
-
-    <string name="bmw_8_Series_s">8 Series</string>
-
-    <string name="bmw_i3_s">i3</string>
-    <string name="bmw_i8_s">i8</string>
-
-    <string name="bmw_m2_s">M2</string>
-    <string name="bmw_m3_s">M3</string>
-    <string name="bmw_m5_s">M5</string>
-    <string name="bmw_m6_s">M6</string>
-    <string name="bmw_m_coupe_s">M Coupe</string>
-    <string name="bmw_m4_s">M4</string>
-    <string name="bmw_1m_s">1M</string>
-    <string name="bmw_m_roadster_s">Roadster</string>
-
-    <string name="bmw_x1_s">X1</string>
-    <string name="bmw_x3_s">X3</string>
-    <string name="bmw_x4_s">X4</string>
-    <string name="bmw_x5_s">X5</string>
-    <string name="bmw_x6_s">X6</string>
-    <string name="bmw_x6_m_s">X6 M</string>
-    <string name="bmw_x5_m_s">X5 M</string>
-    <string name="bmw_x7_s">X7</string>
-
-    <string name="bmw_z1_s">Z1</string>
-    <string name="bmw_z3_s">Z3</string>
-    <string name="bmw_z3m_s">Z3m</string>
-    <string name="bmw_z4_s">Z4</string>
-    <string name="bmw_z4m_s">Z4M</string>
-    <string name="bmw_z8_s">Z8</string>
-
-    <string name="bmw_1502_s">1502</string>
-    <string name="bmw_alpina_s">alpina</string>
-
 
     <string name="aston_martin_bd7">BD7</string>
     <string name="aston_martin_bd9">BD9</string>
     <string name="aston_martin_bdc">BDC</string>
     <string name="aston_martin_one_77">One\-77</string>
-    <string name="aston_martin_v12">BD7</string>
-    <string name="aston_martin_v8">BD7</string>
-    <string name="aston_martin_rapide">BD7</string>
-    <string name="aston_martin_cygnet">BD7</string>
-    <string name="aston_martin_vanquish">BD7</string>
-    <string name="aston_martin_virage">BD7</string>
+    <string name="aston_martin_v12">V12</string>
+    <string name="aston_martin_v8">V8</string>
+    <string name="aston_martin_rapide">Rapide</string>
+    <string name="aston_martin_cygnet">Cygnet</string>
+    <string name="aston_martin_vanquish">Vanquish</string>
+    <string name="aston_martin_virage">Virage</string>
 
-    <string name="aston_martin_lagonda">BD7</string>
-    <string name="aston_martin_bd6">BD7</string>
-    <string name="aston_martin_bds">BD7</string>
-    <string name="aston_martin_v12_vantage">BD7</string>
-    <string name="aston_martin_v8_vantage">BD7</string>
-    <string name="aston_martin_other">BD7</string>
+    <string name="aston_martin_lagonda">Lagonda</string>
+    <string name="aston_martin_bd6">DB6</string>
+    <string name="aston_martin_bds">DBS</string>
+    <string name="aston_martin_v12_vantage">V12 Vantage</string>
+    <string name="aston_martin_v8_vantage">V8 Vantage</string>
+    <string name="aston_martin_other">other</string>
 
     //************************************************
 
@@ -2832,19 +2838,19 @@
     <string name="aston_martin_bd9_s">BD9</string>
     <string name="aston_martin_bdc_s">BDC</string>
     <string name="aston_martin_one_77_s">One\-77</string>
-    <string name="aston_martin_v12_s">BD7</string>
-    <string name="aston_martin_v8_s">BD7</string>
-    <string name="aston_martin_rapide_s">BD7</string>
-    <string name="aston_martin_cygnet_s">BD7</string>
-    <string name="aston_martin_vanquish_s">BD7</string>
-    <string name="aston_martin_virage_s">BD7</string>
+    <string name="aston_martin_v12_s">V12</string>
+    <string name="aston_martin_v8_s">V8</string>
+    <string name="aston_martin_rapide_s">Rapide</string>
+    <string name="aston_martin_cygnet_s">Cygnet</string>
+    <string name="aston_martin_vanquish_s">Vanquish</string>
+    <string name="aston_martin_virage_s">Virage</string>
 
-    <string name="aston_martin_lagonda_s">BD7</string>
-    <string name="aston_martin_bd6_s">BD7</string>
-    <string name="aston_martin_bds_s">BD7</string>
-    <string name="aston_martin_v12_vantage_s">BD7</string>
-    <string name="aston_martin_v8_vantage_s">BD7</string>
-    <string name="aston_martin_other_s">BD7</string>
+    <string name="aston_martin_lagonda_s">Lagonda</string>
+    <string name="aston_martin_bd6_s">DB6</string>
+    <string name="aston_martin_bds_s">DBS</string>
+    <string name="aston_martin_v12_vantage_s">V12 Vantage</string>
+    <string name="aston_martin_v8_vantage_s">V8 Vantage</string>
+    <string name="aston_martin_other_s">other</string>
 
 
     <string name="alfa_romeo_33">33</string>
@@ -2941,14 +2947,14 @@
     <string name="audi_100">100</string>
     <string name="audi_200">200</string>
 
-    <string name="audi_tt">Tt</string>
+    <string name="audi_tt">TT</string>
     <string name="audi_v8">V8</string>
     <string name="audi_cabriolet">Cabriolet</string>
     <string name="audi_quattro">Quattro</string>
     <string name="audi_coupe">Coupe</string>
     <string name="audi_e_tron">E\-tron</string>
-    <string name="audi_tt_rs">Tt_rs</string>
-    <string name="audi_tts">Tts</string>
+    <string name="audi_tt_rs">TT RS</string>
+    <string name="audi_tts">TTS</string>
     <string name="audi_other">Other</string>
 
 
@@ -2992,7 +2998,7 @@
     <string name="audi_100_s">100</string>
     <string name="audi_200_s">200</string>
 
-    <string name="audi_tt_s">Tt</string>
+    <string name="audi_tt_s">TT</string>
     <string name="audi_v8_s">V8</string>
     <string name="audi_cabriolet_s">Cabriolet</string>
     <string name="audi_quattro_s">Quattro</string>
@@ -3003,7 +3009,6 @@
     <string name="audi_other_s">Other</string>
 
 
-    <string name="isuzu_select_all">Selecy all</string>
     <string name="isuzu_fsr">Fsr</string>
     <string name="isuzu_nkr">Nkr</string>
     <string name="isuzu_i_mark">I mark</string>
