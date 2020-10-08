@@ -600,7 +600,6 @@ public class FillCarModel {
         }
         if (carMake.equals(context.getString(R.string.isuzu)))
         {
-            carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_select_all),context.getString(R.string.isuzu_select_all_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_fsr),context.getString(R.string.isuzu_fsr_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_nkr),context.getString(R.string.isuzu_nkr_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.isuzu_i_mark),context.getString(R.string.isuzu_i_mark_s)));

@@ -3060,7 +3060,7 @@
     <string name="isuzu_pickup_s">Pickup</string>
     <string name="isuzu_reward_s">Reward</string>
     <string name="isuzu_v430_s">V430</string>
-    <string name="isuzu_other_s">Other </string>
+    <string name="isuzu_other_s">Other</string>
     <string name="infiniti_e_s">E</string>
     <string name="infiniti_e30_s">E30</string>
     <string name="infiniti_e35_s">E35</string>
@@ -3194,7 +3194,7 @@
 
 
     <string name="opel_agila_s">Agila</string>
-    <string name="opel_astra_s">Astra </string>
+    <string name="opel_astra_s">Astra</string>
     <string name="opel_ascona_s">Ascona</string>
     <string name="opel_admiral_s">Admiral</string>
     <string name="opel_omega_s">Omega</string>
@@ -3431,7 +3431,7 @@
     <string name="peugeot_6xx">6XX</string>
     <string name="peugeot_604">604</string>
     <string name="peugeot_605">605</string>
-    <string name="peugeot_607">607 </string>
+    <string name="peugeot_607">607</string>
     <string name="peugeot_8xx">8XX</string>
     <string name="peugeot_806">806</string>
     <string name="peugeot_807">807</string>
@@ -3480,7 +3480,7 @@
     <string name="peugeot_6xx_s">6XX</string>
     <string name="peugeot_604_s">604</string>
     <string name="peugeot_605_s">605</string>
-    <string name="peugeot_607_s">607 </string>
+    <string name="peugeot_607_s">607</string>
     <string name="peugeot_8xx_s">8XX</string>
     <string name="peugeot_806_s">806</string>
     <string name="peugeot_807_s">807</string>
@@ -3603,7 +3603,7 @@
     //**********************************************
 
     <string name="gmc_acadia_s">Acadia</string>
-    <string name="gmc_envoy_s">Envoy </string>
+    <string name="gmc_envoy_s">Envoy</string>
     <string name="gmc_typhoon_s">Typhoon</string>
     <string name="gmc_terrain_s">Terrain</string>
     <string name="gmc_jimmy_s">Jimmy</string>
@@ -3614,12 +3614,12 @@
     <string name="gmc_sierra_s">Sierra</string>
     <string name="gmc_vandura_s">Vandura</string>
     <string name="gmc_caprice_s">Caprice</string>
-    <string name="gmc_calais_s">Calais </string>
+    <string name="gmc_calais_s">Calais</string>
     <string name="gmc_canyon_s">Canyon</string>
     <string name="gmc_cruze_s">Cruze</string>
     <string name="gmc_commodore_s">Commodore</string>
-    <string name="gmc_yokon_s">Youkon </string>
-    <string name="gmc_caballero_s"> Caballero</string>
+    <string name="gmc_yokon_s">Youkon</string>
+    <string name="gmc_caballero_s">Caballero</string>
 
 
     <string name="jeep_patriot">Patriot</string>
