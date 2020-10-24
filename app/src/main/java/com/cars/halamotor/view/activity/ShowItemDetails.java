@@ -110,6 +110,32 @@ public class ShowItemDetails extends AppCompatActivity
         //intiCommentsFragment();
     }
 
+    private void intiImageSlider() {
+        Bundle bundle = new Bundle();
+        bundle.putString("itemIV", itemImage);
+        bundle.putString("cat", cat);
+        bundle.putString("price", price);
+        bundle.putString("priceE", priceEdit);
+        bundle.putString("newP", newPrice);
+
+        if (cat.equals("ccemt"))
+            bundle.putParcelable("object",ccemtObject);
+
+        if (cat.equals("cp"))
+            bundle.putParcelable("object",carPlatesModel);
+
+        if (cat.equals("wr"))
+            bundle.putParcelable("object",wheelsRimModel);
+
+        if (cat.equals("aaj"))
+            bundle.putParcelable("object",accAndJunkObject);
+
+        fragmentImageSlider.setArguments(bundle);
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        transaction.add(R.id.selected_item_details_image_slider_container, fragmentImageSlider);
+        transaction.commit();
+    }
+
     private void inti() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         collapsingToolbarLayout = (CollapsingToolbarLayout)findViewById(R.id.show_item_details_toolbar);
@@ -238,31 +264,7 @@ public class ShowItemDetails extends AppCompatActivity
     }
 
 
-    private void intiImageSlider() {
-        Bundle bundle = new Bundle();
-        bundle.putString("itemIV", itemImage);
-        bundle.putString("cat", cat);
-        bundle.putString("price", price);
-        bundle.putString("priceE", priceEdit);
-        bundle.putString("newP", newPrice);
 
-        if (cat.equals("ccemt"))
-            bundle.putParcelable("object",ccemtObject);
-
-        if (cat.equals("cp"))
-            bundle.putParcelable("object",carPlatesModel);
-
-        if (cat.equals("wr"))
-            bundle.putParcelable("object",wheelsRimModel);
-
-        if (cat.equals("aaj"))
-            bundle.putParcelable("object",accAndJunkObject);
-
-        fragmentImageSlider.setArguments(bundle);
-        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.add(R.id.selected_item_details_image_slider_container, fragmentImageSlider);
-        transaction.commit();
-    }
 
     private void intiFollowUser() {
         Bundle bundle = new Bundle();

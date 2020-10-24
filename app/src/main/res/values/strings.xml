@@ -4375,7 +4375,6 @@
     <string name="suzuki_other_s">Other</string>
 
 
-    <string name="seat_132">132</string>
     <string name="seat_133">133</string>
     <string name="seat_altea">Altea</string>
     <string name="seat_ibiza">Ibiza</string>
@@ -7440,6 +7439,7 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+
     <string name="edit_option">Edit</string>
     <string name="back">Back</string>
     <string name="fill_new_price">Fill a new price</string>
@@ -7507,5 +7507,6 @@
     Shows by person or gallery just from looking\n
     \n
     We wish if can get best service to you</string>
+    <string name="seat_132">132</string>
 
 </resources>
