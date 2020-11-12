@@ -2563,6 +2563,17 @@ public class FillCarModel {
             carModelArrayList.add(new CarModel(context.getString(R.string.jac_j4),context.getString(R.string.jac_j4_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.jac_n_series),context.getString(R.string.jac_n_series_s)));
             carModelArrayList.add(new CarModel(context.getString(R.string.jac_v1),context.getString(R.string.jac_v1_s)));
+
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_ga8),context.getString(R.string.jac_ga8_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_gs3),context.getString(R.string.jac_gs3_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_gs4),context.getString(R.string.jac_gs4_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_gs5),context.getString(R.string.jac_gs5_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_gs7),context.getString(R.string.jac_gs7_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_gs8),context.getString(R.string.jac_gs8_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_gn6),context.getString(R.string.jac_gn6_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_gn8),context.getString(R.string.jac_gn8_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_ge3),context.getString(R.string.jac_ge3_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.jac_other),context.getString(R.string.jac_other_s)));
         }
         if (carMake.equals(context.getString(R.string.lifan)))
         {
@@ -2769,6 +2780,45 @@ public class FillCarModel {
             carModelArrayList.add(new CarModel(context.getString(R.string.dfm_u_vane),context.getString(R.string.dfm_u_vane_s)));
 
             carModelArrayList.add(new CarModel(context.getString(R.string.dfm_v3),context.getString(R.string.dfm_v3_s)));
+        }
+
+        if (carMake.equals(context.getString(R.string.borgward)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.borgward_bx7_ts),context.getString(R.string.borgward_bx7_ts_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.borgward_bx7),context.getString(R.string.borgward_bx7_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.borgward_bx5),context.getString(R.string.borgward_bx5_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.borgward_bx6_ts),context.getString(R.string.borgward_bx6_ts_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.borgward_bxi7),context.getString(R.string.borgward_bxi7_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.borgward_other),context.getString(R.string.borgward_other_s)));
+
+        }
+
+        if (carMake.equals(context.getString(R.string.iveco)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.iveco_new_daily),context.getString(R.string.iveco_new_daily_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.iveco_eurocargo),context.getString(R.string.iveco_eurocargo_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.iveco_new_strails),context.getString(R.string.iveco_new_strails_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.iveco_new_trakker),context.getString(R.string.iveco_new_trakker_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.iveco_other),context.getString(R.string.iveco_other_s)));
+        }
+
+        if (carMake.equals(context.getString(R.string.haval)))
+        {
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h1),context.getString(R.string.haval_h1_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h2),context.getString(R.string.haval_h2_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h2s),context.getString(R.string.haval_h2s_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h3),context.getString(R.string.haval_h3_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h4),context.getString(R.string.haval_h4_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h5),context.getString(R.string.haval_h5_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h6),context.getString(R.string.haval_h6_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h7),context.getString(R.string.haval_h7_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h8),context.getString(R.string.haval_h8_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_h9),context.getString(R.string.haval_h9_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_m6),context.getString(R.string.haval_m6_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_f5),context.getString(R.string.haval_f5_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_f7),context.getString(R.string.haval_f7_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_f7x),context.getString(R.string.haval_f7x_s)));
+            carModelArrayList.add(new CarModel(context.getString(R.string.haval_other),context.getString(R.string.haval_other_s)));
         }
 
             return carModelArrayList;

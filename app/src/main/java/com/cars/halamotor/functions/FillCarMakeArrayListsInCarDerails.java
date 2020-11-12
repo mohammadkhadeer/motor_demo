@@ -106,6 +106,9 @@ public class FillCarMakeArrayListsInCarDerails {
         CarMake carMake84 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.changan),context.getResources().getString(R.string.changan_s));
         CarMake carMake85 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.hunaghai),context.getResources().getString(R.string.hunaghai_s));
         CarMake carMake86 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.dfm),context.getResources().getString(R.string.dfm_s));
+        CarMake carMake87 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.borgward),context.getResources().getString(R.string.borgward_s));
+        CarMake carMake88 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.iveco),context.getResources().getString(R.string.iveco_s));
+        CarMake carMake89 = new CarMake(R.drawable.car_for_sale,context.getResources().getString(R.string.haval),context.getResources().getString(R.string.haval_s));
 
         carMakeArrayList.add(carMake1);
         carMakeArrayList.add(carMake2);
@@ -200,6 +203,9 @@ public class FillCarMakeArrayListsInCarDerails {
         carMakeArrayList.add(carMake84);
         carMakeArrayList.add(carMake85);
         carMakeArrayList.add(carMake86);
+        carMakeArrayList.add(carMake87);
+        carMakeArrayList.add(carMake88);
+        carMakeArrayList.add(carMake89);
 
         return carMakeArrayList;
     }

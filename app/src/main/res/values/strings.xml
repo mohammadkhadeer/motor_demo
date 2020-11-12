@@ -1616,6 +1616,9 @@
     <string name="changan">Changan</string>
     <string name="hunaghai">Hunaghai</string>
     <string name="dfm">DFM</string>
+    <string name="borgward">Borgward</string>
+    <string name="iveco">Iveco</string>
+    <string name="haval">Haval</string>
 
 
     <string name="hyundai_s">Hyundai</string>
@@ -1704,6 +1707,9 @@
     <string name="changan_s">Changan</string>
     <string name="hunaghai_s">Hunaghai</string>
     <string name="dfm_s">DFM</string>
+    <string name="borgward_s">Borgward</string>
+    <string name="iveco_s">Iveco</string>
+    <string name="haval_s">Haval</string>
 
 
     <string name="h_1_starex">H\-1 Starex</string>
@@ -6498,6 +6504,18 @@
     <string name="jac_n_series">N Series</string>
     <string name="jac_v1">V1</string>
 
+    <string name="jac_ga8">Ga8</string>
+    <string name="jac_gs3">GS3</string>
+    <string name="jac_gs4">GS4</string>
+    <string name="jac_gs5">GS5</string>
+    <string name="jac_gs7">GS7</string>
+    <string name="jac_gs8">GS8</string>
+    <string name="jac_gn6">GN6</string>
+    <string name="jac_gn8">GN8</string>
+    <string name="jac_ge3">GE3</string>
+    <string name="jac_other">Other</string>
+
+
     //*****************************************
 
     <string name="jac_iev_5_s">IEV 5</string>
@@ -6517,6 +6535,20 @@
     <string name="jac_j4_s">J4</string>
     <string name="jac_n_series_s">N Series</string>
     <string name="jac_v1_s">V1</string>
+
+    <string name="jac_ga8_s">Ga8</string>
+    <string name="jac_gs3_s">GS3</string>
+    <string name="jac_gs4_s">GS4</string>
+    <string name="jac_gs5_s">GS5</string>
+    <string name="jac_gs7_s">GS7</string>
+    <string name="jac_gs8_s">GS8</string>
+    <string name="jac_gn6_s">GN6</string>
+    <string name="jac_gn8_s">GN8</string>
+    <string name="jac_ge3_s">GE3</string>
+    <string name="jac_other_s">Other</string>
+
+
+    *****************************************************
 
 
     <string name="lifan_1022">1022</string>
@@ -6893,6 +6925,71 @@
     <string name="dfm_sx6_s">SX6</string>
     <string name="dfm_u_vane_s">U\-Vane</string>
     <string name="dfm_v3_s">V3</string>
+
+    //***********************************************
+
+    <string name="borgward_bx7_ts">BX7 TS</string>
+    <string name="borgward_bx7">BX7</string>
+    <string name="borgward_bx5">BX5</string>
+    <string name="borgward_bx6_ts">BX6 TS</string>
+    <string name="borgward_bxi7">BXi7</string>
+    <string name="borgward_other">other</string>
+
+    <string name="borgward_bx7_ts_s">BX7 TS</string>
+    <string name="borgward_bx7_s">BX7</string>
+    <string name="borgward_bx5_s">BX5</string>
+    <string name="borgward_bx6_ts_s">BX6 TS</string>
+    <string name="borgward_bxi7_s">BXi7</string>
+    <string name="borgward_other_s">other</string>
+
+    //***********************************************
+
+    <string name="iveco_new_daily">New Daily</string>
+    <string name="iveco_eurocargo">Eurocargo</string>
+    <string name="iveco_new_strails">New Strails</string>
+    <string name="iveco_new_trakker">New Trakker</string>
+    <string name="iveco_other">Other</string>
+
+
+    <string name="iveco_new_daily_s">New Daily</string>
+    <string name="iveco_eurocargo_s">Eurocargo</string>
+    <string name="iveco_new_strails_s">New Strails</string>
+    <string name="iveco_new_trakker_s">New Trakker</string>
+    <string name="iveco_other_s">Other</string>
+
+    //***********************************************
+
+    <string name="haval_h1">H1</string>
+    <string name="haval_h2">H2</string>
+    <string name="haval_h2s">H2s</string>
+    <string name="haval_h3">H3</string>
+    <string name="haval_h4">H4</string>
+    <string name="haval_h5">H5</string>
+    <string name="haval_h6">H6</string>
+    <string name="haval_h7">H7</string>
+    <string name="haval_h8">H8</string>
+    <string name="haval_h9">H9</string>
+    <string name="haval_m6">M6</string>
+    <string name="haval_f5">F5</string>
+    <string name="haval_f7">F7</string>
+    <string name="haval_f7x">F7x</string>
+    <string name="haval_other">Other</string>
+
+    <string name="haval_h1_s">H1</string>
+    <string name="haval_h2_s">H2</string>
+    <string name="haval_h2s_s">H2s</string>
+    <string name="haval_h3_s">H3</string>
+    <string name="haval_h4_s">H4</string>
+    <string name="haval_h5_s">H5</string>
+    <string name="haval_h6_s">H6</string>
+    <string name="haval_h7_s">H7</string>
+    <string name="haval_h8_s">H8</string>
+    <string name="haval_h9_s">H9</string>
+    <string name="haval_m6_s">M6</string>
+    <string name="haval_f5_s">F5</string>
+    <string name="haval_f7_s">F7</string>
+    <string name="haval_f7x_s">F7x</string>
+    <string name="haval_other_s">Other</string>
 
 
     <string name="Afghan">Afghan</string>
