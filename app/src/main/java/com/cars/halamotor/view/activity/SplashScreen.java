@@ -104,18 +104,24 @@ public class SplashScreen extends AppCompatActivity {
         myDB = getDataBaseInstance(getApplicationContext());
         addWelcomeNotifications();
         deleteOldData();
-        if (checkIfUserRegisterOnServerSP(this) == false)
+        if (getUserAddressFromSP(this) == null)
         {
-            transportToLoginScreen();
+            selectAddress();
+        }else {
+            getData();
         }
-        else{
-            if (getUserAddressFromSP(this) == null)
-            {
-                selectAddress();
-            }else {
-                getData();
-            }
-        }
+//        if (checkIfUserRegisterOnServerSP(this) == false)
+//        {
+//            transportToLoginScreen();
+//        }
+//        else{
+//            if (getUserAddressFromSP(this) == null)
+//            {
+//                selectAddress();
+//            }else {
+//                getData();
+//            }
+//        }
     }
 
     public void getData(){
