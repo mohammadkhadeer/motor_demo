@@ -5413,6 +5413,20 @@
 
 
 
+
+    <string name="rolls_royce_park_ward_ar">بارك وارد</string>
+    <string name="rolls_royce_wraith_ar">رايث</string>
+    <string name="rolls_royce_silver_spur_ar">سيلفر سبور</string>
+    <string name="rolls_royce_ghost_ar">سيلفر سيراف</string>
+    <string name="rolls_royce_phantom_ar">غوست</string>
+    <string name="rolls_royce_corniche_ar">فانتوم</string>
+    <string name="rolls_royce_dawn_ar">كورنيش</string>
+    <string name="rolls_royce_pininfarina_ar">دون</string>
+    <string name="rolls_royce_silver_spirit_ar">بينينفارينا</string>
+    <string name="rolls_royce_other_ar">سلفر سبيرت</string>
+    <string name="rolls_royce_park_ward_s_ar">اخرى</string>
+
+
     <string name="rolls_royce_park_ward">بارك وارد</string>
     <string name="rolls_royce_wraith">رايث</string>
     <string name="rolls_royce_silver_spur">سيلفر سبور</string>
@@ -5439,6 +5453,61 @@
 
 
     //**************************************************************
+
+
+
+    <string name="renault_4_ar">4</string>
+    <string name="renault_5_ar">5</string>
+    <string name="renault_6_ar">6</string>
+    <string name="renault_9_ar">9</string>
+    <string name="renault_11_ar">11</string>
+    <string name="renault_12_ar">12</string>
+    <string name="renault_14_ar">14</string>
+    <string name="renault_15_ar">15</string>
+    <string name="renault_16_ar">16</string>
+    <string name="renault_17_ar">17</string>
+    <string name="renault_18_ar">18</string>
+    <string name="renault_19_ar">19</string>
+    <string name="renault_20_ar">20</string>
+    <string name="renault_21_ar">21</string>
+    <string name="renault_25_ar">25</string>
+    <string name="renault_30_ar">30</string>
+    <string name="renault_espace_ar">اسبايس</string>
+    <string name="renault_avantime_ar">افانتايم</string>
+    <string name="renault_express_ar">اكسبرس</string>
+    <string name="renault_estafette_ar">ايستافيت</string>
+    <string name="renault_traviq_ar">ترافيك</string>
+    <string name="renault_twizy_ar">تويزي</string>
+    <string name="renault_twingo_ar">توينجو</string>
+    <string name="renault_duster_ar">داستر</string>
+    <string name="renault_dacia_ar">داسيا</string>
+    <string name="renault_dokker_van_ar">دوكر فان</string>
+    <string name="renault_rapide_ar">رابيد</string>
+    <string name="renault_rainbow_ar">راينبو</string>
+    <string name="renault_rodeo_ar">روديو</string>
+    <string name="renault_zoe_ar">زوي</string>
+    <string name="renault_safran_ar">سافران</string>
+    <string name="renault_sandero_ar">سانديرو</string>
+    <string name="renault_sport_spider_ar">سبورت سبايدر</string>
+    <string name="renault_symbol_ar">سيمبول</string>
+    <string name="renault_scenic_ar">سينيك</string>
+    <string name="renault_grand_scenic_ar">غراند سينيك</string>
+    <string name="renault_fluence_ar">فلوينس</string>
+    <string name="renault_fuego_ar">فويغو</string>
+    <string name="renault_vel_satis_ar">فيل ساتيس</string>
+    <string name="renault_kangoo_ar">كانجو</string>
+    <string name="renault_clio_ar">كليو</string>
+    <string name="renault_koleos_ar">كوليوس</string>
+    <string name="renault_latitude_ar">لا تيتيود</string>
+    <string name="renault_laguna_ar">لاجونا</string>
+    <string name="renault_logan_ar">لوجان</string>
+    <string name="renault_master_ar">ماستر</string>
+    <string name="renault_modus_ar">مودس</string>
+    <string name="renault_megane_ar">ميجان</string>
+    <string name="renault_medallion_ar">ميداليون</string>
+    <string name="renault_captur_ar">كابتشر</string>
+    <string name="renault_other_ar">اخرى</string>
+
 
     <string name="renault_4">4</string>
     <string name="renault_5">5</string>
@@ -5491,6 +5560,8 @@
     <string name="renault_medallion">ميداليون</string>
     <string name="renault_captur">كابتشر</string>
     <string name="renault_other">اخرى</string>
+
+
     <string name="renault_4_s">4</string>
     <string name="renault_5_s">5</string>
     <string name="renault_6_s">6</string>
@@ -5542,9 +5613,30 @@
     <string name="renault_medallion_s">Medallion</string>
     <string name="renault_captur_s">Captur</string>
     <string name="renault_other_s">Other</string>
-    <string name="saad_x9_2">" اكس9\\-2"</string>
-    <string name="saad_vector9_7">" فيكتور9\\-7"</string>
-    <string name="saad_x9_7">" اكس9\\-7"</string>
+
+
+
+
+    //**************************************************************
+
+
+
+    <string name="saad_x9_2_ar">اكس9\-2</string>
+    <string name="saad_vector9_7_ar">فيكتور9\-7</string>
+    <string name="saad_x9_7_ar">اكس9\-7</string>
+    <string name="saad_90_ar">90</string>
+    <string name="saad_93_ar">93</string>
+    <string name="saad_95_ar">95</string>
+    <string name="saad_96_ar">96</string>
+    <string name="saad_99_ar">99</string>
+    <string name="saad_900_ar">900</string>
+    <string name="saad_9000_ar">9000</string>
+    <string name="saad_other_ar">اخرى</string>
+
+
+    <string name="saad_x9_2">اكس9\-2</string>
+    <string name="saad_vector9_7">فيكتور9\-7</string>
+    <string name="saad_x9_7">اكس9\-7</string>
     <string name="saad_90">90</string>
     <string name="saad_93">93</string>
     <string name="saad_95">95</string>
@@ -5553,9 +5645,11 @@
     <string name="saad_900">900</string>
     <string name="saad_9000">9000</string>
     <string name="saad_other">اخرى</string>
-    <string name="saad_x9_2_s">X9\\-2</string>
-    <string name="saad_vector9_7_s">Vector9\\-7</string>
-    <string name="saad_x9_7_s">X9\\-7</string>
+
+
+    <string name="saad_x9_2_s">X9\-2</string>
+    <string name="saad_vector9_7_s">Vector9\-7</string>
+    <string name="saad_x9_7_s">X9\-7</string>
     <string name="saad_90_s">90</string>
     <string name="saad_93_s">93</string>
     <string name="saad_95_s">95</string>
@@ -5564,6 +5658,27 @@
     <string name="saad_9000_s">9000</string>
     <string name="saad_900_s">900</string>
     <string name="saad_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="saturn_ls_ar">Ls</string>
+    <string name="saturn_lw_ar">Lw</string>
+    <string name="saturn_sc_ar">Sc</string>
+    <string name="saturn_sl_ar">SL</string>
+    <string name="saturn_outlook_ar">اوتلوك</string>
+    <string name="saturn_astra_ar">استرا</string>
+    <string name="saturn_lon_ar">ايون</string>
+    <string name="saturn_aura_ar">اورا</string>
+    <string name="saturn_relay_ar">ريلاي</string>
+    <string name="saturn_sky_ar">سكاي</string>
+    <string name="saturn_view_ar">فيو</string>
+    <string name="saturn_other_ar">اخرى</string>
+
+
     <string name="saturn_ls">Ls</string>
     <string name="saturn_lw">Lw</string>
     <string name="saturn_sc">Sc</string>
@@ -5576,6 +5691,8 @@
     <string name="saturn_sky">سكاي</string>
     <string name="saturn_view">فيو</string>
     <string name="saturn_other">اخرى</string>
+
+
     <string name="saturn_ls_s">Ls</string>
     <string name="saturn_lw_s">Lw</string>
     <string name="saturn_sc_s">Sc</string>
@@ -5588,6 +5705,25 @@
     <string name="saturn_sky_s">Sky</string>
     <string name="saturn_view_s">View</string>
     <string name="saturn_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="ssang_yong_actyon_ar">اكتون</string>
+    <string name="ssang_yong_tiger_ar">تايجر</string>
+    <string name="ssang_yong_chairman_ar">تشايرمن</string>
+    <string name="ssang_yong_rodius_ar">روديوس</string>
+    <string name="ssang_yong_rexton_ar">ريكستون</string>
+    <string name="ssang_yong_family_ar">فاميلي</string>
+    <string name="ssang_yong_kallista_ar">كاليستا</string>
+    <string name="ssang_yong_kyron_ar">كايرون</string>
+    <string name="ssang_yong_musso_ar">موسو</string>
+    <string name="ssang_yong_other_ar">اخرى</string>
+
+
     <string name="ssang_yong_actyon">اكتون</string>
     <string name="ssang_yong_tiger">تايجر</string>
     <string name="ssang_yong_chairman">تشايرمن</string>
@@ -5598,6 +5734,8 @@
     <string name="ssang_yong_kyron">كايرون</string>
     <string name="ssang_yong_musso">موسو</string>
     <string name="ssang_yong_other">اخرى</string>
+
+
     <string name="ssang_yong_actyon_s">Actyon</string>
     <string name="ssang_yong_tiger_s">Tiger</string>
     <string name="ssang_yong_chairman_s">Chairman</string>
@@ -5608,8 +5746,66 @@
     <string name="ssang_yong_kyron_s">Kyron</string>
     <string name="ssang_yong_musso_s">Musso</string>
     <string name="ssang_yong_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="citroen_c_ar">C</string>
+    <string name="citroen_c_zero_ar">C\-Zero</string>
+    <string name="citroen_c1_ar">C1</string>
+    <string name="citroen_c15_ar">C15</string>
+    <string name="citroen_c2_ar">C2</string>
+    <string name="citroen_c25_ar">C25</string>
+    <string name="citroen_c3_ar">C3</string>
+    <string name="citroen_c35_ar">C35</string>
+    <string name="citroen_c4_ar">C4</string>
+    <string name="citroen_c5_ar">C5</string>
+    <string name="citroen_c6_ar">C6</string>
+    <string name="citroen_c8_ar">C8</string>
+    <string name="citroen_cx_ar">CX</string>
+    <string name="citroen_ds_ar">DS</string>
+    <string name="citroen_ds2_ar">DS3</string>
+    <string name="citroen_ds4_ar">DS4</string>
+    <string name="citroen_ds5_ar">DS5</string>
+    <string name="citroen_ds9_ar">DS9</string>
+    <string name="citroen_g_ar">G</string>
+    <string name="citroen_gs_ar">GS</string>
+    <string name="citroen_gsa_ar">GSA</string>
+    <string name="citroen_gt_ar">GT</string>
+    <string name="citroen_2cv_ar">2CV</string>
+    <string name="citroen_ax_ar">AX</string>
+    <string name="citroen_bx_ar">BX</string>
+    <string name="citroen_ln_ar">LN</string>
+    <string name="citroen_lna_ar">LNA</string>
+    <string name="citroen_xm_ar">XM</string>
+    <string name="citroen_zx_ar">ZX</string>
+    <string name="citroen_ami_ar">امي</string>
+    <string name="citroen_acadiane_ar">اكاديان</string>
+    <string name="citroen_xsara_ar">اكسارا</string>
+    <string name="citroen_xsara_picasso_ar">اكسارا بيكاسو</string>
+    <string name="citroen_xantia_ar">اكسانتيا</string>
+    <string name="citroen_evasion_ar">ايفاجن</string>
+    <string name="citroen_berlingo_ar">بيرلينجو</string>
+    <string name="citroen_c3_picasso_ar">بيكاسو C3</string>
+    <string name="citroen_c4_picasso_ar">بيكاسو C4</string>
+    <string name="citroen_jumper_ar">جمبر</string>
+    <string name="citroen_jumpy_ar">جمبي</string>
+    <string name="citroen_dyane_ar">ديان</string>
+    <string name="citroen_saxo_ar">ساكسو</string>
+    <string name="citroen_c_crosser_ar">C\-كروسر</string>
+    <string name="citroen_synergie_ar">سينرجي</string>
+    <string name="citroen_faf_ar">فاف</string>
+    <string name="citroen_visa_ar">فيزا</string>
+    <string name="citroen_mehari_ar">مهاري</string>
+    <string name="citroen_nemo_ar">نيمو</string>
+    <string name="citroen_other_ar">اخرى</string>
+
+
     <string name="citroen_c">C</string>
-    <string name="citroen_c_zero">C\\-Zero</string>
+    <string name="citroen_c_zero">C\-Zero</string>
     <string name="citroen_c1">C1</string>
     <string name="citroen_c15">C15</string>
     <string name="citroen_c2">C2</string>
@@ -5650,15 +5846,17 @@
     <string name="citroen_jumpy">جمبي</string>
     <string name="citroen_dyane">ديان</string>
     <string name="citroen_saxo">ساكسو</string>
-    <string name="citroen_c_crosser">C\\-كروسر</string>
+    <string name="citroen_c_crosser">C\-كروسر</string>
     <string name="citroen_synergie">سينرجي</string>
     <string name="citroen_faf">فاف</string>
     <string name="citroen_visa">فيزا</string>
     <string name="citroen_mehari">مهاري</string>
     <string name="citroen_nemo">نيمو</string>
     <string name="citroen_other">اخرى</string>
+
+
     <string name="citroen_c_s">C</string>
-    <string name="citroen_c_zero_s">C\\-Zero</string>
+    <string name="citroen_c_zero_s">C\-Zero</string>
     <string name="citroen_c1_s">C1</string>
     <string name="citroen_c15_s">C15</string>
     <string name="citroen_c2_s">C2</string>
@@ -5699,13 +5897,35 @@
     <string name="citroen_jumpy_s">Jumpy</string>
     <string name="citroen_dyane_s">Dyane</string>
     <string name="citroen_saxo_s">Saxo</string>
-    <string name="citroen_c_crosse_sr">C\\-crosser</string>
+    <string name="citroen_c_crosse_sr">C\-crosser</string>
     <string name="citroen_synergie_s">Synergie</string>
     <string name="citroen_faf_s">Faf</string>
     <string name="citroen_visa_s">Visa</string>
     <string name="citroen_mehari_s">Mehari</string>
     <string name="citroen_nemo_s">Nemo</string>
     <string name="citroen_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="skoda_120_gls_ar">120 GLS</string>
+    <string name="skoda_octavia_ar">اوكتافيا</string>
+    <string name="skoda_praktik_ar">براكتيك</string>
+    <string name="skoda_rapide_ar">رابيد</string>
+    <string name="skoda_roomster_ar">رومستر</string>
+    <string name="skoda_superb_ar">سوبرب</string>
+    <string name="skoda_fabia_ar">فابيا</string>
+    <string name="skoda_favorit_ar">فافوريت</string>
+    <string name="skoda_forman_ar">فورمان</string>
+    <string name="skoda_felicia_ar">فيليسيا</string>
+    <string name="skoda_felicia_combi_ar">فيليسيا كومبي</string>
+    <string name="skoda_yeti_ar">يتي</string>
+    <string name="skoda_other_ar">اخرى</string>
+
+
     <string name="skoda_120_gls">120 GLS</string>
     <string name="skoda_octavia">اوكتافيا</string>
     <string name="skoda_praktik">براكتيك</string>
@@ -5719,6 +5939,8 @@
     <string name="skoda_felicia_combi">فيليسيا كومبي</string>
     <string name="skoda_yeti">يتي</string>
     <string name="skoda_other">اخرى</string>
+
+
     <string name="skoda_120_gls_s">120 GLS</string>
     <string name="skoda_octavia_s">Octavia</string>
     <string name="skoda_praktik_s">Praktik</string>
@@ -5732,6 +5954,43 @@
     <string name="skoda_felicia_combi_s">Felicia Combi</string>
     <string name="skoda_yeti_s">Yeti</string>
     <string name="skoda_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="subaru_r1_ar">R1</string>
+    <string name="subaru_r2_ar">R2</string>
+    <string name="subaru_sti_ar">STI</string>
+    <string name="subaru_svx_ar">SVX</string>
+    <string name="subaru_wrx_ar">WRX</string>
+    <string name="subaru_xt_ar">XT</string>
+    <string name="subaru_xv_ar">XV</string>
+    <string name="subaru_outback_ar">اوتباك</string>
+    <string name="subaru_alcyone_ar">الكيون</string>
+    <string name="subaru_exiga_ar">اكسيغا</string>
+    <string name="subaru_impreza_ar">امبريزا</string>
+    <string name="subaru_baja_ar">باجا</string>
+    <string name="subaru_pleo_ar">بليو</string>
+    <string name="subaru_bistro_ar">بيسترو</string>
+    <string name="subaru_traviq_ar">ترافيك</string>
+    <string name="subaru_tribeca_ar">تريبيكا</string>
+    <string name="subaru_trezia_ar">تريزيا</string>
+    <string name="subaru_justy_ar">جستاي</string>
+    <string name="subaru_domingo_ar">دومينغو</string>
+    <string name="subaru_dias_ar">دياس</string>
+    <string name="subaru_dex_ar">ديكس</string>
+    <string name="subaru_stella_ar">ستيلا</string>
+    <string name="subaru_forester_ar">فوريستر</string>
+    <string name="subaru_vivio_ar">فيفيو</string>
+    <string name="subaru_lucra_ar">لوكرا</string>
+    <string name="subaru_libero_ar">ليبيرو</string>
+    <string name="subaru_legacy_ar">ليغاسي</string>
+    <string name="subaru_other_ar">اخرى</string>
+
+
     <string name="subaru_r1">R1</string>
     <string name="subaru_r2">R2</string>
     <string name="subaru_sti">STI</string>
@@ -5760,6 +6019,8 @@
     <string name="subaru_libero">ليبيرو</string>
     <string name="subaru_legacy">ليغاسي</string>
     <string name="subaru_other">اخرى</string>
+
+
     <string name="subaru_r1_s">R1</string>
     <string name="subaru_r2_s">R2</string>
     <string name="subaru_sti_s">STI</string>
@@ -5788,6 +6049,51 @@
     <string name="subaru_libero_s">Libero</string>
     <string name="subaru_legacy_s">Legacy</string>
     <string name="subaru_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="suzuki_apv_ar">Apv</string>
+    <string name="suzuki_sx4_ar">Sx4</string>
+    <string name="suzuki_x90_ar">X90</string>
+    <string name="suzuki_xl7_ar">XL7</string>
+    <string name="suzuki_wagon_r_ar">واغون R</string>
+    <string name="suzuki_alto_ar">التو</string>
+    <string name="suzuki_mr_wagon_ar">واغون MR</string>
+    <string name="suzuki_ertiga_ar">ارتيجا</string>
+    <string name="suzuki_ideal_ar">ايديال</string>
+    <string name="suzuki_aerio_ar">ايريو</string>
+    <string name="suzuki_ignis_ar">ايغنيس</string>
+    <string name="suzuki_super_carry_ar">سوبر كارى</string>
+    <string name="suzuki_splash_ar">سبلاش</string>
+    <string name="suzuki_sidekick_ar">سايدكيك</string>
+    <string name="suzuki_samurai_ar">ساموراي</string>
+    <string name="suzuki_reno_ar">رينون</string>
+    <string name="suzuki_jimny_ar">جيمني</string>
+    <string name="suzuki_grand_vitara_ar">جراند فيتارا</string>
+    <string name="suzuki_baleno_ar">بالينو</string>
+    <string name="suzuki_every_landy_ar">ايفري لاندي</string>
+    <string name="suzuki_every_ar">ايفري</string>
+    <string name="suzuki_swift_ar">سويفت</string>
+    <string name="suzuki_ciaz_ar">سياز</string>
+    <string name="suzuki_cervo_ar">سيرفو</string>
+    <string name="suzuki_celerio_ar">سيليريو</string>
+    <string name="suzuki_forenza_ar">فورينزا</string>
+    <string name="suzuki_vitara_ar">فيتارا</string>
+    <string name="suzuki_verona_ar">فيرونا</string>
+    <string name="suzuki_cappuccino_ar">كابوتشينون</string>
+    <string name="suzuki_cultus_wagon_ar">كولتس واغون</string>
+    <string name="suzuki_kei_ar">كى</string>
+    <string name="suzuki_kizashi_ar">كيزاشي</string>
+    <string name="suzuki_liana_ar">ليانا</string>
+    <string name="suzuki_carry_ar">كاري</string>
+    <string name="suzuki_sj_samurai_ar">اس جي ساموراي</string>
+    <string name="suzuki_other_ar">اخرى</string>
+
+
     <string name="suzuki_apv">Apv</string>
     <string name="suzuki_sx4">Sx4</string>
     <string name="suzuki_x90">X90</string>
@@ -5824,6 +6130,8 @@
     <string name="suzuki_carry">كاري</string>
     <string name="suzuki_sj_samurai">اس جي ساموراي</string>
     <string name="suzuki_other">اخرى</string>
+
+
     <string name="suzuki_apv_s">Apv</string>
     <string name="suzuki_sx4_s">Sx4</string>
     <string name="suzuki_x90_s">X90</string>
@@ -5860,6 +6168,30 @@
     <string name="suzuki_carry_s">Carry</string>
     <string name="suzuki_sj_samurai_s">SJ_Samurai</string>
     <string name="suzuki_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="seat_132_ar">132</string>
+    <string name="seat_133_ar">133</string>
+    <string name="seat_altea_ar">التيا</string>
+    <string name="seat_ibiza_ar">ابيزا</string>
+    <string name="seat_arosa_ar">اروسا</string>
+    <string name="seat_exeo_ar">اكسيو</string>
+    <string name="seat_alhambra_ar">الهمبرا</string>
+    <string name="seat_toledo_ar">توليدو</string>
+    <string name="seat_terra_ar">تيرا</string>
+    <string name="seat_ronda_ar">روندا</string>
+    <string name="seat_fura_ar">فورا</string>
+    <string name="seat_cordoba_ar">كوردوبا</string>
+    <string name="seat_leone_ar">ليون</string>
+    <string name="seat_marbella_ar">ماربيلا</string>
+    <string name="seat_other_ar">اخرى</string>
+
+
     <string name="seat_132">132</string>
     <string name="seat_133">133</string>
     <string name="seat_altea">التيا</string>
@@ -5875,6 +6207,8 @@
     <string name="seat_leone">ليون</string>
     <string name="seat_marbella">ماربيلا</string>
     <string name="seat_other">اخرى</string>
+
+
     <string name="seat_132_s">132</string>
     <string name="seat_133_s">133</string>
     <string name="seat_altea_s">Altea</string>
@@ -5890,6 +6224,29 @@
     <string name="seat_leone_s">Leone</string>
     <string name="seat_marbella_s">Marbella</string>
     <string name="seat_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="chery_a11_ar">A11</string>
+    <string name="chery_a113_ar">A113</string>
+    <string name="chery_a5_ar">A5</string>
+    <string name="chery_a620_ar">A620</string>
+    <string name="chery_b11_ar">B11</string>
+    <string name="chery_m11_ar">M11</string>
+    <string name="chery_qq_ar">QQ</string>
+    <string name="chery_qq6_ar">QQ6</string>
+    <string name="chery_amulet_ar">اميولت</string>
+    <string name="chery_oriental_sun_ar">اورينتل صن</string>
+    <string name="chery_tiggo_ar">تيجو</string>
+    <string name="chery_fura_ar">فورا</string>
+    <string name="chery_cross_easter_ar">كروس ايستر</string>
+    <string name="chery_other_ar">اخرى</string>
+
+
     <string name="chery_a11">A11</string>
     <string name="chery_a113">A113</string>
     <string name="chery_a5">A5</string>
@@ -5904,6 +6261,8 @@
     <string name="chery_fura">فورا</string>
     <string name="chery_cross_easter">كروس ايستر</string>
     <string name="chery_other">اخرى</string>
+
+
     <string name="chery_a11_s">A11</string>
     <string name="chery_a113_s">A113</string>
     <string name="chery_a5_s">A5</string>
@@ -5918,10 +6277,92 @@
     <string name="chery_fura_s">Fura</string>
     <string name="chery_cross_easter_s">Cross_Easter</string>
     <string name="chery_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="chevrolet_c10_ar">C10</string>
+    <string name="chevrolet_hhr_ar">HHR</string>
+    <string name="chevrolet_luv_d_max_ar">LUV D\-MAX</string>
+    <string name="chevrolet_s_10_ar">S\-10</string>
+    <string name="chevrolet_ssr_ar">SSR</string>
+    <string name="chevrolet_astra_ar">استرا</string>
+    <string name="chevrolet_aveo_ar">افيو</string>
+    <string name="chevrolet_omega_ar">اوميغا</string>
+    <string name="chevrolet_uplander_ar">ابلاندر</string>
+    <string name="chevrolet_epica_ar">ابيكا</string>
+    <string name="chevrolet_express_ar">اسبريس</string>
+    <string name="chevrolet_astro_ar">استرو</string>
+    <string name="chevrolet_avalanche_ar">افلانش</string>
+    <string name="chevrolet_explorer_ar">اكسبلورير</string>
+    <string name="chevrolet_equinox_ar">اكينوكس</string>
+    <string name="chevrolet_alero_ar">اليرو</string>
+    <string name="chevrolet_impala_ar">امبلا</string>
+    <string name="chevrolet_optra_ar">اوبترا</string>
+    <string name="chevrolet_evenda_ar">ايفاندا</string>
+    <string name="chevrolet_prizm_ar">بريزم</string>
+    <string name="chevrolet_blazer_ar">بلارز</string>
+    <string name="chevrolet_bolt_ar">بولت</string>
+    <string name="chevrolet_beretta_ar">بيريتا</string>
+    <string name="chevrolet_bel_air_ar">بيل اير</string>
+    <string name="chevrolet_travera_ar">تافيرا</string>
+    <string name="chevrolet_tracker_ar">تراكر</string>
+    <string name="chevrolet_trax_ar">تراكس</string>
+    <string name="chevrolet_trans_sport_ar">ترانس سبورت</string>
+    <string name="chevrolet_trailblazer_ar">تريل بليزر</string>
+    <string name="chevrolet_geo_storm_ar">جيو ستورم</string>
+    <string name="chevrolet_rezzo_ar">ريزو</string>
+    <string name="chevrolet_zafira_ar">زافيرا</string>
+    <string name="chevrolet_sail_ar">سايل</string>
+    <string name="chevrolet_spark_ar">سبارك</string>
+    <string name="chevrolet_sprint_ar">سبرينت</string>
+    <string name="chevrolet_silverado_ar">سلفرادو</string>
+    <string name="chevrolet_suburban_ar">سوبربان</string>
+    <string name="chevrolet_sonic_ar">سونيك</string>
+    <string name="chevrolet_celta_ar">سيلتا</string>
+    <string name="chevrolet_celebrity_ar">سيليبريتي</string>
+    <string name="chevrolet_chevette_ar">شيفت</string>
+    <string name="chevrolet_van_ar">فان</string>
+    <string name="chevrolet_frontera_ar">فرونتيرا</string>
+    <string name="chevrolet_volt_ar">فولت</string>
+    <string name="chevrolet_vectra_ar">فيكترا</string>
+    <string name="chevrolet_venture_ar">فينتشر</string>
+    <string name="chevrolet_captiva_ar">كابتيفا</string>
+    <string name="chevrolet_caprice_ar">كابرس</string>
+    <string name="chevrolet_caprice_classic_ar">كابريس كلاسيك</string>
+    <string name="chevrolet_cavalier_ar">كافالير</string>
+    <string name="chevrolet_cruze_ar">كروز</string>
+    <string name="chevrolet_camaro_ar">كمارو</string>
+    <string name="chevrolet_cobalt_ar">كوبالت</string>
+    <string name="chevrolet_corsa_ar">كورسا</string>
+    <string name="chevrolet_corsica_ar">كورسيكا</string>
+    <string name="chevrolet_covette_ar">كورفيت</string>
+    <string name="chevrolet_colorado_ar">كولورادو</string>
+    <string name="chevrolet_lacetti_ar">لاسيتي</string>
+    <string name="chevrolet_lanos_ar">لانوس</string>
+    <string name="chevrolet_lumina_ar">لومينا</string>
+    <string name="chevrolet_malibu_ar">ماليبو</string>
+    <string name="chevrolet_metro_ar">مترو</string>
+    <string name="chevrolet_monte_carlo_ar">مونتي كارلو</string>
+    <string name="chevrolet_monza_ar">مونزا</string>
+    <string name="chevrolet_nubira_ar">نوبيرا</string>
+    <string name="chevrolet_niva_ar">نيفا</string>
+    <string name="chevrolet_3100_ar">3100</string>
+    <string name="chevrolet_4500_ar">4500</string>
+    <string name="chevrolet_c1500_ar">سي 1500</string>
+    <string name="chevrolet_cheyenne_ar">شييني</string>
+    <string name="chevrolet_cr8_ar">CR8</string>
+    <string name="chevrolet_el_camino_ar">كامينو</string>
+    <string name="chevrolet_other_ar">اخرى</string>
+
+
     <string name="chevrolet_c10">C10</string>
     <string name="chevrolet_hhr">HHR</string>
-    <string name="chevrolet_luv_d_max">LUV D\\-MAX</string>
-    <string name="chevrolet_s_10">S\\-10</string>
+    <string name="chevrolet_luv_d_max">LUV D\-MAX</string>
+    <string name="chevrolet_s_10">S\-10</string>
     <string name="chevrolet_ssr">SSR</string>
     <string name="chevrolet_astra">استرا</string>
     <string name="chevrolet_aveo">افيو</string>
@@ -5991,10 +6432,12 @@
     <string name="chevrolet_cr8">CR8</string>
     <string name="chevrolet_el_camino">كامينو</string>
     <string name="chevrolet_other">اخرى</string>
+
+
     <string name="chevrolet_c10_s">C10</string>
     <string name="chevrolet_hhr_s">HHR</string>
-    <string name="chevrolet_luv_d_max_s">LUV D\\-MAX</string>
-    <string name="chevrolet_s_10_s">S\\-10</string>
+    <string name="chevrolet_luv_d_max_s">LUV D\-MAX</string>
+    <string name="chevrolet_s_10_s">S\-10</string>
     <string name="chevrolet_ssr_s">SSR</string>
     <string name="chevrolet_astra_s">Astra</string>
     <string name="chevrolet_aveo_s">Aveo</string>
@@ -6064,10 +6507,84 @@
     <string name="chevrolet_cr8_s">CR8</string>
     <string name="chevrolet_el_camino_s">El_Camino</string>
     <string name="chevrolet_other_s">Other</string>
-    <string name="ford_c_max">C\\-MAX</string>
-    <string name="ford_f_150">F\\-150</string>
-    <string name="ford_f_250">F\\-250</string>
-    <string name="ford_f_350">F\\-350</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="ford_c_max_ar">C\-MAX</string>
+    <string name="ford_f_150_ar">F\-150</string>
+    <string name="ford_f_250_ar">F\-250</string>
+    <string name="ford_f_350_ar">F\-350</string>
+    <string name="ford_gt_ar">GT</string>
+    <string name="ford_aurion_ar">اوريون</string>
+    <string name="ford_aerostar_ar">ايروستار</string>
+    <string name="ford_escort_ar">اسكورت</string>
+    <string name="ford_explorer_ar">اكسبلورر</string>
+    <string name="ford_s_max_ar">اس ماكس</string>
+    <string name="ford_aspire_ar">اسبير</string>
+    <string name="ford_escape_ar">اسكايب</string>
+    <string name="ford_expedition_ar">اكسبيديشن</string>
+    <string name="ford_excursion_ar">اكسورجن</string>
+    <string name="ford_edge_ar">ايدج</string>
+    <string name="ford_everest_ar">ايفرست</string>
+    <string name="ford_econoline_ar">ايكو ننلاين</string>
+    <string name="ford_ecosport_ar">برونكو</string>
+    <string name="ford_econovan_ar">بوما</string>
+    <string name="ford_bronco_ar">برانكو</string>
+    <string name="ford_puma_ar">بوما</string>
+    <string name="ford_taunus_ar">تاونوس</string>
+    <string name="ford_transit_ar">ترانسيت</string>
+    <string name="ford_tourneo_connect_ar">تورنيو كونيكت</string>
+    <string name="ford_tempo_ar">تيمبو</string>
+    <string name="ford_thunder_bird_ar">ثندربيرد</string>
+    <string name="ford_raptor_ar">رابتور</string>
+    <string name="ford_ranger_ar">رانجر</string>
+    <string name="ford_sport_trac_ar">سبورت ترك</string>
+    <string name="ford_sport_truck_explorer_ar">سبورت ترك اكسبلورر</string>
+    <string name="ford_scorpio_ar">سكوربيو</string>
+    <string name="ford_sierra_ar">سييرا</string>
+    <string name="ford_shelby_ar">شيلبي</string>
+    <string name="ford_galaxy_ar">غالكسي</string>
+    <string name="ford_granada_ar">غرانادا</string>
+    <string name="ford_five_hundred_ar">فايف هندر</string>
+    <string name="ford_freestyle_ar">فريستار</string>
+    <string name="ford_focus_ar">فوكس</string>
+    <string name="ford_fox_rs_ar">فوكس RS</string>
+    <string name="ford_figo_ar">فيجو</string>
+    <string name="ford_fusion_ar">فيوجن</string>
+    <string name="ford_fiesta_ar">فييستا</string>
+    <string name="ford_ka_ar">كا</string>
+    <string name="ford_capri_ar">كابري</string>
+    <string name="ford_cougar_ar">كاوغر</string>
+    <string name="ford_crown_victoria_ar">كراون فكتوريا</string>
+    <string name="ford_kuga_ar">كوجا</string>
+    <string name="ford_courier_ar">كورير</string>
+    <string name="ford_contour_ar">كونتور</string>
+    <string name="ford_consul_ar">كونسول</string>
+    <string name="ford_laser_ar">لايزر</string>
+    <string name="ford_maverick_ar">مافريك</string>
+    <string name="ford_mustang_ar">موستانج</string>
+    <string name="ford_mondeo_ar">مونديو</string>
+    <string name="ford_windstar_ar">ويندستار</string>
+    <string name="ford_f550_ar">F550</string>
+    <string name="ford_f450_ar">F450</string>
+    <string name="ford_e_350_ar">E\-350</string>
+    <string name="ford_e_450_ar">E\-450</string>
+    <string name="ford_flex_ar">فليكس</string>
+    <string name="ford_ltd_ar">LTD</string>
+    <string name="ford_model_40_ar">موديل 40</string>
+    <string name="ford_model_a_ar">موديل A</string>
+    <string name="ford_t_bucket_ar">تي بوكيت</string>
+    <string name="ford_other_ar">اخرى</string>
+
+
+    <string name="ford_c_max">C\-MAX</string>
+    <string name="ford_f_150">F\-150</string>
+    <string name="ford_f_250">F\-250</string>
+    <string name="ford_f_350">F\-350</string>
     <string name="ford_gt">GT</string>
     <string name="ford_aurion">اوريون</string>
     <string name="ford_aerostar">ايروستار</string>
@@ -6121,24 +6638,26 @@
     <string name="ford_windstar">ويندستار</string>
     <string name="ford_f550">F550</string>
     <string name="ford_f450">F450</string>
-    <string name="ford_e_350">E\\-350</string>
-    <string name="ford_e_450">E\\-450</string>
+    <string name="ford_e_350">E\-350</string>
+    <string name="ford_e_450">E\-450</string>
     <string name="ford_flex">فليكس</string>
     <string name="ford_ltd">LTD</string>
     <string name="ford_model_40">موديل 40</string>
     <string name="ford_model_a">موديل A</string>
     <string name="ford_t_bucket">تي بوكيت</string>
     <string name="ford_other">اخرى</string>
-    <string name="ford_c_max_s">C\\-MAX</string>
-    <string name="ford_f_150_s">F\\-150</string>
-    <string name="ford_f_250_s">F\\-250</string>
-    <string name="ford_f_350_s">F\\-350</string>
+
+
+    <string name="ford_c_max_s">C\-MAX</string>
+    <string name="ford_f_150_s">F\-150</string>
+    <string name="ford_f_250_s">F\-250</string>
+    <string name="ford_f_350_s">F\-350</string>
     <string name="ford_gt_s">GT</string>
     <string name="ford_aurion_s">Aurion</string>
     <string name="ford_aerostar_s">Aerostar</string>
     <string name="ford_escort_s">Escort</string>
     <string name="ford_explorer_s">Explorer</string>
-    <string name="ford_s_max_s">S\\-MAX</string>
+    <string name="ford_s_max_s">S\-MAX</string>
     <string name="ford_aspire_s">Aspire</string>
     <string name="ford_escape_s">Escape</string>
     <string name="ford_expedition_s">Expedition</string>
@@ -6186,14 +6705,62 @@
     <string name="ford_windstar_s">Windstar</string>
     <string name="ford_f550_s">F550</string>
     <string name="ford_f450_s">F450</string>
-    <string name="ford_e_350_s">E\\-350</string>
-    <string name="ford_e_450_s">E\\-450</string>
+    <string name="ford_e_350_s">E\-350</string>
+    <string name="ford_e_450_s">E\-450</string>
     <string name="ford_flex_s">Flex</string>
     <string name="ford_ltd_s">LTD</string>
     <string name="ford_model_40_s">Model_40</string>
     <string name="ford_model_a_s">Model_A</string>
-    <string name="ford_t_bucket_s">T\\-bucket</string>
+    <string name="ford_t_bucket_s">T\-bucket</string>
     <string name="ford_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="volvo_c_ar">C</string>
+    <string name="volvo_c30_ar">C30</string>
+    <string name="volvo_c70_ar">C70</string>
+    <string name="volvo_car_s_ar">S</string>
+    <string name="volvo_s40_ar">S40</string>
+    <string name="volvo_s60_ar">S60</string>
+    <string name="volvo_s70_ar">S70</string>
+    <string name="volvo_s80_ar">S80</string>
+    <string name="volvo_s90_ar">S90</string>
+    <string name="volvo_v_ar">V</string>
+    <string name="volvo_v40_ar">V40</string>
+    <string name="volvo_v50_ar">V50</string>
+    <string name="volvo_v60_ar">v60</string>
+    <string name="volvo_v70_ar">V70</string>
+    <string name="volvo_v90_ar">V90</string>
+    <string name="volvo_xc_ar">XC</string>
+    <string name="volvo_xc60_ar">XC60</string>
+    <string name="volvo_xc70_ar">XC70</string>
+    <string name="volvo_xc90_ar">XC90</string>
+    <string name="volvo_66_ar">66</string>
+    <string name="volvo_140_ar">140</string>
+    <string name="volvo_164_ar">164</string>
+    <string name="volvo_240_ar">240</string>
+    <string name="volvo_260_ar">260</string>
+    <string name="volvo_340_ar">340</string>
+    <string name="volvo_360_ar">360</string>
+    <string name="volvo_440_ar">440</string>
+    <string name="volvo_460_ar">460</string>
+    <string name="volvo_480_ar">480</string>
+    <string name="volvo_740_ar">740</string>
+    <string name="volvo_760_ar">760</string>
+    <string name="volvo_780_ar">780</string>
+    <string name="volvo_850_ar">850</string>
+    <string name="volvo_940_ar">940</string>
+    <string name="volvo_960_ar">960</string>
+    <string name="volvo_laplander_ar">لابلاندر</string>
+    <string name="volvo_marcopolo_ar">ماركوبولا</string>
+    <string name="volvo_p1800_ar">P1800</string>
+    <string name="volvo_other_ar">اخرى</string>
+
+
     <string name="volvo_c">C</string>
     <string name="volvo_c30">C30</string>
     <string name="volvo_c70">C70</string>
@@ -6233,6 +6800,8 @@
     <string name="volvo_marcopolo">ماركوبولا</string>
     <string name="volvo_p1800">P1800</string>
     <string name="volvo_other">اخرى</string>
+
+
     <string name="volvo_c_s">C</string>
     <string name="volvo_c30_s">C30</string>
     <string name="volvo_c70_s">C70</string>
@@ -6272,6 +6841,60 @@
     <string name="volvo_marcopolo_s">Marcopolo</string>
     <string name="volvo_p1800_s">P1800</string>
     <string name="volvo_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="volkswagen_cc_ar">CC</string>
+    <string name="volkswagen_gti_ar">GTI</string>
+    <string name="volkswagen_w12_ar">W12</string>
+    <string name="volkswagen_eos_ar">ايوس</string>
+    <string name="volkswagen_lltis_ar">التس</string>
+    <string name="volkswagen_amarok_ar">اماروك</string>
+    <string name="volkswagen_e_golf_ar">اي جولف</string>
+    <string name="volkswagen_parati_ar">بارتى</string>
+    <string name="volkswagen_passat_ar">باسات</string>
+    <string name="volkswagen_bora_ar">بورا</string>
+    <string name="volkswagen_polo_ar">بولو</string>
+    <string name="volkswagen_pointer_ar">بوينتر</string>
+    <string name="volkswagen_beetle_ar">بيتل</string>
+    <string name="volkswagen_taro_ar">تارو</string>
+    <string name="volkswagen_transporter_ar">ترانسبورتر</string>
+    <string name="volkswagen_touran_ar">توران</string>
+    <string name="volkswagen_tiguan_ar">تيجوان</string>
+    <string name="volkswagen_golf_ar">جولف</string>
+    <string name="volkswagen_golf_r_ar">جولف ار</string>
+    <string name="volkswagen_golf_plus_ar">جولف بلس</string>
+    <string name="volkswagen_jetta_ar">جيتا</string>
+    <string name="volkswagen_routan_ar">روتان</string>
+    <string name="volkswagen_saveiro_ar">سافيرو</string>
+    <string name="volkswagen_santana_ar">سانتانا</string>
+    <string name="volkswagen_suran_ar">سوران</string>
+    <string name="volkswagen_scirocco_ar">سيركو</string>
+    <string name="volkswagen_sharan_ar">شاران</string>
+    <string name="volkswagen_touareg_ar">طوارق</string>
+    <string name="volkswagen_gol_ar">غول</string>
+    <string name="volkswagen_phaeton_ar">فايتون</string>
+    <string name="volkswagen_fox_ar">فوكس</string>
+    <string name="volkswagen_vento_ar">فينتو</string>
+    <string name="volkswagen_caddy_ar">كادى</string>
+    <string name="volkswagen_caravelle_ar">كارافيل</string>
+    <string name="volkswagen_california_ar">كاليفورنيا</string>
+    <string name="volkswagen_crafter_ar">كرافتر</string>
+    <string name="volkswagen_crossfox_ar">كروس فوكس</string>
+    <string name="volkswagen_corrado_ar">كورادو</string>
+    <string name="volkswagen_lupo_ar">لوبو</string>
+    <string name="volkswagen_multivan_ar">مالتيفان</string>
+    <string name="volkswagen_1500_ar">1500</string>
+    <string name="volkswagen_lt_ar">ال تي</string>
+    <string name="volkswagen_passat_cc_ar">باسات سيسي</string>
+    <string name="volkswagen_t3_caravelle_ar">تي 3 كارافيلا</string>
+    <string name="volkswagen_other_ar">اخرى</string>
+
+
     <string name="volkswagen_cc">CC</string>
     <string name="volkswagen_gti">GTI</string>
     <string name="volkswagen_w12">W12</string>
@@ -6317,13 +6940,15 @@
     <string name="volkswagen_passat_cc">باسات سيسي</string>
     <string name="volkswagen_t3_caravelle">تي 3 كارافيلا</string>
     <string name="volkswagen_other">اخرى</string>
+
+
     <string name="volkswagen_cc_s">CC</string>
     <string name="volkswagen_gti_s">GTI</string>
     <string name="volkswagen_w12_s">W12</string>
     <string name="volkswagen_eos_s">Eos</string>
     <string name="volkswagen_lltis_s">Lltis</string>
     <string name="volkswagen_amarok_s">Amarok</string>
-    <string name="volkswagen_e_golf_s">E\\-Golf</string>
+    <string name="volkswagen_e_golf_s">E\-Golf</string>
     <string name="volkswagen_parati_s">Parati</string>
     <string name="volkswagen_passat_s">Passat</string>
     <string name="volkswagen_bora_s">Bora</string>
@@ -6362,6 +6987,61 @@
     <string name="volkswagen_passat_cc_s">Passat cc</string>
     <string name="volkswagen_t3_caravelle_s">T3 caravelle</string>
     <string name="volkswagen_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="fiat_124_ar">124</string>
+    <string name="fiat_126_ar">126</string>
+    <string name="fiat_127_ar">127</string>
+    <string name="fiat_131_ar">131</string>
+    <string name="fiat_500_ar">500</string>
+    <string name="fiat_500e_ar">500E</string>
+    <string name="fiat_600_ar">600</string>
+    <string name="fiat_x_1_9_ar">x 1\/9</string>
+    <string name="fiat_argenta_ar">ارجينتا</string>
+    <string name="fiat_ulysse_ar">اوليس</string>
+    <string name="fiat_uno_ar">اونو</string>
+    <string name="fiat_albea_ar">البيا</string>
+    <string name="fiat_idea_ar">ايديا</string>
+    <string name="fiat_barchetta_ar">بارشيتا</string>
+    <string name="fiat_palio_ar">باليو</string>
+    <string name="fiat_panda_ar">باندا</string>
+    <string name="fiat_bravo_ar">برافو</string>
+    <string name="fiat_punto_ar">بونتو</string>
+    <string name="fiat_petra_ar">بيترا</string>
+    <string name="fiat_bolognese_ar">بولونيز</string>
+    <string name="fiat_tipo_ar">تيبو</string>
+    <string name="fiat_tempra_ar">تمبرا</string>
+    <string name="fiat_grande_punto_ar">جراند بونتو</string>
+    <string name="fiat_doblo_ar">دوبلو</string>
+    <string name="fiat_dukato_ar">دوكاتو</string>
+    <string name="fiat_duna_ar">دونا</string>
+    <string name="fiat_ritmo_ar">ريتمو</string>
+    <string name="fiat_regata_ar">ريجيتا</string>
+    <string name="fiat_zastava_ar">زستاف</string>
+    <string name="fiat_strada_ar">سترادا</string>
+    <string name="fiat_stilo_ar">ستيلو</string>
+    <string name="fiat_sedici_ar">سيديسي</string>
+    <string name="fiat_cinquecento_ar">سينكويشينتو</string>
+    <string name="fiat_seicento_ar">سييسنتو</string>
+    <string name="fiat_siena_ar">سيينا</string>
+    <string name="fiat_florida_ar">فلوريدا</string>
+    <string name="fiat_fiorino_ar">فيورينو</string>
+    <string name="fiat_croma_ar">كزوما</string>
+    <string name="fiat_coupe_ar">كوبيه</string>
+    <string name="fiat_linea_ar">لينيا</string>
+    <string name="fiat_maria_ar">ماريا</string>
+    <string name="fiat_mulipla_ar">مالتيبلا</string>
+    <string name="fiat_nuova_500_ar">نيو 500</string>
+    <string name="fiat_500c_ar">500C</string>
+    <string name="fiat_750_ar">750</string>
+    <string name="fiat_other_ar">اخرى</string>
+
+
     <string name="fiat_124">124</string>
     <string name="fiat_126">126</string>
     <string name="fiat_127">127</string>
@@ -6369,7 +7049,7 @@
     <string name="fiat_500">500</string>
     <string name="fiat_500e">500E</string>
     <string name="fiat_600">600</string>
-    <string name="fiat_x_1_9">x 1\\/9</string>
+    <string name="fiat_x_1_9">x 1\/9</string>
     <string name="fiat_argenta">ارجينتا</string>
     <string name="fiat_ulysse">اوليس</string>
     <string name="fiat_uno">اونو</string>
@@ -6408,6 +7088,8 @@
     <string name="fiat_500c">500C</string>
     <string name="fiat_750">750</string>
     <string name="fiat_other">اخرى</string>
+
+
     <string name="fiat_124_s">124</string>
     <string name="fiat_126_s">126</string>
     <string name="fiat_127_s">127</string>
@@ -6415,7 +7097,7 @@
     <string name="fiat_500_s">500</string>
     <string name="fiat_500e_s">500E</string>
     <string name="fiat_600_s">600</string>
-    <string name="fiat_x_1_9_s">x 1\\/9</string>
+    <string name="fiat_x_1_9_s">x 1\/9</string>
     <string name="fiat_argenta_s">Argenta</string>
     <string name="fiat_ulysse_s">Ulysse</string>
     <string name="fiat_uno_s">Uno</string>
@@ -6454,6 +7136,58 @@
     <string name="fiat_500c_s">500C</string>
     <string name="fiat_750_s">750</string>
     <string name="fiat_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="ferrari_208_ar">208</string>
+    <string name="ferrari_308_ar">308</string>
+    <string name="ferrari_328_ar">328</string>
+    <string name="ferrari_348_ar">348</string>
+    <string name="ferrari_355_ar">355</string>
+    <string name="ferrari_360_spider_ar">360 سبايدر</string>
+    <string name="ferrari_360_modena_ar">مودينا 360</string>
+    <string name="ferrari_412_ar">412</string>
+    <string name="ferrari_430_ar">430</string>
+    <string name="ferrari_456_gt_ar">456 GT</string>
+    <string name="ferrari_458_italia_ar">ايتاليا 458</string>
+    <string name="ferrari_512_ar">512</string>
+    <string name="ferrari_550_barchetta_ar">550 بارشيتا</string>
+    <string name="ferrari_550_maranello_ar">550 مارانيلو</string>
+    <string name="ferrari_575_maranello_ar">575 مارانيلو</string>
+    <string name="ferrari_599_gtb_Fiorano_ar">فيورانو 599 GTB</string>
+    <string name="ferrari_612_scaglietti_ar">سكاجليتي 612</string>
+    <string name="ferrari_f340_ar">F340</string>
+    <string name="ferrari_f355_ar">F355</string>
+    <string name="ferrari_f40_ar">F40</string>
+    <string name="ferrari_f430_scuderia_ar">F430 Scuderia</string>
+    <string name="ferrari_f430_spider_ar">سبايدر F430</string>
+    <string name="ferrari_f50_ar">F50</string>
+    <string name="ferrari_fxx_ar">FXX</string>
+    <string name="ferrari_enzo_ar">انزو</string>
+    <string name="ferrari_testarossa_ar">تيستاروسا</string>
+    <string name="ferrari_dino_ar">دينون</string>
+    <string name="ferrari_california_ar">كاليفورنيا</string>
+    <string name="ferrari_laferrari_ar">لافيراري</string>
+    <string name="ferrari_mondial_ar">مونديال</string>
+    <string name="ferrari_246_ar">246</string>
+    <string name="ferrari_250_ar">250</string>
+    <string name="ferrari_330_ar">330</string>
+    <string name="ferrari_360_ar">360</string>
+    <string name="ferrari_365_ar">365</string>
+    <string name="ferrari_456_ar">456</string>
+    <string name="ferrari_488_ar">488</string>
+    <string name="ferrari_575_ar">575</string>
+    <string name="ferrari_599_gtb_ar">599 GTB</string>
+    <string name="ferrari_f12_ar">F12</string>
+    <string name="ferrari_f430_ar">F430</string>
+    <string name="ferrari_ff_ar">FF</string>
+    <string name="ferrari_other_ar">اخرى</string>
+
+
     <string name="ferrari_208">208</string>
     <string name="ferrari_308">308</string>
     <string name="ferrari_328">328</string>
@@ -6497,6 +7231,8 @@
     <string name="ferrari_f430">F430</string>
     <string name="ferrari_ff">FF</string>
     <string name="ferrari_other">اخرى</string>
+
+
     <string name="ferrari_208_s">208</string>
     <string name="ferrari_308_s">308</string>
     <string name="ferrari_328_s">328</string>
@@ -6540,6 +7276,34 @@
     <string name="ferrari_f430_s">F430</string>
     <string name="ferrari_ff_s">FF</string>
     <string name="ferrari_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="cadillac_ats_ar">ATS</string>
+    <string name="cadillac_bls_ar">BLS</string>
+    <string name="cadillac_ctc_ar">CTS</string>
+    <string name="cadillac_dts_ar">ATS</string>
+    <string name="cadillac_deVille_ar">DeVeille</string>
+    <string name="cadillac_elr_ar">ELR</string>
+    <string name="cadillac_srx_ar">SRX</string>
+    <string name="cadillac_sts_ar">STS</string>
+    <string name="cadillac_xlr_ar">XLR</string>
+    <string name="cadillac_escalade_ar">اسكاليد</string>
+    <string name="cadillac_allante_ar">لانتي</string>
+    <string name="cadillac_eldorado_ar">الدورادو</string>
+    <string name="cadillac_brougham_ar">بروهام</string>
+    <string name="cadillac_seville_ar">سيفيل</string>
+    <string name="cadillac_fleetwood_ar">فليتوود</string>
+    <string name="cadillac_catera_ar">كاتيرا</string>
+    <string name="cadillac_coupe_deville_ar">كوبيه ديفيل</string>
+    <string name="cadillac_xts_ar">اكس تي اس</string>
+    <string name="cadillac_other_ar">اخرى</string>
+
+
     <string name="cadillac_ats">ATS</string>
     <string name="cadillac_bls">BLS</string>
     <string name="cadillac_ctc">CTS</string>
@@ -6559,6 +7323,8 @@
     <string name="cadillac_coupe_deville">كوبيه ديفيل</string>
     <string name="cadillac_xts">اكس تي اس</string>
     <string name="cadillac_other">اخرى</string>
+
+
     <string name="cadillac_ats_s">" ATS"</string>
     <string name="cadillac_bls_s">BLS</string>
     <string name="cadillac_ctc_s">CTS</string>
@@ -6578,6 +7344,43 @@
     <string name="cadillac_coupe_deville_s">Coupe Deville</string>
     <string name="cadillac_xts_s">XTS</string>
     <string name="cadillac_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="chrysler_200_ar">200</string>
+    <string name="chrysler_300c_ar">300C</string>
+    <string name="chrysler_300m_ar">300M</string>
+    <string name="chrysler_lhs_ar">LHS</string>
+    <string name="chrysler_aspen_ar">اسبن</string>
+    <string name="chrysler_imperial_ar">امبريال</string>
+    <string name="chrysler_intrepid_ar">انتربيد</string>
+    <string name="chrysler_pasifica_ar">باسيفيكا</string>
+    <string name="chrysler_prowler_ar">براولر</string>
+    <string name="chrysler_pt_cruiser_ar">كروزر PT</string>
+    <string name="chrysler_town_country_ar">تاون اند كانتري</string>
+    <string name="chrysler_grandvoyager_ar">جراند فوياجر</string>
+    <string name="chrysler_daytona_shelby_ar">دايتونا شيلبي</string>
+    <string name="chrysler_saratoga_ar">ساراتوجا</string>
+    <string name="chrysler_sebring_ar">سيبرينغ</string>
+    <string name="chrysler_cirrus_ar">سيرس</string>
+    <string name="chrysler_voyager_ar">فوياجر</string>
+    <string name="chrysler_vision_ar">فيجن</string>
+    <string name="chrysler_fifth_avenue_ar">فيفث افينيو</string>
+    <string name="chrysler_crossfire_ar">كروس فاير</string>
+    <string name="chrysler_concorde_ar">كونكورد</string>
+    <string name="chrysler_leBaron_ar">لي بارون</string>
+    <string name="chrysler_nassau_ar">ناسو</string>
+    <string name="chrysler_neon_ar">نيون</string>
+    <string name="chrysler_new_yorker_ar">نيويوركر</string>
+    <string name="chrysler_300_ar">300</string>
+    <string name="chrysler_300s_ar">300s</string>
+    <string name="chrysler_other_ar">اخرى</string>
+
+
     <string name="chrysler_200">200</string>
     <string name="chrysler_300c">300C</string>
     <string name="chrysler_300m">300M</string>
@@ -6606,6 +7409,8 @@
     <string name="chrysler_300">300</string>
     <string name="chrysler_300s">300s</string>
     <string name="chrysler_other">اخرى</string>
+
+
     <string name="chrysler_200_s">200</string>
     <string name="chrysler_300c_s">300C</string>
     <string name="chrysler_300m_s">300M</string>
@@ -6634,6 +7439,30 @@
     <string name="chrysler_300_s">300</string>
     <string name="chrysler_300s_s">300s</string>
     <string name="chrysler_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="lada_2010_ar">2010</string>
+    <string name="lada_2015_ar">2015</string>
+    <string name="lada_2107_ar">2107</string>
+    <string name="lada_2170_ar">2170</string>
+    <string name="lada_aleko_ar">اليكو</string>
+    <string name="lada_oka_ar">اوكا</string>
+    <string name="lada_samara_ar">سمارا</string>
+    <string name="lada_niva_ar">نيفا</string>
+    <string name="lada_vesta_ar">فيستا</string>
+    <string name="lada_vesta_sw_ar">فيستا SW</string>
+    <string name="lada_granta_ar">جرانتا</string>
+    <string name="lada_Granta_hb_ar">جرانتا HB</string>
+    <string name="lada_largus_ar">لارغوس</string>
+    <string name="lada_4x4_urban_ar">اوربان 4x4</string>
+    <string name="lada_other_ar">اخرى</string>
+
+
     <string name="lada_2010">2010</string>
     <string name="lada_2015">2015</string>
     <string name="lada_2107">2107</string>
@@ -6649,6 +7478,8 @@
     <string name="lada_largus">لارغوس</string>
     <string name="lada_4x4_urban">اوربان 4x4</string>
     <string name="lada_other">اخرى</string>
+
+
     <string name="lada_2010_s">2010</string>
     <string name="lada_2015_s">2015</string>
     <string name="lada_2107_s">2107</string>
@@ -6664,6 +7495,27 @@
     <string name="lada_largus_s">Largus</string>
     <string name="lada_4x4_urban_s">4x4 Urban</string>
     <string name="lada_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="lamborghini_lm002_ar">LM002</string>
+    <string name="lamborghini_aventador_ar">افينتادور</string>
+    <string name="lamborghini_espada_ar">ايسبادا</string>
+    <string name="lamborghini_jalpa_ar">جالبا</string>
+    <string name="lamborghini_diablo_ar">ديابلو</string>
+    <string name="lamborghini_reventon_ar">ريفينتون</string>
+    <string name="lamborghini_gallardo_ar">غالاردو</string>
+    <string name="lamborghini_countach_ar">كونتاش</string>
+    <string name="lamborghini_murcielago_ar">مورسيلاغو</string>
+    <string name="lamborghini_huracan_ar">هوراكان</string>
+    <string name="lamborghini_350gt_ar">350GT</string>
+    <string name="lamborghini_other_ar">اخرى</string>
+
+
     <string name="lamborghini_lm002">LM002</string>
     <string name="lamborghini_aventador">افينتادور</string>
     <string name="lamborghini_espada">ايسبادا</string>
@@ -6676,6 +7528,8 @@
     <string name="lamborghini_huracan">هوراكان</string>
     <string name="lamborghini_350gt">350GT</string>
     <string name="lamborghini_other">اخرى</string>
+
+
     <string name="lamborghini_lm002_s">LM002</string>
     <string name="lamborghini_aventador_s">Aventador</string>
     <string name="lamborghini_espada_s">Espada</string>
@@ -6688,6 +7542,27 @@
     <string name="lamborghini_huracan_s">Huracan</string>
     <string name="lamborghini_350gt_s">350GT</string>
     <string name="lamborghini_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="land_rover_lr4_ar">LR4</string>
+    <string name="land_rover_discovery_ar">ديسكوفري</string>
+    <string name="land_rover_discovery_sport_ar">ديسكوفري سبورت</string>
+    <string name="land_rover_defender_ar">ديفندر</string>
+    <string name="land_rover_range_rover_hse_ar">رنج روفر HSE</string>
+    <string name="land_rover_range_rover_evoque_ar">رنج روفر ايفوك</string>
+    <string name="land_rover_range_rover_sport_ar">رنج روفر سبورت</string>
+    <string name="land_rover_range_rover_vogue_ar">رنج روفر فوج</string>
+    <string name="land_rover_range_rover_velar_ar">رنج روفر فيلار</string>
+    <string name="land_rover_range_rover_ar">رنج روفر</string>
+    <string name="land_rover_freelander_ar">فريلاندر</string>
+    <string name="land_rover_other_ar">اخرى</string>
+
+
     <string name="land_rover_lr4">LR4</string>
     <string name="land_rover_discovery">ديسكوفري</string>
     <string name="land_rover_discovery_sport">ديسكوفري سبورت</string>
@@ -6700,6 +7575,8 @@
     <string name="land_rover_range_rover">رنج روفر</string>
     <string name="land_rover_freelander">فريلاندر</string>
     <string name="land_rover_other">اخرى</string>
+
+
     <string name="land_rover_lr4_s">LR4</string>
     <string name="land_rover_discovery_s">Discovery</string>
     <string name="land_rover_discovery_sport_s">Discovery Sport</string>
@@ -6712,6 +7589,65 @@
     <string name="land_rover_range_rover_s">Range Rover</string>
     <string name="land_rover_freelander_s">Freelander</string>
     <string name="land_rover_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="lexus_e_s_ar">E S</string>
+    <string name="lexus_es_ar">ES</string>
+    <string name="lexus_es_250_ar">ES 250</string>
+    <string name="lexus_es_300_ar">ES 300</string>
+    <string name="lexus_es_330_ar">ES 330</string>
+    <string name="lexus_es_350_ar">ES 350</string>
+    <string name="lexus_g_s_ar">G S</string>
+    <string name="lexus_gs_250_ar">GS 250</string>
+    <string name="lexus_gs_300_ar">GS 300</string>
+    <string name="lexus_gs_350_ar">GS 350</string>
+    <string name="lexus_gs_400_ar">GS 400</string>
+    <string name="lexus_gs_430_ar">GS 430</string>
+    <string name="lexus_gs_460_ar">GS</string>
+    <string name="lexus_gx_ar">GX</string>
+    <string name="lexus_gx_460_ar">GX 460</string>
+    <string name="lexus_gx_470_ar">GX 470</string>
+    <string name="lexus_is_ar">IS</string>
+    <string name="lexus_is_200_ar">IS 200</string>
+    <string name="lexus_is_250_ar">IS250</string>
+    <string name="lexus_is_300_ar">IS300</string>
+    <string name="lexus_is_350_ar">IS350</string>
+    <string name="lexus_ls_ar">LS</string>
+    <string name="lexus_ls_400_ar">LS400</string>
+    <string name="lexus_ls_430_ar">LS430</string>
+    <string name="lexus_ls_460_ar">LS460</string>
+    <string name="lexus_ls_600_ar">LS600</string>
+    <string name="lexus_lx_ar">LX</string>
+    <string name="lexus_LX_450_ar">LX450</string>
+    <string name="lexus_LX_470_ar">LX470</string>
+    <string name="lexus_LX_570_ar">LX570</string>
+    <string name="lexus_nx_ar">NX</string>
+    <string name="lexus_nx_200t_ar">NX 200t</string>
+    <string name="lexus_nx_300_ar">NX 300</string>
+    <string name="lexus_rc_ar">RC</string>
+    <string name="lexus_rc_350_ar">RC350</string>
+    <string name="lexus_rc_f_ar">RC F</string>
+    <string name="lexus_rx_ar">Rx</string>
+    <string name="lexus_rx_300_ar">Rx300</string>
+    <string name="lexus_rx_330_ar">Rx330</string>
+    <string name="lexus_rx_350_ar">Rx350</string>
+    <string name="lexus_xr_450_ar">Rx450</string>
+    <string name="lexus_sc_ar">SC</string>
+    <string name="lexus_sc_300_ar">SC300</string>
+    <string name="lexus_sc_430_ar">SC430</string>
+    <string name="lexus_ct_ar">CT</string>
+    <string name="lexus_hs_ar">HS</string>
+    <string name="lexus_isf_ar">ISF</string>
+    <string name="lexus_lfa_ar">LFA</string>
+    <string name="lexus_ux_ar">UX</string>
+    <string name="lexus_other_ar">اخرى</string>
+
+
     <string name="lexus_e_s">E S</string>
     <string name="lexus_es">ES</string>
     <string name="lexus_es_250">ES 250</string>
@@ -6761,7 +7697,9 @@
     <string name="lexus_isf">ISF</string>
     <string name="lexus_lfa">LFA</string>
     <string name="lexus_ux">UX</string>
-    <string name="lexus_other">Other</string>
+    <string name="lexus_other">اخرى</string>
+
+
     <string name="lexus_e_s_s">E S</string>
     <string name="lexus_es_s">ES</string>
     <string name="lexus_es_250_s">ES 250</string>
@@ -6812,6 +7750,25 @@
     <string name="lexus_lfa_s">LFA</string>
     <string name="lexus_ux_s">UX</string>
     <string name="lexus_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="lotus_esprit_ar">اسبيرت</string>
+    <string name="lotus_elite_ar">اليت</string>
+    <string name="lotus_elise_ar">اليز</string>
+    <string name="lotus_eclat_ar">اكلات</string>
+    <string name="lotus_evora_ar">ايفورا</string>
+    <string name="lotus_excel_ar">ايكسل</string>
+    <string name="lotus_exige_ar">ايكسيج</string>
+    <string name="lotus_elan_ar">ايلان</string>
+    <string name="lotus_yoruba_ar">يوروبا</string>
+    <string name="lotus_other_ar">اخرى</string>
+
+
     <string name="lotus_esprit">اسبيرت</string>
     <string name="lotus_elite">اليت</string>
     <string name="lotus_elise">اليز</string>
@@ -6822,6 +7779,8 @@
     <string name="lotus_elan">ايلان</string>
     <string name="lotus_yoruba">يوروبا</string>
     <string name="lotus_other">اخرى</string>
+
+
     <string name="lotus_esprit_s">Esprit</string>
     <string name="lotus_elite_s">Elite</string>
     <string name="lotus_elise_s">Elise</string>
@@ -6832,6 +7791,28 @@
     <string name="lotus_elan_s">Elan</string>
     <string name="lotus_yoruba_s">Yoruba</string>
     <string name="lotus_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="lincoln_mkx_ar">MKX</string>
+    <string name="lincoln_mkz_ar">MKZ</string>
+    <string name="lincoln_mark_lt_ar">Mark LT</string>
+    <string name="lincoln_aviator_ar">افياتور</string>
+    <string name="lincoln_blackwood_ar">بلاكوود</string>
+    <string name="lincoln_town_car_ar">تاون كار</string>
+    <string name="lincoln_zephyr_ar">زيفير</string>
+    <string name="lincoln_continental_ar">كونتيننتال</string>
+    <string name="lincoln_mark_ar">مارك</string>
+    <string name="lincoln_navigator_ar">نافيغاتور</string>
+    <string name="lincoln_capri_ar">كابري</string>
+    <string name="lincoln_mks_ar">ام كي اس</string>
+    <string name="lincoln_other_ar">اخرى</string>
+
+
     <string name="lincoln_mkx">MKX</string>
     <string name="lincoln_mkz">MKZ</string>
     <string name="lincoln_mark_lt">Mark LT</string>
@@ -6845,6 +7826,8 @@
     <string name="lincoln_capri">كابري</string>
     <string name="lincoln_mks">ام كي اس</string>
     <string name="lincoln_other">اخرى</string>
+
+
     <string name="lincoln_mkx_s">MKX</string>
     <string name="lincoln_mkz_s">MKZ</string>
     <string name="lincoln_mark_lt_s">Mark LT</string>
@@ -6858,6 +7841,62 @@
     <string name="lincoln_capri_s">Capri</string>
     <string name="lincoln_mks_s">MKS</string>
     <string name="lincoln_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="mazda_2_ar">2</string>
+    <string name="mazda_3_ar">3</string>
+    <string name="mazda_5_ar">5</string>
+    <string name="mazda_121_ar">121</string>
+    <string name="mazda_323_ar">323</string>
+    <string name="mazda_818_ar">818</string>
+    <string name="mazda_929_ar">929</string>
+    <string name="mazda_1000_ar">1000</string>
+    <string name="mazda_1300_ar">1300</string>
+    <string name="mazda_3_mps_ar">3 MPS</string>
+    <string name="mazda_6_mps_ar">6 MPS</string>
+    <string name="mazda_bt_50_ar">BT\-50</string>
+    <string name="mazda_cx_5_ar">CX\-5</string>
+    <string name="mazda_cx_7_ar">CX\-7</string>
+    <string name="mazda_cx_9_ar">CX\-9</string>
+    <string name="mazda_mpv_ar">MPV</string>
+    <string name="mazda_mx_3_ar">MX\-3</string>
+    <string name="mazda_mx_5_ar">MX\-5</string>
+    <string name="mazda_rx7_ar">RX7</string>
+    <string name="mazda_rx8_ar">RX8</string>
+    <string name="mazda_6_ar">6</string>
+    <string name="mazda_efini_ar">ايفيني</string>
+    <string name="mazda_proceed_ar">بروسيد</string>
+    <string name="mazda_premacy_ar">بريماسي</string>
+    <string name="mazda_bongo_ar">بونغو</string>
+    <string name="mazda_binte_ar">بيانتي</string>
+    <string name="mazda_pickup_ar">بيك اب</string>
+    <string name="mazda_tribute_ar">تريبيوت</string>
+    <string name="mazda_demio_ar">ديميو</string>
+    <string name="mazda_rustler_ar">رستلر</string>
+    <string name="mazda_spiano_ar">سبيانو</string>
+    <string name="mazda_scrumm_ar">سكرم</string>
+    <string name="mazda_zedos_6_ar">سيدوس 6</string>
+    <string name="mazda_zedos_9_ar">سيدوس 9</string>
+    <string name="mazda_sentia_ar">سينتيا</string>
+    <string name="mazda_fmilia_ar">فاميليا</string>
+    <string name="mazda_vantrend_ar">فانترند</string>
+    <string name="mazda_capella_ar">كابيلا</string>
+    <string name="mazda_carol_ar">كارول</string>
+    <string name="mazda_cliff_ar">كليف</string>
+    <string name="mazda_laputa_ar">لابوتا</string>
+    <string name="mazda_lantis_ar">لانتيس</string>
+    <string name="mazda_levante_ar">ليفانت</string>
+    <string name="mazda_luce_ar">ليوس</string>
+    <string name="mazda_cx_30_ar">CX\-30</string>
+    <string name="mazda_Tttan_ar">تايتان</string>
+    <string name="mazda_other_ar">اخرى</string>
+
+
     <string name="mazda_2">2</string>
     <string name="mazda_3">3</string>
     <string name="mazda_5">5</string>
@@ -6905,6 +7944,8 @@
     <string name="mazda_cx_30">CX\-30</string>
     <string name="mazda_Tttan">تايتان</string>
     <string name="mazda_other">اخرى</string>
+
+
     <string name="mazda_2_s">2</string>
     <string name="mazda_3_s">3</string>
     <string name="mazda_5_s">5</string>
@@ -6952,6 +7993,38 @@
     <string name="mazda_cx_30_s">CX\-30</string>
     <string name="mazda_Tttan_s">Titan</string>
     <string name="mazda_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="maserati_228_ar">228</string>
+    <string name="maserati_gt3200_ar">GT3200</string>
+    <string name="maserati_mc12_ar">MC12</string>
+    <string name="maserati_indy_ar">اندي</string>
+    <string name="maserati_barchetta_stradale_ar">بارشيتا سترادل</string>
+    <string name="maserati_bora_ar">بورا</string>
+    <string name="maserati_biturbo_ar">بيتوربو</string>
+    <string name="maserati_chubasco_ar">تشوباسكو</string>
+    <string name="maserati_ghibli_ar">جيبلي</string>
+    <string name="maserati_khamsin_ar">خمسين</string>
+    <string name="maserati_royale_ar">رويال</string>
+    <string name="maserati_spyder_ar">سبايدر</string>
+    <string name="maserati_shamal_ar">شامال</string>
+    <string name="maserati_granTurismo_ar">غران توريزمو</string>
+    <string name="maserati_granSport_ar">غران سبورت</string>
+    <string name="maserati_granCabrio_ar">غران كابريو</string>
+    <string name="maserati_karif_ar">كاريف</string>
+    <string name="maserati_quattroporte_ar">كواتروبورت</string>
+    <string name="maserati_coupe_ar">كوبيه</string>
+    <string name="maserati_kyalami_ar">كيالامي</string>
+    <string name="maserati_maxico_ar">مكسيكو</string>
+    <string name="maserati_merak_ar">ميراك</string>
+    <string name="maserati_other_ar">اخرى</string>
+
+
     <string name="maserati_228">228</string>
     <string name="maserati_gt3200">GT3200</string>
     <string name="maserati_mc12">MC12</string>
@@ -6975,6 +8048,8 @@
     <string name="maserati_maxico">مكسيكو</string>
     <string name="maserati_merak">ميراك</string>
     <string name="maserati_other">اخرى</string>
+
+
     <string name="maserati_228_s">228</string>
     <string name="maserati_gt3200_s">GT3200</string>
     <string name="maserati_mc12_s">MC12</string>
@@ -6998,6 +8073,22 @@
     <string name="maserati_maxico_s">Maxico</string>
     <string name="maserati_merak_s">Merak</string>
     <string name="maserati_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="morgan_plus4_ar">Plus4</string>
+    <string name="morgan_plus8_ar">Plus8</string>
+    <string name="morgan_v6_ar">V6</string>
+    <string name="morgan_aero_ar">اريو</string>
+    <string name="morgan_aero_8_ar">اريو 8</string>
+    <string name="morgan_roadster_ar">رودستر</string>
+    <string name="morgan_other_ar">اخرى</string>
+
+
     <string name="morgan_plus4">Plus4</string>
     <string name="morgan_plus8">Plus8</string>
     <string name="morgan_v6">V6</string>
@@ -7005,6 +8096,8 @@
     <string name="morgan_aero_8">اريو 8</string>
     <string name="morgan_roadster">رودستر</string>
     <string name="morgan_other">اخرى</string>
+
+
     <string name="morgan_plus4_s">Plus4</string>
     <string name="morgan_plus8_s">Plus8</string>
     <string name="morgan_v6_s">V6</string>
@@ -7012,6 +8105,68 @@
     <string name="morgan_aero_8_s">Aero 8</string>
     <string name="morgan_roadster_s">Roadster</string>
     <string name="morgan_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="mitsubishi_asx_ar">ASX</string>
+    <string name="mitsubishi_fto_ar">FTO</string>
+    <string name="mitsubishi_3000gt_ar">3000GT</string>
+    <string name="mitsubishi_gto_ar">GTO</string>
+    <string name="mitsubishi_l200_ar">L200</string>
+    <string name="mitsubishi_rvr_ar">RVR</string>
+    <string name="mitsubishi_outlander_ar">اوتلاندر</string>
+    <string name="mitsubishi_aspire_ar">اسبير</string>
+    <string name="mitsubishi_eclipse_ar">اكلبس</string>
+    <string name="mitsubishi_endeavour_ar">انديفور</string>
+    <string name="mitsubishi_i_miev_ar">اي ميف</string>
+    <string name="mitsubishi_evolution_ar">ايفولوشن</string>
+    <string name="mitsubishi_eK_wagon_ar">ايك واغون</string>
+    <string name="mitsubishi_emeraude_ar">ايميرود</string>
+    <string name="mitsubishi_pajero_ar">باجيرو</string>
+    <string name="mitsubishi_pajero_sport_ar">باجيرو سبورت</string>
+    <string name="mitsubishi_proudia_ar">بروديا</string>
+    <string name="mitsubishi_pistachio_ar">بيستاشيو</string>
+    <string name="mitsubishi_town_box_ar">تاون بوكس</string>
+    <string name="mitsubishi_tredia_ar">تريديا</string>
+    <string name="mitsubishi_chariot_ar">تشاريوت</string>
+    <string name="mitsubishi_galant_ar">جالنت</string>
+    <string name="mitsubishi_grandis_ar">جرانديز</string>
+    <string name="mitsubishi_jeep_ar">جيب</string>
+    <string name="mitsubishi_debonair_ar">ديبوناير</string>
+    <string name="mitsubishi_delica_ar">ديليكا</string>
+    <string name="mitsubishi_dingo_ar">دينغو</string>
+    <string name="mitsubishi_dion_ar">ديون</string>
+    <string name="mitsubishi_raider_ar">رايدر</string>
+    <string name="mitsubishi_sapporo_ar">سابورو</string>
+    <string name="mitsubishi_space_runner_ar">سبايس رنر</string>
+    <string name="mitsubishi_space_star_ar">سبايس ستار</string>
+    <string name="mitsubishi_space_wagon_ar">سبايس واغون</string>
+    <string name="mitsubishi_celeste_ar">سيليستي</string>
+    <string name="mitsubishi_fuso_canter_ar">فوسو كانتر</string>
+    <string name="mitsubishi_fuso_rosa_ar">فيوسو روزا</string>
+    <string name="mitsubishi_carisma_ar">كاريزما</string>
+    <string name="mitsubishi_canter_ar">كانتر</string>
+    <string name="mitsubishi_cordia_ar">كورديا</string>
+    <string name="mitsubishi_colt_ar">كولت</string>
+    <string name="mitsubishi_lancer_ar">لانسر</string>
+    <string name="mitsubishi_legnum_ar">ليغنوم</string>
+    <string name="mitsubishi_magna_ar">ماجنا</string>
+    <string name="mitsubishi_montero_ar">مونتيرو</string>
+    <string name="mitsubishi_mirage_ar">ميراج</string>
+    <string name="mitsubishi_monica_ar">مينيكا</string>
+    <string name="mitsubishi_native_ar">ناتيفا</string>
+    <string name="mitsubishi_attrage_ar">اتراج</string>
+    <string name="mitsubishi_fuso_ar">فوسو</string>
+    <string name="mitsubishi_pajero_io_ar">باجيرو اي او</string>
+    <string name="mitsubishi_pajero_mini_ar">باجيرو ميني</string>
+    <string name="mitsubishi_rosa_ar">روزا</string>
+    <string name="mitsubishi_other_ar">اخرى</string>
+
+
     <string name="mitsubishi_asx">ASX</string>
     <string name="mitsubishi_fto">FTO</string>
     <string name="mitsubishi_3000gt">3000GT</string>
@@ -7065,6 +8220,8 @@
     <string name="mitsubishi_pajero_mini">باجيرو ميني</string>
     <string name="mitsubishi_rosa">روزا</string>
     <string name="mitsubishi_other">اخرى</string>
+
+
     <string name="mitsubishi_asx_s">ASX</string>
     <string name="mitsubishi_fto_s">FTO</string>
     <string name="mitsubishi_3000gt_s">3000GT</string>
@@ -7118,6 +8275,30 @@
     <string name="mitsubishi_pajero_mini_s">Pajero Mini</string>
     <string name="mitsubishi_rosa_s">Rosa</string>
     <string name="mitsubishi_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="mercury_tracer_ar">ترايسر</string>
+    <string name="mercury_topaz_ar">توباز</string>
+    <string name="mercury_grand_marquis_ar">جراند ماركيز</string>
+    <string name="mercury_sable_ar">سابل</string>
+    <string name="mercury_villager_ar">فيلاجر</string>
+    <string name="mercury_capri_ar">كابري</string>
+    <string name="mercury_cougar_ar">كاوجر</string>
+    <string name="mercury_marauder_ar">ماراودر</string>
+    <string name="mercury_marquis_ar">ماركيز</string>
+    <string name="mercury_mariner_ar">مارينر</string>
+    <string name="mercury_mountaineer_ar">ماونتينير</string>
+    <string name="mercury_montego_ar">مونتيغو</string>
+    <string name="mercury_mystique_ar">ميستيك</string>
+    <string name="mercury_milan_ar">ميلان</string>
+    <string name="mercury_other_ar">اخرى</string>
+
+
     <string name="mercury_tracer">ترايسر</string>
     <string name="mercury_topaz">توباز</string>
     <string name="mercury_grand_marquis">جراند ماركيز</string>
@@ -7133,6 +8314,8 @@
     <string name="mercury_mystique">ميستيك</string>
     <string name="mercury_milan">ميلان</string>
     <string name="mercury_other">اخرى</string>
+
+
     <string name="mercury_tracer_s">Tracer</string>
     <string name="mercury_topaz_s">Topaz</string>
     <string name="mercury_grand_marquis_s">Grand Marquis</string>
@@ -7148,6 +8331,31 @@
     <string name="mercury_mystique_s">Mystique</string>
     <string name="mercury_milan_s">Milan</string>
     <string name="mercury_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="mini_one_ar">One</string>
+    <string name="mini_clubman_ar">كلوبمان</string>
+    <string name="mini_cooper_ar">كوبر</string>
+    <string name="mini_countryman_ar">كونتريمان</string>
+    <string name="mini_cooper_cabrio_ar">كوبر كابورليه</string>
+    <string name="mini_cooper_paceman_ar">كوبر باسمان</string>
+    <string name="mini_cooper_s_ar">كوبر اس</string>
+    <string name="mini_cooper_s_cabrio_ar">كوبر اس كابورليه</string>
+    <string name="mini_cooper_s_clubman_ar">كوبر اس كلوب مان</string>
+    <string name="mini_cooper_s_countryman_ar">كوبر اس كونتري مان</string>
+    <string name="mini_cooper_s_Coupé_ar">كوبر اس كوبيه</string>
+    <string name="mini_cooper_s_paceman_ar">كوبر اس باسمان</string>
+    <string name="mini_John_cooper_works_ar">كوبر اس وركس</string>
+    <string name="mini_John_cooper_works_countryman_ar">كوبر اس وركس كونتري مان</string>
+    <string name="mini_john_cooper_works_coupé_ar">كوبر اس وركس كوبيه</string>
+    <string name="mini_other_ar">اخرى</string>
+
+
     <string name="mini_one">One</string>
     <string name="mini_clubman">كلوبمان</string>
     <string name="mini_cooper">كوبر</string>
@@ -7164,6 +8372,8 @@
     <string name="mini_John_cooper_works_countryman">كوبر اس وركس كونتري مان</string>
     <string name="mini_john_cooper_works_coupé">كوبر اس وركس كوبيه</string>
     <string name="mini_other">اخرى</string>
+
+
     <string name="mini_one_s">One</string>
     <string name="mini_clubman_s">Clubman</string>
     <string name="mini_cooper_car__s">Cooper</string>
@@ -7180,6 +8390,106 @@
     <string name="mini_John_cooper_works_countryman_s">John Cooper Works Countryman</string>
     <string name="mini_john_cooper_works_coupé_s">John Cooper Works Coupé</string>
     <string name="mini_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="nissan_100nx_ar">100NX</string>
+    <string name="nissan_180sx_ar">180SX</string>
+    <string name="nissan_200sx_ar">200SX</string>
+    <string name="nissan_240sx_ar">240SX</string>
+    <string name="nissan_280zx_ar">280ZX</string>
+    <string name="nissan_300xz_ar">300ZX</string>
+    <string name="nissan_350z_ar">350Z</string>
+    <string name="nissan_370z_ar">370Z</string>
+    <string name="nissan_ad_ar">AD</string>
+    <string name="nissan_gt_r_ar">GT\-R</string>
+    <string name="nissan_np_300_ar">NP 300</string>
+    <string name="nissan_nx_coupe_ar">كوبيه NX</string>
+    <string name="nissan_x_trail_ar">اكس تريل</string>
+    <string name="nissan_elgrand_ar">الغراند</string>
+    <string name="nissan_armada_ar">ارمادا</string>
+    <string name="nissan_avenir_ar">افينير</string>
+    <string name="nissan_xterra_ar">اكستيرا</string>
+    <string name="nissan_altima_ar">التيما</string>
+    <string name="nissan_almera_ar">الميرا</string>
+    <string name="nissan_otti_ar">اوتي</string>
+    <string name="nissan_patrol_ar">باترول</string>
+    <string name="nissan_pathfinder_ar">باثفايندر</string>
+    <string name="nissan_bassara_ar">باسرا</string>
+    <string name="nissan_prairie_ar">برايري</string>
+    <string name="nissan_presage_ar">بريساج</string>
+    <string name="nissan_presea_ar">بريسي</string>
+    <string name="nissan_president_ar">بريسيدنت</string>
+    <string name="nissan_bluebird_ar">بلو بيرد</string>
+    <string name="nissan_pulsar_ar">بولسار</string>
+    <string name="nissan_pickup_ar">بيك اب</string>
+    <string name="nissan_titan_ar">تايتن</string>
+    <string name="nissan_cherry_ar">تشيري</string>
+    <string name="nissan_tiida_ar">تيدا</string>
+    <string name="nissan_terrano_ar">تيرانو</string>
+    <string name="nissan_gloria_ar">جولوريا</string>
+    <string name="nissan_juke_ar">جوك</string>
+    <string name="nissan_junior_ar">جونيور</string>
+    <string name="nissan_datsun_ar">داتسون</string>
+    <string name="nissan_rasheen_ar">راشين</string>
+    <string name="nissan_rogue_ar">روج</string>
+    <string name="nissan_stagea_ar">ستاجيا</string>
+    <string name="nissan_stanza_ar">ستانزا</string>
+    <string name="nissan_skyline_ar">سكاي لاين</string>
+    <string name="nissan_sentra_ar">سنترا</string>
+    <string name="nissan_cadric_ar">سيدريك</string>
+    <string name="nissan_serena_ar">سيرينا</string>
+    <string name="nissan_cefiro_ar">سيفيرو</string>
+    <string name="nissan_silvia_ar">سيلفيا</string>
+    <string name="nissan_cima_ar">سيما</string>
+    <string name="nissan_sunny_ar">صني</string>
+    <string name="nissan_van_ar">فان</string>
+    <string name="nissan_vanette_ar">فانيت</string>
+    <string name="nissan_fairlady_ar">فايرلايدي</string>
+    <string name="nissan_frontier_ar">فرونتيير</string>
+    <string name="nissan_fuga_ar">فوغا</string>
+    <string name="nissan_versa_ar">فيرسا</string>
+    <string name="nissan_figaro_ar">فيغارو</string>
+    <string name="nissan_qashqai_ar">كاشاكي</string>
+    <string name="nissan_crew_ar">كرو</string>
+    <string name="nissan_quest_ar">كويست</string>
+    <string name="nissan_kicks_ar">كيكس</string>
+    <string name="nissan_cube_ar">كيوب</string>
+    <string name="nissan_largo_ar">لارغو</string>
+    <string name="nissan_lafesta_ar">لافيستا</string>
+    <string name="nissan_laurel_ar">لاوريل</string>
+    <string name="nissan_lucino_ar">لوسي نون</string>
+    <string name="nissan_lberty_ar">ليبيرتي</string>
+    <string name="nissan_leaf_ar">ليف</string>
+    <string name="nissan_livina_ar">ليفينا</string>
+    <string name="nissan_leopard_ar">ليوبارد</string>
+    <string name="nissan_maxima_ar">مكسيما</string>
+    <string name="nissan_murano_ar">مورانو</string>
+    <string name="nissan_moco_ar">موكو</string>
+    <string name="nissan_mistral_ar">ميسترال</string>
+    <string name="nissan_micra_ar">ميكرا</string>
+    <string name="nissan_navara_ar">نافارا</string>
+    <string name="nissan_n90_ar">نونتي</string>
+    <string name="nissan_wingroad_ar">وينغرود</string>
+    <string name="nissan_almera_tino_ar">الميرا تينو</string>
+    <string name="nissan_caravan_ar">كارافان</string>
+    <string name="nissan_condor_ar">كوندور</string>
+    <string name="nissan_dualis_ar">دواليس</string>
+    <string name="nissan_dualis_2_ar">دواليس +\2</string>
+    <string name="nissan_note_ar">نوت</string>
+    <string name="nissan_nv350_ar">ان في ٣٥٠</string>
+    <string name="nissan_patrol_pickup_ar">باترول بيك اب</string>
+    <string name="nissan_patrol_safari_ar">باترول سفاري</string>
+    <string name="nissan_teana_ar">تيانا</string>
+    <string name="nissan_united_diesel_ar">يونايتد ديزل</string>
+    <string name="nissan_urvan_ar">اورفان</string>
+    <string name="nissan_other_ar">اخرى</string>
+
+
     <string name="nissan_100nx">100NX</string>
     <string name="nissan_180sx">180SX</string>
     <string name="nissan_200sx">200SX</string>
@@ -7262,7 +8572,7 @@
     <string name="nissan_caravan">كارافان</string>
     <string name="nissan_condor">كوندور</string>
     <string name="nissan_dualis">دواليس</string>
-    <string name="nissan_dualis_2">دواليس +2</string>
+    <string name="nissan_dualis_2">دواليس +\2</string>
     <string name="nissan_note">نوت</string>
     <string name="nissan_nv350">ان في ٣٥٠</string>
     <string name="nissan_patrol_pickup">باترول بيك اب</string>
@@ -7271,6 +8581,8 @@
     <string name="nissan_united_diesel">يونايتد ديزل</string>
     <string name="nissan_urvan">اورفان</string>
     <string name="nissan_other">اخرى</string>
+
+
     <string name="nissan_100nx_s">100NX</string>
     <string name="nissan_180sx_s">180SX</string>
     <string name="nissan_200sx_s">200SX</string>
@@ -7353,7 +8665,7 @@
     <string name="nissan_caravan_s">Caravan</string>
     <string name="nissan_condor_s">Condor</string>
     <string name="nissan_dualis_s">Dualis</string>
-    <string name="nissan_dualis_2_s">Dualis \\+2</string>
+    <string name="nissan_dualis_2_s">Dualis \+2</string>
     <string name="nissan_note_s">Note</string>
     <string name="nissan_nv350_s">NV350</string>
     <string name="nissan_patrol_pickup_s">Patrol Pickup</string>
@@ -7362,17 +8674,92 @@
     <string name="nissan_united_diesel_s">United Diesel</string>
     <string name="nissan_urvan_s">Urvan</string>
     <string name="nissan_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="hummer_h1_ar">H1</string>
+    <string name="hummer_h2_ar">H2</string>
+    <string name="hummer_h3_ar">H3</string>
+    <string name="hummer_other_ar">اخرى</string>
+
     <string name="hummer_h1">H1</string>
     <string name="hummer_h2">H2</string>
     <string name="hummer_h3">H3</string>
     <string name="hummer_other">اخرى</string>
+
+
     <string name="hummer_h1_s">H1</string>
     <string name="hummer_h2_s">H2</string>
     <string name="hummer_h3_s">H3</string>
     <string name="hummer_other_s">Other</string>
-    <string name="honda_cr_v">CR-V</string>
-    <string name="honda_vr_z">CR-Z</string>
-    <string name="honda_hr_v">HR-V</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="honda_cr_v_ar">CR-V</string>
+    <string name="honda_vr_z_ar">CR-Z</string>
+    <string name="honda_hr_v_ar">HR-V</string>
+    <string name="honda_mdx_ar">MDX</string>
+    <string name="honda_mr_v_ar">MR-V</string>
+    <string name="honda_nsx_ar">NSX</string>
+    <string name="honda_s2000_ar">S2000</string>
+    <string name="honda_smx_ar">SMX</string>
+    <string name="honda_srx_ar">SRX</string>
+    <string name="honda_that_s_ar">That\'s</string>
+    <string name="honda_z_ar">Z</string>
+    <string name="honda_accord_ar">اكورد</string>
+    <string name="honda_odyssey_ar">اوديسى</string>
+    <string name="honda_insight_ar">انسايت</string>
+    <string name="honda_inspire_ar">انسبير</string>
+    <string name="honda_fcx_clarity_ar">كلاريتي FCX</string>
+    <string name="honda_avencier_ar">افانسير</string>
+    <string name="honda_element_ar">اليمينت</string>
+    <string name="honda_integra_ar">انتيغرا</string>
+    <string name="honda_orthia_ar">اورثيا</string>
+    <string name="honda_edix_ar">ايدكس</string>
+    <string name="honda_airwave_ar">ايرويف</string>
+    <string name="honda_elysion_ar">ايلسيون</string>
+    <string name="honda_partner_ar">بارتنر</string>
+    <string name="honda_passport_ar">باسبورت</string>
+    <string name="honda_pilot_ar">بايلوت</string>
+    <string name="honda_prelude_ar">بريلود</string>
+    <string name="honda_beat_ar">بيت</string>
+    <string name="honda_today_ar">توداي</string>
+    <string name="honda_domani_ar">دوماني</string>
+    <string name="honda_rafaga_ar">رافاغا</string>
+    <string name="honda_ridgeline_ar">ريدجلاين</string>
+    <string name="honda_step_wgn_ar">ستبوغن</string>
+    <string name="honda_stream_ar">ستريم</string>
+    <string name="honda_city_ar">سيتي</string>
+    <string name="honda_civic_ar">سيفيك</string>
+    <string name="honda_shuttle_ar">شتل</string>
+    <string name="honda_vamos_ar">فاموس</string>
+    <string name="honda_vigor_ar">فايغور</string>
+    <string name="honda_jazz_ar">جاز</string>
+    <string name="honda_fit_aria_ar">فيت اريا</string>
+    <string name="honda_capa_ar">كابا</string>
+    <string name="honda_crossroad_ar">كروسرود</string>
+    <string name="honda_concerto_ar">كونسيرتو</string>
+    <string name="honda_quintet_ar">كوينتت</string>
+    <string name="honda_laGreat_ar">لاغريت</string>
+    <string name="honda_life_ar">لايف</string>
+    <string name="honda_logo_ar">لوغو</string>
+    <string name="honda_legend_ar">ليجند</string>
+    <string name="honda_mobilio_ar">موبيليو</string>
+    <string name="honda_accord_Coupe_ar">اكورد كوبيه</string>
+    <string name="honda_other_ar">اخرى</string>
+
+
+    <string name="honda_cr_v">CR\-V</string>
+    <string name="honda_vr_z">CR\-Z</string>
+    <string name="honda_hr_v">HR\-V</string>
     <string name="honda_mdx">MDX</string>
     <string name="honda_mr_v">MR-V</string>
     <string name="honda_nsx">NSX</string>
@@ -7422,9 +8809,11 @@
     <string name="honda_mobilio">موبيليو</string>
     <string name="honda_accord_Coupe">اكورد كوبيه</string>
     <string name="honda_other">اخرى</string>
-    <string name="honda_cr_v_s">CR-V</string>
-    <string name="honda_vr_z_s">CR-Z</string>
-    <string name="honda_hr_v_s">HR-V</string>
+
+
+    <string name="honda_cr_v_s">CR\-V</string>
+    <string name="honda_vr_z_s">CR\-Z</string>
+    <string name="honda_hr_v_s">HR\-V</string>
     <string name="honda_mdx_s">MDX</string>
     <string name="honda_mr_v_s">MR-V</string>
     <string name="honda_nsx_s">NSX</string>
@@ -7474,6 +8863,30 @@
     <string name="honda_mobilio_s">Mobilio</string>
     <string name="honda_accord_Coupe_s">Accord Coupe</string>
     <string name="honda_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="geely_ck_ar">CK</string>
+    <string name="geely_gc2_ar">GC2</string>
+    <string name="geely_gc5_ar">GC5</string>
+    <string name="geely_gc6_ar">GC6</string>
+    <string name="geely_gc7_ar">GC7</string>
+    <string name="geely_gx2_ar">GX2</string>
+    <string name="geely_hq_ar">HQ</string>
+    <string name="geely_lc_ar">LC</string>
+    <string name="geely_mk_cross_ar">كروس MK</string>
+    <string name="geely_sc7_ar">SC7</string>
+    <string name="geely_emgrand_7_ar">امجراند 7</string>
+    <string name="geely_emgrand_8_ar">امجراند 8</string>
+    <string name="geely_emgrand_x7_ar">امجراند X7</string>
+    <string name="geely_emgrand_gt_ar">امجراند GT</string>
+    <string name="geely_other_ar">اخرى</string>
+
+
     <string name="geely_ck">CK</string>
     <string name="geely_gc2">GC2</string>
     <string name="geely_gc5">GC5</string>
@@ -7488,7 +8901,9 @@
     <string name="geely_emgrand_8">امجراند 8</string>
     <string name="geely_emgrand_x7">امجراند X7</string>
     <string name="geely_emgrand_gt">امجراند GT</string>
-    <string name="geely_other">Other</string>
+    <string name="geely_other">اخرى</string>
+
+
     <string name="geely_ck_s">CK</string>
     <string name="geely_gc2_s">GC2</string>
     <string name="geely_gc5_s">GC5</string>
@@ -7504,12 +8919,44 @@
     <string name="geely_emgrand_x7_s">Emgrand X7</string>
     <string name="geely_emgrand_gt_s">Emgrand GT</string>
     <string name="geely_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="zxauto_admiral_ar">ادميرال</string>
+    <string name="zxauto_grand_tiger_ar">جراند تايجر</string>
+    <string name="zxauto_other_ar">اخرى</string>
+
+
     <string name="zxauto_admiral">ادميرال</string>
     <string name="zxauto_grand_tiger">جراند تايجر</string>
     <string name="zxauto_other">اخرى</string>
+
+
     <string name="zxauto_admiral_s">Admiral</string>
     <string name="zxauto_grand_tiger_s">Grand Tiger</string>
     <string name="zxauto_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="mg_mg3_ar">MG3</string>
+    <string name="mg_mg5_ar">MG5</string>
+    <string name="mg_mg6_ar">MG6</string>
+    <string name="mg_350s_ar">اس 350</string>
+    <string name="mg_550_ar">550</string>
+    <string name="mg_mga_ar">MGA</string>
+    <string name="mg_mgc_ar">MGC</string>
+    <string name="mg_midget_ar">ميدجيت</string>
+    <string name="mg_other_ar">اخرى</string>
+
+
     <string name="mg_mg3">MG3</string>
     <string name="mg_mg5">MG5</string>
     <string name="mg_mg6">MG6</string>
@@ -7519,6 +8966,8 @@
     <string name="mg_mgc">MGC</string>
     <string name="mg_midget">ميدجيت</string>
     <string name="mg_other">اخرى</string>
+
+
     <string name="mg_mg3_s">MG3</string>
     <string name="mg_mg5_s">MG5</string>
     <string name="mg_mg6_s">MG6</string>
@@ -7528,14 +8977,46 @@
     <string name="mg_mgc_s">MGC</string>
     <string name="mg_midget_s">Midget</string>
     <string name="mg_other_s">Other</string>
-    <string name="proton_gen_2">Gen-2</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="proton_gen_2_ar">Gen\-2</string>
+    <string name="proton_persona_ar">بيرسونا</string>
+    <string name="proton_waja_ar">واجا</string>
+    <string name="proton_other_ar">اخرى</string>
+
+
+    <string name="proton_gen_2">Gen\-2</string>
     <string name="proton_persona">بيرسونا</string>
     <string name="proton_waja">واجا</string>
     <string name="proton_other">اخرى</string>
+
+
     <string name="proton_gen_2_s">Gen-2</string>
     <string name="proton_persona_s">Persona</string>
     <string name="proton_waja_s">Waja</string>
     <string name="proton_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="brilliance_h220_ar">H220</string>
+    <string name="brilliance_h230_ar">H230</string>
+    <string name="brilliance_h320_ar">H320</string>
+    <string name="brilliance_h330_ar">H330</string>
+    <string name="brilliance_h530_ar">H530</string>
+    <string name="brilliance_m1_ar">M1</string>
+    <string name="brilliance_v5_ar">V5</string>
+    <string name="brilliance_other_ar">اخرى</string>
+
+
     <string name="brilliance_h220">H220</string>
     <string name="brilliance_h230">H230</string>
     <string name="brilliance_h320">H320</string>
@@ -7544,6 +9025,8 @@
     <string name="brilliance_m1">M1</string>
     <string name="brilliance_v5">V5</string>
     <string name="brilliance_other">اخرى</string>
+
+
     <string name="brilliance_h220_s">H220</string>
     <string name="brilliance_h230_s">H230</string>
     <string name="brilliance_h320_s">H320</string>
@@ -7552,6 +9035,24 @@
     <string name="brilliance_m1_s">M1</string>
     <string name="brilliance_v5_s">V5</string>
     <string name="brilliance_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="bdy_f0_ar">F0</string>
+    <string name="bdy_f3r_ar">F3R</string>
+    <string name="bdy_f5_ar">F5</string>
+    <string name="bdy_f6_ar">F6</string>
+    <string name="bdy_f7_ar">F7</string>
+    <string name="bdy_g3_ar">G3</string>
+    <string name="bdy_s6_ar">S6</string>
+    <string name="bdy_e6_ar">e6</string>
+    <string name="bdy_other_ar">اخرى</string>
+
+
     <string name="bdy_f0">F0</string>
     <string name="bdy_f3r">F3R</string>
     <string name="bdy_f5">F5</string>
@@ -7561,6 +9062,8 @@
     <string name="bdy_s6">S6</string>
     <string name="bdy_e6">e6</string>
     <string name="bdy_other">اخرى</string>
+
+
     <string name="bdy_f0_s">F0</string>
     <string name="bdy_f3r_s">F3R</string>
     <string name="bdy_f5_s">F5</string>
@@ -7570,6 +9073,22 @@
     <string name="bdy_s6_s">S6</string>
     <string name="bdy_e6_s">e6</string>
     <string name="bdy_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="samsung_qm5_ar">QM5</string>
+    <string name="samsung_qm3_ar">QM3</string>
+    <string name="samsung_sm_3_ar">SM 3</string>
+    <string name="samsung_sm_5_ar">SM 5</string>
+    <string name="samsung_sm_6_ar">SM 6</string>
+    <string name="samsung_sm_7_ar">SM 7</string>
+    <string name="samsung_other_ar">اخرى</string>
+
+
     <string name="samsung_qm5">QM5</string>
     <string name="samsung_qm3">QM3</string>
     <string name="samsung_sm_3">SM 3</string>
@@ -7577,6 +9096,8 @@
     <string name="samsung_sm_6">SM 6</string>
     <string name="samsung_sm_7">SM 7</string>
     <string name="samsung_other">اخرى</string>
+
+
     <string name="samsung_qm5_s">QM5</string>
     <string name="samsung_qm3_s">QM3</string>
     <string name="samsung_sm_3_s">SM 3</string>
@@ -7584,20 +9105,71 @@
     <string name="samsung_sm_6_s">SM 6</string>
     <string name="samsung_sm_7_s">SM 7</string>
     <string name="samsung_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="tesla_3_ar">3</string>
+    <string name="tesla_S_ar">S</string>
+    <string name="tesla_X_ar">X</string>
+    <string name="tesla_Other_ar">اخرى</string>
+
+
     <string name="tesla_3">3</string>
     <string name="tesla_S">S</string>
     <string name="tesla_X">"X "</string>
     <string name="tesla_Other">اخرى</string>
+
+
     <string name="tesla_3_s">3</string>
     <string name="tesla_S_s">S</string>
     <string name="tesla_X_s">"X "</string>
     <string name="tesla_Other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="iran_khodro_samand_ar">سمند</string>
+    <string name="iran_khodro_tiba_ar">طيبه</string>
+    <string name="iran_khodro_other_ar">اخرى</string>
+
+
     <string name="iran_khodro_samand">سمند</string>
     <string name="iran_khodro_tiba">طيبه</string>
     <string name="iran_khodro_other">اخرى</string>
+
+
     <string name="iran_khodro_samand_s">Samand</string>
     <string name="iran_khodro_tiba_s">Tiba</string>
     <string name="iran_khodro_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="tata_aria_ar">اريا</string>
+    <string name="tata_indigo_ar">انديجو</string>
+    <string name="tata_indica_ar">انديكا</string>
+    <string name="tata_bolt_ar">بولت</string>
+    <string name="tata_telcoline_ar">تلكولين</string>
+    <string name="tata_tiago_ar">تياجو</string>
+    <string name="tata_genX_nano_ar">جي اكس نانو</string>
+    <string name="tata_xenon_ar">زينون</string>
+    <string name="tata_safari_ar">سافاري</string>
+    <string name="tata_sumo_ar">سومو</string>
+    <string name="tata_nano_ar">نانو</string>
+    <string name="tata_613_ar">613</string>
+    <string name="tata_other_ar">اخرى</string>
+
+
     <string name="tata_aria">اريا</string>
     <string name="tata_indigo">انديجو</string>
     <string name="tata_indica">انديكا</string>
@@ -7611,6 +9183,8 @@
     <string name="tata_nano">نانو</string>
     <string name="tata_613">613</string>
     <string name="tata_other">اخرى</string>
+
+
     <string name="tata_aria_s">Aria</string>
     <string name="tata_indigo_s">Indigo</string>
     <string name="tata_indica_s">Indica</string>
@@ -7624,18 +9198,57 @@
     <string name="tata_nano_s">Nano</string>
     <string name="tata_613_s">613</string>
     <string name="tata_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="bugatti_eb_110_ar">EB 110</string>
+    <string name="bugatti_chiron_ar">تشيرون</string>
+    <string name="bugatti_grand_sport_ar">جراند سبورت</string>
+    <string name="bugatti_super_sport_ar">سوبر سبورت</string>
+    <string name="bugatti_veyron_ar">فيرون</string>
+    <string name="bugatti_other_ar">اخرى</string>
+
+
     <string name="bugatti_eb_110">EB 110</string>
     <string name="bugatti_chiron">تشيرون</string>
     <string name="bugatti_grand_sport">جراند سبورت</string>
     <string name="bugatti_super_sport">سوبر سبورت</string>
     <string name="bugatti_veyron">فيرون</string>
     <string name="bugatti_other">اخرى</string>
+
+
     <string name="bugatti_eb_110_s">EB 110</string>
     <string name="bugatti_chiron_s">Chiron</string>
     <string name="bugatti_grand_sport_s">Grand Sport</string>
     <string name="bugatti_super_sport_s">Super Sport</string>
     <string name="bugatti_veyron_s">Veyron</string>
     <string name="bugatti_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="buick_envision_ar">انفيجن</string>
+    <string name="buick_enclave_ar">انكليف</string>
+    <string name="buick_encore_ar">انكور</string>
+    <string name="buick_park_Avenue_ar">بارك افنيو</string>
+    <string name="buick_regal_ar">ريجال</string>
+    <string name="buick_riviera_ar">ريفيرا</string>
+    <string name="buick_century_ar">سنشري</string>
+    <string name="buick_verano_ar">فيرانو</string>
+    <string name="buick_cascada_ar">كاسكادا</string>
+    <string name="buick_laCrosse_ar">لاكروس</string>
+    <string name="buick_leSabre_ar">ليسابري</string>
+    <string name="buick_coupe_super_8_ar">كوبيه سوبر 8</string>
+    <string name="buick_other_ar">اخرى</string>
+
+
     <string name="buick_envision">انفيجن</string>
     <string name="buick_enclave">انكليف</string>
     <string name="buick_encore">انكور</string>
@@ -7649,6 +9262,8 @@
     <string name="buick_leSabre">ليسابري</string>
     <string name="buick_coupe_super_8">كوبيه سوبر 8</string>
     <string name="buick_other">اخرى</string>
+
+
     <string name="buick_envision_s">Envision</string>
     <string name="buick_enclave_s">Enclave</string>
     <string name="buick_encore_s">Encore</string>
@@ -7662,6 +9277,30 @@
     <string name="buick_leSabre_s">LeSabre</string>
     <string name="buick_coupe_super_8_s">Coupe Super 8</string>
     <string name="buick_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="acura_cl_ar">CL</string>
+    <string name="acura_ilx_ar">ILX</string>
+    <string name="acura_mdx_ar">MDX</string>
+    <string name="acura_nsx_ar">NSX</string>
+    <string name="acura_rdx_ar">RDX</string>
+    <string name="acura_rl_ar">RL</string>
+    <string name="acura_rlx_ar">RLX</string>
+    <string name="acura_rsx_ar">RSX</string>
+    <string name="acura_tl_ar">TL</string>
+    <string name="acura_tlx_ar">TLX</string>
+    <string name="acura_tsx_ar">TSX</string>
+    <string name="acura_zdx_ar">ZDX</string>
+    <string name="acura_integra_ar">انتيجرا</string>
+    <string name="acura_legend_ar">ليجيند</string>
+    <string name="acura_other_ar">اخرى</string>
+
+
     <string name="acura_cl">CL</string>
     <string name="acura_ilx">ILX</string>
     <string name="acura_mdx">MDX</string>
@@ -7677,6 +9316,8 @@
     <string name="acura_integra">انتيجرا</string>
     <string name="acura_legend">ليجيند</string>
     <string name="acura_other">اخرى</string>
+
+
     <string name="acura_cl_s">CL</string>
     <string name="acura_ilx_s">ILX</string>
     <string name="acura_mdx_s">MDX</string>
@@ -7692,6 +9333,24 @@
     <string name="acura_integra_s">Integra</string>
     <string name="acura_legend_s">Legend</string>
     <string name="acura_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="scion_fr_s_ar">FR\-S</string>
+    <string name="scion_ia_ar">iA</string>
+    <string name="scion_im_ar">iM</string>
+    <string name="scion_tc_ar">tC</string>
+    <string name="scion_xa_ar">xA</string>
+    <string name="scion_xb_ar">xB</string>
+    <string name="scion_xd_ar">xD</string>
+    <string name="scion_fuse_ar">فيوز</string>
+    <string name="scion_other_ar">اخرى</string>
+
+
     <string name="scion_fr_s">FR\-S</string>
     <string name="scion_ia">iA</string>
     <string name="scion_im">iM</string>
@@ -7701,6 +9360,8 @@
     <string name="scion_xd">xD</string>
     <string name="scion_fuse">فيوز</string>
     <string name="scion_other">اخرى</string>
+
+
     <string name="scion_fr_s_s">FR\-S</string>
     <string name="scion_ia_s">iA</string>
     <string name="scion_im_s">iM</string>
@@ -7710,6 +9371,22 @@
     <string name="scion_xd_s">xD</string>
     <string name="scion_fuse_s">Fuse</string>
     <string name="scion_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="mclaren_540_ar">540</string>
+    <string name="mclaren_570_ar">570</string>
+    <string name="mclaren_650_ar">650</string>
+    <string name="mclaren_675_ar">675</string>
+    <string name="mclaren_12c_ar">12C</string>
+    <string name="mclaren_p1_ar">P1</string>
+    <string name="mclaren_other_ar">اخرى</string>
+
+
     <string name="mclaren_540">540</string>
     <string name="mclaren_570">570</string>
     <string name="mclaren_650">650</string>
@@ -7717,6 +9394,8 @@
     <string name="mclaren_12c">12C</string>
     <string name="mclaren_p1">P1</string>
     <string name="mclaren_other">اخرى</string>
+
+
     <string name="mclaren_540_s">540</string>
     <string name="mclaren_570_s">570</string>
     <string name="mclaren_650_s">650</string>
@@ -7724,12 +9403,47 @@
     <string name="mclaren_12c_s">12C</string>
     <string name="mclaren_p1_s">P1</string>
     <string name="mclaren_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="pagani_zonda_ar">زوندا</string>
+    <string name="pagani_huayra_ar">هوايرا</string>
+    <string name="pagani_other_ar">اخرى</string>
+
+
     <string name="pagani_zonda">زوندا</string>
     <string name="pagani_huayra">هوايرا</string>
     <string name="pagani_other">اخرى</string>
+
+
     <string name="pagani_zonda_s">Zonda</string>
     <string name="pagani_huayra_s">Huayra</string>
     <string name="pagani_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="lancia_thesis_ar">ثيزيس</string>
+    <string name="lancia_thema_ar">ثيما</string>
+    <string name="lancia_delta_ar">دلتا</string>
+    <string name="lancia_dedra_ar">ديدرا</string>
+    <string name="lancia_flavia_ar">فلافيا</string>
+    <string name="lancia_voyager_ar">فوياجر</string>
+    <string name="lancia_kappa_ar">كابا</string>
+    <string name="lancia_lybra_ar">ليبرا</string>
+    <string name="lancia_musa_ar">موسى</string>
+    <string name="lancia_ypsilon_ar">يبسلون</string>
+    <string name="lancia_stratos_ar">ستارتوس</string>
+    <string name="lancia_other_ar">اخرى</string>
+
+
     <string name="lancia_thesis">ثيزيس</string>
     <string name="lancia_thema">ثيما</string>
     <string name="lancia_delta">دلتا</string>
@@ -7742,6 +9456,8 @@
     <string name="lancia_ypsilon">يبسلون</string>
     <string name="lancia_stratos">ستارتوس</string>
     <string name="lancia_other">اخرى</string>
+
+
     <string name="lancia_thesis_s">Thesis</string>
     <string name="lancia_thema_s">Thema</string>
     <string name="lancia_delta_s">Delta</string>
@@ -7754,6 +9470,42 @@
     <string name="lancia_ypsilon_s">Ypsilon</string>
     <string name="lancia_stratos_s">Stratos</string>
     <string name="lancia_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="jac_iev_5_ar">IEV 5</string>
+    <string name="jac_iev_6_ar">IEV 6</string>
+    <string name="jac_s1_ar">S1</string>
+    <string name="jac_s2_ar">S2</string>
+    <string name="jac_s3_ar">S3</string>
+    <string name="jac_s5_ar">S5</string>
+    <string name="jac_s7_ar">S7</string>
+    <string name="jac_spv_ar">SPV</string>
+    <string name="jac_x200_ar">X200</string>
+    <string name="jac_m3_ar">M3</string>
+    <string name="jac_m4_ar">M4</string>
+    <string name="jac_m5_ar">M5</string>
+    <string name="jac_a60_ar">A60</string>
+    <string name="jac_t6_frison_ar">فريسون T6</string>
+    <string name="jac_j4_ar">J4</string>
+    <string name="jac_n_series_ar">فئة N</string>
+    <string name="jac_v1_ar">V1</string>
+    <string name="jac_ga8_ar">Ga8</string>
+    <string name="jac_gs3_ar">GS3</string>
+    <string name="jac_gs4_ar">GS4</string>
+    <string name="jac_gs5_ar">GS5</string>
+    <string name="jac_gs7_ar">GS7</string>
+    <string name="jac_gs8_ar">GS8</string>
+    <string name="jac_gn6_ar">GN6</string>
+    <string name="jac_gn8_ar">GN8</string>
+    <string name="jac_ge3_ar">GE3</string>
+    <string name="jac_other_ar">اخرى</string>
+
+
     <string name="jac_iev_5">IEV 5</string>
     <string name="jac_iev_6">IEV 6</string>
     <string name="jac_s1">S1</string>
@@ -7781,6 +9533,8 @@
     <string name="jac_gn8">GN8</string>
     <string name="jac_ge3">GE3</string>
     <string name="jac_other">اخرى</string>
+
+
     <string name="jac_iev_5_s">IEV 5</string>
     <string name="jac_iev_6_s">IEV 6</string>
     <string name="jac_s1_s">S1</string>
@@ -7808,6 +9562,34 @@
     <string name="jac_gn8_s">GN8</string>
     <string name="jac_ge3_s">GE3</string>
     <string name="jac_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="lifan_1022_ar">1022</string>
+    <string name="lifan_1025_ar">1025</string>
+    <string name="lifan_320e_ar">320E</string>
+    <string name="lifan_330_ar">330</string>
+    <string name="lifan_330ev_ar">330EV</string>
+    <string name="lifan_620ii_ar">620II</string>
+    <string name="lifan_650ev_ar">650EV</string>
+    <string name="lifan_820_ar">820</string>
+    <string name="lifan_c3_ar">C3</string>
+    <string name="lifan_c30E_ar">C30E</string>
+    <string name="lifan_foison_ar">فيوجن</string>
+    <string name="lifan_l7_ar">L7</string>
+    <string name="lifan_m7_ar">M7</string>
+    <string name="lifan_seasion_ar">Seasion</string>
+    <string name="lifan_x50_ar">X50</string>
+    <string name="lifan_x60_ar">X60</string>
+    <string name="lifan_x7_ar">X7</string>
+    <string name="lifan_x70_ar">X70</string>
+    <string name="lifan_x80_ar">X80</string>
+
+
     <string name="lifan_1022">1022</string>
     <string name="lifan_1025">1025</string>
     <string name="lifan_320e">320E</string>
@@ -7827,6 +9609,8 @@
     <string name="lifan_x7">X7</string>
     <string name="lifan_x70">X70</string>
     <string name="lifan_x80">X80</string>
+
+
     <string name="lifan_1022_s">1022</string>
     <string name="lifan_1025_s">1025</string>
     <string name="lifan_320e_s">320E</string>
@@ -7846,6 +9630,33 @@
     <string name="lifan_x7_s">X7</string>
     <string name="lifan_x70_s">X70</string>
     <string name="lifan_x80_s">X80</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="faw_b30_ar">B30</string>
+    <string name="faw_b50_ar">B50</string>
+    <string name="faw_b70_ar">B70</string>
+    <string name="faw_j5k_165_ar">J5K 165</string>
+    <string name="faw_j5m_ar">J5M</string>
+    <string name="faw_j5m_220_ar">J5M 220</string>
+    <string name="faw_j5m_280_ar">J5M 280</string>
+    <string name="faw_j5P_330_ar">J5P 330</string>
+    <string name="faw_j5P_420_ar">J5P 420</string>
+    <string name="faw_v2_ar">V2</string>
+    <string name="faw_x40_ar">X40</string>
+    <string name="faw_x80_ar">X80</string>
+    <string name="faw_xPV_ar">XPV</string>
+    <string name="faw_actis_v80_v80L_ar">اكتيس V80\-V80L</string>
+    <string name="faw_tiger_v_ar">تايجر V</string>
+    <string name="faw_carrier_ar">كارير</string>
+    <string name="faw_mini_truck_t80_ar">ميني ترك T80</string>
+    <string name="faw_hongqi_h7_ar">هونج كيو اي H7</string>
+
+
     <string name="faw_b30">B30</string>
     <string name="faw_b50">B50</string>
     <string name="faw_b70">B70</string>
@@ -7864,6 +9675,8 @@
     <string name="faw_carrier">كارير</string>
     <string name="faw_mini_truck_t80">ميني ترك T80</string>
     <string name="faw_hongqi_h7">هونج كيو اي H7</string>
+
+
     <string name="faw_b30_s">B30</string>
     <string name="faw_b50_s">B50</string>
     <string name="faw_b70_s">B70</string>
@@ -7882,6 +9695,30 @@
     <string name="faw_carrier_s">Carrier</string>
     <string name="faw_mini_truck_t80_s">MINI TRUCK T80</string>
     <string name="faw_hongqi_h7_s">HONGQi H7</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="foton_toana_ar">توانو</string>
+    <string name="foton_toplander_ar">توبلاندر</string>
+    <string name="foton_tornado_ar">تورنيدو</string>
+    <string name="foton_thunder_ar">ثندر</string>
+    <string name="foton_gratour_ar">جراتور</string>
+    <string name="foton_view_traveller_ar">فيو ترافيلر</string>
+    <string name="foton_view_transvan_ar">فيو ترانسفان</string>
+    <string name="foton_sauvana_ar">ساوانا</string>
+    <string name="foton_tunland_ar">تونلند</string>
+    <string name="foton_view_c1_ar">فيو سي 1</string>
+    <string name="foton_view_c2_ar">فيو سي 2</string>
+    <string name="foton_view_cs2_ar">فيو سي اس 2</string>
+    <string name="foton_aumark_s_ar">اومارك S</string>
+    <string name="foton_aumark_c_ar">اومارك C</string>
+    <string name="foton_aumark_tx_ar">اومارك TX</string>
+
+
     <string name="foton_toana">توانو</string>
     <string name="foton_toplander">توبلاندر</string>
     <string name="foton_tornado">تورنيدو</string>
@@ -7897,6 +9734,8 @@
     <string name="foton_aumark_s">اومارك S</string>
     <string name="foton_aumark_c">اومارك C</string>
     <string name="foton_aumark_tx">اومارك TX</string>
+
+
     <string name="foton_toana_s">Toana</string>
     <string name="foton_toplander_s">Toplander</string>
     <string name="foton_tornado_s">Tornado</string>
@@ -7912,6 +9751,34 @@
     <string name="foton_aumark_s_s">Aumark S</string>
     <string name="foton_aumark_c_s">Aumark C</string>
     <string name="foton_aumark_tx_s">Aumark TX</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="maruti_Suzuki_eeco_ar">ايكو</string>
+    <string name="maruti_Suzuki_ignis_ar">اجنيس</string>
+    <string name="maruti_Suzuki_ertiga_ar">ارتيجا</string>
+    <string name="maruti_Suzuki_s_cross_ar">اس كروس</string>
+    <string name="maruti_Suzuki_alto_800_ar">التو 800</string>
+    <string name="maruti_Suzuki_alto_k10_ar">التو K10</string>
+    <string name="maruti_Suzuki_omni_ar">اومني</string>
+    <string name="maruti_Suzuki_baleno_ar">بالينو</string>
+    <string name="maruti_Suzuki_baleno_car_s_ar">بالينو RS</string>
+    <string name="maruti_Suzuki_gypsy_ar">جيبسي</string>
+    <string name="maruti_Suzuki_jimny_ar">جيمني</string>
+    <string name="maruti_Suzuki_dzire_ar">دي زاير</string>
+    <string name="maruti_Suzuki_swift_ar">سويفت</string>
+    <string name="maruti_Suzuki_ciaz_ar">سياز</string>
+    <string name="maruti_Suzuki_ciaz_car_s_ar">سياز S</string>
+    <string name="maruti_Suzuki_celerio_ar">سيليريو</string>
+    <string name="maruti_Suzuki_celerio_x_ar">سيليريو X</string>
+    <string name="maruti_Suzuki_vitara_brezza_ar">فيتارا بريزا</string>
+    <string name="maruti_Suzuki_wagon_r_ar">واجون R</string>
+
+
     <string name="maruti_Suzuki_eeco">ايكو</string>
     <string name="maruti_Suzuki_ignis">اجنيس</string>
     <string name="maruti_Suzuki_ertiga">ارتيجا</string>
@@ -7931,6 +9798,8 @@
     <string name="maruti_Suzuki_celerio_x">سيليريو X</string>
     <string name="maruti_Suzuki_vitara_brezza">فيتارا بريزا</string>
     <string name="maruti_Suzuki_wagon_r">واجون R</string>
+
+
     <string name="maruti_Suzuki_eeco_s">Eeco</string>
     <string name="maruti_Suzuki_ignis_s">Ignis</string>
     <string name="maruti_Suzuki_ertiga_s">Ertiga</string>
@@ -7950,6 +9819,50 @@
     <string name="maruti_Suzuki_celerio_x_s">Celerio X</string>
     <string name="maruti_Suzuki_vitara_brezza_s">Vitara Brezza</string>
     <string name="maruti_Suzuki_wagon_r_s">Wagon R</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="saipa_111_ar">111</string>
+    <string name="saipa_131_ar">131</string>
+    <string name="saipa_132_ar">132</string>
+    <string name="saipa_141_ar">141</string>
+    <string name="saipa_cs35_ar">CS35</string>
+    <string name="saipa_d_375_ar">D 375</string>
+    <string name="saipa_fh500_ar">FH500</string>
+    <string name="saipa_fm460_ar">FM460</string>
+    <string name="saipa_h220_ar">H220</string>
+    <string name="saipa_h230_ar">H230</string>
+    <string name="saipa_h320_ar">H320</string>
+    <string name="saipa_h330_ar">H330</string>
+    <string name="saipa_r270_ar">R270</string>
+    <string name="saipa_ario_ar">اريو</string>
+    <string name="saipa_azar_van_ar">ازار فان</string>
+    <string name="saipa_eado_ar">ايادو</string>
+    <string name="saipa_padra_ar">بادرا</string>
+    <string name="saipa_tondar_90_ar">تونداد 90</string>
+    <string name="saipa_tiba_ar">تيبا</string>
+    <string name="saipa_roniz_ar">رونيز</string>
+    <string name="saipa_rich_ar">ريتش</string>
+    <string name="saipa_rio_ar">ريو</string>
+    <string name="saipa_sandero_ar">سانديرو</string>
+    <string name="saipa_saina_ar">ساينا</string>
+    <string name="saipa_stralis_ar">ستراليس</string>
+    <string name="saipa_cerato_ar">سيراتو</string>
+    <string name="saipa_shooka_ar">شوكا</string>
+    <string name="saipa_foton_ar">فوتون</string>
+    <string name="saipa_qashqai_ar">كاشكاي</string>
+    <string name="saipa_koleos_ar">كوليوس</string>
+    <string name="saipa_maxima_ar">ماكسيما</string>
+    <string name="saipa_new_pickup_ar">نيو بيك اب</string>
+    <string name="saipa_new_murano_ar">نيو مورانو</string>
+    <string name="saipa_quick_ar">كويك</string>
+    <string name="saipa_other_ar">اخرى</string>
+
+
     <string name="saipa_111">111</string>
     <string name="saipa_131">131</string>
     <string name="saipa_132">132</string>
@@ -7985,6 +9898,8 @@
     <string name="saipa_new_murano">نيو مورانو</string>
     <string name="saipa_quick">كويك</string>
     <string name="saipa_other">اخرى</string>
+
+
     <string name="saipa_111_s">111</string>
     <string name="saipa_131_s">131</string>
     <string name="saipa_132_s">132</string>
@@ -8020,22 +9935,73 @@
     <string name="saipa_new_murano_s">New Murano</string>
     <string name="saipa_quick_s">Quick</string>
     <string name="saipa_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="private_smart_ar">سمارت</string>
+    <string name="private_coupec_ar">كوبيك</string>
+
+
     <string name="private_smart">سمارت</string>
     <string name="private_coupec">كوبيك</string>
+
+
     <string name="private_smart_s">Smart</string>
     <string name="private_coupec_s">Coupec</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="baic_grand_tiger_ar">جراند تايغر</string>
+    <string name="baic_x65_ar">X65</string>
+    <string name="baic_bJ40_ar">BJ40</string>
+    <string name="baic_a113_ar">A113</string>
+    <string name="baic_a115_ar">A115</string>
+    <string name="baic_x35_ar">X35</string>
+
+
     <string name="baic_grand_tiger">جراند تايغر</string>
     <string name="baic_x65">X65</string>
     <string name="baic_bJ40">BJ40</string>
     <string name="baic_a113">A113</string>
     <string name="baic_a115">A115</string>
     <string name="baic_x35">X35</string>
+
+
     <string name="baic_grand_tiger_s">Grand Tiger</string>
     <string name="baic_x65_s">X65</string>
     <string name="baic_bJ40_s">BJ40</string>
     <string name="baic_a113_s">A113</string>
     <string name="baic_a115_s">A115</string>
     <string name="baic_x35_s">X35</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="changan_cx20_ar">CX20</string>
+    <string name="changan_cx30_ar">CX30</string>
+    <string name="changan_sania_ar">سانيا</string>
+    <string name="changan_eado_ar">ايدو</string>
+    <string name="changan_v7_ar">V7</string>
+    <string name="changan_xt_ar">XT</string>
+    <string name="changan_raeton_ar">ريتون</string>
+    <string name="changan_cs35_ar">CS35</string>
+    <string name="changan_cs75_ar">CS75</string>
+    <string name="changan_cs85_ar">CS85</string>
+    <string name="changan_cs95_ar">CS95</string>
+    <string name="changan_benni_mini_ar">بيني ميني</string>
+
+
     <string name="changan_cx20">CX20</string>
     <string name="changan_cx30">CX30</string>
     <string name="changan_sania">سانيا</string>
@@ -8048,6 +10014,8 @@
     <string name="changan_cs85">CS85</string>
     <string name="changan_cs95">CS95</string>
     <string name="changan_benni_mini">بيني ميني</string>
+
+
     <string name="changan_cx20_s">CX20</string>
     <string name="changan_cx30_s">CX30</string>
     <string name="changan_sania_s">Sania</string>
@@ -8060,6 +10028,22 @@
     <string name="changan_cs85_s">CS85</string>
     <string name="changan_cs95_s">CS95</string>
     <string name="changan_benni_mini_s">Benni Mini</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="hunaghai_n1_ar">N1</string>
+    <string name="hunaghai_n1s_ar">N1s</string>
+    <string name="hunaghai_n2_ar">N2</string>
+    <string name="hunaghai_n3_ar">N3</string>
+    <string name="hunaghai_dd6591dm_ar">DD6591DM</string>
+    <string name="hunaghai_dd6534gl_ar">DD6534GL</string>
+    <string name="hunaghai_dd6600ev_ar">DD6600EV</string>
+
+
     <string name="hunaghai_n1">N1</string>
     <string name="hunaghai_n1s">N1s</string>
     <string name="hunaghai_n2">N2</string>
@@ -8067,6 +10051,8 @@
     <string name="hunaghai_dd6591dm">DD6591DM</string>
     <string name="hunaghai_dd6534gl">DD6534GL</string>
     <string name="hunaghai_dd6600ev">DD6600EV</string>
+
+
     <string name="hunaghai_n1_s">N1</string>
     <string name="hunaghai_n1s_s">N1s</string>
     <string name="hunaghai_n2_s">N2</string>
@@ -8074,6 +10060,45 @@
     <string name="hunaghai_dd6591dm_s">DD6591DM</string>
     <string name="hunaghai_dd6534gl_s">DD6534GL</string>
     <string name="hunaghai_dd6600ev_s">DD6600EV</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="dfm_370_ar">370</string>
+    <string name="dfm_580_ar">580</string>
+    <string name="dfm_a30_ar">A30</string>
+    <string name="dfm_a60_ar">A60</string>
+    <string name="dfm_a9_ar">A9</string>
+    <string name="dfm_ax3_ar">AX3</string>
+    <string name="dfm_ax4_ar">AX4</string>
+    <string name="dfm_xa5_ar">AX5</string>
+    <string name="dfm_xa7_ar">AX7</string>
+    <string name="dfm_c37_ar">C37</string>
+    <string name="dfm_cM7_ar">CM7</string>
+    <string name="dfm_e70_ar">E70</string>
+    <string name="dfm_f600_ar">F600</string>
+    <string name="dfm_glory_330_ar">جلوري 330</string>
+    <string name="dfm_glory_360_ar">جلوري 360</string>
+    <string name="dfm_h30_cross_ar">كروس H30</string>
+    <string name="dfm_joyear_lv_ar">جويير LV</string>
+    <string name="dfm_joyear_x3_ar">جويير X3</string>
+    <string name="dfm_joyear_x5_ar">جويير X5</string>
+    <string name="dfm_joyear_xl_ar">جويير XL</string>
+    <string name="dfm_joyear_xv_ar">جويير XV</string>
+    <string name="dfm_l60_ar">L60</string>
+    <string name="dfm_m3_ar">M3</string>
+    <string name="dfm_m5_ar">M5</string>
+    <string name="dfm_mx6_ar">MX6</string>
+    <string name="dfm_rich_ar">ريتش</string>
+    <string name="dfm_succe_ar">سوكسية</string>
+    <string name="dfm_sx6_ar">SX6</string>
+    <string name="dfm_u_vane_ar">U\-Vane</string>
+    <string name="dfm_v3_ar">V3</string>
+
+
     <string name="dfm_370">370</string>
     <string name="dfm_580">580</string>
     <string name="dfm_a30">A30</string>
@@ -8104,6 +10129,8 @@
     <string name="dfm_sx6">SX6</string>
     <string name="dfm_u_vane">U\-Vane</string>
     <string name="dfm_v3">V3</string>
+
+
     <string name="dfm_370_s">370</string>
     <string name="dfm_580_s">580</string>
     <string name="dfm_a30_s">A30</string>
@@ -8134,34 +10161,95 @@
     <string name="dfm_sx6_s">SX6</string>
     <string name="dfm_u_vane_s">U\-Vane</string>
     <string name="dfm_v3_s">V3</string>
+
+
+
+    //**************************************************************
+
     <string name="haval">هافال</string>
     <string name="iveco">ايفيكو</string>
     <string name="borgward">بورجوارد</string>
     <string name="borgward_s">Borgward</string>
     <string name="iveco_s">Iveco</string>
     <string name="haval_s">Haval</string>
+
+
+    //**************************************************************
+
+
+
+    <string name="borgward_bx7_ts_ar">BX7 TS</string>
+    <string name="borgward_bx7_ar">BX7</string>
+    <string name="borgward_bx5_ar">BX5</string>
+    <string name="borgward_bx6_ts_ar">BX6 TS</string>
+    <string name="borgward_bxi7_ar">BXi7</string>
+    <string name="borgward_other_ar">اخرى</string>
+
+
     <string name="borgward_bx7_ts">BX7 TS</string>
     <string name="borgward_bx7">BX7</string>
     <string name="borgward_bx5">BX5</string>
     <string name="borgward_bx6_ts">BX6 TS</string>
     <string name="borgward_bxi7">BXi7</string>
     <string name="borgward_other">اخرى</string>
+
+
     <string name="borgward_bx7_ts_s">BX7 TS</string>
     <string name="borgward_bx7_s">BX7</string>
     <string name="borgward_bx5_s">BX5</string>
     <string name="borgward_bx6_ts_s">BX6 TS</string>
     <string name="borgward_bxi7_s">BXi7</string>
     <string name="borgward_other_s">other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="iveco_new_daily_ar">نيو دايلي</string>
+    <string name="iveco_eurocargo_ar">يوروكارجو</string>
+    <string name="iveco_new_strails_ar">نيو ستريلز</string>
+    <string name="iveco_new_trakker_ar">نيو تراكر</string>
+    <string name="iveco_other_ar">اخرى</string>
+
+
     <string name="iveco_new_daily">نيو دايلي</string>
     <string name="iveco_eurocargo">يوروكارجو</string>
     <string name="iveco_new_strails">نيو ستريلز</string>
     <string name="iveco_new_trakker">نيو تراكر</string>
     <string name="iveco_other">اخرى</string>
+
+
     <string name="iveco_new_daily_s">New Daily</string>
     <string name="iveco_eurocargo_s">Eurocargo</string>
     <string name="iveco_new_strails_s">New Strails</string>
     <string name="iveco_new_trakker_s">New Trakker</string>
     <string name="iveco_other_s">Other</string>
+
+
+
+    //**************************************************************
+
+
+
+    <string name="haval_h1_ar">H1</string>
+    <string name="haval_h2_ar">H2</string>
+    <string name="haval_h2s_ar">H2s</string>
+    <string name="haval_h3_ar">H3</string>
+    <string name="haval_h4_ar">H4</string>
+    <string name="haval_h5_ar">H5</string>
+    <string name="haval_h6_ar">H6</string>
+    <string name="haval_h7_ar">H7</string>
+    <string name="haval_h8_ar">H8</string>
+    <string name="haval_h9_ar">H9</string>
+    <string name="haval_m6_ar_ar">M6</string>
+    <string name="haval_f5_ar">F5</string>
+    <string name="haval_f7_ar">F7</string>
+    <string name="haval_f7x_ar">F7x</string>
+    <string name="haval_other_ar">اخرى</string>
+
+
     <string name="haval_h1">H1</string>
     <string name="haval_h2">H2</string>
     <string name="haval_h2s">H2s</string>
@@ -8177,6 +10265,8 @@
     <string name="haval_f7">F7</string>
     <string name="haval_f7x">F7x</string>
     <string name="haval_other">اخرى</string>
+
+
     <string name="haval_h1_s">H1</string>
     <string name="haval_h2_s">H2</string>
     <string name="haval_h2s_s">H2s</string>
@@ -8192,6 +10282,11 @@
     <string name="haval_f7_s">F7</string>
     <string name="haval_f7x_s">F7x</string>
     <string name="haval_other_s">Other</string>
+
+
+
+    //**************************************************************
+
     <string name="Afghan">أفغاني</string>
     <string name="Albanian">الألبانية</string>
     <string name="Algerian">جزائري</string>
