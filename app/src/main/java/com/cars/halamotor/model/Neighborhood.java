@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class Neighborhood implements Parcelable {
-    private String neighborhood,neighborhoodS;
+    private String neighborhood,neighborhoodS,neighborhoodAr;
 
     public static Creator<Neighborhood> getCREATOR() {
         return CREATOR;
@@ -13,6 +13,15 @@ public class Neighborhood implements Parcelable {
     public Neighborhood(Parcel in) {
         neighborhood = in.readString();
         neighborhoodS = in.readString();
+        neighborhoodAr = in.readString();
+    }
+
+    public String getNeighborhoodAr() {
+        return neighborhoodAr;
+    }
+
+    public void setNeighborhoodAr(String neighborhoodAr) {
+        this.neighborhoodAr = neighborhoodAr;
     }
 
     public String getNeighborhood() {
@@ -31,15 +40,17 @@ public class Neighborhood implements Parcelable {
         this.neighborhoodS = type;
     }
 
-    public Neighborhood(String neighborhood,String neighborhoodS) {
+    public Neighborhood(String neighborhood,String neighborhoodS,String neighborhoodAr) {
         this.neighborhood = neighborhood;
         this.neighborhoodS = neighborhoodS;
+        this.neighborhoodAr = neighborhoodAr;
     }
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(neighborhood);
         dest.writeString(neighborhoodS);
+        dest.writeString(neighborhoodAr);
     }
 
     @Override

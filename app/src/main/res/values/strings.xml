@@ -2110,7 +2110,9 @@
     <string name="changan_ar">شانجان</string>
     <string name="hunaghai_ar">هوناجاي</string>
     <string name="dfm_ar">دي اف ام</string>
-
+    <string name="haval_ar">هافال</string>
+    <string name="iveco_ar">ايفيكو</string>
+    <string name="borgward_ar">بورجوارد</string>
 
 
     <string name="hyundai">Hyundai</string>
@@ -2127,7 +2129,9 @@
     <string name="opel">Opel</string>
     <string name="bentley">Bentley</string>
     <string name="porsche">Porsche</string>
+    ////
     <string name="pontiac">Pontiac</string>
+
     <string name="peugeot">Peugeot</string>
     <string name="jaguar">Jaguar</string>
     <string name="great_wall">Great Wall</string>
@@ -5060,6 +5064,8 @@
     <string name="jaguar_xkr_s_ar">XKR\-S</string>
     <string name="jaguar_xkr_ar">XKR</string>
     <string name="jaguar_daimler_double_six_ar">ديملر دبل سكس</string>
+    <string name="jaguar_ss100_ar">SS 100</string>
+    <string name="jaguar_xj8_ar">XJ8</string>
     <string name="jaguar_daimler_ar">دايملر</string>
     <string name="jaguar_other_ar">اخرى</string>
 

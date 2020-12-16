@@ -682,14 +682,14 @@ public class InsuranceFunctions {
     public static ArrayList<CityModel> fillCitiesArrayL(Context context) {
         ArrayList<CityModel> citiesArrayL = new ArrayList<CityModel>();
 
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.abu_dhabi),context.getResources().getString(R.string.abu_dhabi_s)));
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.dubai),context.getResources().getString(R.string.dubai_s)));
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.sharjah),context.getResources().getString(R.string.sharjah_s)));
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_s)));
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.ajman),context.getResources().getString(R.string.ajman_s)));
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.ras_al_khaimah),context.getResources().getString(R.string.ras_al_khaimah_s)));
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.um_al_quwain),context.getResources().getString(R.string.um_al_quwain_s)));
-        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.fujairah),context.getResources().getString(R.string.fujairah_s)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.abu_dhabi),context.getResources().getString(R.string.abu_dhabi_s),context.getResources().getString(R.string.abu_dhabi_ar)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.dubai),context.getResources().getString(R.string.dubai_s),context.getResources().getString(R.string.dubai_ar)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.sharjah),context.getResources().getString(R.string.sharjah_s),context.getResources().getString(R.string.sharjah_ar)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.al_ain),context.getResources().getString(R.string.al_ain_s),context.getResources().getString(R.string.al_ain_ar)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.ajman),context.getResources().getString(R.string.ajman_s),context.getResources().getString(R.string.ajman_ar)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.ras_al_khaimah),context.getResources().getString(R.string.ras_al_khaimah_s),context.getResources().getString(R.string.ras_al_khaimah_ar)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.um_al_quwain),context.getResources().getString(R.string.um_al_quwain_s),context.getResources().getString(R.string.um_al_quwain_ar)));
+        citiesArrayL.add(new CityModel(context.getResources().getString(R.string.fujairah),context.getResources().getString(R.string.fujairah_s),context.getResources().getString(R.string.fujairah_ar)));
 
         return citiesArrayL;
     }

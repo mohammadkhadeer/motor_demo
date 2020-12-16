@@ -5,18 +5,20 @@ import android.os.Parcelable;
 
 public class CarMake implements Parcelable {
     int imageIdInt;
-    String makeStr,makeStrS;
+    String makeStr,makeStrS,makeAr;
 
-    public CarMake(int imageIdInt, String makeStr, String makeStrS) {
+    public CarMake(int imageIdInt, String makeStr, String makeStrS, String makeAr) {
         this.imageIdInt = imageIdInt;
         this.makeStr = makeStr;
         this.makeStrS = makeStrS;
+        this.makeAr = makeAr;
     }
 
     protected CarMake(Parcel in) {
         imageIdInt = in.readInt();
         makeStr = in.readString();
         makeStrS = in.readString();
+        makeAr = in.readString();
     }
 
     @Override
@@ -24,6 +26,7 @@ public class CarMake implements Parcelable {
         dest.writeInt(imageIdInt);
         dest.writeString(makeStr);
         dest.writeString(makeStrS);
+        dest.writeString(makeAr);
     }
 
     @Override
@@ -65,5 +68,13 @@ public class CarMake implements Parcelable {
 
     public void setMakeStrS(String makeStrS) {
         this.makeStrS = makeStrS;
+    }
+
+    public String getMakeAr() {
+        return makeAr;
+    }
+
+    public void setMakeAr(String makeAr) {
+        this.makeAr = makeAr;
     }
 }

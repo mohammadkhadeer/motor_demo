@@ -4827,6 +4827,8 @@
     <string name="jaguar_xkr_s_ar">XKR\-S</string>
     <string name="jaguar_xkr_ar">XKR</string>
     <string name="jaguar_daimler_double_six_ar">ديملر دبل سكس</string>
+    <string name="jaguar_ss100_ar">SS 100</string>
+    <string name="jaguar_xj8_ar">XJ8</string>
     <string name="jaguar_daimler_ar">دايملر</string>
     <string name="jaguar_other_ar">اخرى</string>
 
@@ -10169,6 +10171,11 @@
     <string name="haval">هافال</string>
     <string name="iveco">ايفيكو</string>
     <string name="borgward">بورجوارد</string>
+
+    <string name="haval_ar">هافال</string>
+    <string name="iveco_ar">ايفيكو</string>
+    <string name="borgward_ar">بورجوارد</string>
+
     <string name="borgward_s">Borgward</string>
     <string name="iveco_s">Iveco</string>
     <string name="haval_s">Haval</string>

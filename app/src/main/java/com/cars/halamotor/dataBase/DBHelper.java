@@ -25,6 +25,24 @@ item table we saved before user used app can tke its init items
 public class DBHelper extends SQLiteOpenHelper {
     public static final String DATABASE_NAME="hala_motor.db";
 
+//    public static final String TABLE_C_INFORMATION="Cars";
+//    public static final String COL_C_MA_ID="ID";
+//    public static final String COL_C_MA_EN="CAR_MAKE_EN";
+//    public static final String COL_C_MA_AR="CAR_MAKE_AR";
+//    public static final String COL_C_MA_S="CAR_MAKE_S";
+//    public static final String COL_C_MO_EN="CAR_MODEL_EN";
+//    public static final String COL_C_MO_AR="CAR_MODEL_AR";
+//    public static final String COL_C_MO_S="CAR_MODEL_S";
+//
+//    public static final String TABLE_CITY_INFORMATION="cites";
+//    public static final String COL_CITY_ID="ID";
+//    public static final String COL_CITY_EN="CITY_EN";
+//    public static final String COL_CITY_AR="CITY_AR";
+//    public static final String COL_CITY_S="CITY_S";
+//    public static final String COL_NEIGHBORHOOD_EN="NEIGHBORHOOD_EN";
+//    public static final String COL_NEIGHBORHOOD_AR="NEIGHBORHOOD_AR";
+//    public static final String COL_NEIGHBORHOOD_S="NEIGHBORHOOD_S";
+
     public static final String TABLE_DRIVER_INFORMATION="driver_info_table";
     public static final String COL_ITEM_DRIVER_INFORMATION_id="ID";
     public static final String COL_ITEM_DRIVER_INFORMATION_PROCESS_TYPE_S="PROCESS_TYPE_S";
@@ -359,6 +377,12 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("create table "+TABLE_CAR_DETAILS +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
                 "PROCESS_TYPE_S TEXT" + ",PROCESS_TYPE TEXT" + ",PROCESS_CONTENT TEXT" + ",PROCESS_CONTENT_S TEXT" + ",PROCESS_STATUS TEXT)");
 
+//        db.execSQL("create table "+TABLE_C_INFORMATION +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+//                "CAR_MAKE_EN TEXT" + ",CAR_MAKE_AR TEXT" + ",CAR_MAKE_S TEXT" + ",CAR_MODEL_EN TEXT" + ",CAR_MODEL_AR TEXT" + ",CAR_MODEL_S TEXT)");
+//
+//        db.execSQL("create table "+TABLE_CITY_INFORMATION +" (ID INTEGER PRIMARY KEY AUTOINCREMENT," +
+//                "CITY_EN TEXT" + ",CITY_AR TEXT" + ",CITY_S TEXT" + ",NEIGHBORHOOD_EN TEXT" + ",NEIGHBORHOOD_AR TEXT" + ",NEIGHBORHOOD_S TEXT)");
+
     }
 
     @Override
@@ -376,10 +400,51 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_DRIVER_INFORMATION);
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_CAR_DETAILS);
 
+//        db.execSQL("DROP TABLE IF EXISTS "+TABLE_C_INFORMATION);
+//        db.execSQL("DROP TABLE IF EXISTS "+TABLE_CITY_INFORMATION);
+
         onCreate(db);
     }
 
     ///////////////////////insert data//////////////////////////////////////////
+
+//    public boolean insertCites(String cityEn,String cityAr
+//            ,String cityS,String neighborhoodEn,String neighborhoodAr,String neighborhoodS)
+//    {
+//        SQLiteDatabase db =this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(COL_CITY_EN,cityEn);
+//        contentValues.put(COL_CITY_AR,cityAr);
+//        contentValues.put(COL_CITY_S,cityS);
+//        contentValues.put(COL_NEIGHBORHOOD_EN,neighborhoodEn);
+//        contentValues.put(COL_NEIGHBORHOOD_AR,neighborhoodAr);
+//        contentValues.put(COL_NEIGHBORHOOD_S,neighborhoodS);
+//
+//        long result= db.insert(TABLE_C_INFORMATION,null,contentValues);
+//        if(result == -1)
+//            return false;
+//        else
+//            return true;
+//    }
+//
+//    public boolean insertCars(String carMakeEn,String carMakeAr
+//            ,String carMakeS,String carModelEn,String carModelAr,String carModelS)
+//    {
+//        SQLiteDatabase db =this.getWritableDatabase();
+//        ContentValues contentValues = new ContentValues();
+//        contentValues.put(COL_C_MA_EN,carMakeEn);
+//        contentValues.put(COL_C_MA_AR,carMakeAr);
+//        contentValues.put(COL_C_MA_S,carMakeS);
+//        contentValues.put(COL_C_MO_EN,carModelEn);
+//        contentValues.put(COL_C_MO_AR,carModelAr);
+//        contentValues.put(COL_C_MO_S,carModelS);
+//
+//        long result= db.insert(TABLE_C_INFORMATION,null,contentValues);
+//        if(result == -1)
+//            return false;
+//        else
+//            return true;
+//    }
 
     public boolean insertDataItem(String boostOrNot,String itemBoostType
             ,String itemType,String itemPersonGallery,String itemIdInServer,String itemCarMake,String itemCarModel,String itemCarYear,String itemCarCondition,String itemCarKilometers,String itemCarTransmission,String itemCarFuel,String itemCarLicense,String itemCarInsurance,String itemCarColor,String itemCarPaymentMethod,String itemCarOptions,String itemNumberOfComment,String itemNumberOfImage,String itemCity,String itemNeighborhood,String itemTimePost,String itemUserPhoneNumber,String itemName,String itemImage,String itemDescription,String userImage,String userName,String itemPostEdit,String itemNewPrice,String itemWheelsSize,String itemCarPlatesCity,String itemCarPlatesNumber,String itemCarPlatesSpecial,String itemBurnedPrice,String itemPrice,String userID,String itemActiveOrNot)

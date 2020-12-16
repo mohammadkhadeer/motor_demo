@@ -4,16 +4,18 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 public class CarModel implements Parcelable {
-    String carModelStr,carModelStrS;
+    String carModelStr,carModelStrS,carModelStrAr;
 
-    public CarModel(String carModelStr, String carModelStrS) {
+    public CarModel(String carModelStr, String carModelStrS, String carModelStrAr) {
         this.carModelStr = carModelStr;
         this.carModelStrS = carModelStrS;
+        this.carModelStrAr = carModelStrAr;
     }
 
     protected CarModel(Parcel in) {
         carModelStr = in.readString();
         carModelStrS = in.readString();
+        carModelStrAr = in.readString();
     }
 
     public static final Creator<CarModel> CREATOR = new Creator<CarModel>() {
@@ -44,6 +46,14 @@ public class CarModel implements Parcelable {
         this.carModelStrS = carModelStrS;
     }
 
+    public String getCarModelStrAr() {
+        return carModelStrAr;
+    }
+
+    public void setCarModelStrAr(String carModelStrAr) {
+        this.carModelStrAr = carModelStrAr;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -53,5 +63,6 @@ public class CarModel implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(carModelStr);
         dest.writeString(carModelStrS);
+        dest.writeString(carModelStrAr);
     }
 }

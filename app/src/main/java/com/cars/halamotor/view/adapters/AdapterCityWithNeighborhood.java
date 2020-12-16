@@ -82,6 +82,8 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
                     intent.putExtra("nei", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr());
                     intent.putExtra("cityS", cityWithNeighborhoodsArrayL.get(position).getCityStrS());
                     intent.putExtra("neiS", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS());
+                    intent.putExtra("cityAr", cityWithNeighborhoodsArrayL.get(position).getCityStrAr());
+                    intent.putExtra("neiAr", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrAr());
 
                     ((Activity)context).setResult(Activity.RESULT_OK, intent);
                     ((Activity)context).finish();
@@ -95,8 +97,10 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
         String neighborhood = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr();
         String cityS = cityWithNeighborhoodsArrayL.get(position).getCityStrS();
         String neighborhoodS = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS();
+        String cityAr = cityWithNeighborhoodsArrayL.get(position).getCityStrAr();
+        String neighborhoodAr = cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrAr();
         saveUserInfoInSP(context,sharedPreferences,editor,city
-        ,neighborhood,cityS,neighborhoodS);
+        ,neighborhood,cityS,neighborhoodS,cityAr,neighborhoodAr);
         updateCityNeighborhood(context,cityS,neighborhoodS);
     }
 
@@ -106,6 +110,8 @@ public class AdapterCityWithNeighborhood extends RecyclerView.Adapter<AdapterCit
         resultIntent.putExtra("nei", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStr());
         resultIntent.putExtra("cityS", cityWithNeighborhoodsArrayL.get(position).getCityStrS());
         resultIntent.putExtra("neiS", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrS());
+        resultIntent.putExtra("cityAr", cityWithNeighborhoodsArrayL.get(position).getCityStrAr());
+        resultIntent.putExtra("neiAr", cityWithNeighborhoodsArrayL.get(position).getNeighborhoodStrAr());
         ((Activity)context).setResult(Activity.RESULT_OK, resultIntent);
         ((Activity)context).finish();
     }

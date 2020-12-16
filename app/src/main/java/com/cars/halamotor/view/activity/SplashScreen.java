@@ -14,8 +14,17 @@ import android.util.Log;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
 import com.cars.halamotor.R;
 import com.cars.halamotor.dataBase.DBHelper;
+import com.cars.halamotor.dataBase.DBHelper2;
+import com.cars.halamotor.dataBase.DBHelper3;
+import com.cars.halamotor.model.CarMake;
+import com.cars.halamotor.model.CarModel;
+import com.cars.halamotor.model.CityWithNeighborhood;
 import com.cars.halamotor.model.ItemAccAndJunk;
 import com.cars.halamotor.model.ItemCCEMT;
 import com.cars.halamotor.model.ItemPlates;
@@ -29,10 +38,14 @@ import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance2;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance3;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkItemInAccAndJunkTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertAccAndJunkTable;
 import static com.cars.halamotor.dataBase.InsertFunctions.insertCCEMTItemInCCEMTTable;
@@ -53,6 +66,9 @@ import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getPlatesFireStore
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getTrucksFireStore;
 import static com.cars.halamotor.fireBaseDB.ReadFromFireStore.getWheelsRimFireStore;
 import static com.cars.halamotor.fireBaseDB.UpdateFireBase.updateCityNeighborhood;
+import static com.cars.halamotor.functions.FillCarMakeArrayListsInCarDerails.fillCarMakeArrayL;
+import static com.cars.halamotor.functions.FillCarModel.fillCarModelArrayL;
+import static com.cars.halamotor.functions.FillNeighborhood.fillCityAndNeighborhoodArrayL;
 import static com.cars.halamotor.functions.Functions.getNotification;
 import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.getUserAddressFromSP;
 import static com.cars.halamotor.sharedPreferences.AddressSharedPreferences.saveUserInfoInSP;
@@ -99,7 +115,10 @@ public class SplashScreen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
         statusBarColor();
+
         //transportToMainActivity();
+        volleyTest();
+
 
         myDB = getDataBaseInstance(getApplicationContext());
         addWelcomeNotifications();
@@ -110,6 +129,7 @@ public class SplashScreen extends AppCompatActivity {
         }else {
             getData();
         }
+
 //        if (checkIfUserRegisterOnServerSP(this) == false)
 //        {
 //            transportToLoginScreen();
@@ -122,6 +142,29 @@ public class SplashScreen extends AppCompatActivity {
 //                getData();
 //            }
 //        }
+    }
+
+    private void volleyTest() {
+        //        String url = "https:// json_url/";
+//        JsonObjectRequest
+//                jsonObjectRequest
+//                = new JsonObjectRequest(
+//                Request.Method.GET,
+//                url,
+//                null,
+//                new Response.Listener() {
+//                    @Override
+//                    public void onResponse(Object response) {
+//                        Log.i("TAG",response.toString());
+//                    }
+//                },
+//                new Response.ErrorListener() {
+//                    @Override
+//                    public void onErrorResponse(VolleyError error)
+//                    {
+//                    }
+//                });
+//        requestQueue.add(jsonObjectRequest);
     }
 
     public void getData(){
@@ -161,9 +204,11 @@ public class SplashScreen extends AppCompatActivity {
             String neighborhood = data.getExtras().getString("nei");
             String cityS = data.getExtras().getString("cityS");
             String neighborhoodS = data.getExtras().getString("neiS");
+            String cityAr = data.getExtras().getString("cityAr");
+            String neighborhoodAr = data.getExtras().getString("neiAr");
 
             saveUserInfoInSP(this,sharedPreferences,editor,city
-                    ,neighborhood,cityS,neighborhoodS);
+                    ,neighborhood,cityS,neighborhoodS,cityAr,neighborhoodAr);
             updateCityNeighborhood(this,cityS,neighborhoodS);
 
             getData();

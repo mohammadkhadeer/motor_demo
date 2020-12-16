@@ -14,13 +14,25 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.cars.halamotor.R;
+import com.cars.halamotor.dataBase.DBHelper2;
+import com.cars.halamotor.dataBase.DBHelper3;
 import com.cars.halamotor.functions.Functions;
+import com.cars.halamotor.model.CarMake;
+import com.cars.halamotor.model.CarModel;
+import com.cars.halamotor.model.CityWithNeighborhood;
 import com.cars.halamotor.view.fragments.insuranceFargment.CarDetailsInsurance;
 import com.cars.halamotor.view.fragments.insuranceFargment.DriverInformation;
 import com.cars.halamotor.view.fragments.insuranceFargment.InsuranceResult;
 import com.squareup.picasso.Picasso;
 
+import java.util.ArrayList;
+
 import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance2;
+import static com.cars.halamotor.dataBase.DataBaseInstance.getDataBaseInstance3;
+import static com.cars.halamotor.functions.FillCarMakeArrayListsInCarDerails.fillCarMakeArrayL;
+import static com.cars.halamotor.functions.FillCarModel.fillCarModelArrayL;
+import static com.cars.halamotor.functions.FillNeighborhood.fillCityAndNeighborhoodArrayL;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfCarProcessSelected;
 import static com.cars.halamotor.functions.InsuranceFunctions.numberOfDriverProcessSelected;
 import static com.cars.halamotor.sharedPreferences.InsuranceSP.cleanInsuranceStatus;
@@ -40,6 +52,9 @@ public class Insurance extends AppCompatActivity implements CarDetailsInsurance.
     SharedPreferences sharedPreferences;
     String insurancePic = "https://firebasestorage.googleapis.com/v0/b/hala-motor-8ff46.appspot.com/o/pic%2Finsurance_logo.png?alt=media&token=b00be8d9-b881-4c8a-95a0-8b3e74791c88";
 
+    //DBHelper2 myDB2;
+    //DBHelper3 myDB3;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +62,11 @@ public class Insurance extends AppCompatActivity implements CarDetailsInsurance.
 
 //        getDataBaseInstance(this).deleteAllDriverInfo();
 //        getDataBaseInstance(this).deleteAllCarDetails();
+
+        //careteCarsDB();
+        //createCites();
+
+
         statusBarColor();
         inti();
         fillImage();
@@ -56,6 +76,41 @@ public class Insurance extends AppCompatActivity implements CarDetailsInsurance.
         createCarFragment();
         createInsuranceResultFragment();
     }
+
+//    ArrayList<CityWithNeighborhood> cityWithNeighborhoodArrayL= new ArrayList<CityWithNeighborhood>();
+//
+//    private void createCites() {
+//        myDB3 = getDataBaseInstance3(getApplicationContext());
+//        cityWithNeighborhoodArrayL = fillCityAndNeighborhoodArrayL(cityWithNeighborhoodArrayL,getApplicationContext());
+//        for (int i=0;i<cityWithNeighborhoodArrayL.size();i++)
+//        {
+//            myDB3.insertCites(cityWithNeighborhoodArrayL.get(i).getCityStrS()
+//                    ,cityWithNeighborhoodArrayL.get(i).getCityStrAr()
+//                    ,cityWithNeighborhoodArrayL.get(i).getCityStrS()
+//                    ,cityWithNeighborhoodArrayL.get(i).getNeighborhoodStrS()
+//                    ,cityWithNeighborhoodArrayL.get(i).getNeighborhoodStrAr()
+//                    ,cityWithNeighborhoodArrayL.get(i).getNeighborhoodStrS());
+//        }
+//    }
+
+//    public ArrayList<CarMake> carDetailsArrayList  = new ArrayList<CarMake>();
+//    public ArrayList<CarModel> carModelArrayL  = new ArrayList<CarModel>();
+
+//    private void careteCarsDB() {
+//        myDB2 = getDataBaseInstance2(getApplicationContext());
+//
+//        carDetailsArrayList= fillCarMakeArrayL(carDetailsArrayList,getApplicationContext());
+//        for (int i = 0 ; i <carDetailsArrayList.size();i++)
+//        {
+//            carModelArrayL= fillCarModelArrayL(carModelArrayL,getApplicationContext(),carDetailsArrayList.get(i).getMakeStrS());
+//            for (int j =0;j<carModelArrayL.size();j++)
+//            {
+//                myDB2.insertCars(carDetailsArrayList.get(i).getMakeStr(),carDetailsArrayList.get(i).getMakeAr(),carDetailsArrayList.get(i).getMakeStr()
+//                        ,carModelArrayL.get(j).getCarModelStr(),carModelArrayL.get(j).getCarModelStrAr(),carModelArrayL.get(j).getCarModelStrS());
+//            }
+//        }
+//
+//    }
 
     private void fillImage() {
         Picasso.get()

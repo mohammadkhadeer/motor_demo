@@ -1,13 +1,15 @@
 package com.cars.halamotor.model;
 
 public class CityWithNeighborhood {
-    String cityStr,neighborhoodStr,cityStrS,neighborhoodStrS;
+    String cityStr,neighborhoodStr,cityStrS,neighborhoodStrS,cityStrAr,neighborhoodStrAr;
 
-    public CityWithNeighborhood(String cityStr, String neighborhoodStr, String cityStrS, String neighborhoodStrS) {
+    public CityWithNeighborhood(String cityStr, String neighborhoodStr, String cityStrS, String neighborhoodStrS, String cityStrAr, String neighborhoodStrAr) {
         this.cityStr = cityStr;
         this.neighborhoodStr = neighborhoodStr;
         this.cityStrS = cityStrS;
         this.neighborhoodStrS = neighborhoodStrS;
+        this.cityStrAr = cityStrAr;
+        this.neighborhoodStrAr = neighborhoodStrAr;
     }
 
     public String getCityStr() {
@@ -40,5 +42,21 @@ public class CityWithNeighborhood {
 
     public void setNeighborhoodStrS(String neighborhoodStrS) {
         this.neighborhoodStrS = neighborhoodStrS;
+    }
+
+    public String getCityStrAr() {
+        return cityStrAr;
+    }
+
+    public void setCityStrAr(String cityStrAr) {
+        this.cityStrAr = cityStrAr;
+    }
+
+    public String getNeighborhoodStrAr() {
+        return neighborhoodStrAr;
+    }
+
+    public void setNeighborhoodStrAr(String neighborhoodStrAr) {
+        this.neighborhoodStrAr = neighborhoodStrAr;
     }
 }

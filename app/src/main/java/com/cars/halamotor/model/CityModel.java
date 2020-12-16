@@ -1,11 +1,20 @@
 package com.cars.halamotor.model;
 
 public class CityModel {
-    String city,cityS;
+    String city,cityS,cityAr;
 
-    public CityModel(String city, String cityS) {
+    public CityModel(String city, String cityS, String cityAr) {
         this.city = city;
         this.cityS = cityS;
+        this.cityAr = cityAr;
+    }
+
+    public String getCityAr() {
+        return cityAr;
+    }
+
+    public void setCityAr(String cityAr) {
+        this.cityAr = cityAr;
     }
 
     public String getCity() {
