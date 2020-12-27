@@ -1,58 +1,42 @@
 {
   "project_info": {
-    "project_number": "163503473637",
-    "firebase_url": "https://hala-motor-8ff46.firebaseio.com",
-    "project_id": "hala-motor-8ff46",
-    "storage_bucket": "hala-motor-8ff46.appspot.com"
+    "project_number": "236595824406",
+    "firebase_url": "https://mymotor-2c75d-default-rtdb.firebaseio.com",
+    "project_id": "mymotor-2c75d",
+    "storage_bucket": "mymotor-2c75d.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:163503473637:android:588ede8e4c3d24ec45250c",
+        "mobilesdk_app_id": "1:236595824406:android:eafc34ec974685e116b237",
         "android_client_info": {
-          "package_name": "com.cars.halamotor"
+          "package_name": "com.my_motors.halamotor"
         }
       },
       "oauth_client": [
         {
-          "client_id": "163503473637-gd4cjc4f72edqsnarl3cip2mtqf3ertn.apps.googleusercontent.com",
+          "client_id": "236595824406-24qetm93ckmequ2sfgj36q2pkfrj0vmq.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.cars.halamotor",
-            "certificate_hash": "876cbfe4ac11344202879dba6a8ac21811ad4e72"
+            "package_name": "com.my_motors.halamotor",
+            "certificate_hash": "806737538e4fb9491a12acf8aa81966d8b4a055e"
           }
         },
         {
-          "client_id": "163503473637-4to9l34n3atej67pnr0hi0cosl3jdkgu.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.cars.halamotor",
-            "certificate_hash": "70732a2a2dd944dfce93ec50266cebbea3beabb0"
-          }
-        },
-        {
-          "client_id": "163503473637-kob39c48mju9kevea7arskuc08aip00h.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.cars.halamotor",
-            "certificate_hash": "835f8987ff627cbffb66dae626a0d88cc7134b65"
-          }
-        },
-        {
-          "client_id": "163503473637-iladeqi6n2u8lv1t51b27tr0o5me09q7.apps.googleusercontent.com",
+          "client_id": "236595824406-iapn12l9dvl579f1t0e1okuljgmgo9qs.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCDmTBWYvRTkLxu8R8bbXitB1yEyfr5qQo"
+          "current_key": "AIzaSyCeFYYXe6Qoa-3yV9GlV9dF9AI6MMT8SEw"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "163503473637-iladeqi6n2u8lv1t51b27tr0o5me09q7.apps.googleusercontent.com",
+              "client_id": "236595824406-iapn12l9dvl579f1t0e1okuljgmgo9qs.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

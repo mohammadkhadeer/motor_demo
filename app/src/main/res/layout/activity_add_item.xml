@@ -455,7 +455,7 @@
                         <fragment
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:name="com.cars.halamotor.view.fragments.FragmentTitleDescriptionPrice"
+                            android:name="com.my_motors.halamotor.view.fragments.FragmentTitleDescriptionPrice"
                             tools:layout="@layout/fragment_title_description_price"
                             android:id="@+id/titleDescriptions"
                             />

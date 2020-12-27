@@ -1,15 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">Hala motor</string>
+    <string name="app_name">My motor</string>
     <string name="facebook_app_id">648618505975230</string>
     <string name="fb_login_protocol_scheme">fb648618505975230</string>
+
+    <string name="pass">كلمة المرور</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="or">او</string>
+    <string name="login_fb">تسجيل الدخول من الفيسبوك</string>
+    <string name="login_g">تسجيل الدخول من قوقل</string>
+    <string name="member">لست عضوا بعد</string>
+    <string name="sinup">انشاء حساب</string>
+    <string name="skip">تخطي</string>
+
     <string name="email_contact_us">home</string>
     <string name="tab_home">الرئيسية</string>
     <string name="tab_message">الرسائل</string>
     <string name="tab_adv">اعلن</string>
     <string name="tab_notifications_">اشعارات</string>
     <string name="tab_profile">الملف</string>
-    <string name="search">ابحث في هلا موتور</string>
+    <string name="search">ابحث في موتور</string>
     <string name="just_search">بحث</string>
     <string name="search_depends">البحث بنائا على</string>
     <string name="insert">اضف اعلان</string>

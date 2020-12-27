@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/filter_fragment"
+    android:background="@color/colorWhite"
     android:layout_height="match_parent"
     tools:context=".view.fragments.fragmentInSaidHomeScreenFragment.FiltersFragment">
 
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:id="@+id/container_filter"
+        android:background="@color/colorWhite"
         android:orientation="vertical">
 
         <RelativeLayout

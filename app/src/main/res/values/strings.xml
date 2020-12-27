@@ -1,17 +1,26 @@
 <resources>
-    <string name="app_name">Hala motor</string>
+    <string name="app_name">My motor</string>
 
     <string name="facebook_app_id">648618505975230</string>
     <string name="fb_login_protocol_scheme">fb648618505975230</string>
 
     <string name="email_contact_us">customer\@halaMotor\.com</string>
 
+    <string name="pass">Password</string>
+    <string name="login">Log in</string>
+    <string name="login_fb">Log in  with facebook</string>
+    <string name="login_g">Log in  with google</string>
+    <string name="or">Or</string>
+    <string name="member">Not a member ?</string>
+    <string name="sinup">Sin Up</string>
+    <string name="skip">Skip</string>
+
     <string name="tab_home">Home</string>
     <string name="tab_message">Messages</string>
     <string name="tab_adv">Add Post</string>
     <string name="tab_notifications_">Notices</string>
     <string name="tab_profile">Profile</string>
-    <string name="search">Search on Hala motor</string>
+    <string name="search">Search on My motor</string>
     <string name="just_search">Search</string>
     <string name="search_depends">Search depends on \:</string>
     <string name="insert">Insert an Ad</string>

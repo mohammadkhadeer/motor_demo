@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.cars.halamotor">
+    package="com.my_motors.halamotor">
 
     <uses-permission android:name="android.permission.CALL_PHONE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -8,60 +8,60 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
-        android:name=".utils.App"
+        android:name="com.my_motors.halamotor.utils.App"
         android:allowBackup="true"
-        android:icon="@drawable/logo_t"
+        android:icon="@drawable/logo_test"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/logo_t"
+        android:roundIcon="@drawable/logo_test"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.activity.CompleteInsuranceInfo"
+        <activity android:name="com.my_motors.halamotor.view.activity.CompleteInsuranceInfo"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             >
 
         </activity>
         <activity
-            android:name=".view.activity.EditInsuranceInfoCarOrDriver"
+            android:name="com.my_motors.halamotor.view.activity.EditInsuranceInfoCarOrDriver"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme23" />
         <activity
-            android:name=".view.activity.ReportActivity"
+            android:name="com.my_motors.halamotor.view.activity.ReportActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme44" />
         <activity
-            android:name=".view.activity.AboutUs"
+            android:name="com.my_motors.halamotor.view.activity.AboutUs"
             android:theme="@style/AppTheme22" />
-        <activity android:name=".view.activity.EditPostActivity" />
+        <activity android:name="com.my_motors.halamotor.view.activity.EditPostActivity" />
         <activity
-            android:name=".view.activity.UserProfile"
+            android:name="com.my_motors.halamotor.view.activity.UserProfile"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme22" />
-        <activity android:name=".view.activity.FollowingActivity" />
-        <activity android:name=".view.activity.ShowPostsActivity" />
+        <activity android:name="com.my_motors.halamotor.view.activity.FollowingActivity" />
+        <activity android:name="com.my_motors.halamotor.view.activity.ShowPostsActivity" />
         <activity
-            android:name=".view.activity.ContactUs"
+            android:name="com.my_motors.halamotor.view.activity.ContactUs"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme22" />
         <activity
-            android:name=".view.activity.ShowFCS"
+            android:name="com.my_motors.halamotor.view.activity.ShowFCS"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme23" />
         <activity
-            android:name=".view.activity.Insurance"
+            android:name="com.my_motors.halamotor.view.activity.Insurance"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme24">
 
         </activity>
         <activity
-            android:name=".view.activity.ShowItemDetails"
+            android:name="com.my_motors.halamotor.view.activity.ShowItemDetails"
             android:label="@string/title_activity_show_item_details"
             android:theme="@style/AppTheme.NoActionBar"
             />
         <activity
-            android:name=".view.activity.SplashScreen"
+            android:name="com.my_motors.halamotor.view.activity.SplashScreen"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" >
+            android:theme="@style/AppTheme24" >
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,27 +72,27 @@
         </activity>
 
         <activity
-            android:name=".view.activity.LoginWithSocialMedia"
+            android:name="com.my_motors.halamotor.view.activity.LoginWithSocialMedia"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme24" />
+        <activity
+            android:name="com.my_motors.halamotor.view.activity.CarPlates"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
         <activity
-            android:name=".view.activity.CarPlates"
+            android:name="com.my_motors.halamotor.view.activity.WheelsRim"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
         <activity
-            android:name=".view.activity.WheelsRim"
+            android:name="com.my_motors.halamotor.view.activity.selectAddress.SelectCityAndNeighborhood"
             android:screenOrientation="portrait"
             android:theme="@style/CustomActionBarTheme" />
         <activity
-            android:name=".view.activity.selectAddress.SelectCityAndNeighborhood"
-            android:screenOrientation="portrait"
-            android:theme="@style/CustomActionBarTheme" />
-        <activity
-            android:name=".view.activity.CarDetails"
+            android:name="com.my_motors.halamotor.view.activity.CarDetails"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme2" />
         <activity
-            android:name=".view.activity.AddItem"
+            android:name="com.my_motors.halamotor.view.activity.AddItem"
             android:theme="@style/AppTheme2" >
 
 
@@ -101,10 +101,10 @@
 
 
         <activity
-            android:name=".view.activity.MainActivity"
+            android:name="com.my_motors.halamotor.view.activity.MainActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme2" />
-        <activity android:name=".view.showImageFromGallery.CustomGalleryActivity">
+            android:theme="@style/AppTheme24" />
+        <activity android:name="com.my_motors.halamotor.view.showImageFromGallery.CustomGalleryActivity">
             <intent-filter>
                 <action android:name="luminous.ACTION_PICK" />
                 <action android:name="luminous.ACTION_MULTIPLE_PICK" />
@@ -114,34 +114,35 @@
             </intent-filter>
         </activity>
 
-        <meta-data
-            android:name="com.facebook.sdk.ApplicationId"
-            android:value="@string/facebook_app_id" />
+<!--        <meta-data-->
+<!--            android:name="com.facebook.sdk.ApplicationId"-->
+<!--            android:value="@string/facebook_app_id" />-->
 
-        <activity
-            android:name="com.facebook.FacebookActivity"
-            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"
-            android:label="@string/app_name" />
-        <activity
-            android:name="com.facebook.CustomTabActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
+<!--        <activity-->
+<!--            android:name="com.facebook.FacebookActivity"-->
+<!--            android:configChanges="keyboard|keyboardHidden|screenLayout|screenSize|orientation"-->
+<!--            android:label="@string/app_name" />-->
+<!--        <activity-->
+<!--            android:name="com.facebook.CustomTabActivity"-->
+<!--            android:exported="true">-->
+<!--            <intent-filter>-->
+<!--                <action android:name="android.intent.action.VIEW" />-->
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
+<!--                <category android:name="android.intent.category.DEFAULT" />-->
+<!--                <category android:name="android.intent.category.BROWSABLE" />-->
 
-                <data android:scheme="@string/fb_login_protocol_scheme" />
-            </intent-filter>
-        </activity>
+<!--                <data android:scheme="@string/fb_login_protocol_scheme" />-->
+<!--            </intent-filter>-->
+<!--        </activity>-->
 
         <service
-            android:name=".service.MyFireBaseServiceToGetToken"
+            android:name="com.my_motors.halamotor.service.MyFireBaseServiceToGetToken"
             android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
     </application>
 
 </manifest>
